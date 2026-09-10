@@ -1,0 +1,35 @@
+{
+  "agent": "A1_space",
+  "reviewed_commit": "3046b9e86fdb7ee2ff9186593c48256cf00940ef",
+  "versions": [
+    {
+      "round": 8,
+      "path": "experiments/A1_space/snapshots/solver_r8.py",
+      "sha256": "01ef57e64ce910cb50f74eff9fbbd902aefed01c0eb14e7d46b74a03b4e1094e",
+      "code_commit": "51580e981fcde0b40fd6abd2300dff2ab83df475"
+    },
+    {
+      "round": 10,
+      "path": "experiments/A1_space/snapshots/solver_r10.py",
+      "sha256": "685a43a2729c5d721c16abc4f8281de8557d130bec668747fc6c99124ad8765c",
+      "code_commit": "6eb4ac2e24ad2120e1b4c25263509b74fd8cb3af"
+    }
+  ],
+  "working_tree_clean": true,
+  "code_commits_verified": true,
+  "manual_review": [
+    "Read complete final ten-round report, all per-paper reading/method/experiment mappings and stop decision.",
+    "Reviewed cumulative best-R6 spatial changes earlier: certified concentric coverage branches, explicit no-nonorigin-scan precondition for ring changes, finite open routing, reinsertion and certified clear neighborhood.",
+    "Reviewed complete R6-to-R8 diff. Discovery count uses distinct positive-observed or successfully-cleared channels; reaching the public upper bound 16 waives only search stations, not pending localization or final successful clearance.",
+    "Reviewed actual R8-to-R10 snapshot diff: only the Q4 route-readiness threshold changes from the trial radius to 20 meters; coverage and clearing certificates do not change.",
+    "R8 and R10 raw full rows independently audited; each has 2400 complete games. R10 Q3 virtual metrics equal R8 per case, and R10 has no Q4 group slower than the baseline.",
+    "Verified saved code commit objects, best main entry restoration and absence of optional coverage configuration next to snapshots.",
+    "Standard-library deployment only; no new truth, case-ID, scenario-label or baseline-cache reads in the reviewed strategy additions."
+  ],
+  "limitations": [
+    "Scoped implementation and saved-data audit, not an adversarial sandbox proof.",
+    "R8 has baseline regressions in Q3 offcenter_cluster and Q4 fixed_positive_bias.",
+    "R10 is a supplementary scenario tradeoff, not a replacement of the mean-based best R8.",
+    "Common new-seed evaluation remains pending until all routes are finalized."
+  ]
+}
