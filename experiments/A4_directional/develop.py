@@ -7,7 +7,7 @@ variants={
 'r1':[('baseline',{'visibility_side':False,'visibility_rescue':False}),('side',{'visibility_side':True,'visibility_rescue':False}),('rescue',{'visibility_side':False,'visibility_rescue':True}),('both100',{'visibility_penalty_m':100}),('both300',{'visibility_penalty_m':300}),('both600',{'visibility_penalty_m':600})],
 'validation':[('selected',{})],
 'r2':[('r1',{'optical_switch':False}),('optical50',{'optical_switch':True,'optical_radius':50}),('optical100',{'optical_switch':True,'optical_radius':100}),('optical180',{'optical_switch':True,'optical_radius':180}),('optical300',{'optical_switch':True,'optical_radius':300})],
-'r3':[('best',{'mirror_recovery':False}),('mirror',{'mirror_recovery':True}),('mirror_close',{'mirror_recovery':True,'mirror_limit':200})]
+'r3':[('r2',{'optical_order':'snake'}),('nearest',{'optical_order':'nearest'}),('belief',{'optical_order':'belief'})]
 }[a.variants]
 spec=importlib.util.spec_from_file_location('candidate',ROOT/a.candidate);s=importlib.util.module_from_spec(spec);spec.loader.exec_module(s)
 rows=[];t=time.perf_counter()
