@@ -4,6 +4,10 @@
   "core_count": 4,
   "extended_count": 6,
   "search_queries": [
+    "all:directional AND all:coverage",
+    "robot target search negative information visibility detection probability active perception",
+    "bearing only target localization bounded error set membership active sensing directional sensor negative information",
+    "directional sensor coverage half disk target search sensor placement unknown orientation",
     "all:\"bearing-only\" AND all:\"localization\"",
     "all:\"negative information\" AND all:robot",
     "all:\"set membership\" AND all:\"localization\"",
@@ -17,7 +21,8 @@
   "retrieval_notes": [
     "web__run连接失败一次，未返回搜索结果；改用arXiv API与PDF直连。",
     "保留逐查询XML和结构化元数据在本地research缓存；下载本身不算阅读。",
-    "未检索全部数据库，未宣称覆盖全部文献或SOTA；同论文arXiv版本去重。"
+    "未检索全部数据库，未宣称覆盖全部文献或SOTA；同论文arXiv版本去重。",
+    "前三条自然语言查询属于失败的web搜索，all:directional AND all:coverage为最初成功的arXiv API连通性/宽检索查询；其余为保存XML的正式查询。"
   ],
   "sources": [
     {
@@ -53,21 +58,46 @@
             "second_point",
             "rescue_bearing"
           ],
-          "role": "原创简化与迁移：离散位置/方向+解析半径积分，不复现论文粒子运动模型"
+          "role": "原创简化迁移：离散位置/方向与解析半径积分，仅排序，不复现论文运动粒子模型"
         },
         {
-          "round": "R2",
+          "round": "R2–R3",
           "functions": [
             "rescue_bearing",
-            "optical_points"
+            "optical_points",
+            "optical_route"
           ],
-          "role": "光学清除与RF测向的模态选择启发；R2实施后补实测"
+          "role": "RF/光学互补启发；R2提前有限光学覆盖，R3由位置假设选择完整路线，均已完成开发与full"
+        },
+        {
+          "round": "R4",
+          "functions": [
+            "visibility_hypotheses",
+            "clear"
+          ],
+          "role": "失败clear只更新离散位置权重的自拟消融；full退步，最终未采用"
+        },
+        {
+          "round": "R6",
+          "functions": [
+            "rescue_bearing"
+          ],
+          "role": "用同一可见性估计门控自拟镜像点；小幅full改善但三个场景退步"
+        },
+        {
+          "round": "R7",
+          "functions": [
+            "expected_optical_time",
+            "rescue_bearing"
+          ],
+          "role": "近似RF/光学成本切换；full退步，最终未采用"
         }
       ],
       "code_url": null,
       "query": "ti:\"active\" AND ti:\"search\" AND all:\"Bayesian\"",
       "access_date": "2026-09-11",
-      "classification_confidence": "high"
+      "classification_confidence": "high",
+      "experimental_support": "R1 Q4较原版改善0.32064%，但5/12场景退步；R2、R3改善，R4、R7失败，R6仅小幅均值改善。支持本地排序/模态互补的用途，不证明论文似然在本题校准，也不把逐轮组合差异归因于单一论文。"
     },
     {
       "id": "2209.07660v1",
@@ -99,21 +129,44 @@
           "functions": [
             "rescue_bearing"
           ],
-          "role": "成本除以预测可见概率的近似排序"
+          "role": "移动/检测成本除以预测可见概率的自拟近似排序；未复现MCTS"
         },
         {
-          "round": "R2",
+          "round": "R2–R3",
           "functions": [
             "rescue_bearing",
-            "optical_points"
+            "optical_route"
           ],
-          "role": "小集合内切换光学搜索"
+          "role": "以任务成本选择光学搜索及两条完整路线；成本模型为自己的实现"
+        },
+        {
+          "round": "R6",
+          "functions": [
+            "rescue_bearing"
+          ],
+          "role": "以预测成本门控镜像一次恢复；自拟有限动作选择"
+        },
+        {
+          "round": "R7",
+          "functions": [
+            "expected_optical_time",
+            "rescue_bearing"
+          ],
+          "role": "显式RF/光学预计成本比较消融；full退步，不纳入R6"
+        },
+        {
+          "round": "R8",
+          "functions": [
+            "rescue_bearing"
+          ],
+          "role": "用移动/检测成本决定是否进入已可见点连线；凸性方案自己的推导，full退步"
         }
       ],
       "code_url": "https://github.com/sisl/SBO_AIPPMS",
       "query": "all:\"informative path planning\"",
       "access_date": "2026-09-11",
-      "classification_confidence": "high"
+      "classification_confidence": "high",
+      "experimental_support": "成本要与信息共同考虑的原则得到实现，但复杂成本近似R7和保证可见的R8均失败；不能声称更复杂规划必然更快。R2对照含snake端点变化，非单变量因果消融。"
     },
     {
       "id": "2603.04867v1",
@@ -139,26 +192,35 @@
       "inspiration": "保留全部有界测向多边形作为确定性证据；离散可见性模型永不裁掉这个多边形；小多边形可用保守光学格点覆盖。",
       "implementation": [
         {
-          "round": "R1–R3",
+          "round": "R1–R8",
           "functions": [
             "add_bearing",
             "cover_polygon",
             "run"
           ],
-          "role": "原版已有集合思想，本路线保留而不冒称新实现"
+          "role": "基准已有有界误差外包/覆盖/停止证据，全部保留；未移植论文距离差分或SDP"
         },
         {
-          "round": "R2",
+          "round": "R2–R3",
           "functions": [
-            "optical_points"
+            "optical_points",
+            "optical_route"
           ],
-          "role": "有限覆盖成本可控时提前采用原保证机制"
+          "role": "在小集合内提前覆盖并重排；完整性由本题网格距离证明"
+        },
+        {
+          "round": "R5、R8",
+          "functions": [
+            "rescue_bearing"
+          ],
+          "role": "接收圆盘/半圆的凸性是本题直接数学推导；受集合思维启发，不是这篇论文提出的恢复算法"
         }
       ],
       "code_url": null,
       "query": "all:\"set membership\" AND all:\"localization\"",
       "access_date": "2026-09-11",
-      "classification_confidence": "high"
+      "classification_confidence": "high",
+      "experimental_support": "八轮所有本地回归全清且原几何证书保留；R5改善、R8退步，说明正确几何性质不必然带来效率提升。有限样本不替代可靠性证明。"
     },
     {
       "id": "2606.09188v1",
@@ -178,7 +240,7 @@
       "pdf_url": "https://arxiv.org/pdf/2606.09188v1",
       "source_level": "primary",
       "collection": "core",
-      "actual_reading_scope": "PDF第1–5页含§3.1–3.2；§4.1第9–10页与表2；§5第13–15页。未深读§3.3–3.4优化器细节、双机全部图表。",
+      "actual_reading_scope": "PDF第1–5页内导言、§3.1–3.2 FIM/logdet机制段落；§4.1第9–10页与表2；§5第13–15页。未逐页通读整篇，未深读§3.3–3.4优化器细节与双机全部图表。",
       "primary_classification": "观测几何/主动测向/信息矩阵与轨迹优化",
       "secondary_tags": [],
       "problem": "单/双UAV对移动目标bearing-only定位，退化交会导致误差大。",
@@ -193,12 +255,20 @@
             "second_point"
           ],
           "role": "保留原±横向点，只用可见性改变左右选择；未复现FIM/PSO"
+        },
+        {
+          "round": "R5–R8",
+          "functions": [
+            "rescue_bearing"
+          ],
+          "role": "交会几何只作设计警示；折返/镜像/凸包点均是自己的启发式，未复现其FIM或PSO"
         }
       ],
       "code_url": null,
       "query": "all:\"bearing-only\" AND all:\"localization\"",
       "access_date": "2026-09-11",
-      "classification_confidence": "high"
+      "classification_confidence": "high",
+      "experimental_support": "R1改变第二点左右选择但保留横向基线；R8保证可见而full退步，符合信息几何不能只看可见性的警示。未做本题FIM/PSO对照，不把该现象当作论文机制的因果验证。"
     },
     {
       "id": "2203.12830v2",
@@ -234,7 +304,8 @@
       "code_url": "https://github.com/castacks/tigris",
       "query": "all:\"informative path planning\"",
       "access_date": "2026-09-11",
-      "classification_confidence": "high"
+      "classification_confidence": "high",
+      "experimental_support": "未实现对应论文算法，因此没有本题实验支持；未采用理由见implementation与limitations。"
     },
     {
       "id": "1206.6406v1",
@@ -272,7 +343,8 @@
       "code_url": null,
       "query": "ti:\"active\" AND ti:\"search\" AND all:\"Bayesian\"",
       "access_date": "2026-09-11",
-      "classification_confidence": "high"
+      "classification_confidence": "high",
+      "experimental_support": "只采用任务目标的概念性区分，没有单独算法消融，不能分配本题提升归因。"
     },
     {
       "id": "2307.00696v1",
@@ -309,7 +381,8 @@
       "code_url": null,
       "query": "ti:\"coverage\" AND all:\"directional sensors\"",
       "access_date": "2026-09-11",
-      "classification_confidence": "high"
+      "classification_confidence": "high",
+      "experimental_support": "未实现对应论文算法，因此没有本题实验支持；未采用理由见implementation与limitations。"
     },
     {
       "id": "2605.11116v1",
@@ -343,7 +416,8 @@
       "code_url": null,
       "query": "ti:\"bearing\" AND all:\"sensor placement\"",
       "access_date": "2026-09-11",
-      "classification_confidence": "high"
+      "classification_confidence": "high",
+      "experimental_support": "未实现对应论文算法，因此没有本题实验支持；未采用理由见implementation与limitations。"
     },
     {
       "id": "2010.13110v1",
@@ -379,7 +453,8 @@
       "code_url": null,
       "query": "ti:\"coverage\" AND all:\"directional sensors\"",
       "access_date": "2026-09-11",
-      "classification_confidence": "high"
+      "classification_confidence": "high",
+      "experimental_support": "未实现对应论文算法，因此没有本题实验支持；未采用理由见implementation与limitations。"
     },
     {
       "id": "1512.07332v1",
@@ -415,7 +490,41 @@
       "code_url": null,
       "query": "ti:\"coverage\" AND all:\"directional sensors\"",
       "access_date": "2026-09-11",
-      "classification_confidence": "high"
+      "classification_confidence": "high",
+      "experimental_support": "未实现对应论文算法，因此没有本题实验支持；未采用理由见implementation与limitations。"
     }
-  ]
+  ],
+  "original_design_extensions": [
+    {
+      "round": "R3",
+      "mechanism": "从最近格点向两侧展开的两条完整snake，以假设位置首次覆盖成本选序",
+      "provenance": "自己的路线构造与三角不等式证明；多模态成本文献为概念启发",
+      "outcome": "相对R2 full Q4减少3.29758424秒/源，12组不退步"
+    },
+    {
+      "round": "R5",
+      "mechanism": "可见点到失联点的线段二分，最多两次",
+      "provenance": "直接利用本题接收圆盘与半平面交集的凸性；非任何所列论文现成算法",
+      "outcome": "相对R3 full减少7.38184018秒/源，12组不退步"
+    },
+    {
+      "round": "R6",
+      "mechanism": "关于最后测向中心线镜像失联点，按预测可见成本门控一次",
+      "provenance": "自己的镜像启发式；概率成本建模沿用R1，镜像不保证可见",
+      "outcome": "相对R5减少0.32382947秒/源，3组退步"
+    },
+    {
+      "round": "R7",
+      "mechanism": "近似预计清除时间选择RF或光学",
+      "provenance": "多模态规划启发下自拟单步成本模型，非MCTS复现",
+      "outcome": "相对R6增加0.74836566秒/源，10组退步，淘汰"
+    },
+    {
+      "round": "R8",
+      "mechanism": "已可见点连线内部提供确定可见点，按成本门控",
+      "provenance": "自己的凸性推导；确定可见不保证测向信息增益",
+      "outcome": "相对R6增加0.78533692秒/源，8组退步，淘汰"
+    }
+  ],
+  "final_status": "completed; 8 rounds; best R6; two consecutive non-improving extensions"
 }

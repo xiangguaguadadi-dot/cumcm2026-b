@@ -1,7 +1,7 @@
 {
   "agent": "A4_directional",
   "best_round": 6,
-  "total_rounds": 7,
+  "total_rounds": 8,
   "best_solver_absolute": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A4_directional/experiments/A4_directional/candidates/r6_solver.py",
   "best_solver_relative": "experiments/A4_directional/candidates/r6_solver.py",
   "solver_sha256": "0daccc3b65ba9c509448ef95be6c85ff310661fa3a9055515f726984a452e042",
@@ -11,16 +11,33 @@
     "mirror_strategy": "expected",
     "segment_recovery_steps": 2,
     "segment_fraction": 0.5,
-    "visibility_quadrature": "original vertices plus center",
+    "visibility_quadrature": "arithmetic vertex center plus 0.75*vertex+0.25*center samples",
     "optical_negative_belief": false,
     "visibility_prior_omni": 0.5,
     "orientation_quadrature": 36,
     "visibility_penalty_m": 600,
     "optical_switch": true,
     "optical_radius": 300,
-    "optical_order": "belief center-out; original snake after virtual budget switch"
+    "optical_order": "belief center-out; original snake after virtual budget switch",
+    "base_optimized_config": {
+      "advance_fraction": 0.6,
+      "lateral_fraction": 0.15,
+      "clear_trial_radius": 100,
+      "route_optimization": true,
+      "upper_bound_stop": true,
+      "rescue_initial_clear": false,
+      "joint_scheduling": true,
+      "source_priority_by_mode": {
+        "3": 1.55,
+        "4": 1.6
+      },
+      "clear_standoff": true
+    },
+    "virtual_safe_switch_seconds": 180000,
+    "convex_recovery": "not present in R6",
+    "optical_modal_mode": "fixed radius threshold; R7 cost switch not present"
   },
-  "configuration_sha256": "be54deae671516b3f737e56061366a7cf38b514d5aeb3eda5aa6f99611dec6de",
+  "configuration_sha256": "59be13d70f914025c1c2355697fc0582a5bcf4f43394ae7a965a42d3d9aa6587",
   "full_results_relative": "experiments/A4_directional/results/r6_full",
   "full_results_absolute": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A4_directional/experiments/A4_directional/results/r6_full",
   "code_commit": "c697a11724607c67d62702c542d175773f22ddc1",
@@ -37,6 +54,8 @@
       "total": 1200
     }
   },
-  "status": "in_progress",
-  "notes": "快照是独立标准库solver；无辅助权重或运行配置文件。Q3逐案例完全相同；v1固定开发回归不是盲测。"
+  "status": "complete",
+  "notes": "快照是独立标准库solver；无辅助权重或运行配置文件。Q3逐案例完全相同；v1固定开发回归不是盲测。",
+  "stop_reason": "R7 and R8 did not improve R6; two consecutive non-improvements after authorized extension; empirical stop, not global optimality",
+  "extension_no_improvement_streak": 2
 }

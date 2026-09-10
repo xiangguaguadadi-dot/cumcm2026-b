@@ -1,0 +1,102 @@
+{
+  "label": "LOCAL-v1 final provenance and raw-row audit; no official replay",
+  "passed": true,
+  "best_round": 6,
+  "candidate_sha256": "0daccc3b65ba9c509448ef95be6c85ff310661fa3a9055515f726984a452e042",
+  "manifest_sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+  "frozen_file_checks": {
+    "docs/评测标准_v1.md": true,
+    "evaluate.py": true,
+    "evaluation/baseline_metrics_v1.json": true,
+    "evaluation/baseline_solver.py": true,
+    "evaluation/cases_v1.json": true,
+    "evaluation/generate_cases.py": true,
+    "local_env.py": true,
+    "tests/check_nominal.py": true,
+    "tests/test_metrics.py": true,
+    "tests/test_rules.py": true
+  },
+  "best_matches_deployed_solver": true,
+  "declared_imports": [
+    "json",
+    "math",
+    "os",
+    "time"
+  ],
+  "direct_env_attributes": [
+    "clear",
+    "enter",
+    "exit",
+    "measure"
+  ],
+  "policy_read_boundary": "Manual source review plus AST inventory: only four env methods; the sole file input is optional coverage_points.json, checked against the analytic geometric certificate. No case IDs, test labels, truth, or cached metrics are imported by policy.",
+  "paired_rows": {
+    "3": {
+      "total": 1200,
+      "improved": 0,
+      "worsened": 0,
+      "tied": 1200,
+      "mean_change_seconds_per_source": 0.0
+    },
+    "4": {
+      "total": 1200,
+      "improved": 828,
+      "worsened": 179,
+      "tied": 193,
+      "mean_change_seconds_per_source": -36.45655995272614
+    }
+  },
+  "candidate_runs": 2400,
+  "complete_normal_no_error": 2400,
+  "all_rounds_integrity": [
+    {
+      "round": 1,
+      "snapshot_matches_result": true,
+      "full_complete_normal_no_error": 2400,
+      "q3_exactly_baseline": true
+    },
+    {
+      "round": 2,
+      "snapshot_matches_result": true,
+      "full_complete_normal_no_error": 2400,
+      "q3_exactly_baseline": true
+    },
+    {
+      "round": 3,
+      "snapshot_matches_result": true,
+      "full_complete_normal_no_error": 2400,
+      "q3_exactly_baseline": true
+    },
+    {
+      "round": 4,
+      "snapshot_matches_result": true,
+      "full_complete_normal_no_error": 2400,
+      "q3_exactly_baseline": true
+    },
+    {
+      "round": 5,
+      "snapshot_matches_result": true,
+      "full_complete_normal_no_error": 2400,
+      "q3_exactly_baseline": true
+    },
+    {
+      "round": 6,
+      "snapshot_matches_result": true,
+      "full_complete_normal_no_error": 2400,
+      "q3_exactly_baseline": true
+    },
+    {
+      "round": 7,
+      "snapshot_matches_result": true,
+      "full_complete_normal_no_error": 2400,
+      "q3_exactly_baseline": true
+    },
+    {
+      "round": 8,
+      "snapshot_matches_result": true,
+      "full_complete_normal_no_error": 2400,
+      "q3_exactly_baseline": true
+    }
+  ],
+  "finite_sample_boundary": "AST inventory is not a security proof; complete local regression is not an all-environment or official guarantee."
+}
