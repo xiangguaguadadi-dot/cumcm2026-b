@@ -14,7 +14,14 @@ VIRTUAL_SAFE_SWITCH_S = 180000.0  # common to optimized and baseline policies
 BASELINE_CONFIG = dict(advance_fraction=.78,lateral_fraction=.20,clear_trial_radius=42,
                        route_optimization=False,upper_bound_stop=False,rescue_initial_clear=True,
                        joint_scheduling=False,clear_standoff=False)
-OPTIMIZED_CONFIGS = {3: {'advance_fraction': 0.6, 'lateral_fraction': 0.15, 'clear_trial_radius': 100, 'route_optimization': True, 'upper_bound_stop': True, 'rescue_initial_clear': False, 'joint_scheduling': True, 'source_priority': 1.55, 'clear_standoff': True, 'priority_uncertainty': 0.0, 'priority_pending': 0.0, 'source_uncertainty_cost': 0.0}, 4: {'advance_fraction': 0.7165499736366616, 'lateral_fraction': 0.11498778234989403, 'clear_trial_radius': 186.75959165603547, 'route_optimization': True, 'upper_bound_stop': True, 'rescue_initial_clear': False, 'joint_scheduling': True, 'source_priority': 1.4111337287763024, 'clear_standoff': True, 'priority_uncertainty': 0.06524228650244446, 'priority_pending': -0.31069683674814663, 'source_uncertainty_cost': 0.6969504169454712}}
+OPTIMIZED_CONFIGS = {
+    3: dict(advance_fraction=.60,lateral_fraction=.15,clear_trial_radius=100,
+            route_optimization=True,upper_bound_stop=True,rescue_initial_clear=False,
+            joint_scheduling=True,source_priority=1.55,clear_standoff=True),
+    4: dict(advance_fraction=.60,lateral_fraction=.15,clear_trial_radius=100,
+            route_optimization=True,upper_bound_stop=True,rescue_initial_clear=False,
+            joint_scheduling=True,source_priority=1.60,clear_standoff=True),
+}
 
 
 def dist(a, b):

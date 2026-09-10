@@ -271,5 +271,54 @@
     "improves_current_best": false,
     "current_best_round": 0,
     "current_best_sha256": "36271e5c84cdcd4468b54484d699dce64194f09d78c0c03f3ec1c38f105f6ca9"
+  },
+  {
+    "round": 2,
+    "solver_path": "experiments/A5_learning/snapshots/r2_solver.py",
+    "solver_sha256": "60010d0c1363ca4196beb088f73736630c8860453b52d2b185461af94cf51343",
+    "full_results_path": "results/A5_learning_r2_full",
+    "quick_results_path": "results/A5_learning_r2_quick",
+    "full_wall_s": 23.822573165991344,
+    "quick_wall_s": 1.2504050829447806,
+    "quick_all_complete": true,
+    "full_all_complete": true,
+    "metrics": {
+      "3": {
+        "mean_s_per_source": 306.30043421816345,
+        "baseline_mean_s_per_source": 306.30043421816345,
+        "complete": 1200,
+        "total": 1200,
+        "errors": 0,
+        "max_runtime_s": 0.0021226670360192657
+      },
+      "4": {
+        "mean_s_per_source": 545.7735303569706,
+        "baseline_mean_s_per_source": 570.8833714439976,
+        "complete": 1200,
+        "total": 1200,
+        "errors": 0,
+        "max_runtime_s": 0.029800042044371367
+      }
+    },
+    "regressions": [
+      {
+        "mode": 4,
+        "group": "edge_mixed_min_radius",
+        "cases": 100,
+        "baseline_complete": 100,
+        "candidate_complete": 100,
+        "candidate_errors": 0,
+        "time_comparison_valid": true,
+        "baseline_mean_s_per_source": 613.7293915872402,
+        "candidate_mean_s_per_source": 616.1677510975433,
+        "reduction_fraction": -0.003973020591366616,
+        "candidate_worst_s_per_source": 928.6841646999999,
+        "candidate_mean_runtime_s": 0.01575879171025008
+      }
+    ],
+    "note": "配对开发筛选保留Q3原参数，Q4学习任务半径惩罚及上下文优先倍率后full改善；Q3逐局不变，Q4由570.883371降至545.773530，两题同时不退步，接受为当前最佳",
+    "improves_current_best": true,
+    "current_best_round": 2,
+    "current_best_sha256": "60010d0c1363ca4196beb088f73736630c8860453b52d2b185461af94cf51343"
   }
 ]

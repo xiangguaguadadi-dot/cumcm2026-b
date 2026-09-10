@@ -1,23 +1,29 @@
 {
   "id": "A5_learning",
-  "round": 0,
-  "rounds_completed": 1,
-  "solver_path": "experiments/A5_learning/snapshots/r0_solver.py",
-  "solver_sha256": "36271e5c84cdcd4468b54484d699dce64194f09d78c0c03f3ec1c38f105f6ca9",
+  "round": 2,
+  "rounds_completed": 2,
+  "solver_path": "experiments/A5_learning/snapshots/r2_solver.py",
+  "solver_sha256": "60010d0c1363ca4196beb088f73736630c8860453b52d2b185461af94cf51343",
   "auxiliary_artifacts": {},
-  "full_results_path": "results/v1_full",
+  "full_results_path": "results/A5_learning_r2_full",
   "metrics": {
     "3": {
-      "mean_s_per_source": 306.3004342181635,
+      "mean_s_per_source": 306.30043421816345,
+      "baseline_mean_s_per_source": 306.30043421816345,
       "complete": 1200,
-      "total": 1200
+      "total": 1200,
+      "errors": 0,
+      "max_runtime_s": 0.0021226670360192657
     },
     "4": {
-      "mean_s_per_source": 570.8833714439976,
+      "mean_s_per_source": 545.7735303569706,
+      "baseline_mean_s_per_source": 570.8833714439976,
       "complete": 1200,
-      "total": 1200
+      "total": 1200,
+      "errors": 0,
+      "max_runtime_s": 0.029800042044371367
     }
   },
-  "code_commit": "e7969c3060d134a1a0affdfff41c841040ec810a",
-  "status": "R1 full未同时优于当前最佳；最佳保持R0"
+  "code_commit": null,
+  "status": "full验证两题均不退步；等待记录包含代码的Git提交"
 }

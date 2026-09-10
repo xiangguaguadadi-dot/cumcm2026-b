@@ -15,7 +15,7 @@ record=dict(round=n,solver_path=f'experiments/A5_learning/snapshots/r{n}_solver.
             full_results_path=str(full_path.relative_to(ROOT)),quick_results_path=str(quick_path.relative_to(ROOT)),
             full_wall_s=full['wall_seconds'],quick_wall_s=quick['wall_seconds'],quick_all_complete=quick['all_complete'],full_all_complete=full['all_complete'],metrics=metrics,
             regressions=[g for g in full['groups'] if g.get('reduction_fraction',0)<0],note=a.note)
-best=json.loads((P/'best.json').read_text());improves=full['all_complete'] and all(metrics[k]['mean_s_per_source']<=best['metrics'][k]['mean_s_per_source'] for k in metrics) and any(metrics[k]['mean_s_per_source']<best['metrics'][k]['mean_s_per_source'] for k in metrics)
+best=json.loads((P/'best.json').read_text());improves=full['all_complete'] and all(metrics[k]['mean_s_per_source']<=best['metrics'][k]['mean_s_per_source']+1e-9 for k in metrics) and any(metrics[k]['mean_s_per_source']<best['metrics'][k]['mean_s_per_source']-1e-9 for k in metrics)
 record['improves_current_best']=improves
 if improves:
  best.update(round=n,solver_path=record['solver_path'],solver_sha256=record['solver_sha256'],full_results_path=record['full_results_path'],metrics=metrics,code_commit=None,status='full验证两题均不退步；等待记录包含代码的Git提交')

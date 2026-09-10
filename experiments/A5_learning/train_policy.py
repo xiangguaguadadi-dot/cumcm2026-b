@@ -70,7 +70,7 @@ def search(args):
     allout=dict(round=args.round,solver_path=args.solver,solver_sha256=hashlib.sha256((ROOT/args.solver).read_bytes()).hexdigest(),
                 bounds=bounds,generations=args.generations,population=args.population,elite=3,smoothing=.65,
                 training_episodes_per_mode=args.train,development_episodes_per_mode=args.dev,
-                split_policy='generated only; fixed v1 never imported; truth evaluator-only',modes={})
+                split_policy='generated only; fixed v1 never imported; truth evaluator-only',selection_z=args.selection_z,modes={})
     (out/'spec.json').write_text(json.dumps(allout,indent=2))
     for mode in (3,4):
         offset=700000+args.round*100000+mode*10000
@@ -118,6 +118,16 @@ def search(args):
         validations=[attempt(x['config'],x['generation'],'dev',x['attempt']) for x in unique]
         viable=[x for x in validations if x['complete']]
         if not viable:raise RuntimeError('No complete development candidate')
+        baseline_dev=next(v for v in validations if v['config']==base)
+        for v in validations:
+            if v['complete'] and baseline_dev['complete']:
+                differences=[b['seconds_per_source']-c['seconds_per_source'] for b,c in zip(baseline_dev['rows'],v['rows'])]
+                advantage=statistics.mean(differences)
+                se=statistics.stdev(differences)/math.sqrt(len(differences)) if len(differences)>1 else 0.
+                v['paired_advantage_s']=advantage;v['paired_standard_error_s']=se
+                v['passes_development_gate']=v['config']==base or advantage>args.selection_z*se
+            else:v['passes_development_gate']=False
+        viable=[v for v in viable if v['passes_development_gate']]
         best=min(viable,key=lambda z:z['mean_s_per_source'])
         allout['modes'][mode]=dict(config=best['config'],selected_attempt=best['attempt'],dev_mean_s_per_source=best['mean_s_per_source'],
                                   train_attempts=len(attempts),dev_attempts=len(validations),total_task_runs=len(attempts)*len(train)+len(validations)*len(dev),
@@ -132,5 +142,5 @@ def search(args):
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--round',type=int,default=1);p.add_argument('--solver',default='solver.py')
     p.add_argument('--out',required=True);p.add_argument('--generations',type=int,default=4);p.add_argument('--population',type=int,default=12)
-    p.add_argument('--train',type=int,default=48);p.add_argument('--dev',type=int,default=72);p.add_argument('--baseline-only',action='store_true')
+    p.add_argument('--train',type=int,default=48);p.add_argument('--dev',type=int,default=72);p.add_argument('--baseline-only',action='store_true');p.add_argument('--selection-z',type=float,default=0.)
     search(p.parse_args())
