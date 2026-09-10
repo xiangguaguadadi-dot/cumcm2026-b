@@ -331,6 +331,8 @@
 
 平均改善不意味着尾部改善；本次仅按协议用均值判断当前最佳，仍披露最差局。基准现实耗时来自历史缓存，不用于宣称计算速度提升。
 
+最终逐案例/散列审计：{"rounds": 7, "full_candidate_episodes": 16800, "quick_candidate_episodes": 840, "training_parameter_attempts": 368, "training_development_episodes": 53376, "extra_episode_counts": {"replayed_training": 5760}, "q3_exactly_matching_baseline_cases": 1200, "best_round": 7, "all_checks_passed": true}。详细检查见final_audit.json。
+
 第三轮训练已在一次性新目录真实重放，完整再运行5760局，重新选出的两题配置与历史记录比较：{"3": true, "4": true}。这是复现检查，非额外候选选择或新的泛化验证；原始重放逐局结果与预算在reproduced/r3。
 
 ## 6. 完整清除与终止的解析说明
@@ -345,7 +347,7 @@
 
 ## 7. 交付、复现与限制
 
-当前最佳快照：`experiments/A6_learning/snapshots/r7_solver.py`；SHA256：`7603ac0512b834d85ac499c1c5ce9da454d7f1f64bd8d368c5fe96b30d0b3138`；准确源码提交：`PENDING_COMMIT`（提交中的代码路径：`experiments/A6_learning/snapshots/r7_solver.py`）。完整回归路径：`results/A6_learning_r7_full`。运行仅需Python标准库；学习参数已嵌入`OPTIMIZED_CONFIGS`，没有外部权重、模型包或隐藏训练缓存依赖。配置/辅助散列见`best.json`。
+当前最佳快照：`experiments/A6_learning/snapshots/r7_solver.py`；SHA256：`7603ac0512b834d85ac499c1c5ce9da454d7f1f64bd8d368c5fe96b30d0b3138`；准确源码提交：`4698268e7010cc339b3aa6ee35504ddd895fe11c`（提交中的代码路径：`experiments/A6_learning/snapshots/r7_solver.py`）。完整回归路径：`results/A6_learning_r7_full`。运行仅需Python标准库；学习参数已嵌入`OPTIMIZED_CONFIGS`，没有外部权重、模型包或隐藏训练缓存依赖。配置/辅助散列见`best.json`。
 
 复现每轮回归：`python evaluate.py --suite quick --candidate experiments/A6_learning/snapshots/rN_solver.py --out results/A6_reproduce_rN_quick`，通过后把suite改full并换新输出目录。冻结文件校验：`python evaluate.py --verify-only`。训练重放使用每轮`rN_training_architecture.py`（第1轮用baseline_solver.py）、当轮训练脚本与budget参数；第3轮起保留`--modes 4 --minimum-dev-reduction .005`。详见`reproduce.md`。
 
