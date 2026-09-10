@@ -270,7 +270,129 @@
     "note": "四参数CEM在开发集仅给Q3带来0.095秒的微弱收益，未迁移到full；两题均退步，拒绝，最佳保持原版",
     "improves_current_best": false,
     "current_best_round": 0,
-    "current_best_sha256": "36271e5c84cdcd4468b54484d699dce64194f09d78c0c03f3ec1c38f105f6ca9"
+    "current_best_sha256": "36271e5c84cdcd4468b54484d699dce64194f09d78c0c03f3ec1c38f105f6ca9",
+    "incumbent_before_round": 0,
+    "regressions_vs_incumbent": [
+      {
+        "mode": 3,
+        "group": "cell500_shared_field",
+        "incumbent_mean_s_per_source": 301.6657053777409,
+        "candidate_mean_s_per_source": 308.05248408588557,
+        "increase_fraction": 0.02117170959207071
+      },
+      {
+        "mode": 3,
+        "group": "cell50_shared_field",
+        "incumbent_mean_s_per_source": 302.68128616537626,
+        "candidate_mean_s_per_source": 310.04062297838027,
+        "increase_fraction": 0.02431381505688157
+      },
+      {
+        "mode": 3,
+        "group": "edge_mixed_min_radius",
+        "incumbent_mean_s_per_source": 317.367453157251,
+        "candidate_mean_s_per_source": 327.020478648882,
+        "increase_fraction": 0.0304159276434941
+      },
+      {
+        "mode": 3,
+        "group": "exactly10_sources",
+        "incumbent_mean_s_per_source": 358.665224307,
+        "candidate_mean_s_per_source": 364.407574149,
+        "increase_fraction": 0.016010333460945825
+      },
+      {
+        "mode": 3,
+        "group": "exactly16_sources",
+        "incumbent_mean_s_per_source": 257.835328665,
+        "candidate_mean_s_per_source": 266.086295905,
+        "increase_fraction": 0.032000918115919985
+      },
+      {
+        "mode": 3,
+        "group": "fixed_negative_bias",
+        "incumbent_mean_s_per_source": 304.29340158078,
+        "candidate_mean_s_per_source": 309.1940933764391,
+        "increase_fraction": 0.01610515302073723
+      },
+      {
+        "mode": 3,
+        "group": "fixed_positive_bias",
+        "incumbent_mean_s_per_source": 304.9899573102846,
+        "candidate_mean_s_per_source": 309.8137314705092,
+        "increase_fraction": 0.01581617376114819
+      },
+      {
+        "mode": 3,
+        "group": "minimum_radius",
+        "incumbent_mean_s_per_source": 310.88374484266205,
+        "candidate_mean_s_per_source": 319.81934390306674,
+        "increase_fraction": 0.028742574060689474
+      },
+      {
+        "mode": 3,
+        "group": "offcenter_cluster",
+        "incumbent_mean_s_per_source": 269.53383290851093,
+        "candidate_mean_s_per_source": 274.73173729043754,
+        "increase_fraction": 0.019284793770921294
+      },
+      {
+        "mode": 3,
+        "group": "reference_assumed",
+        "incumbent_mean_s_per_source": 300.79309780945306,
+        "candidate_mean_s_per_source": 308.18689590431194,
+        "increase_fraction": 0.024581009832688183
+      },
+      {
+        "mode": 3,
+        "group": "smooth_shared_field",
+        "incumbent_mean_s_per_source": 303.4435209041774,
+        "candidate_mean_s_per_source": 308.60121521230633,
+        "increase_fraction": 0.016997213493833874
+      },
+      {
+        "mode": 4,
+        "group": "cell500_shared_field",
+        "incumbent_mean_s_per_source": 565.196717692069,
+        "candidate_mean_s_per_source": 570.4436297234977,
+        "increase_fraction": 0.00928333776044199
+      },
+      {
+        "mode": 4,
+        "group": "cell50_shared_field",
+        "incumbent_mean_s_per_source": 569.0013575846269,
+        "candidate_mean_s_per_source": 569.3887330536962,
+        "increase_fraction": 0.0006807988485539873
+      },
+      {
+        "mode": 4,
+        "group": "fixed_positive_bias",
+        "incumbent_mean_s_per_source": 594.8336773274267,
+        "candidate_mean_s_per_source": 598.9579961791089,
+        "increase_fraction": 0.0069335664890608495
+      },
+      {
+        "mode": 4,
+        "group": "offcenter_cluster",
+        "incumbent_mean_s_per_source": 519.793510861205,
+        "candidate_mean_s_per_source": 520.165985809183,
+        "increase_fraction": 0.000716582527859666
+      },
+      {
+        "mode": 4,
+        "group": "reference_assumed",
+        "incumbent_mean_s_per_source": 560.0276804832687,
+        "candidate_mean_s_per_source": 568.5818016161331,
+        "increase_fraction": 0.015274461300703646
+      },
+      {
+        "mode": 4,
+        "group": "smooth_shared_field",
+        "incumbent_mean_s_per_source": 578.3053422885642,
+        "candidate_mean_s_per_source": 587.2025793543996,
+        "increase_fraction": 0.01538501621068522
+      }
+    ]
   },
   {
     "round": 2,
@@ -319,7 +441,17 @@
     "note": "配对开发筛选保留Q3原参数，Q4学习任务半径惩罚及上下文优先倍率后full改善；Q3逐局不变，Q4由570.883371降至545.773530，两题同时不退步，接受为当前最佳",
     "improves_current_best": true,
     "current_best_round": 2,
-    "current_best_sha256": "60010d0c1363ca4196beb088f73736630c8860453b52d2b185461af94cf51343"
+    "current_best_sha256": "60010d0c1363ca4196beb088f73736630c8860453b52d2b185461af94cf51343",
+    "incumbent_before_round": 0,
+    "regressions_vs_incumbent": [
+      {
+        "mode": 4,
+        "group": "edge_mixed_min_radius",
+        "incumbent_mean_s_per_source": 613.7293915872402,
+        "candidate_mean_s_per_source": 616.1677510975433,
+        "increase_fraction": 0.003973020591366616
+      }
+    ]
   },
   {
     "round": 3,
@@ -508,6 +640,107 @@
     "note": "相对R2，Q4降低1.355303秒/源但Q3增加3.242599秒/源；全清可靠性通过，属于非支配取舍，不刷新共同最佳。R2到R3未刷新full当前最佳，按协议三轮结束，不延长，不拼接",
     "improves_current_best": false,
     "current_best_round": 2,
-    "current_best_sha256": "60010d0c1363ca4196beb088f73736630c8860453b52d2b185461af94cf51343"
+    "current_best_sha256": "60010d0c1363ca4196beb088f73736630c8860453b52d2b185461af94cf51343",
+    "incumbent_before_round": 2,
+    "regressions_vs_incumbent": [
+      {
+        "mode": 3,
+        "group": "cell500_shared_field",
+        "incumbent_mean_s_per_source": 301.6657053777409,
+        "candidate_mean_s_per_source": 314.2612356627735,
+        "increase_fraction": 0.04175327211709634
+      },
+      {
+        "mode": 3,
+        "group": "cell50_shared_field",
+        "incumbent_mean_s_per_source": 302.68128616537626,
+        "candidate_mean_s_per_source": 314.98211026071976,
+        "increase_fraction": 0.0406395263188577
+      },
+      {
+        "mode": 3,
+        "group": "edge_mixed_min_radius",
+        "incumbent_mean_s_per_source": 317.367453157251,
+        "candidate_mean_s_per_source": 325.82062018743704,
+        "increase_fraction": 0.026635267561597065
+      },
+      {
+        "mode": 3,
+        "group": "exactly10_sources",
+        "incumbent_mean_s_per_source": 358.665224307,
+        "candidate_mean_s_per_source": 361.551015038,
+        "increase_fraction": 0.008045917293977523
+      },
+      {
+        "mode": 3,
+        "group": "exactly16_sources",
+        "incumbent_mean_s_per_source": 257.835328665,
+        "candidate_mean_s_per_source": 271.52388106125,
+        "increase_fraction": 0.05309029009765842
+      },
+      {
+        "mode": 3,
+        "group": "fixed_negative_bias",
+        "incumbent_mean_s_per_source": 304.29340158078,
+        "candidate_mean_s_per_source": 314.0583177477042,
+        "increase_fraction": 0.03209046307345553
+      },
+      {
+        "mode": 3,
+        "group": "fixed_positive_bias",
+        "incumbent_mean_s_per_source": 304.9899573102846,
+        "candidate_mean_s_per_source": 317.1815528153082,
+        "increase_fraction": 0.03997376048884238
+      },
+      {
+        "mode": 3,
+        "group": "minimum_radius",
+        "incumbent_mean_s_per_source": 310.88374484266205,
+        "candidate_mean_s_per_source": 328.48352874303856,
+        "increase_fraction": 0.05661210723411658
+      },
+      {
+        "mode": 3,
+        "group": "offcenter_cluster",
+        "incumbent_mean_s_per_source": 269.53383290851093,
+        "candidate_mean_s_per_source": 286.2192392154824,
+        "increase_fraction": 0.061904682343292494
+      },
+      {
+        "mode": 3,
+        "group": "reference_assumed",
+        "incumbent_mean_s_per_source": 300.79309780945306,
+        "candidate_mean_s_per_source": 314.06465724919184,
+        "increase_fraction": 0.044121888222801164
+      },
+      {
+        "mode": 3,
+        "group": "smooth_shared_field",
+        "incumbent_mean_s_per_source": 303.4435209041774,
+        "candidate_mean_s_per_source": 312.96885065061616,
+        "increase_fraction": 0.03139078309550314
+      },
+      {
+        "mode": 4,
+        "group": "exactly10_sources",
+        "incumbent_mean_s_per_source": 680.5488462769999,
+        "candidate_mean_s_per_source": 683.91492449,
+        "increase_fraction": 0.004946122870407299
+      },
+      {
+        "mode": 4,
+        "group": "fixed_positive_bias",
+        "incumbent_mean_s_per_source": 565.9700868481059,
+        "candidate_mean_s_per_source": 569.1965929069228,
+        "increase_fraction": 0.005700842029983111
+      },
+      {
+        "mode": 4,
+        "group": "origin_cluster",
+        "incumbent_mean_s_per_source": 495.0692225843392,
+        "candidate_mean_s_per_source": 498.9051791556599,
+        "increase_fraction": 0.007748323661277867
+      }
+    ]
   }
 ]

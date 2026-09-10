@@ -13,6 +13,10 @@ lit=json.loads((P/'literature.json').read_text());ck('literature_unique',len({x[
 task_runs=0;policy_evals=0;incomplete_trials=0
 for n in (1,2,3):
  summary=json.loads((ROOT/f'results/A5_learning_r{n}_full/summary.json').read_text());ck(f'r{n}_full2400',summary['paired_cases']==2400 and summary['all_complete']);ck(f'r{n}_sha',summary['candidate_sha256']==sha(P/f'snapshots/r{n}_solver.py'))
+ if n==2:
+  paired=json.loads((ROOT/'results/A5_learning_r2_full/case_metrics.json').read_text())
+  baseq={x['case_id']:x for x in paired if x['mode']==3 and x['variant']=='frozen_baseline'}
+  ck('r2_q3_all_case_virtual_times_identical',all(x['total_virtual_time_s']==baseq[x['case_id']]['total_virtual_time_s'] for x in paired if x['mode']==3 and x['variant']=='candidate'))
  quick=json.loads((ROOT/f'results/A5_learning_r{n}_quick/summary.json').read_text());ck(f'r{n}_quick120',quick['paired_cases']==120 and quick['all_complete'])
  spec=json.loads((P/f'training/r{n}/selected.json').read_text())
  for m in (3,4):

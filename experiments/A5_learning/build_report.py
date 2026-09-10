@@ -7,7 +7,7 @@ out=[]
 def w(s=''):out.append(s)
 w('# A5：有几何保证的数据驱动策略学习实验报告')
 w('\n研究日期：2026-09-11。独立路线 A5_learning；分支 `experiments/20260911/a5_learning`。研究截止日同上。仅为 LOCAL-v1 本地验证，不是官方模拟器演练或正式成绩。')
-w(f'\n当前已完成 {len(records)} 轮。经过 full 验证的当前最佳为 R{best["round"]}，Q3 {best["metrics"]["3"]["mean_s_per_source"]:.9f}、Q4 {best["metrics"]["4"]["mean_s_per_source"]:.9f} 秒/源。最佳代码 `{best["solver_path"]}`；SHA256 `{best["solver_sha256"]}`。精确代码提交见 best.json。')
+w(f'\n当前已完成 {len(records)} 轮。经过 full 验证的当前最佳为 R{best["round"]}，Q3 {best["metrics"]["3"]["mean_s_per_source"]:.9f}、Q4 {best["metrics"]["4"]["mean_s_per_source"]:.9f} 秒/源。最佳代码 `{best["solver_path"]}`；SHA256 `{best["solver_sha256"]}`。精确代码提交见 best.json。R2代码提交为5c6388e，R3快照代码提交为1c5ba1f；两个提交中的对应快照散列均已校验。')
 w('\n三轮已经结束：R3相对R2改善Q4但退步Q3，保留为非支配取舍；没有满足刷新当前最佳的延长条件，所以不增加第四轮，也未拼接新版本。根solver.py恢复R2。此停止不表示数学收敛。')
 w('\n## 1. 题目分析与采用的方法')
 w('\n任务包含未发现频道的全域搜索、已发现源的不确定区域定位、光学清除和整条路线调度。测向5秒、切换1秒、移动每米0.2秒、失败光学尝试3秒，决定了“少一次观测”和“少走几十米”需要联合考虑。未知源数10–16、方向±1度误差同址固定；第四问无信号还可能是方向不可见。因此不能训练一个按经验预测“已经全部清除”的停止器。')
@@ -53,6 +53,11 @@ for r in records:
   w('\n|题|场景|基准秒/源|候选秒/源|退步百分比|\n|---|---|---:|---:|---:|')
   for g in r['regressions']:w(f'|Q{g["mode"]}|{g["group"]}|{g["baseline_mean_s_per_source"]:.6f}|{g["candidate_mean_s_per_source"]:.6f}|{-100*g["reduction_fraction"]:.4f}%|')
  else:w('\n没有相对冻结基准均值退步的场景。')
+ if r.get('incumbent_before_round',0)!=0:
+  w(f'\n相对该轮之前的当前最佳R{r["incumbent_before_round"]}，退步组另列如下，不能用相对旧基准的改善掩盖：')
+  w('\n|题|场景|此前最佳秒/源|候选秒/源|退步百分比|\n|---|---|---:|---:|---:|')
+  for g in r['regressions_vs_incumbent']:w(f'|Q{g["mode"]}|{g["group"]}|{g["incumbent_mean_s_per_source"]:.6f}|{g["candidate_mean_s_per_source"]:.6f}|{100*g["increase_fraction"]:.4f}%|')
+
 if (P/'ablation_r2_dev.json').exists():
  a=json.loads((P/'ablation_r2_dev.json').read_text())
  w('\n### R2开发集上的机制消融（仅解释，不参与选优）')
@@ -69,6 +74,7 @@ w('\n(2) 未发现源仍使用完全相同的7点/22点几何证明点集。第�
 w('\n(3) 已发现源的定位仍有最多9轮启发式循环，失败后进入有限25米格网光学覆盖。每个格子到中心最大25/√2<20米，所有与保留多边形相交的格子都保留。clear不依赖天线方向。调度每次完成一次localize（消去一个待清源）或scan_station（消去一个待扫描站），剩余站点与未清源均有限；模型权重不会造成无限推迟所有目标。')
 w('\n(4) 退出仍要求成功清除16个的合法上界证书，或所有剩余频道没有有效观测且全证明点均扫描完毕。没有用学习器预测源数或提前退出。原有180000秒切换兜底阈值、360000秒接口限时及现实余量守卫均保持；本实验提供继承几何机制与实际全清验证，不把有限测试宣称为任意官方实现、任意数值误差下的绝对保证。')
 w('\n## 7. 复现、身份、局限与交付')
+w('\n实际训练+开发共329次策略评价、33192次完整任务执行；另有12次重复计时和仅Q4的288次机制消融，总学习与分析执行量33492局。固定回归执行量另计：三轮quick合计360局、full合计7200局。没有未完整清除的训练/开发策略评价。全部次数可由delivery_validation.json及原始日志重算。')
 w('\n推荐Python：`/Users/t/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3`。部署求解器仅标准库；训练同样仅标准库；下载论文的文本提取需要pypdf，不是部署依赖。运行规则、训练、冻结快照和评测的精确命令见 reproduce.sh。每轮快照自包含，不依赖缓存、模型服务或环境真值。')
 w('\n学习收益对生成分布及有限样本敏感；开发多候选选择可能有乐观偏差。固定v1也已暴露，不能称盲测。后续由主Agent统一做新样本检验且不回馈调参；官方Windows通信/演练仍单独进行。没有下载或提交大权重、凭据、参赛身份、官方日志或可执行模拟器。')
 w('\n本报告、literature.json、plan.md、iteration_log.md、best.json、实现/训练/复现实验脚本、快照、全部训练/开发/规则/回归结果共同构成可复查证据。snapshot_audit.json核对关键可靠性函数AST和退出证书尾部未变、模拟器访问仅四个方法。没有成功改进时最佳仍明确标记原版，不以忽略失败、只挑成功场景或伪造综合分数报告收益。')
