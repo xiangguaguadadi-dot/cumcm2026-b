@@ -1,0 +1,37 @@
+{
+  "round": 7,
+  "optimizer": "two-stage elite random search; NOT an exact implementation of ARS",
+  "parameters": {
+    "schedule_boundary": [
+      -2.0,
+      2.0
+    ],
+    "source_priority": [
+      0.8,
+      2.5
+    ],
+    "schedule_station_gain": [
+      -1.2,
+      0.5
+    ],
+    "schedule_uncertainty": [
+      0.5,
+      2.0
+    ]
+  },
+  "seed": 660007,
+  "candidates_per_mode": 32,
+  "train_cases_per_mode": 144,
+  "dev_cases_per_mode": 288,
+  "shortlist": 5,
+  "modes_optimized_separately": true,
+  "modes_optimized": [
+    4
+  ],
+  "minimum_dev_reduction": 0.005,
+  "training_truth_usage": "post-episode completeness and task-time reward only; no expert action labels",
+  "deployment_input": "four method InterfaceOnly; public observation-derived state",
+  "solver_sha256": "a4ac8449b96fa94239cf4e90eb9dd95f04fdca90ce2b5667820d7f9e69d379d9",
+  "actual_episodes": 6336,
+  "elapsed_seconds": 127.64287408301607
+}

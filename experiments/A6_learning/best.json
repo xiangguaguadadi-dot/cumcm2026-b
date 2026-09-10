@@ -1,26 +1,26 @@
 {
   "agent": "A6_learning",
-  "round": 5,
-  "rounds_completed": 6,
-  "solver_path": "experiments/A6_learning/snapshots/r5_solver.py",
-  "solver_sha256": "579177f23f63b01387b1b613157044b9d00f9526cc61c09dca85ad172c66fbb9",
-  "full_result_path": "results/A6_learning_r5_full",
+  "round": 7,
+  "rounds_completed": 7,
+  "solver_path": "experiments/A6_learning/snapshots/r7_solver.py",
+  "solver_sha256": "7603ac0512b834d85ac499c1c5ce9da454d7f1f64bd8d368c5fe96b30d0b3138",
+  "full_result_path": "results/A6_learning_r7_full",
   "means_s_per_source": {
     "3": 306.30043421816345,
-    "4": 548.829651685033
+    "4": 548.5156891280411
   },
   "complete": {
     "3": 1200,
     "4": 1200
   },
-  "code_commit": "2f2c1946518b115e84edef7681bed2eae409f4ff",
-  "code_path_at_commit": "experiments/A6_learning/snapshots/r5_solver.py",
+  "code_commit": "PENDING_COMMIT",
+  "code_path_at_commit": "experiments/A6_learning/snapshots/r7_solver.py",
   "auxiliary_artifacts": {
     "deployment_runtime": "Python standard library only; all learned weights embedded in solver",
     "coverage_points_json": "absent; uses unchanged certified_points",
     "manifest_sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
-    "experiments/A6_learning/training/r5/selected.json": "d652d4ba50474b6dcc130c693d3b3c7d4a53d01c67c8dab26b2ab7cd8c448818",
-    "experiments/A6_learning/snapshots/r5_metadata.json": "d44c6c2839b292b80c5b7c34872317fda6ac3a6bf8dbc3e7e7aef57da0cba57f"
+    "experiments/A6_learning/training/r7/selected.json": "afb03a2a30d8405d831eb646ae3134980edaf37f9345bf0d5314f96a28845505",
+    "experiments/A6_learning/snapshots/r7_metadata.json": "c8827d3298d517c9153076a5306eb7768f6f90fd8a78ef883545029ba900e01f"
   },
   "history": [
     {
@@ -107,6 +107,21 @@
       },
       "all_complete": true,
       "decision": "not_improved",
+      "previous_best_round": 5,
+      "previous_best_means": {
+        "3": 306.30043421816345,
+        "4": 548.829651685033
+      }
+    },
+    {
+      "round": 7,
+      "solver_sha256": "7603ac0512b834d85ac499c1c5ce9da454d7f1f64bd8d368c5fe96b30d0b3138",
+      "means_s_per_source": {
+        "3": 306.30043421816345,
+        "4": 548.5156891280411
+      },
+      "all_complete": true,
+      "decision": "improved",
       "previous_best_round": 5,
       "previous_best_means": {
         "3": 306.30043421816345,

@@ -85,6 +85,13 @@
           "full_path": "results/A6_learning_r6_full",
           "decision": "not_improved",
           "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 7,
+          "training_path": "experiments/A6_learning/training/r7",
+          "full_path": "results/A6_learning_r7_full",
+          "decision": "improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
         }
       ],
       "classification_confidence": "high",
@@ -163,6 +170,13 @@
           "full_path": "results/A6_learning_r6_full",
           "decision": "not_improved",
           "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 7,
+          "training_path": "experiments/A6_learning/training/r7",
+          "full_path": "results/A6_learning_r7_full",
+          "decision": "improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
         }
       ],
       "classification_confidence": "high",
@@ -232,6 +246,13 @@
           "full_path": "results/A6_learning_r6_full",
           "decision": "not_improved",
           "role": "observation-set context, no attention network"
+        },
+        {
+          "round": 7,
+          "function": "Solver.learned_source_cost",
+          "full_path": "results/A6_learning_r7_full",
+          "decision": "improved",
+          "role": "observation-set context, no attention network"
         }
       ],
       "classification_confidence": "high",
@@ -270,7 +291,7 @@
       "paper_evidence_and_limits": "网格、驾驶、Seaquest、水箱；节选网格实验展示合成和学习。不能由奖励惩罚推导绝对安全，规范复杂度会放大shield。",
       "inspiration": "学习负责效率，独立解析覆盖负责完整性；不让学得概率提前判定频道不存在。",
       "implementation_mapping": "所有轮保留certified_points、run退出证书、cover_polygon和预算切换。没有实现LTL合成，属于设计原则迁移。",
-      "empirical_support": "全部6轮full分别2400/2400完整清除；核心覆盖/清除/终止函数保留并做AST审查。可靠性解析依据写于report第6节；没有LTL自动合成实验。",
+      "empirical_support": "全部7轮full分别2400/2400完整清除；核心覆盖/清除/终止函数保留并做AST审查。可靠性解析依据写于report第6节；没有LTL自动合成实验。",
       "round_links": [
         {
           "round": 1,
@@ -306,6 +327,12 @@
           "round": 6,
           "function": "certified_points / cover_polygon / run exit certificate",
           "full_path": "results/A6_learning_r6_full",
+          "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
+        },
+        {
+          "round": 7,
+          "function": "certified_points / cover_polygon / run exit certificate",
+          "full_path": "results/A6_learning_r7_full",
           "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
         }
       ],
@@ -387,6 +414,13 @@
           "training_path": "experiments/A6_learning/training/r6",
           "full_path": "results/A6_learning_r6_full",
           "decision": "not_improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 7,
+          "training_path": "experiments/A6_learning/training/r7",
+          "full_path": "results/A6_learning_r7_full",
+          "decision": "improved",
           "role": "training/search/evaluation principle, not original algorithm replication"
         }
       ],
@@ -560,6 +594,13 @@
           "full_path": "results/A6_learning_r6_full",
           "decision": "not_improved",
           "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 7,
+          "training_path": "experiments/A6_learning/training/r7",
+          "full_path": "results/A6_learning_r7_full",
+          "decision": "improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
         }
       ],
       "classification_confidence": "high",
@@ -636,6 +677,13 @@
           "training_path": "experiments/A6_learning/training/r6",
           "full_path": "results/A6_learning_r6_full",
           "decision": "not_improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 7,
+          "training_path": "experiments/A6_learning/training/r7",
+          "full_path": "results/A6_learning_r7_full",
+          "decision": "improved",
           "role": "training/search/evaluation principle, not original algorithm replication"
         }
       ],
