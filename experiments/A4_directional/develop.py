@@ -11,7 +11,8 @@ variants={
 'r4':[('r3',{'visibility_quadrature':'vertices','optical_negative_belief':False}),('failure_only',{'visibility_quadrature':'vertices','optical_negative_belief':True}),('area1',{'visibility_quadrature':'area1','optical_negative_belief':False}),('area1_failure',{'visibility_quadrature':'area1','optical_negative_belief':True}),('area3',{'visibility_quadrature':'area3','optical_negative_belief':False}),('area3_failure',{'visibility_quadrature':'area3','optical_negative_belief':True})],
 'r5':[('r3',{'segment_recovery_steps':0}),('half1',{'segment_recovery_steps':1}),('half2',{'segment_recovery_steps':2}),('half3',{'segment_recovery_steps':3}),('quarter2',{'segment_recovery_steps':2,'segment_fraction':.25}),('threequarter2',{'segment_recovery_steps':2,'segment_fraction':.75})],
 'r6':[('r5',{'mirror_strategy':'none'}),('always',{'mirror_strategy':'always'}),('expected',{'mirror_strategy':'expected'}),('strict',{'mirror_strategy':'strict'})],
-'r7':[('r6',{'optical_modal_mode':'radius'}),('cost075',{'optical_modal_factor':.75}),('cost1',{'optical_modal_factor':1}),('cost15',{'optical_modal_factor':1.5}),('cost2',{'optical_modal_factor':2})]
+'r7':[('r6',{'optical_modal_mode':'radius'}),('cost075',{'optical_modal_factor':.75}),('cost1',{'optical_modal_factor':1}),('cost15',{'optical_modal_factor':1.5}),('cost2',{'optical_modal_factor':2})],
+'r8':[('r6',{'convex_recovery':'none'}),('always',{'convex_recovery':'always'}),('cost',{'convex_recovery':'cost'}),('cost_interior',{'convex_recovery':'cost','convex_interior_fraction':.25})]
 }[a.variants]
 spec=importlib.util.spec_from_file_location('candidate',ROOT/a.candidate);s=importlib.util.module_from_spec(spec);spec.loader.exec_module(s)
 rows=[];t=time.perf_counter()
