@@ -30,6 +30,8 @@ for p in L['papers']:
  put(f'\n**论文证据及适用边界。** {p["paper_evidence_and_limits"]}')
  put(f'\n**对本题的启发。** {p["inspiration"]}')
  put(f'\n**文献→实现。** {p["implementation_mapping"]}')
+ put('\n**对应函数。** '+('；'.join(p.get('implementation_functions',[])) or '未实现；没有本题实测对照。'))
+ put('\n**实际实验支持。** '+p.get('empirical_support','未登记'))
  if p['id']=='ars':put('\n**本题实验联系。** 第1轮表明低维搜索并不保证迁移：开发微小改善在full上失败。第2轮增加观测上下文后第四问改善而第三问仍退步。结论是参数化与数据覆盖比“是否叫RL”更关键，不能把ARS的MuJoCo结果当成本题证据。')
  if p['id']=='dagger':put('\n**独立分析。** 原专家是现有求解器，模仿它并无提升上界优势；若用真值最短路当教师，标签又依赖部署不可见源位置。本实现因此没有行为克隆/DAgger训练，也不引用其无遗憾界证明此处终止。每个候选都实际运行自己的完整轨迹，从而直接计入观测分布变化的后果。')
  if p['id']=='attention':put('\n**本题实验联系。** `learned_source_cost`以可行区域中心的集合邻近度和相对下一站的位置构造上下文，参数由自己的整局数据训练。第2轮Q4结果支持整个学习调度候选有效；仅凭该整体比较不能把收益因果归于某一个特征。论文中的注意力网络、REINFORCE和t检验基线更新并未复刻。')
@@ -41,6 +43,7 @@ for p in L['papers']:
  put(f'\n作者：{"；".join(p["authors"])}。年份/版本：{p["year"]}；{p["version"]}。实际读页：{p["read_pages"]}；{p["actual_reading"]}。')
  put(f'\n机制：{p["mechanism"]} 证据边界：{p["paper_evidence_and_limits"]}')
  put(f'\n启发：{p["inspiration"]} 采用/排除与代码对应：{p["implementation_mapping"]}')
+ put('\n对应函数：'+('；'.join(p.get('implementation_functions',[])) or '未实现，无本题实测对照。')+' 实验边界：'+p.get('empirical_support','未登记'))
 put('\n### 3.3 跨方法结论与未覆盖部分')
 put('\n各分支共同关心动作选择与数据效率，但困难各异：参数搜索不需要动作标签；模仿学习要处理诱导分布与教师质量；策略梯度要处理长时延信用分配；模型学习要承担模型偏差；路线网络通常假设节点属性已知；信息布点准则的近似界依赖特定集合目标。这里已知运动规则、动作数量有限、单次模拟便宜，因而先采用小策略的直接搜索。公共大模型/预训练路线权重既不直接接收本题观测，也不自带完整性保证，未下载或使用。')
 put('\n本题未构建神经信念状态、GP误差地图、POMDP长视野规划或真实sim-to-real校准；没有实际训练PPO/DAgger/PILCO作同预算竞争基线。因此可以比较机制适配性，不能据此宣布本方案优于这些算法。论文原实验的任务、硬件、预算不同，本报告不做跨论文最高数字排行榜。')
@@ -71,6 +74,26 @@ for x in rounds:
  put('\n|题目|场景|候选秒/源|基准秒/源|退步比例|\n|---|---|---:|---:|---:|')
  if not x['regressions_vs_baseline']:put('|—|无均值退步场景|—|—|—|')
  for g in x['regressions_vs_baseline']:put(f'|Q{g["mode"]}|{g["group"]}|{g["candidate_mean_s_per_source"]:.6f}|{g["baseline_mean_s_per_source"]:.6f}|{-100*g["reduction_fraction"]:.4f}%|')
+put('\n### 5.1 最差局、逐案例一致性与停止依据')
+final=json.loads((R/best['full_result_path']/'case_metrics.json').read_text())
+put('\n|题目|基准最差局秒/源|最佳策略最差局秒/源|本次最佳策略最大现实运行秒|\n|---|---:|---:|---:|')
+for mode in [3,4]:
+ z=[r for r in final if r['mode']==mode and r['variant']=='candidate'];base=[r for r in final if r['mode']==mode and r['variant']=='frozen_baseline']
+ put(f'|Q{mode}|{max(r["average_clear_time_s"] for r in base):.6f}|{max(r["average_clear_time_s"] for r in z):.6f}|{max(r["program_runtime_s"] for r in z):.6f}|')
+put('\n平均改善不意味着尾部改善；本次仅按协议用均值判断当前最佳，仍披露最差局。基准现实耗时来自历史缓存，不用于宣称计算速度提升。')
+if (B/'final_audit.json').exists():
+ audit=json.loads((B/'final_audit.json').read_text());put('\n最终逐案例/散列审计：'+json.dumps(audit.get('summary',{}),ensure_ascii=False)+'。详细检查见final_audit.json。')
+if len(rounds)>=5 and best['history'][-1]['decision']!='improved' and best['history'][-2]['decision']!='improved':
+ put('\n第4、5轮均未刷新经过full验证的第3轮最佳，达到授权的延长后连续两轮未刷新停止条件。延长资格来自第3轮相对第2轮Q3改善、Q4持平且刷新联合最佳；并非声称新第二测点学习有增益。该停止仅是有限预算操作规则，不是数学收敛或全局最优证明。')
+if (B/'development_ablation/summary.json').exists():
+ ab=json.loads((B/'development_ablation/summary.json').read_text());put('\n### 5.2 已暴露开发集上的单特征移除诊断')
+ put('\n以下是在选中轮次曾参与选择的Q4开发集上，冻结最终策略后逐项移除非零特征。它不参与候选选择，不是新留出验证；跨特征相互作用仍存在。')
+ put('\n|策略|全清|均值秒/源|相对选中策略变化|\n|---|---:|---:|---:|')
+ for name,v in ab.items():put(f'|{name}|{v["complete"]}/{v["n"]}|{v["mean_s"]:.6f}|{v["mean_s"]-ab["selected"]["mean_s"]:+.6f}|')
+ put('\n这能描述该开发分布上的条件效果，不能推论某特征在官方分布上具有单独因果贡献。额外模拟预算保存于development_ablation/budget.json。')
+if (B/'reproduced/r3/replay_comparison.json').exists():
+ replay=json.loads((B/'reproduced/r3/replay_comparison.json').read_text());put('\n第三轮训练已在一次性新目录真实重放，完整再运行5760局，重新选出的两题配置与历史记录比较：'+json.dumps(replay,ensure_ascii=False)+'。这是复现检查，非额外候选选择或新的泛化验证；原始重放逐局结果与预算在reproduced/r3。')
+
 put('\n## 6. 完整清除与终止的解析说明')
 put('\n**发现保证不变。** Q3沿用中心与六点认证覆盖。对于半径1000内位置，原点可见；外圈位置由最近角度不超过30度的六点之一接收，最坏距离不超过1000。Q4沿用七扇区三角网格：外接七边形包含半径1800圆，每个基本三角形的边长小于1000；三角形内的任一点到三个顶点均不超过最大边长。对任意定向半平面，源点是顶点的凸组合，故至少一个顶点相对源的发射方向投影非负。因此至少有一个认证站位于接收半径内且处于有效发射半平面。学习没有移除这些站或跳过未见频道的完整扫描。')
 put('\n**定位/清除保证不变。** 初始外接多边形包含真实源圆域，bearing使用±1.005001度保守扇区并保留半径1500外切约束。每次交集仍含真实源。圆半径不超过20时光学清除有证书；否则学习只影响有限启发式动作。到达原迭代次数/虚拟预算切换条件时，25米格点覆盖每个与多边形相交的方格，格内任意位置距中心至多25/√2<20，不受RF方向限制。')

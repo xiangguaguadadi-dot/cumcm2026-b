@@ -4,7 +4,7 @@
 
 ## 1. 当前可交付结论
 
-已完成4轮冻结候选。当前最佳是第3轮（0表示原版），Q3=306.300434218、Q4=552.956003578秒/源，两题分别全清1200/1200与1200/1200。
+已完成5轮冻结候选。当前最佳是第5轮（0表示原版），Q3=306.300434218、Q4=548.829651685秒/源，两题分别全清1200/1200与1200/1200。
 
 第一轮的静态参数搜索未改善固定回归。第二轮学得的上下文调度在第四问改善，但第三问退步，故保留为取舍而未把它记为联合最佳。第三轮据此固定第三问原配置，继续在自建数据中优化第四问。这些选择都属于公开逐轮迭代；没有按v1案例编号、源真值或回归场景标签决策。
 
@@ -52,6 +52,10 @@
 
 **文献→实现。** 直接进入三轮训练器的参数空间采样及物理特征归一化；本实现采用精英保留搜索，不是ARS梯度更新复刻。
 
+**对应函数。** scripts/train_policy.py:main；scripts/train_policy.py:evaluate；solver.py:Solver.learned_source_cost
+
+**实际实验支持。** 参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。
+
 **本题实验联系。** 第1轮表明低维搜索并不保证迁移：开发微小改善在full上失败。第2轮增加观测上下文后第四问改善而第三问仍退步。结论是参数化与数据覆盖比“是否叫RL”更关键，不能把ARS的MuJoCo结果当成本题证据。
 
 #### dagger — [A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning](https://arxiv.org/pdf/1011.0686)
@@ -65,6 +69,10 @@
 **对本题的启发。** 必须在每个候选自己的轨迹上计算整局代价，不能只回归基线动作后便宣称提升。
 
 **文献→实现。** 作为训练协议启发，未实现DAgger：没有可靠优于基线且不泄漏特权信息的教师；整局直接搜索避开专家标签需求。
+
+**对应函数。** scripts/train_policy.py:episode (induced-policy trajectories; NOT DAgger)
+
+**实际实验支持。** 未训练DAgger或行为克隆，无教师对照。实际执行的是每个参数候选自己的整局轨迹，避免只在原专家轨迹评价；这是协议启发，不检验DAgger定理。
 
 **独立分析。** 原专家是现有求解器，模仿它并无提升上界优势；若用真值最短路当教师，标签又依赖部署不可见源位置。本实现因此没有行为克隆/DAgger训练，也不引用其无遗憾界证明此处终止。每个候选都实际运行自己的完整轨迹，从而直接计入观测分布变化的后果。
 
@@ -80,6 +88,10 @@
 
 **文献→实现。** 第2轮观测集合的密度与后续站距离特征、每轮配对开发选择；未移植注意力模型，因为本题源位置未知且节点动态出现，预训练TSP坐标输入越界。
 
+**对应函数。** solver.py:Solver.learned_source_cost；solver.py:Solver.run；scripts/train_policy.py:main (paired development)
+
+**实际实验支持。** 第2轮上下文调度：Q3 306.814064472退步、Q4 552.956003578改善；第3轮恢复Q3后取得联合改进。整体候选比较支持Q4调度有效，但不等于attention网络复现或单一特征因果证明。
+
 **本题实验联系。** `learned_source_cost`以可行区域中心的集合邻近度和相对下一站的位置构造上下文，参数由自己的整局数据训练。第2轮Q4结果支持整个学习调度候选有效；仅凭该整体比较不能把收益因果归于某一个特征。论文中的注意力网络、REINFORCE和t检验基线更新并未复刻。
 
 #### shield — [Safe Reinforcement Learning via Shielding](https://arxiv.org/pdf/1708.08611)
@@ -94,6 +106,10 @@
 
 **文献→实现。** 所有轮保留certified_points、run退出证书、cover_polygon和预算切换。没有实现LTL合成，属于设计原则迁移。
 
+**对应函数。** solver.py:certified_points；solver.py:Solver.cover_polygon；solver.py:Solver.run (unchanged exit certificate)；scripts/audit_policy.py
+
+**实际实验支持。** 全部5轮full分别2400/2400完整清除；核心覆盖/清除/终止函数保留并做AST审查。可靠性解析依据写于report第6节；没有LTL自动合成实验。
+
 **本题实验联系。** `audit_policy.py`逐函数AST比较覆盖、观测约束、兜底、预算与退出证书，并检查`self.env`仅访问四方法。每轮规则检查和全部清除是经验验证；几何推理是解析依据。这不是把本题编码为LTL并执行shield合成，因此不沿用原论文的安全定理。
 
 ### 3.2 扩展发现逐篇记录
@@ -106,6 +122,8 @@
 
 启发：动作频率和长时延回报不会阻止参数空间学习；适合既有确定求解器。 采用/排除与代码对应：训练器采用候选参数扰动和整局反馈；未复刻通信噪声表、Adam或大型网络。
 
+对应函数：scripts/train_policy.py:main (parameter-space search inspiration only) 实验边界：参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。
+
 #### ppo — [Proximal Policy Optimization Algorithms](https://arxiv.org/pdf/1707.06347)
 
 作者：John Schulman；Filip Wolski；Prafulla Dhariwal；Alec Radford；Oleg Klimov。年份/版本：2017；arXiv:1707.06347v2。实际读页：1,3；身份、引言及第3节裁剪目标公式/解释；未完整阅读实验。
@@ -113,6 +131,8 @@
 机制：以新旧动作概率比与优势函数构造裁剪代理目标，用同批轨迹多轮更新抑制过大策略变化。 证据边界：论文评测机器人控制与Atari；裁剪改善优化稳定性不等于硬约束保证。
 
 启发：端到端学习可行但需处理动作混合、信用分配及有效状态表达。 采用/排除与代码对应：未采用：当前低维参数可直接整局搜索，增加actor-critic和动作分布训练的工程预算未获必要性证据。
+
+对应函数：未实现，无本题实测对照。 实验边界：未实现原论文算法，没有同预算本题对照；仅做机制适配分析，不能声称本方案实测优于它。
 
 #### bo — [Practical Bayesian Optimization of Machine Learning Algorithms](https://arxiv.org/pdf/1206.2944)
 
@@ -122,6 +142,8 @@
 
 启发：搜索本身可自适应集中预算，而非手调看v1结果。 采用/排除与代码对应：未实现GP BO：单局模拟便宜，额外核拟合/采集优化开销与非平滑目标下的必要性不明确。用更简单精英搜索。
 
+对应函数：未实现，无本题实测对照。 实验边界：未实现原论文算法，没有同预算本题对照；仅做机制适配分析，不能声称本方案实测优于它。
+
 #### pilco — [PILCO: A Model-Based and Data-Efficient Approach to Policy Search](https://mlg.eng.cam.ac.uk/pub/pdf/DeiRas11.pdf)
 
 作者：Marc Peter Deisenroth；Carl Edward Rasmussen。年份/版本：2011；ICML 2011（PDF首页）。实际读页：1-3；身份、GP动力学、不确定输入矩匹配和长期策略评价；未读全部实验。
@@ -129,6 +151,8 @@
 机制：学习GP动力学后传播模型及状态不确定性，以近似矩匹配和解析梯度优化长期策略代价。 证据边界：面向连续控制且数据昂贵；概率传播仍受高斯近似与模型偏差约束。
 
 启发：本题运动是已知直线和固定速度，未知部分主要是源和固定误差场；不应重复学习已知运动规则。 采用/排除与代码对应：未采用：动力学模型学习解决的核心困难在本题不突出，定向失信号是非连续观测，模型风险需额外校准。
+
+对应函数：未实现，无本题实测对照。 实验边界：未实现原论文算法，没有同预算本题对照；仅做机制适配分析，不能声称本方案实测优于它。
 
 #### neural_co — [Neural Combinatorial Optimization with Reinforcement Learning](https://arxiv.org/pdf/1611.09940)
 
@@ -138,6 +162,8 @@
 
 启发：直接用任务代价训练，比模仿一份并非最优的路线标签更贴合目标。 采用/排除与代码对应：整局直接目标进入训练器；未实现指针网络，亦不在v1上做单实例active search。
 
+对应函数：scripts/train_policy.py:episode；scripts/train_policy.py:evaluate (whole-episode objective only) 实验边界：参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。
+
 #### gp_sensor — [Near-Optimal Sensor Placements in Gaussian Processes: Theory, Efficient Algorithms and Empirical Studies](https://www.jmlr.org/papers/volume9/krause08a/krause08a.pdf)
 
 作者：Andreas Krause；Ajit Singh；Carlos Guestrin。年份/版本：2008；JMLR 9:235-284, 2008。实际读页：1,3-4,6-7；身份、贡献、GP条件方差、非平稳核与熵准则；未完整阅读50页，未核验全部近似定理。
@@ -145,6 +171,8 @@
 机制：在候选传感器集合间优化信息指标，利用GP条件方差和互信息结构；强调非平稳相关场对布点的影响。 证据边界：真实温度与降雨数据；子模近似保证依赖其集合目标条件，不自动适用于机器人移动加清除成本。
 
 启发：误差相关性和测点几何需纳入开发分布，减少重复同址测量；信息量不是唯一任务目标。 采用/排除与代码对应：训练生成混合有界误差场并保留固定同址误差；未实现GP地图或互信息优化，避免把协方差假设硬套为覆盖证书。
+
+对应函数：scripts/train_policy.py:make_training_case (correlated noise coverage) 实验边界：所有训练轮包含自行生成的不同相关误差场；没有训练GP地图、信息增益控制器或验证其子模近似界。源场景退步在report逐项列出。
 
 ### 3.3 跨方法结论与未覆盖部分
 
@@ -170,6 +198,7 @@
 |2|[3, 4]|48|96|192|11520|124.68|
 |3|[4]|48|96|192|5760|112.21|
 |4|[4]|32|144|288|6048|121.63|
+|5|[4]|32|144|288|6336|129.79|
 
 所有尝试在`training/rN/qM_attempts.jsonl`，开发逐局结果在`qM_development.json`，完整自建案例在`cases.json`，配置范围与随机种子在`budget.json`，选中参数在`selected.json`。输入策略也计入候选与开发预算。回归quick/full额外分别120/2400局，不混入训练预算；读取已冻结基准缓存不算重跑基准。
 
@@ -182,6 +211,7 @@
 |2|306.814064472|552.956003578|2400/2400|tradeoff|
 |3|306.300434218|552.956003578|2400/2400|improved|
 |4|306.300434218|552.956003578|2400/2400|not_improved|
+|5|306.300434218|548.829651685|2400/2400|improved|
 
 `improved`要求full全部完整且两题均不差、至少一题更好；`tradeoff`是取舍而非共同改善。每题均值为各局秒/源的算术均值；没有自造合并Q3/Q4的加权分数。训练与full的独立结果都保留，quick是full子集，不能称为第二份独立验证。
 
@@ -246,6 +276,29 @@
 |---|---|---:|---:|---:|
 |Q4|edge_mixed_min_radius|614.639827|613.729392|0.1483%|
 
+### 第5轮
+
+候选SHA256：`579177f23f63b01387b1b613157044b9d00f9526cc61c09dca85ad172c66fbb9`。快照：`snapshots/r5_solver.py`。规则日志：`r5_rules.log`；正常规则79/79。quick全清120/120，Q3 304.580978、Q4 577.420639。full现实耗时25.44秒，结果：`results/A6_learning_r5_full`。
+
+当时当前最佳为第3轮；此轮判定`improved`。完整逐局数据、错误列表与场景结果均在对应JSON/CSV，不筛掉失败或最差局。
+
+相对原始基准的所有场景退步如下（负号表示改善，正号表示更慢）；没有列出的场景不代表未测试，完整24场景表位于aggregate/summary：
+
+|题目|场景|候选秒/源|基准秒/源|退步比例|
+|---|---|---:|---:|---:|
+|Q4|edge_mixed_min_radius|619.603302|613.729392|0.9571%|
+
+### 5.1 最差局、逐案例一致性与停止依据
+
+|题目|基准最差局秒/源|最佳策略最差局秒/源|本次最佳策略最大现实运行秒|
+|---|---:|---:|---:|
+|Q3|449.161916|449.161916|0.002135|
+|Q4|1165.548629|1266.022234|0.031471|
+
+平均改善不意味着尾部改善；本次仅按协议用均值判断当前最佳，仍披露最差局。基准现实耗时来自历史缓存，不用于宣称计算速度提升。
+
+第三轮训练已在一次性新目录真实重放，完整再运行5760局，重新选出的两题配置与历史记录比较：{"3": true, "4": true}。这是复现检查，非额外候选选择或新的泛化验证；原始重放逐局结果与预算在reproduced/r3。
+
 ## 6. 完整清除与终止的解析说明
 
 **发现保证不变。** Q3沿用中心与六点认证覆盖。对于半径1000内位置，原点可见；外圈位置由最近角度不超过30度的六点之一接收，最坏距离不超过1000。Q4沿用七扇区三角网格：外接七边形包含半径1800圆，每个基本三角形的边长小于1000；三角形内的任一点到三个顶点均不超过最大边长。对任意定向半平面，源点是顶点的凸组合，故至少一个顶点相对源的发射方向投影非负。因此至少有一个认证站位于接收半径内且处于有效发射半平面。学习没有移除这些站或跳过未见频道的完整扫描。
@@ -258,7 +311,7 @@
 
 ## 7. 交付、复现与限制
 
-当前最佳快照：`experiments/A6_learning/snapshots/r3_solver.py`；SHA256：`3435c0627709a7e40cc24f1e7fec11a1fd6013c4226236c6a227055043b5567d`；准确源码提交：`dd6247067088fa1362c212f90f6ca096f74c8454`（提交中的代码路径：`experiments/A6_learning/snapshots/r3_solver.py`）。完整回归路径：`results/A6_learning_r3_full`。运行仅需Python标准库；学习参数已嵌入`OPTIMIZED_CONFIGS`，没有外部权重、模型包或隐藏训练缓存依赖。配置/辅助散列见`best.json`。
+当前最佳快照：`experiments/A6_learning/snapshots/r5_solver.py`；SHA256：`579177f23f63b01387b1b613157044b9d00f9526cc61c09dca85ad172c66fbb9`；准确源码提交：`PENDING_COMMIT`（提交中的代码路径：`experiments/A6_learning/snapshots/r5_solver.py`）。完整回归路径：`results/A6_learning_r5_full`。运行仅需Python标准库；学习参数已嵌入`OPTIMIZED_CONFIGS`，没有外部权重、模型包或隐藏训练缓存依赖。配置/辅助散列见`best.json`。
 
 复现每轮回归：`python evaluate.py --suite quick --candidate experiments/A6_learning/snapshots/rN_solver.py --out results/A6_reproduce_rN_quick`，通过后把suite改full并换新输出目录。冻结文件校验：`python evaluate.py --verify-only`。训练重放使用每轮`rN_training_architecture.py`（第1轮用baseline_solver.py）、当轮训练脚本与budget参数；第3轮起保留`--modes 4 --minimum-dev-reduction .005`。详见`reproduce.md`。
 

@@ -42,9 +42,52 @@
       "paper_evidence_and_limits": "MuJoCo及LQR实验；正文也强调小样本随机种子评估和超参数造成高方差，静态线性策略并非在所有环境均压倒其他方法。",
       "inspiration": "任务时间可作为整局反馈，先训练小而可解释的策略，不必先假定深网必要。",
       "implementation_mapping": "直接进入三轮训练器的参数空间采样及物理特征归一化；本实现采用精英保留搜索，不是ARS梯度更新复刻。",
-      "empirical_support": "待实际每轮实验完成后在report和round_links中核对",
-      "round_links": [],
-      "classification_confidence": "high"
+      "empirical_support": "参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。",
+      "round_links": [
+        {
+          "round": 1,
+          "training_path": "experiments/A6_learning/training/r1",
+          "full_path": "results/A6_learning_r1_full",
+          "decision": "not_improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 2,
+          "training_path": "experiments/A6_learning/training/r2",
+          "full_path": "results/A6_learning_r2_full",
+          "decision": "tradeoff",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 3,
+          "training_path": "experiments/A6_learning/training/r3",
+          "full_path": "results/A6_learning_r3_full",
+          "decision": "improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 4,
+          "training_path": "experiments/A6_learning/training/r4",
+          "full_path": "results/A6_learning_r4_full",
+          "decision": "not_improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 5,
+          "training_path": "experiments/A6_learning/training/r5",
+          "full_path": "results/A6_learning_r5_full",
+          "decision": "improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        }
+      ],
+      "classification_confidence": "high",
+      "implementation_functions": [
+        "scripts/train_policy.py:main",
+        "scripts/train_policy.py:evaluate",
+        "solver.py:Solver.learned_source_cost"
+      ],
+      "implemented_as_paper_algorithm": false,
+      "principle_or_mechanism_adopted": true
     },
     {
       "id": "dagger",
@@ -70,9 +113,50 @@
       "paper_evidence_and_limits": "赛车、Mario和OCR；无遗憾界要求损失、专家额外代价等条件，不等价于任务必胜。Mario专家能访问游戏内部状态。",
       "inspiration": "必须在每个候选自己的轨迹上计算整局代价，不能只回归基线动作后便宣称提升。",
       "implementation_mapping": "作为训练协议启发，未实现DAgger：没有可靠优于基线且不泄漏特权信息的教师；整局直接搜索避开专家标签需求。",
-      "empirical_support": "待实际每轮实验完成后在report和round_links中核对",
-      "round_links": [],
-      "classification_confidence": "high"
+      "empirical_support": "未训练DAgger或行为克隆，无教师对照。实际执行的是每个参数候选自己的整局轨迹，避免只在原专家轨迹评价；这是协议启发，不检验DAgger定理。",
+      "round_links": [
+        {
+          "round": 1,
+          "training_path": "experiments/A6_learning/training/r1",
+          "full_path": "results/A6_learning_r1_full",
+          "decision": "not_improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 2,
+          "training_path": "experiments/A6_learning/training/r2",
+          "full_path": "results/A6_learning_r2_full",
+          "decision": "tradeoff",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 3,
+          "training_path": "experiments/A6_learning/training/r3",
+          "full_path": "results/A6_learning_r3_full",
+          "decision": "improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 4,
+          "training_path": "experiments/A6_learning/training/r4",
+          "full_path": "results/A6_learning_r4_full",
+          "decision": "not_improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 5,
+          "training_path": "experiments/A6_learning/training/r5",
+          "full_path": "results/A6_learning_r5_full",
+          "decision": "improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        }
+      ],
+      "classification_confidence": "high",
+      "implementation_functions": [
+        "scripts/train_policy.py:episode (induced-policy trajectories; NOT DAgger)"
+      ],
+      "implemented_as_paper_algorithm": false,
+      "principle_or_mechanism_adopted": true
     },
     {
       "id": "attention",
@@ -98,9 +182,45 @@
       "paper_evidence_and_limits": "TSP、VRP、OP、PCTSP，生成20/50/100节点；训练与测试采样/贪心的预算不同，论文也区分精确求解器与学得启发式。",
       "inspiration": "同一候选集合的相对关系比只看最近目标更有价值；和当前最佳在同一自建实例配对比较。",
       "implementation_mapping": "第2轮观测集合的密度与后续站距离特征、每轮配对开发选择；未移植注意力模型，因为本题源位置未知且节点动态出现，预训练TSP坐标输入越界。",
-      "empirical_support": "待实际每轮实验完成后在report和round_links中核对",
-      "round_links": [],
-      "classification_confidence": "high"
+      "empirical_support": "第2轮上下文调度：Q3 306.814064472退步、Q4 552.956003578改善；第3轮恢复Q3后取得联合改进。整体候选比较支持Q4调度有效，但不等于attention网络复现或单一特征因果证明。",
+      "round_links": [
+        {
+          "round": 2,
+          "function": "Solver.learned_source_cost",
+          "full_path": "results/A6_learning_r2_full",
+          "decision": "tradeoff",
+          "role": "observation-set context, no attention network"
+        },
+        {
+          "round": 3,
+          "function": "Solver.learned_source_cost",
+          "full_path": "results/A6_learning_r3_full",
+          "decision": "improved",
+          "role": "observation-set context, no attention network"
+        },
+        {
+          "round": 4,
+          "function": "Solver.learned_source_cost",
+          "full_path": "results/A6_learning_r4_full",
+          "decision": "not_improved",
+          "role": "observation-set context, no attention network"
+        },
+        {
+          "round": 5,
+          "function": "Solver.learned_source_cost",
+          "full_path": "results/A6_learning_r5_full",
+          "decision": "improved",
+          "role": "observation-set context, no attention network"
+        }
+      ],
+      "classification_confidence": "high",
+      "implementation_functions": [
+        "solver.py:Solver.learned_source_cost",
+        "solver.py:Solver.run",
+        "scripts/train_policy.py:main (paired development)"
+      ],
+      "implemented_as_paper_algorithm": false,
+      "principle_or_mechanism_adopted": true
     },
     {
       "id": "shield",
@@ -129,9 +249,48 @@
       "paper_evidence_and_limits": "网格、驾驶、Seaquest、水箱；节选网格实验展示合成和学习。不能由奖励惩罚推导绝对安全，规范复杂度会放大shield。",
       "inspiration": "学习负责效率，独立解析覆盖负责完整性；不让学得概率提前判定频道不存在。",
       "implementation_mapping": "所有轮保留certified_points、run退出证书、cover_polygon和预算切换。没有实现LTL合成，属于设计原则迁移。",
-      "empirical_support": "待实际每轮实验完成后在report和round_links中核对",
-      "round_links": [],
-      "classification_confidence": "high"
+      "empirical_support": "全部5轮full分别2400/2400完整清除；核心覆盖/清除/终止函数保留并做AST审查。可靠性解析依据写于report第6节；没有LTL自动合成实验。",
+      "round_links": [
+        {
+          "round": 1,
+          "function": "certified_points / cover_polygon / run exit certificate",
+          "full_path": "results/A6_learning_r1_full",
+          "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
+        },
+        {
+          "round": 2,
+          "function": "certified_points / cover_polygon / run exit certificate",
+          "full_path": "results/A6_learning_r2_full",
+          "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
+        },
+        {
+          "round": 3,
+          "function": "certified_points / cover_polygon / run exit certificate",
+          "full_path": "results/A6_learning_r3_full",
+          "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
+        },
+        {
+          "round": 4,
+          "function": "certified_points / cover_polygon / run exit certificate",
+          "full_path": "results/A6_learning_r4_full",
+          "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
+        },
+        {
+          "round": 5,
+          "function": "certified_points / cover_polygon / run exit certificate",
+          "full_path": "results/A6_learning_r5_full",
+          "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
+        }
+      ],
+      "classification_confidence": "high",
+      "implementation_functions": [
+        "solver.py:certified_points",
+        "solver.py:Solver.cover_polygon",
+        "solver.py:Solver.run (unchanged exit certificate)",
+        "scripts/audit_policy.py"
+      ],
+      "implemented_as_paper_algorithm": false,
+      "principle_or_mechanism_adopted": true
     },
     {
       "id": "es",
@@ -159,9 +318,50 @@
       "paper_evidence_and_limits": "MuJoCo与Atari；大量CPU并行的现实加速不等于低样本数，也不提供本题可靠性。",
       "inspiration": "动作频率和长时延回报不会阻止参数空间学习；适合既有确定求解器。",
       "implementation_mapping": "训练器采用候选参数扰动和整局反馈；未复刻通信噪声表、Adam或大型网络。",
-      "empirical_support": "待实际每轮实验完成后在report和round_links中核对",
-      "round_links": [],
-      "classification_confidence": "high"
+      "empirical_support": "参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。",
+      "round_links": [
+        {
+          "round": 1,
+          "training_path": "experiments/A6_learning/training/r1",
+          "full_path": "results/A6_learning_r1_full",
+          "decision": "not_improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 2,
+          "training_path": "experiments/A6_learning/training/r2",
+          "full_path": "results/A6_learning_r2_full",
+          "decision": "tradeoff",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 3,
+          "training_path": "experiments/A6_learning/training/r3",
+          "full_path": "results/A6_learning_r3_full",
+          "decision": "improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 4,
+          "training_path": "experiments/A6_learning/training/r4",
+          "full_path": "results/A6_learning_r4_full",
+          "decision": "not_improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 5,
+          "training_path": "experiments/A6_learning/training/r5",
+          "full_path": "results/A6_learning_r5_full",
+          "decision": "improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        }
+      ],
+      "classification_confidence": "high",
+      "implementation_functions": [
+        "scripts/train_policy.py:main (parameter-space search inspiration only)"
+      ],
+      "implemented_as_paper_algorithm": false,
+      "principle_or_mechanism_adopted": true
     },
     {
       "id": "ppo",
@@ -189,9 +389,12 @@
       "paper_evidence_and_limits": "论文评测机器人控制与Atari；裁剪改善优化稳定性不等于硬约束保证。",
       "inspiration": "端到端学习可行但需处理动作混合、信用分配及有效状态表达。",
       "implementation_mapping": "未采用：当前低维参数可直接整局搜索，增加actor-critic和动作分布训练的工程预算未获必要性证据。",
-      "empirical_support": "待实际每轮实验完成后在report和round_links中核对",
+      "empirical_support": "未实现原论文算法，没有同预算本题对照；仅做机制适配分析，不能声称本方案实测优于它。",
       "round_links": [],
-      "classification_confidence": "high"
+      "classification_confidence": "high",
+      "implementation_functions": [],
+      "implemented_as_paper_algorithm": false,
+      "principle_or_mechanism_adopted": false
     },
     {
       "id": "bo",
@@ -217,9 +420,12 @@
       "paper_evidence_and_limits": "机器学习超参数调优；平稳核和噪声模型要匹配任务，非光滑策略切换可能不符合易建模假设。",
       "inspiration": "搜索本身可自适应集中预算，而非手调看v1结果。",
       "implementation_mapping": "未实现GP BO：单局模拟便宜，额外核拟合/采集优化开销与非平滑目标下的必要性不明确。用更简单精英搜索。",
-      "empirical_support": "待实际每轮实验完成后在report和round_links中核对",
+      "empirical_support": "未实现原论文算法，没有同预算本题对照；仅做机制适配分析，不能声称本方案实测优于它。",
       "round_links": [],
-      "classification_confidence": "high"
+      "classification_confidence": "high",
+      "implementation_functions": [],
+      "implemented_as_paper_algorithm": false,
+      "principle_or_mechanism_adopted": false
     },
     {
       "id": "pilco",
@@ -244,9 +450,12 @@
       "paper_evidence_and_limits": "面向连续控制且数据昂贵；概率传播仍受高斯近似与模型偏差约束。",
       "inspiration": "本题运动是已知直线和固定速度，未知部分主要是源和固定误差场；不应重复学习已知运动规则。",
       "implementation_mapping": "未采用：动力学模型学习解决的核心困难在本题不突出，定向失信号是非连续观测，模型风险需额外校准。",
-      "empirical_support": "待实际每轮实验完成后在report和round_links中核对",
+      "empirical_support": "未实现原论文算法，没有同预算本题对照；仅做机制适配分析，不能声称本方案实测优于它。",
       "round_links": [],
-      "classification_confidence": "high"
+      "classification_confidence": "high",
+      "implementation_functions": [],
+      "implemented_as_paper_algorithm": false,
+      "principle_or_mechanism_adopted": false
     },
     {
       "id": "neural_co",
@@ -274,9 +483,51 @@
       "paper_evidence_and_limits": "TSP/背包的图实例有已知坐标或物品值；本题不能在部署时访问真实目标坐标。",
       "inspiration": "直接用任务代价训练，比模仿一份并非最优的路线标签更贴合目标。",
       "implementation_mapping": "整局直接目标进入训练器；未实现指针网络，亦不在v1上做单实例active search。",
-      "empirical_support": "待实际每轮实验完成后在report和round_links中核对",
-      "round_links": [],
-      "classification_confidence": "high"
+      "empirical_support": "参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。",
+      "round_links": [
+        {
+          "round": 1,
+          "training_path": "experiments/A6_learning/training/r1",
+          "full_path": "results/A6_learning_r1_full",
+          "decision": "not_improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 2,
+          "training_path": "experiments/A6_learning/training/r2",
+          "full_path": "results/A6_learning_r2_full",
+          "decision": "tradeoff",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 3,
+          "training_path": "experiments/A6_learning/training/r3",
+          "full_path": "results/A6_learning_r3_full",
+          "decision": "improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 4,
+          "training_path": "experiments/A6_learning/training/r4",
+          "full_path": "results/A6_learning_r4_full",
+          "decision": "not_improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 5,
+          "training_path": "experiments/A6_learning/training/r5",
+          "full_path": "results/A6_learning_r5_full",
+          "decision": "improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        }
+      ],
+      "classification_confidence": "high",
+      "implementation_functions": [
+        "scripts/train_policy.py:episode",
+        "scripts/train_policy.py:evaluate (whole-episode objective only)"
+      ],
+      "implemented_as_paper_algorithm": false,
+      "principle_or_mechanism_adopted": true
     },
     {
       "id": "gp_sensor",
@@ -302,9 +553,51 @@
       "paper_evidence_and_limits": "真实温度与降雨数据；子模近似保证依赖其集合目标条件，不自动适用于机器人移动加清除成本。",
       "inspiration": "误差相关性和测点几何需纳入开发分布，减少重复同址测量；信息量不是唯一任务目标。",
       "implementation_mapping": "训练生成混合有界误差场并保留固定同址误差；未实现GP地图或互信息优化，避免把协方差假设硬套为覆盖证书。",
-      "empirical_support": "待实际每轮实验完成后在report和round_links中核对",
-      "round_links": [],
-      "classification_confidence": "high"
+      "empirical_support": "所有训练轮包含自行生成的不同相关误差场；没有训练GP地图、信息增益控制器或验证其子模近似界。源场景退步在report逐项列出。",
+      "round_links": [
+        {
+          "round": 1,
+          "training_path": "experiments/A6_learning/training/r1",
+          "full_path": "results/A6_learning_r1_full",
+          "decision": "not_improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 2,
+          "training_path": "experiments/A6_learning/training/r2",
+          "full_path": "results/A6_learning_r2_full",
+          "decision": "tradeoff",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 3,
+          "training_path": "experiments/A6_learning/training/r3",
+          "full_path": "results/A6_learning_r3_full",
+          "decision": "improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 4,
+          "training_path": "experiments/A6_learning/training/r4",
+          "full_path": "results/A6_learning_r4_full",
+          "decision": "not_improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        },
+        {
+          "round": 5,
+          "training_path": "experiments/A6_learning/training/r5",
+          "full_path": "results/A6_learning_r5_full",
+          "decision": "improved",
+          "role": "training/search/evaluation principle, not original algorithm replication"
+        }
+      ],
+      "classification_confidence": "high",
+      "implementation_functions": [
+        "scripts/train_policy.py:make_training_case (correlated noise coverage)"
+      ],
+      "implemented_as_paper_algorithm": false,
+      "principle_or_mechanism_adopted": true
     }
-  ]
+  ],
+  "coverage_limits": "核心4篇为实际正文深读，扩展6篇为明确范围的正文节选；并未完整阅读所有附录，亦未做这些论文算法的同预算实现对照。"
 }
