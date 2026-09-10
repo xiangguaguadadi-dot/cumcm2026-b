@@ -1,0 +1,274 @@
+{
+  "label": "A1 final read-only evidence audit; no official simulator run",
+  "passed": 40,
+  "total": 40,
+  "checks": [
+    {
+      "name": "best_equals_snapshot",
+      "passed": true
+    },
+    {
+      "name": "best_sha_matches",
+      "passed": true,
+      "sha256": "01ef57e64ce910cb50f74eff9fbbd902aefed01c0eb14e7d46b74a03b4e1094e"
+    },
+    {
+      "name": "manifest_sha_matches",
+      "passed": true
+    },
+    {
+      "name": "all_frozen_files_unchanged",
+      "passed": true,
+      "output": "Frozen v1 hashes verified"
+    },
+    {
+      "name": "no_external_coverage_file",
+      "passed": true
+    },
+    {
+      "name": "only_four_environment_attributes",
+      "passed": true,
+      "attributes": [
+        "clear",
+        "enter",
+        "exit",
+        "measure"
+      ]
+    },
+    {
+      "name": "standard_library_imports_only",
+      "passed": true,
+      "imports": [
+        "json",
+        "math",
+        "os",
+        "time"
+      ]
+    },
+    {
+      "name": "best_code_commit_matches",
+      "passed": true,
+      "commit": "51580e981fcde0b40fd6abd2300dff2ab83df475"
+    },
+    {
+      "name": "r1_quick_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r1_full_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r1_summary_agrees_with_rows",
+      "passed": true
+    },
+    {
+      "name": "r2_quick_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r2_full_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r2_summary_agrees_with_rows",
+      "passed": true
+    },
+    {
+      "name": "r3_quick_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r3_full_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r3_summary_agrees_with_rows",
+      "passed": true
+    },
+    {
+      "name": "r4_quick_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r4_full_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r4_summary_agrees_with_rows",
+      "passed": true
+    },
+    {
+      "name": "r5_quick_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r5_full_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r5_summary_agrees_with_rows",
+      "passed": true
+    },
+    {
+      "name": "r6_quick_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r6_full_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r6_summary_agrees_with_rows",
+      "passed": true
+    },
+    {
+      "name": "r7_quick_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r7_full_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r7_summary_agrees_with_rows",
+      "passed": true
+    },
+    {
+      "name": "r8_quick_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r8_full_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r8_summary_agrees_with_rows",
+      "passed": true
+    },
+    {
+      "name": "r9_quick_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r9_full_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r9_summary_agrees_with_rows",
+      "passed": true
+    },
+    {
+      "name": "r10_quick_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r10_full_hash_rows_complete",
+      "passed": true
+    },
+    {
+      "name": "r10_summary_agrees_with_rows",
+      "passed": true
+    },
+    {
+      "name": "r10_q3_equals_r8_every_case",
+      "passed": true
+    },
+    {
+      "name": "two_non_improving_rounds",
+      "passed": true
+    }
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "sha256": "a4c044716b8b330d3d4f66ef7ac3076869ae961b4211d28ef63f14c1a789034c",
+      "means": {
+        "3": 292.71454091713315,
+        "4": 570.8833714439976
+      },
+      "rows": 2400
+    },
+    {
+      "round": 2,
+      "sha256": "1cdfc3e5751effa5dac815af0ec68e925e57f377735ada511e74120c612f2133",
+      "means": {
+        "3": 276.22821741054594,
+        "4": 574.636325583378
+      },
+      "rows": 2400
+    },
+    {
+      "round": 3,
+      "sha256": "a3e7a25eff094673a4a2148e888fbfe7daed8d9b5b2101b75c2e5468582e611a",
+      "means": {
+        "3": 272.1616711792945,
+        "4": 570.8833714439976
+      },
+      "rows": 2400
+    },
+    {
+      "round": 4,
+      "sha256": "9638c7df20651519e56f5ca0dcaeaa976d215be21f973bd016d5b0fe25c254e1",
+      "means": {
+        "3": 272.1616711792945,
+        "4": 563.5493033594851
+      },
+      "rows": 2400
+    },
+    {
+      "round": 5,
+      "sha256": "6819aac2c4c3d7fc85728b616bbd0c693dcbe03701a444048d08641e06140e4a",
+      "means": {
+        "3": 272.0905410640551,
+        "4": 563.2730676109774
+      },
+      "rows": 2400
+    },
+    {
+      "round": 6,
+      "sha256": "6562cab03691188ff9768d92881683397bad60d79d309b906151eccfe897b1ad",
+      "means": {
+        "3": 271.6009194475773,
+        "4": 563.1479684183787
+      },
+      "rows": 2400
+    },
+    {
+      "round": 7,
+      "sha256": "a39e86d7ccd4f97894852bbf89191b82d102cd76232aad55d692f39cec674bae",
+      "means": {
+        "3": 273.23901957500715,
+        "4": 563.1502392538275
+      },
+      "rows": 2400
+    },
+    {
+      "round": 8,
+      "sha256": "01ef57e64ce910cb50f74eff9fbbd902aefed01c0eb14e7d46b74a03b4e1094e",
+      "means": {
+        "3": 270.531504612369,
+        "4": 556.7035782300453
+      },
+      "rows": 2400
+    },
+    {
+      "round": 9,
+      "sha256": "df3c4bebf912ae83184f6c9940cf505cba930dcd8756e02828870da771f141ba",
+      "means": {
+        "3": 271.4326191315877,
+        "4": 560.1083269677016
+      },
+      "rows": 2400
+    },
+    {
+      "round": 10,
+      "sha256": "685a43a2729c5d721c16abc4f8281de8557d130bec668747fc6c99124ad8765c",
+      "means": {
+        "3": 270.531504612369,
+        "4": 558.8180777346205
+      },
+      "rows": 2400
+    }
+  ]
+}

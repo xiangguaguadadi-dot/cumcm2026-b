@@ -11,7 +11,7 @@ for p in sorted((ROOT/'results').glob('A1_space_r*_full/summary.json'),key=lambd
  rounds.append(dict(n=n,summary=s,rows=rows,m=m,base=base,path=str(p.parent.relative_to(ROOT))))
 b=next(x for x in rounds if x['n']==best['best_round']);out=[]
 def line(s=''):out.append(s)
-line('# A1 阶段实验报告：全局空间搜索与移动成本')
+line('# A1 完整实验报告：全局空间搜索与移动成本')
 line('\n研究及实验日期：2026-09-11。路线独立工作树：`'+str(ROOT)+'`。')
 line(f'\n当前选择 R{b["n"]}：第三问 **{b["m"][3]:.6f} 秒/源**，第四问 **{b["m"][4]:.6f} 秒/源**；相对冻结原版分别降低 **{100*(1-b["m"][3]/b["base"][3]):.4f}%** 和 **{100*(1-b["m"][4]/b["base"][4]):.4f}%**。每题 1200/1200 局全清、正常退出，无异常。这是本地固定回归结果，不是官方模拟器成绩。')
 line(f'\n**状态：已完成{len(rounds)}轮，当前最佳R{best["best_round"]}，连续未刷新full最佳计数{best["consecutive_non_improving_full_rounds"]}。'+('已按连续两轮未刷新规则经验停止，不是数学收敛证明。**' if best['status']=="complete_empirical_stop" else '实验继续。**'))
@@ -32,9 +32,9 @@ line('\n| ID | 题名、作者、初稿年份 | 原文版本 | 实际阅读范�
 for p in L['papers']:
  authors='; '.join(p['authors']);line(f'| {p["id"]} | [{p["title"]}]({p["pdf_url"]})；{authors}；{p["first_submission"][:4]} | {p["version"]}，更新 {p["last_submission"]} | {p["read"]} |')
 line('\n### 2.2 文献 → 启发 → 实现 → 实验的追溯表')
-line('\n| 文献 | 核心机制与本题启发 | 是否进入代码 / 函数 / 轮次 | 未采用部分与理由 |\n|---|---|---|---|')
+line('\n| 文献 | 核心机制与本题启发 | 是否进入代码 / 函数 / 轮次 | 实验支持与取舍 | 未采用部分与理由 |\n|---|---|---|---|---|')
 for p in L['papers']:
- line(f'| {p["id"]} | {p["mechanism"]} **启发：**{p["inspiration"]} | {p["implementation"]} | {p["reason"]} |')
+ line(f'| {p["id"]} | {p["mechanism"]} **启发：**{p["inspiration"]} | {p["implementation"]} | {p.get("experiment_support","未直接进入代码，无本题算法效果证据。")} | {p["reason"]} |')
 line('\n### 2.3 核心正文的证据和边界')
 for p in L['papers']:
  if p['tier']=='core_sections':line(f'\n**[{p["title"]}]({p["pdf_url"]})**\n\n{p["evidence"]} 本题迁移边界：{p["limitations"]}')
@@ -43,18 +43,31 @@ line('\n- 覆盖约束 → 离散停点/采样密度 → He等；连续覆盖/�
 line('\n## 3. 方案与实际实现')
 line('\n- R1：自创解析覆盖环。把Q3六个环站由1558.845727米压到1124米，原点保持；原定位器不变。启发来自覆盖约束和采样成本分离，数值与证明由本实验推导，非论文现成结果。\n- R2：自创开放空间路线。将未访问认证站和待清源估计中心放入同一开放路线，三起点2-opt，每次执行一个任务后重规划。受在线发现后服务思路启发，未复现JUMP/SNAKE的曲率运动模型。\n- R3：原点20频道全无信号时，在任何外站访问前选外环，否则内环；Q4回退原版，公开保留R2的负结果。\n- R4：Q4只有在全部待清区域半径不超过原有100米试清尺度时才启用全局路线；加入显式换环索引不变量。\n- R5：在半径20−r的认证可清除邻域内近似优化进入+离开距离，使用直线交盘和角度网格/黄金分割，保留旧点候选并复核可行性。\n- R6：确定性单节点重插与2-opt组合，保留旧路线；R7：清除段执行既定顺序、扫描站后才重规划，结果退步并回退到R6。所有候选都保存快照，R7未混入当前最佳solver。')
 line('\n“论文启发”不意味着因果归功。真实改变的是上述具体函数；文献中未实现的GP、强化学习、命中集、SOCP、Dubins和能耗模型不承担本题效果解释。R1的覆盖环、R3的无信号分支、R4的就绪条件、R5的认证盘内近似均为本实验设计，原论文只提供相关问题建模视角。')
+line('\n- R8：正观测或成功清除涉及16个互异频道时，题面源数上限饱和，在 `all_sources_discovered` / `run` 中裁剪剩余搜索站；16次成功清除的退出条件保留。该推导直接来自题面约束，无需借论文背书。\n- R9：尝试等所有待清区域半径不超过100米才裁剪站，保留额外测向机会；full两题变慢，未采用。\n- R10：从R8出发，单独把Q4全局路由就绪门槛由100米收紧至20米，减少尚有不确定区域进入中心路线；结果和取舍见下表与逐轮日志。')
 line('\n## 4. 完整性与停止证明')
 line('\nQ3：r≤1000的源由原点覆盖。r∈[1000,1800]的源与某一环站极角差≤π/6。站半径为a时，距离平方不超过 f(r)=r²+a²−2ra cos(π/6)。f关于r凸，故只需检查区间端点。a=1124时端点距离562.628556、999.545300米；a=1558.845727时854.400375、900米，均小于1000。两个环都对连续圆域有效；无信号选择哪个环只影响效率。原点无信号只推出源距原点>1000，不能推出全在最边缘；偏心聚簇的退步说明这种信息局限。')
 line('\n换环前现在显式要求所有频道scanned中没有非0站，避免旧索引匹配新坐标。Q4维持原七边形三角剖分覆盖点。每个空间路线包含全部未访问站和已观测未清源；每次外层动作消费一个站，或通过原有限定位/光学兜底清掉一个源，所以外层任务最多22+16=38，不会只重规划而不推进。clear/measure的时间限制守卫和180000秒切换光学覆盖保留。')
+line('\nR8的例外是有严格证据表明已不存在未知源时，剩余站不再必访。令D为已有正测向反馈的频道集合，C为成功清除频道集合；频道互异且真实源总数≤16。若|D∪C|=16，则真实源总数恰为16，所有源已被发现。此时仅清空搜索站todo，所有已发现未清源仍逐个定位清除；`upper_bound_stop` 必须见到|C|=16才退出。未达到16个互异频道时仍完整执行认证覆盖；重复频道不增加计数。这并不要求在线知道真实总数。取消站点可能损失额外方位，所以效率由实验决定，完整性来自计数论证。')
 line('\nR5：已知真实源g∈B(c,r)，选点p∈B(c,20−r−10⁻⁶)，则|p−g|≤|p−c|+|c−g|<20。数值优化复核盘内可行性。1000组随机几何检查全部通过只是实现辅助检查，连续可靠性来自三角不等式。有限本地案例全清不替代解析覆盖证明。路径优化没有扩大原定位区域、增加必访站点或改变光学格点覆盖；完整预算边界分析见 [plan.md](plan.md)。')
 line('\n## 5. 实验协议、预算与可复现性')
 line('\n固定评测 LOCAL-v1 的环境、评测脚本、规则、案例和基准保持冻结。每轮先既有单测、冻结散列、79项正常规则，再quick120局，再full2400局；基准取已校验缓存。quick是full的子集；5000–5099固定回归已知，不当作新留出。未按案例ID或测试组在线决策。训练/开发只用重新生成的62000系列，后续验证用63000、64000、65000等明确不同系列，逐个JSON保留。没有下载模型权重，没有训练大模型或用真值教师。')
 line('\n首次开发辅助函数在Q4边缘/原点簇压力场景产生全定向数据，不符合题目混合条件；该批保留为 `r2_development_invalid_mixture.json`，排除出有效证据。修改仅在A1新开发生成脚本中让最后一个源保持全向，所有候选和基准比较均重新运行；冻结生成器和固定案例没有修改。')
 line('\n原用户预算每Agent最多三轮，之后用户因R2→R3持续改善追加授权。停止按主Agent给定的连续两轮full未刷新当前最佳执行；该规则只代表这组有限设计空间的经验停止，不是证明算法或研究方向已经全局收敛。')
+line('\n接受规则：每题必须全部完成，且相对当前最佳双题均值都不增加、至少一题减少，才刷新最佳并将未刷新计数归零；一好一坏保留为取舍候选但不替换当前最佳。R8曾在小开发样本Q4变差、在固定full改善，仍按已定full规则接受；这公开暴露了选择样本依赖，最终共同新样本由主Agent一次性复核。所有轮次是序贯设计，非同预算随机对照。')
 line('\n| 轮次 | Q3秒/源 | 比原版减少 | Q4秒/源 | 比原版减少 | 全清局数 | full现实秒 |\n|---|---:|---:|---:|---:|---:|---:|')
 line(f'| 原版 | {b["base"][3]:.6f} | — | {b["base"][4]:.6f} | — | 2400/2400 | 历史缓存，不比较现实速度 |')
 for x in rounds:
  line(f'| R{x["n"]} | {x["m"][3]:.6f} | {100*(1-x["m"][3]/x["base"][3]):.4f}% | {x["m"][4]:.6f} | {100*(1-x["m"][4]/x["base"][4]):.4f}% | {sum(z["complete"] for z in x["rows"] if z["variant"]=="candidate")}/2400 | {x["summary"]["wall_seconds"]:.3f} |')
+quick=[]
+for x in rounds:
+ p=ROOT/f'results/A1_space_r{x["n"]}_quick/summary.json'
+ if p.exists():quick.append(json.loads(p.read_text()))
+dev=[]
+for p in sorted(HERE.glob('*.json')):
+ d=json.loads(p.read_text())
+ if isinstance(d,dict) and 'seed_start' in d and isinstance(d.get('rows'),list):dev.append((p.name,d))
+validdev=[(n,d) for n,d in dev if 'invalid_mixture' not in n]
+line(f'\n实际计算预算：{len(rounds)}轮full共{sum(x["summary"]["runs"] for x in rounds):,}次候选执行，记录整批现实耗时合计{sum(x["summary"]["wall_seconds"] for x in rounds):.3f}秒；quick共{sum(x["runs"] for x in quick):,}次，合计{sum(x["wall_seconds"] for x in quick):.3f}秒。有效开发/开发验证JSON共{len(validdev)}批、{sum(len(d["rows"]) for _,d in validdev):,}次执行（含对照与复用种子重放），记录现实耗时{sum(d["wall_seconds"] for _,d in validdev):.3f}秒；另有排除的无效混合批次{sum(len(d["rows"]) for n,d in dev if "invalid_mixture" in n)}局。计算次数包含重复案例，不能当成独立样本数；不含文献阅读、设计、检查及提交耗时。')
 line('\n所有清除率都保留逐局清除个数/真实源数，真实源数仅在评测层计算。全局均值按每局秒/源再平均，不能把跨局总时间除跨局总源数替代，也不是官方公开的跨案例总分。')
 line('\n### 各轮失败和场景退步')
 line('\n| 轮次 | 问题 | 相比原版退步的场景（负数表示时间降低量为负） |\n|---|---|---|')
@@ -72,6 +85,12 @@ line('\n## 7. 证据文件与运行')
 line(f'\n- 当前最佳：`{best["solver_relative_path"]}`，快照 `{best["snapshot"]}`。\n- SHA256：`{best["sha256"]}`。\n- 实现提交：`{best["code_commit"]}`。\n- 全量结果：[{b["path"]}/summary.json](../../{b["path"]}/summary.json)，逐局原始结果同目录。\n- 版本与依赖：[best.json](best.json)；逐轮判断：[iteration_log.md](iteration_log.md)；方案和证明：[plan.md](plan.md)。\n- 逐篇文献：[literature.json](literature.json)；身份元数据与正文散列：`research/source_metadata.json`。原论文PDF、HTML和提取文本仅保留本地忽略缓存，不重新发布全文。')
 line('\n```sh\npython -m unittest discover -s tests -v\npython evaluate.py --verify-only\npython tests/check_nominal.py --package . --out /tmp/A1_nominal_recheck.json\npython experiments/A1_space/check_spatial_geometry.py --candidate solver.py --out /tmp/A1_geometry_recheck.json\npython evaluate.py --suite full --candidate '+best['snapshot']+' --out results/A1_reproduce_new_directory\n```')
 line('\n求解器仅依赖Python标准库；本工作树没有coverage_points.json，因此两题均使用解析点集。若外部提供该文件，原有点集指纹验证仍必须通过；最佳复现应使用记录的无外部点集配置。HTTP客户端和官方通信未改动，Windows官方演练与正式测试仍未执行。代码、结果已在专属分支分轮提交；最终推送状态以主Agent核验为准。')
+line('\n### 每轮代码身份')
+line('\n| 轮次 | 快照 | SHA256 | 保存该轮的提交 |\n|---|---|---|---|')
+for x in rounds:
+ snapshot=f'experiments/A1_space/snapshots/solver_r{x["n"]}.py'
+ commit=subprocess.run(['git','log','--format=%H','--diff-filter=A','--',snapshot],cwd=ROOT,capture_output=True,text=True).stdout.strip().splitlines()
+ line(f'| R{x["n"]} | `{snapshot}` | `{x["summary"]["candidate_sha256"]}` | `{commit[0] if commit else "本轮提交后登记"}` |')
 (HERE/'report.md').write_text('\n'.join(out)+'\n')
 # Public aggregate ledger supports root cross-check without re-running candidates.
 (HERE/'all_rounds.json').write_text(json.dumps([dict(round=x['n'],q3=x['m'][3],q4=x['m'][4],all_complete=x['summary']['all_complete'],wall_seconds=x['summary']['wall_seconds'],candidate_sha256=x['summary']['candidate_sha256'],path=x['path']) for x in rounds],indent=2))
