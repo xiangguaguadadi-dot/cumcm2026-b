@@ -56,8 +56,7 @@ def rank(result):return (result['n']-result['complete'],result['mean_s'])
 def main():
  p=argparse.ArgumentParser();p.add_argument('--round',type=int,required=True);p.add_argument('--solver',default=str(ROOT/'solver.py'))
  p.add_argument('--attempts',type=int,default=48);p.add_argument('--train-cases',type=int,default=96);p.add_argument('--dev-cases',type=int,default=192)
- p.add_argument('--shortlist',type=int,default=5);p.add_argument('--modes',default='3,4');p.add_argument('--minimum-dev-reduction',type=float,default=0.0);a=p.parse_args()
- modes=[int(x) for x in a.modes.split(',')];assert set(modes)<=set([3,4])
+ p.add_argument('--shortlist',type=int,default=5);a=p.parse_args()
  out=BASE/'training'/f'r{a.round}';out.mkdir(exist_ok=False)
  mod=load(a.solver);rng=random.Random(660000+a.round)
  r1={'advance_fraction':(.25,.95),'lateral_fraction':(.035,.5),'clear_trial_radius':(20.,210.),'source_priority':(.15,3.5)}
@@ -71,11 +70,11 @@ def main():
  (out/'cases.json').write_text(json.dumps(sets,separators=(',',':')))
  budget=dict(round=a.round,optimizer='two-stage elite random search; NOT an exact implementation of ARS',parameters=bounds,seed=660000+a.round,
   candidates_per_mode=a.attempts,train_cases_per_mode=a.train_cases,dev_cases_per_mode=a.dev_cases,shortlist=a.shortlist,
-  modes_optimized_separately=True,modes_optimized=modes,minimum_dev_reduction=a.minimum_dev_reduction,training_truth_usage='post-episode completeness and task-time reward only; no expert action labels',
+  modes_optimized_separately=True,training_truth_usage='post-episode completeness and task-time reward only; no expert action labels',
   deployment_input='four method InterfaceOnly; public observation-derived state',solver_sha256=hashlib.sha256(Path(a.solver).read_bytes()).hexdigest())
  (out/'budget.json').write_text(json.dumps(budget,ensure_ascii=False,indent=2))
- selected={mode:dict(config=dict(mod.OPTIMIZED_CONFIGS[mode]),parameters={},fixed=True,reason='mode fixed before training; no search this round') for mode in [3,4] if mode not in modes};start=time.perf_counter()
- for mode in modes:
+ selected={};start=time.perf_counter()
+ for mode in [3,4]:
   original=dict(mod.OPTIMIZED_CONFIGS[mode]); entries=[];best_vector={k:original.get(k,0.) for k in bounds}
   pop=a.attempts//2
   for j in range(a.attempts):
@@ -102,13 +101,10 @@ def main():
    d=dict(attempt=e['attempt'],parameters=e['parameters'],config=e['config'],development=result);dev.append(d)
    print(f'development q={mode} attempt={e["attempt"]} complete={result["complete"]}/{result["n"]} mean={result["mean_s"]:.6f}',flush=True)
   (out/f'q{mode}_development.json').write_text(json.dumps(dev,separators=(',',':')))
-  best=min(dev,key=lambda q:rank(q['development']));input_policy=next(d for d in dev if d['attempt']==0)
-  reduction=1-best['development']['mean_s']/input_policy['development']['mean_s']
-  if best['development']['complete']==best['development']['n'] and reduction<a.minimum_dev_reduction:best=input_policy
-  selected[mode]={k:v for k,v in best.items() if k!='development'}
+  best=min(dev,key=lambda q:rank(q['development']));selected[mode]={k:v for k,v in best.items() if k!='development'}
   selected[mode]['development_summary']={k:v for k,v in best['development'].items() if k!='rows'}
   selected[mode]['input_policy_development']={k:v for k,v in next(d for d in dev if d['attempt']==0)['development'].items() if k!='rows'}
- budget['actual_episodes']=sum(a.attempts*a.train_cases+len(json.loads((out/f'q{m}_development.json').read_text()))*a.dev_cases for m in modes)
+ budget['actual_episodes']=sum(a.attempts*a.train_cases+len(json.loads((out/f'q{m}_development.json').read_text()))*a.dev_cases for m in [3,4])
  budget['elapsed_seconds']=time.perf_counter()-start
  (out/'budget.json').write_text(json.dumps(budget,ensure_ascii=False,indent=2))
  (out/'selected.json').write_text(json.dumps(selected,ensure_ascii=False,indent=2))

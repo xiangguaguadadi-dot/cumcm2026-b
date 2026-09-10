@@ -1,24 +1,26 @@
 {
   "agent": "A6_learning",
-  "round": 0,
-  "rounds_completed": 2,
-  "solver_path": "experiments/A6_learning/snapshots/baseline_solver.py",
-  "solver_sha256": "36271e5c84cdcd4468b54484d699dce64194f09d78c0c03f3ec1c38f105f6ca9",
-  "full_result_path": "results/v1_full",
+  "round": 3,
+  "rounds_completed": 3,
+  "solver_path": "experiments/A6_learning/snapshots/r3_solver.py",
+  "solver_sha256": "3435c0627709a7e40cc24f1e7fec11a1fd6013c4226236c6a227055043b5567d",
+  "full_result_path": "results/A6_learning_r3_full",
   "means_s_per_source": {
-    "3": 306.3004342181635,
-    "4": 570.8833714439976
+    "3": 306.30043421816345,
+    "4": 552.9560035775925
   },
   "complete": {
     "3": 1200,
     "4": 1200
   },
-  "code_commit": "e7969c3060d134a1a0affdfff41c841040ec810a",
-  "code_path_at_commit": "solver.py",
+  "code_commit": "PENDING_COMMIT",
+  "code_path_at_commit": "experiments/A6_learning/snapshots/r3_solver.py",
   "auxiliary_artifacts": {
     "deployment_runtime": "Python standard library only; all learned weights embedded in solver",
     "coverage_points_json": "absent; uses unchanged certified_points",
-    "manifest_sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140"
+    "manifest_sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+    "experiments/A6_learning/training/r3/selected.json": "8f0eacdf9fc70ac2974c42c9399b4918dbced160331c5159a12b4ece21f6b5e7",
+    "experiments/A6_learning/snapshots/r3_metadata.json": "944461875900f27c3325cc89b85ec58cdb277040c9d4b5b9e826b5e87909d205"
   },
   "history": [
     {
@@ -45,6 +47,21 @@
       },
       "all_complete": true,
       "decision": "tradeoff",
+      "previous_best_round": 0,
+      "previous_best_means": {
+        "3": 306.3004342181635,
+        "4": 570.8833714439976
+      }
+    },
+    {
+      "round": 3,
+      "solver_sha256": "3435c0627709a7e40cc24f1e7fec11a1fd6013c4226236c6a227055043b5567d",
+      "means_s_per_source": {
+        "3": 306.30043421816345,
+        "4": 552.9560035775925
+      },
+      "all_complete": true,
+      "decision": "improved",
       "previous_best_round": 0,
       "previous_best_means": {
         "3": 306.3004342181635,
