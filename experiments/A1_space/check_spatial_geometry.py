@@ -26,6 +26,20 @@ if hasattr(x,'route_clear_point'):
   max_cost_increase=max(max_cost_increase,cost(q)-cost(old))
  check('1000_feasible_clear_disks',max_excess<0,max_excess_m=max_excess)
  check('1000_forecast_cost_nonincrease',max_cost_increase<=1e-7,max_increase_m=max_cost_increase)
+if hasattr(x,'all_sources_discovered'):
+ x=m.Solver(Silent(),3)
+ for c in range(1,16):x.observations[c]=[((0,0),0.0)]
+ x.cleared={1}
+ check('15_distinct_not_16_with_duplicate_clear',not x.all_sources_discovered())
+ x.observations[16]=[((0,0),0.0)]
+ check('16_distinct_establish_discovery_not_clearance',x.all_sources_discovered() and len(x.cleared)==1)
+ import sys
+ sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
+ from local_env import LocalEnv,Source,InterfaceOnly
+ env=LocalEnv([Source(c,450+17*c,90*math.sin(c),1500) for c in range(1,17)],seed=781243,keep_log=False)
+ x=m.Solver(InterfaceOnly(env),3);result=x.run();stats=env.stats()
+ check('observing_16_still_clears_16_before_exit',stats['cleared']==16 and env.exit_reason=='user_exit' and result['cleared_count']==16)
+ check('discovery_cap_waives_only_search_stations',0<=result['counters'].get('stations_waived_after_all_discovered',0)<=6 and result['certificate_type']=='known_count_upper_bound')
 check('env_calls_only_public',all('.env.'+v not in Path(a.candidate).read_text() for v in ('_sources','seed','stats','error')))
 out=dict(passed=sum(c['passed'] for c in checks),total=len(checks),checks=checks);Path(a.out).write_text(json.dumps(out,indent=2));print(out)
 if not all(c['passed'] for c in checks):raise SystemExit(1)

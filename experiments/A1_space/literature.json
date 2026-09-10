@@ -327,5 +327,49 @@
       "evidence": "摘要级发现；不声称完成其RL复现。",
       "limitations": "R3 的单一观测分支是本实验自创启发式，不是该论文学习算法或性能转移。"
     }
+  ],
+  "original_designs": [
+    {
+      "round": 1,
+      "name": "解析压缩六环站",
+      "basis": "题目半径1800、全向最小接收半径1000；凸函数端点证明",
+      "functions": [
+        "certified_points",
+        "default_points"
+      ]
+    },
+    {
+      "round": 3,
+      "name": "原点全无信号选择认证外环",
+      "basis": "正/负观测触发两种独立完备几何布局；不是RL学习",
+      "functions": [
+        "scan_station"
+      ]
+    },
+    {
+      "round": 4,
+      "name": "精确区域就绪后空间路由",
+      "basis": "避免把粗糙多边形中心误当真实服务终点",
+      "functions": [
+        "run"
+      ]
+    },
+    {
+      "round": 5,
+      "name": "认证清除盘内的进入和离开距离",
+      "basis": "TSPN邻域视角+本题20米清除半径的三角不等式推导；非论文原算法复现",
+      "functions": [
+        "route_clear_point"
+      ]
+    },
+    {
+      "round": 8,
+      "name": "已发现16源后裁剪剩余必访站",
+      "basis": "题面问题3/4最多16源，附录1频道互异；发现不等于清除，仍要求16成功才退出。自创约束推导，不归因给未实现论文。",
+      "functions": [
+        "all_sources_discovered",
+        "run"
+      ]
+    }
   ]
 }
