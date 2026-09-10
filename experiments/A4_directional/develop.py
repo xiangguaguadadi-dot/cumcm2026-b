@@ -7,7 +7,8 @@ variants={
 'r1':[('baseline',{'visibility_side':False,'visibility_rescue':False}),('side',{'visibility_side':True,'visibility_rescue':False}),('rescue',{'visibility_side':False,'visibility_rescue':True}),('both100',{'visibility_penalty_m':100}),('both300',{'visibility_penalty_m':300}),('both600',{'visibility_penalty_m':600})],
 'validation':[('selected',{})],
 'r2':[('r1',{'optical_switch':False}),('optical50',{'optical_switch':True,'optical_radius':50}),('optical100',{'optical_switch':True,'optical_radius':100}),('optical180',{'optical_switch':True,'optical_radius':180}),('optical300',{'optical_switch':True,'optical_radius':300})],
-'r3':[('r2',{'optical_order':'snake'}),('nearest',{'optical_order':'nearest'}),('belief',{'optical_order':'belief'})]
+'r3':[('r2',{'optical_order':'snake'}),('nearest',{'optical_order':'nearest'}),('belief',{'optical_order':'belief'})],
+'r4':[('r3',{'visibility_quadrature':'vertices','optical_negative_belief':False}),('failure_only',{'visibility_quadrature':'vertices','optical_negative_belief':True}),('area1',{'visibility_quadrature':'area1','optical_negative_belief':False}),('area1_failure',{'visibility_quadrature':'area1','optical_negative_belief':True}),('area3',{'visibility_quadrature':'area3','optical_negative_belief':False}),('area3_failure',{'visibility_quadrature':'area3','optical_negative_belief':True})]
 }[a.variants]
 spec=importlib.util.spec_from_file_location('candidate',ROOT/a.candidate);s=importlib.util.module_from_spec(spec);spec.loader.exec_module(s)
 rows=[];t=time.perf_counter()
