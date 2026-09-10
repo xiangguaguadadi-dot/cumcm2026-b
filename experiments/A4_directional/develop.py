@@ -2,14 +2,14 @@
 import argparse,importlib.util,json,pathlib,statistics,sys,time
 ROOT=pathlib.Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT))
 from local_env import LocalEnv,InterfaceOnly,make_case
-p=argparse.ArgumentParser();p.add_argument('--out',required=True);p.add_argument('--start',type=int,default=81000);p.add_argument('--seeds',type=int,default=6);p.add_argument('--variants',default='r1');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--out',required=True);p.add_argument('--start',type=int,default=81000);p.add_argument('--seeds',type=int,default=6);p.add_argument('--variants',default='r1');p.add_argument('--candidate',default='solver.py');a=p.parse_args()
 variants={
 'r1':[('baseline',{'visibility_side':False,'visibility_rescue':False}),('side',{'visibility_side':True,'visibility_rescue':False}),('rescue',{'visibility_side':False,'visibility_rescue':True}),('both100',{'visibility_penalty_m':100}),('both300',{'visibility_penalty_m':300}),('both600',{'visibility_penalty_m':600})],
 'validation':[('selected',{})],
 'r2':[('r1',{'optical_switch':False}),('optical50',{'optical_switch':True,'optical_radius':50}),('optical100',{'optical_switch':True,'optical_radius':100}),('optical180',{'optical_switch':True,'optical_radius':180}),('optical300',{'optical_switch':True,'optical_radius':300})],
 'r3':[('best',{'mirror_recovery':False}),('mirror',{'mirror_recovery':True}),('mirror_close',{'mirror_recovery':True,'mirror_limit':200})]
 }[a.variants]
-spec=importlib.util.spec_from_file_location('candidate',ROOT/'solver.py');s=importlib.util.module_from_spec(spec);spec.loader.exec_module(s)
+spec=importlib.util.spec_from_file_location('candidate',ROOT/a.candidate);s=importlib.util.module_from_spec(spec);spec.loader.exec_module(s)
 rows=[];t=time.perf_counter()
 for name,conf in variants:
  for scene in ['random','boundary','cluster','min_radius']:
