@@ -4,7 +4,14 @@
   "rounds_completed": 2,
   "solver_path": "experiments/A5_learning/snapshots/r2_solver.py",
   "solver_sha256": "60010d0c1363ca4196beb088f73736630c8860453b52d2b185461af94cf51343",
-  "auxiliary_artifacts": {},
+  "auxiliary_artifacts": {
+    "training_config": {
+      "path": "experiments/A5_learning/training/r2/selected.json",
+      "sha256": "27e5fc34f68943b6eaba523d6edeb820a005169c672f18b58423ef69d39d479d",
+      "deployment_required": false
+    },
+    "deployment_note": "全部学习参数嵌入solver快照；无辅助模型、权重或配置读取；仅标准库"
+  },
   "full_results_path": "results/A5_learning_r2_full",
   "metrics": {
     "3": {
@@ -24,6 +31,6 @@
       "max_runtime_s": 0.029800042044371367
     }
   },
-  "code_commit": null,
-  "status": "full验证两题均不退步；等待记录包含代码的Git提交"
+  "code_commit": "5c6388ed703b409987803dc2469579bc0b1bec05",
+  "status": "R2 full验证通过并提交；Q3均值不变，Q4改善4.398421%；当前最佳R2。"
 }

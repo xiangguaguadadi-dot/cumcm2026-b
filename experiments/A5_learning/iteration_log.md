@@ -33,3 +33,5 @@
 判断：配对开发筛选保留Q3原参数，Q4学习任务半径惩罚及上下文优先倍率后full改善；Q3逐局不变，Q4由570.883371降至545.773530，两题同时不退步，接受为当前最佳。当前最佳 R2，SHA256 `60010d0c1363ca4196beb088f73736630c8860453b52d2b185461af94cf51343`。
 
 结果：`results/A5_learning_r2_full`；所有退步场景见 report.md 和 round_summaries.json。
+
+R2代码与结果提交：`5c6388ed703b409987803dc2469579bc0b1bec05`；远端分支 experiments/20260911/a5_learning。
