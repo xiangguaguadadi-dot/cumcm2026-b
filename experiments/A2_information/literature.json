@@ -109,12 +109,15 @@
       "evidence": "第3节给出真集合包含于外包集合的证明；第5节给出外包盒与椭球程序；第7节在2D/3D、随机锚点、100次重复上评估集合尺寸和包含率。第8节承认几何保守度仍缺正式刻画。",
       "limitations": "距离测量而非方位；其凸外包保守性依几何而变，外包中心不一定属于原始非凸可行集。误差越界时扩大到非空不能重新保证包含实际真值。",
       "inspiration": "保留“用于决策的点/分布”和“用于全清证明的外包集合”两层；研究整个可行域允许的最近清除点。",
-      "adoption": "r1–r3保留原版 polygons/add_bearing 和 enclosing_circle 作为证书；r3的全顶点覆盖清除点是本题自创几何动作，不是论文SOCP复现。",
+      "adoption": "r1–r6保留多边形与包围圆作为证书；r3的全顶点清除动作、r4/r5的有效切面细化、r6全向无信号排除凸包是本题自创几何步骤，不是论文SOCP复现。",
       "functions": [
         "Solver.belief_quadrature",
         "Solver.predicted_polygon",
         "Solver.localize",
-        "Solver.nearest_certified_clear"
+        "Solver.nearest_certified_clear",
+        "add_bearing",
+        "outside_disk_hull",
+        "Solver.apply_no_signal_constraints"
       ],
       "not_used": "不新增距离传感器，不实现差分距离方程或SOCP/SDP；现有方位半平面交已更直接。",
       "url": "https://arxiv.org/abs/2603.04867",
