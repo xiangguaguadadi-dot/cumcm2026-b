@@ -1,0 +1,348 @@
+{
+  "audit_date": "2026-09-11",
+  "audit_type": "read-only counts of saved rows and source inspection; no source regeneration and no solver execution",
+  "classification_basis": {
+    "generator": "local_env.make_case",
+    "source_path": "local_env.py",
+    "q4_all_directional_scenarios": [
+      "boundary",
+      "cluster",
+      "min_radius"
+    ],
+    "reason": "These branches replace every source direction with a non-None value in mode 4, overriding the initial mixed-direction assignment.",
+    "q4_random": "Retains the initial nd drawn in [1,n-1], hence mixed omnidirectional/directional sources.",
+    "frozen_full": "Uses separately frozen cases_v1 and retains its existing valid mixed-source evidence."
+  },
+  "inner_executions": 720,
+  "stress_executions": 270,
+  "stress_fraction": 0.375,
+  "stress_by_variant": {
+    "baseline": 135,
+    "candidate": 135
+  },
+  "unique_stress_case_count": 45,
+  "unique_stress_cases": [
+    {
+      "mode": 4,
+      "scenario": "boundary",
+      "seed": 62000
+    },
+    {
+      "mode": 4,
+      "scenario": "boundary",
+      "seed": 62001
+    },
+    {
+      "mode": 4,
+      "scenario": "boundary",
+      "seed": 62002
+    },
+    {
+      "mode": 4,
+      "scenario": "boundary",
+      "seed": 62003
+    },
+    {
+      "mode": 4,
+      "scenario": "boundary",
+      "seed": 62004
+    },
+    {
+      "mode": 4,
+      "scenario": "boundary",
+      "seed": 63000
+    },
+    {
+      "mode": 4,
+      "scenario": "boundary",
+      "seed": 63001
+    },
+    {
+      "mode": 4,
+      "scenario": "boundary",
+      "seed": 63002
+    },
+    {
+      "mode": 4,
+      "scenario": "boundary",
+      "seed": 63003
+    },
+    {
+      "mode": 4,
+      "scenario": "boundary",
+      "seed": 63004
+    },
+    {
+      "mode": 4,
+      "scenario": "boundary",
+      "seed": 63005
+    },
+    {
+      "mode": 4,
+      "scenario": "boundary",
+      "seed": 63006
+    },
+    {
+      "mode": 4,
+      "scenario": "boundary",
+      "seed": 63007
+    },
+    {
+      "mode": 4,
+      "scenario": "boundary",
+      "seed": 63008
+    },
+    {
+      "mode": 4,
+      "scenario": "boundary",
+      "seed": 63009
+    },
+    {
+      "mode": 4,
+      "scenario": "cluster",
+      "seed": 62000
+    },
+    {
+      "mode": 4,
+      "scenario": "cluster",
+      "seed": 62001
+    },
+    {
+      "mode": 4,
+      "scenario": "cluster",
+      "seed": 62002
+    },
+    {
+      "mode": 4,
+      "scenario": "cluster",
+      "seed": 62003
+    },
+    {
+      "mode": 4,
+      "scenario": "cluster",
+      "seed": 62004
+    },
+    {
+      "mode": 4,
+      "scenario": "cluster",
+      "seed": 63000
+    },
+    {
+      "mode": 4,
+      "scenario": "cluster",
+      "seed": 63001
+    },
+    {
+      "mode": 4,
+      "scenario": "cluster",
+      "seed": 63002
+    },
+    {
+      "mode": 4,
+      "scenario": "cluster",
+      "seed": 63003
+    },
+    {
+      "mode": 4,
+      "scenario": "cluster",
+      "seed": 63004
+    },
+    {
+      "mode": 4,
+      "scenario": "cluster",
+      "seed": 63005
+    },
+    {
+      "mode": 4,
+      "scenario": "cluster",
+      "seed": 63006
+    },
+    {
+      "mode": 4,
+      "scenario": "cluster",
+      "seed": 63007
+    },
+    {
+      "mode": 4,
+      "scenario": "cluster",
+      "seed": 63008
+    },
+    {
+      "mode": 4,
+      "scenario": "cluster",
+      "seed": 63009
+    },
+    {
+      "mode": 4,
+      "scenario": "min_radius",
+      "seed": 62000
+    },
+    {
+      "mode": 4,
+      "scenario": "min_radius",
+      "seed": 62001
+    },
+    {
+      "mode": 4,
+      "scenario": "min_radius",
+      "seed": 62002
+    },
+    {
+      "mode": 4,
+      "scenario": "min_radius",
+      "seed": 62003
+    },
+    {
+      "mode": 4,
+      "scenario": "min_radius",
+      "seed": 62004
+    },
+    {
+      "mode": 4,
+      "scenario": "min_radius",
+      "seed": 63000
+    },
+    {
+      "mode": 4,
+      "scenario": "min_radius",
+      "seed": 63001
+    },
+    {
+      "mode": 4,
+      "scenario": "min_radius",
+      "seed": 63002
+    },
+    {
+      "mode": 4,
+      "scenario": "min_radius",
+      "seed": 63003
+    },
+    {
+      "mode": 4,
+      "scenario": "min_radius",
+      "seed": 63004
+    },
+    {
+      "mode": 4,
+      "scenario": "min_radius",
+      "seed": 63005
+    },
+    {
+      "mode": 4,
+      "scenario": "min_radius",
+      "seed": 63006
+    },
+    {
+      "mode": 4,
+      "scenario": "min_radius",
+      "seed": 63007
+    },
+    {
+      "mode": 4,
+      "scenario": "min_radius",
+      "seed": 63008
+    },
+    {
+      "mode": 4,
+      "scenario": "min_radius",
+      "seed": 63009
+    }
+  ],
+  "per_round": {
+    "candidate_train_stress": 15,
+    "candidate_dev_stress": 30,
+    "candidate_stress": 45,
+    "baseline_stress": 45,
+    "total_stress": 90,
+    "total_inner": 240
+  },
+  "files": [
+    {
+      "path": "experiments/A3_coordination/research/r1_train.json",
+      "sha256": "bdffa121b80187b966407ba7de9177812b10e3555adae03621135dbb16067e7a",
+      "round": 1,
+      "split": "train",
+      "rows_by_variant": {
+        "baseline": 40,
+        "candidate": 40
+      },
+      "all_directional_stress_rows_by_variant": {
+        "baseline": 15,
+        "candidate": 15
+      }
+    },
+    {
+      "path": "experiments/A3_coordination/research/r1_dev.json",
+      "sha256": "fb68323bf03ad0acdcb352d7e34374c85c9b554b11d4b12a7ae1f62983f6d7f0",
+      "round": 1,
+      "split": "dev",
+      "rows_by_variant": {
+        "baseline": 80,
+        "candidate": 80
+      },
+      "all_directional_stress_rows_by_variant": {
+        "baseline": 30,
+        "candidate": 30
+      }
+    },
+    {
+      "path": "experiments/A3_coordination/research/r2_train.json",
+      "sha256": "665dfd6062a6c6b6e43fb368790abf08410014b52a93bf6c3e813261e4995fba",
+      "round": 2,
+      "split": "train",
+      "rows_by_variant": {
+        "baseline": 40,
+        "candidate": 40
+      },
+      "all_directional_stress_rows_by_variant": {
+        "baseline": 15,
+        "candidate": 15
+      }
+    },
+    {
+      "path": "experiments/A3_coordination/research/r2_dev.json",
+      "sha256": "73ba8d091bffedde77204c6a14777e7e2971b7219a5bf67f12b7f3c52316ad8d",
+      "round": 2,
+      "split": "dev",
+      "rows_by_variant": {
+        "baseline": 80,
+        "candidate": 80
+      },
+      "all_directional_stress_rows_by_variant": {
+        "baseline": 30,
+        "candidate": 30
+      }
+    },
+    {
+      "path": "experiments/A3_coordination/research/r3_train.json",
+      "sha256": "8ca26e861d4c073f8830db30d74b24aa0ac05fcee4fb3ac3daa990ce1bbf6b87",
+      "round": 3,
+      "split": "train",
+      "rows_by_variant": {
+        "baseline": 40,
+        "candidate": 40
+      },
+      "all_directional_stress_rows_by_variant": {
+        "baseline": 15,
+        "candidate": 15
+      }
+    },
+    {
+      "path": "experiments/A3_coordination/research/r3_dev.json",
+      "sha256": "6882e29f6ec7f4a67cd19dd47d55d9d98e3f340f83c9c5eefd4fdc6cdffcbdc4",
+      "round": 3,
+      "split": "dev",
+      "rows_by_variant": {
+        "baseline": 80,
+        "candidate": 80
+      },
+      "all_directional_stress_rows_by_variant": {
+        "baseline": 30,
+        "candidate": 30
+      }
+    }
+  ],
+  "best_file_sha256": "e6ddbd6f2f14ccb3fe50cf5c409d341498dc77919d668e06d7f15822a082b305",
+  "solver_sha256": "236958ef338808b621690f72ef7c0d637d13ba6d0716d9722ea892f588f73fa3",
+  "interpretation": "270/720 inner executions (37.5%) are outside-problem all-directional pressure development, covering 45 unique cases repeated across variants and rounds. The combined inner Q4 means include 75% pressure cases and are not means for the legal mixed-source Q4 distribution. Existing full results and the best/stop decision are unchanged."
+}
