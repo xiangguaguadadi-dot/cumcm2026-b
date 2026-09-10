@@ -13,6 +13,11 @@ put('\n## 1. 当前可交付结论')
 put(f'\n已完成{len(rounds)}轮冻结候选。当前最佳是第{best["round"]}轮（0表示原版），Q3={best["means_s_per_source"]["3"]:.9f}、Q4={best["means_s_per_source"]["4"]:.9f}秒/源，两题分别全清{best["complete"]["3"]}/1200与{best["complete"]["4"]}/1200。')
 put('\n第一轮的静态参数搜索未改善固定回归。第二轮学得的上下文调度在第四问改善，但第三问退步，故保留为取舍而未把它记为联合最佳。第三轮据此固定第三问原配置，继续在自建数据中优化第四问。这些选择都属于公开逐轮迭代；没有按v1案例编号、源真值或回归场景标签决策。')
 put('\n本研究的主要可复用发现，是把“完整清除的解析证书”和“效率的经验优化”分开：学习得到的均值改进没有承担完整性证明。源可行区域、认证覆盖点、光学格点兜底和退出证书保留原实现。对于性能，所有退步场景和失败均保留，不能宣称逐场景普遍胜出或数学收敛。')
+if best.get('search_status')=='stopped_by_protocol':
+ put(f'\n参数搜索已按连续两轮未刷新规则结束。最终Q4相对原版570.883371444秒/源改善{100*(1-best["means_s_per_source"]["4"]/570.8833714439976):.4f}%；Q3逐案例请求次数、路程与虚拟耗时均保持原版，不能算作学习提升。')
+ complete=[h for h in best['history'] if h['all_complete']]
+ nondominated=[h['round'] for h in complete if not any(all(j['means_s_per_source'][m]<=h['means_s_per_source'][m]+1e-9 for m in ['3','4']) and any(j['means_s_per_source'][m]<h['means_s_per_source'][m]-1e-9 for m in ['3','4']) for j in complete)]
+ put('\n最终非支配候选轮次为'+str(nondominated)+'，它们对应相同Q3/Q4均值点；按最早已验证最佳保留R7。R2在当时相对原版属于取舍，现已被R7两题均改善而支配，保留其代码和全部结果用于解释历史，不能把它继续称为最终非支配解。')
 put('\n## 2. 题目操作化与现有求解器')
 put('\n状态是机器狗位置/当前频道、已清除频道集合、从公开bearing形成的保守多边形、扫描站登记。动作输入仅来自`enter/measure/clear/exit`。隐藏状态包括源数、位置、类型、半径、方向及固定误差场。训练模拟器可使用这些真值产生观测，策略通过`InterfaceOnly`接入；训练奖励在整局结束后核算，未用特权教师动作。')
 put('\n总时间为`路程/5 + 5×测向数 + 换频道数 + 3×光学尝试数 + 2×成功清除数`。重复同址测向不能削弱固定误差。对定向源，失去信号并不表明源消失，光学清除却不受发射方向限制。因此，单纯最大化信息量、最小化坐标误差或最短遍历已知目标，均不直接等价于本题目标。')
@@ -110,6 +115,9 @@ if (B/'development_ablation/summary.json').exists():
  put('\n|策略|全清|均值秒/源|相对选中策略变化|\n|---|---:|---:|---:|')
  for name,v in ab.items():put(f'|{name}|{v["complete"]}/{v["n"]}|{v["mean_s"]:.6f}|{v["mean_s"]-ab["selected"]["mean_s"]:+.6f}|')
  put('\n这能描述该开发分布上的条件效果，不能推论某特征在官方分布上具有单独因果贡献。额外模拟预算保存于development_ablation/budget.json。')
+ improvements=[f'{name.removeprefix("without_")}（移除后快{ab["selected"]["mean_s"]-v["mean_s"]:.6f}秒/源）' for name,v in ab.items() if name.startswith('without_') and v['mean_s']<ab['selected']['mean_s']]
+ if improvements:put('\n反向证据：'+ '；'.join(improvements)+'。因此不能将这些特征逐个描述为有效；例如R7的四权重整体比较并不证明边界项单独贡献正收益。该诊断在停止和冻结之后进行，没有将任何更快的移除变体转成新候选，也没有追加v1选参。')
+
 if (B/'reproduced/r3/replay_comparison.json').exists():
  replay=json.loads((B/'reproduced/r3/replay_comparison.json').read_text());put('\n第三轮训练已在一次性新目录真实重放，完整再运行5760局，重新选出的两题配置与历史记录比较：'+json.dumps(replay,ensure_ascii=False)+'。这是复现检查，非额外候选选择或新的泛化验证；原始重放逐局结果与预算在reproduced/r3。')
 

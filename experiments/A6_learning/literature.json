@@ -42,7 +42,7 @@
       "paper_evidence_and_limits": "MuJoCo及LQR实验；正文也强调小样本随机种子评估和超参数造成高方差，静态线性策略并非在所有环境均压倒其他方法。",
       "inspiration": "任务时间可作为整局反馈，先训练小而可解释的策略，不必先假定深网必要。",
       "implementation_mapping": "进入各轮训练器的参数空间采样及物理特征归一化；本实现采用精英保留搜索，不是ARS梯度更新复刻。",
-      "empirical_support": "参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。",
+      "empirical_support": "参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。 停止后的开发诊断2592/2592全清；移除station_gain、workload、boundary在该已暴露开发集反而更快，不能给每个学得特征都分配正收益；未据此再调参。",
       "round_links": [
         {
           "round": 1,
@@ -115,7 +115,14 @@
         "solver.py:Solver.learned_source_cost"
       ],
       "implemented_as_paper_algorithm": false,
-      "principle_or_mechanism_adopted": true
+      "principle_or_mechanism_adopted": true,
+      "diagnostic_links": [
+        {
+          "path": "experiments/A6_learning/development_ablation/summary.json",
+          "scope": "post-selection exposed R7 development; 9 variants x 288 cases; no tuning",
+          "purpose": "conditional single-feature removal diagnostic, not a new holdout"
+        }
+      ]
     },
     {
       "id": "dagger",
@@ -212,7 +219,8 @@
         "scripts/train_policy.py:episode (induced-policy trajectories; NOT DAgger)"
       ],
       "implemented_as_paper_algorithm": false,
-      "principle_or_mechanism_adopted": true
+      "principle_or_mechanism_adopted": true,
+      "diagnostic_links": []
     },
     {
       "id": "attention",
@@ -238,7 +246,7 @@
       "paper_evidence_and_limits": "TSP、VRP、OP、PCTSP，生成20/50/100节点；训练与测试采样/贪心的预算不同，论文也区分精确求解器与学得启发式。",
       "inspiration": "同一候选集合的相对关系比只看最近目标更有价值；和当前最佳在同一自建实例配对比较。",
       "implementation_mapping": "第2轮观测集合的密度与后续站距离特征、每轮配对开发选择；未移植注意力模型，因为本题源位置未知且节点动态出现，预训练TSP坐标输入越界。",
-      "empirical_support": "第2轮上下文调度：Q3 306.814064472退步、Q4 552.956003578改善；第3轮恢复Q3后取得联合改进。整体候选比较支持Q4调度有效，但不等于attention网络复现或单一特征因果证明。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。",
+      "empirical_support": "第2轮上下文调度：Q3 306.814064472退步、Q4 552.956003578改善；第3轮恢复Q3后取得联合改进。整体候选比较支持Q4调度有效，但不等于attention网络复现或单一特征因果证明。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。 停止后的开发诊断2592/2592全清；移除station_gain、workload、boundary在该已暴露开发集反而更快，不能给每个学得特征都分配正收益；未据此再调参。",
       "round_links": [
         {
           "round": 2,
@@ -304,7 +312,14 @@
         "scripts/train_policy.py:main (paired development)"
       ],
       "implemented_as_paper_algorithm": false,
-      "principle_or_mechanism_adopted": true
+      "principle_or_mechanism_adopted": true,
+      "diagnostic_links": [
+        {
+          "path": "experiments/A6_learning/development_ablation/summary.json",
+          "scope": "post-selection exposed R7 development; 9 variants x 288 cases; no tuning",
+          "purpose": "conditional single-feature removal diagnostic, not a new holdout"
+        }
+      ]
     },
     {
       "id": "shield",
@@ -333,7 +348,7 @@
       "paper_evidence_and_limits": "网格、驾驶、Seaquest、水箱；节选网格实验展示合成和学习。不能由奖励惩罚推导绝对安全，规范复杂度会放大shield。",
       "inspiration": "学习负责效率，独立解析覆盖负责完整性；不让学得概率提前判定频道不存在。",
       "implementation_mapping": "所有轮保留certified_points、run退出证书、cover_polygon和预算切换。没有实现LTL合成，属于设计原则迁移。",
-      "empirical_support": "全部9轮full分别2400/2400完整清除；核心覆盖/清除/终止函数保留并做AST审查。可靠性解析依据写于report第6节；没有LTL自动合成实验。",
+      "empirical_support": "全部9轮full分别2400/2400完整清除；核心覆盖/清除/终止函数保留并做AST审查。可靠性解析依据写于report第6节；没有LTL自动合成实验。 停止后的开发诊断2592/2592全清；移除station_gain、workload、boundary在该已暴露开发集反而更快，不能给每个学得特征都分配正收益；未据此再调参。",
       "round_links": [
         {
           "round": 1,
@@ -398,7 +413,14 @@
         "scripts/audit_policy.py"
       ],
       "implemented_as_paper_algorithm": false,
-      "principle_or_mechanism_adopted": true
+      "principle_or_mechanism_adopted": true,
+      "diagnostic_links": [
+        {
+          "path": "experiments/A6_learning/development_ablation/summary.json",
+          "scope": "post-selection exposed R7 development; 9 variants x 288 cases; no tuning",
+          "purpose": "conditional single-feature removal diagnostic, not a new holdout"
+        }
+      ]
     },
     {
       "id": "es",
@@ -426,7 +448,7 @@
       "paper_evidence_and_limits": "MuJoCo与Atari；大量CPU并行的现实加速不等于低样本数，也不提供本题可靠性。",
       "inspiration": "动作频率和长时延回报不会阻止参数空间学习；适合既有确定求解器。",
       "implementation_mapping": "训练器采用候选参数扰动和整局反馈；未复刻通信噪声表、Adam或大型网络。",
-      "empirical_support": "参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。",
+      "empirical_support": "参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。 停止后的开发诊断2592/2592全清；移除station_gain、workload、boundary在该已暴露开发集反而更快，不能给每个学得特征都分配正收益；未据此再调参。",
       "round_links": [
         {
           "round": 1,
@@ -497,7 +519,14 @@
         "scripts/train_policy.py:main (parameter-space search inspiration only)"
       ],
       "implemented_as_paper_algorithm": false,
-      "principle_or_mechanism_adopted": true
+      "principle_or_mechanism_adopted": true,
+      "diagnostic_links": [
+        {
+          "path": "experiments/A6_learning/development_ablation/summary.json",
+          "scope": "post-selection exposed R7 development; 9 variants x 288 cases; no tuning",
+          "purpose": "conditional single-feature removal diagnostic, not a new holdout"
+        }
+      ]
     },
     {
       "id": "ppo",
@@ -530,7 +559,8 @@
       "classification_confidence": "high",
       "implementation_functions": [],
       "implemented_as_paper_algorithm": false,
-      "principle_or_mechanism_adopted": false
+      "principle_or_mechanism_adopted": false,
+      "diagnostic_links": []
     },
     {
       "id": "bo",
@@ -561,7 +591,8 @@
       "classification_confidence": "high",
       "implementation_functions": [],
       "implemented_as_paper_algorithm": false,
-      "principle_or_mechanism_adopted": false
+      "principle_or_mechanism_adopted": false,
+      "diagnostic_links": []
     },
     {
       "id": "pilco",
@@ -591,7 +622,8 @@
       "classification_confidence": "high",
       "implementation_functions": [],
       "implemented_as_paper_algorithm": false,
-      "principle_or_mechanism_adopted": false
+      "principle_or_mechanism_adopted": false,
+      "diagnostic_links": []
     },
     {
       "id": "neural_co",
@@ -619,7 +651,7 @@
       "paper_evidence_and_limits": "TSP/背包的图实例有已知坐标或物品值；本题不能在部署时访问真实目标坐标。",
       "inspiration": "直接用任务代价训练，比模仿一份并非最优的路线标签更贴合目标。",
       "implementation_mapping": "整局直接目标进入训练器；未实现指针网络，亦不在v1上做单实例active search。",
-      "empirical_support": "参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。",
+      "empirical_support": "参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。 停止后的开发诊断2592/2592全清；移除station_gain、workload、boundary在该已暴露开发集反而更快，不能给每个学得特征都分配正收益；未据此再调参。",
       "round_links": [
         {
           "round": 1,
@@ -691,7 +723,14 @@
         "scripts/train_policy.py:evaluate (whole-episode objective only)"
       ],
       "implemented_as_paper_algorithm": false,
-      "principle_or_mechanism_adopted": true
+      "principle_or_mechanism_adopted": true,
+      "diagnostic_links": [
+        {
+          "path": "experiments/A6_learning/development_ablation/summary.json",
+          "scope": "post-selection exposed R7 development; 9 variants x 288 cases; no tuning",
+          "purpose": "conditional single-feature removal diagnostic, not a new holdout"
+        }
+      ]
     },
     {
       "id": "gp_sensor",
@@ -788,7 +827,8 @@
         "scripts/train_policy.py:make_training_case (correlated noise coverage)"
       ],
       "implemented_as_paper_algorithm": false,
-      "principle_or_mechanism_adopted": true
+      "principle_or_mechanism_adopted": true,
+      "diagnostic_links": []
     }
   ],
   "coverage_limits": "核心4篇为实际正文深读，扩展6篇为明确范围的正文节选；并未完整阅读所有附录，亦未做这些论文算法的同预算实现对照。"

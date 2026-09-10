@@ -25,6 +25,8 @@ for hist in best['history']:
  checks[f'r{n}_quick_hash']=quicksummary['candidate_sha256']==hist['solver_sha256']
  checks[f'r{n}_quick_complete']=len(quickcandidate)==120 and all(r['complete'] and r['error'] is None and r['exit_reason']=='user_exit' for r in quickcandidate)
  checks[f'r{n}_unique_full_ids']=len({r['case_id'] for r in z})==2400
+ nominal=json.loads((B/f'r{n}_nominal.json').read_text())
+ checks[f'r{n}_nominal_79']=len(nominal['checks'])==79 and all(v['passed'] for v in nominal['checks'])
  checks[f'r{n}_quick_subset_full']={r['case_id'] for r in quickcandidate}<={r['case_id'] for r in z}
  if n>=2:
   boundary=json.loads((B/f'r{n}_boundary_audit.json').read_text())

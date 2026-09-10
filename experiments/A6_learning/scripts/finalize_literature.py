@@ -43,5 +43,10 @@ for paper in x['papers']:
   trace='；'.join(f'R{h["round"]}: Q3={h["means_s_per_source"]["3"]:.6f}, Q4={h["means_s_per_source"]["4"]:.6f}, {h["decision"]}' for h in best['history'])
   paper['empirical_support']+=' 全轮full轨迹（秒/源）：'+trace+'。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。'
   paper['implementation_mapping']=paper['implementation_mapping'].replace('直接进入三轮训练器','进入各轮训练器')
+for paper in x['papers']:
+ paper['diagnostic_links']=[]
+ if (B/'development_ablation/summary.json').exists() and paper['id'] in ('ars','attention','es','neural_co','shield'):
+  paper['diagnostic_links']=[dict(path='experiments/A6_learning/development_ablation/summary.json',scope='post-selection exposed R7 development; 9 variants x 288 cases; no tuning',purpose='conditional single-feature removal diagnostic, not a new holdout')]
+  paper['empirical_support']+=' 停止后的开发诊断2592/2592全清；移除station_gain、workload、boundary在该已暴露开发集反而更快，不能给每个学得特征都分配正收益；未据此再调参。'
 x['coverage_limits']='核心4篇为实际正文深读，扩展6篇为明确范围的正文节选；并未完整阅读所有附录，亦未做这些论文算法的同预算实现对照。'
 p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
