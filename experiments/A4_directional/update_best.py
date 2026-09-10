@@ -1,0 +1,10 @@
+"""Provenance only: run after the matching code/results commit, before metadata commit."""
+import pathlib,hashlib,json,subprocess,statistics,sys
+root=pathlib.Path(__file__).resolve().parents[2];p=root/'experiments/A4_directional';n=int(sys.argv[1]);total=int(sys.argv[2]) if len(sys.argv)>2 else n
+cand=p/f'candidates/r{n}_solver.py';rp=p/f'results/r{n}_full';rows=json.loads((rp/'case_metrics.json').read_text());sha=lambda x:hashlib.sha256(x.read_bytes()).hexdigest();summary=json.loads((rp/'summary.json').read_text())
+assert summary['candidate_sha256']==sha(cand)
+assert all(r['complete'] for r in rows)
+code_commit=subprocess.check_output(['git','log','-1','--format=%H','--',str(cand.relative_to(root))],cwd=root,text=True).strip()
+config=dict(visibility_prior_omni=.5,orientation_quadrature=36,visibility_penalty_m=600,optical_switch=n>=2,optical_radius=300 if n>=2 else None,optical_order='nearer snake end' if n>=2 else 'original snake')
+b=dict(agent='A4_directional',best_round=n,total_rounds=total,best_solver_absolute=str(cand),best_solver_relative=str(cand.relative_to(root)),solver_sha256=sha(cand),auxiliary_files={},weights=[],configuration=config,configuration_sha256=hashlib.sha256(json.dumps(config,sort_keys=True,separators=(',',':')).encode()).hexdigest(),full_results_relative=str(rp.relative_to(root)),full_results_absolute=str(rp),code_commit=code_commit,manifest_sha256=sha(root/'evaluation/manifest_v1.json'),metrics={str(m):dict(mean_seconds_per_source=statistics.mean(x['average_clear_time_s'] for x in rows if x['mode']==m and x['variant']=='candidate'),complete=sum(x['complete'] for x in rows if x['mode']==m and x['variant']=='candidate'),total=1200) for m in [3,4]},status='in_progress',notes='快照是独立标准库solver；无辅助权重或运行配置文件。Q3逐案例完全相同；v1固定开发回归不是盲测。')
+(p/'best.json').write_text(json.dumps(b,ensure_ascii=False,indent=2))
