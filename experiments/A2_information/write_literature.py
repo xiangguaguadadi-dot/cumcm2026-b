@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
-home=Path(__file__).resolve().parent
-downloads={x['id']:x for x in json.loads((home/'research/downloads.json').read_text())}
+OUTBASE=Path(__file__).resolve().parent
+downloads={x['id']:x for x in json.loads((OUTBASE/'research/downloads.json').read_text())}
 rows=[
  dict(id='L1',arxiv='1908.00380',title='Optimization-based Control for Bearing-only Target Search with a Mobile Vehicle',authors=['Zhuo Li','Keyou You','Shiji Song','Anke Xue'],year=2019,version='v1, 2019-08-01',tier='core',path=['信息驱动运动','估计与任务联合控制','D-optimal信息与接近目标双目标'],read='正文 p.1–4 的 I–III；p.5 的 IV-A 估计器；p.7–9 的 VI–VII 仿真与结论。不是全文深读，附录证明未完整阅读。',problem='单 Dubins 移动体仅用测向，尽快接近未知静止目标。',mechanism='把 FIM 行列式与距离平方下降联合优化，归一化后用权重控制估计与靠近目标的取舍，以递归最小二乘估计目标。',evidence='正文 VI 比较 β=0/1/2/3：纯估计倾向绕行，过大的接近目标权重可能收敛到错误估计位置；其仿真使用 vc=4m/s、h=0.25s、单个二维目标。',limitations='以高斯独立噪声的CRLB、已知动力学和点估计为基础；不保证本题有界固定误差、未知可见性和多源全清。论文数值与本题不可直接比较。',inspiration='按任务完成时间评价观测，不把交会角或估计方差当最终目标。',adoption='部分原则进入 r1/r2/r3 的 second_point；不是该论文控制器复现。用虚拟秒而不是论文无量纲加权目标。',functions=['Solver.second_point'],not_used='未用 Dubins 模型、递归最小二乘、CRLB权重或GPS-free控制器；本题动作和可靠性要求不同。'),
  dict(id='L2',arxiv='2603.04867',title='Set-Membership Localization via Range Measurements',authors=['Giuseppe C. Calafiore'],year=2026,version='下载正文含期刊接受声明；本次仅核验 arXiv 原文，未独立核验期刊出版状态',tier='core',path=['不确定性表示','未知但有界误差','凸外包集合与包含证书'],read='正文 p.1–4 问题/相关工作；p.7–10 的第3节；p.13–17 的第5节；p.19–20实验设置；p.23–24外点讨论/结论。第4节SDP推导和全部数值表未完整深读。',problem='已知锚点，带区间误差的距离测量下返回保证包含真实位置的区域。',mechanism='差分距离方程得到多面体，与接收球相交形成凸外包，再用SOCP/SDP计算外包盒/椭球。',evidence='第3节给出真集合包含于外包集合的证明；第5节给出外包盒与椭球程序；第7节在2D/3D、随机锚点、100次重复上评估集合尺寸和包含率。第8节承认几何保守度仍缺正式刻画。',limitations='距离测量而非方位；其凸外包保守性依几何而变，外包中心不一定属于原始非凸可行集。误差越界时扩大到非空不能重新保证包含实际真值。',inspiration='保留“用于决策的点/分布”和“用于全清证明的外包集合”两层；研究整个可行域允许的最近清除点。',adoption='r1–r6保留多边形与包围圆作为证书；r3的全顶点清除动作、r4/r5的有效切面细化、r6全向无信号排除凸包是本题自创几何步骤，不是论文SOCP复现。',functions=['Solver.belief_quadrature','Solver.predicted_polygon','Solver.localize','Solver.nearest_certified_clear','add_bearing','outside_disk_hull','Solver.apply_no_signal_constraints'],not_used='不新增距离传感器，不实现差分距离方程或SOCP/SDP；现有方位半平面交已更直接。'),
@@ -16,4 +16,20 @@ rows=[
 for r in rows:
  d=downloads[r['arxiv']];r.update(url='https://arxiv.org/abs/'+r['arxiv'],pdf_url=d['url'],pdf_sha256=d['sha256'],pages=d['pages'],source_level='primary_author_paper',identity_verified='题名/作者/版本核验下载正文；未独立核验正式录用身份',read_date='2026-09-11',project_url=None,code_url=None,dataset_url=None,awards='not_checked',classification_confidence='high' if r['tier']=='core' else 'medium',local_evidence='research/'+r['arxiv']+'.txt (本地下载缓存，不入Git)')
 obj=dict(research_cutoff='2026-09-11',scope='低维有界方位定位中的主动观测、信息价值和任务时间；广泛机制覆盖但不是穷尽系统综述',core_count=4,extended_count=5,deduplication='按 arXiv ID 去重，版本/标题变化保留在 version；只把实际阅读的方法与实验称作深读',queries=[{'query':'bearing only target localization optimal observer motion Fisher information determinant bounded error localization mobile sensor','provider':'web search','status':'connection failed twice; no usable response'},{'query':'set membership bearing only localization active sensing bounded error sensor placement','provider':'web search','status':'connection failed'},{'query':'all:bearings-only AND all:localization','url':'https://export.arxiv.org/api/query?search_query=all:bearings-only+AND+all:localization&start=0&max_results=8','status':'no usable response body'},{'query':'"bearing-only" title','url':'https://arxiv.org/search/?query=%22bearing-only%22&searchtype=title&abstracts=show&order=-announced_date_first&size=50','status':'read original search results, 50-result page'},{'query':'"information gathering" title','url':'https://arxiv.org/search/?query=%22information+gathering%22&searchtype=title&abstracts=show&order=&size=50','status':'read original search results, 50-result page'},{'query':'"set-membership" AND "localization" all','url':'https://arxiv.org/search/?query=%22set-membership%22+AND+%22localization%22&searchtype=all&abstracts=show&order=-announced_date_first&size=50','status':'read original search results; relevance screening needed'}],access='direct curl --noproxy * to arXiv author manuscripts; nine successful PDF downloads, SHA256 retained',coverage_limits=['没有声称覆盖全部文献','没有复现论文原始基准','五篇扩展来源阅读深度有限并显式标明','未统一核对出版会刊与奖项','当前决定来自题面与本地实验，不能套用论文性能数字'],papers=rows)
-(home/'literature.json').write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n')
+for row in rows:
+ if row['id']=='L2':
+  row['adoption']='r1–r9保留外包证书；r3全顶点清除动作、r4/r5有效切面、r6全向无信号排除、r7假想点筛选、r8光学失败排除、r9两次约束传播，均是本题自创几何或规划步骤，不是论文SOCP复现。'
+  row['functions']+=['Solver.planning_hypotheses','Solver.apply_failed_clear_constraints','Solver.apply_observed_exclusions']
+ if row['id']=='L3':
+  row['adoption']+=' R7对规划假想点做观测一致性筛选，仍不代表精确后验。'
+  row['functions']+=['Solver.planning_hypotheses']
+ round_ids={'L1':[1,2,3],'L2':[1,3,4,5,6,7,8,9],'L3':[1,2,3,7],'L4':[1,2,3],'L9':[2]}.get(row['id'],[])
+ row['round_links']=[{'round':k,'candidate':'candidates/r'+str(k)+'_solver.py','results':'../../results/A2_information_r'+str(k)+'_full'} for k in round_ids]
+ if row['id'] in ['L1','L3','L4']:
+  row['empirical_support']='R1 Q3改善2.1289%但Q4退步1.4152%；R2缓和Q4退步而未优于基准；R3关闭Q4主动测点。它支持任务模型需要观测失效分支的局部经验，不是原论文算法复现或单篇论文的因果归因。'
+  if row['id']=='L3':row['empirical_support']+=' R7只比R6快0.0057839893秒/源，Q4相同，这一极小差异不足以称稳健改进。'
+ elif row['id']=='L2':
+  row['empirical_support']='R3首次两题均值优于基准；R4改善Q3但Q4小幅退步，压力开发暴露计算退化；R5控制复杂度；R6与R7继续刷新Q3，R7增益极小；R8两题均值改善到285.86670335/568.44941153。R9为285.95192367/568.40397853，两题取舍，严格最佳仍R8。多步骤相继迭代而非单因素独立消融，不把累计改进归因于论文。'
+ elif row['id']=='L9':row['empirical_support']='仅概念提醒进入R2；Q4从578.96236624降为574.81712193，但仍慢于570.88337144基准，因此R3禁用Q4该规划器。没有复现论文控制器。'
+ else:row['empirical_support']='没有实现或实验，不对本题改进作效果归因；仅承担竞争方案和未采用理由。'
+(OUTBASE/'literature.json').write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n')

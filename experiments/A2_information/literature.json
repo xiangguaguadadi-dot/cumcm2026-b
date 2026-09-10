@@ -86,7 +86,25 @@
       "dataset_url": null,
       "awards": "not_checked",
       "classification_confidence": "high",
-      "local_evidence": "research/1908.00380.txt (本地下载缓存，不入Git)"
+      "local_evidence": "research/1908.00380.txt (本地下载缓存，不入Git)",
+      "round_links": [
+        {
+          "round": 1,
+          "candidate": "candidates/r1_solver.py",
+          "results": "../../results/A2_information_r1_full"
+        },
+        {
+          "round": 2,
+          "candidate": "candidates/r2_solver.py",
+          "results": "../../results/A2_information_r2_full"
+        },
+        {
+          "round": 3,
+          "candidate": "candidates/r3_solver.py",
+          "results": "../../results/A2_information_r3_full"
+        }
+      ],
+      "empirical_support": "R1 Q3改善2.1289%但Q4退步1.4152%；R2缓和Q4退步而未优于基准；R3关闭Q4主动测点。它支持任务模型需要观测失效分支的局部经验，不是原论文算法复现或单篇论文的因果归因。"
     },
     {
       "id": "L2",
@@ -109,7 +127,7 @@
       "evidence": "第3节给出真集合包含于外包集合的证明；第5节给出外包盒与椭球程序；第7节在2D/3D、随机锚点、100次重复上评估集合尺寸和包含率。第8节承认几何保守度仍缺正式刻画。",
       "limitations": "距离测量而非方位；其凸外包保守性依几何而变，外包中心不一定属于原始非凸可行集。误差越界时扩大到非空不能重新保证包含实际真值。",
       "inspiration": "保留“用于决策的点/分布”和“用于全清证明的外包集合”两层；研究整个可行域允许的最近清除点。",
-      "adoption": "r1–r6保留多边形与包围圆作为证书；r3的全顶点清除动作、r4/r5的有效切面细化、r6全向无信号排除凸包是本题自创几何步骤，不是论文SOCP复现。",
+      "adoption": "r1–r9保留外包证书；r3全顶点清除动作、r4/r5有效切面、r6全向无信号排除、r7假想点筛选、r8光学失败排除、r9两次约束传播，均是本题自创几何或规划步骤，不是论文SOCP复现。",
       "functions": [
         "Solver.belief_quadrature",
         "Solver.predicted_polygon",
@@ -117,7 +135,10 @@
         "Solver.nearest_certified_clear",
         "add_bearing",
         "outside_disk_hull",
-        "Solver.apply_no_signal_constraints"
+        "Solver.apply_no_signal_constraints",
+        "Solver.planning_hypotheses",
+        "Solver.apply_failed_clear_constraints",
+        "Solver.apply_observed_exclusions"
       ],
       "not_used": "不新增距离传感器，不实现差分距离方程或SOCP/SDP；现有方位半平面交已更直接。",
       "url": "https://arxiv.org/abs/2603.04867",
@@ -132,7 +153,50 @@
       "dataset_url": null,
       "awards": "not_checked",
       "classification_confidence": "high",
-      "local_evidence": "research/2603.04867.txt (本地下载缓存，不入Git)"
+      "local_evidence": "research/2603.04867.txt (本地下载缓存，不入Git)",
+      "round_links": [
+        {
+          "round": 1,
+          "candidate": "candidates/r1_solver.py",
+          "results": "../../results/A2_information_r1_full"
+        },
+        {
+          "round": 3,
+          "candidate": "candidates/r3_solver.py",
+          "results": "../../results/A2_information_r3_full"
+        },
+        {
+          "round": 4,
+          "candidate": "candidates/r4_solver.py",
+          "results": "../../results/A2_information_r4_full"
+        },
+        {
+          "round": 5,
+          "candidate": "candidates/r5_solver.py",
+          "results": "../../results/A2_information_r5_full"
+        },
+        {
+          "round": 6,
+          "candidate": "candidates/r6_solver.py",
+          "results": "../../results/A2_information_r6_full"
+        },
+        {
+          "round": 7,
+          "candidate": "candidates/r7_solver.py",
+          "results": "../../results/A2_information_r7_full"
+        },
+        {
+          "round": 8,
+          "candidate": "candidates/r8_solver.py",
+          "results": "../../results/A2_information_r8_full"
+        },
+        {
+          "round": 9,
+          "candidate": "candidates/r9_solver.py",
+          "results": "../../results/A2_information_r9_full"
+        }
+      ],
+      "empirical_support": "R3首次两题均值优于基准；R4改善Q3但Q4小幅退步，压力开发暴露计算退化；R5控制复杂度；R6与R7继续刷新Q3，R7增益极小；R8两题均值改善到285.86670335/568.44941153。R9为285.95192367/568.40397853，两题取舍，严格最佳仍R8。多步骤相继迭代而非单因素独立消融，不把累计改进归因于论文。"
     },
     {
       "id": "L3",
@@ -157,11 +221,12 @@
       "evidence": "§III公式(14)–(18)比较有限样本测量预测MSE；§IV使用粒子Bernoulli滤波、RSS路径损耗、动态/静态目标；场地试验每法10次，表II平均任务时间MEXGEN 290s、MC-8 326s、PIM333s。",
       "limitations": "测量预测MSE保证并非任意信息增益或闭环任务代价的保证；测向是周期量，方向翻转/无信号使本题观测分布不适合直接取算术平均。原论文失败超过1000秒的耗时结果被丢弃，本题仍保存全部失败。",
       "inspiration": "不能把多边形中心当唯一未来真值；有限求积考虑多个假想目标，并逐一推演后验。",
-      "adoption": "r1/r2/r3 的 belief_quadrature 和 predicted_polygon 受该区分启发；采用多假设显式推演，不是MEXGEN平均观测，也未声称继承其理论界或加速比。",
+      "adoption": "r1/r2/r3 的 belief_quadrature 和 predicted_polygon 受该区分启发；采用多假设显式推演，不是MEXGEN平均观测，也未声称继承其理论界或加速比。 R7对规划假想点做观测一致性筛选，仍不代表精确后验。",
       "functions": [
         "Solver.belief_quadrature",
         "Solver.predicted_polygon",
-        "Solver.second_point"
+        "Solver.second_point",
+        "Solver.planning_hypotheses"
       ],
       "not_used": "不直接平均方位、不引入Bernoulli粒子滤波或RSS模型；其观测/动力学与本题不同。",
       "url": "https://arxiv.org/abs/2405.02605",
@@ -176,7 +241,30 @@
       "dataset_url": null,
       "awards": "not_checked",
       "classification_confidence": "high",
-      "local_evidence": "research/2405.02605.txt (本地下载缓存，不入Git)"
+      "local_evidence": "research/2405.02605.txt (本地下载缓存，不入Git)",
+      "round_links": [
+        {
+          "round": 1,
+          "candidate": "candidates/r1_solver.py",
+          "results": "../../results/A2_information_r1_full"
+        },
+        {
+          "round": 2,
+          "candidate": "candidates/r2_solver.py",
+          "results": "../../results/A2_information_r2_full"
+        },
+        {
+          "round": 3,
+          "candidate": "candidates/r3_solver.py",
+          "results": "../../results/A2_information_r3_full"
+        },
+        {
+          "round": 7,
+          "candidate": "candidates/r7_solver.py",
+          "results": "../../results/A2_information_r7_full"
+        }
+      ],
+      "empirical_support": "R1 Q3改善2.1289%但Q4退步1.4152%；R2缓和Q4退步而未优于基准；R3关闭Q4主动测点。它支持任务模型需要观测失效分支的局部经验，不是原论文算法复现或单篇论文的因果归因。 R7只比R6快0.0057839893秒/源，Q4相同，这一极小差异不足以称稳健改进。"
     },
     {
       "id": "L4",
@@ -219,7 +307,25 @@
       "dataset_url": null,
       "awards": "not_checked",
       "classification_confidence": "high",
-      "local_evidence": "research/1804.02573.txt (本地下载缓存，不入Git)"
+      "local_evidence": "research/1804.02573.txt (本地下载缓存，不入Git)",
+      "round_links": [
+        {
+          "round": 1,
+          "candidate": "candidates/r1_solver.py",
+          "results": "../../results/A2_information_r1_full"
+        },
+        {
+          "round": 2,
+          "candidate": "candidates/r2_solver.py",
+          "results": "../../results/A2_information_r2_full"
+        },
+        {
+          "round": 3,
+          "candidate": "candidates/r3_solver.py",
+          "results": "../../results/A2_information_r3_full"
+        }
+      ],
+      "empirical_support": "R1 Q3改善2.1289%但Q4退步1.4152%；R2缓和Q4退步而未优于基准；R3关闭Q4主动测点。它支持任务模型需要观测失效分支的局部经验，不是原论文算法复现或单篇论文的因果归因。"
     },
     {
       "id": "L5",
@@ -257,7 +363,9 @@
       "dataset_url": null,
       "awards": "not_checked",
       "classification_confidence": "medium",
-      "local_evidence": "research/2605.11116.txt (本地下载缓存，不入Git)"
+      "local_evidence": "research/2605.11116.txt (本地下载缓存，不入Git)",
+      "round_links": [],
+      "empirical_support": "没有实现或实验，不对本题改进作效果归因；仅承担竞争方案和未采用理由。"
     },
     {
       "id": "L6",
@@ -300,7 +408,9 @@
       "dataset_url": null,
       "awards": "not_checked",
       "classification_confidence": "medium",
-      "local_evidence": "research/2310.15846.txt (本地下载缓存，不入Git)"
+      "local_evidence": "research/2310.15846.txt (本地下载缓存，不入Git)",
+      "round_links": [],
+      "empirical_support": "没有实现或实验，不对本题改进作效果归因；仅承担竞争方案和未采用理由。"
     },
     {
       "id": "L7",
@@ -342,7 +452,9 @@
       "dataset_url": null,
       "awards": "not_checked",
       "classification_confidence": "medium",
-      "local_evidence": "research/1705.07834.txt (本地下载缓存，不入Git)"
+      "local_evidence": "research/1705.07834.txt (本地下载缓存，不入Git)",
+      "round_links": [],
+      "empirical_support": "没有实现或实验，不对本题改进作效果归因；仅承担竞争方案和未采用理由。"
     },
     {
       "id": "L8",
@@ -384,7 +496,9 @@
       "dataset_url": null,
       "awards": "not_checked",
       "classification_confidence": "medium",
-      "local_evidence": "research/1703.09924.txt (本地下载缓存，不入Git)"
+      "local_evidence": "research/1703.09924.txt (本地下载缓存，不入Git)",
+      "round_links": [],
+      "empirical_support": "没有实现或实验，不对本题改进作效果归因；仅承担竞争方案和未采用理由。"
     },
     {
       "id": "L9",
@@ -425,7 +539,15 @@
       "dataset_url": null,
       "awards": "not_checked",
       "classification_confidence": "medium",
-      "local_evidence": "research/2009.07308.txt (本地下载缓存，不入Git)"
+      "local_evidence": "research/2009.07308.txt (本地下载缓存，不入Git)",
+      "round_links": [
+        {
+          "round": 2,
+          "candidate": "candidates/r2_solver.py",
+          "results": "../../results/A2_information_r2_full"
+        }
+      ],
+      "empirical_support": "仅概念提醒进入R2；Q4从578.96236624降为574.81712193，但仍慢于570.88337144基准，因此R3禁用Q4该规划器。没有复现论文控制器。"
     }
   ]
 }
