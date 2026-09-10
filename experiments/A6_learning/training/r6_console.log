@@ -1,0 +1,96 @@
+round=6 q=4 attempt=1/32 complete=144/144 mean=537.554402
+round=6 q=4 attempt=2/32 complete=144/144 mean=570.686401
+round=6 q=4 attempt=3/32 complete=144/144 mean=570.841476
+round=6 q=4 attempt=4/32 complete=144/144 mean=579.064799
+round=6 q=4 attempt=5/32 complete=144/144 mean=549.482871
+round=6 q=4 attempt=6/32 complete=144/144 mean=554.838953
+round=6 q=4 attempt=7/32 complete=144/144 mean=557.394859
+round=6 q=4 attempt=8/32 complete=144/144 mean=546.597558
+round=6 q=4 attempt=9/32 complete=144/144 mean=581.198477
+round=6 q=4 attempt=10/32 complete=144/144 mean=586.102278
+round=6 q=4 attempt=11/32 complete=144/144 mean=545.943514
+round=6 q=4 attempt=12/32 complete=144/144 mean=543.998367
+round=6 q=4 attempt=13/32 complete=144/144 mean=556.047989
+round=6 q=4 attempt=14/32 complete=144/144 mean=570.431505
+round=6 q=4 attempt=15/32 complete=144/144 mean=564.610923
+round=6 q=4 attempt=16/32 complete=144/144 mean=585.007080
+round=6 q=4 attempt=17/32 complete=144/144 mean=564.485246
+round=6 q=4 attempt=18/32 complete=144/144 mean=543.060071
+round=6 q=4 attempt=19/32 complete=144/144 mean=562.957825
+round=6 q=4 attempt=20/32 complete=144/144 mean=538.783501
+round=6 q=4 attempt=21/32 complete=144/144 mean=553.137840
+round=6 q=4 attempt=22/32 complete=144/144 mean=545.015896
+round=6 q=4 attempt=23/32 complete=144/144 mean=575.252505
+round=6 q=4 attempt=24/32 complete=144/144 mean=549.522978
+round=6 q=4 attempt=25/32 complete=144/144 mean=602.239004
+round=6 q=4 attempt=26/32 complete=144/144 mean=582.654910
+round=6 q=4 attempt=27/32 complete=144/144 mean=590.705724
+round=6 q=4 attempt=28/32 complete=144/144 mean=550.598043
+round=6 q=4 attempt=29/32 complete=144/144 mean=547.476272
+round=6 q=4 attempt=30/32 complete=144/144 mean=540.896066
+round=6 q=4 attempt=31/32 complete=144/144 mean=537.166704
+round=6 q=4 attempt=32/32 complete=144/144 mean=541.691436
+development q=4 attempt=30 complete=288/288 mean=534.102046
+development q=4 attempt=0 complete=288/288 mean=529.782779
+development q=4 attempt=19 complete=288/288 mean=532.411950
+development q=4 attempt=29 complete=288/288 mean=534.255698
+development q=4 attempt=31 complete=288/288 mean=530.237329
+{
+  "3": {
+    "config": {
+      "advance_fraction": 0.6,
+      "lateral_fraction": 0.15,
+      "clear_trial_radius": 100,
+      "route_optimization": true,
+      "upper_bound_stop": true,
+      "rescue_initial_clear": false,
+      "joint_scheduling": true,
+      "source_priority": 1.55,
+      "clear_standoff": true
+    },
+    "parameters": {},
+    "fixed": true,
+    "reason": "mode fixed before training; no search this round"
+  },
+  "4": {
+    "attempt": 0,
+    "parameters": {
+      "schedule_missing": -0.38800613440593723,
+      "schedule_repeat": -0.5026382344755622,
+      "schedule_workload": -0.18457534783107643,
+      "source_priority": 1.9920719905774522
+    },
+    "config": {
+      "advance_fraction": 0.6,
+      "lateral_fraction": 0.15,
+      "clear_trial_radius": 100,
+      "route_optimization": true,
+      "upper_bound_stop": true,
+      "rescue_initial_clear": false,
+      "joint_scheduling": true,
+      "source_priority": 1.9920719905774522,
+      "clear_standoff": true,
+      "schedule_uncertainty": 1.4590786898952524,
+      "schedule_density": 0.1024358824899248,
+      "schedule_station_gain": -0.6164314783102008,
+      "second_range_weight": 0.0,
+      "second_uncertainty_weight": 0.0,
+      "second_route_weight": 0.0,
+      "schedule_missing": -0.38800613440593723,
+      "schedule_repeat": -0.5026382344755622,
+      "schedule_workload": -0.18457534783107643
+    },
+    "development_summary": {
+      "complete": 288,
+      "n": 288,
+      "mean_s": 529.7827785959321,
+      "worst_s": 914.0188430769231
+    },
+    "input_policy_development": {
+      "complete": 288,
+      "n": 288,
+      "mean_s": 529.7827785959321,
+      "worst_s": 914.0188430769231
+    }
+  }
+}
