@@ -29,6 +29,11 @@ def save(path, value):
     Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2))
 
 
+def valid_completion(row):
+    return (row['complete'] and not row['error'] and row['exit_reason'] == 'user_exit'
+            and row['cleared_count'] == row['source_count'])
+
+
 def verified_env(root):
     root = Path(root).resolve()
     sys.path.insert(0, str(root))
@@ -125,13 +130,16 @@ def run(args):
         manifest_sha256=sha(root / 'evaluation/manifest_v1.json'),
         python=platform.python_version(), platform=platform.platform(),
         wall_seconds=wall_seconds, runs=len(rows),
-        all_complete=all(r['complete'] for r in rows), modes=[])
+        all_complete=all(r['complete'] for r in rows),
+        all_valid_completion=all(valid_completion(r) for r in rows), modes=[])
     for mode in (3, 4):
         part = [r for r in rows if r['mode'] == mode]
-        successful = all(r['complete'] for r in part)
+        successful = all(valid_completion(r) for r in part)
         summary['modes'].append(dict(
             mode=mode, cases=len(part), complete=sum(r['complete'] for r in part),
             errors=sum(bool(r['error']) for r in part),
+            valid_completion=sum(valid_completion(r) for r in part),
+            abnormal_exit=sum(r['exit_reason'] != 'user_exit' for r in part),
             cleared=sum(r['cleared_count'] or 0 for r in part),
             sources=sum(r['source_count'] for r in part),
             mean_s_per_source=statistics.mean(r['average_clear_time_s'] for r in part)
@@ -167,7 +175,7 @@ def compare(args):
         result = dict(path=str(Path(row_file).resolve()), modes=[], groups=[])
         for mode in (3, 4):
             part = [r for r in rows if r['mode'] == mode]
-            good = all(r['complete'] and base_index[r['case_id']]['complete'] for r in part)
+            good = all(valid_completion(r) and valid_completion(base_index[r['case_id']]) for r in part)
             info = dict(mode=mode, complete=sum(r['complete'] for r in part),
                         cases=len(part), comparison_valid=good)
             if good:
@@ -204,7 +212,7 @@ def compare(args):
             result['modes'].append(info)
             for group in sorted({r['group'] for r in part}):
                 sub = [r for r in part if r['group'] == group]
-                good = all(r['complete'] and base_index[r['case_id']]['complete'] for r in sub)
+                good = all(valid_completion(r) and valid_completion(base_index[r['case_id']]) for r in sub)
                 item = dict(mode=mode, group=group, cases=len(sub),
                             complete=sum(r['complete'] for r in sub), comparison_valid=good)
                 if good:

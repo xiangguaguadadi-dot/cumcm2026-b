@@ -1,0 +1,17 @@
+{
+  "scope": "Complete baseline-to-R6 solver diff plus reliability.md and final 8-round report, manually reviewed by coordinator.",
+  "observations": [
+    "visibility_hypotheses uses recorded positive and negative observations only, and changes action ranking without trimming the certified polygon.",
+    "R5 segment points are convex combinations of existing bounded points; R6 mirror is explicitly constrained to radius 3500 m and tried at most once.",
+    "optical_points preserves all baseline grid points; center-out ordering visits every point and has internal path at most 2L.",
+    "After 180000 virtual seconds, new covers use the original snake; one crossing center-out cover is explicitly budgeted below 6000 s.",
+    "Independent arithmetic agrees with 277000 s conservative total bound under default configuration and mathematical model.",
+    "No changes to 22-point discovery coverage, channel absence certificate, 16 successful-clear certificate, environment API, HTTP or external deployment dependencies."
+  ],
+  "limitations": [
+    "Visibility prior and finite quadrature are heuristic, not a calibrated posterior.",
+    "R2 has combined changes; successive-round gains are not full factorial component attribution.",
+    "12 scenario means improved versus baseline, but R6 has 179/1200 worse individual Q4 cases.",
+    "Official network and simulator not tested."
+  ]
+}

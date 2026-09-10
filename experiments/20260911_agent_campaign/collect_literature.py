@@ -46,12 +46,19 @@ def collect():
             key = re.sub(r'[^a-z0-9]', '', title.lower())
             reading = as_text(first(p, ('read', 'read_scope', 'read_range', 'actual_reading_scope', 'actual_reading')))
             mapping = as_text(first(p, ('implementation', 'adoption', 'code_mapping', 'implementation_mapping')))
+            support = as_text(first(p, ('experiment_support', 'empirical_support',
+                                        'experimental_support', 'experiment_link',
+                                        'evidence_and_limits')))
+            round_links = as_text(first(p, ('round_links', 'adopted_rounds')))
+            not_adopted = as_text(first(p, ('not_adopted_reason', 'not_used', 'reason')))
             assert url and reading and mapping, (identity, title)
             entries.append(dict(agent=identity, id=p['id'], title=title, url=url,
                                 normalized_title=key, arxiv=arxiv.group(1) if arxiv else None,
                                 tier=first(p, ('tier', 'collection', 'layer')),
                                 reading_scope=reading, inspiration=as_text(p['inspiration']),
-                                implementation_mapping=mapping, report_url=report))
+                                implementation_mapping=mapping, experimental_support=support,
+                                round_links=round_links, not_adopted_reason=not_adopted,
+                                report_url=report))
     title_to_key = {}
     for entry in entries:
         if entry['arxiv']:
@@ -83,6 +90,10 @@ def collect():
                       f'实际阅读范围（{e["tier"]}）：{e["reading_scope"]}', '',
                       f'启发：{e["inspiration"]}', '',
                       f'实现或未采用记录：{e["implementation_mapping"]}', '']
+            for label, field in [('相关轮次', 'round_links'), ('本题实验支持与边界', 'experimental_support'),
+                                 ('未采用或选择理由', 'not_adopted_reason')]:
+                if e[field]:
+                    lines += [f'{label}：{e[field]}', '']
     (HERE / 'LITERATURE_MAP.md').write_text('\n'.join(lines))
     return result
 
