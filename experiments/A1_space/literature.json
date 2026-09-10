@@ -1,0 +1,331 @@
+{
+  "title": "A1 全局空间搜索与移动成本",
+  "date": "2026-09-11",
+  "counts": {
+    "total": 9,
+    "core_section_read": 6,
+    "discovery": 3
+  },
+  "search_sources": [
+    "arXiv author records and full-text PDF",
+    "References in the core full-text papers"
+  ],
+  "queries": [
+    "boustrophedon coverage path planning",
+    "coverage path planning survey autonomous robots",
+    "traveling salesman neighborhoods disks",
+    "next best view exploration gain distance",
+    "coverage planning sweeping sensor discrete stops"
+  ],
+  "failures": [
+    {
+      "tool": "web.search",
+      "attempts": 2,
+      "outcome": "connection failed"
+    },
+    {
+      "url": "https://www.google.com/search?q=Choset+boustrophedon+coverage+path+planning+pdf",
+      "outcome": "25s timeout"
+    },
+    {
+      "tool": "default curl via inherited proxy",
+      "outcome": "SSL_ERROR_SYSCALL; direct --noproxy succeeded"
+    }
+  ],
+  "scope_limit": "Focused method-family search, not exhaustive. 6 papers read in specified substantive sections, 3 at discovery level; zero claimed full-paper reads.",
+  "papers": [
+    {
+      "id": "2207.06209",
+      "title": "Environmental Sampling with the Boustrophedon Decomposition Algorithm",
+      "authors": [
+        "He, Hannah",
+        "Norby, Joe",
+        "Wang, Sean",
+        "Sihota, Natasha",
+        "Hoelen, Thomas P.",
+        "Lowry, Gregory V.",
+        "Johnson, Aaron M."
+      ],
+      "first_submission": "2022/07/13",
+      "last_submission": "2022/07/13",
+      "version": "v1",
+      "url": "https://arxiv.org/abs/2207.06209",
+      "pdf_url": "https://arxiv.org/pdf/2207.06209",
+      "publication_status": "arXiv author manuscript; no conference award claims",
+      "retrieved_date": "2026-09-11",
+      "source_level": "primary_author_fulltext_downloaded",
+      "pdf_sha256": "76bad286ec5cae82662b3abe8c2f3f6f70cbd26fc766b516762f12e8d27d13d1",
+      "tier": "core_sections",
+      "path": [
+        "覆盖约束",
+        "离散停点与采样密度",
+        "Boustrophedon 采样"
+      ],
+      "read": "PDF 第 2–5、7–8 页：§II–IV、图6–9及§V结果、§VI开头；摘要。未通读参考文献与全部附图。",
+      "mechanism": "先分解无障碍单元，再按采样间距栅扫，并量化采样精度与路径长度的冲突。",
+      "inspiration": "应先保证检测覆盖，再优化停点和真实行程；不能只比较扫描节点数量。",
+      "implementation": "R1/R3 certified_points、default_points；采用原则，未实现论文分解算法。",
+      "adopted": "concept_only",
+      "reason": "本题是无障碍圆域、离散信号探测、有最小接收半径；没有必要栅扫每个小像素。",
+      "evidence": "正文用 Monte Carlo 随机环境比较 RMSE、热点漏检、路径和样本数，增加间距虽然缩短路径但可能漏热点。",
+      "limitations": "其连续环境插值和热点分布不等价于本题互异频道点源；论文精度曲线不能当成本题全清证书。"
+    },
+    {
+      "id": "2211.05891",
+      "title": "A Closer Cut: Computing Near-Optimal Lawn Mowing Tours",
+      "authors": [
+        "Fekete, Sándor P.",
+        "Krupke, Dominik",
+        "Perk, Michael",
+        "Rieck, Christian",
+        "Scheffer, Christian"
+      ],
+      "first_submission": "2022/11/10",
+      "last_submission": "2022/11/10",
+      "version": "v1",
+      "url": "https://arxiv.org/abs/2211.05891",
+      "pdf_url": "https://arxiv.org/pdf/2211.05891",
+      "publication_status": "arXiv author manuscript; no conference award claims",
+      "retrieved_date": "2026-09-11",
+      "source_level": "primary_author_fulltext_downloaded",
+      "pdf_sha256": "af23205b028c015b60532c136a18c96f673cd1cdb97ab07f0111319b237285a7",
+      "tier": "core_sections",
+      "path": [
+        "覆盖约束",
+        "连续覆盖与见证点",
+        "LMP/CETSP 原始对偶"
+      ],
+      "read": "PDF 第 3–5 页（§1.3、§2证明）；第 7 页 §4–4.1、第 8 页 §4.3；第12页图15。未通读所有几何证明和全部实验。",
+      "mechanism": "以未覆盖区域见证点构造 CETSP 下界，再补齐覆盖形成上界，迭代收紧最优差距。",
+      "inspiration": "看似覆盖的有限样本不足以保证连续区域覆盖；本题每个新点集需要解析证明。",
+      "implementation": "R1/R3 六环站凸函数端点证明；不是该论文的原始对偶或 SOCP 求解器。",
+      "adopted": "concept_only",
+      "reason": "论文移动中持续割草，本题移动中不可检测；见证网格解还需要覆盖认证，且这里圆域对称性允许直接解析设计。",
+      "evidence": "§4.1 给见证集扩大时下界单调；§4.3 用分支定界和二阶锥优化，图15展示上下界不同，覆盖率不是最优性证据。",
+      "limitations": "本实验没有计算可证明最优的路径下界，不得声称当前路线近似比或全局最优。"
+    },
+    {
+      "id": "1506.07903",
+      "title": "Constant-Factor Approximation for TSP with Disks",
+      "authors": [
+        "Dumitrescu, Adrian",
+        "Tóth, Csaba D."
+      ],
+      "first_submission": "2015/06/25",
+      "last_submission": "2016/08/09",
+      "version": "v4",
+      "url": "https://arxiv.org/abs/1506.07903",
+      "pdf_url": "https://arxiv.org/pdf/1506.07903",
+      "publication_status": "arXiv author manuscript; no conference award claims",
+      "retrieved_date": "2026-09-11",
+      "source_level": "primary_author_fulltext_downloaded",
+      "pdf_sha256": "6ee0481f6b3a851a179b869bd5b9c79dba0df3940d67faf5e28760d0a7a13646",
+      "tier": "core_sections",
+      "path": [
+        "服务路径",
+        "访问邻域",
+        "几何 hitting set"
+      ],
+      "read": "PDF 第2–4页：相关工作、定理1、§2几何命中集、算法总览和§3预处理开头；摘要。未逐行验证后续近似证明。",
+      "mechanism": "构造穿过全部圆盘的连通几何图，将任意圆盘 TSPN 与最小权命中集连接，再倍边得到游回。",
+      "inspiration": "访问一个区域与访问其中心不同；必须区分路由的估计中心和真正清除位置。",
+      "implementation": "R2/R3 spatial_next_task 的中心代理；R5 route_clear_point 在20-r的认证可清除圆盘内优化预测的进入+离开距离。未实现原论文几何命中集算法。",
+      "adopted": "neighborhood_model_adaptation",
+      "reason": "当前源只由有界误差楔形限制，不是已知圆盘；本文的任意圆盘近似与本题在线未知目标不同。",
+      "evidence": "正文把图分为独立圆盘骨架、近处连接和余下命中集连接，说明邻域结构会改变路线代价。",
+      "limitations": "中心代理误差可以使重规划变差；R2 Q4 回归就是本实验事实，不能从原论文近似保证推导本题性能。"
+    },
+    {
+      "id": "2111.10462",
+      "title": "Online Coverage Planning for an Autonomous Weed Mowing Robot with Curvature Constraints",
+      "authors": [
+        "Maini, Parikshit",
+        "Gonultas, Burak M.",
+        "Isler, Volkan"
+      ],
+      "first_submission": "2021/11/19",
+      "last_submission": "2021/11/19",
+      "version": "v1",
+      "url": "https://arxiv.org/abs/2111.10462",
+      "pdf_url": "https://arxiv.org/pdf/2111.10462",
+      "publication_status": "arXiv author manuscript; no conference award claims",
+      "retrieved_date": "2026-09-11",
+      "source_level": "primary_author_fulltext_downloaded",
+      "pdf_sha256": "67651c0f9f355d41a043b5cb2856095dee22535cb32f5f234d422c8fe371907b",
+      "tier": "core_sections",
+      "path": [
+        "在线决策",
+        "发现后绕行",
+        "JUMP/SNAKE"
+      ],
+      "read": "PDF 第2–7页：任务定义、§V界、§VI两算法和伪代码、§VII模拟、§VIII田野实验与§IX。另读摘要。未通读末页参考文献。",
+      "mechanism": "在覆盖推进中利用新发现的目标改变局部路径；JUMP 绕行再回主线，SNAKE 绕行后续进，R-SNAKE 允许漏服务换距离。",
+      "inspiration": "同时规划搜索站与已发现目标，避免完成所有搜索后再整圈返回清除；但本题必须保留所有待完成任务。",
+      "implementation": "R2/R3 spatial_next_task 和 run：全局开放路径逐动作重规划，为自创简化，并非复现 JUMP/SNAKE。 R7检验按既定清除段执行、到新扫描站才重规划的稳定性；与论文“执行子路径时不再搜索下一子路径”的描述相关，但为本题自创事件边界。",
+      "adopted": "concept_only",
+      "reason": "机器狗无 Dubins 转弯半径约束，信号不能边走边测且不直接给准确目标位置；禁止采用 R-SNAKE 的漏清取舍。",
+      "evidence": "正文分别记录路径和清除比例；JUMP、SNAKE、R-SNAKE 的完整性不一致。田野演示的14个目标位置为预先地理标记并按视野揭示，而非完整视觉检测闭环。",
+      "limitations": "论文报告的距离降幅不能迁移成本题成绩；我们的 Q4 负结果保留，实验证明只属于 LOCAL-v1。"
+    },
+    {
+      "id": "2602.05198",
+      "title": "Informative Path Planning with Guaranteed Estimation Uncertainty",
+      "authors": [
+        "Jakkala, Kalvik",
+        "Agarwal, Saurav",
+        "O'Kane, Jason",
+        "Akella, Srinivas"
+      ],
+      "first_submission": "2026/02/05",
+      "last_submission": "2026/05/26",
+      "version": "v3",
+      "url": "https://arxiv.org/abs/2602.05198",
+      "pdf_url": "https://arxiv.org/pdf/2602.05198",
+      "publication_status": "arXiv author manuscript; no conference award claims",
+      "retrieved_date": "2026-09-11",
+      "source_level": "primary_author_fulltext_downloaded",
+      "pdf_sha256": "16af61192cc6b343b5ed72ab27fb93dcfcc5483447f3042430b685a13f6ed647",
+      "tier": "core_sections",
+      "path": [
+        "信息与覆盖",
+        "显式全局约束",
+        "GP coverage map / GCB"
+      ],
+      "read": "PDF 第3–5页：§III–V、单点方差条件、单调性、二值覆盖矩阵、GreedyCover 和 GCB；第7页 SRTM 实验及ASV段落开头。未读全部附录证明。",
+      "mechanism": "把 GP 后验方差目标转成保守覆盖矩阵；对比先选点再路由与把覆盖增益/路径增量联合决策。",
+      "inspiration": "点集选择与访问顺序不能割裂；覆盖是硬约束，距离是优化量。",
+      "implementation": "R1 点集与 R2/R3 路由分轮检验；未实现 GP、矩阵覆盖或 GCB 比值规则。",
+      "adopted": "concept_only",
+      "reason": "本题只给误差有界且同址固定，不能把未知跨位置误差强行当作可信 GP；先验方差达标也不等于未知源全部检测。",
+      "evidence": "§V-C4 明确两阶段的选点近似不提供联合路径保证；实验把预算受限解与满足方差目标的解分开。",
+      "limitations": "其模型内后验不确定性与真实 MSE、以及本题确定性全清，不是同一指标；本报告不照搬近似保证。"
+    },
+    {
+      "id": "1809.07159",
+      "title": "Improved Bounds for the Traveling Salesman Problem with Neighborhoods on Uniform Disks",
+      "authors": [
+        "Bercea, Ioana O."
+      ],
+      "first_submission": "2018/09/19",
+      "last_submission": "2018/09/19",
+      "version": "v1",
+      "url": "https://arxiv.org/abs/1809.07159",
+      "pdf_url": "https://arxiv.org/pdf/1809.07159",
+      "publication_status": "arXiv author manuscript; no conference award claims",
+      "retrieved_date": "2026-09-11",
+      "source_level": "primary_author_fulltext_downloaded",
+      "pdf_sha256": "f3c8a5ac378894cf1e6b87241a3981e81ecc98fed3553418cf595086ad3f7024",
+      "tier": "discovery",
+      "path": [
+        "服务路径",
+        "访问邻域",
+        "均匀圆盘近似界"
+      ],
+      "read": "arXiv 摘要及作者元数据；下载PDF并核对首页题名作者，未深读正文。",
+      "mechanism": "研究等半径圆盘 TSPN 与访问圆心的附加绕行界。",
+      "inspiration": "提醒中心近似有额外路程，不能把中心 TSP 看成真实服务路径。",
+      "implementation": "未直接进入代码；对 R2 中心代理风险的背景核对。",
+      "adopted": "not_implemented",
+      "reason": "不直接解决未知目标、方向丢信号与在线定位，先读更一般的命中集路线。",
+      "evidence": "仅摘要层机制识别；不引用数值近似常数作本题论据。",
+      "limitations": "扩展发现级，不能称正文深读或已复现。"
+    },
+    {
+      "id": "2408.08001",
+      "title": "Path Planning for Spot Spraying with UAVs Combining TSP and Area Coverages",
+      "authors": [
+        "Plessen, Mogens"
+      ],
+      "first_submission": "2024/08/15",
+      "last_submission": "2025/02/19",
+      "version": "v2",
+      "url": "https://arxiv.org/abs/2408.08001",
+      "pdf_url": "https://arxiv.org/pdf/2408.08001",
+      "publication_status": "arXiv author manuscript; no conference award claims",
+      "retrieved_date": "2026-09-11",
+      "source_level": "primary_author_fulltext_downloaded",
+      "pdf_sha256": "55bc1790f5c4fe24b762aaa7bba19bbcd98b92a62a00cd5ce05d51cf0ee59413",
+      "tier": "core_sections",
+      "path": [
+        "服务路径",
+        "区域间与区域内联合成本",
+        "TSP + area coverage"
+      ],
+      "read": "追加深读 PDF 第3–5页 §3.1–3.3 开头：成本分解条件、NN/DENN与H1–H4；第6页 §4实验设置和结果讨论。此前仅摘要，扩展授权后补读正文。",
+      "mechanism": "固定片区入/出点时分离跨区路由与区内覆盖；TSP比较随机插入与消交叉，并实验组合H2+H4。",
+      "inspiration": "改进开放路径时，可以把节点移除-重插与2-opt结合；同时不能把只优化代理路径长度当真实任务耗时最优。",
+      "implementation": "R6：spatial_next_task 内 reinsert 对当前路线穷举单节点重插，再2-opt，并保留原2-opt路线。属于H2思想的确定性改编，非论文10秒随机采样复现。R6 full Q3/Q4均改善；进入当前最佳。",
+      "adopted": "deterministic_reinsertion_adaptation",
+      "reason": "本题是点源定位，不是边界已知的喷洒区域；现有无障碍定位器无需其障碍连接算法。",
+      "evidence": "§4比较15/19/197片区，H2+H4在其中两例给更短TSP路线但耗时更大；研究使用真实地理区域实例而非把完整探測任务部署在未知源上。",
+      "limitations": "论文闭合路线、片区真值已知、固定入出点假设不同；本题为开放在线路线，提升只能由本题实测决定。"
+    },
+    {
+      "id": "2402.10529",
+      "title": "Energy-aware Multi-UAV Coverage Mission Planning with Optimal Speed of Flight",
+      "authors": [
+        "Datsko, Denys",
+        "Nekovar, Frantisek",
+        "Penicka, Robert",
+        "Saska, Martin"
+      ],
+      "first_submission": "2024/02/16",
+      "last_submission": "2024/02/16",
+      "version": "v1",
+      "url": "https://arxiv.org/abs/2402.10529",
+      "pdf_url": "https://arxiv.org/pdf/2402.10529",
+      "publication_status": "PDF header: IEEE RA-L accepted January 2024; DOI 10.1109/LRA.2024.3358581",
+      "retrieved_date": "2026-09-11",
+      "source_level": "primary_author_fulltext_downloaded",
+      "pdf_sha256": "145398d65c032e5892bf50afdfb7f986915e8a2292025e48cf26849f635655a8",
+      "tier": "discovery",
+      "path": [
+        "任务成本",
+        "能量与路径分离",
+        "速度优化/多机分配"
+      ],
+      "read": "arXiv 摘要、元数据与PDF首页（RA-L accepted 标注）；未深读正文。",
+      "mechanism": "用速度与能耗模型优化多 UAV 覆盖，避免把路径长度等同于能量。",
+      "inspiration": "本题目标也应直接使用官方虚拟时间；移动、换频、检测、清除都要计入。",
+      "implementation": "未直接进入代码；保留冻结官方口径统计。",
+      "adopted": "not_implemented",
+      "reason": "机器人速度固定5m/s、只有一只且题面未给电量目标，能量控制不适用。",
+      "evidence": "仅验证论文身份与研究对象，不迁移其能耗精度数值。",
+      "limitations": "扩展发现级，不把多机器人效果作为单机本题性能证据。"
+    },
+    {
+      "id": "2507.06960",
+      "title": "Bounomodes: the grazing ox algorithm for exploration of clustered anomalies",
+      "authors": [
+        "Matloob, Samuel",
+        "Dutta, Ayan",
+        "Kreidl, O. Patrick",
+        "Roy, Swapnonel",
+        "Bölöni, Ladislau"
+      ],
+      "first_submission": "2025/07/09",
+      "last_submission": "2025/07/09",
+      "version": "v1",
+      "url": "https://arxiv.org/abs/2507.06960",
+      "pdf_url": "https://arxiv.org/pdf/2507.06960",
+      "publication_status": "arXiv author manuscript; no conference award claims",
+      "retrieved_date": "2026-09-11",
+      "source_level": "primary_author_fulltext_downloaded",
+      "pdf_sha256": "646ec9f053ad8c3808a66aab1f30c1497f99b41c17fccc81ad9e0e5d8c05ba3f",
+      "tier": "discovery",
+      "path": [
+        "在线决策",
+        "局部集中探索",
+        "规则覆盖+强化学习"
+      ],
+      "read": "arXiv 摘要与元数据、PDF首页；未深读强化学习设置。",
+      "mechanism": "交替均匀覆盖和对异常簇的局部集中搜索，以学习策略决定细查。",
+      "inspiration": "观测可以触发不同空间策略，但推断分布不能替代未观测区域的覆盖证书。",
+      "implementation": "R3 仅受原则启发：无信号触发两个已证明覆盖点集的切换；没有强化学习。",
+      "adopted": "concept_only_no_learning",
+      "reason": "A1 专注空间几何；在三轮预算下用明确可审计的观测分支更合适，没有训练模型或借用其他 Agent 的学习策略。",
+      "evidence": "摘要级发现；不声称完成其RL复现。",
+      "limitations": "R3 的单一观测分支是本实验自创启发式，不是该论文学习算法或性能转移。"
+    }
+  ]
+}
