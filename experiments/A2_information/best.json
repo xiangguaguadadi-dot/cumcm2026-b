@@ -1,9 +1,9 @@
 {
   "agent_id": "A2_information",
-  "status": "scheduler_checkpoint_for_clean_context",
+  "status": "completed_empirical_stop",
   "best_round": 8,
-  "candidate_rounds": 9,
-  "consecutive_rounds_without_strict_best": 1,
+  "candidate_rounds": 10,
+  "consecutive_rounds_without_strict_best": 2,
   "solver_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/experiments/A2_information/candidates/r8_solver.py",
   "solver_relative_path": "experiments/A2_information/candidates/r8_solver.py",
   "solver_sha256": "bd0ed7b8d322d6502c04c1bf100857001617cca235038a2d78bcacf4d97b82bc",
@@ -80,7 +80,7 @@
     "Fixed v1 is known regression data, not untouched holdout.",
     "Q4 improvement is very small; parent will run independent new samples.",
     "All baseline runtime entries are historical cached times; do not compare them with current candidate machine speed.",
-    "Paused for clean-context continuation; not empirical convergence."
+    "Stopped after two full rounds without strict-best refresh; not mathematical convergence."
   ],
   "non_dominated_candidates": [
     {
@@ -108,6 +108,64 @@
       },
       "full_results_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/results/A2_information_r9_full",
       "auxiliary_runtime_dependencies": []
+    }
+  ],
+  "all_non_dominated_candidates_including_equal_metrics": [
+    {
+      "round": 8,
+      "solver_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/experiments/A2_information/candidates/r8_solver.py",
+      "solver_relative_path": "experiments/A2_information/candidates/r8_solver.py",
+      "sha256": "bd0ed7b8d322d6502c04c1bf100857001617cca235038a2d78bcacf4d97b82bc",
+      "code_commit": "deb4f4b5477fb15d25d1c98bb8d353f6a2c3c400",
+      "metrics": {
+        "3": 285.8667033463909,
+        "4": 568.449411526069
+      },
+      "full_results_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/results/A2_information_r8_full",
+      "auxiliary_runtime_dependencies": []
+    },
+    {
+      "round": 9,
+      "solver_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/experiments/A2_information/candidates/r9_solver.py",
+      "solver_relative_path": "experiments/A2_information/candidates/r9_solver.py",
+      "sha256": "a759e118611f2443cf66156dc0b3eaf91e49c2a9254eec49a5f42e8050f7a0f2",
+      "code_commit": "c4511bc1a90a08ee3351b585b534e4cce73317ef",
+      "metrics": {
+        "3": 285.9519236676399,
+        "4": 568.4039785307609
+      },
+      "full_results_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/results/A2_information_r9_full",
+      "auxiliary_runtime_dependencies": []
+    },
+    {
+      "round": 10,
+      "solver_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/experiments/A2_information/candidates/r10_solver.py",
+      "solver_relative_path": "experiments/A2_information/candidates/r10_solver.py",
+      "sha256": "bae43c00cf155f667c01fb3df65545d422cf2fd546c5ea8dd5e624b494f65b60",
+      "code_commit": "f0af6cd1c6518a84f07b6320df7f7f18900165d3",
+      "metrics": {
+        "3": 285.8667033463909,
+        "4": 568.449411526069
+      },
+      "full_results_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/results/A2_information_r10_full",
+      "auxiliary_runtime_dependencies": []
+    }
+  ],
+  "metric_equivalent_candidates": [
+    {
+      "round": 10,
+      "solver_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/experiments/A2_information/candidates/r10_solver.py",
+      "solver_relative_path": "experiments/A2_information/candidates/r10_solver.py",
+      "sha256": "bae43c00cf155f667c01fb3df65545d422cf2fd546c5ea8dd5e624b494f65b60",
+      "code_commit": "f0af6cd1c6518a84f07b6320df7f7f18900165d3",
+      "metrics": {
+        "3": 285.8667033463909,
+        "4": 568.449411526069
+      },
+      "full_results_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/results/A2_information_r10_full",
+      "auxiliary_runtime_dependencies": [],
+      "same_task_metrics_as_round": 8,
+      "selection_reason": "No task-time improvement; retain simpler earlier representative."
     }
   ],
   "independence_boundary": "research/independence_boundary.md; one shared-status exposure, no claim of uninterrupted absolute isolation"

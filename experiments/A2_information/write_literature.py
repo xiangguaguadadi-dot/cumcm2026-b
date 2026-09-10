@@ -18,12 +18,12 @@ for r in rows:
 obj=dict(research_cutoff='2026-09-11',scope='低维有界方位定位中的主动观测、信息价值和任务时间；广泛机制覆盖但不是穷尽系统综述',core_count=4,extended_count=5,deduplication='按 arXiv ID 去重，版本/标题变化保留在 version；只把实际阅读的方法与实验称作深读',queries=[{'query':'bearing only target localization optimal observer motion Fisher information determinant bounded error localization mobile sensor','provider':'web search','status':'connection failed twice; no usable response'},{'query':'set membership bearing only localization active sensing bounded error sensor placement','provider':'web search','status':'connection failed'},{'query':'all:bearings-only AND all:localization','url':'https://export.arxiv.org/api/query?search_query=all:bearings-only+AND+all:localization&start=0&max_results=8','status':'no usable response body'},{'query':'"bearing-only" title','url':'https://arxiv.org/search/?query=%22bearing-only%22&searchtype=title&abstracts=show&order=-announced_date_first&size=50','status':'read original search results, 50-result page'},{'query':'"information gathering" title','url':'https://arxiv.org/search/?query=%22information+gathering%22&searchtype=title&abstracts=show&order=&size=50','status':'read original search results, 50-result page'},{'query':'"set-membership" AND "localization" all','url':'https://arxiv.org/search/?query=%22set-membership%22+AND+%22localization%22&searchtype=all&abstracts=show&order=-announced_date_first&size=50','status':'read original search results; relevance screening needed'}],access='direct curl --noproxy * to arXiv author manuscripts; nine successful PDF downloads, SHA256 retained',coverage_limits=['没有声称覆盖全部文献','没有复现论文原始基准','五篇扩展来源阅读深度有限并显式标明','未统一核对出版会刊与奖项','当前决定来自题面与本地实验，不能套用论文性能数字'],papers=rows)
 for row in rows:
  if row['id']=='L2':
-  row['adoption']='r1–r9保留外包证书；r3全顶点清除动作、r4/r5有效切面、r6全向无信号排除、r7假想点筛选、r8光学失败排除、r9两次约束传播，均是本题自创几何或规划步骤，不是论文SOCP复现。'
+  row['adoption']='r1–r10保留外包证书；r3全顶点清除动作、r4/r5有效切面、r6全向无信号排除、r7假想点筛选、r8光学失败排除、r9两次约束传播、r10预测后验接收上界，均是本题自创几何或规划步骤，不是论文SOCP复现。R9和R10均未替换最终R8。'
   row['functions']+=['Solver.planning_hypotheses','Solver.apply_failed_clear_constraints','Solver.apply_observed_exclusions']
  if row['id']=='L3':
-  row['adoption']+=' R7对规划假想点做观测一致性筛选，仍不代表精确后验。'
+  row['adoption']+=' R7对规划假想点做观测一致性筛选，R10使预测方向后验纳入接收上界，仍不代表精确后验；R10未进入最终R8。'
   row['functions']+=['Solver.planning_hypotheses']
- round_ids={'L1':[1,2,3],'L2':[1,3,4,5,6,7,8,9],'L3':[1,2,3,7],'L4':[1,2,3],'L9':[2]}.get(row['id'],[])
+ round_ids={'L1':[1,2,3],'L2':[1,3,4,5,6,7,8,9,10],'L3':[1,2,3,7,10],'L4':[1,2,3],'L9':[2]}.get(row['id'],[])
  row['round_links']=[{'round':k,'candidate':'candidates/r'+str(k)+'_solver.py','results':'../../results/A2_information_r'+str(k)+'_full'} for k in round_ids]
  if row['id'] in ['L1','L3','L4']:
   row['empirical_support']='R1 Q3改善2.1289%但Q4退步1.4152%；R2缓和Q4退步而未优于基准；R3关闭Q4主动测点。它支持任务模型需要观测失效分支的局部经验，不是原论文算法复现或单篇论文的因果归因。'
@@ -32,4 +32,8 @@ for row in rows:
   row['empirical_support']='R3首次两题均值优于基准；R4改善Q3但Q4小幅退步，压力开发暴露计算退化；R5控制复杂度；R6与R7继续刷新Q3，R7增益极小；R8两题均值改善到285.86670335/568.44941153。R9为285.95192367/568.40397853，两题取舍，严格最佳仍R8。多步骤相继迭代而非单因素独立消融，不把累计改进归因于论文。'
  elif row['id']=='L9':row['empirical_support']='仅概念提醒进入R2；Q4从578.96236624降为574.81712193，但仍慢于570.88337144基准，因此R3禁用Q4该规划器。没有复现论文控制器。'
  else:row['empirical_support']='没有实现或实验，不对本题改进作效果归因；仅承担竞争方案和未采用理由。'
+ if row['id'] in ('L2','L3'):
+  row['empirical_support']+=' R10的1000个合成几何组合中52个预测被收紧且全部保留合法目标；独立开发120局及full2400局的任务指标均与R8逐局一致。更紧的预测集合没有带来本轮任务收益，因此回退R8；没有用更多参数试跑弥补无收益。'
+ if row['id']=='L7':row['not_used']='A2先检验可审查的低维主动观测机制；未训练全知教师或额外策略模型，避免引入本轮未核查的教师信息动作与分布迁移问题。'
+obj['clean_continuation_note']='R10由干净上下文只读取A2自身代码与已有研究记录后设计；没有新增论文下载或新增全文阅读声明。下列范围是A2路线累计真实阅读范围。'
 (OUTBASE/'literature.json').write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n')
