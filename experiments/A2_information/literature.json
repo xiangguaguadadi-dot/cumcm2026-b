@@ -1,0 +1,428 @@
+{
+  "research_cutoff": "2026-09-11",
+  "scope": "低维有界方位定位中的主动观测、信息价值和任务时间；广泛机制覆盖但不是穷尽系统综述",
+  "core_count": 4,
+  "extended_count": 5,
+  "deduplication": "按 arXiv ID 去重，版本/标题变化保留在 version；只把实际阅读的方法与实验称作深读",
+  "queries": [
+    {
+      "query": "bearing only target localization optimal observer motion Fisher information determinant bounded error localization mobile sensor",
+      "provider": "web search",
+      "status": "connection failed twice; no usable response"
+    },
+    {
+      "query": "set membership bearing only localization active sensing bounded error sensor placement",
+      "provider": "web search",
+      "status": "connection failed"
+    },
+    {
+      "query": "all:bearings-only AND all:localization",
+      "url": "https://export.arxiv.org/api/query?search_query=all:bearings-only+AND+all:localization&start=0&max_results=8",
+      "status": "no usable response body"
+    },
+    {
+      "query": "\"bearing-only\" title",
+      "url": "https://arxiv.org/search/?query=%22bearing-only%22&searchtype=title&abstracts=show&order=-announced_date_first&size=50",
+      "status": "read original search results, 50-result page"
+    },
+    {
+      "query": "\"information gathering\" title",
+      "url": "https://arxiv.org/search/?query=%22information+gathering%22&searchtype=title&abstracts=show&order=&size=50",
+      "status": "read original search results, 50-result page"
+    },
+    {
+      "query": "\"set-membership\" AND \"localization\" all",
+      "url": "https://arxiv.org/search/?query=%22set-membership%22+AND+%22localization%22&searchtype=all&abstracts=show&order=-announced_date_first&size=50",
+      "status": "read original search results; relevance screening needed"
+    }
+  ],
+  "access": "direct curl --noproxy * to arXiv author manuscripts; nine successful PDF downloads, SHA256 retained",
+  "coverage_limits": [
+    "没有声称覆盖全部文献",
+    "没有复现论文原始基准",
+    "五篇扩展来源阅读深度有限并显式标明",
+    "未统一核对出版会刊与奖项",
+    "当前决定来自题面与本地实验，不能套用论文性能数字"
+  ],
+  "papers": [
+    {
+      "id": "L1",
+      "arxiv": "1908.00380",
+      "title": "Optimization-based Control for Bearing-only Target Search with a Mobile Vehicle",
+      "authors": [
+        "Zhuo Li",
+        "Keyou You",
+        "Shiji Song",
+        "Anke Xue"
+      ],
+      "year": 2019,
+      "version": "v1, 2019-08-01",
+      "tier": "core",
+      "path": [
+        "信息驱动运动",
+        "估计与任务联合控制",
+        "D-optimal信息与接近目标双目标"
+      ],
+      "read": "正文 p.1–4 的 I–III；p.5 的 IV-A 估计器；p.7–9 的 VI–VII 仿真与结论。不是全文深读，附录证明未完整阅读。",
+      "problem": "单 Dubins 移动体仅用测向，尽快接近未知静止目标。",
+      "mechanism": "把 FIM 行列式与距离平方下降联合优化，归一化后用权重控制估计与靠近目标的取舍，以递归最小二乘估计目标。",
+      "evidence": "正文 VI 比较 β=0/1/2/3：纯估计倾向绕行，过大的接近目标权重可能收敛到错误估计位置；其仿真使用 vc=4m/s、h=0.25s、单个二维目标。",
+      "limitations": "以高斯独立噪声的CRLB、已知动力学和点估计为基础；不保证本题有界固定误差、未知可见性和多源全清。论文数值与本题不可直接比较。",
+      "inspiration": "按任务完成时间评价观测，不把交会角或估计方差当最终目标。",
+      "adoption": "部分原则进入 r1/r2/r3 的 second_point；不是该论文控制器复现。用虚拟秒而不是论文无量纲加权目标。",
+      "functions": [
+        "Solver.second_point"
+      ],
+      "not_used": "未用 Dubins 模型、递归最小二乘、CRLB权重或GPS-free控制器；本题动作和可靠性要求不同。",
+      "url": "https://arxiv.org/abs/1908.00380",
+      "pdf_url": "https://arxiv.org/pdf/1908.00380",
+      "pdf_sha256": "5ffa5b6f7abbd0f71cd893a287c627a2d9002d8805c0317fc5ee79dfa12c551a",
+      "pages": 12,
+      "source_level": "primary_author_paper",
+      "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+      "read_date": "2026-09-11",
+      "project_url": null,
+      "code_url": null,
+      "dataset_url": null,
+      "awards": "not_checked",
+      "classification_confidence": "high",
+      "local_evidence": "research/1908.00380.txt (本地下载缓存，不入Git)"
+    },
+    {
+      "id": "L2",
+      "arxiv": "2603.04867",
+      "title": "Set-Membership Localization via Range Measurements",
+      "authors": [
+        "Giuseppe C. Calafiore"
+      ],
+      "year": 2026,
+      "version": "下载正文含期刊接受声明；本次仅核验 arXiv 原文，未独立核验期刊出版状态",
+      "tier": "core",
+      "path": [
+        "不确定性表示",
+        "未知但有界误差",
+        "凸外包集合与包含证书"
+      ],
+      "read": "正文 p.1–4 问题/相关工作；p.7–10 的第3节；p.13–17 的第5节；p.19–20实验设置；p.23–24外点讨论/结论。第4节SDP推导和全部数值表未完整深读。",
+      "problem": "已知锚点，带区间误差的距离测量下返回保证包含真实位置的区域。",
+      "mechanism": "差分距离方程得到多面体，与接收球相交形成凸外包，再用SOCP/SDP计算外包盒/椭球。",
+      "evidence": "第3节给出真集合包含于外包集合的证明；第5节给出外包盒与椭球程序；第7节在2D/3D、随机锚点、100次重复上评估集合尺寸和包含率。第8节承认几何保守度仍缺正式刻画。",
+      "limitations": "距离测量而非方位；其凸外包保守性依几何而变，外包中心不一定属于原始非凸可行集。误差越界时扩大到非空不能重新保证包含实际真值。",
+      "inspiration": "保留“用于决策的点/分布”和“用于全清证明的外包集合”两层；研究整个可行域允许的最近清除点。",
+      "adoption": "r1–r3保留原版 polygons/add_bearing 和 enclosing_circle 作为证书；r3的全顶点覆盖清除点是本题自创几何动作，不是论文SOCP复现。",
+      "functions": [
+        "Solver.belief_quadrature",
+        "Solver.predicted_polygon",
+        "Solver.localize",
+        "Solver.nearest_certified_clear"
+      ],
+      "not_used": "不新增距离传感器，不实现差分距离方程或SOCP/SDP；现有方位半平面交已更直接。",
+      "url": "https://arxiv.org/abs/2603.04867",
+      "pdf_url": "https://arxiv.org/pdf/2603.04867",
+      "pdf_sha256": "3dcecfb6c0d048c0f14e36e19b4de1a95efda4649d505f7841978e0932a3a284",
+      "pages": 26,
+      "source_level": "primary_author_paper",
+      "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+      "read_date": "2026-09-11",
+      "project_url": null,
+      "code_url": null,
+      "dataset_url": null,
+      "awards": "not_checked",
+      "classification_confidence": "high",
+      "local_evidence": "research/2603.04867.txt (本地下载缓存，不入Git)"
+    },
+    {
+      "id": "L3",
+      "arxiv": "2405.02605",
+      "title": "MEXGEN: An Effective and Efficient Information Gain Approximation for Information Gathering Path Planning",
+      "authors": [
+        "Joshua Chesser",
+        "Thuraiappah Sathyan",
+        "Damith C. Ranasinghe"
+      ],
+      "year": 2024,
+      "version": "v1, 2024-05-04",
+      "tier": "core",
+      "path": [
+        "预测观测",
+        "非线性观测分布",
+        "测量期望与理想点测量的区别"
+      ],
+      "read": "正文 p.1–5 的 I–III 及 IV 实验设置；p.6–8 的实验结果、运行时间、场地试验与结论。不是完整复现；尾页参考文献只用于定位。",
+      "problem": "信息采集规划要预测未来可能观测；完整Monte Carlo开销高，平均状态上的无噪声测量可能误导。",
+      "mechanism": "从belief抽样，先通过观测模型，再平均观测，只执行一次belief更新；理论比较测量预测MSE与PIM。",
+      "evidence": "§III公式(14)–(18)比较有限样本测量预测MSE；§IV使用粒子Bernoulli滤波、RSS路径损耗、动态/静态目标；场地试验每法10次，表II平均任务时间MEXGEN 290s、MC-8 326s、PIM333s。",
+      "limitations": "测量预测MSE保证并非任意信息增益或闭环任务代价的保证；测向是周期量，方向翻转/无信号使本题观测分布不适合直接取算术平均。原论文失败超过1000秒的耗时结果被丢弃，本题仍保存全部失败。",
+      "inspiration": "不能把多边形中心当唯一未来真值；有限求积考虑多个假想目标，并逐一推演后验。",
+      "adoption": "r1/r2/r3 的 belief_quadrature 和 predicted_polygon 受该区分启发；采用多假设显式推演，不是MEXGEN平均观测，也未声称继承其理论界或加速比。",
+      "functions": [
+        "Solver.belief_quadrature",
+        "Solver.predicted_polygon",
+        "Solver.second_point"
+      ],
+      "not_used": "不直接平均方位、不引入Bernoulli粒子滤波或RSS模型；其观测/动力学与本题不同。",
+      "url": "https://arxiv.org/abs/2405.02605",
+      "pdf_url": "https://arxiv.org/pdf/2405.02605",
+      "pdf_sha256": "efc365bc83489034b7140a85ca74e9ba26925b6c093a2de112b661dfc43cc04f",
+      "pages": 9,
+      "source_level": "primary_author_paper",
+      "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+      "read_date": "2026-09-11",
+      "project_url": null,
+      "code_url": null,
+      "dataset_url": null,
+      "awards": "not_checked",
+      "classification_confidence": "high",
+      "local_evidence": "research/2405.02605.txt (本地下载缓存，不入Git)"
+    },
+    {
+      "id": "L4",
+      "arxiv": "1804.02573",
+      "title": "Hindsight is Only 50/50: Unsuitability of MDP based Approximate POMDP Solvers for Multi-resolution Information Gathering",
+      "authors": [
+        "Sankalp Arora",
+        "Sanjiban Choudhury",
+        "Sebastian Scherer"
+      ],
+      "year": 2018,
+      "version": "v1, 2018-04-07",
+      "tier": "core",
+      "path": [
+        "信息价值",
+        "近似POMDP失效边界",
+        "信息动作与完全可观察假设"
+      ],
+      "read": "正文 p.1–5 的 I–V，尤其p.3–4信息价值定义/定理与tiger反例；最后结论/参考文献未深读。",
+      "problem": "为什么部分以完全可观察MDP求解器近似POMDP的方法不愿主动获取信息。",
+      "mechanism": "定义不属于任何状态最优MDP策略却产生观测的信息动作；给出信息价值超过成本时的次优条件，并构造tiger和多分辨率搜索反例。",
+      "evidence": "§IV定理2与§V tiger：免费全信息假设下开门，实际50/50；付一次听觉成本可以改变后验从而改变最优动作。",
+      "limitations": "不是声称所有QMDP、所有模仿学习、所有信息采集任务都失败；需要其信息动作及收益条件。本题没有直接使用其完整POMDP求解器。",
+      "inspiration": "局部代理必须评估观测后的多边形变化，不能把假想真位置直接当观测后已知状态；也不能只计算几何靠近。",
+      "adoption": "进入r1–r3设计审查与 second_point 的 posterior 分支；未实现作者MDP/POMDP算法。",
+      "functions": [
+        "Solver.predicted_polygon",
+        "Solver.second_point"
+      ],
+      "not_used": "不构建连续多源全状态POMDP树，计算和建模成本不适合本轮小范围改动。",
+      "url": "https://arxiv.org/abs/1804.02573",
+      "pdf_url": "https://arxiv.org/pdf/1804.02573",
+      "pdf_sha256": "2e9c5f3c0567b1b83274dd140b684d345523441bc06ff1b14cd46c3e6779f0ba",
+      "pages": 6,
+      "source_level": "primary_author_paper",
+      "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+      "read_date": "2026-09-11",
+      "project_url": null,
+      "code_url": null,
+      "dataset_url": null,
+      "awards": "not_checked",
+      "classification_confidence": "high",
+      "local_evidence": "research/1804.02573.txt (本地下载缓存，不入Git)"
+    },
+    {
+      "id": "L5",
+      "arxiv": "2605.11116",
+      "title": "Improving D-Optimal Sensor Placement for Bearing-Only Localization via Maximum-Entropy Reweighting",
+      "authors": [
+        "Raktim Bhattacharya"
+      ],
+      "year": 2026,
+      "version": "v1, 2026-05-11",
+      "tier": "extended",
+      "path": [
+        "信息驱动运动",
+        "分布重加权",
+        "MaxEnt倾斜与FIM优化"
+      ],
+      "read": "正文 p.1–4 摘要、I、II 问题/FIM/Dirac-at-mean重加权推导和求解器；未深读后续实验与全部结论。",
+      "problem": "改进对粒子后验均匀加权的多传感器D-optimal布置。",
+      "mechanism": "在切片Wasserstein精度约束下最小KL，得到按到后验均值距离指数倾斜的权重，再多起点L-BFGS-B优化FIM。",
+      "evidence": "正文§II C清楚说明精度目标是当前后验加权均值处Dirac，而非已知真值。引言报告传感器少于源时可能牺牲角度多样性；本次未独立复核数值结果。",
+      "limitations": "高斯误差/多个同步传感器且优化定位误差，均值集中可能压低真实极端位置权重；本题不能以该权重替代全清证书。",
+      "inspiration": "FIM依赖选用的分布；“更尖的belief”不是免费新信息。",
+      "adoption": "未进入最终代码，仅作为竞争与不采用证据。",
+      "functions": [],
+      "not_used": "不希望在首个方位的长楔形上人为强化中心假设；纯FIM与20m清除任务不直接对齐。",
+      "url": "https://arxiv.org/abs/2605.11116",
+      "pdf_url": "https://arxiv.org/pdf/2605.11116",
+      "pdf_sha256": "6c7fb8873af86c8d05263c2b8a8ab4aef95e25e39346a9b873c8ccd7a69f3a7a",
+      "pages": 8,
+      "source_level": "primary_author_paper",
+      "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+      "read_date": "2026-09-11",
+      "project_url": null,
+      "code_url": null,
+      "dataset_url": null,
+      "awards": "not_checked",
+      "classification_confidence": "medium",
+      "local_evidence": "research/2605.11116.txt (本地下载缓存，不入Git)"
+    },
+    {
+      "id": "L6",
+      "arxiv": "2310.15846",
+      "title": "Optimal Spatial-Temporal Triangulation for Bearing-Only Cooperative Motion Estimation",
+      "authors": [
+        "Canlun Zheng",
+        "Yize Mi",
+        "Hanqing Guo",
+        "Huaben Chen",
+        "Zhiyun Lin",
+        "Shiyu Zhao"
+      ],
+      "year": 2023,
+      "version": "v5, 2025-02-12；正文标示2025-02-13投稿Automatica",
+      "tier": "extended",
+      "path": [
+        "不确定性表示",
+        "点估计",
+        "分布式递归最小二乘与时空三角化"
+      ],
+      "read": "正文 p.1–2 摘要与引言；没有把后续算法或收敛证明当作已深读。",
+      "problem": "多飞行器只凭方位协同估计运动目标位置/速度。",
+      "mechanism": "设计融合几何三角化和动力学的分布式递归最小二乘目标。",
+      "evidence": "只核验正文引言中的方法结构和作者所述验证目标；本次没有提取可比较结果数字。",
+      "limitations": "分布式多传感器、运动目标与通信限制不同；引言声称的收敛和实机性能本轮未独立复核。",
+      "inspiration": "几何约束应显式进入估计，单方位秩缺失不能靠重复同址测量消除。",
+      "adoption": "未新增实现。现有多边形交已经显式保留几何。",
+      "functions": [],
+      "not_used": "静态单机器狗不存在多机一致性和动态速度估计需求。",
+      "url": "https://arxiv.org/abs/2310.15846",
+      "pdf_url": "https://arxiv.org/pdf/2310.15846",
+      "pdf_sha256": "436eb4fa328e622bc890e15c7b9096e501a0043d2ed7975af6bd149285bd18af",
+      "pages": 17,
+      "source_level": "primary_author_paper",
+      "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+      "read_date": "2026-09-11",
+      "project_url": null,
+      "code_url": null,
+      "dataset_url": null,
+      "awards": "not_checked",
+      "classification_confidence": "medium",
+      "local_evidence": "research/2310.15846.txt (本地下载缓存，不入Git)"
+    },
+    {
+      "id": "L7",
+      "arxiv": "1705.07834",
+      "title": "Adaptive Information Gathering via Imitation Learning",
+      "authors": [
+        "Sanjiban Choudhury",
+        "Ashish Kapoor",
+        "Gireeja Ranade",
+        "Sebastian Scherer",
+        "Debadeepta Dey"
+      ],
+      "year": 2017,
+      "version": "下载 arXiv 正文，正文页首标识未用于正式会议身份判断",
+      "tier": "extended",
+      "path": [
+        "经验策略",
+        "模仿学习",
+        "全知训练教师与部分观测策略"
+      ],
+      "read": "正文 p.1 摘要与引言；算法、理论界、实验未深读。",
+      "problem": "从地图分布训练在线低成本的信息采集策略。",
+      "mechanism": "训练时全知地图的clairvoyant oracle给动作，学习策略仅根据观测历史模仿；作者讨论自适应次模性条件。",
+      "evidence": "仅核验问题定义和训练/在线信息边界；不引入或引用其定量优势。",
+      "limitations": "训练分布迁移和全知教师忽略信息动作问题需要核查；本轮未阅读证明细节。",
+      "inspiration": "若离线训练应严格分离教师真值和在线可用特征。",
+      "adoption": "没有训练模型，没有进入代码。",
+      "functions": [],
+      "not_used": "该方向由其他独立路线探索；A2先检验可审查的低维主动观测机制。",
+      "url": "https://arxiv.org/abs/1705.07834",
+      "pdf_url": "https://arxiv.org/pdf/1705.07834",
+      "pdf_sha256": "be35cf18663553f91f6c56b53586b464ad5cba01b378853b6ce24ef06b0b24e0",
+      "pages": 14,
+      "source_level": "primary_author_paper",
+      "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+      "read_date": "2026-09-11",
+      "project_url": null,
+      "code_url": null,
+      "dataset_url": null,
+      "awards": "not_checked",
+      "classification_confidence": "medium",
+      "local_evidence": "research/1705.07834.txt (本地下载缓存，不入Git)"
+    },
+    {
+      "id": "L8",
+      "arxiv": "1703.09924",
+      "title": "Quantization and Stochastic Control of Trajectories of Underwater Vehicle in Bearings-only Tracking",
+      "authors": [
+        "Huilong Zhang",
+        "Dann Laneuville",
+        "Benoîte de Saporta",
+        "Adrien Nègre",
+        "François Dufour"
+      ],
+      "year": 2017,
+      "version": "v2, 2017-05-03；检索页标题与v2标题不同，按下载正文去重",
+      "tier": "extended",
+      "path": [
+        "多步规划",
+        "动态规划",
+        "状态量化与随机控制"
+      ],
+      "read": "正文 p.1 摘要与引言；后续量化算法/实验未深读。",
+      "problem": "水下被动声学跟踪中在检测目标和降低自身暴露之间规划路线。",
+      "mechanism": "有限时域MDP和量化离散化；未知目标状态通过Kalman型估计处理。",
+      "evidence": "仅核验摘要/引言的建模和计算维度问题，不作精度或速度比较。",
+      "limitations": "声传播、运动目标、自身暴露和Kalman假设与本题不同；状态量化会增加近似复杂性。",
+      "inspiration": "后验与可见性使完整随机规划维度迅速增加，局部短视预测需明确边界。",
+      "adoption": "未进入代码。",
+      "functions": [],
+      "not_used": "不为了框架完整性增加高维MDP；本轮需要清楚因果的局部策略比较。",
+      "url": "https://arxiv.org/abs/1703.09924",
+      "pdf_url": "https://arxiv.org/pdf/1703.09924",
+      "pdf_sha256": "2921cd3bab2f4c66d5615f739e66a27773ef53412747126d9f8df2b01c6de379",
+      "pages": 11,
+      "source_level": "primary_author_paper",
+      "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+      "read_date": "2026-09-11",
+      "project_url": null,
+      "code_url": null,
+      "dataset_url": null,
+      "awards": "not_checked",
+      "classification_confidence": "medium",
+      "local_evidence": "research/1703.09924.txt (本地下载缓存，不入Git)"
+    },
+    {
+      "id": "L9",
+      "arxiv": "2009.07308",
+      "title": "Bearing-Only Navigation with Field of View Constraints",
+      "authors": [
+        "Arman Karimian",
+        "Roberto Tron"
+      ],
+      "year": 2020,
+      "version": "v2, 2020-12-30",
+      "tier": "extended",
+      "path": [
+        "可见性约束",
+        "几何控制",
+        "保持地标FOV的向量场"
+      ],
+      "read": "正文 p.1 摘要与引言；稳定性证明/控制器公式未深读。",
+      "problem": "只凭地标方位并受相机视野限制的视觉归航。",
+      "mechanism": "沿以地标为焦点椭球的切/法向向量场，用方位均值与夹角调节距离并保持FOV。",
+      "evidence": "只核验问题与机制摘要，不声称已验证其稳定性界。",
+      "limitations": "已知归航目标方位、多地标观测的FOV约束，与未知源朝向的半圆发射区域不是同一种观测约束。",
+      "inspiration": "高信息的测点若观测不可见，预期价值就不存在。",
+      "adoption": "概念提醒进入r2的不可见分支；未实现论文向量场。",
+      "functions": [
+        "Solver.second_point"
+      ],
+      "not_used": "不能把相机视场约束公式直接套到发射半平面。",
+      "url": "https://arxiv.org/abs/2009.07308",
+      "pdf_url": "https://arxiv.org/pdf/2009.07308",
+      "pdf_sha256": "9006a024025a9cf0d6109811641518f618958d6b53d9d9f1ae0ccc3b36998563",
+      "pages": 7,
+      "source_level": "primary_author_paper",
+      "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+      "read_date": "2026-09-11",
+      "project_url": null,
+      "code_url": null,
+      "dataset_url": null,
+      "awards": "not_checked",
+      "classification_confidence": "medium",
+      "local_evidence": "research/2009.07308.txt (本地下载缓存，不入Git)"
+    }
+  ]
+}
