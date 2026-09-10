@@ -67,3 +67,5 @@ python evaluate.py --suite full --candidate solver.py --out results/A2_informati
 R7 已完成开发(910600–910609)、规则、quick120全清，候选 f963a3fede0c53fab859e8e9e3b339f5afab7da8a3308d426823c796e3f3fb70；full 已启动，输出 results/A2_information_r7_full。本段优先于上文暂存状态；不要重跑已完成步骤。
 
 R7 full完成：2400全清、Q3=286.01274517821093、Q4=570.7373131854504；Q3比R6仅改善0.0057839893秒/源，Q4相同。最佳R7、未刷新0，下一轮R8。
+
+R8 full完成：2400全清、Q3=285.8667033463909、Q4=568.449411526069；最佳R8、未刷新0。候选bd0ed7b8d322d6502c04c1bf100857001617cca235038a2d78bcacf4d97b82bc。下一轮R9研究有预算的多次负约束传播，不删兜底格点。
