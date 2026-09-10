@@ -13,7 +13,7 @@ committed=subprocess.check_output(['git','show',best['code_commit']+':'+best['co
 checks['best_committed_bytes_match']=hashlib.sha256(committed).hexdigest()==best['solver_sha256']
 for path,h in best['auxiliary_artifacts'].items():
  if path.startswith('experiments/'):checks['aux:'+path]=sha(R/path)==h
-rounds=[];train_episodes=0;all_cases=set();train_attempts=0
+rounds=[];train_episodes=0;all_cases=set();train_attempts=0;train_only_episodes=0;dev_only_episodes=0
 for hist in best['history']:
  n=hist['round'];summary=json.loads((R/'results'/f'A6_learning_r{n}_full'/'summary.json').read_text())
  rows=json.loads((R/'results'/f'A6_learning_r{n}_full'/'case_metrics.json').read_text());z=[r for r in rows if r['variant']=='candidate']
@@ -38,6 +38,8 @@ for hist in best['history']:
   checks[f'r{n}_q{mode}_attempts']=len(attempts)==budget['candidates_per_mode'] and all(len(a['training']['rows'])==budget['train_cases_per_mode'] for a in attempts)
   checks[f'r{n}_q{mode}_dev']=all(len(d['development']['rows'])==budget['dev_cases_per_mode'] for d in dev)
   episode_count+=sum(len(a['training']['rows']) for a in attempts)+sum(len(d['development']['rows']) for d in dev)
+  train_only_episodes+=sum(len(a['training']['rows']) for a in attempts)
+  dev_only_episodes+=sum(len(d['development']['rows']) for d in dev)
   train_attempts+=len(attempts)
   for split in ['train','dev']:
    seeds={c['seed'] for c in sets[str(mode)][split]}
@@ -63,11 +65,31 @@ for roundid in [3]:
 extra={}
 for key,path in [('replayed_training',B/'reproduced/r3/budget.json'),('development_ablation',B/'development_ablation/budget.json')]:
  if path.exists():extra[key]=json.loads(path.read_text())['actual_episodes']
+if (B/'development_ablation/summary.json').exists():
+ ab=json.loads((B/'development_ablation/summary.json').read_text());budget=json.loads((B/'development_ablation/budget.json').read_text())
+ selected_conf=ab['selected']['config'];observed=[]
+ for name in ab:
+  rowfile=json.loads((B/'development_ablation'/(name+'.json')).read_text());observed+=rowfile['rows']
+  checks['ablation_complete:'+name]=rowfile['complete']==rowfile['n']==len(rowfile['rows']) and all(r['complete'] for r in rowfile['rows'])
+  checks['ablation_recorded_mean:'+name]=abs(statistics.mean(r['average_s'] for r in rowfile['rows'])-rowfile['mean_s'])<1e-9
+  if name.startswith('without_'):
+   key=name[len('without_'):];expected=dict(selected_conf);expected[key]=0.
+   checks['ablation_single_feature:'+name]=rowfile['config']==expected
+ checks['ablation_actual_budget']=len(observed)==budget['actual_episodes']
+ selected_training=json.loads((B/'training'/f'r{best["round"]}'/'selected.json').read_text())['4']['development_summary']['mean_s']
+ checks['ablation_selected_reproduces_dev']=abs(ab['selected']['mean_s']-selected_training)<1e-9
+ checks['ablation_control_actual_baseline']=ab['original_behavior']['solver']=='baseline_solver.py'
+ checks['ablation_only_previously_seen']={r['seed'] for r in observed}<=all_cases
 summary=dict(rounds=len(rounds),full_candidate_episodes=2400*len(rounds),quick_candidate_episodes=120*len(rounds),training_parameter_attempts=train_attempts,training_development_episodes=train_episodes,extra_episode_counts=extra,q3_exactly_matching_baseline_cases=equal,best_round=best['round'],all_checks_passed=all(checks.values()))
 streak=0
 for h in reversed(best['history']):
  if h['decision']=='improved':break
  streak+=1
+summary['training_only_episodes']=train_only_episodes
+summary['development_selection_episodes']=dev_only_episodes
+summary['optimized_train_dev_unique_cases']=len(all_cases)
+summary['frozen_regression_unique_cases']=2400
+summary['quick_subset_unique_cases']=120
 summary['consecutive_rounds_without_improvement']=streak
 summary['extended_empirical_stop_met']=len(rounds)>=5 and streak>=2
 result=dict(summary=summary,checks=checks,rounds=rounds,best_solver_sha256=best['solver_sha256'],best_code_commit=best['code_commit'])

@@ -6,7 +6,7 @@
 
 ## 1. 当前可交付结论
 
-已完成8轮冻结候选。当前最佳是第7轮（0表示原版），Q3=306.300434218、Q4=548.515689128秒/源，两题分别全清1200/1200与1200/1200。
+已完成9轮冻结候选。当前最佳是第7轮（0表示原版），Q3=306.300434218、Q4=548.515689128秒/源，两题分别全清1200/1200与1200/1200。
 
 第一轮的静态参数搜索未改善固定回归。第二轮学得的上下文调度在第四问改善，但第三问退步，故保留为取舍而未把它记为联合最佳。第三轮据此固定第三问原配置，继续在自建数据中优化第四问。这些选择都属于公开逐轮迭代；没有按v1案例编号、源真值或回归场景标签决策。
 
@@ -56,7 +56,7 @@
 
 **对应函数。** scripts/train_policy.py:main；scripts/train_policy.py:evaluate；solver.py:Solver.learned_source_cost
 
-**实际实验支持。** 参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。
+**实际实验支持。** 参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。
 
 **本题实验联系。** 第1轮表明低维搜索并不保证迁移：开发微小改善在full上失败。第2轮增加观测上下文后第四问改善而第三问仍退步。结论是参数化与数据覆盖比“是否叫RL”更关键，不能把ARS的MuJoCo结果当成本题证据。
 
@@ -92,7 +92,7 @@
 
 **对应函数。** solver.py:Solver.learned_source_cost；solver.py:Solver.run；scripts/train_policy.py:main (paired development)
 
-**实际实验支持。** 第2轮上下文调度：Q3 306.814064472退步、Q4 552.956003578改善；第3轮恢复Q3后取得联合改进。整体候选比较支持Q4调度有效，但不等于attention网络复现或单一特征因果证明。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。
+**实际实验支持。** 第2轮上下文调度：Q3 306.814064472退步、Q4 552.956003578改善；第3轮恢复Q3后取得联合改进。整体候选比较支持Q4调度有效，但不等于attention网络复现或单一特征因果证明。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。
 
 **本题实验联系。** `learned_source_cost`以可行区域中心的集合邻近度和相对下一站的位置构造上下文，参数由自己的整局数据训练。第2轮Q4结果支持整个学习调度候选有效；仅凭该整体比较不能把收益因果归于某一个特征。论文中的注意力网络、REINFORCE和t检验基线更新并未复刻。
 
@@ -110,7 +110,7 @@
 
 **对应函数。** solver.py:certified_points；solver.py:Solver.cover_polygon；solver.py:Solver.run (unchanged exit certificate)；scripts/audit_policy.py
 
-**实际实验支持。** 全部8轮full分别2400/2400完整清除；核心覆盖/清除/终止函数保留并做AST审查。可靠性解析依据写于report第6节；没有LTL自动合成实验。
+**实际实验支持。** 全部9轮full分别2400/2400完整清除；核心覆盖/清除/终止函数保留并做AST审查。可靠性解析依据写于report第6节；没有LTL自动合成实验。
 
 **本题实验联系。** `audit_policy.py`逐函数AST比较覆盖、观测约束、兜底、预算与退出证书，并检查`self.env`仅访问四方法。每轮规则检查和全部清除是经验验证；几何推理是解析依据。这不是把本题编码为LTL并执行shield合成，因此不沿用原论文的安全定理。
 
@@ -124,7 +124,7 @@
 
 启发：动作频率和长时延回报不会阻止参数空间学习；适合既有确定求解器。 采用/排除与代码对应：训练器采用候选参数扰动和整局反馈；未复刻通信噪声表、Adam或大型网络。
 
-对应函数：scripts/train_policy.py:main (parameter-space search inspiration only) 实验边界：参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。
+对应函数：scripts/train_policy.py:main (parameter-space search inspiration only) 实验边界：参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。
 
 #### ppo — [Proximal Policy Optimization Algorithms](https://arxiv.org/pdf/1707.06347)
 
@@ -164,7 +164,7 @@
 
 启发：直接用任务代价训练，比模仿一份并非最优的路线标签更贴合目标。 采用/排除与代码对应：整局直接目标进入训练器；未实现指针网络，亦不在v1上做单实例active search。
 
-对应函数：scripts/train_policy.py:episode；scripts/train_policy.py:evaluate (whole-episode objective only) 实验边界：参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。
+对应函数：scripts/train_policy.py:episode；scripts/train_policy.py:evaluate (whole-episode objective only) 实验边界：参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。
 
 #### gp_sensor — [Near-Optimal Sensor Placements in Gaussian Processes: Theory, Efficient Algorithms and Empirical Studies](https://www.jmlr.org/papers/volume9/krause08a/krause08a.pdf)
 
@@ -210,6 +210,7 @@
 |6|[4]|32|144|288|6048|121.39|
 |7|[4]|32|144|288|6336|127.64|
 |8|[4]|32|144|288|6336|124.40|
+|9|[4]|32|144|288|6336|124.42|
 
 所有尝试在`training/rN/qM_attempts.jsonl`，开发逐局结果在`qM_development.json`，完整自建案例在`cases.json`，配置范围与随机种子在`budget.json`，选中参数在`selected.json`。输入策略也计入候选与开发预算。回归quick/full额外分别120/2400局，不混入训练预算；读取已冻结基准缓存不算重跑基准。
 
@@ -226,6 +227,7 @@
 |6|306.300434218|548.829651685|2400/2400|not_improved|
 |7|306.300434218|548.515689128|2400/2400|improved|
 |8|306.300434218|548.515689128|2400/2400|not_improved|
+|9|306.300434218|548.515689128|2400/2400|not_improved|
 
 `improved`要求full全部完整且两题均不差、至少一题更好；`tradeoff`是取舍而非共同改善。每题均值为各局秒/源的算术均值；没有自造合并Q3/Q4的加权分数。训练与full的独立结果都保留，quick是full子集，不能称为第二份独立验证。
 
@@ -358,6 +360,20 @@ Q4开发输入均值544.669970525，入围最小均值543.375038933，最终选�
 |---|---|---:|---:|---:|
 |Q4|edge_mixed_min_radius|616.529295|613.729392|0.4562%|
 
+### 第9轮
+
+候选SHA256：`7567112db87feb9355312346655b929dab70b3769aa50a5aed86707a279d4612`。快照：`snapshots/r9_solver.py`。规则日志：`r9_rules.log`；正常规则79/79。quick全清120/120，Q3 304.580978、Q4 577.277668。full现实耗时25.47秒，结果：`results/A6_learning_r9_full`。
+
+当时当前最佳为第7轮；此轮判定`not_improved`。完整逐局数据、错误列表与场景结果均在对应JSON/CSV，不筛掉失败或最差局。
+
+Q4开发输入均值542.665362184，入围最小均值540.780123482，最终选中均值542.665362184秒/源；选中尝试编号0（0为输入策略）。最小均值相对输入改善0.3474%；第3轮起不足预设0.5%则保留输入。这些数据参与选择，不是盲测。
+
+相对原始基准的所有场景退步如下（负号表示改善，正号表示更慢）；没有列出的场景不代表未测试，完整24场景表位于aggregate/summary：
+
+|题目|场景|候选秒/源|基准秒/源|退步比例|
+|---|---|---:|---:|---:|
+|Q4|edge_mixed_min_radius|616.529295|613.729392|0.4562%|
+
 ### 5.1 最差局、逐案例一致性与停止依据
 
 |题目|基准最差局秒/源|最佳策略最差局秒/源|本次最佳策略最大现实运行秒|
@@ -367,7 +383,11 @@ Q4开发输入均值544.669970525，入围最小均值543.375038933，最终选�
 
 平均改善不意味着尾部改善；本次仅按协议用均值判断当前最佳，仍披露最差局。基准现实耗时来自历史缓存，不用于宣称计算速度提升。
 
-最终逐案例/散列审计：{"rounds": 8, "full_candidate_episodes": 19200, "quick_candidate_episodes": 960, "training_parameter_attempts": 400, "training_development_episodes": 59712, "extra_episode_counts": {"replayed_training": 5760}, "q3_exactly_matching_baseline_cases": 1200, "best_round": 7, "all_checks_passed": true, "consecutive_rounds_without_improvement": 1, "extended_empirical_stop_met": false}。详细检查见final_audit.json。
+最终逐案例/散列审计：{"rounds": 9, "full_candidate_episodes": 21600, "quick_candidate_episodes": 1080, "training_parameter_attempts": 432, "training_development_episodes": 66048, "extra_episode_counts": {"replayed_training": 5760}, "q3_exactly_matching_baseline_cases": 1200, "best_round": 7, "all_checks_passed": true, "training_only_episodes": 50688, "development_selection_episodes": 15360, "optimized_train_dev_unique_cases": 4032, "frozen_regression_unique_cases": 2400, "quick_subset_unique_cases": 120, "consecutive_rounds_without_improvement": 2, "extended_empirical_stop_met": true}。详细检查见final_audit.json。
+
+预算中的局数是完整策略执行次数，不都是独立案例：原训练/开发搜索共66048次执行，使用4032个实际参与优化的不同生成案例，其中训练执行50688次、开发选择执行15360次。固定回归始终重复同一2400案例，quick只是其中120案例；逐轮full、quick、R3重放及最终开发消融都不能累加成独立样本量。
+
+第8、9轮均未刷新经过full验证的第7轮最佳，达到授权的延长后连续两轮未刷新停止条件。延长资格来自第3轮相对第2轮Q3改善、Q4持平且刷新联合最佳；并非声称新第二测点学习有增益。该停止仅是有限预算操作规则，不是数学收敛或全局最优证明。
 
 第三轮训练已在一次性新目录真实重放，完整再运行5760局，重新选出的两题配置与历史记录比较：{"3": true, "4": true}。这是复现检查，非额外候选选择或新的泛化验证；原始重放逐局结果与预算在reproduced/r3。
 

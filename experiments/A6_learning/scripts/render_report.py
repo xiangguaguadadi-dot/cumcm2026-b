@@ -98,6 +98,10 @@ for mode in [3,4]:
 put('\n平均改善不意味着尾部改善；本次仅按协议用均值判断当前最佳，仍披露最差局。基准现实耗时来自历史缓存，不用于宣称计算速度提升。')
 if (B/'final_audit.json').exists():
  audit=json.loads((B/'final_audit.json').read_text());put('\n最终逐案例/散列审计：'+json.dumps(audit.get('summary',{}),ensure_ascii=False)+'。详细检查见final_audit.json。')
+ counts=audit['summary']
+ if 'optimized_train_dev_unique_cases' in counts:
+  put(f'\n预算中的局数是完整策略执行次数，不都是独立案例：原训练/开发搜索共{counts["training_development_episodes"]}次执行，使用{counts["optimized_train_dev_unique_cases"]}个实际参与优化的不同生成案例，其中训练执行{counts["training_only_episodes"]}次、开发选择执行{counts["development_selection_episodes"]}次。固定回归始终重复同一2400案例，quick只是其中120案例；逐轮full、quick、R3重放及最终开发消融都不能累加成独立样本量。')
+
 if len(rounds)>=5 and best['history'][-1]['decision']!='improved' and best['history'][-2]['decision']!='improved':
  put(f'\n第{rounds[-2]["round"]}、{rounds[-1]["round"]}轮均未刷新经过full验证的第{best["round"]}轮最佳，达到授权的延长后连续两轮未刷新停止条件。延长资格来自第3轮相对第2轮Q3改善、Q4持平且刷新联合最佳；并非声称新第二测点学习有增益。该停止仅是有限预算操作规则，不是数学收敛或全局最优证明。')
 if (B/'development_ablation/summary.json').exists():

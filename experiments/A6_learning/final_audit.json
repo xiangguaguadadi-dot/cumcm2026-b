@@ -1,18 +1,23 @@
 {
   "summary": {
-    "rounds": 8,
-    "full_candidate_episodes": 19200,
-    "quick_candidate_episodes": 960,
-    "training_parameter_attempts": 400,
-    "training_development_episodes": 59712,
+    "rounds": 9,
+    "full_candidate_episodes": 21600,
+    "quick_candidate_episodes": 1080,
+    "training_parameter_attempts": 432,
+    "training_development_episodes": 66048,
     "extra_episode_counts": {
       "replayed_training": 5760
     },
     "q3_exactly_matching_baseline_cases": 1200,
     "best_round": 7,
     "all_checks_passed": true,
-    "consecutive_rounds_without_improvement": 1,
-    "extended_empirical_stop_met": false
+    "training_only_episodes": 50688,
+    "development_selection_episodes": 15360,
+    "optimized_train_dev_unique_cases": 4032,
+    "frozen_regression_unique_cases": 2400,
+    "quick_subset_unique_cases": 120,
+    "consecutive_rounds_without_improvement": 2,
+    "extended_empirical_stop_met": true
   },
   "checks": {
     "frozen_v1_verified": true,
@@ -125,6 +130,18 @@
     "r8_q4_train_seed_separation": true,
     "r8_q4_dev_seed_separation": true,
     "r8_budget_count": true,
+    "r9_full_hash": true,
+    "r9_complete": true,
+    "r9_quick_hash": true,
+    "r9_quick_complete": true,
+    "r9_unique_full_ids": true,
+    "r9_quick_subset_full": true,
+    "r9_boundary_audit": true,
+    "r9_q4_attempts": true,
+    "r9_q4_dev": true,
+    "r9_q4_train_seed_separation": true,
+    "r9_q4_dev_seed_separation": true,
+    "r9_budget_count": true,
     "q3_per_case_original_equal": true,
     "best_mean_q3": true,
     "best_mean_q4": true,
@@ -199,6 +216,15 @@
     },
     {
       "round": 8,
+      "complete": 2400,
+      "means": {
+        "3": 306.30043421816345,
+        "4": 548.5156891280411
+      },
+      "decision": "not_improved"
+    },
+    {
+      "round": 9,
       "complete": 2400,
       "means": {
         "3": 306.30043421816345,

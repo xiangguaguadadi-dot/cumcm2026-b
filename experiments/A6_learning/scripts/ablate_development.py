@@ -12,16 +12,17 @@ full=dict(mod.OPTIMIZED_CONFIGS[4]);variants={'selected':full}
 for key,value in full.items():
  if key.startswith('schedule_') and abs(value)>1e-10:
   conf=dict(full);conf[key]=0.;variants['without_'+key]=conf
-conf={k:v for k,v in full.items() if not k.startswith('schedule_')};conf['source_priority']=1.6
-for k in ['second_range_weight','second_uncertainty_weight','second_route_weight']:conf[k]=0.
-conf.update(advance_fraction=.6,lateral_fraction=.15,clear_trial_radius=100)
-variants['original_behavior']=conf
+# Use the actual baseline module: omitting a learned key from config would
+# incorrectly inherit that key again from the selected module's defaults.
+baseline=load(B/'snapshots/baseline_solver.py')
+variants['original_behavior']=dict(baseline.OPTIMIZED_CONFIGS[4])
 out=B/'development_ablation';out.mkdir(exist_ok=False)
 budget=dict(purpose='post-selection mechanism audit, no parameter selection',data='exposed development from round '+str(case_round),variants=len(variants),episodes_per_variant=len(cases),planned_episodes=len(variants)*len(cases),solver_sha256=best['solver_sha256'])
 (out/'budget.json').write_text(json.dumps(budget,ensure_ascii=False,indent=2))
 results={};t=time.perf_counter()
 for name,conf in variants.items():
- result=evaluate(mod,cases,conf);results[name]=dict(config=conf,**result)
+ active_module=baseline if name=='original_behavior' else mod
+ result=evaluate(active_module,cases,conf);results[name]=dict(config=conf,solver='baseline_solver.py' if name=='original_behavior' else best['solver_path'],**result)
  print(name,result['mean_s'],result['complete'],result['n'],flush=True)
  (out/(name+'.json')).write_text(json.dumps(results[name],ensure_ascii=False,separators=(',',':')))
 budget.update(actual_episodes=budget['planned_episodes'],elapsed_seconds=time.perf_counter()-t)
