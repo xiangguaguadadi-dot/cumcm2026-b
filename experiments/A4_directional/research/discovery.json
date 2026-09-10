@@ -1,0 +1,689 @@
+{
+  "date": "2026-09-11",
+  "queries": [
+    "all:\"bearing-only\" AND all:\"localization\"",
+    "all:\"negative information\" AND all:robot",
+    "all:\"set membership\" AND all:\"localization\"",
+    "all:\"visibility\" AND all:\"active perception\"",
+    "all:\"informative path planning\"",
+    "ti:search AND all:\"negative\"",
+    "ti:\"bearing\" AND all:\"sensor placement\"",
+    "ti:\"coverage\" AND all:\"directional sensors\"",
+    "ti:\"active\" AND ti:\"search\" AND all:\"Bayesian\""
+  ],
+  "sources": [
+    {
+      "query": "all:\"bearing-only\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/2606.09188v1",
+      "title": "Trajectory Optimization in Single and Dual-UAV Bearing-Only Target Localization",
+      "authors": [
+        "Zhijian Xiao",
+        "Huayu Huang",
+        "Bin Li",
+        "Yang Shang",
+        "Banglei Guan"
+      ],
+      "published": "2026-06-08T08:23:32Z",
+      "abstract": "Bearing-only target localization is a fundamental problem in optical measurement and finds extensive applications in unmanned aerial vehicle (UAV) technology. Effective trajectory planning establishes favorable observation geometries, thereby enhancing the target localization accuracy of bearing-only UAV systems. This paper proposes an trajectory optimization method for unmanned aerial vehicles (UAVs) in bearing-only target localization scenarios. By leveraging the Fisher Information Matrix (FIM), the proposed approach dynamically integrates the geometric configuration and vehicle maneuverability into the optimization framework. Specifically, we introduce a spectrally-weighted FIM objective function that provides better gradient dynamics near degenerate configurations, enabling the planner to rapidly escape from poor observation conditions. For dual-UAV scenarios, an intersection angle sine term is introduced to optimize triangulation geometry by improving the sight-line intersection angle, thereby preventing trajectory aggregation. Furthermore, we propose an improved Particle Swarm Optimization (PSO) algorithm with motion model constraints and particle normalization to ensure the physical feasibility of the trajectory and enhance the compatibility with the objective functions. Simulation results demonstrate that the proposed method reduces the median localization error by 99.21% compared to conventional FIM-based approaches in single-UAV scenarios, and achieves a 69.70% improvement for dual-UAV configurations, exhibits superior performance in long-duration bearing-only target localization of maneuverability targets at extended ranges."
+    },
+    {
+      "query": "all:\"bearing-only\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/2506.18460v1",
+      "title": "Networked pointing system: Bearing-only target localization and pointing control",
+      "authors": [
+        "Shiyao Li",
+        "Bo Zhu",
+        "Yining Zhou",
+        "Jie Ma",
+        "Baoqing Yang",
+        "Fenghua He"
+      ],
+      "published": "2025-06-23T09:58:37Z",
+      "abstract": "In the paper, we formulate the target-pointing consensus problem where the headings of agents are required to point at a common target. Only a few agents in the network can measure the bearing information of the target. A two-step solution consisting of a bearing-only estimator for target localization and a control law for target pointing is constructed to address this problem. Compared to the strong assumptions of existing works, we only require two agents not collinear with the target to ensure localizability. By introducing the concept of virtual fusion node, we prove that both the estimation error and the tracking error converge asymptotically to the origin. The video demonstration of the verification can be found at https://youtu.be/S9- eyofk1DY."
+    },
+    {
+      "query": "all:\"bearing-only\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/2605.11116v1",
+      "title": "Improving D-Optimal Sensor Placement for Bearing-Only Localization via Maximum-Entropy Reweighting",
+      "authors": [
+        "Raktim Bhattacharya"
+      ],
+      "published": "2026-05-11T18:26:12Z",
+      "abstract": "In this paper, we present a two-layer architecture for bearing-only sensor placement that improves upon classical D-optimal design. The first layer reweights particles by minimizing Kullback-Leibler divergence from the current distribution subject to a distributional accuracy bound, concentrating mass on regions where the posterior is likely to settle, without reference to the sensor model. The second layer performs D-optimal sensor placement with respect to the reweighted Fisher information matrix, steering sensors toward geometrically informative configurations. Because the two layers are structurally decoupled, the reweighting generalizes across sensing modalities while the placement remains specific to bearing geometry. Systematic experiments on multi-source localization at two noise levels show that this reweighting reduces localization error on average, with the benefit growing as the sensor-to-source ratio increases and as measurements become more informative. The improvement is established in the first few iterations of the sequential procedure and persists as the posterior concentrates."
+    },
+    {
+      "query": "all:\"bearing-only\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/2504.07349v1",
+      "title": "Predefined-Time Target Localization and Circumnavigation using Bearing-Only Measurements: Theory and Experiments",
+      "authors": [
+        "Donglin Sui",
+        "Mohammad Deghat"
+      ],
+      "published": "2025-04-10T00:19:52Z",
+      "abstract": "This paper investigates the problem of controlling an autonomous agent to simultaneously localize and circumnavigate an unknown stationary target using bearing-only measurements (without explicit differentiation). To improve the convergence rate of target estimation, we introduce a novel adaptive target estimator that enables the agent to accurately localize the position of the unknown target with a tunable, predefined convergence time. Following this, we design a controller integrated with the estimator to steer the agent onto a circular trajectory centered at the target with a desired radius. The predefined-time stability of the overall system including the estimation and control errors are rigorously analyzed. Extensive simulations and experiments using unmanned aerial vehicles (UAVs) illustrate the performance and efficacy of the proposed estimation and control algorithms."
+    },
+    {
+      "query": "all:\"bearing-only\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/1809.03594v1",
+      "title": "Underwater Surveying via Bearing only Cooperative Localization",
+      "authors": [
+        "Hunter Damron",
+        "Alberto Quattrini Li",
+        "Ioannis Rekleitis"
+      ],
+      "published": "2018-09-10T20:58:57Z",
+      "abstract": "Bearing only cooperative localization has been used successfully on aerial and ground vehicles. In this paper we present an extension of the approach to the underwater domain. The focus is on adapting the technique to handle the challenging visibility conditions underwater. Furthermore, data from inertial, magnetic, and depth sensors are utilized to improve the robustness of the estimation. In addition to robotic applications, the presented technique can be used for cave mapping and for marine archeology surveying, both by human divers. Experimental results from different environments, including a fresh water, low visibility, lake in South Carolina; a cavern in Florida; and coral reefs in Barbados during the day and during the night, validate the robustness and the accuracy of the proposed approach."
+    },
+    {
+      "query": "all:\"bearing-only\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/2508.11289v1",
+      "title": "A Recursive Total Least Squares Solution for Bearing-Only Target Motion Analysis and Circumnavigation",
+      "authors": [
+        "Lin Li",
+        "Xueming Liu",
+        "Zhoujingzi Qiu",
+        "Tianjiang Hu",
+        "Qingrui Zhang"
+      ],
+      "published": "2025-08-15T07:52:25Z",
+      "abstract": "Bearing-only Target Motion Analysis (TMA) is a promising technique for passive tracking in various applications as a bearing angle is easy to measure. Despite its advantages, bearing-only TMA is challenging due to the nonlinearity of the bearing measurement model and the lack of range information, which impairs observability and estimator convergence. This paper addresses these issues by proposing a Recursive Total Least Squares (RTLS) method for online target localization and tracking using mobile observers. The RTLS approach, inspired by previous results on Total Least Squares (TLS), mitigates biases in position estimation and improves computational efficiency compared to pseudo-linear Kalman filter (PLKF) methods. Additionally, we propose a circumnavigation controller to enhance system observability and estimator convergence by guiding the mobile observer in orbit around the target. Extensive simulations and experiments are performed to demonstrate the effectiveness and robustness of the proposed method. The proposed algorithm is also compared with the state-of-the-art approaches, which confirms its superior performance in terms of both accuracy and stability."
+    },
+    {
+      "query": "all:\"bearing-only\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/2412.15757v1",
+      "title": "FTISS Adaptive Bearing-Only Formation Tracking Control with Unknown Disturbance Rejection",
+      "authors": [
+        "Hong Liang Cheah",
+        "Mohammad Deghat"
+      ],
+      "published": "2024-12-20T10:20:37Z",
+      "abstract": "This paper proposes a finite-time input-to-state stable (FTISS) bearing-only formation control law that rejects unknown constant disturbances. Unlike existing finite-time bearing-based formation control laws, which typically rely on the availability of a global coordinate frame and some information about the disturbances, our approach requires only local bearing vector measurements and does not necessitate the alignment of agent coordinate frames. The proposed control law guarantees that formation control errors converge to a neighborhood of zero in finite time, and subsequently converge to zero asymptotically. We first address the scenario where leaders are stationary and then extend the results to leaders moving with a constant velocity. Simulation and experimental results are presented to validate the effectiveness of the proposed control law."
+    },
+    {
+      "query": "all:\"bearing-only\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/1603.03450v1",
+      "title": "Multisensor--Multitarget Bearing--Only Sensor Registration",
+      "authors": [
+        "Ehsan Taghavi",
+        "R. Tharmarasa",
+        "T. Kirubarajan",
+        "Mike McDonald"
+      ],
+      "published": "2016-03-09T14:52:17Z",
+      "abstract": "Bearing--only estimation is one of the fundamental and challenging problems in target tracking. As in the case of radar tracking, the presence of offset or position biases can exacerbate the challenges in bearing--only estimation. Modeling various sensor biases is not a trivial task and not much has been done in the literature specifically for bearing--only tracking. This paper addresses the modeling of offset biases in bearing--only sensors and the ensuing multitarget tracking with bias compensation. Bias estimation is handled at the fusion node to which individual sensors report their local tracks in the form of associated measurement reports (AMR) or angle-only tracks. The modeling is based on a multisensor approach that can effectively handle a time--varying number of targets in the surveillance region. The proposed algorithm leads to a maximum likelihood bias estimator. The corresponding Cramér--Rao Lower Bound to quantify the theoretical accuracy that can be achieved by the proposed method or any other algorithm is also derived. Finally, simulation results on different distributed tracking scenarios are presented to demonstrate the capabilities of the proposed approach. In order to show that the proposed method can work even with false alarms and missed detections, simulation results on a centralized tracking scenario where the local sensors send all their measurements (not AMRs or local tracks) are also presented."
+    },
+    {
+      "query": "all:\"negative information\" AND all:robot",
+      "id": "http://arxiv.org/abs/2211.11201v2",
+      "title": "Self-Supervised 3D Traversability Estimation with Proxy Bank Guidance",
+      "authors": [
+        "Jihwan Bae",
+        "Junwon Seo",
+        "Taekyung Kim",
+        "Hae-gon Jeon",
+        "Kiho Kwak",
+        "Inwook Shim"
+      ],
+      "published": "2022-11-21T06:24:41Z",
+      "abstract": "Traversability estimation for mobile robots in off-road environments requires more than conventional semantic segmentation used in constrained environments like on-road conditions. Recently, approaches to learning a traversability estimation from past driving experiences in a self-supervised manner are arising as they can significantly reduce human labeling costs and labeling errors. However, the self-supervised data only provide supervision for the actually traversed regions, inducing epistemic uncertainty according to the scarcity of negative information. Negative data are rarely harvested as the system can be severely damaged while logging the data. To mitigate the uncertainty, we introduce a deep metric learning-based method to incorporate unlabeled data with a few positive and negative prototypes in order to leverage the uncertainty, which jointly learns using semantic segmentation and traversability regression. To firmly evaluate the proposed framework, we introduce a new evaluation metric that comprehensively evaluates the segmentation and regression. Additionally, we construct a driving dataset `Dtrail' in off-road environments with a mobile robot platform, which is composed of a wide variety of negative data. We examine our method on Dtrail as well as the publicly available SemanticKITTI dataset."
+    },
+    {
+      "query": "all:\"set membership\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/2603.04867v1",
+      "title": "Set-Membership Localization via Range Measurements",
+      "authors": [
+        "Giuseppe C. Calafiore"
+      ],
+      "published": "2026-03-05T06:43:43Z",
+      "abstract": "In this paper we discuss a classical geometrical problem of estimating an unknown point's location in $\\Real{n}$ from several noisy measurements of the Euclidean distances from this point to a set of known reference points (anchors). We approach the problem via a set-mem\\-ber\\-ship methodology, in which we assume the distance measurements to be affected by unknown-but-bounded errors, and we characterize the set of all points that are consistent with the measurements and their assumed error model. This set is nonconvex, but we show in the paper that it is contained in a region given by the intersection of certain closed balls and a polytope, which we call the {\\em localization set}. Then, we develop\n  efficient methods, based on convex programming, for computing a tight outer-bounding set of simple structure (a box, or an ellipsoid) for the localization set, which then acts as a guaranteed set-valued location estimate. % The center of the bounding set also serves as a point location estimate. Related problems of inner approximation of the localization set via balls and ellipsoids are also posed as convex programming problems. Different from existing methods based on semidefinite programming relaxations of a nonconvex cost minimization problem, our approach is direct, geometric and based on a polyhedral set of points that satisfy pairwise differences of the measurement equations."
+    },
+    {
+      "query": "all:\"set membership\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/1903.10193v1",
+      "title": "Dual Set Membership Filter with Minimizing Nonlinear Transformation of Ellipsoid",
+      "authors": [
+        "Zhiguo Wang",
+        "Xiaojing Shen",
+        "Haiqi Liu",
+        "Fanqin Meng",
+        "Yunmin Zhu"
+      ],
+      "published": "2019-03-25T09:25:48Z",
+      "abstract": "In this paper, we propose a dual set membership filter for nonlinear dynamic systems with unknown but bounded noises, and it has three distinctive properties. Firstly, the nonlinear system is translated into the linear system by leveraging a semi-infinite programming, rather than linearizing the nonlinear function. In fact, the semi-infinite programming is to find an ellipsoid bounding the nonlinear transformation of an ellipsoid, which aims to compute a tight ellipsoid to cover the state. Secondly, the duality result of the semi-infinite programming is derived by a rigorous analysis, then a first order Frank-Wolfe method is developed to efficiently solve it with a lower computation complexity. Thirdly, the proposed filter can take advantage of the linear set membership filter framework and can work on-line without solving the semidefinite programming problem. Furthermore, we apply the dual set membership filter to a typical scenario of mobile robot localization. Finally, two illustrative examples in the simulations show the advantages and effectiveness of the dual set membership filter."
+    },
+    {
+      "query": "all:\"set membership\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/2305.10366v1",
+      "title": "Set-Membership Filtering-Based Cooperative State Estimation for Multi-Agent Systems",
+      "authors": [
+        "Yu Ding",
+        "Yirui Cong",
+        "Xiangke Wang"
+      ],
+      "published": "2023-05-17T16:44:10Z",
+      "abstract": "In this article, we focus on the cooperative state estimation problem of a multi-agent system. Each agent is equipped with absolute and relative measurements. The purpose of this research is to make each agent generate its own state estimation with only local measurement information and local communication with neighborhood agents using Set Membership Filter(SMF). To handle this problem, we analyzed centralized SMF framework as a benchmark of distributed SMF and propose a finite-horizon method called OIT-Inspired centralized constrained zonotopic algorithm. Moreover, we put forward a distributed Set Membership Filtering(SMFing) framework and develop a distributed constained zonotopic algorithm. Finally, simulation verified our theoretical results, that our proposed algorithms can effectively estimate the state of each agent."
+    },
+    {
+      "query": "all:\"set membership\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/1804.01359v3",
+      "title": "Distributed interpolatory algorithms for set membership estimation",
+      "authors": [
+        "Francesco Farina",
+        "Andrea Garulli",
+        "Antonio Giannitrapani"
+      ],
+      "published": "2018-04-04T12:03:53Z",
+      "abstract": "This work addresses the distributed estimation problem in a set membership framework. The agents of a network collect measurements which are affected by bounded errors, thus implying that the unknown parameters to be estimated belong to a suitable feasible set. Two distributed algorithms are considered, based on projections of the estimate of each agent onto its local feasible set. The main contribution of the paper is to show that such algorithms are asymptotic interpolatory estimators, i.e. they converge to an element of the global feasible set, under the assumption that the feasible set associated to each measurement is convex. The proposed techniques are demonstrated on a distributed linear regression estimation problem."
+    },
+    {
+      "query": "all:\"set membership\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/2005.10124v1",
+      "title": "L2-Stability Analysis of The Set-Membership Affine Projection Algorithm",
+      "authors": [
+        "Rajab Shabaani"
+      ],
+      "published": "2020-05-11T18:50:02Z",
+      "abstract": "In this letter, we study the local and the global robustness of the set-membership affine projection (SM-AP) algorithm. We demonstrate that the SM-AP algorithm has l2-stability. In fact, the SM-AP algorithm never diverges; no matter how the parameters of the SM-AP algorithm has been adopted. Finally, the simulation results substantiate the validity of the proposed analysis."
+    },
+    {
+      "query": "all:\"set membership\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/2012.04133v1",
+      "title": "Set-Membership Filtering-Based Leader-Follower Synchronization of Discrete-time Linear Multi-Agent Systems",
+      "authors": [
+        "Diganta Bhattacharjee",
+        "Kamesh Subbarao"
+      ],
+      "published": "2020-12-08T00:38:44Z",
+      "abstract": "In this paper, a set-membership filtering-based leader-follower synchronization protocol for discrete-time linear multi-agent systems is proposed wherein the aim is to make the agents synchronize with a leader. The agents, governed by identical high-order discrete-time linear dynamics, are subject to unknown-but-bounded input disturbances. In terms of its own state information, each agent only has access to measured outputs that are corrupted with unknown-but-bounded output disturbances. Also, the initial states of the agents are unknown. To deal with all these unknowns (or uncertainties), a set-membership filter (or state estimator), having the `correction-prediction' form of a standard Kalman filter, is formulated. We consider each agent to be equipped with this filter that estimates the state of the agent and consider the agents to be able to share the state estimate information with the neighbors locally. The corrected state estimates of the agents are utilized in the local control law design for synchronization. Under appropriate conditions, the global disagreement error between the agents and the leader is shown to be bounded. An upper bound on the norm of the global disagreement error is calculated and shown to be monotonically decreasing. Finally, two simulation examples are included to illustrate the effectiveness of the proposed set-membership filter and the proposed leader-follower synchronization protocol."
+    },
+    {
+      "query": "all:\"set membership\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/1911.07180v1",
+      "title": "Multiple-Source Ellipsoidal Localization Using Acoustic Energy Measurements",
+      "authors": [
+        "Fanqin Meng",
+        "Xiaojing Shen",
+        "Zhiguo Wang",
+        "Haiqi Liu",
+        "Junfeng Wang",
+        "Yunmin Zhu",
+        "Pramod K. Varshney"
+      ],
+      "published": "2019-11-17T08:14:49Z",
+      "abstract": "In this paper, the multiple-source ellipsoidal localization problem based on acoustic energy measurements is investigated via set-membership estimation theory. When the probability density function of measurement noise is unknown-but-bounded, multiple-source localization is a difficult problem since not only the acoustic energy measurements are complicated nonlinear functions of multiple sources, but also the multiple sources bring about a high-dimensional state estimation problem. First, when the energy parameter and the position of the source are bounded in an interval and a ball respectively, the nonlinear remainder bound of the Taylor series expansion is obtained analytically on-line. Next, based on the separability of the nonlinear measurement function, an efficient estimation procedure is developed. It solves the multiple-source localization problem by using an alternating optimization iterative algorithm, in which the remainder bound needs to be known on-line. For this reason, we first derive the remainder bound analytically. When the energy decay factor is unknown but bounded, an efficient estimation procedure is developed based on interval mathematics. Finally, numerical examples demonstrate the effectiveness of the ellipsoidal localization algorithms for multiple-source localization. In particular, our results show that when the noise is non-Gaussian, the set-membership localization algorithm performs better than the EM localization algorithm."
+    },
+    {
+      "query": "all:\"set membership\" AND all:\"localization\"",
+      "id": "http://arxiv.org/abs/2305.15797v2",
+      "title": "Distributed Set-membership Filtering Frameworks For Multi-agent Systems With Absolute and Relative Measurements",
+      "authors": [
+        "Yu Ding",
+        "Yirui Cong",
+        "Xiangke Wang"
+      ],
+      "published": "2023-05-25T07:20:09Z",
+      "abstract": "In this paper, we focus on the distributed set-membership filtering (SMFing) problem for a multi-agent system with absolute (taken from agents themselves) and relative (taken from neighbors) measurements. In the literature, the relative measurements are difficult to deal with, and the SMFs highly rely on specific set descriptions. As a result, establishing the general distributed SMFing framework having relative measurements is still an open problem. To solve this problem, first, we provide the set description based on uncertain variables determined by the relative measurements between two agents as the foundation. Surprisingly, the accurate description requires only a single calculation step rather than multiple iterations, which can effectively reduce computational complexity. Based on the derived set description, called the uncertain range, we propose two distributed SMFing frameworks: one calculates the joint uncertain range of the agent itself and its neighbors, while the other only computes the marginal uncertain range of each local system. Furthermore, we compare the performance of our proposed two distributed SMFing frameworks and the benchmark -- centralized SMFing framework. A rigorous set analysis reveals that the distributed SMF can be essentially considered as the process of computing the marginal uncertain range to outer bound the projection of the uncertain range obtained by the centralized SMF in the corresponding subspace. Simulation results corroborate the effectiveness of our proposed distributed frameworks and verify our theoretical analysis."
+    },
+    {
+      "query": "all:\"visibility\" AND all:\"active perception\"",
+      "id": "http://arxiv.org/abs/2605.14106v1",
+      "title": "Behavior Cloning for Active Perception with Low-Resolution Egocentric Vision",
+      "authors": [
+        "Anthony Bilic",
+        "Chen Chen",
+        "Ladislau Bölöni"
+      ],
+      "published": "2026-05-13T20:45:21Z",
+      "abstract": "We investigate whether behavior cloning is sufficient to produce active perception in a structured object-finding task. A low-cost robot arm equipped with a wrist-mounted egocentric RGB camera must reposition to center a partially visible plant before triggering a grasp signal, requiring actions that improve future observations. The model predicts joint commands directly from low-resolution RGB images under closed-loop control. We show that low-resolution egocentric vision is sufficient for reliable task completion and that predicting relative joint deltas substantially outperforms absolute joint position prediction in our setting. These results demonstrate that visually grounded active perception can emerge from behavior cloning in a reproducible setting."
+    },
+    {
+      "query": "all:\"visibility\" AND all:\"active perception\"",
+      "id": "http://arxiv.org/abs/2504.17817v2",
+      "title": "Learning Underwater Active Perception in Simulation",
+      "authors": [
+        "Alexandre Cardaillac",
+        "Donald G. Dansereau"
+      ],
+      "published": "2025-04-23T06:48:38Z",
+      "abstract": "When employing underwater vehicles for the autonomous inspection of assets, it is crucial to consider and assess the water conditions. These conditions significantly impact visibility and directly affect robotic operations. Turbidity can jeopardise the mission by preventing accurate visual documentation of inspected structures. Previous works have introduced methods to adapt to turbidity and backscattering, however, they also include manoeuvring and setup constraints. We propose a simple yet efficient approach to enable high-quality image acquisition of assets in a broad range of water conditions. This active perception framework includes a multi-layer perceptron (MLP) trained to predict image quality given a distance to a target and artificial light intensity. We generate a large synthetic dataset that includes ten water types with varying levels of turbidity and backscattering. For this, we modified the modelling software Blender to better account for the underwater light propagation properties. We validated the approach in simulation and demonstrate significant improvements in visual coverage and image quality compared to traditional methods. The project code is available on our project page at https://roboticimaging.org/Projects/ActiveUW/."
+    },
+    {
+      "query": "all:\"visibility\" AND all:\"active perception\"",
+      "id": "http://arxiv.org/abs/2603.11072v1",
+      "title": "OA-NBV: Occlusion-Aware Next-Best-View Planning for Human-Centered Active Perception on Mobile Robots",
+      "authors": [
+        "Boxun Hu",
+        "Chang Chang",
+        "Jiawei Ge",
+        "Man Namgung",
+        "Xiaomin Lin",
+        "Axel Krieger",
+        "Tinoosh Mohsenin"
+      ],
+      "published": "2026-03-10T18:46:03Z",
+      "abstract": "We naturally step sideways or lean to see around the obstacle when our view is blocked, and recover a more informative observation. Enabling robots to make the same kind of viewpoint choice is critical for human-centered operations, including search, triage, and disaster response, where cluttered environments and partial visibility frequently degrade downstream perception. However, many Next-Best-View (NBV) methods primarily optimize generic exploration or long-horizon coverage, and do not explicitly target the immediate goal of obtaining a single usable observation of a partially occluded person under real motion constraints. We present Occlusion-Aware Next-Best-View Planning for Human-Centered Active Perception on Mobile Robots (OA-NBV), an occlusion-aware NBV pipeline that autonomously selects the next traversable viewpoint to obtain a more complete view of an occluded human. OA-NBV integrates perception and motion planning by scoring candidate viewpoints using a target-centric visibility model that accounts for occlusion, target scale, and target completeness, while restricting candidates to feasible robot poses. OA-NBV achieves over 90% success rate in both simulation and real-world trials, while baseline NBV methods degrade sharply under occlusion. Beyond success rate, OA-NBV improves observation quality: compared to the strongest baseline, it increases normalized target area by at least 81% and keypoint visibility by at least 58% across settings, making it a drop-in view-selection module for diverse human-centered downstream tasks."
+    },
+    {
+      "query": "all:\"visibility\" AND all:\"active perception\"",
+      "id": "http://arxiv.org/abs/2604.17969v3",
+      "title": "E3VS-Bench: A Benchmark for Viewpoint-Dependent Active Perception in 3D Gaussian Splatting Scenes",
+      "authors": [
+        "Koya Sakamoto",
+        "Taiki Miyanishi",
+        "Daichi Azuma",
+        "Shuhei Kurita",
+        "Shu Morikuni",
+        "Naoya Chiba",
+        "Motoaki Kawanabe",
+        "Yusuke Iwasawa",
+        "Yutaka Matsuo"
+      ],
+      "published": "2026-04-20T08:49:39Z",
+      "abstract": "Visual search in 3D environments requires embodied agents to actively explore their surroundings and acquire task-relevant evidence. However, existing visual search and embodied AI benchmarks, including EQA, typically rely on static observations or constrained egocentric motion, and thus do not explicitly evaluate fine-grained viewpoint-dependent phenomena that arise under unrestricted 5-DoF viewpoint control in real-world 3D environments, such as visibility changes caused by vertical viewpoint shifts, revealing contents inside containers, and disambiguating object attributes that are only observable from specific angles. To address this limitation, we introduce {E3VS-Bench}, a benchmark for embodied 3D visual search where agents must control their viewpoints in 5-DoF to gather viewpoint-dependent evidence for question answering. E3VS-Bench consists of 99 high-fidelity 3D scenes reconstructed using 3D Gaussian Splatting and 2,014 question-driven episodes. 3D Gaussian Splatting enables photorealistic free-viewpoint rendering that preserves fine-grained visual details (e.g., small text and subtle attributes) often degraded in mesh-based simulators, thereby allowing the construction of questions that cannot be answered from a single view and instead require active inspection across viewpoints in 5-DoF. We evaluate multiple state-of-the-art VLMs and compare their performance with humans. Despite strong 2D reasoning ability, all models exhibit a substantial gap from humans, highlighting limitations in active perception and coherent viewpoint planning specifically under full 5-DoF viewpoint changes."
+    },
+    {
+      "query": "all:\"visibility\" AND all:\"active perception\"",
+      "id": "http://arxiv.org/abs/2605.02487v3",
+      "title": "Visibility-Aware Mobile Grasping in Dynamic Environments",
+      "authors": [
+        "Tianrun Hu",
+        "Anxing Xiao",
+        "David Hsu",
+        "Hanbo Zhang"
+      ],
+      "published": "2026-05-04T11:41:28Z",
+      "abstract": "This paper addresses the problem of mobile grasping in dynamic, unknown environments where a robot must operate under a limited field-of-view. The fundamental challenge is the inherent trade-off between ``seeing'' around to reduce environmental uncertainty and ``moving'' the body to achieve task progress in a high-dimensional configuration space, subject to visibility constraints. Previous approaches often assume known or static environments and decouple these objectives, failing to guarantee safety when unobserved dynamic obstacles intersect the robot's path during manipulation. In this paper, we propose a unified mobile grasping system comprising two core components: (1) an iterative low-level whole-body planner coupled with velocity-aware active perception to navigate dynamic environments safely; and (2) a hierarchical high-level planner based on behavior trees that adaptively generates subgoals to guide the robot through exploration and runtime failures. We provide experimental results across 400 randomized simulation scenarios and real-world deployment on a Fetch mobile manipulator. Results show that our system achieves a success rate of 68.8\\% and 58.0\\% in unknown static and dynamic environments, respectively, significantly boosting success rates by 22.8\\% and 18.0\\% over the \\nam approach in both unknown static and dynamic environments, with improved collision safety."
+    },
+    {
+      "query": "all:\"visibility\" AND all:\"active perception\"",
+      "id": "http://arxiv.org/abs/2607.13361v1",
+      "title": "Detector Confidence Signals Presence Rather Than Occlusion in Cluttered Manipulation",
+      "authors": [
+        "Yuanzhi He"
+      ],
+      "published": "2026-07-15T00:54:35Z",
+      "abstract": "Occlude a named object until about an eighth of it remains visible, and an open-vocabulary detector's confidence that the object is present barely changes; as the clutter around it grows the confidence can even rise. On real video the detector still reports the object present in 99% of occluded frames, on another instance of the same category. This matters because that confidence is widely read as a visibility signal, used to threshold detections, evaluate open-vocabulary detectors, ground language, retrieve instances, and gate active perception. We audit whether it reflects occlusion by pairing every view with a geometry-segmentation oracle that gives detector-free ground-truth visibility. As true visibility falls from every scene to one in eight, the confidence stays nearly constant and uncorrelated with visibility, and the detector reports the target present in about nine of ten scenes, firing on same-category distractors: it signals that the category is present somewhere, not that the specific target is visible. The failure holds across three detectors (Grounding DINO, OWLv2, and Segment Anything Model 3), nine object categories, two simulators with different renderers and object sets, built and natural occlusion, and real video. Two consequences follow: a confidence-based metric understates the value of resolving occlusion by about ten times (8 against 88 points in our active-perception setting), and a confidence-based gate fires exactly when the object is hidden. No single-view signal we tried, including a realizable localization check, flags the occlusion, because the occluders sit where the target is. We connect the effect to detector miscalibration and object hallucination, release the controlled benchmark, and recommend target-grounded signals for gating and evaluation."
+    },
+    {
+      "query": "all:\"visibility\" AND all:\"active perception\"",
+      "id": "http://arxiv.org/abs/2508.12916v1",
+      "title": "RoboRetriever: Single-Camera Robot Object Retrieval via Active and Interactive Perception with Dynamic Scene Graph",
+      "authors": [
+        "Hecheng Wang",
+        "Jiankun Ren",
+        "Jia Yu",
+        "Lizhe Qi",
+        "Yunquan Sun"
+      ],
+      "published": "2025-08-18T13:31:23Z",
+      "abstract": "Humans effortlessly retrieve objects in cluttered, partially observable environments by combining visual reasoning, active viewpoint adjustment, and physical interaction-with only a single pair of eyes. In contrast, most existing robotic systems rely on carefully positioned fixed or multi-camera setups with complete scene visibility, which limits adaptability and incurs high hardware costs. We present \\textbf{RoboRetriever}, a novel framework for real-world object retrieval that operates using only a \\textbf{single} wrist-mounted RGB-D camera and free-form natural language instructions. RoboRetriever grounds visual observations to build and update a \\textbf{dynamic hierarchical scene graph} that encodes object semantics, geometry, and inter-object relations over time. The supervisor module reasons over this memory and task instruction to infer the target object and coordinate an integrated action module combining \\textbf{active perception}, \\textbf{interactive perception}, and \\textbf{manipulation}. To enable task-aware scene-grounded active perception, we introduce a novel visual prompting scheme that leverages large reasoning vision-language models to determine 6-DoF camera poses aligned with the semantic task goal and geometry scene context. We evaluate RoboRetriever on diverse real-world object retrieval tasks, including scenarios with human intervention, demonstrating strong adaptability and robustness in cluttered scenes with only one RGB-D camera."
+    },
+    {
+      "query": "all:\"visibility\" AND all:\"active perception\"",
+      "id": "http://arxiv.org/abs/2605.17593v1",
+      "title": "Motion-Uncertainty-Aware Next-Best-View Planning for Moving Object Reconstruction",
+      "authors": [
+        "Karen Li",
+        "Mattia Mantovani",
+        "Robert J. Wood",
+        "Lorenzo Sabattini",
+        "Stephanie Gil"
+      ],
+      "published": "2026-05-17T18:45:38Z",
+      "abstract": "Active 3D reconstruction of moving objects requires selecting informative viewpoints while accounting for object motion uncertainty during the decision-to-execution delay. Existing methods address only parts of this problem: next-best-view (NBV) planners for object reconstruction typically optimize surface coverage but assume static objects, while motion-aware active perception for moving targets accounts for target motion but prioritizes tracking or visibility over reconstruction coverage. This work presents a motion-uncertainty-aware NBV framework for reconstructing an unknown rigid object undergoing planar motion, using noisy planar position measurements of the object and depth observations from a mobile robot. The key idea is to evaluate each candidate viewpoint by its expected observation quality over plausible future object states induced by motion and measurement uncertainty, rather than at a single predicted object pose. To obtain this predictive belief, a fixed-lag Gaussian Process smoother estimates and predicts the object state from noisy position measurements. The resulting belief is used to generate candidate viewpoints around the predicted object location, filter them by reachability, and estimate their expected coverage-driven scores. Simulation and real-world experiments demonstrate improved reconstruction completeness over non-predictive NBV and prediction-only tracking methods, bridging coverage-driven active reconstruction and prediction-driven tracking."
+    },
+    {
+      "query": "all:\"informative path planning\"",
+      "id": "http://arxiv.org/abs/2402.08841v2",
+      "title": "Approximate Sequential Optimization for Informative Path Planning",
+      "authors": [
+        "Joshua Ott",
+        "Mykel J. Kochenderfer",
+        "Stephen Boyd"
+      ],
+      "published": "2024-02-13T23:15:13Z",
+      "abstract": "We consider the problem of finding an informative path through a graph, given initial and terminal nodes and a given maximum path length. We assume that a linear noise corrupted measurement is taken at each node of an underlying unknown vector that we wish to estimate. The informativeness is measured by the reduction in uncertainty in our estimate, evaluated using several metrics. We present a convex relaxation for this informative path planning problem, which we can readily solve to obtain a bound on the possible performance. We develop an approximate sequential method where the path is constructed segment by segment through dynamic programming. This involves solving an orienteering problem, with the node reward acting as a surrogate for informativeness, taking the first step, and then repeating the process. The method scales to very large problem instances and achieves performance not too far from the bound produced by the convex relaxation. We also demonstrate our method's ability to handle adaptive objectives, multimodal sensing, and multi-agent variations of the informative path planning problem."
+    },
+    {
+      "query": "all:\"informative path planning\"",
+      "id": "http://arxiv.org/abs/2203.12830v2",
+      "title": "TIGRIS: An Informed Sampling-based Algorithm for Informative Path Planning",
+      "authors": [
+        "Brady Moon",
+        "Satrajit Chatterjee",
+        "Sebastian Scherer"
+      ],
+      "published": "2022-03-24T03:29:15Z",
+      "abstract": "Informative path planning is an important and challenging problem in robotics that remains to be solved in a manner that allows for wide-spread implementation and real-world practical adoption. Among various reasons for this, one is the lack of approaches that allow for informative path planning in high-dimensional spaces and non-trivial sensor constraints. In this work we present a sampling-based approach that allows us to tackle the challenges of large and high-dimensional search spaces. This is done by performing informed sampling in the high-dimensional continuous space and incorporating potential information gain along edges in the reward estimation. This method rapidly generates a global path that maximizes information gain for the given path budget constraints. We discuss the details of our implementation for an example use case of searching for multiple objects of interest in a large search space using a fixed-wing UAV with a forward-facing camera. We compare our approach to a sampling-based planner baseline and demonstrate how our contributions allow our approach to consistently out-perform the baseline by 18.0%. With this we thus present a practical and generalizable informative path planning framework that can be used for very large environments, limited budgets, and high dimensional search spaces, such as robots with motion constraints or high-dimensional configuration spaces."
+    },
+    {
+      "query": "all:\"informative path planning\"",
+      "id": "http://arxiv.org/abs/2403.16489v1",
+      "title": "Spatially temporally distributed informative path planning for multi-robot systems",
+      "authors": [
+        "Binh Nguyen",
+        "Linh Nguyen",
+        "Truong X. Nghiem",
+        "Hung La",
+        "Jose Baca",
+        "Pablo Rangel",
+        "Miguel Cid Montoya",
+        "Thang Nguyen"
+      ],
+      "published": "2024-03-25T07:17:44Z",
+      "abstract": "This paper investigates the problem of informative path planning for a mobile robotic sensor network in spatially temporally distributed mapping. The robots are able to gather noisy measurements from an area of interest during their movements to build a Gaussian Process (GP) model of a spatio-temporal field. The model is then utilized to predict the spatio-temporal phenomenon at different points of interest. To spatially and temporally navigate the group of robots so that they can optimally acquire maximal information gains while their connectivity is preserved, we propose a novel multistep prediction informative path planning optimization strategy employing our newly defined local cost functions. By using the dual decomposition method, it is feasible and practical to effectively solve the optimization problem in a distributed manner. The proposed method was validated through synthetic experiments utilizing real-world data sets."
+    },
+    {
+      "query": "all:\"informative path planning\"",
+      "id": "http://arxiv.org/abs/1301.7482v1",
+      "title": "Technical Report: A Receding Horizon Algorithm for Informative Path Planning with Temporal Logic Constraints",
+      "authors": [
+        "Austin Jones",
+        "Mac Schwager",
+        "Calin Belta"
+      ],
+      "published": "2013-01-31T00:33:24Z",
+      "abstract": "This technical report is an extended version of the paper 'A Receding Horizon Algorithm for Informative Path Planning with Temporal Logic Constraints' accepted to the 2013 IEEE International Conference on Robotics and Automation (ICRA). This paper considers the problem of finding the most informative path for a sensing robot under temporal logic constraints, a richer set of constraints than have previously been considered in information gathering. An algorithm for informative path planning is presented that leverages tools from information theory and formal control synthesis, and is proven to give a path that satisfies the given temporal logic constraints. The algorithm uses a receding horizon approach in order to provide a reactive, on-line solution while mitigating computational complexity. Statistics compiled from multiple simulation studies indicate that this algorithm performs better than a baseline exhaustive search approach."
+    },
+    {
+      "query": "all:\"informative path planning\"",
+      "id": "http://arxiv.org/abs/2209.07660v1",
+      "title": "Sequential Bayesian Optimization for Adaptive Informative Path Planning with Multimodal Sensing",
+      "authors": [
+        "Joshua Ott",
+        "Edward Balaban",
+        "Mykel J. Kochenderfer"
+      ],
+      "published": "2022-09-16T00:50:36Z",
+      "abstract": "Adaptive Informative Path Planning with Multimodal Sensing (AIPPMS) considers the problem of an agent equipped with multiple sensors, each with different sensing accuracy and energy costs. The agent's goal is to explore the environment and gather information subject to its resource constraints in unknown, partially observable environments. Previous work has focused on the less general Adaptive Informative Path Planning (AIPP) problem, which considers only the effect of the agent's movement on received observations. The AIPPMS problem adds additional complexity by requiring that the agent reasons jointly about the effects of sensing and movement while balancing resource constraints with information objectives. We formulate the AIPPMS problem as a belief Markov decision process with Gaussian process beliefs and solve it using a sequential Bayesian optimization approach with online planning. Our approach consistently outperforms previous AIPPMS solutions by more than doubling the average reward received in almost every experiment while also reducing the root-mean-square error in the environment belief by 50%. We completely open-source our implementation to aid in further development and comparison."
+    },
+    {
+      "query": "all:\"informative path planning\"",
+      "id": "http://arxiv.org/abs/2603.06924v2",
+      "title": "LIPP: Load-Aware Informative Path Planning with Physical Sampling",
+      "authors": [
+        "Hojune Kim",
+        "Guangyao Shi",
+        "Gaurav S. Sukhatme"
+      ],
+      "published": "2026-03-06T22:52:24Z",
+      "abstract": "In classical Informative Path Planning (C-IPP), robots are typically modeled as mobile sensors that acquire digital measurements such as images or radiation levels. In this model, since making a measurement leaves the robot's physical state unchanged, the cost of traversing an edge remains static regardless of when it is traversed. This is a natural assumption for many missions, but does not extend to settings involving physical sample collection, where each collected sample adds mass and increases the energy cost of all subsequent motion. As a result, IPP formulations that ignore this coupling between information gain and load-dependent traversal cost can produce plans that are distance-efficient but energy-suboptimal, collecting fewer samples and less data than the energy budget would permit. In this paper, we first introduce Load-aware Informative Path Planning (LIPP), a strict generalization of C-IPP that explicitly models this coupling, with C-IPP recovered as the special case of zero sample mass. We then formulate LIPP as a Mixed-Integer Quadratic Program (MIQP) that jointly optimizes visitation location, order, and per-location sampling count under an energy budget. We further derive theoretical bounds on the path-length increase of LIPP relative to C-IPP, characterizing the trade-off for improved energy efficiency. Finally, through extensive simulations across 2,000 diverse mission scenarios, we demonstrate that LIPP progressively achieves higher uncertainty reduction per unit energy as sample mass increases."
+    },
+    {
+      "query": "all:\"informative path planning\"",
+      "id": "http://arxiv.org/abs/1606.08164v2",
+      "title": "Online Informative Path Planning for Active Classification on UAVs",
+      "authors": [
+        "Marija Popovic",
+        "Gregory Hitz",
+        "Juan Nieto",
+        "Roland Siegwart",
+        "Enric Galceran"
+      ],
+      "published": "2016-06-27T08:58:20Z",
+      "abstract": "We propose an informative path planning (IPP) algorithm for active classification using an unmanned aerial vehicle (UAV), focusing on weed detection in precision agriculture. We model the presence of weeds on farmland using an occupancy grid and generate plans according to information-theoretic objectives, enabling the UAV to gather data efficiently. We use a combination of global viewpoint selection and evolutionary optimization to refine the UAV's trajectory in continuous space while satisfying dynamic constraints. We validate our approach in simulation by comparing against standard \"lawnmower\" coverage, and study the effects of varying objectives and optimization strategies. We plan to evaluate our algorithm on a real platform in the immediate future."
+    },
+    {
+      "query": "all:\"informative path planning\"",
+      "id": "http://arxiv.org/abs/2409.16830v1",
+      "title": "OffRIPP: Offline RL-based Informative Path Planning",
+      "authors": [
+        "Srikar Babu Gadipudi",
+        "Srujan Deolasee",
+        "Siva Kailas",
+        "Wenhao Luo",
+        "Katia Sycara",
+        "Woojun Kim"
+      ],
+      "published": "2024-09-25T11:30:59Z",
+      "abstract": "Informative path planning (IPP) is a crucial task in robotics, where agents must design paths to gather valuable information about a target environment while adhering to resource constraints. Reinforcement learning (RL) has been shown to be effective for IPP, however, it requires environment interactions, which are risky and expensive in practice. To address this problem, we propose an offline RL-based IPP framework that optimizes information gain without requiring real-time interaction during training, offering safety and cost-efficiency by avoiding interaction, as well as superior performance and fast computation during execution -- key advantages of RL. Our framework leverages batch-constrained reinforcement learning to mitigate extrapolation errors, enabling the agent to learn from pre-collected datasets generated by arbitrary algorithms. We validate the framework through extensive simulations and real-world experiments. The numerical results show that our framework outperforms the baselines, demonstrating the effectiveness of the proposed approach."
+    },
+    {
+      "query": "ti:search AND all:\"negative\"",
+      "id": "http://arxiv.org/abs/2210.00528v1",
+      "title": "Data-driven Automated Negative Control Estimation (DANCE): Search for, Validation of, and Causal Inference with Negative Controls",
+      "authors": [
+        "Erich Kummerfeld",
+        "Jaewon Lim",
+        "Xu Shi"
+      ],
+      "published": "2022-10-02T14:14:25Z",
+      "abstract": "Negative control variables are increasingly used to adjust for unmeasured confounding bias in causal inference using observational data. They are typically identified by subject matter knowledge and there is currently a severe lack of data-driven methods to find negative controls. In this paper, we present a statistical test for discovering negative controls of a special type -- disconnected negative controls -- that can serve as surrogates of the unmeasured confounder, and we incorporate that test into the Data-driven Automated Negative Control Estimation (DANCE) algorithm. DANCE first uses the new validation test to identify subsets of a set of candidate negative control variables that satisfy the assumptions of disconnected negative controls. It then applies a negative control method to each pair of these validated negative control variables, and aggregates the output to produce an unbiased point estimate and confidence interval for a causal effect in the presence of unmeasured confounding. We (1) prove the correctness of this validation test, and thus of DANCE; (2) demonstrate via simulation experiments that DANCE outperforms both naive analysis ignoring unmeasured confounding and negative control method with randomly selected candidate negative controls; and (3) demonstrate the effectiveness of DANCE on a challenging real-world problem."
+    },
+    {
+      "query": "ti:search AND all:\"negative\"",
+      "id": "http://arxiv.org/abs/1806.07691v1",
+      "title": "Searching of interesting itemsets for negative association rules",
+      "authors": [
+        "Hyeok Kong",
+        "Dokjun An",
+        "Douk Han"
+      ],
+      "published": "2018-06-20T12:24:20Z",
+      "abstract": "In this paper, we propose an algorithm of searching for both positive and negative itemsets of interest which should be given at the first stage for positive and negative association rules mining. Traditional association rule mining algorithms extract positive association rules based on frequent itemsets, for which the frequent itemsets, i.e. only positive itemsets of interest are searched. Further, there are useful itemsets among the frequent itemsets pruned from the traditional algorithms to reduce the search space, for mining of negative association rules. Therefore, the traditional algorithms have not come true to find negative itemsets needed in mining of negative association rules. Our new algorithm to search for both positive and negative itemsets of interest prepares preconditions for mining of all positive and negative association rules."
+    },
+    {
+      "query": "ti:search AND all:\"negative\"",
+      "id": "http://arxiv.org/abs/2310.08069v1",
+      "title": "Rethinking Negative Pairs in Code Search",
+      "authors": [
+        "Haochen Li",
+        "Xin Zhou",
+        "Luu Anh Tuan",
+        "Chunyan Miao"
+      ],
+      "published": "2023-10-12T06:32:42Z",
+      "abstract": "Recently, contrastive learning has become a key component in fine-tuning code search models for software development efficiency and effectiveness. It pulls together positive code snippets while pushing negative samples away given search queries. Among contrastive learning, InfoNCE is the most widely used loss function due to its better performance. However, the following problems in negative samples of InfoNCE may deteriorate its representation learning: 1) The existence of false negative samples in large code corpora due to duplications. 2). The failure to explicitly differentiate between the potential relevance of negative samples. As an example, a bubble sorting algorithm example is less ``negative'' than a file saving function for the quick sorting algorithm query. In this paper, we tackle the above problems by proposing a simple yet effective Soft-InfoNCE loss that inserts weight terms into InfoNCE. In our proposed loss function, we apply three methods to estimate the weights of negative pairs and show that the vanilla InfoNCE loss is a special case of Soft-InfoNCE. Theoretically, we analyze the effects of Soft-InfoNCE on controlling the distribution of learnt code representations and on deducing a more precise mutual information estimation. We furthermore discuss the superiority of proposed loss functions with other design alternatives. Extensive experiments demonstrate the effectiveness of Soft-InfoNCE and weights estimation methods under state-of-the-art code search models on a large-scale public dataset consisting of six programming languages. Source code is available at \\url{https://github.com/Alex-HaochenLi/Soft-InfoNCE}."
+    },
+    {
+      "query": "ti:search AND all:\"negative\"",
+      "id": "http://arxiv.org/abs/1104.1234v1",
+      "title": "Negative Example Aided Transcription Factor Binding Site Search",
+      "authors": [
+        "Chih Lee",
+        "Chun-Hsi Huang"
+      ],
+      "published": "2011-04-07T02:31:47Z",
+      "abstract": "Computational approaches to transcription factor binding site identification have been actively researched for the past decade.\n  Negative examples have long been utilized in de novo motif discovery and have been shown useful in transcription factor binding site search as well.\n  However, understanding of the roles of negative examples in binding site search is still very limited.\n  We propose the 2-centroid and optimal discriminating vector methods, taking into account negative examples. Cross-validation results on E. coli transcription factors show that the proposed methods benefit from negative examples, outperforming the centroid and position-specific scoring matrix methods. We further show that our proposed methods perform better than a state-of-the-art method. We characterize the proposed methods in the context of the other compared methods and show that, coupled with motif subtype identification, the proposed methods can be effectively applied to a wide range of transcription factors. Finally, we argue that the proposed methods are well-suited for eukaryotic transcription factors as well.\n  Software tools are available at: http://biogrid.engr.uconn.edu/tfbs_search/."
+    },
+    {
+      "query": "ti:search AND all:\"negative\"",
+      "id": "http://arxiv.org/abs/2311.06444v3",
+      "title": "Mitigating Pooling Bias in E-commerce Search via False Negative Estimation",
+      "authors": [
+        "Xiaochen Wang",
+        "Xiao Xiao",
+        "Ruhan Zhang",
+        "Xuan Zhang",
+        "Taesik Na",
+        "Tejaswi Tenneti",
+        "Haixun Wang",
+        "Fenglong Ma"
+      ],
+      "published": "2023-11-11T00:22:57Z",
+      "abstract": "Efficient and accurate product relevance assessment is critical for user experiences and business success. Training a proficient relevance assessment model requires high-quality query-product pairs, often obtained through negative sampling strategies. Unfortunately, current methods introduce pooling bias by mistakenly sampling false negatives, diminishing performance and business impact. To address this, we present Bias-mitigating Hard Negative Sampling (BHNS), a novel negative sampling strategy tailored to identify and adjust for false negatives, building upon our original False Negative Estimation algorithm. Our experiments in the Instacart search setting confirm BHNS as effective for practical e-commerce use. Furthermore, comparative analyses on public dataset showcase its domain-agnostic potential for diverse applications."
+    },
+    {
+      "query": "ti:search AND all:\"negative\"",
+      "id": "http://arxiv.org/abs/1909.02071v1",
+      "title": "Conversational Product Search Based on Negative Feedback",
+      "authors": [
+        "Keping Bi",
+        "Qingyao Ai",
+        "Yongfeng Zhang",
+        "W. Bruce Croft"
+      ],
+      "published": "2019-09-04T19:47:17Z",
+      "abstract": "Intelligent assistants change the way people interact with computers and make it possible for people to search for products through conversations when they have purchase needs. During the interactions, the system could ask questions on certain aspects of the ideal products to clarify the users' needs. For example, previous work proposed to ask users the exact characteristics of their ideal items before showing results. However, users may not have clear ideas about what an ideal item looks like, especially when they have not seen any item. So it is more feasible to facilitate the conversational search by showing example items and asking for feedback instead. In addition, when the users provide negative feedback for the presented items, it is easier to collect their detailed feedback on certain properties (aspect-value pairs) of the non-relevant items. By breaking down the item-level negative feedback to fine-grained feedback on aspect-value pairs, more information is available to help clarify users' intents. So in this paper, we propose a conversational paradigm for product search driven by non-relevant items, based on which fine-grained feedback is collected and utilized to show better results in the next iteration. We then propose an aspect-value likelihood model to incorporate both positive and negative feedback on fine-grained aspect-value pairs of the non-relevant items. Experimental results show that our model is significantly better than state-of-the-art product search baselines without using feedback and those baselines using item-level negative feedback."
+    },
+    {
+      "query": "ti:search AND all:\"negative\"",
+      "id": "http://arxiv.org/abs/2404.10815v4",
+      "title": "Influence of new states in searches for negative gauge-Higgs couplings",
+      "authors": [
+        "Carlos Henrique de Lima",
+        "Daniel Stolarski"
+      ],
+      "published": "2024-04-16T18:00:01Z",
+      "abstract": "In this work, we explore how constraints based on interference effects for the negative gauge-Higgs coupling scenario are affected by new physics. Models that achieve this wrong-sign gauge-Higgs coupling inevitably have new charged Higgs states. These states affect the interpretation of interference effects. We recast the ATLAS analysis for VBF $Wh$, showing that the previously excluded negative gauge-Higgs coupling scenario is still experimentally viable for charged Higgs masses below $370$~GeV. We show that it is possible to weaken this bound further with mild tuning in the parameter space. We discuss how to further constrain the wrong-sign gauge-Higgs coupling hypothesis and point out the potential of VBF $Zh$ to exclude this scenario in a model-independent way."
+    },
+    {
+      "query": "ti:\"bearing\" AND all:\"sensor placement\"",
+      "id": "http://arxiv.org/abs/2605.11116v1",
+      "title": "Improving D-Optimal Sensor Placement for Bearing-Only Localization via Maximum-Entropy Reweighting",
+      "authors": [
+        "Raktim Bhattacharya"
+      ],
+      "published": "2026-05-11T18:26:12Z",
+      "abstract": "In this paper, we present a two-layer architecture for bearing-only sensor placement that improves upon classical D-optimal design. The first layer reweights particles by minimizing Kullback-Leibler divergence from the current distribution subject to a distributional accuracy bound, concentrating mass on regions where the posterior is likely to settle, without reference to the sensor model. The second layer performs D-optimal sensor placement with respect to the reweighted Fisher information matrix, steering sensors toward geometrically informative configurations. Because the two layers are structurally decoupled, the reweighting generalizes across sensing modalities while the placement remains specific to bearing geometry. Systematic experiments on multi-source localization at two noise levels show that this reweighting reduces localization error on average, with the benefit growing as the sensor-to-source ratio increases and as measurements become more informative. The improvement is established in the first few iterations of the sequential procedure and persists as the posterior concentrates."
+    },
+    {
+      "query": "ti:\"coverage\" AND all:\"directional sensors\"",
+      "id": "http://arxiv.org/abs/2307.00696v1",
+      "title": "Discrete Army Ant Search Optimizer-Based Target Coverage Enhancement in Directional Sensor Networks",
+      "authors": [
+        "Yindi Yao",
+        "Qin Wen",
+        "Yanpeng Cui",
+        "Bozhan Zhao"
+      ],
+      "published": "2023-07-03T01:02:04Z",
+      "abstract": "Coverage of interest points is one of the most critical issues in directional sensor networks. However, considering the remote or inhospitable environment and the limitation of the perspective of directional sensors, it is easy to form perception blind after random deployment. The intension of our research is to deal with the bound-constrained optimization problem of maximizing the coverage of target points. A coverage enhancement strategy based on a discrete army ant search optimizer (DAASO) is proposed to solve the above problem, which is inspired by the biological habits of army ants. A set of experiments are conducted using different sensor parameters. Experimental results verify the effectiveness of the DAASO in coverage effect when compared to the existing methods."
+    },
+    {
+      "query": "ti:\"coverage\" AND all:\"directional sensors\"",
+      "id": "http://arxiv.org/abs/2010.13110v1",
+      "title": "Learning Multi-Agent Coordination for Enhancing Target Coverage in Directional Sensor Networks",
+      "authors": [
+        "Jing Xu",
+        "Fangwei Zhong",
+        "Yizhou Wang"
+      ],
+      "published": "2020-10-25T13:07:03Z",
+      "abstract": "Maximum target coverage by adjusting the orientation of distributed sensors is an important problem in directional sensor networks (DSNs). This problem is challenging as the targets usually move randomly but the coverage range of sensors is limited in angle and distance. Thus, it is required to coordinate sensors to get ideal target coverage with low power consumption, e.g. no missing targets or reducing redundant coverage. To realize this, we propose a Hierarchical Target-oriented Multi-Agent Coordination (HiT-MAC), which decomposes the target coverage problem into two-level tasks: targets assignment by a coordinator and tracking assigned targets by executors. Specifically, the coordinator periodically monitors the environment globally and allocates targets to each executor. In turn, the executor only needs to track its assigned targets. To effectively learn the HiT-MAC by reinforcement learning, we further introduce a bunch of practical methods, including a self-attention module, marginal contribution approximation for the coordinator, goal-conditional observation filter for the executor, etc. Empirical results demonstrate the advantage of HiT-MAC in coverage rate, learning efficiency,and scalability, comparing to baselines. We also conduct an ablative analysis on the effectiveness of the introduced components in the framework."
+    },
+    {
+      "query": "ti:\"coverage\" AND all:\"directional sensors\"",
+      "id": "http://arxiv.org/abs/1512.07332v1",
+      "title": "On Balanced k-coverage in Visual Sensor Network",
+      "authors": [
+        "Md. Muntakim Sadik",
+        "Sakib Md. Bin Malek",
+        "Ashikur Rahman"
+      ],
+      "published": "2015-12-23T02:08:45Z",
+      "abstract": "Given a set of directional visual sensors, the $k$-coverage problem determines the orientation of minimal directional sensors so that each target is covered at least $k$ times. As the problem is NP-complete, a number of heuristics have been devised to tackle the issue. However, the existing heuristics provide imbalance coverage of the targets--some targets are covered $k$ times while others are left totally uncovered or singly covered. The coverage imbalance is more serious in under-provisioned networks where there do not exist enough sensors to cover all the targets $k$ times. Therefore, we address the problem of covering each target at least $k$ times in a balanced way using minimum number of sensors. We study the existing Integer Linear Programming (ILP) formulation for single coverage and extend the idea for $k$-coverage. However, the extension does not balance the coverage of the targets. We further propose Integer Quadratic Programming (IQP) and Integer Non-Linear Programming (INLP) formulations that are capable of addressing the coverage balancing. As the proposed formulations are computationally expensive, we devise a faster Centralized Greedy $k$-Coverage Algorithm (CGkCA) to approximate the formulations. Finally, through rigorous simulation experiments we show the efficacy of the proposed formulations and the CGkCA."
+    },
+    {
+      "query": "ti:\"coverage\" AND all:\"directional sensors\"",
+      "id": "http://arxiv.org/abs/2510.20213v2",
+      "title": "Robust Optimization Framework for Ground Coverage in Aerial Sensor Networks",
+      "authors": [
+        "Vanshika Datta",
+        "C. Nahak",
+        "J. C. Yao"
+      ],
+      "published": "2025-10-23T05:02:28Z",
+      "abstract": "Sensors play a critical role in environmental monitoring, but their coverage performance degrades significantly under spatial uncertainty. This article proposes a robust optimization framework for maximizing ground coverage in aerial directional sensor networks subject to sensor displacement. Each aerial sensor projects a truncated sector on the ground, parameterized by its altitude, field of view, and orientation. To explicitly capture robustness against positional uncertainty, we adopt the radius of robust feasibility (RRF) as a quantitative measure of tolerance to worst-case perturbations. The RRF formulation for aerial sensor networks is embedded directly into the coverage maximization problem, ensuring feasibility under bounded uncertainty. The resulting worst-case coverage problem is nonconvex and NP-hard; therefore, a distributed greedy orientation algorithm based on Voronoi partitioning is applied to adjust sensor orientations using only local information, while directing coverage toward high-impact regions. Simulation results demonstrate that the proposed method consistently preserves robust coverage across complex terrain, varying parameters and uncertain operating conditions, highlighting its practical significance for aerial sensing applications."
+    },
+    {
+      "query": "ti:\"coverage\" AND all:\"directional sensors\"",
+      "id": "http://arxiv.org/abs/2607.11449v3",
+      "title": "Robust sensor coverage in the presence of spatial obstacles and exclusion zones",
+      "authors": [
+        "Vanshika Datta",
+        "C. Nahak"
+      ],
+      "published": "2026-07-13T11:59:54Z",
+      "abstract": "In this article, we develop a robust optimization framework for obstacle-aware aerial directional sensor networks operating under positional uncertainty using a sector-based sensing model. The monitoring area is discretized into grid points and a unified geometric formulation is developed to model directional sensing while explicitly accounting for obstacle-induced visibility loss and exclusion regions. To enhance sensing performance under uncertainty, three progressive optimization strategies, namely robust aerial grid coverage (RAGC), robust aerial target coverage (RATC) and robust aerial target scheduling (RATS), are proposed. The framework employs robust orientation optimization based on the radius of robust feasibility to maximize effective grid and target coverage under sensor perturbations, followed by a target-aware sleep scheduling mechanism that minimizes the number of active sensors without compromising target monitoring. Extensive simulations under varying target distributions, obstacle configurations, uncertainty levels and sensor failure scenarios demonstrate that the proposed framework achieves robust and energy-efficient sensing while consistently outperforming representative approaches from the literature in terms of coverage quality, target monitoring and sensor utilization."
+    },
+    {
+      "query": "ti:\"active\" AND ti:\"search\" AND all:\"Bayesian\"",
+      "id": "http://arxiv.org/abs/1206.6406v1",
+      "title": "Bayesian Optimal Active Search and Surveying",
+      "authors": [
+        "Roman Garnett",
+        "Yamuna Krishnamurthy",
+        "Xuehan Xiong",
+        "Jeff Schneider",
+        "Richard Mann"
+      ],
+      "published": "2012-06-27T19:59:59Z",
+      "abstract": "We consider two active binary-classification problems with atypical objectives. In the first, active search, our goal is to actively uncover as many members of a given class as possible. In the second, active surveying, our goal is to actively query points to ultimately predict the proportion of a given class. Numerous real-world problems can be framed in these terms, and in either case typical model-based concerns such as generalization error are only of secondary importance.\n  We approach these problems via Bayesian decision theory; after choosing natural utility functions, we derive the optimal policies. We provide three contributions. In addition to introducing the active surveying problem, we extend previous work on active search in two ways. First, we prove a novel theoretical result, that less-myopic approximations to the optimal policy can outperform more-myopic approximations by any arbitrary degree. We then derive bounds that for certain models allow us to reduce (in practice dramatically) the exponential search space required by a naive implementation of the optimal policy, enabling further lookahead while still ensuring that optimal decisions are always made."
+    },
+    {
+      "query": "ti:\"active\" AND ti:\"search\" AND all:\"Bayesian\"",
+      "id": "http://arxiv.org/abs/2003.04275v1",
+      "title": "Modelling Human Active Search in Optimizing Black-box Functions",
+      "authors": [
+        "Antonio Candelieri",
+        "Riccardo Perego",
+        "Ilaria Giordani",
+        "Andrea Ponti",
+        "Francesco Archetti"
+      ],
+      "published": "2020-03-09T17:34:24Z",
+      "abstract": "Modelling human function learning has been the subject of in-tense research in cognitive sciences. The topic is relevant in black-box optimization where information about the objective and/or constraints is not available and must be learned through function evaluations. In this paper we focus on the relation between the behaviour of humans searching for the maximum and the probabilistic model used in Bayesian Optimization. As surrogate models of the unknown function both Gaussian Processes and Random Forest have been considered: the Bayesian learning paradigm is central in the development of active learning approaches balancing exploration/exploitation in uncertain conditions towards effective generalization in large decision spaces. In this paper we analyse experimentally how Bayesian Optimization compares to humans searching for the maximum of an unknown 2D function. A set of controlled experiments with 60 subjects, using both surrogate models, confirm that Bayesian Optimization provides a general model to represent individual patterns of active learning in humans"
+    },
+    {
+      "query": "ti:\"active\" AND ti:\"search\" AND all:\"Bayesian\"",
+      "id": "http://arxiv.org/abs/1511.04211v2",
+      "title": "Active Contextual Entropy Search",
+      "authors": [
+        "Jan Hendrik Metzen"
+      ],
+      "published": "2015-11-13T09:37:40Z",
+      "abstract": "Contextual policy search allows adapting robotic movement primitives to different situations. For instance, a locomotion primitive might be adapted to different terrain inclinations or desired walking speeds. Such an adaptation is often achievable by modifying a small number of hyperparameters. However, learning, when performed on real robotic systems, is typically restricted to a small number of trials. Bayesian optimization has recently been proposed as a sample-efficient means for contextual policy search that is well suited under these conditions. In this work, we extend entropy search, a variant of Bayesian optimization, such that it can be used for active contextual policy search where the agent selects those tasks during training in which it expects to learn the most. Empirical results in simulation suggest that this allows learning successful behavior with less trials."
+    },
+    {
+      "query": "ti:\"active\" AND ti:\"search\" AND all:\"Bayesian\"",
+      "id": "http://arxiv.org/abs/1811.08871v2",
+      "title": "Efficient nonmyopic active search with applications in drug and materials discovery",
+      "authors": [
+        "Shali Jiang",
+        "Gustavo Malkomes",
+        "Benjamin Moseley",
+        "Roman Garnett"
+      ],
+      "published": "2018-11-21T18:32:33Z",
+      "abstract": "Active search is a learning paradigm for actively identifying as many members of a given class as possible. A critical target scenario is high-throughput screening for scientific discovery, such as drug or materials discovery. In this paper, we approach this problem in Bayesian decision framework. We first derive the Bayesian optimal policy under a natural utility, and establish a theoretical hardness of active search, proving that the optimal policy can not be approximated for any constant ratio. We also study the batch setting for the first time, where a batch of $b>1$ points can be queried at each iteration. We give an asymptotic lower bound, linear in batch size, on the adaptivity gap: how much we could lose if we query $b$ points at a time for $t$ iterations, instead of one point at a time for $bt$ iterations. We then introduce a novel approach to nonmyopic approximations of the optimal policy that admits efficient computation. Our proposed policy can automatically trade off exploration and exploitation, without relying on any tuning parameters. We also generalize our policy to batch setting, and propose two approaches to tackle the combinatorial search challenge. We evaluate our proposed policies on a large database of drug discovery and materials science. Results demonstrate the superior performance of our proposed policy in both sequential and batch setting; the nonmyopic behavior is also illustrated in various aspects."
+    },
+    {
+      "query": "ti:\"active\" AND ti:\"search\" AND all:\"Bayesian\"",
+      "id": "http://arxiv.org/abs/2404.18653v2",
+      "title": "Bayesian Active Search on Parameter Space: a 95 GeV Spin-0 Resonance in the ($B-L$)SSM",
+      "authors": [
+        "Mauricio A. Diaz",
+        "Giorgio Cerro",
+        "Srinandan Dasmahapatra",
+        "Stefano Moretti"
+      ],
+      "published": "2024-04-29T12:34:47Z",
+      "abstract": "In the attempt to explain possible data anomalies from collider experiments in terms of New Physics (NP) models, computationally expensive scans over their parameter spaces are typically required in order to match theoretical predictions to experimental observations. Under the assumption that anomalies seen at a mass of about 95 GeV by the Large Electron-Positron (LEP) and Large Hadron Collider (LHC) experiments correspond to a NP signal, which we attempt to interpret as a spin-0 resonance in the $(B-L)$ Supersymmetric Standard Model ($(B-L)$SSM), chosen as an illustrative example, we introduce a novel Machine Learning (ML) approach based on a multi-objective active search method, called b-CASTOR, able to achieve high sample efficiency and diversity, due to the use of probabilistic surrogate models and a volume based search policy, outperforming competing algorithms, such as those based on Markov-Chain Monte Carlo (MCMC) methods."
+    },
+    {
+      "query": "ti:\"active\" AND ti:\"search\" AND all:\"Bayesian\"",
+      "id": "http://arxiv.org/abs/2406.11141v1",
+      "title": "Active search for Bifurcations",
+      "authors": [
+        "Yorgos M. Psarellis",
+        "Themistoklis P. Sapsis",
+        "Ioannis G. Kevrekidis"
+      ],
+      "published": "2024-06-17T02:01:17Z",
+      "abstract": "Bifurcations mark qualitative changes of long-term behavior in dynamical systems and can often signal sudden (\"hard\") transitions or catastrophic events (divergences). Accurately locating them is critical not just for deeper understanding of observed dynamic behavior, but also for designing efficient interventions. When the dynamical system at hand is complex, possibly noisy, and expensive to sample, standard (e.g. continuation based) numerical methods may become impractical. We propose an active learning framework, where Bayesian Optimization is leveraged to discover saddle-node or Hopf bifurcations, from a judiciously chosen small number of vector field observations. Such an approach becomes especially attractive in systems whose state x parameter space exploration is resource-limited. It also naturally provides a framework for uncertainty quantification (aleatoric and epistemic), useful in systems with inherent stochasticity."
+    },
+    {
+      "query": "ti:\"active\" AND ti:\"search\" AND all:\"Bayesian\"",
+      "id": "http://arxiv.org/abs/2011.10474v2",
+      "title": "Probabilistic Radio-Visual Active Sensing for Search and Tracking",
+      "authors": [
+        "L. Varotto",
+        "A. Cenedese",
+        "A. Cavallaro"
+      ],
+      "published": "2020-11-20T16:09:51Z",
+      "abstract": "Active Search and Tracking for search and rescue missions or collaborative mobile robotics relies on the actuation of a sensing platform to detect and localize a target. In this paper we focus on visually detecting a radio-emitting target with an aerial robot equipped with a radio receiver and a camera. Visual-based tracking provides high accuracy, but the directionality of the sensing domain may require long search times before detecting the target. Conversely, radio signals have larger coverage, but lower tracking accuracy. Thus, we design a Recursive Bayesian Estimation scheme that uses camera observations to refine radio measurements. To regulate the camera pose, we design an optimal controller whose cost function is built upon a probabilistic map. Theoretical results support the proposed algorithm, while numerical analyses show higher robustness and efficiency with respect to visual and radio-only baselines."
+    }
+  ]
+}

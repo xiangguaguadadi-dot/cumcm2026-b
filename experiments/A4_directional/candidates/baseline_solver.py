@@ -144,7 +144,6 @@ class Solver:
         self.virtual_time = 0.0
         self.deadline = None
         self.trace = []
-        self._visibility_cache = {}
         self.points = config.get('points') or default_points(self.mode)
         self.points = [tuple(map(float,p)) for p in self.points]
         certified=certified_points(self.mode)
@@ -212,56 +211,6 @@ class Solver:
             return True
         return False
 
-    def visibility_hypotheses(self, ch):
-        """Approximate belief for ordering only; never trims the certified polygon.
-
-        Marginalize a uniform 1000..1500 radius and a mixed omni/half-plane
-        antenna prior over deterministic interior position/orientation samples.
-        Every input is a recorded enter/measure/clear/exit observation.
-        """
-        signature = (len(self.observations[ch]), len(self.no_signal_points[ch]))
-        cached = self._visibility_cache.get(ch)
-        if cached and cached[0] == signature:
-            return cached[1]
-        poly = self.polygons[ch]
-        center = (sum(p[0] for p in poly)/len(poly), sum(p[1] for p in poly)/len(poly))
-        samples = [center] + [(0.75*p[0]+0.25*center[0], 0.75*p[1]+0.25*center[1]) for p in poly]
-        # Fixed finite quadrature is a planning approximation, not a posterior
-        # support certificate; an empty quadrature falls back to neutral scores.
-        hypotheses = []
-        n_angles = 36
-        for s in samples:
-            positives = [(p[0]-s[0], p[1]-s[1]) for p, _ in self.observations[ch]]
-            negatives = [(p[0]-s[0], p[1]-s[1]) for p in self.no_signal_points[ch]]
-            lower = max([1000.0]+[math.hypot(*v) for v in positives])
-            if lower >= 1500:
-                continue
-            for k in range(-1, n_angles):
-                normal = None if k == -1 else (math.cos(2*math.pi*k/n_angles), math.sin(2*math.pi*k/n_angles))
-                if normal and any(normal[0]*x+normal[1]*y < -1e-8 for x,y in positives):
-                    continue
-                upper = min([1500.0]+[math.hypot(x,y) for x,y in negatives
-                            if normal is None or normal[0]*x+normal[1]*y >= 0])
-                if upper > lower:
-                    prior = .5 if normal is None else .5/n_angles
-                    hypotheses.append((s, normal, lower, upper, prior*(upper-lower)))
-        self._visibility_cache[ch] = (signature, hypotheses)
-        return hypotheses
-
-    def predicted_visibility(self, ch, q):
-        hypotheses = self.visibility_hypotheses(ch)
-        total = sum(h[4] for h in hypotheses)
-        if total <= 0:
-            return .5
-        hit = 0.0
-        for s, normal, lower, upper, weight in hypotheses:
-            x,y = q[0]-s[0], q[1]-s[1]
-            if normal is not None and normal[0]*x+normal[1]*y < 0:
-                continue
-            distance = math.hypot(x,y)
-            hit += weight*max(0.0,min(1.0,(upper-max(lower,distance))/(upper-lower)))
-        return hit/total
-
     def second_point(self,ch):
         p, deg = self.observations[ch][-1]
         theta = math.radians(deg)
@@ -276,9 +225,7 @@ class Solver:
                        p[1]+advance*uy+sign*lateral*ux) for sign in [-1,1]]
         # Favor candidate nearer the other planned search stations, a cheap
         # approximation to downstream route cost, with deterministic tie-break.
-        return min(candidates,key=lambda q: (dist(q,self.position) + 0.12*min(dist(q,w) for w in self.points)
-            + (self.config.get('visibility_penalty_m',600.0)*(1-self.predicted_visibility(ch,q))
-               if self.mode == 4 and self.config.get('visibility_side',True) else 0),q))
+        return min(candidates,key=lambda q: (dist(q,self.position) + 0.12*min(dist(q,w) for w in self.points),q))
 
     def localize(self,ch):
         if ch in self.cleared:
@@ -362,12 +309,6 @@ class Solver:
         angle=math.radians(deg)
         rr=80.0+iteration*11.0
         angles=[70,-70,110,-110,35,-35,0,180,145,-145,20,-20,90,-90,160,-160]
-        if self.mode == 4 and self.config.get('visibility_rescue',True):
-            def recovery_cost(offset):
-                a = angle+math.radians(offset)
-                q = (p[0]+rr*math.cos(a),p[1]+rr*math.sin(a))
-                return (dist(self.position,q)/5+5)/max(.05,self.predicted_visibility(ch,q))
-            angles.sort(key=recovery_cost)
         for offset in angles:
             if self.virtual_time >= VIRTUAL_SAFE_SWITCH_S:
                 return False
