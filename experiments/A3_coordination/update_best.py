@@ -1,0 +1,5 @@
+import json,hashlib,subprocess,sys
+from pathlib import Path
+root=Path(__file__).resolve().parents[2];e=root/'experiments/A3_coordination';r=int(sys.argv[1]);rounds=int(sys.argv[2]);a=json.loads((e/f'r{r}_analysis.json').read_text());snap=e/f'snapshots/r{r}_solver.py';commit=subprocess.check_output(['git','log','-1','--format=%H','--',str(snap)],cwd=root,text=True).strip()
+b=dict(best_round=r,candidate_rounds=rounds,solver_absolute_path=str(snap),solver_relative_path=str(snap.relative_to(root)),solver_sha256=a['sha256'],full_result_path=a['full_path'],full_result_absolute_path=str(root/a['full_path']),metrics=a['metrics'],all_complete=a['all_complete'],code_commit=commit,dependencies=[],trained_weights=[],configuration='embedded OPTIMIZED_CONFIGS plus defaults in solver snapshot',coverage_points='analytic certified_points; no external coverage_points.json present',python_dependencies='standard library only',label='LOCAL-v1, not official')
+assert hashlib.sha256(snap.read_bytes()).hexdigest()==b['solver_sha256'];(e/'best.json').write_text(json.dumps(b,ensure_ascii=False,indent=2))
