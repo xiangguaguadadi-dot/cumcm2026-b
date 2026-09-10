@@ -61,3 +61,9 @@ python evaluate.py --suite full --candidate solver.py --out results/A2_informati
 ```
 
 `dev_eval.py`生成独立开发数据，`update_log.py`从已有full读取并更新数值；新增轮次的解释需显式补进脚本。`build_report.py`目前是调度暂存版本，恢复/最终停止时要更新报告状态与停止原因，不能让旧暂存声明残留。它通过当前提交的候选快照定位代码提交，因此先提交新候选/结果，再生成best与报告。推送可用 `git -c http.proxy= -c https.proxy= push origin experiments/20260911/a2_information`，无需改全局配置。
+
+## 恢复后的实时进度
+
+R7 已完成开发(910600–910609)、规则、quick120全清，候选 f963a3fede0c53fab859e8e9e3b339f5afab7da8a3308d426823c796e3f3fb70；full 已启动，输出 results/A2_information_r7_full。本段优先于上文暂存状态；不要重跑已完成步骤。
+
+R7 full完成：2400全清、Q3=286.01274517821093、Q4=570.7373131854504；Q3比R6仅改善0.0057839893秒/源，Q4相同。最佳R7、未刷新0，下一轮R8。

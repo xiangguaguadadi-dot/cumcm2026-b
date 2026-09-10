@@ -140,3 +140,24 @@
 
 第六轮结论：Q3 286.01852917、Q4 570.73731319；2400局全清，无异常。Q3进一步改善、Q4与第五轮严格相同，因此当前共同最佳为R6，连续未刷新计数归零。随后按照主Agent调度暂存释放名额，尚未达到两轮未刷新停止条件。无信号排除仅在Q3启用，完整几何证明与独立点验证留存。
 
+## 第 7 轮
+
+- 候选：`experiments/A2_information/candidates/r7_solver.py`；SHA256 `f963a3fede0c53fab859e8e9e3b339f5afab7da8a3308d426823c796e3f3fb70`。
+- full 结果：`results/A2_information_r7_full`；实际运行 49.481 秒；完整通过：True。
+- 规则记录：`results/A2_information_r7_rules/`；quick：`results/A2_information_r7_quick/`。
+
+| 题目 | 全清 | 秒/源 | 对基准减少 |
+|---|---:|---:|---:|
+| Q3 | 1200/1200 | 286.01274518 | 6.6235% |
+| Q4 | 1200/1200 | 570.73731319 | 0.0256% |
+
+逐场景退步（负减少率；不隐藏）：
+
+- Q4 `cell50_shared_field`：增加 0.2111%。
+- Q4 `edge_mixed_min_radius`：增加 0.0912%。
+- Q4 `exactly10_sources`：增加 0.0216%。
+- Q4 `exactly16_sources`：增加 0.0026%。
+- Q4 `reference_assumed`：增加 0.1043%。
+
+第七轮结论：Q3 286.01274518、Q4 570.73731319，2400局全清。Q3只比R6快0.00578399秒/源，Q4逐局相同，按预定严格共同最佳口径更新R7并将未刷新计数归零；不把这一极小回归差异描述为显著或稳健改善。新增planning_hypotheses只影响排序；有限提案为空退回原假想点，不改变正确性。
+
