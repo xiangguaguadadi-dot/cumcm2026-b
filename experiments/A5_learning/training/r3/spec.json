@@ -1,0 +1,52 @@
+{
+  "round": 3,
+  "solver_path": "experiments/A5_learning/templates/r3_solver_template.py",
+  "solver_sha256": "082fb23498ed405720f1c0b7656b1cb85ae55295703b4c3b91224aa79110e935",
+  "bounds": {
+    "advance_fraction": [
+      0.2,
+      0.95
+    ],
+    "lateral_fraction": [
+      0.015,
+      0.35
+    ],
+    "clear_trial_radius": [
+      20,
+      240
+    ],
+    "source_priority": [
+      0.4,
+      3.0
+    ],
+    "priority_uncertainty": [
+      -1.5,
+      1.5
+    ],
+    "priority_pending": [
+      -1.0,
+      1.0
+    ],
+    "source_uncertainty_cost": [
+      -0.7,
+      0.7
+    ],
+    "advance_range_slope": [
+      -0.45,
+      0.45
+    ],
+    "lateral_range_slope": [
+      -0.22,
+      0.22
+    ]
+  },
+  "generations": 4,
+  "population": 12,
+  "elite": 3,
+  "smoothing": 0.65,
+  "training_episodes_per_mode": 144,
+  "development_episodes_per_mode": 216,
+  "split_policy": "generated only; fixed v1 never imported; truth evaluator-only",
+  "selection_z": 1.28,
+  "modes": {}
+}

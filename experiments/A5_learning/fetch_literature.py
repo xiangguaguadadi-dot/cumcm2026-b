@@ -3,7 +3,7 @@ import subprocess, hashlib, json
 from pathlib import Path
 from pypdf import PdfReader
 D=Path(__file__).resolve().parent/'literature_cache';D.mkdir(exist_ok=True)
-items=[('ce','https://people.smp.uq.edu.au/DirkKroese/ps/CEopt.pdf'),('cma','https://arxiv.org/pdf/1604.00772'),('ars','https://arxiv.org/pdf/1803.07055'),('dagger','https://proceedings.mlr.press/v15/ross11a/ross11a.pdf'),('attention','https://arxiv.org/pdf/1803.08475'),('shield','https://arxiv.org/pdf/1708.08611'),('searn','https://arxiv.org/pdf/cs/0607120'),('rrig','https://arxiv.org/pdf/1307.0006'),('bo','https://arxiv.org/pdf/1807.02811'),('ppo','https://arxiv.org/pdf/1707.06347')]
+items=[('ce','https://people.smp.uq.edu.au/DirkKroese/ps/CEopt.pdf'),('cma','https://arxiv.org/pdf/1604.00772'),('ars','https://arxiv.org/pdf/1803.07055'),('dagger','https://proceedings.mlr.press/v15/ross11a/ross11a.pdf'),('attention','https://arxiv.org/pdf/1803.08475'),('shield','https://arxiv.org/pdf/1708.08611'),('searn','https://arxiv.org/pdf/cs/0607120'),('rrig','https://arxiv.org/pdf/1307.0006'),('bo','https://arxiv.org/pdf/1807.02811'),('ppo','https://arxiv.org/pdf/1707.06347'),('rl_bearing','https://arxiv.org/pdf/2605.02120'),('coop_bearing','https://arxiv.org/pdf/2503.08740')]
 log=[]
 for key,url in items:
  p=D/(key+'.pdf');r=subprocess.run(['curl','--noproxy','*','-L','--max-time','50','-sS',url,'-o',str(p)],capture_output=True,text=True)

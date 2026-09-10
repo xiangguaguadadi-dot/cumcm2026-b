@@ -1,0 +1,348 @@
+{
+  "round": 3,
+  "solver_path": "experiments/A5_learning/templates/r3_solver_template.py",
+  "solver_sha256": "082fb23498ed405720f1c0b7656b1cb85ae55295703b4c3b91224aa79110e935",
+  "bounds": {
+    "advance_fraction": [
+      0.2,
+      0.95
+    ],
+    "lateral_fraction": [
+      0.015,
+      0.35
+    ],
+    "clear_trial_radius": [
+      20,
+      240
+    ],
+    "source_priority": [
+      0.4,
+      3.0
+    ],
+    "priority_uncertainty": [
+      -1.5,
+      1.5
+    ],
+    "priority_pending": [
+      -1.0,
+      1.0
+    ],
+    "source_uncertainty_cost": [
+      -0.7,
+      0.7
+    ],
+    "advance_range_slope": [
+      -0.45,
+      0.45
+    ],
+    "lateral_range_slope": [
+      -0.22,
+      0.22
+    ]
+  },
+  "generations": 4,
+  "population": 12,
+  "elite": 3,
+  "smoothing": 0.65,
+  "training_episodes_per_mode": 144,
+  "development_episodes_per_mode": 216,
+  "split_policy": "generated only; fixed v1 never imported; truth evaluator-only",
+  "selection_z": 1.28,
+  "modes": {
+    "3": {
+      "config": {
+        "advance_fraction": 0.2940861929588996,
+        "lateral_fraction": 0.15439784832433157,
+        "clear_trial_radius": 76.22155162436468,
+        "source_priority": 1.3234815470555208,
+        "priority_uncertainty": -0.1730915998012359,
+        "priority_pending": 0.10679960140650335,
+        "source_uncertainty_cost": 0.4155671655031068,
+        "advance_range_slope": -0.22065998037705603,
+        "lateral_range_slope": -0.004702314614363545
+      },
+      "selected_attempt": 38,
+      "dev_mean_s_per_source": 302.4530465640385,
+      "train_attempts": 49,
+      "dev_attempts": 6,
+      "total_task_runs": 8352,
+      "baseline_dev_mean_s_per_source": 308.59726753630207,
+      "validation_summary": [
+        {
+          "attempt": 39,
+          "mode": 3,
+          "generation": 3,
+          "split": "dev",
+          "config": {
+            "advance_fraction": 0.39414438995183254,
+            "lateral_fraction": 0.15492291219398774,
+            "clear_trial_radius": 102.17578599562638,
+            "source_priority": 1.1520807754375717,
+            "priority_uncertainty": 0.09428711152684022,
+            "priority_pending": 0.10320699263378397,
+            "source_uncertainty_cost": 0.3397148721305616,
+            "advance_range_slope": -0.246916399422787,
+            "lateral_range_slope": -0.03390034877347231
+          },
+          "complete": true,
+          "mean_s_per_source": 304.1567569252121,
+          "wall_s": 0.27203837502747774,
+          "paired_advantage_s": 4.44051061108999,
+          "paired_standard_error_s": 2.3953292782425586,
+          "passes_development_gate": true
+        },
+        {
+          "attempt": 19,
+          "mode": 3,
+          "generation": 1,
+          "split": "dev",
+          "config": {
+            "advance_fraction": 0.37468022477475327,
+            "lateral_fraction": 0.14423669845798692,
+            "clear_trial_radius": 64.9100222905708,
+            "source_priority": 1.1997225722960208,
+            "priority_uncertainty": -0.0514992359131603,
+            "priority_pending": -0.30316747995689464,
+            "source_uncertainty_cost": 0.4280040857742,
+            "advance_range_slope": -0.25736783399034446,
+            "lateral_range_slope": -0.009424040957156044
+          },
+          "complete": true,
+          "mean_s_per_source": 303.28989305964046,
+          "wall_s": 0.2763139579910785,
+          "paired_advantage_s": 5.30737447666161,
+          "paired_standard_error_s": 2.465817726992332,
+          "passes_development_gate": true
+        },
+        {
+          "attempt": 41,
+          "mode": 3,
+          "generation": 3,
+          "split": "dev",
+          "config": {
+            "advance_fraction": 0.4654584631541389,
+            "lateral_fraction": 0.14412641269508653,
+            "clear_trial_radius": 80.27917611085496,
+            "source_priority": 1.1276210519726002,
+            "priority_uncertainty": -0.08058926073870398,
+            "priority_pending": -0.14691092373922476,
+            "source_uncertainty_cost": 0.4674954570995258,
+            "advance_range_slope": -0.21059415952294,
+            "lateral_range_slope": -0.0915861039231442
+          },
+          "complete": true,
+          "mean_s_per_source": 303.2211744540967,
+          "wall_s": 0.27295866690110415,
+          "paired_advantage_s": 5.376093082205392,
+          "paired_standard_error_s": 1.6862656174326824,
+          "passes_development_gate": true
+        },
+        {
+          "attempt": 38,
+          "mode": 3,
+          "generation": 3,
+          "split": "dev",
+          "config": {
+            "advance_fraction": 0.2940861929588996,
+            "lateral_fraction": 0.15439784832433157,
+            "clear_trial_radius": 76.22155162436468,
+            "source_priority": 1.3234815470555208,
+            "priority_uncertainty": -0.1730915998012359,
+            "priority_pending": 0.10679960140650335,
+            "source_uncertainty_cost": 0.4155671655031068,
+            "advance_range_slope": -0.22065998037705603,
+            "lateral_range_slope": -0.004702314614363545
+          },
+          "complete": true,
+          "mean_s_per_source": 302.4530465640385,
+          "wall_s": 0.27978983300272375,
+          "paired_advantage_s": 6.14422097226358,
+          "paired_standard_error_s": 3.004055879205626,
+          "passes_development_gate": true
+        },
+        {
+          "attempt": 43,
+          "mode": 3,
+          "generation": 3,
+          "split": "dev",
+          "config": {
+            "advance_fraction": 0.5421004240527185,
+            "lateral_fraction": 0.1425809055759834,
+            "clear_trial_radius": 92.48876295653854,
+            "source_priority": 1.1931392986970037,
+            "priority_uncertainty": -0.02810373218282658,
+            "priority_pending": -0.21697118749198208,
+            "source_uncertainty_cost": 0.3485313089014408,
+            "advance_range_slope": -0.2835828705131139,
+            "lateral_range_slope": -0.14702846390732588
+          },
+          "complete": true,
+          "mean_s_per_source": 303.91393905297775,
+          "wall_s": 0.2727058749878779,
+          "paired_advantage_s": 4.683328483324334,
+          "paired_standard_error_s": 1.031477452693634,
+          "passes_development_gate": true
+        },
+        {
+          "attempt": 0,
+          "mode": 3,
+          "generation": -1,
+          "split": "dev",
+          "config": {
+            "advance_fraction": 0.6,
+            "lateral_fraction": 0.15,
+            "clear_trial_radius": 100,
+            "source_priority": 1.55,
+            "priority_uncertainty": 0.0,
+            "priority_pending": 0.0,
+            "source_uncertainty_cost": 0.0,
+            "advance_range_slope": 0.0,
+            "lateral_range_slope": 0.0
+          },
+          "complete": true,
+          "mean_s_per_source": 308.59726753630207,
+          "wall_s": 0.2750455419300124,
+          "paired_advantage_s": 0.0,
+          "paired_standard_error_s": 0.0,
+          "passes_development_gate": true
+        }
+      ]
+    },
+    "4": {
+      "config": {
+        "advance_fraction": 0.6614449404782727,
+        "lateral_fraction": 0.2005410290211319,
+        "clear_trial_radius": 156.66296661840946,
+        "source_priority": 1.4128022908867952,
+        "priority_uncertainty": 0.40748538771089793,
+        "priority_pending": -0.2301806740898269,
+        "source_uncertainty_cost": 0.5288462601653252,
+        "advance_range_slope": -0.16888994141964558,
+        "lateral_range_slope": 0.036866190631417856
+      },
+      "selected_attempt": 25,
+      "dev_mean_s_per_source": 533.9241226932563,
+      "train_attempts": 49,
+      "dev_attempts": 5,
+      "total_task_runs": 8136,
+      "baseline_dev_mean_s_per_source": 542.9345512859153,
+      "validation_summary": [
+        {
+          "attempt": 41,
+          "mode": 4,
+          "generation": 3,
+          "split": "dev",
+          "config": {
+            "advance_fraction": 0.7310221295359203,
+            "lateral_fraction": 0.2070819865191051,
+            "clear_trial_radius": 189.67889284301842,
+            "source_priority": 1.410082741662865,
+            "priority_uncertainty": 0.14376214975584123,
+            "priority_pending": -0.3103283399845447,
+            "source_uncertainty_cost": 0.7,
+            "advance_range_slope": -0.12637868609030606,
+            "lateral_range_slope": 0.019067213318237547
+          },
+          "complete": true,
+          "mean_s_per_source": 542.4075788327548,
+          "wall_s": 4.582352374913171,
+          "paired_advantage_s": 0.5269724531604804,
+          "paired_standard_error_s": 1.512342270835739,
+          "passes_development_gate": false
+        },
+        {
+          "attempt": 25,
+          "mode": 4,
+          "generation": 2,
+          "split": "dev",
+          "config": {
+            "advance_fraction": 0.6614449404782727,
+            "lateral_fraction": 0.2005410290211319,
+            "clear_trial_radius": 156.66296661840946,
+            "source_priority": 1.4128022908867952,
+            "priority_uncertainty": 0.40748538771089793,
+            "priority_pending": -0.2301806740898269,
+            "source_uncertainty_cost": 0.5288462601653252,
+            "advance_range_slope": -0.16888994141964558,
+            "lateral_range_slope": 0.036866190631417856
+          },
+          "complete": true,
+          "mean_s_per_source": 533.9241226932563,
+          "wall_s": 4.3916943749645725,
+          "paired_advantage_s": 9.01042859265887,
+          "paired_standard_error_s": 3.0604344381200494,
+          "passes_development_gate": true
+        },
+        {
+          "attempt": 39,
+          "mode": 4,
+          "generation": 3,
+          "split": "dev",
+          "config": {
+            "advance_fraction": 0.679071136943181,
+            "lateral_fraction": 0.1463115887940823,
+            "clear_trial_radius": 184.83097051443184,
+            "source_priority": 1.3675522279843746,
+            "priority_uncertainty": 0.7650404803598452,
+            "priority_pending": -0.2614966408797311,
+            "source_uncertainty_cost": 0.5502867771446278,
+            "advance_range_slope": -0.006094726902294789,
+            "lateral_range_slope": 0.05474786844698368
+          },
+          "complete": true,
+          "mean_s_per_source": 534.9309813210198,
+          "wall_s": 4.494254500023089,
+          "paired_advantage_s": 8.00356996489545,
+          "paired_standard_error_s": 2.55655030803144,
+          "passes_development_gate": true
+        },
+        {
+          "attempt": 34,
+          "mode": 4,
+          "generation": 2,
+          "split": "dev",
+          "config": {
+            "advance_fraction": 0.6419969179255753,
+            "lateral_fraction": 0.1599520565009031,
+            "clear_trial_radius": 185.93685632654626,
+            "source_priority": 1.409422942908615,
+            "priority_uncertainty": 0.04779814876392674,
+            "priority_pending": -0.2582398175742764,
+            "source_uncertainty_cost": 0.6648592295837148,
+            "advance_range_slope": -0.1036665956832209,
+            "lateral_range_slope": 0.04931054448099456
+          },
+          "complete": true,
+          "mean_s_per_source": 538.919871698427,
+          "wall_s": 4.534054458956234,
+          "paired_advantage_s": 4.014679587488308,
+          "paired_standard_error_s": 1.896886753768137,
+          "passes_development_gate": true
+        },
+        {
+          "attempt": 0,
+          "mode": 4,
+          "generation": -1,
+          "split": "dev",
+          "config": {
+            "advance_fraction": 0.7165499736366616,
+            "lateral_fraction": 0.11498778234989403,
+            "clear_trial_radius": 186.75959165603547,
+            "source_priority": 1.4111337287763024,
+            "priority_uncertainty": 0.06524228650244446,
+            "priority_pending": -0.31069683674814663,
+            "source_uncertainty_cost": 0.6969504169454712,
+            "advance_range_slope": 0.0,
+            "lateral_range_slope": 0.0
+          },
+          "complete": true,
+          "mean_s_per_source": 542.9345512859153,
+          "wall_s": 4.595455790986307,
+          "paired_advantage_s": 0.0,
+          "paired_standard_error_s": 0.0,
+          "passes_development_gate": true
+        }
+      ]
+    }
+  }
+}
