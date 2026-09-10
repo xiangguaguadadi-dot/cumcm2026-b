@@ -63,7 +63,8 @@ def main():
  r1={'advance_fraction':(.25,.95),'lateral_fraction':(.035,.5),'clear_trial_radius':(20.,210.),'source_priority':(.15,3.5)}
  r2={'schedule_uncertainty':(-.8,1.5),'schedule_density':(-1.2,1.2),'schedule_station_gain':(-1.,1.),'source_priority':(.15,3.5)}
  r3={'advance_fraction':(.25,.95),'lateral_fraction':(.035,.5),'second_range_weight':(-.5,.5),'second_uncertainty_weight':(-.4,.4),'second_route_weight':(0.,1.0)}
- bounds=[r1,r2,r3][min(a.round,3)-1]
+ r4={'schedule_missing':(-1.2,1.2),'schedule_repeat':(-1.2,1.2),'schedule_workload':(-1.2,1.2),'source_priority':(.4,2.5)}
+ bounds=[r1,r2,r3,r4][min(a.round,4)-1]
  # Data ranges fixed before candidate evaluation. No v1 identifier is available here.
  sets={}
  for mode in [3,4]:
