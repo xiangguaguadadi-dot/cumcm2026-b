@@ -1,0 +1,13 @@
+{
+  "round": 4,
+  "initial_development_seeds": [
+    910300,
+    910309
+  ],
+  "command": "python experiments/A2_information/dev_eval.py --start 910300 --n 10 --out experiments/A2_information/dev/r4_development.json",
+  "status": "manually interrupted after sustained CPU use; no complete aggregate saved",
+  "signal": "SIGINT",
+  "stack": "Solver.run -> localize -> nearest_certified_clear -> feasible -> all(dist(q,v)...)",
+  "diagnosis": "adaptive tangent refinement generated many polygon vertices; optical disk intersection enumeration cubic in vertex count",
+  "followup": "r4_watchdog.jsonl; 120 generated development cases, diagnostic per-case 5 second watchdog, not official deadline"
+}
