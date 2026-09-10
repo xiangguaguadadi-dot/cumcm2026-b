@@ -1,13 +1,17 @@
 {
   "agent": "A4_directional",
-  "best_round": 3,
-  "total_rounds": 4,
-  "best_solver_absolute": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A4_directional/experiments/A4_directional/candidates/r3_solver.py",
-  "best_solver_relative": "experiments/A4_directional/candidates/r3_solver.py",
-  "solver_sha256": "8920b739ee36cca1f6c50b881441e4d802d570079b26aa1e419b14a7a83fe7b0",
+  "best_round": 5,
+  "total_rounds": 5,
+  "best_solver_absolute": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A4_directional/experiments/A4_directional/candidates/r5_solver.py",
+  "best_solver_relative": "experiments/A4_directional/candidates/r5_solver.py",
+  "solver_sha256": "8b28dc9dab1d9eda0d39033929ac145aa212418d3c792a137eb893ec63e77a7e",
   "auxiliary_files": {},
   "weights": [],
   "configuration": {
+    "segment_recovery_steps": 2,
+    "segment_fraction": 0.5,
+    "visibility_quadrature": "original vertices plus center",
+    "optical_negative_belief": false,
     "visibility_prior_omni": 0.5,
     "orientation_quadrature": 36,
     "visibility_penalty_m": 600,
@@ -15,10 +19,10 @@
     "optical_radius": 300,
     "optical_order": "belief center-out; original snake after virtual budget switch"
   },
-  "configuration_sha256": "bab1fa36dfaedee04fbb456b35656a143bb634f45b7b90ac5d888960dfc4ba1f",
-  "full_results_relative": "experiments/A4_directional/results/r3_full",
-  "full_results_absolute": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A4_directional/experiments/A4_directional/results/r3_full",
-  "code_commit": "960b59134f390bf3771bf9c56229390aadd22eac",
+  "configuration_sha256": "32422e1ffe2478ad6b2e71b8708968ecd8725bac0385fdbe6be198242322888b",
+  "full_results_relative": "experiments/A4_directional/results/r5_full",
+  "full_results_absolute": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A4_directional/experiments/A4_directional/results/r5_full",
+  "code_commit": "86c9cfc464377dffd339ff800524fea41408a040",
   "manifest_sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
   "metrics": {
     "3": {
@@ -27,7 +31,7 @@
       "total": 1200
     },
     "4": {
-      "mean_seconds_per_source": 542.1324811364905,
+      "mean_seconds_per_source": 534.7506409587284,
       "complete": 1200,
       "total": 1200
     }
