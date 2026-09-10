@@ -1,10 +1,11 @@
 """Diagnostic run with explicit low watchdog; not official-time evaluation."""
-import sys,signal,importlib.util,json,time,traceback
+import sys,signal,importlib.util,json,time,traceback,argparse
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT))
 from local_env import LocalEnv,InterfaceOnly,make_case
-spec=importlib.util.spec_from_file_location('r4',ROOT/'experiments/A2_information/candidates/r4_solver.py');mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
-path=ROOT/'experiments/A2_information/dev/r4_watchdog.jsonl';out=path.open('w');rows=[]
+parser=argparse.ArgumentParser();parser.add_argument('--candidate',default='experiments/A2_information/candidates/r4_solver.py');parser.add_argument('--out',default='experiments/A2_information/dev/r4_watchdog.jsonl');args=parser.parse_args()
+spec=importlib.util.spec_from_file_location('diagnostic',ROOT/args.candidate);mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
+path=ROOT/args.out;out=path.open('x');rows=[]
 def alarm(*_):raise TimeoutError('diagnostic five-second wall watchdog; lower than official limit')
 signal.signal(signal.SIGALRM,alarm)
 for mode in [3,4]:

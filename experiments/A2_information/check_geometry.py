@@ -16,6 +16,7 @@ check('segment lens vertical',[(-15,0),(15,0)],(0,100),(0,math.sqrt(175)))
 check('segment lens axial',[(-15,0),(15,0)],(-100,0),(-5,0))
 check('already feasible',[(-15,0),(15,0)],(0,10),(0,10))
 check('almost tangent degenerate',[(-20,0),(20,0)],(100,100),(0,0))
+check('dense circular boundary fallback',[(15*math.cos(k*math.pi/64),15*math.sin(k*math.pi/64)) for k in range(128)],(100,0),(5,0))
 rng=random.Random(991720)
 for k in range(500):
  n=rng.randint(3,10);radius=rng.uniform(.1,19.8);angles=sorted(rng.uniform(-math.pi,math.pi) for _ in range(n))
