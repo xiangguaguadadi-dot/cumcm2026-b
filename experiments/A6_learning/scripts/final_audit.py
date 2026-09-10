@@ -19,6 +19,17 @@ for hist in best['history']:
  rows=json.loads((R/'results'/f'A6_learning_r{n}_full'/'case_metrics.json').read_text());z=[r for r in rows if r['variant']=='candidate']
  checks[f'r{n}_full_hash']=sha(B/'snapshots'/f'r{n}_solver.py')==summary['candidate_sha256']==hist['solver_sha256']
  checks[f'r{n}_complete']=len(z)==2400 and all(r['complete'] and r['error'] is None and r['exit_reason']=='user_exit' for r in z)
+ quickdir=R/'results'/f'A6_learning_r{n}_quick'
+ quicksummary=json.loads((quickdir/'summary.json').read_text())
+ quickrows=json.loads((quickdir/'case_metrics.json').read_text());quickcandidate=[r for r in quickrows if r['variant']=='candidate']
+ checks[f'r{n}_quick_hash']=quicksummary['candidate_sha256']==hist['solver_sha256']
+ checks[f'r{n}_quick_complete']=len(quickcandidate)==120 and all(r['complete'] and r['error'] is None and r['exit_reason']=='user_exit' for r in quickcandidate)
+ checks[f'r{n}_unique_full_ids']=len({r['case_id'] for r in z})==2400
+ checks[f'r{n}_quick_subset_full']={r['case_id'] for r in quickcandidate}<={r['case_id'] for r in z}
+ if n>=2:
+  boundary=json.loads((B/f'r{n}_boundary_audit.json').read_text())
+  checks[f'r{n}_boundary_audit']=boundary['all_passed'] and boundary['sha256']==hist['solver_sha256']
+
  budget=json.loads((B/'training'/f'r{n}'/'budget.json').read_text());sets=json.loads((B/'training'/f'r{n}'/'cases.json').read_text());episode_count=0
  optimized=budget.get('modes_optimized',[3,4])
  for mode in optimized:
@@ -53,6 +64,12 @@ extra={}
 for key,path in [('replayed_training',B/'reproduced/r3/budget.json'),('development_ablation',B/'development_ablation/budget.json')]:
  if path.exists():extra[key]=json.loads(path.read_text())['actual_episodes']
 summary=dict(rounds=len(rounds),full_candidate_episodes=2400*len(rounds),quick_candidate_episodes=120*len(rounds),training_parameter_attempts=train_attempts,training_development_episodes=train_episodes,extra_episode_counts=extra,q3_exactly_matching_baseline_cases=equal,best_round=best['round'],all_checks_passed=all(checks.values()))
+streak=0
+for h in reversed(best['history']):
+ if h['decision']=='improved':break
+ streak+=1
+summary['consecutive_rounds_without_improvement']=streak
+summary['extended_empirical_stop_met']=len(rounds)>=5 and streak>=2
 result=dict(summary=summary,checks=checks,rounds=rounds,best_solver_sha256=best['solver_sha256'],best_code_commit=best['code_commit'])
 (B/'final_audit.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps(summary,ensure_ascii=False,indent=2))

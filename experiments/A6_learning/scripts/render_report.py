@@ -8,7 +8,7 @@ lines=[]
 def put(x=''):lines.append(x)
 put('# A6：以观测上下文学习第三、四问的调度与测点策略')
 put('\n研究/实验日期：2026-09-11。独立工作树与分支：`A6_learning` / `experiments/20260911/a6_learning`。这是本地 LOCAL-evaluation-v1 实验报告，不能替代官方 Windows 演练、正式测试或官方日志。')
-put('\n独立性记录：第7轮训练、架构与开发选择已经完成后，整理状态时意外读到共享协调记录中的其他路线摘要。本轮的架构、训练结果和选中参数随后保持原样，仅继续冻结与规则/quick/full验证，没有据此设计新动作或调整参数。该有限信息暴露意味着不能把整个后续上下文称为严格信息隔离；时间与散列见`r7_provenance.json`。后续研究由主协调安排仅依据本路线材料的干净上下文接续。')
+put('\n独立性记录：第7轮训练、架构与开发选择已经完成后，整理状态时意外读到共享协调记录中的其他路线摘要。本轮的架构、训练结果和选中参数随后保持原样，仅继续冻结与规则/quick/full验证，没有据此设计新动作或调整参数。该有限信息暴露意味着不能把整个实验称为严格信息隔离；时间与散列见`r7_provenance.json`。第8轮起由仅接触A6材料的干净上下文接续，不读取别路线方法或成绩。')
 put('\n## 1. 当前可交付结论')
 put(f'\n已完成{len(rounds)}轮冻结候选。当前最佳是第{best["round"]}轮（0表示原版），Q3={best["means_s_per_source"]["3"]:.9f}、Q4={best["means_s_per_source"]["4"]:.9f}秒/源，两题分别全清{best["complete"]["3"]}/1200与{best["complete"]["4"]}/1200。')
 put('\n第一轮的静态参数搜索未改善固定回归。第二轮学得的上下文调度在第四问改善，但第三问退步，故保留为取舍而未把它记为联合最佳。第三轮据此固定第三问原配置，继续在自建数据中优化第四问。这些选择都属于公开逐轮迭代；没有按v1案例编号、源真值或回归场景标签决策。')
@@ -56,6 +56,8 @@ put('\n第3轮第二测点：以第一bearing可行圆投影长度、圆半径�
 put('\n第4轮起增加三项RF观测历史：`missing_fraction=无信号数/(无信号数+bearing数)`，`repeat_fraction=min(1,max(bearing数-1,0)/2)`，`workload=已发现待清频道数/16`。三者带学习权重加入同一指数成本。这里的待清数是已观测集合大小，绝非真实剩余源数；缺信号只影响排序，不能删除候选或宣告频道不存在。第4轮未选中非零新权重，第5轮的新数据训练选中并经过full验证，后续轮按当前最佳继续。')
 if len(rounds)>=7:
  put('\n第7轮增加`boundary=clip((norm(center)-1350)/450,0,1)`：中心来自公开观测的可行圆，不是真源坐标。该特征与原调度权重共同搜索；它仅影响排序，不裁剪可行域、跳过频道或改变清除证书。开发均值从539.436891降到534.787481，超过预设0.5%门槛；full从第5轮548.829652降到548.515689秒/源。整体变化涉及四个权重，不能将这0.0572%改善全部归因于边界特征。')
+if len(rounds)>=8:
+ put('\n第8轮起检验两个观测特征交互：`uncertainty*missing_fraction`与`uncertainty*repeat_fraction`，它们均在[0,1]，随可行圆半径改变观测历史对排序的影响。两项新权重与source_priority共同搜索，其余当前最佳权重固定。零交互权重恢复输入策略；不修改信号约束、定位动作、认证覆盖或退出逻辑。这是本路线在既有特征上的原创扩展，没有实现新的论文网络。')
 put('\n### 4.1 全部内层预算')
 put('\n|轮次|优化题目|每题候选数|训练局/候选|开发局/候选|实际模拟局数|现实秒|\n|---|---|---:|---:|---:|---:|---:|')
 for x in rounds:
@@ -74,6 +76,15 @@ for x in rounds:
  put(f'\n### 第{n}轮')
  put(f'\n候选SHA256：`{x["candidate_sha256"]}`。快照：`snapshots/r{n}_solver.py`。规则日志：`r{n}_rules.log`；正常规则79/79。quick全清{sum(z["complete"] for z in q["modes"].values())}/120，Q3 {q["modes"]["3"]["mean_s"]:.6f}、Q4 {q["modes"]["4"]["mean_s"]:.6f}。full现实耗时{x["wall_seconds"]:.2f}秒，结果：`{x["result_path"]}`。')
  put(f'\n当时当前最佳为第{h["previous_best_round"]}轮；此轮判定`{h["decision"]}`。完整逐局数据、错误列表与场景结果均在对应JSON/CSV，不筛掉失败或最差局。')
+ selected=json.loads((B/'training'/f'r{n}'/'selected.json').read_text())
+ for mode,selection in selected.items():
+  if selection.get('fixed'):continue
+  ds=selection['development_summary']; inp=selection['input_policy_development']
+  dev=json.loads((B/'training'/f'r{n}'/f'q{mode}_development.json').read_text())
+  minimum=min(dev,key=lambda x:(x['development']['n']-x['development']['complete'],x['development']['mean_s']))
+  minmean=minimum['development']['mean_s']
+  put(f'\nQ{mode}开发输入均值{inp["mean_s"]:.9f}，入围最小均值{minmean:.9f}，最终选中均值{ds["mean_s"]:.9f}秒/源；选中尝试编号{selection["attempt"]}（0为输入策略）。最小均值相对输入改善{100*(1-minmean/inp["mean_s"]):.4f}%；第3轮起不足预设0.5%则保留输入。这些数据参与选择，不是盲测。')
+
  put('\n相对原始基准的所有场景退步如下（负号表示改善，正号表示更慢）；没有列出的场景不代表未测试，完整24场景表位于aggregate/summary：')
  put('\n|题目|场景|候选秒/源|基准秒/源|退步比例|\n|---|---|---:|---:|---:|')
  if not x['regressions_vs_baseline']:put('|—|无均值退步场景|—|—|—|')

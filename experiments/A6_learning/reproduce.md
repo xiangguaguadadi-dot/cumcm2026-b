@@ -22,7 +22,7 @@
 
 `N`对应已经保存的轮次。脚本把冻结local_env、该轮训练架构和对应训练器放到一次性临时目录，按budget.json的预算和种子训练，完成后复制全部结果到指定新目录，比较最终配置是否与原记录一致。不会覆盖原记录或写入冻结评测文件。
 
-历史训练器：R1/R2为`train_policy_r1_r2.py`，后续为`train_policy.py`。第一轮训练输入是`baseline_solver.py`，其余是`snapshots/rN_training_architecture.py`。R3起只优化Q4，开发改善不足0.5%保留输入策略。不同轮次的数据域相互分开，完整种子可从该轮cases.json重算。开发集参与选择，不能称为盲测。
+历史训练器：R1/R2为`train_policy_r1_r2.py`，R3–R7为`train_policy.py`的对应历史轮次分支；R8起优先使用`snapshots/rN_train_policy.py`冻结训练器。第一轮训练输入是`baseline_solver.py`，其余是`snapshots/rN_training_architecture.py`。R3起只优化Q4，开发改善不足0.5%保留输入策略。不同轮次的数据域相互分开，完整种子可从该轮cases.json重算。开发集参与选择，不能称为盲测。
 
 部署快照全为自包含Python文件。`freeze_candidate.py`用于当时将选中配置写入solver并冻结快照；重现已完成结果优先直接运行已冻结快照，不要覆盖历史文件。
 

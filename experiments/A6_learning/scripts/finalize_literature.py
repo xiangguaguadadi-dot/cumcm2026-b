@@ -38,5 +38,10 @@ for paper in x['papers']:
   paper['empirical_support']='所有训练轮包含自行生成的不同相关误差场；没有训练GP地图、信息增益控制器或验证其子模近似界。源场景退步在report逐项列出。'
  else:
   paper['empirical_support']='参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。'
+for paper in x['papers']:
+ if paper['id'] in ('ars','es','neural_co','attention'):
+  trace='；'.join(f'R{h["round"]}: Q3={h["means_s_per_source"]["3"]:.6f}, Q4={h["means_s_per_source"]["4"]:.6f}, {h["decision"]}' for h in best['history'])
+  paper['empirical_support']+=' 全轮full轨迹（秒/源）：'+trace+'。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。'
+  paper['implementation_mapping']=paper['implementation_mapping'].replace('直接进入三轮训练器','进入各轮训练器')
 x['coverage_limits']='核心4篇为实际正文深读，扩展6篇为明确范围的正文节选；并未完整阅读所有附录，亦未做这些论文算法的同预算实现对照。'
 p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')

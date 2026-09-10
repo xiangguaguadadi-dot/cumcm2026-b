@@ -1,0 +1,99 @@
+round=8 q=4 attempt=1/32 complete=144/144 mean=550.481955
+round=8 q=4 attempt=2/32 complete=144/144 mean=550.544109
+round=8 q=4 attempt=3/32 complete=144/144 mean=563.032856
+round=8 q=4 attempt=4/32 complete=144/144 mean=567.604914
+round=8 q=4 attempt=5/32 complete=144/144 mean=578.207802
+round=8 q=4 attempt=6/32 complete=144/144 mean=576.410909
+round=8 q=4 attempt=7/32 complete=144/144 mean=551.876376
+round=8 q=4 attempt=8/32 complete=144/144 mean=571.116149
+round=8 q=4 attempt=9/32 complete=144/144 mean=559.965275
+round=8 q=4 attempt=10/32 complete=144/144 mean=568.417100
+round=8 q=4 attempt=11/32 complete=144/144 mean=551.149586
+round=8 q=4 attempt=12/32 complete=144/144 mean=571.920391
+round=8 q=4 attempt=13/32 complete=144/144 mean=557.898249
+round=8 q=4 attempt=14/32 complete=144/144 mean=548.025942
+round=8 q=4 attempt=15/32 complete=144/144 mean=567.714181
+round=8 q=4 attempt=16/32 complete=144/144 mean=556.683107
+round=8 q=4 attempt=17/32 complete=144/144 mean=547.832844
+round=8 q=4 attempt=18/32 complete=144/144 mean=548.615759
+round=8 q=4 attempt=19/32 complete=144/144 mean=560.094540
+round=8 q=4 attempt=20/32 complete=144/144 mean=555.403454
+round=8 q=4 attempt=21/32 complete=144/144 mean=549.209419
+round=8 q=4 attempt=22/32 complete=144/144 mean=555.908921
+round=8 q=4 attempt=23/32 complete=144/144 mean=549.278023
+round=8 q=4 attempt=24/32 complete=144/144 mean=549.784247
+round=8 q=4 attempt=25/32 complete=144/144 mean=546.630142
+round=8 q=4 attempt=26/32 complete=144/144 mean=547.763703
+round=8 q=4 attempt=27/32 complete=144/144 mean=547.720945
+round=8 q=4 attempt=28/32 complete=144/144 mean=549.763835
+round=8 q=4 attempt=29/32 complete=144/144 mean=548.411220
+round=8 q=4 attempt=30/32 complete=144/144 mean=547.134522
+round=8 q=4 attempt=31/32 complete=144/144 mean=548.573450
+round=8 q=4 attempt=32/32 complete=144/144 mean=555.152097
+development q=4 attempt=24 complete=288/288 mean=543.375039
+development q=4 attempt=29 complete=288/288 mean=546.129292
+development q=4 attempt=26 complete=288/288 mean=543.788308
+development q=4 attempt=25 complete=288/288 mean=546.423357
+development q=4 attempt=16 complete=288/288 mean=544.579080
+development q=4 attempt=0 complete=288/288 mean=544.669971
+{
+  "3": {
+    "config": {
+      "advance_fraction": 0.6,
+      "lateral_fraction": 0.15,
+      "clear_trial_radius": 100,
+      "route_optimization": true,
+      "upper_bound_stop": true,
+      "rescue_initial_clear": false,
+      "joint_scheduling": true,
+      "source_priority": 1.55,
+      "clear_standoff": true
+    },
+    "parameters": {},
+    "fixed": true,
+    "reason": "mode fixed before training; no search this round"
+  },
+  "4": {
+    "attempt": 0,
+    "parameters": {
+      "schedule_uncertain_missing": 0.0,
+      "schedule_uncertain_repeat": 0.0,
+      "source_priority": 2.004736280465327
+    },
+    "config": {
+      "advance_fraction": 0.6,
+      "lateral_fraction": 0.15,
+      "clear_trial_radius": 100,
+      "route_optimization": true,
+      "upper_bound_stop": true,
+      "rescue_initial_clear": false,
+      "joint_scheduling": true,
+      "source_priority": 2.004736280465327,
+      "clear_standoff": true,
+      "schedule_uncertainty": 1.3227659012697082,
+      "schedule_density": 0.1024358824899248,
+      "schedule_station_gain": -0.47466339558754406,
+      "second_range_weight": 0.0,
+      "second_uncertainty_weight": 0.0,
+      "second_route_weight": 0.0,
+      "schedule_missing": -0.38800613440593723,
+      "schedule_repeat": -0.5026382344755622,
+      "schedule_workload": -0.18457534783107643,
+      "schedule_boundary": -0.10092733680249596,
+      "schedule_uncertain_missing": 0.0,
+      "schedule_uncertain_repeat": 0.0
+    },
+    "development_summary": {
+      "complete": 288,
+      "n": 288,
+      "mean_s": 544.6699705251491,
+      "worst_s": 894.5633728999999
+    },
+    "input_policy_development": {
+      "complete": 288,
+      "n": 288,
+      "mean_s": 544.6699705251491,
+      "worst_s": 894.5633728999999
+    }
+  }
+}

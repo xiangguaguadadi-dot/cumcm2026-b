@@ -8,6 +8,8 @@ if output.exists():raise SystemExit('Output already exists; choose a new directo
 budget=json.loads((B/'training'/f'r{a.round}'/'budget.json').read_text())
 architecture=B/'snapshots'/('baseline_solver.py' if a.round==1 else f'r{a.round}_training_architecture.py')
 trainer=B/'scripts'/('train_policy_r1_r2.py' if a.round<=2 else 'train_policy.py')
+saved_trainer=B/'snapshots'/f'r{a.round}_train_policy.py'
+if saved_trainer.exists():trainer=saved_trainer
 with tempfile.TemporaryDirectory(prefix='a6_replay_') as temp:
  root=Path(temp);dest=root/'experiments'/'A6_learning'/'scripts';dest.mkdir(parents=True)
  (dest.parent/'training').mkdir()

@@ -45,3 +45,7 @@ R7最佳快照 `experiments/A6_learning/snapshots/r7_solver.py`，SHA256 `7603ac
 最终需达到停止条件后：完整中文报告（可由render_report.py生成再人工查）、精确best与非支配候选说明、学习预算/重放/可选消融/quick/full分开、场景退步与最差局、来源到轮次函数映射、部署辅助文件散列、最终审计。参数已嵌入solver，无外部权重依赖，仅标准库，coverage_points.json不存在，用原认证覆盖。冻结manifest sha `431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140`。
 
 推荐Python `/Users/t/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3`；系统Python中文stdin曾编码失败，不用。Git push临时清代理 `git -c http.proxy= -c https.proxy= push origin experiments/20260911/a6_learning`；已授权，无需重复确认，不改全局配置。Windows官方演练尚未做，不启动正式测试。
+
+## 干净接续追加：R8已完成
+
+R8新交互特征uncertainty*missing_fraction与uncertainty*repeat_fraction开发改善0.23775%，未过0.5%门槛，冻结为零权重；full两题与R7完全同均值，2400/2400完整清除正常退出。当前最佳仍R7，连续未刷新计数1；根solver已恢复R7。R8全部6336训练/开发局、quick120、full2400在自身目录。下一轮R9将保持同结构与预算，以新种子验证选择稳定性。此次接续只读自身材料。
