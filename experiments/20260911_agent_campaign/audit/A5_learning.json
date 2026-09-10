@@ -1,0 +1,85 @@
+{
+  "agent": "A5_learning",
+  "reviewed_commit": "dc396791d0f84d4a8083b8a04b2a1768beaa6a69",
+  "working_tree_clean": true,
+  "candidates": [
+    {
+      "round": 2,
+      "solver_path": "experiments/A5_learning/snapshots/r2_solver.py",
+      "solver_sha256": "60010d0c1363ca4196beb088f73736630c8860453b52d2b185461af94cf51343",
+      "full_results_path": "results/A5_learning_r2_full",
+      "metrics": {
+        "3": {
+          "mean_s_per_source": 306.30043421816345,
+          "baseline_mean_s_per_source": 306.30043421816345,
+          "complete": 1200,
+          "total": 1200,
+          "errors": 0,
+          "max_runtime_s": 0.0021226670360192657
+        },
+        "4": {
+          "mean_s_per_source": 545.7735303569706,
+          "baseline_mean_s_per_source": 570.8833714439976,
+          "complete": 1200,
+          "total": 1200,
+          "errors": 0,
+          "max_runtime_s": 0.029800042044371367
+        }
+      },
+      "code_commit": "5c6388ed703b409987803dc2469579bc0b1bec05",
+      "deployment_dependencies": [],
+      "config_provenance": {
+        "path": "experiments/A5_learning/training/r2/selected.json",
+        "sha256": "27e5fc34f68943b6eaba523d6edeb820a005169c672f18b58423ef69d39d479d",
+        "deployment_required": false
+      }
+    },
+    {
+      "round": 3,
+      "solver_path": "experiments/A5_learning/snapshots/r3_solver.py",
+      "solver_sha256": "c02c756a3107addaa2148f4afa112b75ff3d1483ee9ba82c51480e981af1af38",
+      "full_results_path": "results/A5_learning_r3_full",
+      "metrics": {
+        "3": {
+          "mean_s_per_source": 309.543033520169,
+          "baseline_mean_s_per_source": 306.30043421816345,
+          "complete": 1200,
+          "total": 1200,
+          "errors": 0,
+          "max_runtime_s": 0.002034583012573421
+        },
+        "4": {
+          "mean_s_per_source": 544.4182278547589,
+          "baseline_mean_s_per_source": 570.8833714439976,
+          "complete": 1200,
+          "total": 1200,
+          "errors": 0,
+          "max_runtime_s": 0.04207608301658183
+        }
+      },
+      "code_commit": "1c5ba1f821358c8db8ef2c1a069d12f05491fdad",
+      "deployment_dependencies": [],
+      "config_provenance": {
+        "path": "experiments/A5_learning/training/r3/selected.json",
+        "sha256": "d60dc3f0bf313b58c6b99594f8f59d77bfae62bcf5f4522a214574e9a3901c53",
+        "deployment_required": false
+      }
+    }
+  ],
+  "code_commits_verified": true,
+  "manual_review": [
+    "Read the complete final report, per-paper reading scope, best metadata and iteration protocol.",
+    "Inspected the complete R2 diff and R3 diff from the common baseline. Inputs are observable polygon radius, current position, pending count and bearing projection distance.",
+    "Inspected train_policy.py: generated training/development cases are separate; every candidate receives InterfaceOnly; source truth is used only for generation and outcome scoring.",
+    "Bounded contextual scheduling and movement fractions retain geometry, finite optical cover, final stopping conditions and time-switch threshold.",
+    "R2 and R3 have only standard-library imports, embedded parameters and no added file/model reads. Optional coverage_points.json is absent in their snapshot directory.",
+    "Recomputed all 2400 raw candidate rows for each version; metrics and baseline pairing match. R2 has one regressing group, R3 has eleven.",
+    "Report distinguishes five core mechanism reads and five extended reads, and maps the 2026 bearings-only inspiration specifically to R3.",
+    "R3 remains a Q3/Q4 tradeoff; no post-selection splice was introduced."
+  ],
+  "limitations": [
+    "Scoped code and saved-result audit, not a malicious-code sandbox proof.",
+    "Development component ablation is explanatory and not an independent blind test.",
+    "Common final new-seed evaluation remains pending until all routes are finalized."
+  ]
+}

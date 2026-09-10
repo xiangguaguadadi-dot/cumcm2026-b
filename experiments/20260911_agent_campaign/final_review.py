@@ -91,6 +91,8 @@ def run(args):
     cases = json.loads(cases_file.read_text())
     candidate = Path(args.candidate).resolve()
     candidate_sha = sha(candidate)
+    optional_coverage = candidate.parent / 'coverage_points.json'
+    coverage_before = sha(optional_coverage) if optional_coverage.is_file() else None
     before = runtime_fingerprint(root)
     dependencies = json.loads(Path(args.dependency_manifest).read_text()) if args.dependency_manifest else {}
     for name, expected in dependencies.items():
@@ -103,17 +105,22 @@ def run(args):
     evaluator.verify()
     assert sha(candidate) == candidate_sha, 'Candidate changed during review'
     assert sha(cases_file) == cases_hash, 'Case file changed during review'
+    assert coverage_before == (sha(optional_coverage) if optional_coverage.is_file() else None), \
+        'Optional candidate coverage configuration changed during review'
     assert before == runtime_fingerprint(root), 'Runtime root files changed during review'
     for name, expected in dependencies.items():
         assert sha(Path(name)) == expected, 'Dependency changed during review: ' + name
+    assert len(rows) == len(cases) == len({c['case_id'] for c in cases})
     for row, case in zip(rows, cases):
         assert row['case_id'] == case['case_id']
+        assert row['mode'] == case['mode'] and row['group'] == case['group']
         row['seed_cluster'] = case['seed']
     save(out / 'case_metrics.json', rows)
     summary = dict(
         label=args.label, role='baseline' if args.baseline else 'candidate',
         root=str(root), candidate=str(candidate), candidate_sha256=candidate_sha,
         root_runtime_fingerprint=before, selected_dependencies=dependencies,
+        optional_coverage_path=str(optional_coverage), optional_coverage_sha256=coverage_before,
         cases_sha256=cases_hash,
         manifest_sha256=sha(root / 'evaluation/manifest_v1.json'),
         python=platform.python_version(), platform=platform.platform(),
@@ -147,10 +154,16 @@ def run(args):
 def compare(args):
     baseline = json.loads(Path(args.baseline_rows).read_text())
     base_index = {r['case_id']: r for r in baseline}
+    assert len(base_index) == len(baseline), 'Duplicate baseline case IDs'
     reports = []
     for row_file in args.candidate_rows:
         rows = json.loads(Path(row_file).read_text())
+        assert len(rows) == len(base_index), 'Wrong candidate row count'
         assert {r['case_id'] for r in rows} == set(base_index), 'Case sets differ'
+        for row in rows:
+            base_row = base_index[row['case_id']]
+            assert all(row[k] == base_row[k] for k in ('mode', 'group', 'seed_cluster', 'source_count')), \
+                'Paired case metadata differ'
         result = dict(path=str(Path(row_file).resolve()), modes=[], groups=[])
         for mode in (3, 4):
             part = [r for r in rows if r['mode'] == mode]
@@ -174,6 +187,20 @@ def compare(args):
                             paired_mean_saved_s_per_source=base-cand,
                             paired_saved_seed_cluster_bootstrap_95ci=[boot[124], boot[4874]],
                             seed_clusters=len(units))
+                base_movement = statistics.mean(
+                    base_index[r['case_id']]['distance_m'] / 5 / r['cleared_count'] for r in part)
+                cand_movement = statistics.mean(
+                    r['distance_m'] / 5 / r['cleared_count'] for r in part)
+                info['time_decomposition'] = dict(
+                    baseline_movement_s_per_source=base_movement,
+                    candidate_movement_s_per_source=cand_movement,
+                    paired_movement_saved_s_per_source=base_movement-cand_movement,
+                    baseline_other_s_per_source=base-base_movement,
+                    candidate_other_s_per_source=cand-cand_movement,
+                    paired_other_saved_s_per_source=(base-cand)-(base_movement-cand_movement),
+                    note='Movement is logged distance / 5 m/s. Residual includes sensing, '
+                         'channel switching, optical actions and microsecond rounding; '
+                         'this accounting identity is not a component ablation.')
             result['modes'].append(info)
             for group in sorted({r['group'] for r in part}):
                 sub = [r for r in part if r['group'] == group]

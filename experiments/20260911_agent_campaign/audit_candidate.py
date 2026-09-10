@@ -36,6 +36,17 @@ def audit(root, snapshot, full, label):
     assert {r['case_id'] for r in candidate} == expected_ids
     assert {r['case_id'] for r in baseline} == expected_ids
     base = {r['case_id']: r for r in baseline}
+    canonical = {r['case_id']: r for r in json.loads(
+        (root / 'evaluation/baseline_metrics_v1.json').read_text())['rows']}
+    assert set(canonical) == expected_ids
+    for row in baseline:
+        reference = canonical[row['case_id']]
+        keys = reference.keys() if summary['baseline_cached'] else (
+            'mode', 'group', 'source_count', 'cleared_count', 'complete',
+            'average_clear_time_s', 'total_virtual_time_s', 'exit_reason', 'error')
+        assert all(row[k] == reference[k] for k in keys), 'Saved baseline differs from frozen data'
+    for row in candidate:
+        assert all(row[k] == canonical[row['case_id']][k] for k in ('mode', 'group', 'source_count'))
     for row in candidate + baseline:
         assert row['complete'] and not row['error'], 'Incomplete regression case'
         assert row['cleared_count'] == row['source_count']
@@ -77,6 +88,7 @@ def audit(root, snapshot, full, label):
                 full_results=str(full), full_rows_sha256=sha(full / 'case_metrics.json'),
                 full_summary_sha256=sha(full / 'summary.json'),
                 manifest_sha256=sha(manifest), all_frozen_files_match=True,
+                saved_baseline_matches_frozen_cache=True,
                 all_2400_candidate_cases_complete=True, wall_seconds=summary['wall_seconds'],
                 modes=modes, groups=groups,
                 regressing_groups=[g for g in groups if g['reduction_fraction'] < -1e-12],
