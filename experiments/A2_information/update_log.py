@@ -20,5 +20,6 @@ for k in [1,2,3]:
   if g.get('reduction_fraction',0)<0:lines.append(f'- Q{g["mode"]} `{g["group"]}`：增加 {-g["reduction_fraction"]*100:.4f}%。')
  if k==1:lines+=['','第一轮结论：Q3 改善而 Q4 退步，保留为非支配候选，共同最佳仍为原版。没有以合并指标把取舍说成全面改善。第一轮开发检查 `dev/r1_preliminary.json`：各题24局；Q3 337.1310 vs 341.0363，Q4 766.1990 vs 712.8780。仅试一个规划器，没有隐藏参数扫描。']
  if k==2:lines+=['','第二轮结论：Q3持平第一轮，Q4由578.9624下降到574.8171，但仍比基准慢0.6891%。第二轮支配第一轮这个取舍候选；共同最佳仍为原版，非支配集为原版和第二轮。quick的Q4虽略胜基准，full未支持该改善，不能用quick替代full。开发集910100–910109每题60局也保留，未做参数扫描。开发数据中boundary/min_radius的第四问可能全定向，属于比题设混合更强的压力场景，不能冒充官方分布。']
+ if k==3:lines+=['','第三轮结论：Q3 299.76540283、Q4 570.73731319，两题均低于基准且均低于第二轮，2400局全清，因此当前共同最佳更新为第三轮。Q4收益仅0.0256%，必须视为很小的本地改进，等待独立新样本检验。第三轮启用Q3主动观测、Q4回退原版测点，两题使用全顶点最近认证清除。几何505项检查通过。']
  lines+=['']
 (home/'iteration_log.md').write_text('\n'.join(lines)+'\n');(home/'round_metrics.json').write_text(json.dumps(records,ensure_ascii=False,indent=2))
