@@ -87,10 +87,14 @@ def run(args):
     root = Path(args.root).resolve()
     evaluator = verified_env(root)
     cases_file = Path(args.cases).resolve()
+    cases_hash = sha(cases_file)
     cases = json.loads(cases_file.read_text())
     candidate = Path(args.candidate).resolve()
     candidate_sha = sha(candidate)
     before = runtime_fingerprint(root)
+    dependencies = json.loads(Path(args.dependency_manifest).read_text()) if args.dependency_manifest else {}
+    for name, expected in dependencies.items():
+        assert sha(Path(name)) == expected, 'Selected dependency does not match: ' + name
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=False)
     t0 = time.perf_counter()
@@ -98,7 +102,10 @@ def run(args):
     wall_seconds = time.perf_counter() - t0
     evaluator.verify()
     assert sha(candidate) == candidate_sha, 'Candidate changed during review'
+    assert sha(cases_file) == cases_hash, 'Case file changed during review'
     assert before == runtime_fingerprint(root), 'Runtime root files changed during review'
+    for name, expected in dependencies.items():
+        assert sha(Path(name)) == expected, 'Dependency changed during review: ' + name
     for row, case in zip(rows, cases):
         assert row['case_id'] == case['case_id']
         row['seed_cluster'] = case['seed']
@@ -106,7 +113,8 @@ def run(args):
     summary = dict(
         label=args.label, role='baseline' if args.baseline else 'candidate',
         root=str(root), candidate=str(candidate), candidate_sha256=candidate_sha,
-        root_runtime_fingerprint=before, cases_sha256=sha(cases_file),
+        root_runtime_fingerprint=before, selected_dependencies=dependencies,
+        cases_sha256=cases_hash,
         manifest_sha256=sha(root / 'evaluation/manifest_v1.json'),
         python=platform.python_version(), platform=platform.platform(),
         wall_seconds=wall_seconds, runs=len(rows),
@@ -203,6 +211,7 @@ def main():
     p.add_argument('--out', required=True)
     p.add_argument('--label', required=True)
     p.add_argument('--baseline', action='store_true')
+    p.add_argument('--dependency-manifest', help='JSON mapping of absolute dependency paths to SHA256')
     p.set_defaults(function=run)
     p = commands.add_parser('compare')
     p.add_argument('--baseline-rows', required=True)
