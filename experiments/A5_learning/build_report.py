@@ -78,4 +78,4 @@ w('\n实际训练+开发共329次策略评价、33192次完整任务执行；另
 w('\n推荐Python：`/Users/t/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3`。部署求解器仅标准库；训练同样仅标准库；下载论文的文本提取需要pypdf，不是部署依赖。运行规则、训练、冻结快照和评测的精确命令见 reproduce.sh。每轮快照自包含，不依赖缓存、模型服务或环境真值。')
 w('\n学习收益对生成分布及有限样本敏感；开发多候选选择可能有乐观偏差。固定v1也已暴露，不能称盲测。后续由主Agent统一做新样本检验且不回馈调参；官方Windows通信/演练仍单独进行。没有下载或提交大权重、凭据、参赛身份、官方日志或可执行模拟器。')
 w('\n本报告、literature.json、plan.md、iteration_log.md、best.json、实现/训练/复现实验脚本、快照、全部训练/开发/规则/回归结果共同构成可复查证据。snapshot_audit.json核对关键可靠性函数AST和退出证书尾部未变、模拟器访问仅四个方法。没有成功改进时最佳仍明确标记原版，不以忽略失败、只挑成功场景或伪造综合分数报告收益。')
-(P/'report.md').write_text('\n'.join(out)+'\n')
+(P/'report.md').write_text(('\n'.join(out)+'\n').replace('。。','。'))
