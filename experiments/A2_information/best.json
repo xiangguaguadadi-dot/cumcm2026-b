@@ -1,0 +1,82 @@
+{
+  "agent_id": "A2_information",
+  "status": "scheduler_checkpoint_not_final",
+  "best_round": 6,
+  "candidate_rounds": 6,
+  "consecutive_rounds_without_strict_best": 0,
+  "solver_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/experiments/A2_information/candidates/r6_solver.py",
+  "solver_relative_path": "experiments/A2_information/candidates/r6_solver.py",
+  "solver_sha256": "66faeaa85c405b9c582a45132050cc336082ed1e7fc90d7d8aab8cb3ce954db5",
+  "workspace_solver_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/solver.py",
+  "workspace_solver_sha256": "66faeaa85c405b9c582a45132050cc336082ed1e7fc90d7d8aab8cb3ce954db5",
+  "full_results_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/results/A2_information_r6_full",
+  "full_results_relative_path": "results/A2_information_r6_full",
+  "full_summary_sha256": "fcbcdc3f2d7fabf044eecf9a0a8d2bffb4858c376eab34430ff1e9856a7c0bc5",
+  "full_case_metrics_sha256": "d1ae30cbd279970e4257e6521405e921f9ed8d5bd3cf3e47452ac626100ec660",
+  "metrics": {
+    "3": {
+      "mean_s_per_source": 286.01852916752495,
+      "baseline_mean_s_per_source": 306.30043421816345,
+      "full_clear_cases": 1200,
+      "cases": 1200,
+      "errors": 0,
+      "mean_paired_seconds_saved": 20.281905050638485,
+      "descriptive_normal_interval": [
+        18.689327182952038,
+        21.874482918324933
+      ],
+      "paired_wins": 933,
+      "paired_losses": 267,
+      "paired_ties": 0,
+      "max_program_runtime_s": 0.12754470796789974,
+      "mean_program_runtime_s": 0.022621239331686714
+    },
+    "4": {
+      "mean_s_per_source": 570.7373131854504,
+      "baseline_mean_s_per_source": 570.8833714439976,
+      "full_clear_cases": 1200,
+      "cases": 1200,
+      "errors": 0,
+      "mean_paired_seconds_saved": 0.14605825854717924,
+      "descriptive_normal_interval": [
+        -0.3961698818603898,
+        0.6882863989547483
+      ],
+      "paired_wins": 910,
+      "paired_losses": 282,
+      "paired_ties": 8,
+      "max_program_runtime_s": 0.04359150002710521,
+      "mean_program_runtime_s": 0.02040316465301051
+    }
+  },
+  "all_complete": true,
+  "code_commit": "e6a187766dff9370a4656434867cdead399842f0",
+  "branch": "experiments/20260911/a2_information",
+  "evaluation_manifest_sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+  "auxiliary_runtime_dependencies": [],
+  "model_weights": [],
+  "configuration": {
+    "location": "all parameters embedded in solver.py and covered by solver_sha256",
+    "sha256": "66faeaa85c405b9c582a45132050cc336082ed1e7fc90d7d8aab8cb3ce954db5",
+    "q3_active_information": true,
+    "q4_active_information": false,
+    "q3_known_disk_tightening": true,
+    "q4_known_disk_tightening": false,
+    "no_signal_exclusion_q3": true
+  },
+  "optional_runtime_files": [
+    {
+      "path": "coverage_points.json adjacent to solver module",
+      "exists": false,
+      "behavior": "uses analytic certified_points; no data cache loaded"
+    }
+  ],
+  "python_requirement": "Python >=3.10, standard library only",
+  "official_verification": false,
+  "notes": [
+    "Fixed v1 is known regression data, not untouched holdout.",
+    "Q4 improvement is very small; parent will run independent new samples.",
+    "All baseline runtime entries are historical cached times; do not compare them with current candidate machine speed.",
+    "Paused to release an agent slot, not convergence."
+  ]
+}
