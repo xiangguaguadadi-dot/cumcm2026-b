@@ -1,68 +1,71 @@
 {
   "agent_id": "A2_information",
-  "status": "scheduler_checkpoint_not_final",
-  "best_round": 6,
-  "candidate_rounds": 6,
-  "consecutive_rounds_without_strict_best": 0,
-  "solver_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/experiments/A2_information/candidates/r6_solver.py",
-  "solver_relative_path": "experiments/A2_information/candidates/r6_solver.py",
-  "solver_sha256": "66faeaa85c405b9c582a45132050cc336082ed1e7fc90d7d8aab8cb3ce954db5",
+  "status": "scheduler_checkpoint_for_clean_context",
+  "best_round": 8,
+  "candidate_rounds": 9,
+  "consecutive_rounds_without_strict_best": 1,
+  "solver_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/experiments/A2_information/candidates/r8_solver.py",
+  "solver_relative_path": "experiments/A2_information/candidates/r8_solver.py",
+  "solver_sha256": "bd0ed7b8d322d6502c04c1bf100857001617cca235038a2d78bcacf4d97b82bc",
   "workspace_solver_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/solver.py",
-  "workspace_solver_sha256": "66faeaa85c405b9c582a45132050cc336082ed1e7fc90d7d8aab8cb3ce954db5",
-  "full_results_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/results/A2_information_r6_full",
-  "full_results_relative_path": "results/A2_information_r6_full",
-  "full_summary_sha256": "fcbcdc3f2d7fabf044eecf9a0a8d2bffb4858c376eab34430ff1e9856a7c0bc5",
-  "full_case_metrics_sha256": "d1ae30cbd279970e4257e6521405e921f9ed8d5bd3cf3e47452ac626100ec660",
+  "workspace_solver_sha256": "bd0ed7b8d322d6502c04c1bf100857001617cca235038a2d78bcacf4d97b82bc",
+  "full_results_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/results/A2_information_r8_full",
+  "full_results_relative_path": "results/A2_information_r8_full",
+  "full_summary_sha256": "b9bde16a70e57a97bbba2312e31d1411502da45edcff763a739d78fab5f557e3",
+  "full_case_metrics_sha256": "dad07ee334faf1b3efad85f7e7c3eb334651b4cd254f05e03e815ad7097dc044",
   "metrics": {
     "3": {
-      "mean_s_per_source": 286.01852916752495,
+      "mean_s_per_source": 285.8667033463909,
       "baseline_mean_s_per_source": 306.30043421816345,
       "full_clear_cases": 1200,
       "cases": 1200,
       "errors": 0,
-      "mean_paired_seconds_saved": 20.281905050638485,
+      "mean_paired_seconds_saved": 20.433730871772536,
       "descriptive_normal_interval": [
-        18.689327182952038,
-        21.874482918324933
+        18.846233888287774,
+        22.021227855257298
       ],
-      "paired_wins": 933,
-      "paired_losses": 267,
+      "paired_wins": 941,
+      "paired_losses": 259,
       "paired_ties": 0,
-      "max_program_runtime_s": 0.12754470796789974,
-      "mean_program_runtime_s": 0.022621239331686714
+      "max_program_runtime_s": 0.03961395798251033,
+      "mean_program_runtime_s": 0.021417964849194202
     },
     "4": {
-      "mean_s_per_source": 570.7373131854504,
+      "mean_s_per_source": 568.449411526069,
       "baseline_mean_s_per_source": 570.8833714439976,
       "full_clear_cases": 1200,
       "cases": 1200,
       "errors": 0,
-      "mean_paired_seconds_saved": 0.14605825854717924,
+      "mean_paired_seconds_saved": 2.4339599179285734,
       "descriptive_normal_interval": [
-        -0.3961698818603898,
-        0.6882863989547483
+        1.641723514443004,
+        3.2261963214141427
       ],
-      "paired_wins": 910,
-      "paired_losses": 282,
-      "paired_ties": 8,
-      "max_program_runtime_s": 0.04359150002710521,
-      "mean_program_runtime_s": 0.02040316465301051
+      "paired_wins": 911,
+      "paired_losses": 288,
+      "paired_ties": 1,
+      "max_program_runtime_s": 0.03280583396553993,
+      "mean_program_runtime_s": 0.01905111112331118
     }
   },
   "all_complete": true,
-  "code_commit": "e6a187766dff9370a4656434867cdead399842f0",
+  "code_commit": "deb4f4b5477fb15d25d1c98bb8d353f6a2c3c400",
   "branch": "experiments/20260911/a2_information",
   "evaluation_manifest_sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
   "auxiliary_runtime_dependencies": [],
   "model_weights": [],
   "configuration": {
     "location": "all parameters embedded in solver.py and covered by solver_sha256",
-    "sha256": "66faeaa85c405b9c582a45132050cc336082ed1e7fc90d7d8aab8cb3ce954db5",
+    "sha256": "bd0ed7b8d322d6502c04c1bf100857001617cca235038a2d78bcacf4d97b82bc",
     "q3_active_information": true,
     "q4_active_information": false,
     "q3_known_disk_tightening": true,
     "q4_known_disk_tightening": false,
-    "no_signal_exclusion_q3": true
+    "no_signal_exclusion_q3": true,
+    "planning_hypothesis_filter": true,
+    "optical_failure_exclusion": true,
+    "exclusion_passes": 1
   },
   "optional_runtime_files": [
     {
@@ -77,6 +80,35 @@
     "Fixed v1 is known regression data, not untouched holdout.",
     "Q4 improvement is very small; parent will run independent new samples.",
     "All baseline runtime entries are historical cached times; do not compare them with current candidate machine speed.",
-    "Paused to release an agent slot, not convergence."
-  ]
+    "Paused for clean-context continuation; not empirical convergence."
+  ],
+  "non_dominated_candidates": [
+    {
+      "round": 8,
+      "solver_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/experiments/A2_information/candidates/r8_solver.py",
+      "solver_relative_path": "experiments/A2_information/candidates/r8_solver.py",
+      "sha256": "bd0ed7b8d322d6502c04c1bf100857001617cca235038a2d78bcacf4d97b82bc",
+      "code_commit": "deb4f4b5477fb15d25d1c98bb8d353f6a2c3c400",
+      "metrics": {
+        "3": 285.8667033463909,
+        "4": 568.449411526069
+      },
+      "full_results_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/results/A2_information_r8_full",
+      "auxiliary_runtime_dependencies": []
+    },
+    {
+      "round": 9,
+      "solver_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/experiments/A2_information/candidates/r9_solver.py",
+      "solver_relative_path": "experiments/A2_information/candidates/r9_solver.py",
+      "sha256": "a759e118611f2443cf66156dc0b3eaf91e49c2a9254eec49a5f42e8050f7a0f2",
+      "code_commit": "c4511bc1a90a08ee3351b585b534e4cce73317ef",
+      "metrics": {
+        "3": 285.9519236676399,
+        "4": 568.4039785307609
+      },
+      "full_results_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/results/A2_information_r9_full",
+      "auxiliary_runtime_dependencies": []
+    }
+  ],
+  "independence_boundary": "research/independence_boundary.md; one shared-status exposure, no claim of uninterrupted absolute isolation"
 }
