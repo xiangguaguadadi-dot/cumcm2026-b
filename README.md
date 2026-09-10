@@ -1,5 +1,7 @@
 # 数学建模2026 B题代码
 
+2026-09-11 六路线研究已完成43轮迭代，并对原基准及10个冻结候选统一复核2400个新案例。入口为[完整研究与新样本报告](experiments/20260911_agent_campaign/REPORT.md)、[逐篇文献阅读与实现索引](experiments/20260911_agent_campaign/LITERATURE_MAP.md)及[可独立运行的候选快照](experiments/20260911_agent_campaign/final_candidates)。主目录solver.py仍为原冻结基准；候选分别保存在快照和各自实验分支。全部结果是本地模型验证，官方Windows测试尚未执行。
+
 主要迭代第三、四问；第一问固定，第二问已保存为文档与候选点函数。Python 3.10及以上，仅需标准库。官方Windows模拟器不放入此代码目录。
 
 - `docs/评测标准_v1.md`：与题目/公开协议对齐的指标、计时、分布假设和冻结约定。

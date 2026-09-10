@@ -1,17 +1,17 @@
 {
-  "scope": "Coordinator previously reviewed R1-R6 geometry; complete R6-to-R8 diff and R8/R9 saved regression rows now checked.",
+  "scope": "Coordinator previously reviewed R1-R6 geometry; complete R6-to-R8 diff and R8/R9 saved regression rows now checked. R10 final diff reviewed after completion: only predicted_polygon uses the existing bearing plus 24 reception-range tangents; authoritative polygon and actions unchanged on every recorded v1 case.",
   "observations": [
     "planning_hypotheses filters finite action-ranking samples using known domain and recorded observations; empty proposals fall back instead of declaring absence.",
     "clear failure for an observed unremoved channel excludes radius 20-1e-6 in either mode; outside_disk_hull retains a conservative convex outer region.",
     "Later bearings reapply stored failed-clear constraints; an already generated optical grid remains complete and is not pruned.",
     "Q3-only 1000 m no-signal distance exclusion is not enabled for directional Q4.",
     "R9 repeats the conservative exclusions twice with fixed budget and is a reported two-question tradeoff, not a shared-best refresh.",
-    "Snapshot hashes and code-commit objects checked against actual 2400-row full outputs."
+    "Snapshot hashes and code-commit objects checked against actual 2400-row full outputs.",
+    "Final A2 report and all 10 rounds finalized at afec4f08d41198f382408d05aad3c8f95f2d457c; R10 code f0af6cd1c6518a84f07b6320df7f7f18900165d3 did not refresh R8. R9/R10 produced consecutive no-refresh count 2."
   ],
   "limitations": [
     "R4 development vertex explosion and 5-second diagnostic timeouts are preserved; R5 bounded repair was replayed on same pressure set.",
     "One shared-status information exposure occurred; R9 cannot be called absolutely isolated.",
-    "R10 final write-up and equality audit are handled separately before final registry.",
     "Official simulator not tested."
   ]
 }

@@ -72,6 +72,7 @@ def main():
     manifest = read('final_validation/manifest.json')
     final = {Path(r['path']).parent.name: r for r in comparison['candidates']}
     baseline = read('final_validation/baseline/summary.json')
+    audited = read('final_validation/audit.json')
     labels = {r['label']: r for r in registry['candidates']}
     bests = [r for r in registry['candidates'] if r['selection_reason'] == 'route_best']
     assert set(final) == set(labels)
@@ -95,6 +96,8 @@ def main():
         else:
             values='不排名|—|不排名|—'
         lines.append(f'|{label} · {NAMES[record["agent"]]}|{values}|{sum(m["valid_completion"] for m in summary["modes"])}/2400|')
+    lines += ['', f'原版及全部候选每题均清除**{audited["source_counts_by_mode"]["3"]:,}/{audited["source_counts_by_mode"]["3"]:,}个源**，'
+              '每个版本2400/2400局全清、正常退出、零异常。源清除比例与全清局比例分别核对，见[最终原始行审计](final_validation/audit.json)。']
     if all(all(m['comparison_valid'] for m in final[r['label']]['modes']) for r in bests):
         q3=min(bests,key=lambda r: final[r['label']]['modes'][0]['candidate_mean_s_per_source'])
         q4=min(bests,key=lambda r: final[r['label']]['modes'][1]['candidate_mean_s_per_source'])
@@ -110,6 +113,12 @@ def main():
         m3,m4=final[r['label']]['modes'];summary=read(f'final_validation/{r["label"]}/summary.json')
         reason={'route_nondominated_tradeoff':'两题均值非支配取舍','preregistered_scenario_tradeoff':'预登记场景取舍','route_reported_scenario_tradeoff':'路线报告保留的场景取舍'}[r['selection_reason']]
         lines.append(f'|{r["label"]}|{reason}|{m3.get("candidate_mean_s_per_source",float("nan")):.5f}|{m4.get("candidate_mean_s_per_source",float("nan")):.5f}|{sum(m["valid_completion"] for m in summary["modes"])}/2400|')
+    lines += ['', 'A1 R10与A3 R1在新样本中继续保持全部场景均值不退步，但各自总体均值慢于路线最佳；这是明确的场景取舍。'
+              '它们仍有单局变慢：A1 R10的Q3/Q4分别117/47局，A3 R1分别186/538局。'
+              'A2 R9的Q4仅比R8快约0.0018秒/源，Q3更慢，不能夸大为新的全面改善。', '',
+              'A6需要收窄“Q3不变”的说法：旧v1的1200局确实逐局相同，本次新样本却有1局更慢、1199局相同。'
+              '差异位于fixed_positive_bias，seed=1433564276，该局从288.9911增至301.6089秒/源，使Q3总体增加0.010515秒/源（约0.0034%）。'
+              '原始记录已保留；没有因此修改候选，也未把旧回归一致性当作全输入行为等价证明。']
     lines += ['', '### 配对不确定性与场景退步', '',
       '每个新种子在不同场景和题目复用，因此按100个种子簇做5000次配对自助抽样。下表是“原基准−候选”的秒/源均值差及95%区间，正值表示节省。'
       '区间仅用于探索性描述，未作多候选选择校正，不是因果证明，也不是官方显著性胜负。', '',
@@ -219,7 +228,7 @@ def main():
       '最终交付均为标准库独立文件，学习参数嵌入源码，没有部署权重；快照旁不含coverage_points.json。'
       '最终评测前后检查冻结文件、候选、案例及依赖散列。AST字段清单只是辅助，不能当成反射攻击的安全沙箱。', '',
       '交付审计另发现A3开发生成器的Q4 boundary/cluster/min_radius分支均为全定向源；270/720次内层执行来自45个重复使用的题设之外压力案例。'
-      '该范围已要求补充到路线报告，原数据和候选不重写。A2部分开发/诊断同样含全定向压力场景，A1另有160次无效混合批次被排除。'
+      '该范围已由原路线补充到报告并提交，原数据和候选不重写。A2部分开发/诊断同样含全定向压力场景，A1另有160次无效混合批次被排除。'
       '这些记录不能当成全部符合题设的开发验证；固定full和本次新样本使用独立冻结生成逻辑，Q4均满足混合源条件。', '',
       '可靠清除依赖题设有界示向度、目标域/接收界、覆盖点几何与有限光学网格。近似概率、有限假想点、训练分数都不作为不存在目标的证书。'
       'A4修改完整光学路径顺序后另给277000秒保守界；其余路线保留或约束在原覆盖与时间保护结构内。'

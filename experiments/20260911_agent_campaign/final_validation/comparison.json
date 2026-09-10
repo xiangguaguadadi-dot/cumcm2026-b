@@ -1,0 +1,2956 @@
+{
+  "label": "Paired final new-seed comparison; local assumptions, not official",
+  "ci_note": "Exploratory percentile bootstrap of seed-cluster mean paired differences. Not a proof of causality or a multiplicity-corrected winner test.",
+  "candidates": [
+    {
+      "path": "/Users/t/ai project/数学建模2026/代码/experiments/20260911_agent_campaign/final_validation/A1_space_R8/case_metrics.json",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 310.7482688088384,
+          "candidate_mean_s_per_source": 271.5784575614458,
+          "reduction_fraction": 0.12604997413996377,
+          "paired_mean_saved_s_per_source": 39.1698112473926,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            35.91680097159223,
+            42.46657351194791
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 251.95970119838233,
+            "candidate_movement_s_per_source": 211.4858656337415,
+            "paired_movement_saved_s_per_source": 40.47383556464084,
+            "baseline_other_s_per_source": 58.788567610456084,
+            "candidate_other_s_per_source": 60.09259192770432,
+            "paired_other_saved_s_per_source": -1.3040243172482349,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 579.2771895219166,
+          "candidate_mean_s_per_source": 567.6581083024512,
+          "reduction_fraction": 0.020057895304068096,
+          "paired_mean_saved_s_per_source": 11.619081219465443,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            7.6175442408158105,
+            15.880112816480946
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 433.9828673967472,
+            "candidate_movement_s_per_source": 425.2005686381402,
+            "paired_movement_saved_s_per_source": 8.782298758606998,
+            "baseline_other_s_per_source": 145.2943221251694,
+            "candidate_other_s_per_source": 142.45753966431096,
+            "paired_other_saved_s_per_source": 2.836782460858444,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        }
+      ],
+      "groups": [
+        {
+          "mode": 3,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8212185574943,
+          "candidate_mean_s_per_source": 257.7455638303707,
+          "reduction_fraction": 0.15994869897802544
+        },
+        {
+          "mode": 3,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.25693445327596,
+          "candidate_mean_s_per_source": 258.6993557557201,
+          "reduction_fraction": 0.15528653671942072
+        },
+        {
+          "mode": 3,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 326.1412788327583,
+          "candidate_mean_s_per_source": 315.1316897394509,
+          "reduction_fraction": 0.033757116341452065
+        },
+        {
+          "mode": 3,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 357.867016666,
+          "candidate_mean_s_per_source": 305.261377461,
+          "reduction_fraction": 0.14699773031639074
+        },
+        {
+          "mode": 3,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 261.312141128125,
+          "candidate_mean_s_per_source": 219.379605949375,
+          "reduction_fraction": 0.16046914237402354
+        },
+        {
+          "mode": 3,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.4991020727874,
+          "candidate_mean_s_per_source": 258.41899413871664,
+          "reduction_fraction": 0.16233469594428462
+        },
+        {
+          "mode": 3,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.89638239108336,
+          "candidate_mean_s_per_source": 259.3171755751193,
+          "reduction_fraction": 0.1605043297437958
+        },
+        {
+          "mode": 3,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 314.96616906475055,
+          "candidate_mean_s_per_source": 267.7321294784841,
+          "reduction_fraction": 0.14996543827713782
+        },
+        {
+          "mode": 3,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 280.0093925946758,
+          "candidate_mean_s_per_source": 268.7881913837006,
+          "reduction_fraction": 0.04007437431650107
+        },
+        {
+          "mode": 3,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 346.2640700564437,
+          "candidate_mean_s_per_source": 331.59009672680634,
+          "reduction_fraction": 0.042377984314818984
+        },
+        {
+          "mode": 3,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8202335366493,
+          "candidate_mean_s_per_source": 258.45153612884945,
+          "reduction_fraction": 0.15764507069910128
+        },
+        {
+          "mode": 3,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 305.1252863520175,
+          "candidate_mean_s_per_source": 258.4257745697564,
+          "reduction_fraction": 0.15305028416551725
+        },
+        {
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 584.061229599197,
+          "candidate_mean_s_per_source": 566.4308849864354,
+          "reduction_fraction": 0.030185781420314584
+        },
+        {
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 572.9473445132824,
+          "candidate_mean_s_per_source": 558.8772321904632,
+          "reduction_fraction": 0.02455742653763693
+        },
+        {
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 622.151395732734,
+          "candidate_mean_s_per_source": 612.9926166523385,
+          "reduction_fraction": 0.014721142061585923
+        },
+        {
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 695.638688195,
+          "candidate_mean_s_per_source": 683.007508067,
+          "reduction_fraction": 0.018157673433567334
+        },
+        {
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 440.966884404375,
+          "candidate_mean_s_per_source": 404.578193436875,
+          "reduction_fraction": 0.08252023508897066
+        },
+        {
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 603.0233092091248,
+          "candidate_mean_s_per_source": 606.6910033797789,
+          "reduction_fraction": -0.006082176450963983
+        },
+        {
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 615.0641953050567,
+          "candidate_mean_s_per_source": 623.485678377593,
+          "reduction_fraction": -0.013692039199842299
+        },
+        {
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 590.1412426866734,
+          "candidate_mean_s_per_source": 585.6299358238371,
+          "reduction_fraction": 0.007644452779301147
+        },
+        {
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 518.3986465275441,
+          "candidate_mean_s_per_source": 501.8204093644662,
+          "reduction_fraction": 0.031979707651873746
+        },
+        {
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 541.2595602090166,
+          "candidate_mean_s_per_source": 524.8635961204892,
+          "reduction_fraction": 0.030292239239517293
+        },
+        {
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 571.9523911616998,
+          "candidate_mean_s_per_source": 556.3472840119919,
+          "reduction_fraction": 0.02728392675833069
+        },
+        {
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 595.7213867192958,
+          "candidate_mean_s_per_source": 587.1729572181453,
+          "reduction_fraction": 0.014349710605871757
+        }
+      ]
+    },
+    {
+      "path": "/Users/t/ai project/数学建模2026/代码/experiments/20260911_agent_campaign/final_validation/A1_space_R10/case_metrics.json",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 310.7482688088384,
+          "candidate_mean_s_per_source": 271.5784575614458,
+          "reduction_fraction": 0.12604997413996377,
+          "paired_mean_saved_s_per_source": 39.1698112473926,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            35.91680097159223,
+            42.46657351194791
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 251.95970119838233,
+            "candidate_movement_s_per_source": 211.4858656337415,
+            "paired_movement_saved_s_per_source": 40.47383556464084,
+            "baseline_other_s_per_source": 58.788567610456084,
+            "candidate_other_s_per_source": 60.09259192770432,
+            "paired_other_saved_s_per_source": -1.3040243172482349,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 579.2771895219166,
+          "candidate_mean_s_per_source": 569.7531295626228,
+          "reduction_fraction": 0.01644128257001476,
+          "paired_mean_saved_s_per_source": 9.524059959293822,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            6.272636510986283,
+            13.162072046281374
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 433.9828673967472,
+            "candidate_movement_s_per_source": 426.89610925944186,
+            "paired_movement_saved_s_per_source": 7.086758137305367,
+            "baseline_other_s_per_source": 145.2943221251694,
+            "candidate_other_s_per_source": 142.85702030318095,
+            "paired_other_saved_s_per_source": 2.4373018219884557,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        }
+      ],
+      "groups": [
+        {
+          "mode": 3,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8212185574943,
+          "candidate_mean_s_per_source": 257.7455638303707,
+          "reduction_fraction": 0.15994869897802544
+        },
+        {
+          "mode": 3,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.25693445327596,
+          "candidate_mean_s_per_source": 258.6993557557201,
+          "reduction_fraction": 0.15528653671942072
+        },
+        {
+          "mode": 3,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 326.1412788327583,
+          "candidate_mean_s_per_source": 315.1316897394509,
+          "reduction_fraction": 0.033757116341452065
+        },
+        {
+          "mode": 3,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 357.867016666,
+          "candidate_mean_s_per_source": 305.261377461,
+          "reduction_fraction": 0.14699773031639074
+        },
+        {
+          "mode": 3,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 261.312141128125,
+          "candidate_mean_s_per_source": 219.379605949375,
+          "reduction_fraction": 0.16046914237402354
+        },
+        {
+          "mode": 3,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.4991020727874,
+          "candidate_mean_s_per_source": 258.41899413871664,
+          "reduction_fraction": 0.16233469594428462
+        },
+        {
+          "mode": 3,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.89638239108336,
+          "candidate_mean_s_per_source": 259.3171755751193,
+          "reduction_fraction": 0.1605043297437958
+        },
+        {
+          "mode": 3,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 314.96616906475055,
+          "candidate_mean_s_per_source": 267.7321294784841,
+          "reduction_fraction": 0.14996543827713782
+        },
+        {
+          "mode": 3,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 280.0093925946758,
+          "candidate_mean_s_per_source": 268.7881913837006,
+          "reduction_fraction": 0.04007437431650107
+        },
+        {
+          "mode": 3,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 346.2640700564437,
+          "candidate_mean_s_per_source": 331.59009672680634,
+          "reduction_fraction": 0.042377984314818984
+        },
+        {
+          "mode": 3,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8202335366493,
+          "candidate_mean_s_per_source": 258.45153612884945,
+          "reduction_fraction": 0.15764507069910128
+        },
+        {
+          "mode": 3,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 305.1252863520175,
+          "candidate_mean_s_per_source": 258.4257745697564,
+          "reduction_fraction": 0.15305028416551725
+        },
+        {
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 584.061229599197,
+          "candidate_mean_s_per_source": 575.7366134787278,
+          "reduction_fraction": 0.014252985301184573
+        },
+        {
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 572.9473445132824,
+          "candidate_mean_s_per_source": 566.510842426579,
+          "reduction_fraction": 0.011234020278375167
+        },
+        {
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 622.151395732734,
+          "candidate_mean_s_per_source": 616.5832930369406,
+          "reduction_fraction": 0.008949755210684085
+        },
+        {
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 695.638688195,
+          "candidate_mean_s_per_source": 691.943923578,
+          "reduction_fraction": 0.0053113271008359275
+        },
+        {
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 440.966884404375,
+          "candidate_mean_s_per_source": 409.12547199125,
+          "reduction_fraction": 0.07220817149599335
+        },
+        {
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 603.0233092091248,
+          "candidate_mean_s_per_source": 596.4054749123912,
+          "reduction_fraction": 0.010974425359134066
+        },
+        {
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 615.0641953050567,
+          "candidate_mean_s_per_source": 614.0406011505418,
+          "reduction_fraction": 0.0016642070247760987
+        },
+        {
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 590.1412426866734,
+          "candidate_mean_s_per_source": 584.4263336416761,
+          "reduction_fraction": 0.009683968229333706
+        },
+        {
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 518.3986465275441,
+          "candidate_mean_s_per_source": 501.26764714100057,
+          "reduction_fraction": 0.03304599558909782
+        },
+        {
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 541.2595602090166,
+          "candidate_mean_s_per_source": 528.8336358652523,
+          "reduction_fraction": 0.022957422385233905
+        },
+        {
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 571.9523911616998,
+          "candidate_mean_s_per_source": 564.2789297117912,
+          "reduction_fraction": 0.013416259060169189
+        },
+        {
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 595.7213867192958,
+          "candidate_mean_s_per_source": 587.8847878173224,
+          "reduction_fraction": 0.013154805378283285
+        }
+      ]
+    },
+    {
+      "path": "/Users/t/ai project/数学建模2026/代码/experiments/20260911_agent_campaign/final_validation/A2_information_R8/case_metrics.json",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 310.7482688088384,
+          "candidate_mean_s_per_source": 287.4055375690986,
+          "reduction_fraction": 0.07511781587462185,
+          "paired_mean_saved_s_per_source": 23.342731239739805,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            21.34999094169008,
+            25.304559865708324
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 251.95970119838233,
+            "candidate_movement_s_per_source": 228.6320360587019,
+            "paired_movement_saved_s_per_source": 23.32766513968042,
+            "baseline_other_s_per_source": 58.788567610456084,
+            "candidate_other_s_per_source": 58.7735015103967,
+            "paired_other_saved_s_per_source": 0.01506610005938569,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 579.2771895219166,
+          "candidate_mean_s_per_source": 576.9567060387078,
+          "reduction_fraction": 0.004005825751785541,
+          "paired_mean_saved_s_per_source": 2.320483483208818,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            1.3056217705710624,
+            3.2758214093174254
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 433.9828673967472,
+            "candidate_movement_s_per_source": 431.8708199537597,
+            "paired_movement_saved_s_per_source": 2.1120474429875458,
+            "baseline_other_s_per_source": 145.2943221251694,
+            "candidate_other_s_per_source": 145.08588608494813,
+            "paired_other_saved_s_per_source": 0.20843604022127238,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        }
+      ],
+      "groups": [
+        {
+          "mode": 3,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8212185574943,
+          "candidate_mean_s_per_source": 292.1175301326672,
+          "reduction_fraction": 0.047922658328377166
+        },
+        {
+          "mode": 3,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.25693445327596,
+          "candidate_mean_s_per_source": 289.7647089337149,
+          "reduction_fraction": 0.05385094560879944
+        },
+        {
+          "mode": 3,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 326.1412788327583,
+          "candidate_mean_s_per_source": 310.73939336825356,
+          "reduction_fraction": 0.04722458168934407
+        },
+        {
+          "mode": 3,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 357.867016666,
+          "candidate_mean_s_per_source": 343.831125253,
+          "reduction_fraction": 0.03922096968802191
+        },
+        {
+          "mode": 3,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 261.312141128125,
+          "candidate_mean_s_per_source": 239.465716155625,
+          "reduction_fraction": 0.08360279349511135
+        },
+        {
+          "mode": 3,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.4991020727874,
+          "candidate_mean_s_per_source": 296.4699029940017,
+          "reduction_fraction": 0.03899265507731542
+        },
+        {
+          "mode": 3,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.89638239108336,
+          "candidate_mean_s_per_source": 291.3601200021538,
+          "reduction_fraction": 0.05677069525122347
+        },
+        {
+          "mode": 3,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 314.96616906475055,
+          "candidate_mean_s_per_source": 296.56312972579,
+          "reduction_fraction": 0.05842862232983903
+        },
+        {
+          "mode": 3,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 280.0093925946758,
+          "candidate_mean_s_per_source": 234.95513156737218,
+          "reduction_fraction": 0.16090267762025168
+        },
+        {
+          "mode": 3,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 346.2640700564437,
+          "candidate_mean_s_per_source": 271.5782485611108,
+          "reduction_fraction": 0.21569035875757636
+        },
+        {
+          "mode": 3,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8202335366493,
+          "candidate_mean_s_per_source": 291.1539354637333,
+          "reduction_fraction": 0.05106018560879777
+        },
+        {
+          "mode": 3,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 305.1252863520175,
+          "candidate_mean_s_per_source": 290.8675086717611,
+          "reduction_fraction": 0.04672761753284349
+        },
+        {
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 584.061229599197,
+          "candidate_mean_s_per_source": 582.1376651462875,
+          "reduction_fraction": 0.003293429447849938
+        },
+        {
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 572.9473445132824,
+          "candidate_mean_s_per_source": 572.4431686170177,
+          "reduction_fraction": 0.0008799689903318253
+        },
+        {
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 622.151395732734,
+          "candidate_mean_s_per_source": 620.8096622903153,
+          "reduction_fraction": 0.002156602800574836
+        },
+        {
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 695.638688195,
+          "candidate_mean_s_per_source": 695.030537095,
+          "reduction_fraction": 0.0008742341539081933
+        },
+        {
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 440.966884404375,
+          "candidate_mean_s_per_source": 439.7636082875,
+          "reduction_fraction": 0.002728722177177234
+        },
+        {
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 603.0233092091248,
+          "candidate_mean_s_per_source": 600.5843232871223,
+          "reduction_fraction": 0.004044596427294489
+        },
+        {
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 615.0641953050567,
+          "candidate_mean_s_per_source": 609.3066573569314,
+          "reduction_fraction": 0.009360873209778964
+        },
+        {
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 590.1412426866734,
+          "candidate_mean_s_per_source": 587.9669277205899,
+          "reduction_fraction": 0.0036843975794418338
+        },
+        {
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 518.3986465275441,
+          "candidate_mean_s_per_source": 514.5264068582313,
+          "reduction_fraction": 0.0074696176296961125
+        },
+        {
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 541.2595602090166,
+          "candidate_mean_s_per_source": 538.7185365249314,
+          "reduction_fraction": 0.0046946490572913335
+        },
+        {
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 571.9523911616998,
+          "candidate_mean_s_per_source": 570.4089091520972,
+          "reduction_fraction": 0.002698619733834118
+        },
+        {
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 595.7213867192958,
+          "candidate_mean_s_per_source": 591.7840701284703,
+          "reduction_fraction": 0.006609325564940205
+        }
+      ]
+    },
+    {
+      "path": "/Users/t/ai project/数学建模2026/代码/experiments/20260911_agent_campaign/final_validation/A2_information_R9/case_metrics.json",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 310.7482688088384,
+          "candidate_mean_s_per_source": 287.5528739836059,
+          "reduction_fraction": 0.07464368156947498,
+          "paired_mean_saved_s_per_source": 23.19539482523254,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            21.209892475908728,
+            25.131588228476968
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 251.95970119838233,
+            "candidate_movement_s_per_source": 228.8012631589473,
+            "paired_movement_saved_s_per_source": 23.158438039435026,
+            "baseline_other_s_per_source": 58.788567610456084,
+            "candidate_other_s_per_source": 58.75161082465857,
+            "paired_other_saved_s_per_source": 0.03695678579751416,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 579.2771895219166,
+          "candidate_mean_s_per_source": 576.9549301575689,
+          "reduction_fraction": 0.004008891436350637,
+          "paired_mean_saved_s_per_source": 2.322259364347701,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            1.307650252503123,
+            3.2780097016799696
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 433.9828673967472,
+            "candidate_movement_s_per_source": 431.86904407294827,
+            "paired_movement_saved_s_per_source": 2.113823323798954,
+            "baseline_other_s_per_source": 145.2943221251694,
+            "candidate_other_s_per_source": 145.08588608462065,
+            "paired_other_saved_s_per_source": 0.20843604054874731,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        }
+      ],
+      "groups": [
+        {
+          "mode": 3,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8212185574943,
+          "candidate_mean_s_per_source": 292.40999008000847,
+          "reduction_fraction": 0.04696946497129362
+        },
+        {
+          "mode": 3,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.25693445327596,
+          "candidate_mean_s_per_source": 289.85339292481905,
+          "reduction_fraction": 0.05356137178653675
+        },
+        {
+          "mode": 3,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 326.1412788327583,
+          "candidate_mean_s_per_source": 310.67484154490705,
+          "reduction_fraction": 0.04742250764210154
+        },
+        {
+          "mode": 3,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 357.867016666,
+          "candidate_mean_s_per_source": 344.063421691,
+          "reduction_fraction": 0.03857185583516076
+        },
+        {
+          "mode": 3,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 261.312141128125,
+          "candidate_mean_s_per_source": 239.68393032125,
+          "reduction_fraction": 0.08276772259223275
+        },
+        {
+          "mode": 3,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.4991020727874,
+          "candidate_mean_s_per_source": 296.55473137675006,
+          "reduction_fraction": 0.0387176838304677
+        },
+        {
+          "mode": 3,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.89638239108336,
+          "candidate_mean_s_per_source": 291.41047440900945,
+          "reduction_fraction": 0.056607681341944605
+        },
+        {
+          "mode": 3,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 314.96616906475055,
+          "candidate_mean_s_per_source": 296.6302470151023,
+          "reduction_fraction": 0.05821552868390356
+        },
+        {
+          "mode": 3,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 280.0093925946758,
+          "candidate_mean_s_per_source": 235.59391783685285,
+          "reduction_fraction": 0.15862137461265813
+        },
+        {
+          "mode": 3,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 346.2640700564437,
+          "candidate_mean_s_per_source": 271.5782485611108,
+          "reduction_fraction": 0.21569035875757636
+        },
+        {
+          "mode": 3,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8202335366493,
+          "candidate_mean_s_per_source": 291.1946907792424,
+          "reduction_fraction": 0.050927354357614196
+        },
+        {
+          "mode": 3,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 305.1252863520175,
+          "candidate_mean_s_per_source": 290.9866012632177,
+          "reduction_fraction": 0.04633731034827515
+        },
+        {
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 584.061229599197,
+          "candidate_mean_s_per_source": 582.134345530833,
+          "reduction_fraction": 0.0032991131249822114
+        },
+        {
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 572.9473445132824,
+          "candidate_mean_s_per_source": 572.4431686170177,
+          "reduction_fraction": 0.0008799689903318253
+        },
+        {
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 622.151395732734,
+          "candidate_mean_s_per_source": 620.8092398383152,
+          "reduction_fraction": 0.0021572818185807696
+        },
+        {
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 695.638688195,
+          "candidate_mean_s_per_source": 695.029033317,
+          "reduction_fraction": 0.0008763958766898616
+        },
+        {
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 440.966884404375,
+          "candidate_mean_s_per_source": 439.760780385,
+          "reduction_fraction": 0.0027351351360638265
+        },
+        {
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 603.0233092091248,
+          "candidate_mean_s_per_source": 600.5842222937889,
+          "reduction_fraction": 0.004044763905618809
+        },
+        {
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 615.0641953050567,
+          "candidate_mean_s_per_source": 609.3066573569314,
+          "reduction_fraction": 0.009360873209778964
+        },
+        {
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 590.1412426866734,
+          "candidate_mean_s_per_source": 587.9668808205898,
+          "reduction_fraction": 0.00368447705194197
+        },
+        {
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 518.3986465275441,
+          "candidate_mean_s_per_source": 514.5236417357465,
+          "reduction_fraction": 0.007474951599032886
+        },
+        {
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 541.2595602090166,
+          "candidate_mean_s_per_source": 538.7130761032295,
+          "reduction_fraction": 0.004704737418039895
+        },
+        {
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 571.9523911616998,
+          "candidate_mean_s_per_source": 570.4040280892895,
+          "reduction_fraction": 0.0027071537707280546
+        },
+        {
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 595.7213867192958,
+          "candidate_mean_s_per_source": 591.7840878030858,
+          "reduction_fraction": 0.006609295895675604
+        }
+      ]
+    },
+    {
+      "path": "/Users/t/ai project/数学建模2026/代码/experiments/20260911_agent_campaign/final_validation/A3_coordination_R2/case_metrics.json",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 310.7482688088384,
+          "candidate_mean_s_per_source": 277.12510426284945,
+          "reduction_fraction": 0.1082006495961294,
+          "paired_mean_saved_s_per_source": 33.62316454598897,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            31.34584807361361,
+            35.85675516422978
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 251.95970119838233,
+            "candidate_movement_s_per_source": 216.12613558125074,
+            "paired_movement_saved_s_per_source": 35.8335656171316,
+            "baseline_other_s_per_source": 58.788567610456084,
+            "candidate_other_s_per_source": 60.99896868159871,
+            "paired_other_saved_s_per_source": -2.210401071142627,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 579.2771895219166,
+          "candidate_mean_s_per_source": 564.868622006764,
+          "reduction_fraction": 0.024873355581365386,
+          "paired_mean_saved_s_per_source": 14.40856751515264,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            10.03505407226257,
+            19.063262403602693
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 433.9828673967472,
+            "candidate_movement_s_per_source": 415.5067029685637,
+            "paired_movement_saved_s_per_source": 18.47616442818355,
+            "baseline_other_s_per_source": 145.2943221251694,
+            "candidate_other_s_per_source": 149.3619190382003,
+            "paired_other_saved_s_per_source": -4.067596913030911,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        }
+      ],
+      "groups": [
+        {
+          "mode": 3,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8212185574943,
+          "candidate_mean_s_per_source": 289.3177239377122,
+          "reduction_fraction": 0.05704786227652059
+        },
+        {
+          "mode": 3,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.25693445327596,
+          "candidate_mean_s_per_source": 291.438725406282,
+          "reduction_fraction": 0.04838489314028804
+        },
+        {
+          "mode": 3,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 326.1412788327583,
+          "candidate_mean_s_per_source": 301.62372044286025,
+          "reduction_fraction": 0.0751746558351799
+        },
+        {
+          "mode": 3,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 357.867016666,
+          "candidate_mean_s_per_source": 344.959203528,
+          "reduction_fraction": 0.03606874212173328
+        },
+        {
+          "mode": 3,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 261.312141128125,
+          "candidate_mean_s_per_source": 241.179097495,
+          "reduction_fraction": 0.07704595563837002
+        },
+        {
+          "mode": 3,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.4991020727874,
+          "candidate_mean_s_per_source": 289.8905099170104,
+          "reduction_fraction": 0.06031976116217841
+        },
+        {
+          "mode": 3,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.89638239108336,
+          "candidate_mean_s_per_source": 290.2814031490591,
+          "reduction_fraction": 0.060262859337913754
+        },
+        {
+          "mode": 3,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 314.96616906475055,
+          "candidate_mean_s_per_source": 298.35984029409525,
+          "reduction_fraction": 0.052724166598481226
+        },
+        {
+          "mode": 3,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 280.0093925946758,
+          "candidate_mean_s_per_source": 204.7471008790231,
+          "reduction_fraction": 0.268784882600698
+        },
+        {
+          "mode": 3,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 346.2640700564437,
+          "candidate_mean_s_per_source": 196.2212486437797,
+          "reduction_fraction": 0.4333190601849215
+        },
+        {
+          "mode": 3,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8202335366493,
+          "candidate_mean_s_per_source": 289.04319571378045,
+          "reduction_fraction": 0.05793958767958962
+        },
+        {
+          "mode": 3,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 305.1252863520175,
+          "candidate_mean_s_per_source": 288.4394817475909,
+          "reduction_fraction": 0.054685092815206726
+        },
+        {
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 584.061229599197,
+          "candidate_mean_s_per_source": 581.8265855514906,
+          "reduction_fraction": 0.0038260441447892646
+        },
+        {
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 572.9473445132824,
+          "candidate_mean_s_per_source": 567.2570692471355,
+          "reduction_fraction": 0.009931585023717493
+        },
+        {
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 622.151395732734,
+          "candidate_mean_s_per_source": 601.8169742812573,
+          "reduction_fraction": 0.032684040558211724
+        },
+        {
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 695.638688195,
+          "candidate_mean_s_per_source": 696.71078454,
+          "reduction_fraction": -0.0015411683725954362
+        },
+        {
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 440.966884404375,
+          "candidate_mean_s_per_source": 440.454198900625,
+          "reduction_fraction": 0.0011626394676835794
+        },
+        {
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 603.0233092091248,
+          "candidate_mean_s_per_source": 590.1082243454614,
+          "reduction_fraction": 0.021417223292084286
+        },
+        {
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 615.0641953050567,
+          "candidate_mean_s_per_source": 603.9807895834603,
+          "reduction_fraction": 0.018019916955334003
+        },
+        {
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 590.1412426866734,
+          "candidate_mean_s_per_source": 589.1971452143475,
+          "reduction_fraction": 0.0015997822284505858
+        },
+        {
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 518.3986465275441,
+          "candidate_mean_s_per_source": 472.4864868994809,
+          "reduction_fraction": 0.08856535397150911
+        },
+        {
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 541.2595602090166,
+          "candidate_mean_s_per_source": 470.0919056269303,
+          "reduction_fraction": 0.13148526107253178
+        },
+        {
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 571.9523911616998,
+          "candidate_mean_s_per_source": 568.27949870498,
+          "reduction_fraction": 0.006421675148974737
+        },
+        {
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 595.7213867192958,
+          "candidate_mean_s_per_source": 596.2138011859986,
+          "reduction_fraction": -0.0008265851750171027
+        }
+      ]
+    },
+    {
+      "path": "/Users/t/ai project/数学建模2026/代码/experiments/20260911_agent_campaign/final_validation/A3_coordination_R1/case_metrics.json",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 310.7482688088384,
+          "candidate_mean_s_per_source": 282.26092713756583,
+          "reduction_fraction": 0.09167337208496895,
+          "paired_mean_saved_s_per_source": 28.48734167127259,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            26.164469227298138,
+            30.784206089977836
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 251.95970119838233,
+            "candidate_movement_s_per_source": 222.49574923444686,
+            "paired_movement_saved_s_per_source": 29.46395196393547,
+            "baseline_other_s_per_source": 58.788567610456084,
+            "candidate_other_s_per_source": 59.76517790311897,
+            "paired_other_saved_s_per_source": -0.9766102926628832,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 579.2771895219166,
+          "candidate_mean_s_per_source": 567.1748863052135,
+          "reduction_fraction": 0.020892076255740855,
+          "paired_mean_saved_s_per_source": 12.102303216703149,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            8.19079166058764,
+            16.26560436360907
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 433.9828673967472,
+            "candidate_movement_s_per_source": 419.72135815480345,
+            "paired_movement_saved_s_per_source": 14.26150924194377,
+            "baseline_other_s_per_source": 145.2943221251694,
+            "candidate_other_s_per_source": 147.45352815041002,
+            "paired_other_saved_s_per_source": -2.1592060252406213,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        }
+      ],
+      "groups": [
+        {
+          "mode": 3,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8212185574943,
+          "candidate_mean_s_per_source": 290.02685367413216,
+          "reduction_fraction": 0.054736647492373836
+        },
+        {
+          "mode": 3,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.25693445327596,
+          "candidate_mean_s_per_source": 290.1032021616741,
+          "reduction_fraction": 0.05274568662564061
+        },
+        {
+          "mode": 3,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 326.1412788327583,
+          "candidate_mean_s_per_source": 299.5887186560755,
+          "reduction_fraction": 0.08141428853076482
+        },
+        {
+          "mode": 3,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 357.867016666,
+          "candidate_mean_s_per_source": 343.327327553,
+          "reduction_fraction": 0.04062874876946265
+        },
+        {
+          "mode": 3,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 261.312141128125,
+          "candidate_mean_s_per_source": 240.837508655,
+          "reduction_fraction": 0.0783531617962061
+        },
+        {
+          "mode": 3,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.4991020727874,
+          "candidate_mean_s_per_source": 290.1818142461098,
+          "reduction_fraction": 0.05937549802772468
+        },
+        {
+          "mode": 3,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.89638239108336,
+          "candidate_mean_s_per_source": 290.363596804488,
+          "reduction_fraction": 0.05999677122515357
+        },
+        {
+          "mode": 3,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 314.96616906475055,
+          "candidate_mean_s_per_source": 298.02837099724695,
+          "reduction_fraction": 0.053776563107708064
+        },
+        {
+          "mode": 3,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 280.0093925946758,
+          "candidate_mean_s_per_source": 203.1387157717349,
+          "reduction_fraction": 0.27452892244301996
+        },
+        {
+          "mode": 3,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 346.2640700564437,
+          "candidate_mean_s_per_source": 264.1507042611295,
+          "reduction_fraction": 0.23714087858416588
+        },
+        {
+          "mode": 3,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8202335366493,
+          "candidate_mean_s_per_source": 288.2854533807175,
+          "reduction_fraction": 0.06040924987992302
+        },
+        {
+          "mode": 3,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 305.1252863520175,
+          "candidate_mean_s_per_source": 289.09885948948124,
+          "reduction_fraction": 0.052524086266802716
+        },
+        {
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 584.061229599197,
+          "candidate_mean_s_per_source": 582.306456206553,
+          "reduction_fraction": 0.003004433959515107
+        },
+        {
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 572.9473445132824,
+          "candidate_mean_s_per_source": 567.9023809968007,
+          "reduction_fraction": 0.008805283006883102
+        },
+        {
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 622.151395732734,
+          "candidate_mean_s_per_source": 608.5389441450004,
+          "reduction_fraction": 0.02187964485991656
+        },
+        {
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 695.638688195,
+          "candidate_mean_s_per_source": 692.430689537,
+          "reduction_fraction": 0.004611587469816936
+        },
+        {
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 440.966884404375,
+          "candidate_mean_s_per_source": 438.73920661625,
+          "reduction_fraction": 0.005051802906093417
+        },
+        {
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 603.0233092091248,
+          "candidate_mean_s_per_source": 594.5588324260116,
+          "reduction_fraction": 0.01403673233496483
+        },
+        {
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 615.0641953050567,
+          "candidate_mean_s_per_source": 609.1903418404692,
+          "reduction_fraction": 0.009549984390937127
+        },
+        {
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 590.1412426866734,
+          "candidate_mean_s_per_source": 585.7851316484971,
+          "reduction_fraction": 0.007381471964820974
+        },
+        {
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 518.3986465275441,
+          "candidate_mean_s_per_source": 472.48849165102973,
+          "reduction_fraction": 0.08856148677092468
+        },
+        {
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 541.2595602090166,
+          "candidate_mean_s_per_source": 494.4846615521982,
+          "reduction_fraction": 0.08641860965699255
+        },
+        {
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 571.9523911616998,
+          "candidate_mean_s_per_source": 566.6212124646689,
+          "reduction_fraction": 0.00932101828650922
+        },
+        {
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 595.7213867192958,
+          "candidate_mean_s_per_source": 593.0522865780822,
+          "reduction_fraction": 0.004480450426520011
+        }
+      ]
+    },
+    {
+      "path": "/Users/t/ai project/数学建模2026/代码/experiments/20260911_agent_campaign/final_validation/A4_directional_R6/case_metrics.json",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 310.7482688088384,
+          "candidate_mean_s_per_source": 310.7482688088384,
+          "reduction_fraction": 0.0,
+          "paired_mean_saved_s_per_source": 0.0,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            0.0,
+            0.0
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 251.95970119838233,
+            "candidate_movement_s_per_source": 251.95970119838233,
+            "paired_movement_saved_s_per_source": 0.0,
+            "baseline_other_s_per_source": 58.788567610456084,
+            "candidate_other_s_per_source": 58.788567610456084,
+            "paired_other_saved_s_per_source": 0.0,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 579.2771895219166,
+          "candidate_mean_s_per_source": 540.4776256193527,
+          "reduction_fraction": 0.06697927107156698,
+          "paired_mean_saved_s_per_source": 38.79956390256393,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            33.30958325482957,
+            44.62940383377634
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 433.9828673967472,
+            "candidate_movement_s_per_source": 395.96541598310137,
+            "paired_movement_saved_s_per_source": 38.01745141364586,
+            "baseline_other_s_per_source": 145.2943221251694,
+            "candidate_other_s_per_source": 144.51220963625133,
+            "paired_other_saved_s_per_source": 0.7821124889180737,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        }
+      ],
+      "groups": [
+        {
+          "mode": 3,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8212185574943,
+          "candidate_mean_s_per_source": 306.8212185574943,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.25693445327596,
+          "candidate_mean_s_per_source": 306.25693445327596,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 326.1412788327583,
+          "candidate_mean_s_per_source": 326.1412788327583,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 357.867016666,
+          "candidate_mean_s_per_source": 357.867016666,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 261.312141128125,
+          "candidate_mean_s_per_source": 261.312141128125,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.4991020727874,
+          "candidate_mean_s_per_source": 308.4991020727874,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.89638239108336,
+          "candidate_mean_s_per_source": 308.89638239108336,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 314.96616906475055,
+          "candidate_mean_s_per_source": 314.96616906475055,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 280.0093925946758,
+          "candidate_mean_s_per_source": 280.0093925946758,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 346.2640700564437,
+          "candidate_mean_s_per_source": 346.2640700564437,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8202335366493,
+          "candidate_mean_s_per_source": 306.8202335366493,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 305.1252863520175,
+          "candidate_mean_s_per_source": 305.1252863520175,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 584.061229599197,
+          "candidate_mean_s_per_source": 543.8189074973845,
+          "reduction_fraction": 0.06890086186584943
+        },
+        {
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 572.9473445132824,
+          "candidate_mean_s_per_source": 543.940866950839,
+          "reduction_fraction": 0.050626777207745555
+        },
+        {
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 622.151395732734,
+          "candidate_mean_s_per_source": 586.7480767559163,
+          "reduction_fraction": 0.0569046685736706
+        },
+        {
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 695.638688195,
+          "candidate_mean_s_per_source": 667.0610441809999,
+          "reduction_fraction": 0.041081159657970656
+        },
+        {
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 440.966884404375,
+          "candidate_mean_s_per_source": 416.600696069375,
+          "reduction_fraction": 0.055256277051080716
+        },
+        {
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 603.0233092091248,
+          "candidate_mean_s_per_source": 545.6815936602412,
+          "reduction_fraction": 0.0950903798794912
+        },
+        {
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 615.0641953050567,
+          "candidate_mean_s_per_source": 545.5284523485462,
+          "reduction_fraction": 0.11305444779145768
+        },
+        {
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 590.1412426866734,
+          "candidate_mean_s_per_source": 563.8355288728405,
+          "reduction_fraction": 0.04457528454387227
+        },
+        {
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 518.3986465275441,
+          "candidate_mean_s_per_source": 484.84045291989725,
+          "reduction_fraction": 0.06473433878046164
+        },
+        {
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 541.2595602090166,
+          "candidate_mean_s_per_source": 500.1417144567611,
+          "reduction_fraction": 0.07596696441976403
+        },
+        {
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 571.9523911616998,
+          "candidate_mean_s_per_source": 543.1339646271923,
+          "reduction_fraction": 0.05038605831505305
+        },
+        {
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 595.7213867192958,
+          "candidate_mean_s_per_source": 544.4002090922393,
+          "reduction_fraction": 0.08614963097042383
+        }
+      ]
+    },
+    {
+      "path": "/Users/t/ai project/数学建模2026/代码/experiments/20260911_agent_campaign/final_validation/A5_learning_R2/case_metrics.json",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 310.7482688088384,
+          "candidate_mean_s_per_source": 310.7482688088384,
+          "reduction_fraction": 0.0,
+          "paired_mean_saved_s_per_source": 0.0,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            0.0,
+            0.0
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 251.95970119838233,
+            "candidate_movement_s_per_source": 251.95970119838233,
+            "paired_movement_saved_s_per_source": 0.0,
+            "baseline_other_s_per_source": 58.788567610456084,
+            "candidate_other_s_per_source": 58.788567610456084,
+            "paired_other_saved_s_per_source": 0.0,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 579.2771895219166,
+          "candidate_mean_s_per_source": 554.2335479981576,
+          "reduction_fraction": 0.04323256978999601,
+          "paired_mean_saved_s_per_source": 25.043641523758993,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            18.515496641111305,
+            31.978473811760217
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 433.9828673967472,
+            "candidate_movement_s_per_source": 411.46933343036335,
+            "paired_movement_saved_s_per_source": 22.513533966383875,
+            "baseline_other_s_per_source": 145.2943221251694,
+            "candidate_other_s_per_source": 142.76421456779428,
+            "paired_other_saved_s_per_source": 2.5301075573751177,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        }
+      ],
+      "groups": [
+        {
+          "mode": 3,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8212185574943,
+          "candidate_mean_s_per_source": 306.8212185574943,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.25693445327596,
+          "candidate_mean_s_per_source": 306.25693445327596,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 326.1412788327583,
+          "candidate_mean_s_per_source": 326.1412788327583,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 357.867016666,
+          "candidate_mean_s_per_source": 357.867016666,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 261.312141128125,
+          "candidate_mean_s_per_source": 261.312141128125,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.4991020727874,
+          "candidate_mean_s_per_source": 308.4991020727874,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.89638239108336,
+          "candidate_mean_s_per_source": 308.89638239108336,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 314.96616906475055,
+          "candidate_mean_s_per_source": 314.96616906475055,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 280.0093925946758,
+          "candidate_mean_s_per_source": 280.0093925946758,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 346.2640700564437,
+          "candidate_mean_s_per_source": 346.2640700564437,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8202335366493,
+          "candidate_mean_s_per_source": 306.8202335366493,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 305.1252863520175,
+          "candidate_mean_s_per_source": 305.1252863520175,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 584.061229599197,
+          "candidate_mean_s_per_source": 548.8609817503516,
+          "reduction_fraction": 0.06026807818248958
+        },
+        {
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 572.9473445132824,
+          "candidate_mean_s_per_source": 540.7895741555644,
+          "reduction_fraction": 0.056126921026287135
+        },
+        {
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 622.151395732734,
+          "candidate_mean_s_per_source": 638.994502997996,
+          "reduction_fraction": -0.02707236113394096
+        },
+        {
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 695.638688195,
+          "candidate_mean_s_per_source": 668.752706285,
+          "reduction_fraction": 0.038649348241056036
+        },
+        {
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 440.966884404375,
+          "candidate_mean_s_per_source": 425.613782323125,
+          "reduction_fraction": 0.03481690490656186
+        },
+        {
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 603.0233092091248,
+          "candidate_mean_s_per_source": 579.4516599959956,
+          "reduction_fraction": 0.03908911787181801
+        },
+        {
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 615.0641953050567,
+          "candidate_mean_s_per_source": 580.7151646909839,
+          "reduction_fraction": 0.05584625292167522
+        },
+        {
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 590.1412426866734,
+          "candidate_mean_s_per_source": 575.369436362512,
+          "reduction_fraction": 0.025030967598386078
+        },
+        {
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 518.3986465275441,
+          "candidate_mean_s_per_source": 487.1507562331998,
+          "reduction_fraction": 0.060277723531216854
+        },
+        {
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 541.2595602090166,
+          "candidate_mean_s_per_source": 491.9240289890103,
+          "reduction_fraction": 0.09114948695031744
+        },
+        {
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 571.9523911616998,
+          "candidate_mean_s_per_source": 547.805374549476,
+          "reduction_fraction": 0.04221857795397699
+        },
+        {
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 595.7213867192958,
+          "candidate_mean_s_per_source": 565.3746076446773,
+          "reduction_fraction": 0.050941228149859685
+        }
+      ]
+    },
+    {
+      "path": "/Users/t/ai project/数学建模2026/代码/experiments/20260911_agent_campaign/final_validation/A5_learning_R3/case_metrics.json",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 310.7482688088384,
+          "candidate_mean_s_per_source": 311.1144318038672,
+          "reduction_fraction": -0.0011783267415530485,
+          "paired_mean_saved_s_per_source": -0.36616299502878746,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            -2.8264815429809405,
+            1.95753960078527
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 251.95970119838233,
+            "candidate_movement_s_per_source": 251.70259570670697,
+            "paired_movement_saved_s_per_source": 0.257105491675361,
+            "baseline_other_s_per_source": 58.788567610456084,
+            "candidate_other_s_per_source": 59.41183609716023,
+            "paired_other_saved_s_per_source": -0.6232684867041485,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 579.2771895219166,
+          "candidate_mean_s_per_source": 553.6433491793144,
+          "reduction_fraction": 0.04425142368156776,
+          "paired_mean_saved_s_per_source": 25.633840342602184,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            19.576926389520573,
+            31.83367624413142
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 433.9828673967472,
+            "candidate_movement_s_per_source": 410.4564675952582,
+            "paired_movement_saved_s_per_source": 23.52639980148905,
+            "baseline_other_s_per_source": 145.2943221251694,
+            "candidate_other_s_per_source": 143.18688158405627,
+            "paired_other_saved_s_per_source": 2.107440541113135,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        }
+      ],
+      "groups": [
+        {
+          "mode": 3,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8212185574943,
+          "candidate_mean_s_per_source": 313.25690881416693,
+          "reduction_fraction": -0.02097537545457162
+        },
+        {
+          "mode": 3,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.25693445327596,
+          "candidate_mean_s_per_source": 315.93137045461873,
+          "reduction_fraction": -0.03158927982680093
+        },
+        {
+          "mode": 3,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 326.1412788327583,
+          "candidate_mean_s_per_source": 334.62174942011205,
+          "reduction_fraction": -0.026002444761684007
+        },
+        {
+          "mode": 3,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 357.867016666,
+          "candidate_mean_s_per_source": 368.674994355,
+          "reduction_fraction": -0.03020110036876411
+        },
+        {
+          "mode": 3,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 261.312141128125,
+          "candidate_mean_s_per_source": 272.797468959375,
+          "reduction_fraction": -0.04395252276325956
+        },
+        {
+          "mode": 3,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.4991020727874,
+          "candidate_mean_s_per_source": 319.29436244870396,
+          "reduction_fraction": -0.034992842129470736
+        },
+        {
+          "mode": 3,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.89638239108336,
+          "candidate_mean_s_per_source": 315.2553213178347,
+          "reduction_fraction": -0.02058599352160928
+        },
+        {
+          "mode": 3,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 314.96616906475055,
+          "candidate_mean_s_per_source": 334.3378563271264,
+          "reduction_fraction": -0.06150402540024369
+        },
+        {
+          "mode": 3,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 280.0093925946758,
+          "candidate_mean_s_per_source": 280.0821995949602,
+          "reduction_fraction": -0.00026001627877447753
+        },
+        {
+          "mode": 3,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 346.2640700564437,
+          "candidate_mean_s_per_source": 256.6831707014921,
+          "reduction_fraction": 0.258706886164508
+        },
+        {
+          "mode": 3,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8202335366493,
+          "candidate_mean_s_per_source": 311.58531089159436,
+          "reduction_fraction": -0.015530518636333257
+        },
+        {
+          "mode": 3,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 305.1252863520175,
+          "candidate_mean_s_per_source": 310.8524683614221,
+          "reduction_fraction": -0.018769935713545793
+        },
+        {
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 584.061229599197,
+          "candidate_mean_s_per_source": 548.630938543937,
+          "reduction_fraction": 0.060661946487311824
+        },
+        {
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 572.9473445132824,
+          "candidate_mean_s_per_source": 541.9036220080909,
+          "reduction_fraction": 0.05418250525545765
+        },
+        {
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 622.151395732734,
+          "candidate_mean_s_per_source": 629.2511372629401,
+          "reduction_fraction": -0.011411597850462751
+        },
+        {
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 695.638688195,
+          "candidate_mean_s_per_source": 670.309742641,
+          "reduction_fraction": 0.03641106508857639
+        },
+        {
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 440.966884404375,
+          "candidate_mean_s_per_source": 425.553056128125,
+          "reduction_fraction": 0.03495461637004749
+        },
+        {
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 603.0233092091248,
+          "candidate_mean_s_per_source": 580.6807302079399,
+          "reduction_fraction": 0.03705093760055089
+        },
+        {
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 615.0641953050567,
+          "candidate_mean_s_per_source": 577.4069314534989,
+          "reduction_fraction": 0.06122493251762229
+        },
+        {
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 590.1412426866734,
+          "candidate_mean_s_per_source": 572.2978573503658,
+          "reduction_fraction": 0.030235787715960916
+        },
+        {
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 518.3986465275441,
+          "candidate_mean_s_per_source": 485.30712313554136,
+          "reduction_fraction": 0.06383412382278375
+        },
+        {
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 541.2595602090166,
+          "candidate_mean_s_per_source": 498.9090338956418,
+          "reduction_fraction": 0.07824439405194139
+        },
+        {
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 571.9523911616998,
+          "candidate_mean_s_per_source": 546.1847629102494,
+          "reduction_fraction": 0.04505205092177933
+        },
+        {
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 595.7213867192958,
+          "candidate_mean_s_per_source": 567.2852546144428,
+          "reduction_fraction": 0.04773394532879527
+        }
+      ]
+    },
+    {
+      "path": "/Users/t/ai project/数学建模2026/代码/experiments/20260911_agent_campaign/final_validation/A6_learning_R7/case_metrics.json",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 310.7482688088384,
+          "candidate_mean_s_per_source": 310.75878366012046,
+          "reduction_fraction": -3.383719987359868e-05,
+          "paired_mean_saved_s_per_source": -0.010514851282039217,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            -0.03154455384615375,
+            0.0
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 251.95970119838233,
+            "candidate_movement_s_per_source": 251.9668186139713,
+            "paired_movement_saved_s_per_source": -0.007117415588965059,
+            "baseline_other_s_per_source": 58.788567610456084,
+            "candidate_other_s_per_source": 58.79196504614916,
+            "paired_other_saved_s_per_source": -0.003397435693074158,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "cases": 1200,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 579.2771895219166,
+          "candidate_mean_s_per_source": 557.4101291322601,
+          "reduction_fraction": 0.03774887184441644,
+          "paired_mean_saved_s_per_source": 21.867060389656558,
+          "paired_saved_seed_cluster_bootstrap_95ci": [
+            15.193930601403425,
+            28.760030762654516
+          ],
+          "seed_clusters": 100,
+          "time_decomposition": {
+            "baseline_movement_s_per_source": 433.9828673967472,
+            "candidate_movement_s_per_source": 417.4124896062133,
+            "paired_movement_saved_s_per_source": 16.57037779053394,
+            "baseline_other_s_per_source": 145.2943221251694,
+            "candidate_other_s_per_source": 139.99763952604678,
+            "paired_other_saved_s_per_source": 5.296682599122619,
+            "note": "Movement is logged distance / 5 m/s. Residual includes sensing, channel switching, optical actions and microsecond rounding; this accounting identity is not a component ablation."
+          }
+        }
+      ],
+      "groups": [
+        {
+          "mode": 3,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8212185574943,
+          "candidate_mean_s_per_source": 306.8212185574943,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.25693445327596,
+          "candidate_mean_s_per_source": 306.25693445327596,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 326.1412788327583,
+          "candidate_mean_s_per_source": 326.1412788327583,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 357.867016666,
+          "candidate_mean_s_per_source": 357.867016666,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 261.312141128125,
+          "candidate_mean_s_per_source": 261.312141128125,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.4991020727874,
+          "candidate_mean_s_per_source": 308.4991020727874,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 308.89638239108336,
+          "candidate_mean_s_per_source": 309.02256060646795,
+          "reduction_fraction": -0.00040848071579180356
+        },
+        {
+          "mode": 3,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 314.96616906475055,
+          "candidate_mean_s_per_source": 314.96616906475055,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 280.0093925946758,
+          "candidate_mean_s_per_source": 280.0093925946758,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 346.2640700564437,
+          "candidate_mean_s_per_source": 346.2640700564437,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 306.8202335366493,
+          "candidate_mean_s_per_source": 306.8202335366493,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 3,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 305.1252863520175,
+          "candidate_mean_s_per_source": 305.1252863520175,
+          "reduction_fraction": 0.0
+        },
+        {
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 584.061229599197,
+          "candidate_mean_s_per_source": 561.2243744133519,
+          "reduction_fraction": 0.039100104626900944
+        },
+        {
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 572.9473445132824,
+          "candidate_mean_s_per_source": 549.0321735168357,
+          "reduction_fraction": 0.04174060884558706
+        },
+        {
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 622.151395732734,
+          "candidate_mean_s_per_source": 633.3972252326228,
+          "reduction_fraction": -0.01807571208072911
+        },
+        {
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 695.638688195,
+          "candidate_mean_s_per_source": 671.243462843,
+          "reduction_fraction": 0.035068816277742165
+        },
+        {
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 440.966884404375,
+          "candidate_mean_s_per_source": 405.78788121375,
+          "reduction_fraction": 0.07977697290839003
+        },
+        {
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 603.0233092091248,
+          "candidate_mean_s_per_source": 591.3308427108699,
+          "reduction_fraction": 0.01938974218689793
+        },
+        {
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 615.0641953050567,
+          "candidate_mean_s_per_source": 591.6888753888629,
+          "reduction_fraction": 0.03800468324221051
+        },
+        {
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 590.1412426866734,
+          "candidate_mean_s_per_source": 576.0253102223883,
+          "reduction_fraction": 0.02391958304764641
+        },
+        {
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 518.3986465275441,
+          "candidate_mean_s_per_source": 486.49143493894627,
+          "reduction_fraction": 0.06154956576820936
+        },
+        {
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 541.2595602090166,
+          "candidate_mean_s_per_source": 498.94316012635517,
+          "reduction_fraction": 0.0781813443929198
+        },
+        {
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 571.9523911616998,
+          "candidate_mean_s_per_source": 552.982057286753,
+          "reduction_fraction": 0.033167679981922715
+        },
+        {
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 100,
+          "complete": 100,
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 595.7213867192958,
+          "candidate_mean_s_per_source": 570.7747516933855,
+          "reduction_fraction": 0.04187634619481129
+        }
+      ]
+    }
+  ]
+}

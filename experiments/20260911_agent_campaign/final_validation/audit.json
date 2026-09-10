@@ -1,0 +1,338 @@
+{
+  "status": "all_checks_passed",
+  "candidates": 10,
+  "baseline_versions": 1,
+  "case_count": 2400,
+  "episode_executions": 26400,
+  "all_q4_cases_mixed": true,
+  "all_cases_complete_normal_no_errors": true,
+  "cases_sha256": "7baaefd611e9af6727b032508d8d06be3282d44635170507241d91c72a17d92b",
+  "registry_sha256": "9fdd9d458e78f71bf7fb2f29b919e159045f59844befbe75f7af7737973a2c62",
+  "registry_commit": "a941777905119a6b8c04c4854f757ff7e58e5809",
+  "source_counts_by_mode": {
+    "3": 15420,
+    "4": 15420
+  },
+  "note": "Read-only audit of actual final execution rows; not an additional experiment.",
+  "versions": [
+    {
+      "label": "baseline",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 310.7482688088384,
+          "wins": 0,
+          "ties": 1200,
+          "losses": 0,
+          "maximum_total_virtual_s": 5973.617243,
+          "maximum_runtime_s": 0.0018529579974710941
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 579.2771895219166,
+          "wins": 0,
+          "ties": 1200,
+          "losses": 0,
+          "maximum_total_virtual_s": 14464.209577,
+          "maximum_runtime_s": 0.030617958051152527
+        }
+      ],
+      "rows_sha256": "f4b9d6e3e66228c09ee7bbe81c45c72b43b347e157fb09482423a03be1d7ac72",
+      "summary_sha256": "82e8a53b8fc9f765267a79683be0778dbef72e33965a511d14795d9b06f650b3"
+    },
+    {
+      "label": "A1_space_R8",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 271.5784575614458,
+          "wins": 1083,
+          "ties": 0,
+          "losses": 117,
+          "maximum_total_virtual_s": 6124.578096,
+          "maximum_runtime_s": 0.005941333016380668
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 567.6581083024512,
+          "wins": 889,
+          "ties": 185,
+          "losses": 126,
+          "maximum_total_virtual_s": 18628.393488,
+          "maximum_runtime_s": 0.03055079106707126
+        }
+      ],
+      "rows_sha256": "b57981257a6e9a29ab4d70b4992fbc379e437fcfa5ae3df09a5c5ef02e4bfe17",
+      "summary_sha256": "c304b40aec517513028c3816fef163b04b1bef3dc958d7deaa313dbd557fb0bf"
+    },
+    {
+      "label": "A1_space_R10",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 271.5784575614458,
+          "wins": 1083,
+          "ties": 0,
+          "losses": 117,
+          "maximum_total_virtual_s": 6124.578096,
+          "maximum_runtime_s": 0.00596033304464072
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 569.7531295626228,
+          "wins": 713,
+          "ties": 440,
+          "losses": 47,
+          "maximum_total_virtual_s": 18629.719518,
+          "maximum_runtime_s": 0.04032220796216279
+        }
+      ],
+      "rows_sha256": "764596e98728d3c155c7e096a2c68886e43f96cd1c958ddc5c1bb7cd15873857",
+      "summary_sha256": "772452b63977c90e351e35cc20691b5aee55f733bab8d0a6643cd973a2a65a4f"
+    },
+    {
+      "label": "A2_information_R8",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 287.4055375690986,
+          "wins": 993,
+          "ties": 0,
+          "losses": 207,
+          "maximum_total_virtual_s": 5089.118579,
+          "maximum_runtime_s": 0.06385195802431554
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 576.9567060387078,
+          "wins": 912,
+          "ties": 0,
+          "losses": 288,
+          "maximum_total_virtual_s": 16608.441387,
+          "maximum_runtime_s": 0.03213070810306817
+        }
+      ],
+      "rows_sha256": "f7f5ba4a762c4473fe7402f421ec114c9dccb3a5b11f79e53964a7efd70d301f",
+      "summary_sha256": "118f4cc2e81af6df7da6ff230a21f469e011d0b2096d3964ffa9658b363fb3a3"
+    },
+    {
+      "label": "A2_information_R9",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 287.5528739836059,
+          "wins": 995,
+          "ties": 0,
+          "losses": 205,
+          "maximum_total_virtual_s": 5089.118579,
+          "maximum_runtime_s": 0.04280945798382163
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 576.9549301575689,
+          "wins": 912,
+          "ties": 0,
+          "losses": 288,
+          "maximum_total_virtual_s": 16608.441387,
+          "maximum_runtime_s": 0.032688000006601214
+        }
+      ],
+      "rows_sha256": "bad8063b3e4c2fa042716e44da199199232afac88ca1ccd085158c34a858372d",
+      "summary_sha256": "8903a0f0cac280f9f568902fe2dd9c605e67f83de467e9ea88a51b6e3077bdb5"
+    },
+    {
+      "label": "A3_coordination_R2",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 277.12510426284945,
+          "wins": 1007,
+          "ties": 0,
+          "losses": 193,
+          "maximum_total_virtual_s": 4821.133051,
+          "maximum_runtime_s": 0.006859291926957667
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 564.868622006764,
+          "wins": 609,
+          "ties": 40,
+          "losses": 551,
+          "maximum_total_virtual_s": 13074.720527,
+          "maximum_runtime_s": 0.0340498749865219
+        }
+      ],
+      "rows_sha256": "714cee34347f4d024e6e9dc2c502b634104a82a1141e5a06813b1eb15254d273",
+      "summary_sha256": "d47365edaeab2c92e555c0b0f7f1b214506dafe3b6703c0fe2a93886f26b1345"
+    },
+    {
+      "label": "A3_coordination_R1",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 282.26092713756583,
+          "wins": 998,
+          "ties": 16,
+          "losses": 186,
+          "maximum_total_virtual_s": 4932.440158,
+          "maximum_runtime_s": 0.002977167023345828
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 567.1748863052135,
+          "wins": 620,
+          "ties": 42,
+          "losses": 538,
+          "maximum_total_virtual_s": 14270.227738,
+          "maximum_runtime_s": 0.03521816700231284
+        }
+      ],
+      "rows_sha256": "407f8909f172618c070392177044cad1af3e7c9e3ee237cbd37704560ee3e54d",
+      "summary_sha256": "ccd0d88d090bd2ecbcf09dce9bab3599c658772d5da69a6ae7eb7acaea1c7cee"
+    },
+    {
+      "label": "A4_directional_R6",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 310.7482688088384,
+          "wins": 0,
+          "ties": 1200,
+          "losses": 0,
+          "maximum_total_virtual_s": 5973.617243,
+          "maximum_runtime_s": 0.002025833004154265
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 540.4776256193527,
+          "wins": 857,
+          "ties": 210,
+          "losses": 133,
+          "maximum_total_virtual_s": 8781.683543,
+          "maximum_runtime_s": 0.032639874960295856
+        }
+      ],
+      "rows_sha256": "de8b3cf5c6c2cd7a0c63a0a411e4fc8f224d905134246271dd3c08eaca92879e",
+      "summary_sha256": "bd3f2b15d3273a28af3e2c31f7eaec6dc151daa6e10cd5dfb353114a1a8c52c6"
+    },
+    {
+      "label": "A5_learning_R2",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 310.7482688088384,
+          "wins": 0,
+          "ties": 1200,
+          "losses": 0,
+          "maximum_total_virtual_s": 5973.617243,
+          "maximum_runtime_s": 0.0020877080969512463
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 554.2335479981576,
+          "wins": 797,
+          "ties": 13,
+          "losses": 390,
+          "maximum_total_virtual_s": 17390.325963,
+          "maximum_runtime_s": 0.03450358298141509
+        }
+      ],
+      "rows_sha256": "26cee9d3ccae955a3cf9650d888b3ecad5b8ca2c6bcdcb461793624f9a4dd1ec",
+      "summary_sha256": "daab9ef2abb2d10151a3684981611fb96ada901a6f8d78d35428e3c7096cb61f"
+    },
+    {
+      "label": "A5_learning_R3",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 311.1144318038672,
+          "wins": 440,
+          "ties": 0,
+          "losses": 760,
+          "maximum_total_virtual_s": 6206.379456,
+          "maximum_runtime_s": 0.0020574579248204827
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 553.6433491793144,
+          "wins": 812,
+          "ties": 15,
+          "losses": 373,
+          "maximum_total_virtual_s": 11930.066887,
+          "maximum_runtime_s": 0.03439104207791388
+        }
+      ],
+      "rows_sha256": "f36b38ca768c6dbd6da7f4ac38edeaf96985afcc4a0f442f1368d1251b2f13fc",
+      "summary_sha256": "f7b7a23f6175a6664a13fc693acec2eab619b8b3aed027dccf7d7b12b950e644"
+    },
+    {
+      "label": "A6_learning_R7",
+      "modes": [
+        {
+          "mode": 3,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 310.75878366012046,
+          "wins": 0,
+          "ties": 1199,
+          "losses": 1,
+          "maximum_total_virtual_s": 5973.617243,
+          "maximum_runtime_s": 0.00253483303822577
+        },
+        {
+          "mode": 4,
+          "complete": 1200,
+          "sources": 15420,
+          "mean_s_per_source": 557.4101291322601,
+          "wins": 792,
+          "ties": 3,
+          "losses": 405,
+          "maximum_total_virtual_s": 13389.380911,
+          "maximum_runtime_s": 0.0311683330219239
+        }
+      ],
+      "rows_sha256": "d9892130d517fbc60056794f924aeb841aa13a2489622edd693b1c55c715c3da",
+      "summary_sha256": "e9d5a2c5274222c62e199f37ad9e716e45230d9cd139d97961ed7aa3c5fedeb2"
+    }
+  ]
+}

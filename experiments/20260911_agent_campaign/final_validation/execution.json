@@ -1,0 +1,114 @@
+{
+  "started_utc": "2026-09-10T22:11:28Z",
+  "workers": 2,
+  "scheduling": "registry order, at most two independent evaluator processes",
+  "runtime_note": "Concurrent same-host load; measured real runtime is not a controlled speed comparison.",
+  "registry_sha256": "9fdd9d458e78f71bf7fb2f29b919e159045f59844befbe75f7af7737973a2c62",
+  "cases_sha256": "7baaefd611e9af6727b032508d8d06be3282d44635170507241d91c72a17d92b",
+  "final_review_sha256": "a826e482cf96b6d98867a52e549eb677e115e1a4e90d27dbfc5a2b726a754190",
+  "results": [
+    {
+      "label": "baseline",
+      "wall_seconds": 23.868676000041887,
+      "valid_completion": true,
+      "means": [
+        310.7482688088384,
+        579.2771895219166
+      ]
+    },
+    {
+      "label": "A1_space_R8",
+      "wall_seconds": 25.57494875008706,
+      "valid_completion": true,
+      "means": [
+        271.5784575614458,
+        567.6581083024512
+      ]
+    },
+    {
+      "label": "A1_space_R10",
+      "wall_seconds": 25.484798540943302,
+      "valid_completion": true,
+      "means": [
+        271.5784575614458,
+        569.7531295626228
+      ]
+    },
+    {
+      "label": "A2_information_R8",
+      "wall_seconds": 48.88674937502947,
+      "valid_completion": true,
+      "means": [
+        287.4055375690986,
+        576.9567060387078
+      ]
+    },
+    {
+      "label": "A2_information_R9",
+      "wall_seconds": 49.87166420894209,
+      "valid_completion": true,
+      "means": [
+        287.5528739836059,
+        576.9549301575689
+      ]
+    },
+    {
+      "label": "A3_coordination_R2",
+      "wall_seconds": 26.442784749902785,
+      "valid_completion": true,
+      "means": [
+        277.12510426284945,
+        564.868622006764
+      ]
+    },
+    {
+      "label": "A3_coordination_R1",
+      "wall_seconds": 25.851788792060688,
+      "valid_completion": true,
+      "means": [
+        282.26092713756583,
+        567.1748863052135
+      ]
+    },
+    {
+      "label": "A4_directional_R6",
+      "wall_seconds": 25.21031962498091,
+      "valid_completion": true,
+      "means": [
+        310.7482688088384,
+        540.4776256193527
+      ]
+    },
+    {
+      "label": "A5_learning_R2",
+      "wall_seconds": 25.166845874977298,
+      "valid_completion": true,
+      "means": [
+        310.7482688088384,
+        554.2335479981576
+      ]
+    },
+    {
+      "label": "A5_learning_R3",
+      "wall_seconds": 24.8705080000218,
+      "valid_completion": true,
+      "means": [
+        311.1144318038672,
+        553.6433491793144
+      ]
+    },
+    {
+      "label": "A6_learning_R7",
+      "wall_seconds": 25.012301541981287,
+      "valid_completion": true,
+      "means": [
+        310.75878366012046,
+        557.4101291322601
+      ]
+    }
+  ],
+  "finished_utc": "2026-09-10T22:14:24Z",
+  "suite_wall_seconds": 175.88601191691123,
+  "processes": 11,
+  "total_episode_executions": 26400
+}
