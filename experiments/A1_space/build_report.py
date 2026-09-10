@@ -14,6 +14,7 @@ def line(s=''):out.append(s)
 line('# A1 完整实验报告：全局空间搜索与移动成本')
 line('\n研究及实验日期：2026-09-11。路线独立工作树：`'+str(ROOT)+'`。')
 line(f'\n当前选择 R{b["n"]}：第三问 **{b["m"][3]:.6f} 秒/源**，第四问 **{b["m"][4]:.6f} 秒/源**；相对冻结原版分别降低 **{100*(1-b["m"][3]/b["base"][3]):.4f}%** 和 **{100*(1-b["m"][4]/b["base"][4]):.4f}%**。每题 1200/1200 局全清、正常退出，无异常。这是本地固定回归结果，不是官方模拟器成绩。')
+line('\n最佳候选每题累计清除15550/15550个真实源；源清除比例与全清局比例分别为15550/15550、1200/1200。R8并非逐场景都优于原版：Q3偏心聚簇慢2.4669%，Q4固定正偏差慢0.5798%。R10的Q4所有分组均值都低于原版，但其Q4总体比R8更慢，作为完整保留的不同场景取舍供后续审阅。')
 line(f'\n**状态：已完成{len(rounds)}轮，当前最佳R{best["best_round"]}，连续未刷新full最佳计数{best["consecutive_non_improving_full_rounds"]}。'+('已按连续两轮未刷新规则经验停止，不是数学收敛证明。**' if best['status']=="complete_empirical_stop" else '实验继续。**'))
 line('\n## 1. 问题与原版分析')
 line('\n目标是总虚拟耗时/清除数，在确保全部清除的前提下尽量小。虚拟耗时包含移动/5、每次检测5秒、切换频道1秒、光学定位3秒、成功清除2秒。算法不能看真实源数、源坐标、案例ID和随机种子；正式环境20分钟现实限制仍适用。')
@@ -69,6 +70,10 @@ for p in sorted(HERE.glob('*.json')):
 validdev=[(n,d) for n,d in dev if 'invalid_mixture' not in n]
 line(f'\n实际计算预算：{len(rounds)}轮full共{sum(x["summary"]["runs"] for x in rounds):,}次候选执行，记录整批现实耗时合计{sum(x["summary"]["wall_seconds"] for x in rounds):.3f}秒；quick共{sum(x["runs"] for x in quick):,}次，合计{sum(x["wall_seconds"] for x in quick):.3f}秒。有效开发/开发验证JSON共{len(validdev)}批、{sum(len(d["rows"]) for _,d in validdev):,}次执行（含对照与复用种子重放），记录现实耗时{sum(d["wall_seconds"] for _,d in validdev):.3f}秒；另有排除的无效混合批次{sum(len(d["rows"]) for n,d in dev if "invalid_mixture" in n)}局。计算次数包含重复案例，不能当成独立样本数；不含文献阅读、设计、检查及提交耗时。')
 line('\n所有清除率都保留逐局清除个数/真实源数，真实源数仅在评测层计算。全局均值按每局秒/源再平均，不能把跨局总时间除跨局总源数替代，也不是官方公开的跨案例总分。')
+line('\n| 轮次 | 当前最佳决策 | 关键依据 |\n|---|---|---|')
+decisions={1:('采用R1','Q3改善、Q4完全一致；保留边缘/原点簇退步。'),2:('暂不替换R1，保留取舍候选','Q3继续改善而Q4变差。'),3:('采用R3','Q3进一步改善，Q4回退原版，支配R1/R2的双题均值。'),4:('采用R4','Q3不变，Q4改善；加入换环不变量。'),5:('采用R5','两题轻微改善。'),6:('采用R6','两题均值改善，开发Q3曾退步。'),7:('拒绝R7，保留R6','双题比R6变差，连续未刷新=1。'),8:('采用R8','双题比R6改善，未刷新计数归零；小开发集Q4趋势相反。'),9:('拒绝R9，保留R8','quick有利、full双题比R8变差，连续未刷新=1。'),10:('拒绝R10，保留R8，结束','Q3相同、Q4比R8慢2.1145秒/源，连续未刷新=2。')}
+for x in rounds:
+ decision,why=decisions[x['n']];line(f'| R{x["n"]} | {decision} | {why} |')
 line('\n### 各轮失败和场景退步')
 line('\n| 轮次 | 问题 | 相比原版退步的场景（负数表示时间降低量为负） |\n|---|---|---|')
 for x in rounds:
@@ -85,6 +90,7 @@ line('\n## 7. 证据文件与运行')
 line(f'\n- 当前最佳：`{best["solver_relative_path"]}`，快照 `{best["snapshot"]}`。\n- SHA256：`{best["sha256"]}`。\n- 实现提交：`{best["code_commit"]}`。\n- 全量结果：[{b["path"]}/summary.json](../../{b["path"]}/summary.json)，逐局原始结果同目录。\n- 版本与依赖：[best.json](best.json)；逐轮判断：[iteration_log.md](iteration_log.md)；方案和证明：[plan.md](plan.md)。\n- 逐篇文献：[literature.json](literature.json)；身份元数据与正文散列：`research/source_metadata.json`。原论文PDF、HTML和提取文本仅保留本地忽略缓存，不重新发布全文。')
 line('\n```sh\npython -m unittest discover -s tests -v\npython evaluate.py --verify-only\npython tests/check_nominal.py --package . --out /tmp/A1_nominal_recheck.json\npython experiments/A1_space/check_spatial_geometry.py --candidate solver.py --out /tmp/A1_geometry_recheck.json\npython evaluate.py --suite full --candidate '+best['snapshot']+' --out results/A1_reproduce_new_directory\n```')
 line('\n求解器仅依赖Python标准库；本工作树没有coverage_points.json，因此两题均使用解析点集。若外部提供该文件，原有点集指纹验证仍必须通过；最佳复现应使用记录的无外部点集配置。HTTP客户端和官方通信未改动，Windows官方演练与正式测试仍未执行。代码、结果已在专属分支分轮提交；最终推送状态以主Agent核验为准。')
+line('\n收尾只读核对：[final_audit.json](final_audit.json) 的40/40项通过，覆盖10轮快照与结果散列、每轮quick/full配对ID和完整性、原始行与均值一致、最佳提交身份、冻结文件、环境接口属性、外部依赖，以及R10的Q3逐案例与R8相同。该核对没有重跑候选，也没有访问官方模拟器。')
 line('\n### 每轮代码身份')
 line('\n| 轮次 | 快照 | SHA256 | 保存该轮的提交 |\n|---|---|---|---|')
 for x in rounds:
