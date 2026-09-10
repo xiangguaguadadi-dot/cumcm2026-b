@@ -28,7 +28,9 @@ def main():
     assert not (HERE / 'final_validation').exists(), 'Final cases already exist'
     assert not (HERE / 'candidate_registry.json').exists(), 'Registry already frozen'
     destination = HERE / 'final_candidates'
-    destination.mkdir(exist_ok=False)
+    # A failed pre-registration metadata check may leave only byte-verified
+    # snapshots. A retry accepts those exact bytes, never overwrites changes.
+    destination.mkdir(exist_ok=True)
     records = []
     for assignment in json.loads((HERE / 'assignments.json').read_text())['assignments']:
         root, identity = Path(assignment['worktree']), assignment['id']
@@ -58,7 +60,8 @@ def main():
             snapshot = root / first(chosen, 'snapshot', 'solver_path', 'best_solver_relative',
                                     'solver_relative_path')
             full = root / first(chosen, 'full_results_path', 'full_result_path', 'full_results',
-                               'full_results_relative', 'full_results_relative_path')
+                               'full_results_relative', 'full_results_relative_path',
+                               'full_results_absolute_path', 'full_result_absolute_path')
             expected = first(chosen, 'solver_sha256', 'sha256')
             assert sha(snapshot) == expected
             assert not (snapshot.parent / 'coverage_points.json').exists()
@@ -68,7 +71,10 @@ def main():
             assert hashlib.sha256(data).hexdigest() == expected
             review = audit(root, snapshot, full, label)
             out = destination / (label + '.py')
-            out.write_bytes(data)
+            if out.exists():
+                assert out.read_bytes() == data, 'Previously copied snapshot differs'
+            else:
+                out.write_bytes(data)
             assert sha(out) == expected
             (HERE / 'audit' / (label + '_rows.json')).write_text(json.dumps(review, ensure_ascii=False, indent=2))
             records.append(dict(label=label, agent=identity, round=round_number, selection_reason=reason,
@@ -79,11 +85,13 @@ def main():
                 deployment_dependencies={}, optional_coverage_sha256=None,
                 regression_full=str(full), regression_rows_sha256=sha(full/'case_metrics.json'),
                 regression_modes=review['modes']))
+    assert {p.name for p in destination.iterdir()} == {r['label']+'.py' for r in records}
     baseline = ROOT / 'evaluation/baseline_solver.py'
     assert sha(baseline) == '36271e5c84cdcd4468b54484d699dce64194f09d78c0c03f3ec1c38f105f6ca9'
     registry = dict(registered_at_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
         note='Frozen before final cases. Exact standalone snapshots; no strategy blending or external runtime weights.',
         baseline_path=str(baseline.relative_to(ROOT)), baseline_sha256=sha(baseline),
+        review_script_sha256=sha(HERE/'final_review.py'),
         frozen_manifest_sha256=sha(ROOT/'evaluation/manifest_v1.json'), candidates=records)
     (HERE/'candidate_registry.json').write_text(json.dumps(registry, ensure_ascii=False, indent=2))
     print(json.dumps(dict(candidates=len(records), labels=[r['label'] for r in records])))

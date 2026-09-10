@@ -76,6 +76,7 @@ def generate(args):
         cases=len(cases), distinct_seed_clusters=len(seeds), seeds=seeds,
         cases_sha256=sha(out / 'cases.json'),
         frozen_generator_sha256=sha(source),
+        review_script_sha256=sha(__file__),
         frozen_manifest_sha256=sha(root / 'evaluation/manifest_v1.json'),
         distribution_note='Same 12 local scenario assumptions; fresh random seeds. '
                           'Each seed is reused across groups and modes, so inference clusters by seed.'))
@@ -127,6 +128,7 @@ def run(args):
         root_runtime_fingerprint=before, selected_dependencies=dependencies,
         optional_coverage_path=str(optional_coverage), optional_coverage_sha256=coverage_before,
         cases_sha256=cases_hash,
+        review_script_sha256=sha(__file__),
         manifest_sha256=sha(root / 'evaluation/manifest_v1.json'),
         python=platform.python_version(), platform=platform.platform(),
         wall_seconds=wall_seconds, runs=len(rows),
