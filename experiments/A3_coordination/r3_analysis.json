@@ -1,0 +1,32 @@
+{
+  "round": 3,
+  "sha256": "4e4206f6da48e78b9fe3b13880b58f00875568f24f946d080d7e53b6dd505f17",
+  "all_complete": true,
+  "metrics": {
+    "3": {
+      "mean_s_per_source": 274.17356216910264,
+      "full_clear_count": 1200,
+      "cases": 1200,
+      "baseline_mean_s_per_source": 306.30043421816345,
+      "reduction_fraction": 0.10488679890730535
+    },
+    "4": {
+      "mean_s_per_source": 556.3700567220087,
+      "full_clear_count": 1200,
+      "cases": 1200,
+      "baseline_mean_s_per_source": 570.8833714439976,
+      "reduction_fraction": 0.02542255642387825
+    }
+  },
+  "regressions": [
+    {
+      "mode": 4,
+      "group": "cell500_shared_field",
+      "baseline": 565.196717692069,
+      "candidate": 567.456669094957,
+      "reduction": -0.003998521810452571
+    }
+  ],
+  "full_path": "results/A3_coordination_r3_full",
+  "full_wall_seconds": 28.936418499913998
+}

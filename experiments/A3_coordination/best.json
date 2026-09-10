@@ -1,6 +1,6 @@
 {
   "best_round": 2,
-  "candidate_rounds": 2,
+  "candidate_rounds": 3,
   "solver_absolute_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A3_coordination/experiments/A3_coordination/snapshots/r2_solver.py",
   "solver_relative_path": "experiments/A3_coordination/snapshots/r2_solver.py",
   "solver_sha256": "236958ef338808b621690f72ef7c0d637d13ba6d0716d9722ea892f588f73fa3",
@@ -29,5 +29,14 @@
   "configuration": "embedded OPTIMIZED_CONFIGS plus defaults in solver snapshot",
   "coverage_points": "analytic certified_points; no external coverage_points.json present",
   "python_dependencies": "standard library only",
-  "label": "LOCAL-v1, not official"
+  "label": "LOCAL-v1, not official",
+  "stop_reason": "R3 did not improve R2 on either question; conditional authorization for rounds 4–5 not triggered; empirical stop, not global optimality",
+  "working_solver_relative_path": "solver.py",
+  "retained_alternative_rounds": [
+    {
+      "round": 1,
+      "reason": "No scenario mean regression against baseline; slower Q3/Q4 overall than R2",
+      "snapshot": "experiments/A3_coordination/snapshots/r1_solver.py"
+    }
+  ]
 }

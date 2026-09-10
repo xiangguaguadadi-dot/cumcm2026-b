@@ -10,7 +10,6 @@
           "Daniel Golovin",
           "Andreas Krause"
         ],
-        "abstract": "Solving stochastic optimization problems under partial observability, where one needs to adaptively make decisions with uncertain outcomes, is a fundamental but notoriously difficult challenge. In this paper, we introduce the concept of adaptive submodularity, generalizing submodular set functions to adaptive policies. We prove that if a problem satisfies this property, a simple adaptive greedy algorithm is guaranteed to be competitive with the optimal policy. In addition to providing performance guarantees for both stochastic maximization and coverage, adaptive submodularity can be exploited to drastically speed up the greedy algorithm by using lazy evaluations. We illustrate the usefulness of the concept by giving several examples of adaptive submodular objectives arising in diverse applications including sensor placement, viral marketing and active learning. Proving adaptive submodularity for these problems allows us to recover existing results in these applications as special cases, improve approximation guarantees and handle natural generalizations.",
         "published": "2010-03-21T04:06:22Z"
       },
       {
@@ -20,7 +19,6 @@
           "Kaito Fujii",
           "Shinsaku Sakaue"
         ],
-        "abstract": "We propose a new concept named adaptive submodularity ratio to study the greedy policy for sequential decision making. While the greedy policy is known to perform well for a wide variety of adaptive stochastic optimization problems in practice, its theoretical properties have been analyzed only for a limited class of problems. We narrow the gap between theory and practice by using adaptive submodularity ratio, which enables us to prove approximation guarantees of the greedy policy for a substantially wider class of problems. Examples of newly analyzed problems include important applications such as adaptive influence maximization and adaptive feature selection. Our adaptive submodularity ratio also provides bounds of adaptivity gaps. Experiments confirm that the greedy policy performs well with the applications being considered compared to standard heuristics.",
         "published": "2019-04-24T11:18:47Z"
       },
       {
@@ -31,7 +29,6 @@
           "Amin Karbasi",
           "Vahab Mirrokni"
         ],
-        "abstract": "Adaptive sequential decision making is one of the central challenges in machine learning and artificial intelligence. In such problems, the goal is to design an interactive policy that plans for an action to take, from a finite set of $n$ actions, given some partial observations. It has been shown that in many applications such as active learning, robotics, sequential experimental design, and active detection, the utility function satisfies adaptive submodularity, a notion that generalizes the notion of diminishing returns to policies. In this paper, we revisit the power of adaptivity in maximizing an adaptive monotone submodular function. We propose an efficient semi adaptive policy that with $O(\\log n \\times\\log k)$ adaptive rounds of observations can achieve an almost tight $1-1/e-ε$ approximation guarantee with respect to an optimal policy that carries out $k$ actions in a fully sequential manner. To complement our results, we also show that it is impossible to achieve a constant factor approximation with $o(\\log n)$ adaptive rounds. We also extend our result to the case of adaptive stochastic minimum cost coverage where the goal is to reach a desired utility $Q$ with the cheapest policy. We first prove the conjecture of the celebrated work of Golovin and Krause by showing that the greedy policy achieves the asymptotically tight logarithmic approximation guarantee without resorting to stronger notions of adaptivity. We then propose a semi adaptive policy that provides the same guarantee in polylogarithmic adaptive rounds through a similar information-parallelism scheme. Our results shrink the adaptivity gap in adaptive submodular maximization by an exponential factor.",
         "published": "2019-11-09T06:31:14Z"
       },
       {
@@ -40,7 +37,6 @@
         "authors": [
           "Shaojie Tang"
         ],
-        "abstract": "In this paper, we study the non-monotone adaptive submodular maximization problem subject to a cardinality constraint. We first revisit the adaptive random greedy algorithm proposed in \\citep{gotovos2015non}, where they show that this algorithm achieves a $1/e$ approximation ratio if the objective function is adaptive submodular and pointwise submodular. It is not clear whether the same guarantee holds under adaptive submodularity (without resorting to pointwise submodularity) or not. Our first contribution is to show that the adaptive random greedy algorithm achieves a $1/e$ approximation ratio under adaptive submodularity. One limitation of the adaptive random greedy algorithm is that it requires $O(n\\times k)$ value oracle queries, where $n$ is the size of the ground set and $k$ is the cardinality constraint. Our second contribution is to develop the first linear-time algorithm for the non-monotone adaptive submodular maximization problem. Our algorithm achieves a $1/e-ε$ approximation ratio (this bound is improved to $1-1/e-ε$ for monotone case), using only $O(nε^{-2}\\log ε^{-1})$ value oracle queries. Notably, $O(nε^{-2}\\log ε^{-1})$ is independent of the cardinality constraint. For the monotone case, we propose a faster algorithm that achieves a $1-1/e-ε$ approximation ratio in expectation with $O(n \\log \\frac{1}ε)$ value oracle queries. We also generalize our study by considering a partition matroid constraint, and develop a linear-time algorithm for monotone and fully adaptive submodular functions.",
         "published": "2020-08-11T21:06:52Z"
       },
       {
@@ -50,7 +46,6 @@
           "Shaojie Tang",
           "Jing Yuan"
         ],
-        "abstract": "The goal of a typical adaptive sequential decision making problem is to design an interactive policy that selects a group of items sequentially, based on some partial observations, to maximize the expected utility. It has been shown that the utility functions of many real-world applications, including pooled-based active learning and adaptive influence maximization, satisfy the property of adaptive submodularity. However, most of existing studies on adaptive submodular maximization focus on the fully adaptive setting, i.e., one must wait for the feedback from \\emph{all} past selections before making the next selection. Although this approach can take full advantage of feedback from the past to make informed decisions, it may take a longer time to complete the selection process as compared with the non-adaptive solution where all selections are made in advance before any observations take place. In this paper, we explore the problem of partial-adaptive submodular maximization where one is allowed to make multiple selections in a batch simultaneously and observe their realizations together. Our approach enjoys the benefits of adaptivity while reducing the time spent on waiting for the observations from past selections. To the best of our knowledge, no results are known for partial-adaptive policies for the non-monotone adaptive submodular maximization problem. We study this problem under both cardinality constraint and knapsack constraints, and develop effective and efficient solutions for both cases. We also analyze the batch query complexity, i.e., the number of batches a policy takes to complete the selection process, of our policy under some additional assumptions.",
         "published": "2021-11-01T14:48:41Z"
       },
       {
@@ -60,7 +55,6 @@
           "Shaojie Tang",
           "Jing Yuan"
         ],
-        "abstract": "In this paper, we propose and study the cascade submodular maximization problem under the adaptive setting. The input of our problem is a set of items, each item is in a particular state (i.e., the marginal contribution of an item) which is drawn from a known probability distribution. However, we can not know its actual state before selecting it. As compared with existing studies on stochastic submodular maximization, one unique setting of our problem is that each item is associated with a continuation probability which represents the probability that one is allowed to continue to select the next item after selecting the current one. Intuitively, this term captures the externality of selecting one item to all its subsequent items in terms of the opportunity of being selected. Therefore, the actual set of items that can be selected by a policy depends on the specific ordering it adopts to select items, this makes our problem fundamentally different from classical submodular set optimization problems. Our objective is to identify the best sequence of selecting items so as to maximize the expected utility of the selected items. We propose a class of stochastic utility functions, \\emph{adaptive cascade submodular functions}, and show that the objective functions in many practical application domains satisfy adaptive cascade submodularity. Then we develop a $0.12$ approximation algorithm to the adaptive cascade submodular maximization problem.",
         "published": "2020-07-07T16:21:56Z"
       }
     ]
@@ -77,7 +71,6 @@
           "S. Hamid Rezatofighi",
           "Damith C. Ranasinghe"
         ],
-        "abstract": "Autonomous aerial vehicles can provide efficient and effective solutions for radio frequency (RF) source tracking and localizing problems with applications ranging from wildlife conservation to search and rescue operations. Existing lightweight, low-cost, bearing measurements-based methods with a single antenna-receiver sensor system configurations necessitate in situ rotations, leading to substantial measurement acquisition times restricting searchable areas and number of measurements. We propose a GyroCopter for the task. Our approach plans the trajectory of a multi-rotor unmanned aerial vehicle (UAV) whilst utilizing UAV flight dynamics to execute a constant gyration motion to derive \"pseudo-bearing\" measurements to track RF sources. The gyration-based pseudo-bearing approach: i) significantly reduces the limitations associated with in situ rotation bearing; while ii) capitalizing on the simplicity, affordability, and lightweight nature of signal strength measurement acquisition hardware to estimate bearings. This method distinguishes itself from other pseudo-bearing approaches by eliminating the need for additional hardware to maintain simplicity, lightweightness and cost-effectiveness. To validate our approach, we derived the optimal rotation speed and conducted extensive simulations and field missions with our GyroCopter to track and localize multiple RF sources. The results confirm the effectiveness of our method, highlighting its potential as a practical and rapid solution for RF source localization tasks.",
         "published": "2024-10-16T22:57:02Z"
       },
       {
@@ -87,7 +80,6 @@
           "Donglin Sui",
           "Mohammad Deghat"
         ],
-        "abstract": "This paper considers the problem of localization and circumnavigation of an unknown stationary target by a group of autonomous agents using only local bearing measurements. We assume that no direct communication or exchange of information is permitted among the group of agents and propose an algorithm to approximate the angular separation between agents and a distributed control law that forces the agents to circumnavigate the target at a desired orbit with any prescribed angular separation. Global asymptotic stability of the system is analyzed rigorously using Lyapunov theory, cascade control strategy, and perturbation method. The performance of the proposed algorithm is verified through simulations.",
         "published": "2023-12-06T00:43:50Z"
       },
       {
@@ -100,7 +92,6 @@
           "Shiliang Guo",
           "Shiyu Zhao"
         ],
-        "abstract": "This paper addresses the multi-robot pursuit problem for an unknown target, encompassing both target state estimation and pursuit control. First, in state estimation, we focus on using only bearing information, as it is readily available from vision sensors and effective for small, distant targets. Challenges such as instability due to the nonlinearity of bearing measurements and singularities in the two-angle representation are addressed through a proposed uniform bearing-only information filter. This filter integrates multiple 3D bearing measurements, provides a concise formulation, and enhances stability and resilience to target loss caused by limited field of view (FoV). Second, in target pursuit control within complex environments, where challenges such as heterogeneity and limited FoV arise, conventional methods like differential games or Voronoi partitioning often prove inadequate. To address these limitations, we propose a novel multiagent reinforcement learning (MARL) framework, enabling multiple heterogeneous vehicles to search, localize, and follow a target while effectively handling those challenges. Third, to bridge the sim-to-real gap, we propose two key techniques: incorporating adjustable low-level control gains in training to replicate the dynamics of real-world autonomous ground vehicles (AGVs), and proposing spectral-normalized RL algorithms to enhance policy smoothness and robustness. Finally, we demonstrate the successful zero-shot transfer of the MARL controllers to AGVs, validating the effectiveness and practical feasibility of our approach. The accompanying video is available at https://youtu.be/HO7FJyZiJ3E.",
         "published": "2025-03-11T08:21:35Z"
       },
       {
@@ -113,7 +104,6 @@
           "Ben M. Chen",
           "Tong H. Lee"
         ],
-        "abstract": "This paper studies distributed formation control of multiple agents in the plane using bearing-only measurements. It is assumed that each agent only measures the local bearings of their neighbor agents. The target formation considered in this paper is a circular formation, where each agent has exactly two neighbors. In the target formation, the angle subtended at each agent by their two neighbors is specified. We propose a distributed control law that stabilizes angle-constrained target formations merely using local bearing measurements. The stability of the target formation is analyzed based on Lyapunov approaches. We present a unified proof to show that our control law not only can ensure local exponential stability but also can give local finite-time stability. The exponential or finite-time stability can be easily switched by tuning a parameter in the control law.",
         "published": "2012-10-28T06:48:54Z"
       },
       {
@@ -130,7 +120,6 @@
           "Chao Xu",
           "Yanjun Cao"
         ],
-        "abstract": "Relative localization is critical for cooperation in autonomous multi-robot systems. Existing approaches either rely on shared environmental features or inertial assumptions or suffer from non-line-of-sight degradation and outliers in complex environments. Robust and efficient fusion of inter-robot measurements such as bearings, distances, and inertials for tens of robots remains challenging. We present CREPES-X (Cooperative RElative Pose Estimation System with multiple eXtended features), a hierarchical relative localization framework that enhances speed, accuracy, and robustness under challenging conditions, without requiring any global information. CREPES-X starts with a compact hardware design: InfraRed (IR) LEDs, an IR camera, an ultra-wideband module, and an IMU housed in a cube no larger than 6cm on each side. Then CREPES-X implements a two-stage hierarchical estimator to meet different requirements, considering speed, accuracy, and robustness. First, we propose a single-frame relative estimator that provides instant relative poses for multi-robot setups through a closed-form solution and robust bearing outlier rejection. Then a multi-frame relative estimator is designed to offer accurate and robust relative states by exploring IMU pre-integration via robocentric relative kinematics with loosely- and tightly-coupled optimization. Extensive simulations and real-world experiments validate the effectiveness of CREPES-X, showing robustness to up to 90% bearing outliers, proving resilience in challenging conditions, and achieving RMSE of 0.073m and 1.817° in real-world datasets.",
         "published": "2025-12-31T07:47:24Z"
       },
       {
@@ -141,7 +130,6 @@
           "Jochen Trumpf",
           "Chris Manzie"
         ],
-        "abstract": "In this paper we propose a modular nonlinear least squares filtering approach for systems composed of independent subsystems. The state and error covariance estimate of each subsystem is updated independently, even when a relative measurement simultaneously depends on the states of multiple subsystems. We integrate the Covariance Intersection (CI) algorithm as part of our solution in order to prevent double counting of information when subsystems share estimates with each other. An alternative derivation of the CI algorithm based on least squares estimation makes this integration possible. We particularise the proposed approach to the robot-landmark localization problem. In this problem, noisy measurements of the bearing angle to a stationary landmark position measured relative to the SE(2) pose of a moving robot couple the estimation problems for the robot pose and the landmark position. In a randomized simulation study, we benchmark the proposed modular method against a monolithic joint state filter to elucidate their respective trade-offs. In this study we also include variants of the proposed method that achieve a graceful degradation of performance with reduced communication and bandwidth requirements.",
         "published": "2025-07-24T03:49:43Z"
       }
     ]
@@ -157,7 +145,6 @@
           "Daniel Karapetyan",
           "Gregory Gutin"
         ],
-        "abstract": "The Generalized Traveling Salesman Problem (GTSP) is a well-known combinatorial optimization problem with a host of applications. It is an extension of the Traveling Salesman Problem (TSP) where the set of cities is partitioned into so-called clusters, and the salesman has to visit every cluster exactly once.\n  While the GTSP is a very important combinatorial optimization problem and is well studied in many aspects, the local search algorithms used in the literature are mostly basic adaptations of simple TSP heuristics. Hence, a thorough and deep research of the neighborhoods and local search algorithms specific to the GTSP is required.\n  We formalize the procedure of adaptation of a TSP neighborhood for the GTSP and classify all other existing and some new GTSP neighborhoods. For every neighborhood, we provide efficient exploration algorithms that are often significantly faster than the ones known from the literature. Finally, we compare different local search implementations empirically.",
         "published": "2010-05-30T13:13:09Z"
       },
       {
@@ -170,7 +157,6 @@
           "Túlio A. M. Toffolo",
           "Thibaut Vidal"
         ],
-        "abstract": "Neighborhood search is a cornerstone of state-of-the-art traveling salesman and vehicle routing metaheuristics. While neighborhood exploration procedures are well developed for problems with individual services, their counterparts for one-to-one pickup-and-delivery problems have been more scarcely studied. A direct extension of classic neighborhoods is often inefficient or complex due to the necessity of jointly considering service pairs. To circumvent these issues, we introduce major improvements to existing neighborhood searches for the pickup-and-delivery traveling salesman problem and new large neighborhoods. We show that the classical Relocate-Pair neighborhood can be fully explored in $O(n^2)$ instead of $O(n^3)$ time. We adapt the 4-Opt and Balas-Simonetti neighborhoods to consider precedence constraints. Moreover, we introduce an exponential-size neighborhood called 2k-Opt, which includes all solutions generated by multiple nested 2-Opts and can be searched in $O(n^2)$ time using dynamic programming. We conduct extensive computational experiments, highlighting the significant contribution of these new neighborhoods and speed-up strategies within two classical metaheuristics. Notably, our approach permits to repeatedly solve small pickup-and-delivery problem instances to optimality or near-optimality within milliseconds, and therefore it represents a valuable tool for time-critical applications such as meal delivery or mobility on demand.",
         "published": "2021-07-12T04:18:30Z"
       },
       {
@@ -183,7 +169,6 @@
           "Heeyeon Kim",
           "Han-Lim Choi"
         ],
-        "abstract": "This paper presents a novel learning approach for Dubins Traveling Salesman Problems(DTSP) with Neighborhood (DTSPN) to quickly produce a tour of a non-holonomic vehicle passing through neighborhoods of given task points. The method involves two learning phases: initially, a model-free reinforcement learning approach leverages privileged information to distill knowledge from expert trajectories generated by the LinKernighan heuristic (LKH) algorithm. Subsequently, a supervised learning phase trains an adaptation network to solve problems independently of privileged information. Before the first learning phase, a parameter initialization technique using the demonstration data was also devised to enhance training efficiency. The proposed learning method produces a solution about 50 times faster than LKH and substantially outperforms other imitation learning and RL with demonstration schemes, most of which fail to sense all the task points.",
         "published": "2024-04-25T16:33:19Z"
       },
       {
@@ -193,7 +178,6 @@
           "Julia C. Freitas",
           "Puca Huachi V. Penna"
         ],
-        "abstract": "The efficiency and dynamism of Unmanned Aerial Vehicles (UAVs), or drones, present substantial application opportunities in several industries in the last years. Notably, the logistic companies gave close attention to these vehicles envisioning reduce delivery time and operational cost. A variant of the Traveling Salesman Problem (TSP) called Flying Sidekick Traveling Salesman Problem (FSTSP) was introduced involving drone-assisted parcel delivery. The drone is launched from the truck, proceeds to deliver parcels to a customer and then is recovered by the truck in a third location. While the drone travels through a trip, the truck delivers parcels to other customers as long as the drone has enough battery to hover waiting for the truck. This work proposes a hybrid heuristic that the initial solution is created from the optimal TSP solution reached by a TSP solver. Next, an implementation of the General Variable Neighborhood Search is used to obtain the delivery routes of truck and drone. Computational experiments show the potential of the algorithm to improve the delivery time significantly. Furthermore, we provide a new set of instances based on well-known TSPLIB instances.",
         "published": "2018-04-11T12:21:18Z"
       },
       {
@@ -202,7 +186,6 @@
         "authors": [
           "Ioana O. Bercea"
         ],
-        "abstract": "Given a set of $n$ disks of radius $R$ in the Euclidean plane, the Traveling Salesman Problem With Neighborhoods (TSPN) on uniform disks asks for the shortest tour that visits all of the disks. The problem is a generalization of the classical Traveling Salesman Problem(TSP) on points and has been widely studied in the literature. For the case of disjoint uniform disks of radius $R$, Dumitrescu and Mitchell[2001] show that the optimal TSP tour on the centers of the disks is a $3.547$-approximation to the TSPN version. The core of their analysis is based on bounding the detour that the optimal TSPN tour has to make in order to visit the centers of each disk and shows that it is at most $2Rn$ in the worst case. Häme, Hyytiä and Hakula[2011] asked whether this bound is tight when $R$ is small and conjectured that it is at most $\\sqrt{3}Rn$.\n  We further investigate this question and derive structural properties of the optimal TSPN tour to describe the cases in which the bound is smaller than $2Rn$. Specifically, we show that if the optimal TSPN tour is not a straight line, at least one of the following is guaranteed to be true: the bound is smaller than $1.999Rn$ or the $TSP$ on the centers is a $2$-approximation. The latter bound of $2$ is the best that we can get in general. Our framework is based on using the optimality of the TSPN tour to identify local structures for which the detour is large and then using their geometry to derive better lower bounds on the length of the TSPN tour. This leads to an improved approximation factor of $3.53$ for disjoint uniform disks and $6.728$ for the general case. We further show that the Häme, Hyytiä and Hakula conjecture is true for the case of three disks and discuss the method used to obtain it. Along the way, we will uncover one way in which the TSPN problem is structurally different from the classical TSP.",
         "published": "2018-09-19T13:04:36Z"
       },
       {
@@ -212,7 +195,6 @@
           "Arman Nedjatia",
           "Béla Vizvárib"
         ],
-        "abstract": "This study investigates the problem of traveling salesman problem with circular neighborhood (TSPCN). Instead of cities there are circles and each point on circle can be a potential visiting node. The problem is to find the minimum length Hamiltonian cycle connecting the circles. Among the various real life applications of the problem, this paper concentrates on robot path planning for the laser welding robot, and data collection in a wireless sensor network by unmanned aerial vehicles (UAVs). The TSPCN is formulated as a nonlinear model, the objective function is linearized, and as a solution procedure decomposed into a two-phase model. The Models are coded in Cplex and Knitro and solved for small and medium sized instances.",
         "published": "2020-03-14T22:14:39Z"
       }
     ]
