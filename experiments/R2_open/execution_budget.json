@@ -1,23 +1,23 @@
 {
   "training_runs": 0,
-  "development_runs": 5184,
-  "development_unique_cases": 1248,
+  "development_runs": 8640,
+  "development_unique_cases": 1632,
   "development_seed_range": [
     42000000,
-    42000007
+    42000067
   ],
   "frozen_rounds_started": 4,
   "completed_regression_runs": 19680,
-  "geometry_assertions": 301374,
-  "note": "All actual runs include repeated quick subset and full parents/variants; no fresh final. Per-round detail is authoritative for per-round seeds/timing.",
+  "geometry_assertions": 504272,
+  "note": "All policy executions counted, including 120-case quick subsets and R5 corrected-build rerun on identical development cases. 5 studies, 4 frozen candidates, no R5 exposed run, zero new final cases.",
   "quick_runs": 480,
   "full_runs": 9600,
   "previous_final_runs": 9600,
-  "total_policy_executions": 24864,
-  "development_wall_s": 12.186678625061177,
-  "quick_wall_s": 0.8592549579916522,
-  "full_wall_s": 16.703060875064693,
-  "previous_final_wall_s": 18.345887499977835,
+  "total_policy_executions": 28320,
+  "development_wall_s": 91.56236208498012,
+  "quick_wall_s": 3.74889079190325,
+  "full_wall_s": 71.70646425010636,
+  "previous_final_wall_s": 73.13932258298155,
   "synthetic_geometry_cases": 2000,
   "synthetic_geometry_assertions": 10000,
   "synthetic_geometry_seed": 42000999,
@@ -113,6 +113,35 @@
       "synthetic_geometry_regions": 1000,
       "synthetic_geometry_assertions": 5000,
       "synthetic_geometry_seed": 42001999
+    },
+    "R5": {
+      "training_runs": 0,
+      "development_runs": 3456,
+      "development_unique_cases": 384,
+      "development_seed_range": [
+        42000052,
+        42000067
+      ],
+      "quick_runs": 0,
+      "full_runs": 0,
+      "previous_final_runs": 0,
+      "total_policy_executions": 3456,
+      "geometry_assertions": 202898,
+      "development_wall_s": 49.045255292905495,
+      "builds": 3,
+      "graph_invariant_checks": 111,
+      "reason_no_regression": "No new variant beat parent on the registered development criterion; frozen R4 already has complete validation."
     }
-  }
+  },
+  "rounds_completed": 5,
+  "synthetic_geometry_regions_total": 3000,
+  "synthetic_geometry_assertions_total": 15000,
+  "synthetic_geometry_seeds": [
+    42000999,
+    42001999
+  ],
+  "policy_execution_wall_sum_s": 240.1570397099713,
+  "geometry_state_checks_include_repeated_development": true,
+  "finite_graph_invariant_checks": 111,
+  "cache_invalidation_checks": 1
 }
