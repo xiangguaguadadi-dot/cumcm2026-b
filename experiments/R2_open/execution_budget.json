@@ -1,19 +1,19 @@
 {
   "training_runs": 0,
-  "development_runs": 2496,
-  "development_unique_cases": 480,
+  "development_runs": 4032,
+  "development_unique_cases": 864,
   "development_seed_range": [
     42000000,
     42000007
   ],
-  "frozen_rounds_started": 2,
-  "completed_regression_runs": 9840,
-  "geometry_assertions": 147465,
+  "frozen_rounds_started": 3,
+  "completed_regression_runs": 14760,
+  "geometry_assertions": 235268,
   "note": "All actual runs include repeated quick subset and full parents/variants; no fresh final. Per-round detail is authoritative for per-round seeds/timing.",
-  "quick_runs": 240,
-  "full_runs": 4800,
-  "previous_final_runs": 4800,
-  "total_policy_executions": 12336,
+  "quick_runs": 360,
+  "full_runs": 7200,
+  "previous_final_runs": 7200,
+  "total_policy_executions": 18792,
   "development_wall_s": 12.186678625061177,
   "quick_wall_s": 0.8592549579916522,
   "full_wall_s": 16.703060875064693,
@@ -70,6 +70,26 @@
       "full_wall_s": 16.98495966696646,
       "previous_final_wall_s": 15.849283208022825,
       "startup_failure": "Nominal check initially omitted required --package argument; exited before tests, then correct call 79/79. No environment episodes from invalid CLI."
+    },
+    "R3": {
+      "training_runs": 0,
+      "development_runs": 1536,
+      "development_unique_cases": 384,
+      "development_seed_range": [
+        42000020,
+        42000035
+      ],
+      "quick_runs": 120,
+      "full_runs": 2400,
+      "previous_final_runs": 2400,
+      "total_policy_executions": 6456,
+      "geometry_assertions": 87803,
+      "rule_tests": 14,
+      "nominal_rule_checks": 79,
+      "development_wall_s": 10.928553499979898,
+      "quick_wall_s": 1.0205293339677155,
+      "full_wall_s": 18.854260458028875,
+      "previous_final_wall_s": 19.50088954193052
     }
   }
 }
