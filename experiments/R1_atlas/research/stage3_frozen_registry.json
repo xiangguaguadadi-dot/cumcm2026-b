@@ -83,6 +83,66 @@
       "retained_best": "R3_open_R2",
       "next_hypothesis": "先诊断真实测点替代未来站的连续覆盖潜力。",
       "retained_best_before_round": "R3_open_R1"
+    },
+    {
+      "id": "R2_open_R3",
+      "agent": "R2_open",
+      "round": 3,
+      "commit": "b085676",
+      "candidate": "snapshots/r3_solver.py",
+      "sha256": "da7b0d172f748453cfbd2fed6ae75bdfdc4d576dd160407f0a79ba3c1e656dfd",
+      "results": "results/r3_exposed",
+      "parents": [
+        "R2_open_R2"
+      ],
+      "title": "Q3机会补测的动作费用代理",
+      "changes": "保留真实到达点、单中心位置假说和补测预算；以三误差节点预测clear/后续测量费用代替硬半径门槛。一步可clear门槛及关闭补测开发失败。",
+      "lesson": "对R2再快0.453470秒/源；新文献启发费用代理，未实现HEC。一步完成门槛失败原因仍需状态级核验。",
+      "selection": "accepted_exposed_best",
+      "retained_best": "R2_open_R3",
+      "retained_best_before_round": "R2_open_R2",
+      "next_hypothesis": "比较父安全圆盘、A2最近投影和全顶点可靠圆弧的进入与后继路线代价。",
+      "literature_basis": {
+        "new_batch1_role": "DRD decision-cost concept inspired this experiment",
+        "new_literature_causal_adoption": true,
+        "paper_ids": [
+          "L3_DRD2014"
+        ],
+        "relationship": "inspired_by_not_code_fusion",
+        "not_adopted": [
+          "HEC hyperedge algorithm",
+          "original guarantee",
+          "DIRECt2015 received later"
+        ]
+      },
+      "next_hypothesis_evidence": "optimization_path.md R4 pre-experiment record"
+    },
+    {
+      "id": "R3_open_R3",
+      "agent": "R3_open",
+      "round": 3,
+      "commit": "b662fd8",
+      "candidate": "snapshots/r3.py",
+      "sha256": "9e9b35972bee009f37ad97cd068ff72b03be4a6448cbb8c99c4dada72865c149",
+      "results": "results/r3_exposed",
+      "parents": [
+        "R3_open_R2",
+        "A1_space_R8"
+      ],
+      "title": "Q4覆盖站和待清源的全局路径融合",
+      "changes": "移植A1完整spatial_next_task多起点2-opt及单节点重插，不设半径门槛；只融合路径调度，未采A1 route_clear_point。",
+      "lesson": "对R2再快28.369960秒/源，但两批原点簇及533局回退；固定任务路径代理改善不等于每局改进。",
+      "selection": "accepted_exposed_best",
+      "retained_best": "R3_open_R3",
+      "retained_best_before_round": "R3_open_R2",
+      "next_hypothesis": "在已选路径内独立测试可靠清除区域与后继站联动；动态覆盖先做有限轨迹诊断。",
+      "literature_basis": {
+        "new_batch1_role": "Full-view paper concerns separate dynamic-cover diagnostic; route fusion from preexisting A1",
+        "new_literature_causal_adoption": false,
+        "paper_ids": [],
+        "relationship": "prior_method_code_fusion"
+      },
+      "next_hypothesis_evidence": "optimization_path.json and researcher preregistered next-round description"
     }
   ]
 }

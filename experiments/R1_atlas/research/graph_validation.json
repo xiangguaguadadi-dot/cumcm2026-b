@@ -1,9 +1,9 @@
 {
   "passed": true,
   "historical_rounds": 48,
-  "all_registered_rounds": 52,
+  "all_registered_rounds": 54,
   "all_node_references_valid": true,
-  "source_files_sha_matched": 945,
+  "source_files_sha_matched": 951,
   "implementation_dag_acyclic": true,
   "compact_index_and_node_files_match": true,
   "retained_decision_references_match": true,
@@ -568,6 +568,16 @@
     },
     {
       "node": "R3_open_R2",
+      "candidate_current_sha_matches": true,
+      "effect_denominators_match": true
+    },
+    {
+      "node": "R2_open_R3",
+      "candidate_current_sha_matches": true,
+      "effect_denominators_match": true
+    },
+    {
+      "node": "R3_open_R3",
       "candidate_current_sha_matches": true,
       "effect_denominators_match": true
     }

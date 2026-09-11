@@ -3,8 +3,8 @@
   "research_cutoff": "2026-09-11",
   "scope": "Actionable new literature for current best Q3/Q4; no all-literature or SOTA claim",
   "skill": "automated-research-report",
-  "core_count": 3,
-  "downloaded_version_count": 4,
+  "core_count": 4,
+  "downloaded_version_count": 5,
   "core": [
     {
       "source_strength": "primary_paper_body",
@@ -15,7 +15,7 @@
       "classification_confidence": "high",
       "local_performance_claim": "No R1 policy experiment; migration hypotheses only",
       "deployment_dependency": "None; full original systems not adopted",
-      "adoption_status": "actionable_memo_shared; researcher decision pending",
+      "adoption_status": "R2_open_R3 uses decision-cost inspiration; does not implement HEC. R2 same-location clearance was independently proposed earlier.",
       "id": "L3_DRD2014",
       "title": "Near Optimal Bayesian Active Learning for Decision Making",
       "authors": [
@@ -189,7 +189,7 @@
       "classification_confidence": "high",
       "local_performance_claim": "No R1 policy experiment; migration hypotheses only",
       "deployment_dependency": "None; full original systems not adopted",
-      "adoption_status": "actionable_memo_shared; researcher decision pending",
+      "adoption_status": "R3 read p4-11 and performed limited diagnostic, currently proposes no online dynamic-cover solver; diagnostic result not yet frozen in graph.",
       "id": "L3_FULLVIEW2013",
       "title": "Achieving Full-View Coverage in Camera Sensor Networks",
       "authors": [
@@ -278,21 +278,94 @@
         "R3_open_R1"
       ],
       "causal_note": "These node links are later analytical context, not claims that earlier designs adopted this newly read paper."
-    }
-  ],
-  "extended_discovery": [
+    },
     {
-      "id": "D_SUBMOD_VOI2015",
+      "id": "L3_DIRECT2015",
       "title": "Submodular Surrogates for Value of Information",
+      "authors": [
+        "Yuxin Chen",
+        "Shervin Javdani",
+        "Amin Karbasi",
+        "J. Andrew Bagnell",
+        "Siddhartha Srinivasa",
+        "Andreas Krause"
+      ],
       "year": 2015,
-      "url": "https://doi.org/10.1609/aaai.v29i1.9694",
-      "status": "discovered_in_ASR_reference14_and_Crossref; body_not_yet_read",
+      "date": "2015-03-04",
+      "venue": "Proceedings of the Twenty-Ninth AAAI Conference on Artificial Intelligence,29(1),3511-3518",
+      "publication_status": "official_AAAI_page_and_body_verified",
+      "doi": "10.1609/aaai.v29i1.9694",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/9694",
+      "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/9694/9553",
+      "version": "8-page AAAI proceedings body",
+      "source_strength": "primary_paper_body",
+      "identity_verified": true,
+      "award_status": "not claimed",
+      "code_url": null,
+      "code_checked": false,
+      "actual_reading": {
+        "pdf_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "visual_checked_pdf_pages": [
+          4
+        ],
+        "sections": "Introduction; problem statement; ECD/DRD construction; Noisy-OR; graph coloring; noise handling; all4 experiments; conclusion",
+        "not_read": "Supplement not acquired or read; p8 references inspected only"
+      },
+      "cache": {
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R1_atlas/experiments/R1_atlas/research/cache/voi_chen2015.pdf",
+        "sha256": "354fcf5d558c404287797ffa08b0f4ce9868f3a14073cd49748d4adbe8832df0",
+        "pages": 8,
+        "bytes": 3048619,
+        "page_text_dir": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R1_atlas/experiments/R1_atlas/research/cache/voi_chen2015"
+      },
+      "problem": "Minimize paid tests until a near-maximal-utility decision can be identified, represented by overlapping decision regions.",
+      "mechanism": "Decision-region EC2 partition graphs; normalized residual edge weights combined with Noisy-OR; greedy expected gain per test cost; graph coloring reduces graph count.",
+      "innovation": "Continuous intermediate decision progress without enumerating HEC high-order hyperedges.",
+      "benchmarks": [
+        "Touch-based button-pushing localization,20,000 pose hypotheses,simulated and real-robot demonstration",
+        "MovieLens100k,12 clusters,varying overlap",
+        "EMP whooping cranes management,8 hypotheses/7 strategies/noise expansion",
+        "Six risky-choice valuation theories"
+      ],
+      "experiment_protocol": "Compares DIRECt,HEC,myopic VoI,GBS/EC2 and their DRD stopping variants; settings vary by task and are not directly B-task-time benchmarks.",
+      "results": "Body reports DIRECt broadly competitive and cheaper to compute than HEC; in short-horizon robot case myopic VoI remains comparable. Real-robot success-rate denominator not supplied in read body; video/supplement not verified.",
+      "limitations": [
+        "Fixed finite prior/test outcome model and positive per-test cost; continuous source geometry and state-dependent travel do not satisfy this model directly.",
+        "Noisy-OR of arbitrary adaptive-submodular functions is not generally adaptive submodular; lemma is for this particular construction.",
+        "Efficient special noise model is bounded binary-label flips, not automatically fixed spatial bearing noise.",
+        "No approximation factor or original runtime claim transferred to our policy."
+      ],
       "primary_path": [
         "task_time",
         "paid_information",
-        "decision_surrogates"
-      ]
-    },
+        "continuous_decision_region_edge_progress"
+      ],
+      "tags": [
+        "intermediate_information_value",
+        "overlapping_clear_actions",
+        "HEC_alternative"
+      ],
+      "classification_confidence": "high",
+      "transfer": "Small shared position hypotheses and clear candidate sets for parent-cost/multi-hypothesis-cost/DIRECt-style surrogate ablations; retain continuous P and fallback.",
+      "validation": "Record hypothesis/candidate computation budget; independent legal development, frozen quick/full/4800; no promise of beneficial completion time.",
+      "related_bottleneck_nodes": [
+        "R2_open_R3"
+      ],
+      "causal_note": "Read after R2 R3 frozen; this link is explanatory context and future experiment proposal, not an origin claim for R3.",
+      "adoption_status": "second_memo_shared_with_R2; next_round_considered_not_yet_implemented",
+      "local_performance_claim": "None by R1; cited local development rows independently recomputed separately.",
+      "deployment_dependency": "No original algorithm code adopted."
+    }
+  ],
+  "extended_discovery": [
     {
       "id": "D_ASO_PATH2015",
       "title": "Adaptive Stochastic Optimization: From Sets to Paths",
@@ -315,7 +388,7 @@
       ]
     }
   ],
-  "deduplication": "DOI/title and explicitly documented conference-to-journal relationship; Fullview2011 counted as related version, not separate family. Legacy ledger lookup found no exact titles or ids of these3 core papers.",
+  "deduplication": "DOI/title and documented version families; four core paper families,Fullview2011 related version not separately counted; DIRECt2015 promoted from prior discovery record.",
   "search_log": [
     {
       "query": "sensor coverage directional detection halfplane convex hull range mobile sensor redundant sensor coverage proof dynamic coverage",
@@ -351,6 +424,11 @@
       "query": "full view pdf Google and SemanticScholar API",
       "service": "direct requests",
       "status": "no_usable_result_not_evidence"
+    },
+    {
+      "query": "Submodular Surrogates for Value of Information",
+      "service": "web search failed; official AAAI OJS page metadata and direct PDF download succeeded",
+      "status": "official_body_read"
     }
   ],
   "sharing_memo": "research_updates/001_decision_value_and_dynamic_cover.md",
@@ -359,5 +437,9 @@
     "Read ranges are subsets, not full deep reading of all pages.",
     "No precise original approximation ratio claimed applicable to B task.",
     "New source discovery continues in response to research feedback."
+  ],
+  "sharing_memos": [
+    "research_updates/001_decision_value_and_dynamic_cover.md",
+    "research_updates/002_intermediate_decision_progress.md"
   ]
 }
