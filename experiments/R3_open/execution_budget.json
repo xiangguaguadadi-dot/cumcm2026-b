@@ -1,8 +1,8 @@
 {
   "runtime": "Python 3.12.14",
   "unbounded_iterations": true,
-  "actual_runs": 15120,
-  "unique_training_development_cases": 1152,
+  "actual_runs": 22404,
+  "unique_training_development_cases": 1728,
   "unique_exposed_cases": 4800,
   "entries": [
     {
@@ -110,6 +110,67 @@
       "unique_cases": 2400,
       "wall_seconds": 16.911728625069372,
       "v1_reuse": true
+    },
+    {
+      "round": 3,
+      "kind": "train",
+      "actual_runs": 1152,
+      "unique_cases": 288,
+      "wall_seconds": 7.83597254101187,
+      "seed_range": [
+        43004000,
+        43004011
+      ]
+    },
+    {
+      "round": 3,
+      "kind": "development",
+      "actual_runs": 1152,
+      "unique_cases": 288,
+      "wall_seconds": 8.097648708964698,
+      "seed_range": [
+        43005000,
+        43005011
+      ]
+    },
+    {
+      "round": 3,
+      "kind": "finite_parent_equivalence",
+      "actual_runs": 48,
+      "unique_cases": 24,
+      "reuses": "development"
+    },
+    {
+      "round": 3,
+      "kind": "quick",
+      "actual_runs": 120,
+      "unique_cases": 120,
+      "wall_seconds": 1.072692915913649,
+      "baseline_cached": true
+    },
+    {
+      "round": 3,
+      "kind": "full",
+      "actual_runs": 2400,
+      "unique_cases": 2400,
+      "wall_seconds": 20.01132108399179,
+      "baseline_cached": true
+    },
+    {
+      "round": 3,
+      "kind": "previous_final",
+      "actual_runs": 2400,
+      "unique_cases": 2400,
+      "wall_seconds": 21.366778458002955,
+      "v1_reuse": true
+    },
+    {
+      "round": 3,
+      "kind": "optimistic_dynamic_coverage_diagnostic_v1",
+      "actual_runs": 12,
+      "unique_cases": 12,
+      "reuses": "r3_development Q4",
+      "wall_seconds": 0.3919872500700876
     }
   ],
   "checks": {
