@@ -1,0 +1,70 @@
+{
+  "seeds": [
+    47000000,
+    47000001,
+    47000002,
+    47000003,
+    47000004,
+    47000005,
+    47000006,
+    47000007
+  ],
+  "cases": 96,
+  "candidates": {
+    "S1": {
+      "file": "../baseline/S1.py",
+      "sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e"
+    },
+    "E1_R1": {
+      "file": "snapshots/E1_R1.py",
+      "sha256": "d3112c89a555c13b589d01f4de9aa952dc3c5d89299845e4f0e2aff21d5fbe82"
+    },
+    "E2_station": {
+      "file": "snapshots/E2_station.py",
+      "sha256": "c459591b21c192fce79d6d93a9d753f21c0ef09ba8b46d8821803d1f929d904c"
+    },
+    "C1_combined": {
+      "file": "snapshots/C1_combined.py",
+      "sha256": "dc7e88a92b677e7b632c66aaf8317b85855db298d581fc12d2fd2e1cbe4582d2",
+      "settings": {
+        "e2_station_cost": true,
+        "e2_opportunity": "parent"
+      },
+      "parents": {
+        "E1_R1": "d3112c89a555c13b589d01f4de9aa952dc3c5d89299845e4f0e2aff21d5fbe82",
+        "E2_station": "c459591b21c192fce79d6d93a9d753f21c0ef09ba8b46d8821803d1f929d904c"
+      },
+      "deployment_dependencies": {}
+    },
+    "C1_gate_off": {
+      "file": "snapshots/C1_gate_off.py",
+      "sha256": "aac5f98fa74bfdc8f8d919ab0e25f9d84377db18d9e25dfb3c0890e4bf424479",
+      "settings": {
+        "e2_station_cost": false,
+        "e2_opportunity": "parent"
+      },
+      "parents": {
+        "E1_R1": "d3112c89a555c13b589d01f4de9aa952dc3c5d89299845e4f0e2aff21d5fbe82",
+        "E2_station": "c459591b21c192fce79d6d93a9d753f21c0ef09ba8b46d8821803d1f929d904c"
+      },
+      "deployment_dependencies": {}
+    },
+    "C1_route_off": {
+      "file": "snapshots/C1_route_off.py",
+      "sha256": "e832db08f22a7d4d10ff6dba11bce1b33614943186a5f08e558ed8d6a8fafadb",
+      "settings": {
+        "e2_station_cost": true,
+        "e2_opportunity": "parent",
+        "conditional_discovery": "off"
+      },
+      "parents": {
+        "E1_R1": "d3112c89a555c13b589d01f4de9aa952dc3c5d89299845e4f0e2aff21d5fbe82",
+        "E2_station": "c459591b21c192fce79d6d93a9d753f21c0ef09ba8b46d8821803d1f929d904c"
+      },
+      "deployment_dependencies": {}
+    }
+  },
+  "generator_sha256": "6da3aa3f61eae748204366129761dea4a1e131a9d2b464a6651ac5901404cfea",
+  "selection": "All normal and clear, then lower all-case mean; compare each parent.",
+  "role": "new development reused for two component-switch checks; not holdout"
+}
