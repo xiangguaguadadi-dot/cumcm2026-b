@@ -1,0 +1,118 @@
+{
+  "id": "S4_ROOT_C3_entry_station",
+  "stage": 4,
+  "direction_tags": [
+    "ROOT"
+  ],
+  "round": null,
+  "round_key": null,
+  "title": "C3_entry_station",
+  "status": "no_completed_4800_record_for_this_deployment",
+  "kind": "development_only",
+  "control_or_wiring": false,
+  "parents": [
+    {
+      "id": "S4_E1_R5",
+      "relationship": "code_or_active_component_parent",
+      "evidence_source": "s4src_65496895f012a5dc"
+    },
+    {
+      "id": "S4_E2_r1_station_only",
+      "relationship": "code_or_active_component_parent",
+      "evidence_source": "s4src_65496895f012a5dc"
+    }
+  ],
+  "design_parent": "S4_E1_R5",
+  "candidates": [
+    {
+      "name": "C3_entry_station",
+      "source": "s4src_ba6e0e8ad14a5630",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/combination/service_fusions/C3_entry_station.py",
+      "sha256": "75797a01fa5d60eeac6ed26df016b2989eb226542914e6f6d374eb7888d130f3",
+      "expected_sha256": "75797a01fa5d60eeac6ed26df016b2989eb226542914e6f6d374eb7888d130f3",
+      "matches_registered_sha256": true,
+      "deployment_config": {}
+    }
+  ],
+  "effects": [],
+  "development_effects": [
+    {
+      "batch": "development_r2",
+      "variant": "C3_entry_station",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "E2_R2",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 393.3620017974192,
+          "reported_mean_before_completeness_gate": 393.3620017974192,
+          "baseline_mean_s_per_source": 383.3730248948117,
+          "delta_s_per_source": 9.988976902607533,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_985abf226d4e01cb",
+      "raw_rows_source": "s4src_d0d32f0961edc623",
+      "actual_runs_reported": 96,
+      "record_role": "development",
+      "data_role": "exposed_development_not_holdout"
+    }
+  ],
+  "control_executions": [],
+  "result_records": [],
+  "negative_examples": [
+    {
+      "batch": "development_r2",
+      "variant": "C3_entry_station",
+      "suite": "development",
+      "mode": 4,
+      "group": "ALL",
+      "cases": 96,
+      "complete_cases": 96,
+      "error_cases": null,
+      "source_count": null,
+      "cleared_count": null,
+      "all_clear_and_normal": true,
+      "mean_s_per_source": 393.3620017974192,
+      "reported_mean_before_completeness_gate": 393.3620017974192,
+      "baseline_mean_s_per_source": 383.3730248948117,
+      "delta_s_per_source": 9.988976902607533,
+      "faster": null,
+      "equal": null,
+      "slower": null,
+      "largest_regressions": null,
+      "worst_s_per_source": null
+    }
+  ],
+  "sources": [
+    "s4src_65496895f012a5dc",
+    "s4src_ba6e0e8ad14a5630",
+    "s4src_985abf226d4e01cb",
+    "s4src_d0d32f0961edc623"
+  ],
+  "evidence_level": "saved_summary_and_live_file_identities; no policy execution or raw-metric recomputation",
+  "online_policy_implemented": true,
+  "unimplemented": false,
+  "reported_metadata": {
+    "file": "service_fusions/C3_entry_station.py",
+    "sha256": "75797a01fa5d60eeac6ed26df016b2989eb226542914e6f6d374eb7888d130f3",
+    "role": "immediate-entry route with station gate, no conditional cancellation",
+    "dependencies": {}
+  },
+  "reported_status": null,
+  "parent_mapping_basis": "Coordinator-declared active components; inactive embedded source is not counted.",
+  "parent_status": "documented"
+}

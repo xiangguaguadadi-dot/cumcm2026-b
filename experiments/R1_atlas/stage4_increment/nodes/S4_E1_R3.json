@@ -1,0 +1,288 @@
+{
+  "id": "S4_E1_R3",
+  "stage": 4,
+  "direction_tags": [
+    "E1_refine"
+  ],
+  "round": 3,
+  "round_key": "E1_refine_R3",
+  "title": "多个认证清除区域联合落点",
+  "status": "no_completed_4800_record_for_this_deployment",
+  "kind": "development_only",
+  "control_or_wiring": false,
+  "parents": [
+    {
+      "id": "S4_S1",
+      "relationship": "code_or_active_component_parent",
+      "evidence_source": "s4src_5bdc426a08e79b49"
+    },
+    {
+      "id": "JOINT_CLEAR_ROUTE_PROPOSED",
+      "relationship": "mechanism_inspiration_not_whole_code_parent",
+      "evidence_source": "s4src_5bdc426a08e79b49"
+    }
+  ],
+  "design_parent": "S4_S1",
+  "candidates": [
+    {
+      "name": "r3_fixed",
+      "source": "s4src_fc5a2acc2f27d13c",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/E1_refine/snapshots/r3_fixed.py",
+      "sha256": "9ccc239f7f2fd861a705b6487f5ca7679fd0476fb6b026d03c9752e03a7af457",
+      "expected_sha256": "9ccc239f7f2fd861a705b6487f5ca7679fd0476fb6b026d03c9752e03a7af457",
+      "matches_registered_sha256": true,
+      "deployment_config": {
+        "joint_clear_style": "fixed"
+      }
+    },
+    {
+      "name": "r3_reorder",
+      "source": "s4src_ad9ba10fc7ad6073",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/E1_refine/snapshots/r3_reorder.py",
+      "sha256": "ec764ec3a7d62fccb5d5e33557aa8ef8a79ab8819bfdf7b2eafd078f7af898f6",
+      "expected_sha256": "ec764ec3a7d62fccb5d5e33557aa8ef8a79ab8819bfdf7b2eafd078f7af898f6",
+      "matches_registered_sha256": true,
+      "deployment_config": {
+        "joint_clear_style": "reorder"
+      }
+    }
+  ],
+  "effects": [],
+  "development_effects": [
+    {
+      "batch": "r3_joint",
+      "variant": "r3_fixed",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "r3_parent",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 144,
+          "complete_cases": 144,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 236.14713863833921,
+          "reported_mean_before_completeness_gate": 236.14713863833921,
+          "baseline_mean_s_per_source": 236.1877597967124,
+          "delta_s_per_source": -0.040621158373198796,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 144,
+          "complete_cases": 144,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 475.3473596787098,
+          "reported_mean_before_completeness_gate": 475.3473596787098,
+          "baseline_mean_s_per_source": 475.51018360938434,
+          "delta_s_per_source": -0.1628239306745627,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_4b58c7b3bbcf48b2",
+      "raw_rows_source": "s4src_8623c29bb7b7a207",
+      "actual_runs_reported": 288,
+      "record_role": "development",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r3_joint",
+      "variant": "r3_reorder",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "r3_parent",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 144,
+          "complete_cases": 144,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 236.20818958223387,
+          "reported_mean_before_completeness_gate": 236.20818958223387,
+          "baseline_mean_s_per_source": 236.1877597967124,
+          "delta_s_per_source": 0.02042978552145769,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 144,
+          "complete_cases": 144,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 475.65275292990026,
+          "reported_mean_before_completeness_gate": 475.65275292990026,
+          "baseline_mean_s_per_source": 475.51018360938434,
+          "delta_s_per_source": 0.14256932051591775,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_4b58c7b3bbcf48b2",
+      "raw_rows_source": "s4src_3f7a8ea190d300b2",
+      "actual_runs_reported": 288,
+      "record_role": "development",
+      "data_role": "exposed_development_not_holdout"
+    }
+  ],
+  "control_executions": [],
+  "result_records": [
+    {
+      "data_role": "v1_quick",
+      "summary_source": "s4src_5c3ce44a130740f7",
+      "raw_rows_source": "s4src_c1fae4ddc13b230e",
+      "candidate_identity": {
+        "name": "r3_fixed",
+        "source": "s4src_fc5a2acc2f27d13c",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/E1_refine/snapshots/r3_fixed.py",
+        "sha256": "9ccc239f7f2fd861a705b6487f5ca7679fd0476fb6b026d03c9752e03a7af457",
+        "expected_sha256": "9ccc239f7f2fd861a705b6487f5ca7679fd0476fb6b026d03c9752e03a7af457",
+        "matches_registered_sha256": true,
+        "deployment_config": {
+          "joint_clear_style": "fixed"
+        }
+      },
+      "dependencies": [],
+      "current_deployment_identity_matches": true,
+      "recorded_candidate_path": null,
+      "saved_all_complete": true,
+      "compared_cases_reported": 120,
+      "actual_new_runs_reported": 120,
+      "v1_reused": null,
+      "recorded_complete_4800": false,
+      "effects": [],
+      "comparison_baseline": "historical_v1_baseline_not_S1"
+    },
+    {
+      "data_role": "v1_quick",
+      "summary_source": "s4src_70955166bfefa726",
+      "raw_rows_source": "s4src_2e726c5940a147a5",
+      "candidate_identity": {
+        "name": "r3_reorder",
+        "source": "s4src_ad9ba10fc7ad6073",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/E1_refine/snapshots/r3_reorder.py",
+        "sha256": "ec764ec3a7d62fccb5d5e33557aa8ef8a79ab8819bfdf7b2eafd078f7af898f6",
+        "expected_sha256": "ec764ec3a7d62fccb5d5e33557aa8ef8a79ab8819bfdf7b2eafd078f7af898f6",
+        "matches_registered_sha256": true,
+        "deployment_config": {
+          "joint_clear_style": "reorder"
+        }
+      },
+      "dependencies": [],
+      "current_deployment_identity_matches": true,
+      "recorded_candidate_path": null,
+      "saved_all_complete": true,
+      "compared_cases_reported": 120,
+      "actual_new_runs_reported": 120,
+      "v1_reused": null,
+      "recorded_complete_4800": false,
+      "effects": [],
+      "comparison_baseline": "historical_v1_baseline_not_S1"
+    }
+  ],
+  "negative_examples": [
+    {
+      "batch": "r3_joint",
+      "variant": "r3_reorder",
+      "suite": "development",
+      "mode": 3,
+      "group": "ALL",
+      "cases": 144,
+      "complete_cases": 144,
+      "error_cases": null,
+      "source_count": null,
+      "cleared_count": null,
+      "all_clear_and_normal": true,
+      "mean_s_per_source": 236.20818958223387,
+      "reported_mean_before_completeness_gate": 236.20818958223387,
+      "baseline_mean_s_per_source": 236.1877597967124,
+      "delta_s_per_source": 0.02042978552145769,
+      "faster": null,
+      "equal": null,
+      "slower": null,
+      "largest_regressions": null,
+      "worst_s_per_source": null
+    },
+    {
+      "batch": "r3_joint",
+      "variant": "r3_reorder",
+      "suite": "development",
+      "mode": 4,
+      "group": "ALL",
+      "cases": 144,
+      "complete_cases": 144,
+      "error_cases": null,
+      "source_count": null,
+      "cleared_count": null,
+      "all_clear_and_normal": true,
+      "mean_s_per_source": 475.65275292990026,
+      "reported_mean_before_completeness_gate": 475.65275292990026,
+      "baseline_mean_s_per_source": 475.51018360938434,
+      "delta_s_per_source": 0.14256932051591775,
+      "faster": null,
+      "equal": null,
+      "slower": null,
+      "largest_regressions": null,
+      "worst_s_per_source": null
+    }
+  ],
+  "sources": [
+    "s4src_5bdc426a08e79b49",
+    "s4src_fc5a2acc2f27d13c",
+    "s4src_e457a09dbd737116",
+    "s4src_ad9ba10fc7ad6073",
+    "s4src_4b58c7b3bbcf48b2",
+    "s4src_8623c29bb7b7a207",
+    "s4src_3f7a8ea190d300b2",
+    "s4src_5c3ce44a130740f7",
+    "s4src_c1fae4ddc13b230e",
+    "s4src_70955166bfefa726",
+    "s4src_2e726c5940a147a5"
+  ],
+  "evidence_level": "saved_summary_and_live_file_identities; no policy execution or raw-metric recomputation",
+  "online_policy_implemented": true,
+  "unimplemented": false,
+  "reported_metadata": {
+    "id": "E1_R3",
+    "parent": "JOINT_CLEAR_ROUTE_PROPOSED",
+    "mechanism": "多个认证清除区域联合落点",
+    "implementation": "固定顺序交替优化各20m可清圆交集中的服务点；另比较6条原顺序分别优化后择优。",
+    "results": null,
+    "status": "固定序两题开发仅快0.040621/0.162824；择序反而慢0.020430/0.142569。24重放显示平均每次路由认证区仅0.79/0.29个，未追加full。"
+  },
+  "reported_status": "固定序两题开发仅快0.040621/0.162824；择序反而慢0.020430/0.142569。24重放显示平均每次路由认证区仅0.79/0.29个，未追加full。",
+  "parent_status": "documented"
+}

@@ -1,0 +1,88 @@
+{
+  "id": "S4_ROOT_E2_station",
+  "stage": 4,
+  "direction_tags": [
+    "ROOT"
+  ],
+  "round": null,
+  "round_key": null,
+  "title": "E2_station",
+  "status": "not_counted_as_new_research_round",
+  "kind": "control_or_wiring",
+  "control_or_wiring": true,
+  "parents": [
+    {
+      "id": "S4_E2_r1_station_only",
+      "relationship": "byte_identical_replay_or_wiring_control",
+      "evidence_source": "s4src_0c528cb1a1ad8651"
+    }
+  ],
+  "design_parent": null,
+  "candidates": [
+    {
+      "name": "E2_station",
+      "source": "s4src_64938bd4f4e71aa2",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/combination/snapshots/E2_station.py",
+      "sha256": "c459591b21c192fce79d6d93a9d753f21c0ef09ba8b46d8821803d1f929d904c",
+      "expected_sha256": "c459591b21c192fce79d6d93a9d753f21c0ef09ba8b46d8821803d1f929d904c",
+      "matches_registered_sha256": true,
+      "deployment_config": {}
+    }
+  ],
+  "effects": [],
+  "development_effects": [],
+  "control_executions": [
+    {
+      "batch": "development_r1",
+      "variant": "E2_station",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "S1",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": 1148,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 516.5509973555655,
+          "reported_mean_before_completeness_gate": 516.5509973555655,
+          "baseline_mean_s_per_source": 523.0739499442544,
+          "delta_s_per_source": -6.522952588688895,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_2d2d433e7c75d232",
+      "raw_rows_source": "s4src_1a3c310e6c63d050",
+      "actual_runs_reported": 96,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    }
+  ],
+  "result_records": [],
+  "negative_examples": [],
+  "sources": [
+    "s4src_0c528cb1a1ad8651",
+    "s4src_64938bd4f4e71aa2",
+    "s4src_2d2d433e7c75d232",
+    "s4src_1a3c310e6c63d050"
+  ],
+  "evidence_level": "saved_summary_and_live_file_identities; no policy execution or raw-metric recomputation",
+  "online_policy_implemented": true,
+  "unimplemented": false,
+  "reported_metadata": {
+    "file": "snapshots/E2_station.py",
+    "sha256": "c459591b21c192fce79d6d93a9d753f21c0ef09ba8b46d8821803d1f929d904c"
+  },
+  "reported_status": null,
+  "alias_of": "S4_E2_r1_station_only",
+  "parent_status": "documented"
+}

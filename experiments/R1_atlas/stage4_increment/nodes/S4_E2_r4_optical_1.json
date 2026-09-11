@@ -1,0 +1,754 @@
+{
+  "id": "S4_E2_r4_optical_1",
+  "stage": 4,
+  "direction_tags": [
+    "E2_refine"
+  ],
+  "round": 4,
+  "round_key": "E2_refine_R4",
+  "title": "r4_optical_1",
+  "status": "no_completed_4800_record_for_this_deployment",
+  "kind": "development_only",
+  "control_or_wiring": false,
+  "parents": [
+    {
+      "id": "S4_E2_r2_one_round",
+      "relationship": "code_or_active_component_parent",
+      "evidence_source": "s4src_1c24ace04812748a"
+    }
+  ],
+  "design_parent": "S4_E2_r2_one_round",
+  "candidates": [
+    {
+      "name": "r4_optical_1",
+      "source": "s4src_542188980f71e9b3",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/E2_refine/snapshots/r4_optical_1.py",
+      "sha256": "5d5d083541aa0153ee8e72e9b46f3b79470032ca9cd4dd697b4bc7d486d90881",
+      "expected_sha256": "5d5d083541aa0153ee8e72e9b46f3b79470032ca9cd4dd697b4bc7d486d90881",
+      "matches_registered_sha256": true,
+      "deployment_config": {
+        "e2_optical_quota": 1
+      }
+    },
+    {
+      "name": "r4_optical_1",
+      "source": "s4src_542188980f71e9b3",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/E2_refine/snapshots/r4_optical_1.py",
+      "sha256": "5d5d083541aa0153ee8e72e9b46f3b79470032ca9cd4dd697b4bc7d486d90881",
+      "expected_sha256": "5d5d083541aa0153ee8e72e9b46f3b79470032ca9cd4dd697b4bc7d486d90881",
+      "matches_registered_sha256": true,
+      "deployment_config": {}
+    }
+  ],
+  "effects": [],
+  "development_effects": [
+    {
+      "batch": "r4_development",
+      "variant": "r4_optical_1",
+      "config": {},
+      "candidate_identity": {
+        "name": "r4_optical_1",
+        "source": "s4src_542188980f71e9b3",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/E2_refine/snapshots/r4_optical_1.py",
+        "sha256": "5d5d083541aa0153ee8e72e9b46f3b79470032ca9cd4dd697b4bc7d486d90881",
+        "expected_sha256": "5d5d083541aa0153ee8e72e9b46f3b79470032ca9cd4dd697b4bc7d486d90881",
+        "matches_registered_sha256": true,
+        "deployment_config": {}
+      },
+      "comparison_reference": "S1",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 451.12191586231125,
+          "reported_mean_before_completeness_gate": 451.12191586231125,
+          "baseline_mean_s_per_source": 465.0141567902983,
+          "delta_s_per_source": -13.892240927987018,
+          "faster": 83,
+          "equal": 1,
+          "slower": 12,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000349",
+              "delta_s_per_source": 125.42992625000002
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000352",
+              "delta_s_per_source": 48.92432375
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000376",
+              "delta_s_per_source": 19.04011175000005
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000338",
+              "delta_s_per_source": 13.514494272727234
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000370",
+              "delta_s_per_source": 12.997897999999964
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 462.7032542706845,
+          "reported_mean_before_completeness_gate": 462.7032542706845,
+          "baseline_mean_s_per_source": 487.1253076721726,
+          "delta_s_per_source": -24.422053401488085,
+          "faster": 7,
+          "equal": 0,
+          "slower": 1,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000333",
+              "delta_s_per_source": 5.712771500000031
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000330",
+              "delta_s_per_source": -4.51789389999999
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000329",
+              "delta_s_per_source": -12.945433799999932
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000328",
+              "delta_s_per_source": -13.41764999999998
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000331",
+              "delta_s_per_source": -30.23132135714286
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 465.7553229572261,
+          "reported_mean_before_completeness_gate": 465.7553229572261,
+          "baseline_mean_s_per_source": 477.95116848607177,
+          "delta_s_per_source": -12.195845528845666,
+          "faster": 7,
+          "equal": 0,
+          "slower": 1,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000323",
+              "delta_s_per_source": 8.472341857142908
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000321",
+              "delta_s_per_source": -0.05558710000013889
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000322",
+              "delta_s_per_source": -6.9466510624999955
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000325",
+              "delta_s_per_source": -9.357352769230715
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000320",
+              "delta_s_per_source": -13.194329666666647
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 457.189924825717,
+          "reported_mean_before_completeness_gate": 457.189924825717,
+          "baseline_mean_s_per_source": 463.3009965995874,
+          "delta_s_per_source": -6.111071773870378,
+          "faster": 7,
+          "equal": 0,
+          "slower": 1,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000338",
+              "delta_s_per_source": 13.514494272727234
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000343",
+              "delta_s_per_source": -4.2394260625000015
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000339",
+              "delta_s_per_source": -4.6913129374999585
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000341",
+              "delta_s_per_source": -5.477007099999923
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000337",
+              "delta_s_per_source": -9.30661619999995
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 585.69164485,
+          "reported_mean_before_completeness_gate": 585.69164485,
+          "baseline_mean_s_per_source": 606.6022794,
+          "delta_s_per_source": -20.910634550000054,
+          "faster": 7,
+          "equal": 0,
+          "slower": 1,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000370",
+              "delta_s_per_source": 12.997897999999964
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000368",
+              "delta_s_per_source": -1.216980700000022
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000373",
+              "delta_s_per_source": -10.702847299999917
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000374",
+              "delta_s_per_source": -14.951112500000022
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000372",
+              "delta_s_per_source": -19.901574299999993
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 314.263548875,
+          "reported_mean_before_completeness_gate": 314.263548875,
+          "baseline_mean_s_per_source": 333.4315121328125,
+          "delta_s_per_source": -19.16796325781246,
+          "faster": 6,
+          "equal": 0,
+          "slower": 2,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000376",
+              "delta_s_per_source": 19.04011175000005
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000383",
+              "delta_s_per_source": 5.000217374999977
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000382",
+              "delta_s_per_source": -0.03443006250000735
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000378",
+              "delta_s_per_source": -8.14642968749996
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000381",
+              "delta_s_per_source": -19.94496799999996
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 479.86134956475246,
+          "reported_mean_before_completeness_gate": 479.86134956475246,
+          "baseline_mean_s_per_source": 495.1292671047281,
+          "delta_s_per_source": -15.267917539975656,
+          "faster": 6,
+          "equal": 0,
+          "slower": 2,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000306",
+              "delta_s_per_source": 7.479770066666617
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000305",
+              "delta_s_per_source": 7.425663374999999
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000308",
+              "delta_s_per_source": -0.2872147857142977
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000307",
+              "delta_s_per_source": -11.145409363636418
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000309",
+              "delta_s_per_source": -12.331926909090953
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 444.12601331297816,
+          "reported_mean_before_completeness_gate": 444.12601331297816,
+          "baseline_mean_s_per_source": 470.0681161209889,
+          "delta_s_per_source": -25.94210280801076,
+          "faster": 8,
+          "equal": 0,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000296",
+              "delta_s_per_source": -6.55384715384622
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000297",
+              "delta_s_per_source": -16.478171181818198
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000303",
+              "delta_s_per_source": -16.678799749999996
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000299",
+              "delta_s_per_source": -18.23587130769232
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000300",
+              "delta_s_per_source": -23.060016153846163
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 472.8647795053504,
+          "reported_mean_before_completeness_gate": 472.8647795053504,
+          "baseline_mean_s_per_source": 483.77647447826706,
+          "delta_s_per_source": -10.911694972916678,
+          "faster": 7,
+          "equal": 0,
+          "slower": 1,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000364",
+              "delta_s_per_source": 1.2225713125000084
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000366",
+              "delta_s_per_source": -4.839991666666663
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000363",
+              "delta_s_per_source": -7.270823562500027
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000367",
+              "delta_s_per_source": -8.343011636363599
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000360",
+              "delta_s_per_source": -12.407174300000065
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 406.65511102731796,
+          "reported_mean_before_completeness_gate": 406.65511102731796,
+          "baseline_mean_s_per_source": 400.90977190962684,
+          "delta_s_per_source": 5.745339117691117,
+          "faster": 7,
+          "equal": 0,
+          "slower": 1,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000349",
+              "delta_s_per_source": 125.42992625000002
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000346",
+              "delta_s_per_source": -2.138780461538431
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000348",
+              "delta_s_per_source": -3.614287733333356
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000350",
+              "delta_s_per_source": -4.621445062500015
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000344",
+              "delta_s_per_source": -7.7625696153846775
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 376.7327124649283,
+          "reported_mean_before_completeness_gate": 376.7327124649283,
+          "baseline_mean_s_per_source": 371.78579203503114,
+          "delta_s_per_source": 4.946920429897148,
+          "faster": 6,
+          "equal": 1,
+          "slower": 1,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000352",
+              "delta_s_per_source": 48.92432375
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000356",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000354",
+              "delta_s_per_source": -0.00044707142853894766
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000357",
+              "delta_s_per_source": -0.004451833333348532
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000355",
+              "delta_s_per_source": -0.026372545454535157
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 480.8955553065102,
+          "reported_mean_before_completeness_gate": 480.8955553065102,
+          "baseline_mean_s_per_source": 507.6708709706731,
+          "delta_s_per_source": -26.775315664162918,
+          "faster": 8,
+          "equal": 0,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000292",
+              "delta_s_per_source": -9.40416184615384
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000290",
+              "delta_s_per_source": -10.438179846153844
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000294",
+              "delta_s_per_source": -14.682920428571435
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000293",
+              "delta_s_per_source": -19.667837916666656
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000295",
+              "delta_s_per_source": -22.187395666666646
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 466.72377338727006,
+          "reported_mean_before_completeness_gate": 466.72377338727006,
+          "baseline_mean_s_per_source": 482.4183245736201,
+          "delta_s_per_source": -15.694551186350054,
+          "faster": 7,
+          "equal": 0,
+          "slower": 1,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000318",
+              "delta_s_per_source": 11.340694416666622
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000313",
+              "delta_s_per_source": -2.4325360000000273
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000316",
+              "delta_s_per_source": -12.069770285714299
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000312",
+              "delta_s_per_source": -14.4791668571429
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000317",
+              "delta_s_per_source": -15.237586071428552
+            }
+          ],
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_d29a3072d4b66860",
+      "raw_rows_source": "s4src_3b742f380811bbf9",
+      "actual_runs_reported": 96,
+      "record_role": "development",
+      "data_role": "exposed_development_not_holdout"
+    }
+  ],
+  "control_executions": [],
+  "result_records": [
+    {
+      "data_role": "v1_quick",
+      "summary_source": "s4src_14a3c6db02b18b3c",
+      "raw_rows_source": "s4src_b670bff6ff1b744f",
+      "candidate_identity": {
+        "name": "r4_optical_1",
+        "source": "s4src_542188980f71e9b3",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/E2_refine/snapshots/r4_optical_1.py",
+        "sha256": "5d5d083541aa0153ee8e72e9b46f3b79470032ca9cd4dd697b4bc7d486d90881",
+        "expected_sha256": "5d5d083541aa0153ee8e72e9b46f3b79470032ca9cd4dd697b4bc7d486d90881",
+        "matches_registered_sha256": true,
+        "deployment_config": {
+          "e2_optical_quota": 1
+        }
+      },
+      "dependencies": [],
+      "current_deployment_identity_matches": true,
+      "recorded_candidate_path": null,
+      "saved_all_complete": true,
+      "compared_cases_reported": 120,
+      "actual_new_runs_reported": 120,
+      "v1_reused": null,
+      "recorded_complete_4800": false,
+      "effects": [],
+      "comparison_baseline": "historical_v1_baseline_not_S1"
+    }
+  ],
+  "negative_examples": [
+    {
+      "batch": "r4_development",
+      "variant": "r4_optical_1",
+      "suite": "development",
+      "mode": 4,
+      "group": "offcenter_cluster",
+      "cases": 8,
+      "complete_cases": 8,
+      "error_cases": null,
+      "source_count": null,
+      "cleared_count": null,
+      "all_clear_and_normal": true,
+      "mean_s_per_source": 406.65511102731796,
+      "reported_mean_before_completeness_gate": 406.65511102731796,
+      "baseline_mean_s_per_source": 400.90977190962684,
+      "delta_s_per_source": 5.745339117691117,
+      "faster": 7,
+      "equal": 0,
+      "slower": 1,
+      "largest_regressions": [
+        {
+          "case_id": "E2-dev-q4-offcenter_cluster-45000349",
+          "delta_s_per_source": 125.42992625000002
+        },
+        {
+          "case_id": "E2-dev-q4-offcenter_cluster-45000346",
+          "delta_s_per_source": -2.138780461538431
+        },
+        {
+          "case_id": "E2-dev-q4-offcenter_cluster-45000348",
+          "delta_s_per_source": -3.614287733333356
+        },
+        {
+          "case_id": "E2-dev-q4-offcenter_cluster-45000350",
+          "delta_s_per_source": -4.621445062500015
+        },
+        {
+          "case_id": "E2-dev-q4-offcenter_cluster-45000344",
+          "delta_s_per_source": -7.7625696153846775
+        }
+      ],
+      "worst_s_per_source": null
+    },
+    {
+      "batch": "r4_development",
+      "variant": "r4_optical_1",
+      "suite": "development",
+      "mode": 4,
+      "group": "origin_cluster",
+      "cases": 8,
+      "complete_cases": 8,
+      "error_cases": null,
+      "source_count": null,
+      "cleared_count": null,
+      "all_clear_and_normal": true,
+      "mean_s_per_source": 376.7327124649283,
+      "reported_mean_before_completeness_gate": 376.7327124649283,
+      "baseline_mean_s_per_source": 371.78579203503114,
+      "delta_s_per_source": 4.946920429897148,
+      "faster": 6,
+      "equal": 1,
+      "slower": 1,
+      "largest_regressions": [
+        {
+          "case_id": "E2-dev-q4-origin_cluster-45000352",
+          "delta_s_per_source": 48.92432375
+        },
+        {
+          "case_id": "E2-dev-q4-origin_cluster-45000356",
+          "delta_s_per_source": 0.0
+        },
+        {
+          "case_id": "E2-dev-q4-origin_cluster-45000354",
+          "delta_s_per_source": -0.00044707142853894766
+        },
+        {
+          "case_id": "E2-dev-q4-origin_cluster-45000357",
+          "delta_s_per_source": -0.004451833333348532
+        },
+        {
+          "case_id": "E2-dev-q4-origin_cluster-45000355",
+          "delta_s_per_source": -0.026372545454535157
+        }
+      ],
+      "worst_s_per_source": null
+    }
+  ],
+  "sources": [
+    "s4src_1c24ace04812748a",
+    "s4src_542188980f71e9b3",
+    "s4src_7a650bb65648f644",
+    "s4src_d29a3072d4b66860",
+    "s4src_3b742f380811bbf9",
+    "s4src_14a3c6db02b18b3c",
+    "s4src_b670bff6ff1b744f"
+  ],
+  "evidence_level": "saved_summary_and_live_file_identities; no policy execution or raw-metric recomputation",
+  "online_policy_implemented": true,
+  "unimplemented": false,
+  "reported_metadata": {
+    "id": "r4_optical_1",
+    "parent": "r2_one_round",
+    "status": "bounded_development_only_tiny_gain",
+    "candidate": "experiments/E2_refine/snapshots/r4_optical_1.py",
+    "sha256": "5d5d083541aa0153ee8e72e9b46f3b79470032ca9cd4dd697b4bc7d486d90881",
+    "config": {
+      "e2_optical_quota": 1
+    },
+    "evidence": [
+      "experiments/E2_refine/results/r4_optical_1_quick"
+    ]
+  },
+  "reported_status": "bounded_development_only_tiny_gain",
+  "candidate_provenance": {
+    "candidate": "experiments/E2_refine/snapshots/r4_optical_1.py",
+    "sha256": "5d5d083541aa0153ee8e72e9b46f3b79470032ca9cd4dd697b4bc7d486d90881",
+    "parent_sha256": "7f486891b0255054cb05dcf749ecd7b1ecbfec49b1834670a0c3b466c18d8fd6",
+    "q4_config": {
+      "e2_optical_quota": 1
+    },
+    "deployment_dependencies": {}
+  },
+  "parent_status": "documented"
+}

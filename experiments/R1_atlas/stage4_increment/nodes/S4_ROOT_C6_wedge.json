@@ -1,0 +1,104 @@
+{
+  "id": "S4_ROOT_C6_wedge",
+  "stage": 4,
+  "direction_tags": [
+    "ROOT"
+  ],
+  "round": null,
+  "round_key": null,
+  "title": "C6_wedge",
+  "status": "no_completed_4800_record_for_this_deployment",
+  "kind": "development_only",
+  "control_or_wiring": false,
+  "parents": [
+    {
+      "id": "S4_ROOT_C2_conditional_round",
+      "relationship": "code_or_active_component_parent",
+      "evidence_source": "s4src_fbc4a7eea381bdd4"
+    },
+    {
+      "id": "S4_E3_R3",
+      "relationship": "code_or_active_component_parent",
+      "evidence_source": "s4src_fbc4a7eea381bdd4"
+    }
+  ],
+  "design_parent": "S4_ROOT_C2_conditional_round",
+  "candidates": [
+    {
+      "name": "C6_wedge",
+      "source": "s4src_1290ef4a823d0323",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/combination/geometry_fusions/C6_wedge.py",
+      "sha256": "03600ce049b35a856ede4a25fee8f367ba178776ce8805f780b94a47f6d01526",
+      "expected_sha256": "03600ce049b35a856ede4a25fee8f367ba178776ce8805f780b94a47f6d01526",
+      "matches_registered_sha256": true,
+      "deployment_config": {
+        "e2_failure_hull": false,
+        "e2_failure_cells": false,
+        "convex_no_signal": true
+      }
+    }
+  ],
+  "effects": [],
+  "development_effects": [
+    {
+      "batch": "development_r3",
+      "variant": "C6_wedge",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "C2",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 400.75760914274554,
+          "reported_mean_before_completeness_gate": 400.75760914274554,
+          "baseline_mean_s_per_source": 401.1380771384611,
+          "delta_s_per_source": -0.38046799571554857,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_61a1b027ded675da",
+      "raw_rows_source": "s4src_42f7c6cc9f9d6a8b",
+      "actual_runs_reported": 96,
+      "record_role": "development",
+      "data_role": "exposed_development_not_holdout"
+    }
+  ],
+  "control_executions": [],
+  "result_records": [],
+  "negative_examples": [],
+  "sources": [
+    "s4src_fbc4a7eea381bdd4",
+    "s4src_1290ef4a823d0323",
+    "s4src_61a1b027ded675da",
+    "s4src_42f7c6cc9f9d6a8b"
+  ],
+  "evidence_level": "saved_summary_and_live_file_identities; no policy execution or raw-metric recomputation",
+  "online_policy_implemented": true,
+  "unimplemented": false,
+  "reported_metadata": {
+    "file": "geometry_fusions/C6_wedge.py",
+    "sha256": "03600ce049b35a856ede4a25fee8f367ba178776ce8805f780b94a47f6d01526",
+    "config": {
+      "e2_failure_hull": false,
+      "e2_failure_cells": false,
+      "convex_no_signal": true
+    },
+    "role": "new conservative exclusion combination",
+    "dependencies": {}
+  },
+  "reported_status": null,
+  "parent_mapping_basis": "Coordinator-declared active components; inactive embedded source is not counted.",
+  "parent_status": "documented"
+}

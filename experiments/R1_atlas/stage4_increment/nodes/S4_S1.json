@@ -1,0 +1,4573 @@
+{
+  "id": "S4_S1",
+  "stage": 4,
+  "direction_tags": [
+    "background"
+  ],
+  "round": null,
+  "round_key": null,
+  "title": "第四阶段固定S1：Q3 R2R4 / Q4 R3R5",
+  "status": "previously_executed_control_reused",
+  "kind": "background",
+  "control_or_wiring": false,
+  "parents": [
+    {
+      "id": "R2_open_R4",
+      "relationship": "mode_3_dispatch_component",
+      "evidence_source": "s4src_ef9d74a5da36689d"
+    },
+    {
+      "id": "R3_open_R5",
+      "relationship": "mode_4_dispatch_component",
+      "evidence_source": "s4src_ef9d74a5da36689d"
+    }
+  ],
+  "design_parent": null,
+  "candidates": [
+    {
+      "name": "S1",
+      "source": "s4src_fbd180d623eb2e5e",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/baseline/S1.py",
+      "sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+      "expected_sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+      "matches_registered_sha256": true,
+      "deployment_config": {}
+    },
+    {
+      "name": "R2_open_R4",
+      "source": "s4src_ee82fbce62e444d5",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/baseline/R2_open_R4.py",
+      "sha256": "d0bda0a51470eda3bd5f713be1552a004c7a73b8debcb333c323afd06d4c68f3",
+      "expected_sha256": "d0bda0a51470eda3bd5f713be1552a004c7a73b8debcb333c323afd06d4c68f3",
+      "matches_registered_sha256": true,
+      "deployment_config": {}
+    },
+    {
+      "name": "R3_open_R5",
+      "source": "s4src_eef0030c86ff405d",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/baseline/R3_open_R5.py",
+      "sha256": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf",
+      "expected_sha256": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf",
+      "matches_registered_sha256": true,
+      "deployment_config": {}
+    }
+  ],
+  "effects": [],
+  "development_effects": [],
+  "control_executions": [
+    {
+      "batch": "r1_screen",
+      "variant": "r1_parent",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "r1_parent",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 144,
+          "complete_cases": 144,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 490.71101710292237,
+          "reported_mean_before_completeness_gate": 490.71101710292237,
+          "baseline_mean_s_per_source": 490.71101710292237,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_2d0e082bd2afc173",
+      "raw_rows_source": "s4src_610cb749bfe93a5b",
+      "actual_runs_reported": 144,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r2_closure",
+      "variant": "r1_parent",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "r1_parent",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 288,
+          "complete_cases": 288,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 465.69159319788105,
+          "reported_mean_before_completeness_gate": 465.69159319788105,
+          "baseline_mean_s_per_source": 465.69159319788105,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_417e6fa703e977f8",
+      "raw_rows_source": "s4src_06f6554afd04b230",
+      "actual_runs_reported": 288,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r3_joint",
+      "variant": "r3_parent",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "r3_parent",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 144,
+          "complete_cases": 144,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 236.1877597967124,
+          "reported_mean_before_completeness_gate": 236.1877597967124,
+          "baseline_mean_s_per_source": 236.1877597967124,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 144,
+          "complete_cases": 144,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 475.51018360938434,
+          "reported_mean_before_completeness_gate": 475.51018360938434,
+          "baseline_mean_s_per_source": 475.51018360938434,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_4b58c7b3bbcf48b2",
+      "raw_rows_source": "s4src_0fa3fc4210969359",
+      "actual_runs_reported": 288,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r4_service_blocks",
+      "variant": "r3_parent",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "r3_parent",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 192,
+          "complete_cases": 192,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 240.57361178239748,
+          "reported_mean_before_completeness_gate": 240.57361178239748,
+          "baseline_mean_s_per_source": 240.57361178239748,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 192,
+          "complete_cases": 192,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 474.3741131505523,
+          "reported_mean_before_completeness_gate": 474.3741131505523,
+          "baseline_mean_s_per_source": 474.3741131505523,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_08c32e75758876c6",
+      "raw_rows_source": "s4src_149b0b2d5ae1d1e1",
+      "actual_runs_reported": 384,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r5_immediate_block",
+      "variant": "r3_parent",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "r3_parent",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 192,
+          "complete_cases": 192,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 235.20955755839435,
+          "reported_mean_before_completeness_gate": 235.20955755839435,
+          "baseline_mean_s_per_source": 235.20955755839435,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 192,
+          "complete_cases": 192,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 474.16732523931955,
+          "reported_mean_before_completeness_gate": 474.16732523931955,
+          "baseline_mean_s_per_source": 474.16732523931955,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_c2147a1a98d72fe8",
+      "raw_rows_source": "s4src_a5c7a2021a43cbfb",
+      "actual_runs_reported": 384,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r1_ablation",
+      "variant": "S1",
+      "config": {},
+      "candidate_identity": {
+        "name": "S1",
+        "source": "s4src_fbd180d623eb2e5e",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/baseline/S1.py",
+        "sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "expected_sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "matches_registered_sha256": true,
+        "deployment_config": {}
+      },
+      "comparison_reference": "S1",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 465.13698131690296,
+          "reported_mean_before_completeness_gate": 465.13698131690296,
+          "baseline_mean_s_per_source": 465.13698131690296,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 96,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000000",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000001",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000002",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000003",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000004",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 446.3707414464598,
+          "reported_mean_before_completeness_gate": 446.3707414464598,
+          "baseline_mean_s_per_source": 446.3707414464598,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000040",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000041",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000042",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000043",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000044",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 443.0403243870192,
+          "reported_mean_before_completeness_gate": 443.0403243870192,
+          "baseline_mean_s_per_source": 443.0403243870192,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000032",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000033",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000034",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000035",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000036",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 465.81580102964745,
+          "reported_mean_before_completeness_gate": 465.81580102964745,
+          "baseline_mean_s_per_source": 465.81580102964745,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000048",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000049",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000050",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000051",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000052",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 624.9388678125,
+          "reported_mean_before_completeness_gate": 624.9388678125,
+          "baseline_mean_s_per_source": 624.9388678125,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000080",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000081",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000082",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000083",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000084",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 345.2198968984375,
+          "reported_mean_before_completeness_gate": 345.2198968984375,
+          "baseline_mean_s_per_source": 345.2198968984375,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000088",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000089",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000090",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000091",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000092",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 529.9449870972938,
+          "reported_mean_before_completeness_gate": 529.9449870972938,
+          "baseline_mean_s_per_source": 529.9449870972938,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000016",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000017",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000018",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000019",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000020",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 486.70201329477135,
+          "reported_mean_before_completeness_gate": 486.70201329477135,
+          "baseline_mean_s_per_source": 486.70201329477135,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000008",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000009",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000010",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000011",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000012",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 457.61463452369503,
+          "reported_mean_before_completeness_gate": 457.61463452369503,
+          "baseline_mean_s_per_source": 457.61463452369503,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000072",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000073",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000074",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000075",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000076",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 419.45832390858357,
+          "reported_mean_before_completeness_gate": 419.45832390858357,
+          "baseline_mean_s_per_source": 419.45832390858357,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000056",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000057",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000058",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000059",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000060",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 364.752293147195,
+          "reported_mean_before_completeness_gate": 364.752293147195,
+          "baseline_mean_s_per_source": 364.752293147195,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000064",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000065",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000066",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000067",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000068",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 500.97650224751084,
+          "reported_mean_before_completeness_gate": 500.97650224751084,
+          "baseline_mean_s_per_source": 500.97650224751084,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000000",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000001",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000002",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000003",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000004",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 496.80939000972154,
+          "reported_mean_before_completeness_gate": 496.80939000972154,
+          "baseline_mean_s_per_source": 496.80939000972154,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000024",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000025",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000026",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000027",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000028",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_5e3a195b6c9d18ba",
+      "raw_rows_source": "s4src_5700cd1681a0b368",
+      "actual_runs_reported": 0,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r1_development",
+      "variant": "S1",
+      "config": {},
+      "candidate_identity": {
+        "name": "S1",
+        "source": "s4src_fbd180d623eb2e5e",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/baseline/S1.py",
+        "sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "expected_sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "matches_registered_sha256": true,
+        "deployment_config": {}
+      },
+      "comparison_reference": "S1",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 465.13698131690296,
+          "reported_mean_before_completeness_gate": 465.13698131690296,
+          "baseline_mean_s_per_source": 465.13698131690296,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 96,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000000",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000001",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000002",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000003",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000004",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 446.3707414464598,
+          "reported_mean_before_completeness_gate": 446.3707414464598,
+          "baseline_mean_s_per_source": 446.3707414464598,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000040",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000041",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000042",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000043",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000044",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 443.0403243870192,
+          "reported_mean_before_completeness_gate": 443.0403243870192,
+          "baseline_mean_s_per_source": 443.0403243870192,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000032",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000033",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000034",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000035",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000036",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 465.81580102964745,
+          "reported_mean_before_completeness_gate": 465.81580102964745,
+          "baseline_mean_s_per_source": 465.81580102964745,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000048",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000049",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000050",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000051",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000052",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 624.9388678125,
+          "reported_mean_before_completeness_gate": 624.9388678125,
+          "baseline_mean_s_per_source": 624.9388678125,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000080",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000081",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000082",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000083",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000084",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 345.2198968984375,
+          "reported_mean_before_completeness_gate": 345.2198968984375,
+          "baseline_mean_s_per_source": 345.2198968984375,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000088",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000089",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000090",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000091",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000092",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 529.9449870972938,
+          "reported_mean_before_completeness_gate": 529.9449870972938,
+          "baseline_mean_s_per_source": 529.9449870972938,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000016",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000017",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000018",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000019",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000020",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 486.70201329477135,
+          "reported_mean_before_completeness_gate": 486.70201329477135,
+          "baseline_mean_s_per_source": 486.70201329477135,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000008",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000009",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000010",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000011",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000012",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 457.61463452369503,
+          "reported_mean_before_completeness_gate": 457.61463452369503,
+          "baseline_mean_s_per_source": 457.61463452369503,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000072",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000073",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000074",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000075",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000076",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 419.45832390858357,
+          "reported_mean_before_completeness_gate": 419.45832390858357,
+          "baseline_mean_s_per_source": 419.45832390858357,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000056",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000057",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000058",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000059",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000060",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 364.752293147195,
+          "reported_mean_before_completeness_gate": 364.752293147195,
+          "baseline_mean_s_per_source": 364.752293147195,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000064",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000065",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000066",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000067",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000068",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 500.97650224751084,
+          "reported_mean_before_completeness_gate": 500.97650224751084,
+          "baseline_mean_s_per_source": 500.97650224751084,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000000",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000001",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000002",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000003",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000004",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 496.80939000972154,
+          "reported_mean_before_completeness_gate": 496.80939000972154,
+          "baseline_mean_s_per_source": 496.80939000972154,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000024",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000025",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000026",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000027",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000028",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_da0190c3f2eeb379",
+      "raw_rows_source": "s4src_9fe68d82d16b9c1c",
+      "actual_runs_reported": 96,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r2_development",
+      "variant": "S1",
+      "config": {},
+      "candidate_identity": {
+        "name": "S1",
+        "source": "s4src_fbd180d623eb2e5e",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/baseline/S1.py",
+        "sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "expected_sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "matches_registered_sha256": true,
+        "deployment_config": {}
+      },
+      "comparison_reference": "S1",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 472.835401084817,
+          "reported_mean_before_completeness_gate": 472.835401084817,
+          "baseline_mean_s_per_source": 472.835401084817,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 96,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000096",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000097",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000098",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000099",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000100",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 498.5334270397186,
+          "reported_mean_before_completeness_gate": 498.5334270397186,
+          "baseline_mean_s_per_source": 498.5334270397186,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000136",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000137",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000138",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000139",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000140",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 451.4144977016582,
+          "reported_mean_before_completeness_gate": 451.4144977016582,
+          "baseline_mean_s_per_source": 451.4144977016582,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000128",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000129",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000130",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000131",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000132",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 520.9038910716346,
+          "reported_mean_before_completeness_gate": 520.9038910716346,
+          "baseline_mean_s_per_source": 520.9038910716346,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000144",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000145",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000146",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000147",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000148",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 618.356315225,
+          "reported_mean_before_completeness_gate": 618.356315225,
+          "baseline_mean_s_per_source": 618.356315225,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000176",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000177",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000178",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000179",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000180",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 305.122915015625,
+          "reported_mean_before_completeness_gate": 305.122915015625,
+          "baseline_mean_s_per_source": 305.122915015625,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000184",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000185",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000186",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000187",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000188",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 491.8849110189654,
+          "reported_mean_before_completeness_gate": 491.8849110189654,
+          "baseline_mean_s_per_source": 491.8849110189654,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000112",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000113",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000114",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000115",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000116",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 520.8858930577568,
+          "reported_mean_before_completeness_gate": 520.8858930577568,
+          "baseline_mean_s_per_source": 520.8858930577568,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000104",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000105",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000106",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000107",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000108",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 438.36164316153275,
+          "reported_mean_before_completeness_gate": 438.36164316153275,
+          "baseline_mean_s_per_source": 438.36164316153275,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000168",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000169",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000170",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000171",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000172",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 447.42090320403554,
+          "reported_mean_before_completeness_gate": 447.42090320403554,
+          "baseline_mean_s_per_source": 447.42090320403554,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000152",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000153",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000154",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000155",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000156",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 417.1010391454327,
+          "reported_mean_before_completeness_gate": 417.1010391454327,
+          "baseline_mean_s_per_source": 417.1010391454327,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000160",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000161",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000162",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000163",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000164",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 515.2494484704748,
+          "reported_mean_before_completeness_gate": 515.2494484704748,
+          "baseline_mean_s_per_source": 515.2494484704748,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000096",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000097",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000098",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000099",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000100",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 448.78992890596953,
+          "reported_mean_before_completeness_gate": 448.78992890596953,
+          "baseline_mean_s_per_source": 448.78992890596953,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000120",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000121",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000122",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000123",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000124",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_898fd9930cf7d12a",
+      "raw_rows_source": "s4src_e6d773f58b9a47bb",
+      "actual_runs_reported": 96,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r3_development",
+      "variant": "S1",
+      "config": {},
+      "candidate_identity": {
+        "name": "S1",
+        "source": "s4src_fbd180d623eb2e5e",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/baseline/S1.py",
+        "sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "expected_sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "matches_registered_sha256": true,
+        "deployment_config": {}
+      },
+      "comparison_reference": "S1",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 478.43656184556863,
+          "reported_mean_before_completeness_gate": 478.43656184556863,
+          "baseline_mean_s_per_source": 478.43656184556863,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 96,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000192",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000193",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000194",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000195",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000196",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 476.67913042208,
+          "reported_mean_before_completeness_gate": 476.67913042208,
+          "baseline_mean_s_per_source": 476.67913042208,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000232",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000233",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000234",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000235",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000236",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 502.12668245315774,
+          "reported_mean_before_completeness_gate": 502.12668245315774,
+          "baseline_mean_s_per_source": 502.12668245315774,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000224",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000225",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000226",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000227",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000228",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 539.2719370661932,
+          "reported_mean_before_completeness_gate": 539.2719370661932,
+          "baseline_mean_s_per_source": 539.2719370661932,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000240",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000241",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000242",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000243",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000244",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 600.2972239125,
+          "reported_mean_before_completeness_gate": 600.2972239125,
+          "baseline_mean_s_per_source": 600.2972239125,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000272",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000273",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000274",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000275",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000276",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 318.29187357031253,
+          "reported_mean_before_completeness_gate": 318.29187357031253,
+          "baseline_mean_s_per_source": 318.29187357031253,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000280",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000281",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000282",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000283",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000284",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 493.5499646097444,
+          "reported_mean_before_completeness_gate": 493.5499646097444,
+          "baseline_mean_s_per_source": 493.5499646097444,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000208",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000209",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000210",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000211",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000212",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 479.12012385788796,
+          "reported_mean_before_completeness_gate": 479.12012385788796,
+          "baseline_mean_s_per_source": 479.12012385788796,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000200",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000201",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000202",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000203",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000204",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 489.6496708784632,
+          "reported_mean_before_completeness_gate": 489.6496708784632,
+          "baseline_mean_s_per_source": 489.6496708784632,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000264",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000265",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000266",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000267",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000268",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 451.23720209823716,
+          "reported_mean_before_completeness_gate": 451.23720209823716,
+          "baseline_mean_s_per_source": 451.23720209823716,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000248",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000249",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000250",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000251",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000252",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 430.8574237412775,
+          "reported_mean_before_completeness_gate": 430.8574237412775,
+          "baseline_mean_s_per_source": 430.8574237412775,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000256",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000257",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000258",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000259",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000260",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 459.611884910617,
+          "reported_mean_before_completeness_gate": 459.611884910617,
+          "baseline_mean_s_per_source": 459.611884910617,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000192",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000193",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000194",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000195",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000196",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 500.54562462635283,
+          "reported_mean_before_completeness_gate": 500.54562462635283,
+          "baseline_mean_s_per_source": 500.54562462635283,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000216",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000217",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000218",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000219",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000220",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_4e708d9579f2b92b",
+      "raw_rows_source": "s4src_7078fd0468b739cb",
+      "actual_runs_reported": 96,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r4_development",
+      "variant": "S1",
+      "config": {},
+      "candidate_identity": {
+        "name": "S1",
+        "source": "s4src_fbd180d623eb2e5e",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/baseline/S1.py",
+        "sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "expected_sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "matches_registered_sha256": true,
+        "deployment_config": {}
+      },
+      "comparison_reference": "S1",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 465.0141567902983,
+          "reported_mean_before_completeness_gate": 465.0141567902983,
+          "baseline_mean_s_per_source": 465.0141567902983,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 96,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000288",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000289",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000290",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000291",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000292",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 487.1253076721726,
+          "reported_mean_before_completeness_gate": 487.1253076721726,
+          "baseline_mean_s_per_source": 487.1253076721726,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000328",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000329",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000330",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000331",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell500_shared_field-45000332",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 477.95116848607177,
+          "reported_mean_before_completeness_gate": 477.95116848607177,
+          "baseline_mean_s_per_source": 477.95116848607177,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000320",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000321",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000322",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000323",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-cell50_shared_field-45000324",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 463.3009965995874,
+          "reported_mean_before_completeness_gate": 463.3009965995874,
+          "baseline_mean_s_per_source": 463.3009965995874,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000336",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000337",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000338",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000339",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-edge_mixed_min_radius-45000340",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 606.6022794,
+          "reported_mean_before_completeness_gate": 606.6022794,
+          "baseline_mean_s_per_source": 606.6022794,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000368",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000369",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000370",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000371",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly10_sources-45000372",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 333.4315121328125,
+          "reported_mean_before_completeness_gate": 333.4315121328125,
+          "baseline_mean_s_per_source": 333.4315121328125,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000376",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000377",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000378",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000379",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-exactly16_sources-45000380",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 495.1292671047281,
+          "reported_mean_before_completeness_gate": 495.1292671047281,
+          "baseline_mean_s_per_source": 495.1292671047281,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000304",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000305",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000306",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000307",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_negative_bias-45000308",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 470.0681161209889,
+          "reported_mean_before_completeness_gate": 470.0681161209889,
+          "baseline_mean_s_per_source": 470.0681161209889,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000296",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000297",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000298",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000299",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-fixed_positive_bias-45000300",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 483.77647447826706,
+          "reported_mean_before_completeness_gate": 483.77647447826706,
+          "baseline_mean_s_per_source": 483.77647447826706,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000360",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000361",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000362",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000363",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-minimum_radius-45000364",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 400.90977190962684,
+          "reported_mean_before_completeness_gate": 400.90977190962684,
+          "baseline_mean_s_per_source": 400.90977190962684,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000344",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000345",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000346",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000347",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-offcenter_cluster-45000348",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 371.78579203503114,
+          "reported_mean_before_completeness_gate": 371.78579203503114,
+          "baseline_mean_s_per_source": 371.78579203503114,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000352",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000353",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000354",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000355",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-origin_cluster-45000356",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 507.6708709706731,
+          "reported_mean_before_completeness_gate": 507.6708709706731,
+          "baseline_mean_s_per_source": 507.6708709706731,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000288",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000289",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000290",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000291",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-reference_assumed-45000292",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 482.4183245736201,
+          "reported_mean_before_completeness_gate": 482.4183245736201,
+          "baseline_mean_s_per_source": 482.4183245736201,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 8,
+          "slower": 0,
+          "largest_regressions": [
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000312",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000313",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000314",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000315",
+              "delta_s_per_source": 0.0
+            },
+            {
+              "case_id": "E2-dev-q4-smooth_shared_field-45000316",
+              "delta_s_per_source": 0.0
+            }
+          ],
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_d29a3072d4b66860",
+      "raw_rows_source": "s4src_502ce71d3cc6d003",
+      "actual_runs_reported": 96,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r1_development",
+      "variant": "S1",
+      "config": {},
+      "candidate_identity": {
+        "name": "S1",
+        "source": "s4src_fbd180d623eb2e5e",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/baseline/S1.py",
+        "sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "expected_sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "matches_registered_sha256": true,
+        "deployment_config": {}
+      },
+      "comparison_reference": "S1",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 491.6275157174178,
+          "reported_mean_before_completeness_gate": 491.6275157174178,
+          "baseline_mean_s_per_source": 491.6275157174178,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 503.1911050473235,
+          "reported_mean_before_completeness_gate": 503.1911050473235,
+          "baseline_mean_s_per_source": 503.1911050473235,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 510.2879545523653,
+          "reported_mean_before_completeness_gate": 510.2879545523653,
+          "baseline_mean_s_per_source": 510.2879545523653,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 502.34281024336235,
+          "reported_mean_before_completeness_gate": 502.34281024336235,
+          "baseline_mean_s_per_source": 502.34281024336235,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 512.8418325298888,
+          "reported_mean_before_completeness_gate": 512.8418325298888,
+          "baseline_mean_s_per_source": 512.8418325298888,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 503.7846079729952,
+          "reported_mean_before_completeness_gate": 503.7846079729952,
+          "baseline_mean_s_per_source": 503.7846079729952,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 502.1454082861404,
+          "reported_mean_before_completeness_gate": 502.1454082861404,
+          "baseline_mean_s_per_source": 502.1454082861404,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 527.7430059636988,
+          "reported_mean_before_completeness_gate": 527.7430059636988,
+          "baseline_mean_s_per_source": 527.7430059636988,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 429.8478312359531,
+          "reported_mean_before_completeness_gate": 429.8478312359531,
+          "baseline_mean_s_per_source": 429.8478312359531,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 447.1328754527805,
+          "reported_mean_before_completeness_gate": 447.1328754527805,
+          "baseline_mean_s_per_source": 447.1328754527805,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 506.2807868120057,
+          "reported_mean_before_completeness_gate": 506.2807868120057,
+          "baseline_mean_s_per_source": 506.2807868120057,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 610.4641637,
+          "reported_mean_before_completeness_gate": 610.4641637,
+          "baseline_mean_s_per_source": 610.4641637,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 343.4678068125,
+          "reported_mean_before_completeness_gate": 343.4678068125,
+          "baseline_mean_s_per_source": 343.4678068125,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_09a97ec6930753c5",
+      "raw_rows_source": "s4src_55e079e00e283dbc",
+      "actual_runs_reported": 96,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r2_development",
+      "variant": "S1",
+      "config": {},
+      "candidate_identity": {
+        "name": "S1",
+        "source": "s4src_fbd180d623eb2e5e",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/baseline/S1.py",
+        "sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "expected_sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "matches_registered_sha256": true,
+        "deployment_config": {}
+      },
+      "comparison_reference": "S1",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 482.7777610232842,
+          "reported_mean_before_completeness_gate": 482.7777610232842,
+          "baseline_mean_s_per_source": 482.7777610232842,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 480.775810167776,
+          "reported_mean_before_completeness_gate": 480.775810167776,
+          "baseline_mean_s_per_source": 480.775810167776,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 483.14082417491886,
+          "reported_mean_before_completeness_gate": 483.14082417491886,
+          "baseline_mean_s_per_source": 483.14082417491886,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 486.75295532445887,
+          "reported_mean_before_completeness_gate": 486.75295532445887,
+          "baseline_mean_s_per_source": 486.75295532445887,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 482.27819395094696,
+          "reported_mean_before_completeness_gate": 482.27819395094696,
+          "baseline_mean_s_per_source": 482.27819395094696,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 477.1647146290855,
+          "reported_mean_before_completeness_gate": 477.1647146290855,
+          "baseline_mean_s_per_source": 477.1647146290855,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 479.0272643369859,
+          "reported_mean_before_completeness_gate": 479.0272643369859,
+          "baseline_mean_s_per_source": 479.0272643369859,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 527.7515591820887,
+          "reported_mean_before_completeness_gate": 527.7515591820887,
+          "baseline_mean_s_per_source": 527.7515591820887,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 446.75057541011904,
+          "reported_mean_before_completeness_gate": 446.75057541011904,
+          "baseline_mean_s_per_source": 446.75057541011904,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 476.10359617297075,
+          "reported_mean_before_completeness_gate": 476.10359617297075,
+          "baseline_mean_s_per_source": 476.10359617297075,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 495.1503440113095,
+          "reported_mean_before_completeness_gate": 495.1503440113095,
+          "baseline_mean_s_per_source": 495.1503440113095,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 618.764038575,
+          "reported_mean_before_completeness_gate": 618.764038575,
+          "baseline_mean_s_per_source": 618.764038575,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 339.67325634375,
+          "reported_mean_before_completeness_gate": 339.67325634375,
+          "baseline_mean_s_per_source": 339.67325634375,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_bd31c7e3f95f3b1a",
+      "raw_rows_source": "s4src_21b500618e444d11",
+      "actual_runs_reported": 96,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r3_development",
+      "variant": "S1",
+      "config": {},
+      "candidate_identity": {
+        "name": "S1",
+        "source": "s4src_fbd180d623eb2e5e",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/baseline/S1.py",
+        "sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "expected_sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "matches_registered_sha256": true,
+        "deployment_config": {}
+      },
+      "comparison_reference": "S1",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 402.4991890229623,
+          "reported_mean_before_completeness_gate": 402.4991890229623,
+          "baseline_mean_s_per_source": 402.4991890229623,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 402.5327528584821,
+          "reported_mean_before_completeness_gate": 402.5327528584821,
+          "baseline_mean_s_per_source": 402.5327528584821,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 397.32343088743914,
+          "reported_mean_before_completeness_gate": 397.32343088743914,
+          "baseline_mean_s_per_source": 397.32343088743914,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 405.42142703766234,
+          "reported_mean_before_completeness_gate": 405.42142703766234,
+          "baseline_mean_s_per_source": 405.42142703766234,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 406.95754242542614,
+          "reported_mean_before_completeness_gate": 406.95754242542614,
+          "baseline_mean_s_per_source": 406.95754242542614,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 403.1083832903206,
+          "reported_mean_before_completeness_gate": 403.1083832903206,
+          "baseline_mean_s_per_source": 403.1083832903206,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 399.755115158198,
+          "reported_mean_before_completeness_gate": 399.755115158198,
+          "baseline_mean_s_per_source": 399.755115158198,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 442.87144541012583,
+          "reported_mean_before_completeness_gate": 442.87144541012583,
+          "baseline_mean_s_per_source": 442.87144541012583,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 292.8044969186891,
+          "reported_mean_before_completeness_gate": 292.8044969186891,
+          "baseline_mean_s_per_source": 292.8044969186891,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 299.196541740483,
+          "reported_mean_before_completeness_gate": 299.196541740483,
+          "baseline_mean_s_per_source": 299.196541740483,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 436.7584195940341,
+          "reported_mean_before_completeness_gate": 436.7584195940341,
+          "baseline_mean_s_per_source": 436.7584195940341,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 610.9165269,
+          "reported_mean_before_completeness_gate": 610.9165269,
+          "baseline_mean_s_per_source": 610.9165269,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 332.3441860546875,
+          "reported_mean_before_completeness_gate": 332.3441860546875,
+          "baseline_mean_s_per_source": 332.3441860546875,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_39730f2f32a4496f",
+      "raw_rows_source": "s4src_a6b1d20056ecf814",
+      "actual_runs_reported": 96,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r4_confirmation",
+      "variant": "S1",
+      "config": {},
+      "candidate_identity": {
+        "name": "S1",
+        "source": "s4src_fbd180d623eb2e5e",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/baseline/S1.py",
+        "sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "expected_sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "matches_registered_sha256": true,
+        "deployment_config": {}
+      },
+      "comparison_reference": "S1",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 455.11772587965885,
+          "reported_mean_before_completeness_gate": 455.11772587965885,
+          "baseline_mean_s_per_source": 455.11772587965885,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 472.3622796378606,
+          "reported_mean_before_completeness_gate": 472.3622796378606,
+          "baseline_mean_s_per_source": 472.3622796378606,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 459.77574311437155,
+          "reported_mean_before_completeness_gate": 459.77574311437155,
+          "baseline_mean_s_per_source": 459.77574311437155,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 455.466634814217,
+          "reported_mean_before_completeness_gate": 455.466634814217,
+          "baseline_mean_s_per_source": 455.466634814217,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 457.0802885117273,
+          "reported_mean_before_completeness_gate": 457.0802885117273,
+          "baseline_mean_s_per_source": 457.0802885117273,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 466.05171495357143,
+          "reported_mean_before_completeness_gate": 466.05171495357143,
+          "baseline_mean_s_per_source": 466.05171495357143,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 470.8914785678056,
+          "reported_mean_before_completeness_gate": 470.8914785678056,
+          "baseline_mean_s_per_source": 470.8914785678056,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 491.2682097792067,
+          "reported_mean_before_completeness_gate": 491.2682097792067,
+          "baseline_mean_s_per_source": 491.2682097792067,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 413.5651857856456,
+          "reported_mean_before_completeness_gate": 413.5651857856456,
+          "baseline_mean_s_per_source": 413.5651857856456,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 378.0070104702438,
+          "reported_mean_before_completeness_gate": 378.0070104702438,
+          "baseline_mean_s_per_source": 378.0070104702438,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 470.36404558844436,
+          "reported_mean_before_completeness_gate": 470.36404558844436,
+          "baseline_mean_s_per_source": 470.36404558844436,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 606.5515043875,
+          "reported_mean_before_completeness_gate": 606.5515043875,
+          "baseline_mean_s_per_source": 606.5515043875,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 8,
+          "complete_cases": 8,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 320.0286149453125,
+          "reported_mean_before_completeness_gate": 320.0286149453125,
+          "baseline_mean_s_per_source": 320.0286149453125,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_ee8d4b270bca63e7",
+      "raw_rows_source": "s4src_ce04d6691466e77f",
+      "actual_runs_reported": 96,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r4_development",
+      "variant": "S1",
+      "config": {},
+      "candidate_identity": {
+        "name": "S1",
+        "source": "s4src_fbd180d623eb2e5e",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/baseline/S1.py",
+        "sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "expected_sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+        "matches_registered_sha256": true,
+        "deployment_config": {}
+      },
+      "comparison_reference": "S1",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 48,
+          "complete_cases": 48,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 484.01341172248266,
+          "reported_mean_before_completeness_gate": 484.01341172248266,
+          "baseline_mean_s_per_source": 484.01341172248266,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "reference_assumed",
+          "cases": 4,
+          "complete_cases": 4,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 491.5848550833333,
+          "reported_mean_before_completeness_gate": 491.5848550833333,
+          "baseline_mean_s_per_source": 491.5848550833333,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_positive_bias",
+          "cases": 4,
+          "complete_cases": 4,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 490.60507279999996,
+          "reported_mean_before_completeness_gate": 490.60507279999996,
+          "baseline_mean_s_per_source": 490.60507279999996,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "fixed_negative_bias",
+          "cases": 4,
+          "complete_cases": 4,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 490.5873493083333,
+          "reported_mean_before_completeness_gate": 490.5873493083333,
+          "baseline_mean_s_per_source": 490.5873493083333,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "smooth_shared_field",
+          "cases": 4,
+          "complete_cases": 4,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 486.03387518750003,
+          "reported_mean_before_completeness_gate": 486.03387518750003,
+          "baseline_mean_s_per_source": 486.03387518750003,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell50_shared_field",
+          "cases": 4,
+          "complete_cases": 4,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 488.0651537,
+          "reported_mean_before_completeness_gate": 488.0651537,
+          "baseline_mean_s_per_source": 488.0651537,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "cell500_shared_field",
+          "cases": 4,
+          "complete_cases": 4,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 492.51934227916666,
+          "reported_mean_before_completeness_gate": 492.51934227916666,
+          "baseline_mean_s_per_source": 492.51934227916666,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "edge_mixed_min_radius",
+          "cases": 4,
+          "complete_cases": 4,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 525.9902973958333,
+          "reported_mean_before_completeness_gate": 525.9902973958333,
+          "baseline_mean_s_per_source": 525.9902973958333,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "offcenter_cluster",
+          "cases": 4,
+          "complete_cases": 4,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 445.7542030916667,
+          "reported_mean_before_completeness_gate": 445.7542030916667,
+          "baseline_mean_s_per_source": 445.7542030916667,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "origin_cluster",
+          "cases": 4,
+          "complete_cases": 4,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 474.7681024916667,
+          "reported_mean_before_completeness_gate": 474.7681024916667,
+          "baseline_mean_s_per_source": 474.7681024916667,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "minimum_radius",
+          "cases": 4,
+          "complete_cases": 4,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 502.1476593041667,
+          "reported_mean_before_completeness_gate": 502.1476593041667,
+          "baseline_mean_s_per_source": 502.1476593041667,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly10_sources",
+          "cases": 4,
+          "complete_cases": 4,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 604.4042241999999,
+          "reported_mean_before_completeness_gate": 604.4042241999999,
+          "baseline_mean_s_per_source": 604.4042241999999,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "exactly16_sources",
+          "cases": 4,
+          "complete_cases": 4,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 315.700805828125,
+          "reported_mean_before_completeness_gate": 315.700805828125,
+          "baseline_mean_s_per_source": 315.700805828125,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_8bbae05d4d221e86",
+      "raw_rows_source": "s4src_a23467753b3152e0",
+      "actual_runs_reported": 48,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "development_r1",
+      "variant": "S1",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "S1",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": 1148,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 523.0739499442544,
+          "reported_mean_before_completeness_gate": 523.0739499442544,
+          "baseline_mean_s_per_source": 523.0739499442544,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_2d2d433e7c75d232",
+      "raw_rows_source": "s4src_4c0f2ee7fdebc1c7",
+      "actual_runs_reported": 96,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    }
+  ],
+  "result_records": [],
+  "negative_examples": [],
+  "sources": [
+    "s4src_ef9d74a5da36689d",
+    "s4src_fbd180d623eb2e5e",
+    "s4src_ee82fbce62e444d5",
+    "s4src_eef0030c86ff405d",
+    "s4src_c7c24448ebc6c128",
+    "s4src_2d0e082bd2afc173",
+    "s4src_610cb749bfe93a5b",
+    "s4src_417e6fa703e977f8",
+    "s4src_06f6554afd04b230",
+    "s4src_4b58c7b3bbcf48b2",
+    "s4src_0fa3fc4210969359",
+    "s4src_08c32e75758876c6",
+    "s4src_149b0b2d5ae1d1e1",
+    "s4src_c2147a1a98d72fe8",
+    "s4src_a5c7a2021a43cbfb",
+    "s4src_5e3a195b6c9d18ba",
+    "s4src_5700cd1681a0b368",
+    "s4src_da0190c3f2eeb379",
+    "s4src_9fe68d82d16b9c1c",
+    "s4src_898fd9930cf7d12a",
+    "s4src_e6d773f58b9a47bb",
+    "s4src_4e708d9579f2b92b",
+    "s4src_7078fd0468b739cb",
+    "s4src_d29a3072d4b66860",
+    "s4src_502ce71d3cc6d003",
+    "s4src_09a97ec6930753c5",
+    "s4src_55e079e00e283dbc",
+    "s4src_bd31c7e3f95f3b1a",
+    "s4src_21b500618e444d11",
+    "s4src_39730f2f32a4496f",
+    "s4src_a6b1d20056ecf814",
+    "s4src_ee8d4b270bca63e7",
+    "s4src_ce04d6691466e77f",
+    "s4src_8bbae05d4d221e86",
+    "s4src_a23467753b3152e0",
+    "s4src_2d2d433e7c75d232",
+    "s4src_4c0f2ee7fdebc1c7"
+  ],
+  "evidence_level": "saved_summary_and_live_file_identities; no policy execution or raw-metric recomputation",
+  "online_policy_implemented": false,
+  "unimplemented": false,
+  "reported_metadata": {
+    "label": "S1 = current best: Q3 R2 R4 / Q4 R3 R5",
+    "source_commit": "52fbf08",
+    "files": {
+      "S1.py": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+      "R2_open_R4.py": "d0bda0a51470eda3bd5f713be1552a004c7a73b8debcb333c323afd06d4c68f3",
+      "R3_open_R5.py": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf"
+    },
+    "expected_rows_sha256": "753e2d0da5250020b8316ec28c6bb35e42868e6c7c10d95d075151407d07e3bb",
+    "baseline_mean_s_per_source": {
+      "3": 235.87694581189243,
+      "4": 473.8974929996439
+    },
+    "evidence": "Reuse the already executed 4800-task combined deployment result, not a new baseline run; saved runtime is historical.",
+    "source_summary": "experiments/20260911_stage3/dispatch_equivalence/summary.json"
+  },
+  "reported_status": null,
+  "baseline_means_reported": {
+    "3": 235.87694581189243,
+    "4": 473.8974929996439
+  }
+}

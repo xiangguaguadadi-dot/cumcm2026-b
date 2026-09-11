@@ -1,26 +1,18 @@
 {
   "fixed_baseline": "S1",
   "current_best": "C7",
+  "candidate": "combination/geometry_fusions/C7_both.py",
+  "candidate_sha256": "cf37866829b9c6f376895075e819a732939e6fa8ad6d8d6297a151d7a213dcb3",
+  "dependencies": {},
   "modes": {
     "3": 235.87694581189243,
     "4": 456.11182087573513
   },
-  "candidate": "combination/geometry_fusions/C7_both.py",
-  "candidate_sha256": "cf37866829b9c6f376895075e819a732939e6fa8ad6d8d6297a151d7a213dcb3",
-  "dependencies": {},
-  "data_role": "4800 exposed local regression",
   "source_count_each_mode": 30970,
-  "retained_alternative": {
-    "candidate": "../E2_refine/snapshots/r1_station_only.py",
-    "Q4_mean": 466.8426814648249,
-    "reason": "Slightly worse mean but fewer single-case regressions than C1."
-  },
-  "historical_combinations": {
-    "C1_Q4": 464.92592020986854
-  },
-  "measured_Q3_alternative": {
+  "data_role": "4800 exposed local regression",
+  "Q3_alternative": {
     "candidate": "../E1_refine/snapshots/r5_immediate_block.py",
-    "mean": 235.807805322111,
-    "boundary": "Only 0.0293% aggregate gain with opposite signs in the two batches; not the default Q3 component."
+    "mean": 235.80780532211148,
+    "boundary": "0.0293% pooled improvement with opposite signs in the two batches; default Q3 retains S1."
   }
 }

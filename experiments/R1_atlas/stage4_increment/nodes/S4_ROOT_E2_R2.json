@@ -1,0 +1,90 @@
+{
+  "id": "S4_ROOT_E2_R2",
+  "stage": 4,
+  "direction_tags": [
+    "ROOT"
+  ],
+  "round": null,
+  "round_key": null,
+  "title": "E2_R2",
+  "status": "not_counted_as_new_research_round",
+  "kind": "control_or_wiring",
+  "control_or_wiring": true,
+  "parents": [
+    {
+      "id": "S4_E2_r2_one_round",
+      "relationship": "byte_identical_replay_or_wiring_control",
+      "evidence_source": "s4src_65496895f012a5dc"
+    }
+  ],
+  "design_parent": null,
+  "candidates": [
+    {
+      "name": "E2_R2",
+      "source": "s4src_d30b0a6f4f778576",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/combination/service_fusions/E2_R2.py",
+      "sha256": "7f486891b0255054cb05dcf749ecd7b1ecbfec49b1834670a0c3b466c18d8fd6",
+      "expected_sha256": "7f486891b0255054cb05dcf749ecd7b1ecbfec49b1834670a0c3b466c18d8fd6",
+      "matches_registered_sha256": true,
+      "deployment_config": {}
+    }
+  ],
+  "effects": [],
+  "development_effects": [],
+  "control_executions": [
+    {
+      "batch": "development_r2",
+      "variant": "E2_R2",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "E2_R2",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 383.3730248948117,
+          "reported_mean_before_completeness_gate": 383.3730248948117,
+          "baseline_mean_s_per_source": 383.3730248948117,
+          "delta_s_per_source": 0.0,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_985abf226d4e01cb",
+      "raw_rows_source": "s4src_d3aa3766824ea94b",
+      "actual_runs_reported": 96,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    }
+  ],
+  "result_records": [],
+  "negative_examples": [],
+  "sources": [
+    "s4src_65496895f012a5dc",
+    "s4src_d30b0a6f4f778576",
+    "s4src_985abf226d4e01cb",
+    "s4src_d3aa3766824ea94b"
+  ],
+  "evidence_level": "saved_summary_and_live_file_identities; no policy execution or raw-metric recomputation",
+  "online_policy_implemented": true,
+  "unimplemented": false,
+  "reported_metadata": {
+    "file": "service_fusions/E2_R2.py",
+    "sha256": "7f486891b0255054cb05dcf749ecd7b1ecbfec49b1834670a0c3b466c18d8fd6",
+    "role": "current Q4 best",
+    "dependencies": {}
+  },
+  "reported_status": null,
+  "alias_of": "S4_E2_r2_one_round",
+  "parent_status": "documented"
+}

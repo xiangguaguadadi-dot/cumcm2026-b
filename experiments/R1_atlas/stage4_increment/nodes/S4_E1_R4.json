@@ -1,0 +1,190 @@
+{
+  "id": "S4_E1_R4",
+  "stage": 4,
+  "direction_tags": [
+    "E1_refine"
+  ],
+  "round": 4,
+  "round_key": "E1_refine_R4",
+  "title": "完整有向服务块",
+  "status": "no_completed_4800_record_for_this_deployment",
+  "kind": "development_only",
+  "control_or_wiring": false,
+  "parents": [
+    {
+      "id": "S4_S1",
+      "relationship": "code_or_active_component_parent",
+      "evidence_source": "s4src_5bdc426a08e79b49"
+    },
+    {
+      "id": "S4_E1_R3",
+      "relationship": "mechanism_inspiration_not_whole_code_parent",
+      "evidence_source": "s4src_5bdc426a08e79b49"
+    }
+  ],
+  "design_parent": "S4_S1",
+  "candidates": [
+    {
+      "name": "r4_blocks",
+      "source": "s4src_17e3c64daf3a30bc",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/E1_refine/snapshots/r4_blocks.py",
+      "sha256": "d8f3a5034586e9ca7e25a2657295c46a991c652d0a441d531f6cee0e7a2055d7",
+      "expected_sha256": "d8f3a5034586e9ca7e25a2657295c46a991c652d0a441d531f6cee0e7a2055d7",
+      "matches_registered_sha256": true,
+      "deployment_config": {}
+    }
+  ],
+  "effects": [],
+  "development_effects": [
+    {
+      "batch": "r4_service_blocks",
+      "variant": "r4_blocks",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "r3_parent",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 192,
+          "complete_cases": 192,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 241.7595809190171,
+          "reported_mean_before_completeness_gate": 241.7595809190171,
+          "baseline_mean_s_per_source": 240.57361178239748,
+          "delta_s_per_source": 1.185969136619633,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        },
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 192,
+          "complete_cases": 192,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 479.55414844975144,
+          "reported_mean_before_completeness_gate": 479.55414844975144,
+          "baseline_mean_s_per_source": 474.3741131505523,
+          "delta_s_per_source": 5.180035299199119,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_08c32e75758876c6",
+      "raw_rows_source": "s4src_baeed5e61bdfb4f7",
+      "actual_runs_reported": 384,
+      "record_role": "development",
+      "data_role": "exposed_development_not_holdout"
+    }
+  ],
+  "control_executions": [],
+  "result_records": [
+    {
+      "data_role": "v1_quick",
+      "summary_source": "s4src_fde88aa0c9d2885e",
+      "raw_rows_source": "s4src_14c4c3b35f7b8143",
+      "candidate_identity": {
+        "name": "r4_blocks",
+        "source": "s4src_17e3c64daf3a30bc",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/E1_refine/snapshots/r4_blocks.py",
+        "sha256": "d8f3a5034586e9ca7e25a2657295c46a991c652d0a441d531f6cee0e7a2055d7",
+        "expected_sha256": "d8f3a5034586e9ca7e25a2657295c46a991c652d0a441d531f6cee0e7a2055d7",
+        "matches_registered_sha256": true,
+        "deployment_config": {}
+      },
+      "dependencies": [],
+      "current_deployment_identity_matches": true,
+      "recorded_candidate_path": null,
+      "saved_all_complete": true,
+      "compared_cases_reported": 120,
+      "actual_new_runs_reported": 120,
+      "v1_reused": null,
+      "recorded_complete_4800": false,
+      "effects": [],
+      "comparison_baseline": "historical_v1_baseline_not_S1"
+    }
+  ],
+  "negative_examples": [
+    {
+      "batch": "r4_service_blocks",
+      "variant": "r4_blocks",
+      "suite": "development",
+      "mode": 3,
+      "group": "ALL",
+      "cases": 192,
+      "complete_cases": 192,
+      "error_cases": null,
+      "source_count": null,
+      "cleared_count": null,
+      "all_clear_and_normal": true,
+      "mean_s_per_source": 241.7595809190171,
+      "reported_mean_before_completeness_gate": 241.7595809190171,
+      "baseline_mean_s_per_source": 240.57361178239748,
+      "delta_s_per_source": 1.185969136619633,
+      "faster": null,
+      "equal": null,
+      "slower": null,
+      "largest_regressions": null,
+      "worst_s_per_source": null
+    },
+    {
+      "batch": "r4_service_blocks",
+      "variant": "r4_blocks",
+      "suite": "development",
+      "mode": 4,
+      "group": "ALL",
+      "cases": 192,
+      "complete_cases": 192,
+      "error_cases": null,
+      "source_count": null,
+      "cleared_count": null,
+      "all_clear_and_normal": true,
+      "mean_s_per_source": 479.55414844975144,
+      "reported_mean_before_completeness_gate": 479.55414844975144,
+      "baseline_mean_s_per_source": 474.3741131505523,
+      "delta_s_per_source": 5.180035299199119,
+      "faster": null,
+      "equal": null,
+      "slower": null,
+      "largest_regressions": null,
+      "worst_s_per_source": null
+    }
+  ],
+  "sources": [
+    "s4src_5bdc426a08e79b49",
+    "s4src_17e3c64daf3a30bc",
+    "s4src_375989c4dae6bf2a",
+    "s4src_08c32e75758876c6",
+    "s4src_baeed5e61bdfb4f7",
+    "s4src_fde88aa0c9d2885e",
+    "s4src_14c4c3b35f7b8143"
+  ],
+  "evidence_level": "saved_summary_and_live_file_identities; no policy execution or raw-metric recomputation",
+  "online_policy_implemented": true,
+  "unimplemented": false,
+  "reported_metadata": {
+    "id": "E1_R4",
+    "parent": "R3 diagnosis",
+    "mechanism": "完整有向服务块",
+    "implementation": "把一次bearing未收敛源建模为预计入口→中心出口的服务块，完整计有向反转代价。",
+    "results": null,
+    "status": "384开发全清但Q3/Q4慢1.185969/5.180035；请求下降仍被增加的移动抵消。"
+  },
+  "reported_status": "384开发全清但Q3/Q4慢1.185969/5.180035；请求下降仍被增加的移动抵消。",
+  "primary_candidate_name": "r4_blocks",
+  "parent_status": "documented"
+}

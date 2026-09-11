@@ -1,5 +1,7 @@
 # 数学建模2026 B题代码
 
+2026-09-11 第四阶段已完成13轮方法研究和3批融合筛选：[本轮报告](experiments/20260911_stage4/REPORT.md)、[第四阶段方向图](experiments/R1_atlas/STAGE4_PROGRESS.md)、[AI增量索引](experiments/R1_atlas/stage4_increment/index.json)。推荐[C7单文件候选](experiments/20260911_stage4/combination/geometry_fusions/C7_both.py)：Q3保持235.876946秒/源，Q4为456.111821秒/源，比本轮起点降低3.7531%；4800已暴露本地案例全部正常全清。三位的负结果、实际阅读范围和来源版本均保留，无新增最终留出或官方测试。
+
 2026-09-11 第三阶段已收束：[研究汇总与最终效果](experiments/20260911_stage3/REPORT.md)、[全历程方向图](experiments/R1_atlas/DIRECTION_MAP.md)、[AI读取入口](experiments/R1_atlas/AI_README.md)。第三问与第四问相对本阶段起点分别改善1.0693%和9.7041%，4800已暴露案例全部清除。按用户最新要求直接交付，不再执行额外新留出；Windows官方测试尚未运行。
 
 2026-09-11 第二阶段按用户要求暂停。B4已取消，B1/B2/B3完成5轮候选并生成[前三位成果报告](experiments/20260911_breakthrough/STAGE_REPORT.md)与[优化路径总图](experiments/20260911_breakthrough/OPTIMIZATION_JOURNEYS.md)。本轮所有4800局结果均为已暴露研发回归，未生成新的最终验证样本。

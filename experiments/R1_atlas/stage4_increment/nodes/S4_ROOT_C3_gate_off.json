@@ -1,0 +1,117 @@
+{
+  "id": "S4_ROOT_C3_gate_off",
+  "stage": 4,
+  "direction_tags": [
+    "ROOT"
+  ],
+  "round": null,
+  "round_key": null,
+  "title": "C3_gate_off",
+  "status": "not_counted_as_new_research_round",
+  "kind": "control_or_wiring",
+  "control_or_wiring": true,
+  "parents": [
+    {
+      "id": "S4_ROOT_C3_entry_station",
+      "relationship": "ablation_of_not_all_components_active",
+      "evidence_source": "s4src_65496895f012a5dc"
+    },
+    {
+      "id": "S4_E1_R5",
+      "relationship": "wiring_comparison_target_not_active_mechanism",
+      "evidence_source": "s4src_65496895f012a5dc"
+    }
+  ],
+  "design_parent": null,
+  "candidates": [
+    {
+      "name": "C3_gate_off",
+      "source": "s4src_9d2272b15878e54d",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/combination/service_fusions/C3_gate_off.py",
+      "sha256": "7341127401d088cedac2826fac2f3215b2fa7ccfe19df7c76a82078400422098",
+      "expected_sha256": "7341127401d088cedac2826fac2f3215b2fa7ccfe19df7c76a82078400422098",
+      "matches_registered_sha256": true,
+      "deployment_config": {}
+    }
+  ],
+  "effects": [],
+  "development_effects": [],
+  "control_executions": [
+    {
+      "batch": "development_r2",
+      "variant": "C3_gate_off",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "E2_R2",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 403.3674470852831,
+          "reported_mean_before_completeness_gate": 403.3674470852831,
+          "baseline_mean_s_per_source": 383.3730248948117,
+          "delta_s_per_source": 19.994422190471425,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_985abf226d4e01cb",
+      "raw_rows_source": "s4src_011c6bfbcd120de0",
+      "actual_runs_reported": 96,
+      "record_role": "control_replay",
+      "data_role": "exposed_development_not_holdout"
+    }
+  ],
+  "result_records": [],
+  "negative_examples": [
+    {
+      "batch": "development_r2",
+      "variant": "C3_gate_off",
+      "suite": "development",
+      "mode": 4,
+      "group": "ALL",
+      "cases": 96,
+      "complete_cases": 96,
+      "error_cases": null,
+      "source_count": null,
+      "cleared_count": null,
+      "all_clear_and_normal": true,
+      "mean_s_per_source": 403.3674470852831,
+      "reported_mean_before_completeness_gate": 403.3674470852831,
+      "baseline_mean_s_per_source": 383.3730248948117,
+      "delta_s_per_source": 19.994422190471425,
+      "faster": null,
+      "equal": null,
+      "slower": null,
+      "largest_regressions": null,
+      "worst_s_per_source": null
+    }
+  ],
+  "sources": [
+    "s4src_65496895f012a5dc",
+    "s4src_9d2272b15878e54d",
+    "s4src_985abf226d4e01cb",
+    "s4src_011c6bfbcd120de0"
+  ],
+  "evidence_level": "saved_summary_and_live_file_identities; no policy execution or raw-metric recomputation",
+  "online_policy_implemented": true,
+  "unimplemented": false,
+  "reported_metadata": {
+    "file": "service_fusions/C3_gate_off.py",
+    "sha256": "7341127401d088cedac2826fac2f3215b2fa7ccfe19df7c76a82078400422098",
+    "role": "Q4 wiring check against E1_R5; Q3 deliberately retains S1",
+    "dependencies": {}
+  },
+  "reported_status": null,
+  "parent_status": "documented"
+}

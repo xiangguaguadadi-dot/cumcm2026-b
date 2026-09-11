@@ -1,0 +1,197 @@
+{
+  "id": "S4_E1_R2",
+  "stage": 4,
+  "direction_tags": [
+    "E1_refine"
+  ],
+  "round": 2,
+  "round_key": "E1_refine_R2",
+  "title": "仅最后未知源的条件路线",
+  "status": "no_completed_4800_record_for_this_deployment",
+  "kind": "development_only",
+  "control_or_wiring": false,
+  "parents": [
+    {
+      "id": "S4_E1_R1",
+      "relationship": "code_or_active_component_parent",
+      "evidence_source": "s4src_5bdc426a08e79b49"
+    }
+  ],
+  "design_parent": "S4_E1_R1",
+  "candidates": [
+    {
+      "name": "r2_lastsource",
+      "source": "s4src_ec5b9da8229a7d1c",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/E1_refine/snapshots/r2_lastsource.py",
+      "sha256": "8760e944475963d3cb245eb5356fb000b5155a47388c24015f22a86aa4d8097e",
+      "expected_sha256": "8760e944475963d3cb245eb5356fb000b5155a47388c24015f22a86aa4d8097e",
+      "matches_registered_sha256": true,
+      "deployment_config": {
+        "conditional_discovery": "posterior",
+        "conditional_min_discovered": 15
+      }
+    },
+    {
+      "name": "r2_lastsource_optimistic",
+      "source": "s4src_62d0e3d0303d8efa",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/E1_refine/snapshots/r2_lastsource_optimistic.py",
+      "sha256": "ae54abb5954306155cfbb5e3e77d58c500efd2e4d2a3e0e6f7ccee94a22a9b21",
+      "expected_sha256": "ae54abb5954306155cfbb5e3e77d58c500efd2e4d2a3e0e6f7ccee94a22a9b21",
+      "matches_registered_sha256": true,
+      "deployment_config": {
+        "conditional_discovery": "optimistic",
+        "conditional_min_discovered": 15
+      }
+    }
+  ],
+  "effects": [],
+  "development_effects": [
+    {
+      "batch": "r2_closure",
+      "variant": "r2_lastsource",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "r1_parent",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 288,
+          "complete_cases": 288,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 465.5387400678029,
+          "reported_mean_before_completeness_gate": 465.5387400678029,
+          "baseline_mean_s_per_source": 465.69159319788105,
+          "delta_s_per_source": -0.15285313007814239,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_417e6fa703e977f8",
+      "raw_rows_source": "s4src_309c0280962b6ea3",
+      "actual_runs_reported": 288,
+      "record_role": "development",
+      "data_role": "exposed_development_not_holdout"
+    },
+    {
+      "batch": "r2_closure",
+      "variant": "r2_lastsource_optimistic",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "r1_parent",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 288,
+          "complete_cases": 288,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 466.17284841273926,
+          "reported_mean_before_completeness_gate": 466.17284841273926,
+          "baseline_mean_s_per_source": 465.69159319788105,
+          "delta_s_per_source": 0.48125521485820855,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_417e6fa703e977f8",
+      "raw_rows_source": "s4src_ba8475b19c2b00a3",
+      "actual_runs_reported": 288,
+      "record_role": "development",
+      "data_role": "exposed_development_not_holdout"
+    }
+  ],
+  "control_executions": [],
+  "result_records": [
+    {
+      "data_role": "v1_quick",
+      "summary_source": "s4src_8f3a1584b52fcb69",
+      "raw_rows_source": "s4src_10b6d37f5cb90976",
+      "candidate_identity": {
+        "name": "r2_lastsource",
+        "source": "s4src_ec5b9da8229a7d1c",
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/E1_refine/snapshots/r2_lastsource.py",
+        "sha256": "8760e944475963d3cb245eb5356fb000b5155a47388c24015f22a86aa4d8097e",
+        "expected_sha256": "8760e944475963d3cb245eb5356fb000b5155a47388c24015f22a86aa4d8097e",
+        "matches_registered_sha256": true,
+        "deployment_config": {
+          "conditional_discovery": "posterior",
+          "conditional_min_discovered": 15
+        }
+      },
+      "dependencies": [],
+      "current_deployment_identity_matches": true,
+      "recorded_candidate_path": null,
+      "saved_all_complete": true,
+      "compared_cases_reported": 120,
+      "actual_new_runs_reported": 120,
+      "v1_reused": null,
+      "recorded_complete_4800": false,
+      "effects": [],
+      "comparison_baseline": "historical_v1_baseline_not_S1"
+    }
+  ],
+  "negative_examples": [
+    {
+      "batch": "r2_closure",
+      "variant": "r2_lastsource_optimistic",
+      "suite": "development",
+      "mode": 4,
+      "group": "ALL",
+      "cases": 288,
+      "complete_cases": 288,
+      "error_cases": null,
+      "source_count": null,
+      "cleared_count": null,
+      "all_clear_and_normal": true,
+      "mean_s_per_source": 466.17284841273926,
+      "reported_mean_before_completeness_gate": 466.17284841273926,
+      "baseline_mean_s_per_source": 465.69159319788105,
+      "delta_s_per_source": 0.48125521485820855,
+      "faster": null,
+      "equal": null,
+      "slower": null,
+      "largest_regressions": null,
+      "worst_s_per_source": null
+    }
+  ],
+  "sources": [
+    "s4src_5bdc426a08e79b49",
+    "s4src_ec5b9da8229a7d1c",
+    "s4src_9b0003622da82860",
+    "s4src_62d0e3d0303d8efa",
+    "s4src_417e6fa703e977f8",
+    "s4src_309c0280962b6ea3",
+    "s4src_ba8475b19c2b00a3",
+    "s4src_8f3a1584b52fcb69",
+    "s4src_10b6d37f5cb90976"
+  ],
+  "evidence_level": "saved_summary_and_live_file_identities; no policy execution or raw-metric recomputation",
+  "online_policy_implemented": true,
+  "unimplemented": false,
+  "reported_metadata": {
+    "id": "E1_R2",
+    "parent": "R1",
+    "mechanism": "仅最后未知源的条件路线",
+    "implementation": "只在15频道已实际发现时启用代理，以减少后续未知服务的影响。",
+    "results": null,
+    "status": "288开发改善仅0.152853秒/源；未追加full，保留完整负/弱证据。"
+  },
+  "reported_status": "288开发改善仅0.152853秒/源；未追加full，保留完整负/弱证据。",
+  "primary_candidate_name": "r2_lastsource",
+  "parent_status": "documented"
+}

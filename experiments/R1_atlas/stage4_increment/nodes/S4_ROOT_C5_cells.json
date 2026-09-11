@@ -1,0 +1,127 @@
+{
+  "id": "S4_ROOT_C5_cells",
+  "stage": 4,
+  "direction_tags": [
+    "ROOT"
+  ],
+  "round": null,
+  "round_key": null,
+  "title": "C5_cells",
+  "status": "no_completed_4800_record_for_this_deployment",
+  "kind": "development_only",
+  "control_or_wiring": false,
+  "parents": [
+    {
+      "id": "S4_ROOT_C2_conditional_round",
+      "relationship": "code_or_active_component_parent",
+      "evidence_source": "s4src_fbc4a7eea381bdd4"
+    },
+    {
+      "id": "S4_E2_r3_failure_cells",
+      "relationship": "code_or_active_component_parent",
+      "evidence_source": "s4src_fbc4a7eea381bdd4"
+    }
+  ],
+  "design_parent": "S4_ROOT_C2_conditional_round",
+  "candidates": [
+    {
+      "name": "C5_cells",
+      "source": "s4src_1a2c3a9ca7ee63de",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/combination/geometry_fusions/C5_cells.py",
+      "sha256": "ade0917c7e8bb396c07d10c91daede2af85a3a216d89d38c0241c071bc3fad80",
+      "expected_sha256": "ade0917c7e8bb396c07d10c91daede2af85a3a216d89d38c0241c071bc3fad80",
+      "matches_registered_sha256": true,
+      "deployment_config": {
+        "e2_failure_hull": false,
+        "e2_failure_cells": true,
+        "convex_no_signal": false
+      }
+    }
+  ],
+  "effects": [],
+  "development_effects": [
+    {
+      "batch": "development_r3",
+      "variant": "C5_cells",
+      "config": {},
+      "candidate_identity": null,
+      "comparison_reference": "C2",
+      "effects": [
+        {
+          "suite": "development",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 96,
+          "complete_cases": 96,
+          "error_cases": null,
+          "source_count": null,
+          "cleared_count": null,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 401.1407269399244,
+          "reported_mean_before_completeness_gate": 401.1407269399244,
+          "baseline_mean_s_per_source": 401.1380771384611,
+          "delta_s_per_source": 0.0026498014632920786,
+          "faster": null,
+          "equal": null,
+          "slower": null,
+          "largest_regressions": null,
+          "worst_s_per_source": null
+        }
+      ],
+      "summary_source": "s4src_61a1b027ded675da",
+      "raw_rows_source": "s4src_a2f69cf39edcda21",
+      "actual_runs_reported": 96,
+      "record_role": "development",
+      "data_role": "exposed_development_not_holdout"
+    }
+  ],
+  "control_executions": [],
+  "result_records": [],
+  "negative_examples": [
+    {
+      "batch": "development_r3",
+      "variant": "C5_cells",
+      "suite": "development",
+      "mode": 4,
+      "group": "ALL",
+      "cases": 96,
+      "complete_cases": 96,
+      "error_cases": null,
+      "source_count": null,
+      "cleared_count": null,
+      "all_clear_and_normal": true,
+      "mean_s_per_source": 401.1407269399244,
+      "reported_mean_before_completeness_gate": 401.1407269399244,
+      "baseline_mean_s_per_source": 401.1380771384611,
+      "delta_s_per_source": 0.0026498014632920786,
+      "faster": null,
+      "equal": null,
+      "slower": null,
+      "largest_regressions": null,
+      "worst_s_per_source": null
+    }
+  ],
+  "sources": [
+    "s4src_fbc4a7eea381bdd4",
+    "s4src_1a2c3a9ca7ee63de",
+    "s4src_61a1b027ded675da",
+    "s4src_a2f69cf39edcda21"
+  ],
+  "evidence_level": "saved_summary_and_live_file_identities; no policy execution or raw-metric recomputation",
+  "online_policy_implemented": true,
+  "unimplemented": false,
+  "reported_metadata": {
+    "file": "geometry_fusions/C5_cells.py",
+    "sha256": "ade0917c7e8bb396c07d10c91daede2af85a3a216d89d38c0241c071bc3fad80",
+    "config": {
+      "e2_failure_hull": false,
+      "e2_failure_cells": true,
+      "convex_no_signal": false
+    },
+    "role": "new conservative exclusion combination",
+    "dependencies": {}
+  },
+  "reported_status": null,
+  "parent_mapping_basis": "Coordinator-declared active components; inactive embedded source is not counted.",
+  "parent_status": "documented"
+}

@@ -1,4 +1,6 @@
-本阶段完成入口：[FINAL_REPORT.md](FINAL_REPORT.md)。70节点，48历史＋9本阶段完整回归，另开发止步/诊断/未实施分型；新最终验证由协调者另行登记。
+最新第四阶段：先读[stage4_increment/index.json](stage4_increment/index.json)和[第四阶段说明](stage4_increment/README.md)，再按节点读取详情；人工阅读见[STAGE4_PROGRESS.md](STAGE4_PROGRESS.md)。新增39条记录包含11完整候选、14开发节点、13对照及1背景，不能称39个新研究方向。三位共13轮研究，主协调另做3批融合；当前入口与全部4800回归结果见[阶段报告](../20260911_stage4/REPORT.md)。全部是已暴露本地回归，无新增最终留出。
+
+以下保留第三阶段及更早历史读取协议：[FINAL_REPORT.md](FINAL_REPORT.md)。原70节点、48历史＋9第三阶段完整回归及开发/诊断/未实施分型保持不变。
 
 # Agent读取协议
 

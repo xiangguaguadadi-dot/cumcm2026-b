@@ -97,3 +97,16 @@ A1 R10、A2 R9、A3 R1、A5 R3作为预登记取舍版本也各跑2400局。均�
 - [新样本逐组配对比较](experiments/20260911_agent_campaign/final_validation/comparison.json)
 - [新样本原始行审计](experiments/20260911_agent_campaign/final_validation/audit.json)
 - [独立交付审计与预算](experiments/20260911_agent_campaign/audit/delivery_independent.md)
+
+## 004 · 当前最佳深化、文献扩展与结构融合（2026-09-11）
+
+以第三阶段已测统一入口S1为固定对照，E1/E2/E3完成5/4/4轮研究，主协调完成3批组件融合。11个完整候选各覆盖4800个已暴露案例，合计52800次完整部署执行；加开发、quick和诊断，本轮共65880次策略任务、2592个独特新开发案例。比较缓存和几何夹具不计新执行。
+
+最终推荐C7，Q3保持235.876945812秒/源，Q4由473.897493降至456.111820876秒/源，降低3.753063%。每题2400局、30970个源全部正常清除；Q4十二类场景均值均改善，逐局快/同/慢为1995/2/403。核心增益来自补测费用门控与持久单轮定位调度，条件路线和两种保守排除进一步贡献局部收益。Q3独立R5仅改善0.0293%，两个批次符号相反，留作弱证据备选。C7源码SHA256为 `cf37866829b9c6f376895075e819a732939e6fa8ad6d8d6297a151d7a213dcb3`，单文件无外部策略依赖。
+
+八条用户论文线索和两条扩展来源均核实阅读范围、版本与实现时间；共享初始化、跨目标二测点与有限观测树等负结果完整保留。本轮按实测负结果与假设饱和收束，没有新增最终留出、官方Windows执行或全历史重复评测。主solver.py及冻结规则保持原样。
+
+- [完整报告与候选](experiments/20260911_stage4/REPORT.md)
+- [第四阶段方向图](experiments/R1_atlas/STAGE4_PROGRESS.md)
+- [39条分类增量记录](experiments/R1_atlas/stage4_increment/index.json)
+- [来源版本、阅读范围和实际改动](experiments/E3_expand/RESEARCH_BRIEF.md)

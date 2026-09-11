@@ -1,0 +1,3582 @@
+{
+  "schema_version": "stage4-increment-1.0",
+  "legacy_index_source": "s4src_f1e7997e771fd1cb",
+  "legacy_node_ids": [
+    "A1_space_R1",
+    "A1_space_R10",
+    "A1_space_R2",
+    "A1_space_R3",
+    "A1_space_R4",
+    "A1_space_R5",
+    "A1_space_R6",
+    "A1_space_R7",
+    "A1_space_R8",
+    "A1_space_R9",
+    "A2_information_R1",
+    "A2_information_R10",
+    "A2_information_R2",
+    "A2_information_R3",
+    "A2_information_R4",
+    "A2_information_R5",
+    "A2_information_R6",
+    "A2_information_R7",
+    "A2_information_R8",
+    "A2_information_R9",
+    "A3_coordination_R1",
+    "A3_coordination_R2",
+    "A3_coordination_R3",
+    "A4_directional_R1",
+    "A4_directional_R2",
+    "A4_directional_R3",
+    "A4_directional_R4",
+    "A4_directional_R5",
+    "A4_directional_R6",
+    "A4_directional_R7",
+    "A4_directional_R8",
+    "A5_learning_R1",
+    "A5_learning_R2",
+    "A5_learning_R3",
+    "A6_learning_R1",
+    "A6_learning_R2",
+    "A6_learning_R3",
+    "A6_learning_R4",
+    "A6_learning_R5",
+    "A6_learning_R6",
+    "A6_learning_R7",
+    "A6_learning_R8",
+    "A6_learning_R9",
+    "B1_R1",
+    "B2_R1",
+    "B2_R2",
+    "B2_R3",
+    "B3_GEOMETRY",
+    "B3_R1",
+    "B4_CANCELLED",
+    "C0",
+    "CONDITIONAL_DISCOVERY_ROUTE_PROPOSED",
+    "JOINT_CLEAR_ROUTE_PROPOSED",
+    "Q1_FIXED",
+    "Q2_SAVED",
+    "Q4_COST_GATE_PROPOSED",
+    "R0",
+    "R2_open_R1",
+    "R2_open_R2",
+    "R2_open_R3",
+    "R2_open_R4",
+    "R2_open_R5",
+    "R3_dynamic_cover_diagnostic",
+    "R3_open_R1",
+    "R3_open_R2",
+    "R3_open_R3",
+    "R3_open_R4",
+    "R3_open_R5",
+    "S0",
+    "V1_FREEZE"
+  ],
+  "legacy_records_unchanged": true,
+  "counts": {
+    "legacy_nodes": 70,
+    "new_nodes": 39,
+    "nodes_by_kind": {
+      "background": 1,
+      "completed_stage4_candidate": 11,
+      "development_only": 14,
+      "control_or_wiring": 13
+    },
+    "author_research_rounds": 13,
+    "author_rounds_with_completed_4800": 7,
+    "completed_4800_candidate_nodes": 11,
+    "root_combination_variants": 7,
+    "control_or_wiring_nodes": 13,
+    "new_policy_executions_by_this_script": 0
+  },
+  "evidence_boundary": "Saved summaries are normalized and files SHA256-hashed. No old graph rebuild, Git-blob audit, raw-metric recomputation, new holdout or policy execution.",
+  "read_order": "Read the referenced legacy index, then this increment; only current index-listed S4 nodes are active.",
+  "nodes": [
+    {
+      "id": "S4_E1_R1",
+      "kind": "completed_stage4_candidate",
+      "title": "条件发现路线",
+      "status": "completed_4800_all_clear",
+      "direction_tags": [
+        "E1_refine"
+      ],
+      "round": 1,
+      "round_key": "E1_refine_R1",
+      "parents": [
+        {
+          "id": "S4_S1",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_5bdc426a08e79b49"
+        },
+        {
+          "id": "CONDITIONAL_DISCOVERY_ROUTE_PROPOSED",
+          "relationship": "mechanism_inspiration_not_whole_code_parent",
+          "evidence_source": "s4src_5bdc426a08e79b49"
+        }
+      ],
+      "design_parent": "S4_S1",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E1_R1.json",
+      "primary_effects": [
+        {
+          "suite": "combined",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 235.87694581189243,
+          "reported_mean_before_completeness_gate": 235.87694581189243,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "largest_regressions": null,
+          "worst_s_per_source": 375.1605581
+        },
+        {
+          "suite": "combined",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 471.470944912203,
+          "reported_mean_before_completeness_gate": 471.470944912203,
+          "baseline_mean_s_per_source": 473.8974929996439,
+          "delta_s_per_source": -2.4265480874408922,
+          "faster": 867,
+          "equal": 790,
+          "slower": 743,
+          "largest_regressions": null,
+          "worst_s_per_source": 727.3533244
+        }
+      ],
+      "development_summary": [
+        {
+          "batch": "r1_screen",
+          "variant": "r1_posterior",
+          "comparison_reference": "r1_parent",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 144,
+              "complete_cases": 144,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 492.60676748439386,
+              "reported_mean_before_completeness_gate": 492.60676748439386,
+              "baseline_mean_s_per_source": 490.71101710292237,
+              "delta_s_per_source": 1.895750381471487,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r1_screen",
+          "variant": "r1_optimistic",
+          "comparison_reference": "r1_parent",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 144,
+              "complete_cases": 144,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 493.5780000104626,
+              "reported_mean_before_completeness_gate": 493.5780000104626,
+              "baseline_mean_s_per_source": 490.71101710292237,
+              "delta_s_per_source": 2.866982907540205,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r2_closure",
+          "variant": "r1_posterior",
+          "comparison_reference": "r1_parent",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 288,
+              "complete_cases": 288,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 464.5920321933224,
+              "reported_mean_before_completeness_gate": 464.5920321933224,
+              "baseline_mean_s_per_source": 465.69159319788105,
+              "delta_s_per_source": -1.099561004558666,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r4_service_blocks",
+          "variant": "r1_posterior",
+          "comparison_reference": "r3_parent",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 3,
+              "group": "ALL",
+              "cases": 192,
+              "complete_cases": 192,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 240.57361178239748,
+              "reported_mean_before_completeness_gate": 240.57361178239748,
+              "baseline_mean_s_per_source": 240.57361178239748,
+              "delta_s_per_source": 0.0,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            },
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 192,
+              "complete_cases": 192,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 474.7767408927899,
+              "reported_mean_before_completeness_gate": 474.7767408927899,
+              "baseline_mean_s_per_source": 474.3741131505523,
+              "delta_s_per_source": 0.40262774223759834,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r5_immediate_block",
+          "variant": "r1_posterior",
+          "comparison_reference": "r3_parent",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 3,
+              "group": "ALL",
+              "cases": 192,
+              "complete_cases": 192,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 235.20955755839435,
+              "reported_mean_before_completeness_gate": 235.20955755839435,
+              "baseline_mean_s_per_source": 235.20955755839435,
+              "delta_s_per_source": 0.0,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            },
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 192,
+              "complete_cases": 192,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 471.5275719612658,
+              "reported_mean_before_completeness_gate": 471.5275719612658,
+              "baseline_mean_s_per_source": 474.16732523931955,
+              "delta_s_per_source": -2.6397532780537745,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E1_R2",
+      "kind": "development_only",
+      "title": "仅最后未知源的条件路线",
+      "status": "no_completed_4800_record_for_this_deployment",
+      "direction_tags": [
+        "E1_refine"
+      ],
+      "round": 2,
+      "round_key": "E1_refine_R2",
+      "parents": [
+        {
+          "id": "S4_E1_R1",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_5bdc426a08e79b49"
+        }
+      ],
+      "design_parent": "S4_E1_R1",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E1_R2.json",
+      "primary_effects": [],
+      "development_summary": [
+        {
+          "batch": "r2_closure",
+          "variant": "r2_lastsource",
+          "comparison_reference": "r1_parent",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 288,
+              "complete_cases": 288,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 465.5387400678029,
+              "reported_mean_before_completeness_gate": 465.5387400678029,
+              "baseline_mean_s_per_source": 465.69159319788105,
+              "delta_s_per_source": -0.15285313007814239,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r2_closure",
+          "variant": "r2_lastsource_optimistic",
+          "comparison_reference": "r1_parent",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 288,
+              "complete_cases": 288,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 466.17284841273926,
+              "reported_mean_before_completeness_gate": 466.17284841273926,
+              "baseline_mean_s_per_source": 465.69159319788105,
+              "delta_s_per_source": 0.48125521485820855,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E1_R3",
+      "kind": "development_only",
+      "title": "多个认证清除区域联合落点",
+      "status": "no_completed_4800_record_for_this_deployment",
+      "direction_tags": [
+        "E1_refine"
+      ],
+      "round": 3,
+      "round_key": "E1_refine_R3",
+      "parents": [
+        {
+          "id": "S4_S1",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_5bdc426a08e79b49"
+        },
+        {
+          "id": "JOINT_CLEAR_ROUTE_PROPOSED",
+          "relationship": "mechanism_inspiration_not_whole_code_parent",
+          "evidence_source": "s4src_5bdc426a08e79b49"
+        }
+      ],
+      "design_parent": "S4_S1",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E1_R3.json",
+      "primary_effects": [],
+      "development_summary": [
+        {
+          "batch": "r3_joint",
+          "variant": "r3_fixed",
+          "comparison_reference": "r3_parent",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 3,
+              "group": "ALL",
+              "cases": 144,
+              "complete_cases": 144,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 236.14713863833921,
+              "reported_mean_before_completeness_gate": 236.14713863833921,
+              "baseline_mean_s_per_source": 236.1877597967124,
+              "delta_s_per_source": -0.040621158373198796,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            },
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 144,
+              "complete_cases": 144,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 475.3473596787098,
+              "reported_mean_before_completeness_gate": 475.3473596787098,
+              "baseline_mean_s_per_source": 475.51018360938434,
+              "delta_s_per_source": -0.1628239306745627,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r3_joint",
+          "variant": "r3_reorder",
+          "comparison_reference": "r3_parent",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 3,
+              "group": "ALL",
+              "cases": 144,
+              "complete_cases": 144,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 236.20818958223387,
+              "reported_mean_before_completeness_gate": 236.20818958223387,
+              "baseline_mean_s_per_source": 236.1877597967124,
+              "delta_s_per_source": 0.02042978552145769,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            },
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 144,
+              "complete_cases": 144,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 475.65275292990026,
+              "reported_mean_before_completeness_gate": 475.65275292990026,
+              "baseline_mean_s_per_source": 475.51018360938434,
+              "delta_s_per_source": 0.14256932051591775,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E1_R4",
+      "kind": "development_only",
+      "title": "完整有向服务块",
+      "status": "no_completed_4800_record_for_this_deployment",
+      "direction_tags": [
+        "E1_refine"
+      ],
+      "round": 4,
+      "round_key": "E1_refine_R4",
+      "parents": [
+        {
+          "id": "S4_S1",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_5bdc426a08e79b49"
+        },
+        {
+          "id": "S4_E1_R3",
+          "relationship": "mechanism_inspiration_not_whole_code_parent",
+          "evidence_source": "s4src_5bdc426a08e79b49"
+        }
+      ],
+      "design_parent": "S4_S1",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E1_R4.json",
+      "primary_effects": [],
+      "development_summary": [
+        {
+          "batch": "r4_service_blocks",
+          "variant": "r4_blocks",
+          "comparison_reference": "r3_parent",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 3,
+              "group": "ALL",
+              "cases": 192,
+              "complete_cases": 192,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 241.7595809190171,
+              "reported_mean_before_completeness_gate": 241.7595809190171,
+              "baseline_mean_s_per_source": 240.57361178239748,
+              "delta_s_per_source": 1.185969136619633,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            },
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 192,
+              "complete_cases": 192,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 479.55414844975144,
+              "reported_mean_before_completeness_gate": 479.55414844975144,
+              "baseline_mean_s_per_source": 474.3741131505523,
+              "delta_s_per_source": 5.180035299199119,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E1_R5",
+      "kind": "completed_stage4_candidate",
+      "title": "仅当前第一任务的入口成本",
+      "status": "completed_4800_all_clear",
+      "direction_tags": [
+        "E1_refine"
+      ],
+      "round": 5,
+      "round_key": "E1_refine_R5",
+      "parents": [
+        {
+          "id": "S4_E1_R4",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_5bdc426a08e79b49"
+        }
+      ],
+      "design_parent": "S4_E1_R4",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E1_R5.json",
+      "primary_effects": [
+        {
+          "suite": "combined",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 235.80780532211148,
+          "reported_mean_before_completeness_gate": 235.80780532211148,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": -0.06914048978094911,
+          "faster": 329,
+          "equal": 1790,
+          "slower": 281,
+          "largest_regressions": null,
+          "worst_s_per_source": 375.1605581
+        },
+        {
+          "suite": "combined",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 472.05832359165936,
+          "reported_mean_before_completeness_gate": 472.05832359165936,
+          "baseline_mean_s_per_source": 473.8974929996439,
+          "delta_s_per_source": -1.8391694079845138,
+          "faster": 849,
+          "equal": 903,
+          "slower": 648,
+          "largest_regressions": null,
+          "worst_s_per_source": 726.6067224000001
+        }
+      ],
+      "development_summary": [
+        {
+          "batch": "r5_immediate_block",
+          "variant": "r5_immediate_block",
+          "comparison_reference": "r3_parent",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 3,
+              "group": "ALL",
+              "cases": 192,
+              "complete_cases": 192,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 235.01099170173376,
+              "reported_mean_before_completeness_gate": 235.01099170173376,
+              "baseline_mean_s_per_source": 235.20955755839435,
+              "delta_s_per_source": -0.19856585666059345,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            },
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 192,
+              "complete_cases": 192,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 468.6981767666752,
+              "reported_mean_before_completeness_gate": 468.6981767666752,
+              "baseline_mean_s_per_source": 474.16732523931955,
+              "delta_s_per_source": -5.469148472644349,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E2_r1_cost_all",
+      "kind": "completed_stage4_candidate",
+      "title": "r1_cost_all",
+      "status": "completed_4800_all_clear",
+      "direction_tags": [
+        "E2_refine"
+      ],
+      "round": 1,
+      "round_key": "E2_refine_R1",
+      "parents": [
+        {
+          "id": "S4_S1",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_1c24ace04812748a"
+        }
+      ],
+      "design_parent": "S4_S1",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E2_r1_cost_all.json",
+      "primary_effects": [
+        {
+          "suite": "combined",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 235.87694581189243,
+          "reported_mean_before_completeness_gate": 235.87694581189243,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "largest_regressions": null,
+          "worst_s_per_source": 375.1605581
+        },
+        {
+          "suite": "combined",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 467.4051842769156,
+          "reported_mean_before_completeness_gate": 467.4051842769156,
+          "baseline_mean_s_per_source": 473.8974929996439,
+          "delta_s_per_source": -6.492308722728296,
+          "faster": 2024,
+          "equal": 84,
+          "slower": 292,
+          "largest_regressions": null,
+          "worst_s_per_source": 716.6786471
+        }
+      ],
+      "development_summary": [
+        {
+          "batch": "r1_development",
+          "variant": "r1_cost_all",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 458.63359879956516,
+              "reported_mean_before_completeness_gate": 458.63359879956516,
+              "baseline_mean_s_per_source": 465.13698131690296,
+              "delta_s_per_source": -6.503382517337798,
+              "faster": 85,
+              "equal": 4,
+              "slower": 7,
+              "largest_regressions": [
+                {
+                  "case_id": "E2-dev-q4-origin_cluster-45000066",
+                  "delta_s_per_source": 6.135907874999987
+                },
+                {
+                  "case_id": "E2-dev-q4-edge_mixed_min_radius-45000049",
+                  "delta_s_per_source": 4.986065999999937
+                },
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000060",
+                  "delta_s_per_source": 3.7018165833333114
+                },
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000061",
+                  "delta_s_per_source": 1.2513306923077039
+                },
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000059",
+                  "delta_s_per_source": 0.724837818181868
+                }
+              ],
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E2_r1_cost_opportunity",
+      "kind": "development_only",
+      "title": "r1_cost_opportunity",
+      "status": "no_completed_4800_record_for_this_deployment",
+      "direction_tags": [
+        "E2_refine"
+      ],
+      "round": 1,
+      "round_key": "E2_refine_R1",
+      "parents": [
+        {
+          "id": "S4_S1",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_1c24ace04812748a"
+        }
+      ],
+      "design_parent": "S4_S1",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E2_r1_cost_opportunity.json",
+      "primary_effects": [],
+      "development_summary": [
+        {
+          "batch": "r1_development",
+          "variant": "r1_cost_opportunity",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 466.1084290790019,
+              "reported_mean_before_completeness_gate": 466.1084290790019,
+              "baseline_mean_s_per_source": 465.13698131690296,
+              "delta_s_per_source": 0.9714477620989328,
+              "faster": 11,
+              "equal": 18,
+              "slower": 67,
+              "largest_regressions": [
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000060",
+                  "delta_s_per_source": 12.833193583333355
+                },
+                {
+                  "case_id": "E2-dev-q4-exactly10_sources-45000083",
+                  "delta_s_per_source": 9.580947000000037
+                },
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000058",
+                  "delta_s_per_source": 7.42935137500001
+                },
+                {
+                  "case_id": "E2-dev-q4-edge_mixed_min_radius-45000049",
+                  "delta_s_per_source": 6.601450615384579
+                },
+                {
+                  "case_id": "E2-dev-q4-origin_cluster-45000066",
+                  "delta_s_per_source": 6.510907874999987
+                }
+              ],
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E2_r1_off",
+      "kind": "control_or_wiring",
+      "title": "r1_off",
+      "status": "not_counted_as_new_research_round",
+      "direction_tags": [
+        "E2_refine"
+      ],
+      "round": 1,
+      "round_key": "E2_refine_R1",
+      "parents": [
+        {
+          "id": "S4_S1",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_1c24ace04812748a"
+        }
+      ],
+      "design_parent": "S4_S1",
+      "control_or_wiring": true,
+      "details": "nodes/S4_E2_r1_off.json",
+      "primary_effects": [],
+      "development_summary": []
+    },
+    {
+      "id": "S4_E2_r1_station_only",
+      "kind": "completed_stage4_candidate",
+      "title": "r1_station_only",
+      "status": "completed_4800_all_clear",
+      "direction_tags": [
+        "E2_refine"
+      ],
+      "round": 1,
+      "round_key": "E2_refine_R1",
+      "parents": [
+        {
+          "id": "S4_S1",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_1c24ace04812748a"
+        }
+      ],
+      "design_parent": "S4_S1",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E2_r1_station_only.json",
+      "primary_effects": [
+        {
+          "suite": "combined",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 235.87694581189243,
+          "reported_mean_before_completeness_gate": 235.87694581189243,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "largest_regressions": null,
+          "worst_s_per_source": 375.1605581
+        },
+        {
+          "suite": "combined",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 466.8426814648249,
+          "reported_mean_before_completeness_gate": 466.8426814648249,
+          "baseline_mean_s_per_source": 473.8974929996439,
+          "delta_s_per_source": -7.054811534818953,
+          "faster": 2044,
+          "equal": 276,
+          "slower": 80,
+          "largest_regressions": null,
+          "worst_s_per_source": 716.6786471
+        }
+      ],
+      "development_summary": [
+        {
+          "batch": "r1_ablation",
+          "variant": "r1_station_only",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 458.0078451733861,
+              "reported_mean_before_completeness_gate": 458.0078451733861,
+              "baseline_mean_s_per_source": 465.13698131690296,
+              "delta_s_per_source": -7.12913614351686,
+              "faster": 87,
+              "equal": 9,
+              "slower": 0,
+              "largest_regressions": [
+                {
+                  "case_id": "E2-dev-q4-edge_mixed_min_radius-45000050",
+                  "delta_s_per_source": 0.0
+                },
+                {
+                  "case_id": "E2-dev-q4-origin_cluster-45000064",
+                  "delta_s_per_source": 0.0
+                },
+                {
+                  "case_id": "E2-dev-q4-origin_cluster-45000065",
+                  "delta_s_per_source": 0.0
+                },
+                {
+                  "case_id": "E2-dev-q4-origin_cluster-45000066",
+                  "delta_s_per_source": 0.0
+                },
+                {
+                  "case_id": "E2-dev-q4-origin_cluster-45000067",
+                  "delta_s_per_source": 0.0
+                }
+              ],
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r2_development",
+          "variant": "r1_station_only",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 465.0362366792481,
+              "reported_mean_before_completeness_gate": 465.0362366792481,
+              "baseline_mean_s_per_source": 472.835401084817,
+              "delta_s_per_source": -7.799164405568945,
+              "faster": 83,
+              "equal": 11,
+              "slower": 2,
+              "largest_regressions": [
+                {
+                  "case_id": "E2-dev-q4-fixed_positive_bias-45000106",
+                  "delta_s_per_source": 6.394004416666746
+                },
+                {
+                  "case_id": "E2-dev-q4-exactly16_sources-45000191",
+                  "delta_s_per_source": 2.2067884999999876
+                },
+                {
+                  "case_id": "E2-dev-q4-edge_mixed_min_radius-45000145",
+                  "delta_s_per_source": 0.0
+                },
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000153",
+                  "delta_s_per_source": 0.0
+                },
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000158",
+                  "delta_s_per_source": 0.0
+                }
+              ],
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E2_r1_station_uncertified",
+      "kind": "control_or_wiring",
+      "title": "r1_station_uncertified",
+      "status": "not_counted_as_new_research_round",
+      "direction_tags": [
+        "E2_refine"
+      ],
+      "round": 1,
+      "round_key": "E2_refine_R1",
+      "parents": [
+        {
+          "id": "S4_S1",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_1c24ace04812748a"
+        }
+      ],
+      "design_parent": "S4_S1",
+      "control_or_wiring": true,
+      "details": "nodes/S4_E2_r1_station_uncertified.json",
+      "primary_effects": [],
+      "development_summary": []
+    },
+    {
+      "id": "S4_E2_r2_here",
+      "kind": "development_only",
+      "title": "r2_here",
+      "status": "no_completed_4800_record_for_this_deployment",
+      "direction_tags": [
+        "E2_refine"
+      ],
+      "round": 2,
+      "round_key": "E2_refine_R2",
+      "parents": [
+        {
+          "id": "S4_E2_r1_station_only",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_1c24ace04812748a"
+        }
+      ],
+      "design_parent": "S4_E2_r1_station_only",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E2_r2_here.json",
+      "primary_effects": [],
+      "development_summary": [
+        {
+          "batch": "r2_development",
+          "variant": "r2_here",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 465.0604595199933,
+              "reported_mean_before_completeness_gate": 465.0604595199933,
+              "baseline_mean_s_per_source": 472.835401084817,
+              "delta_s_per_source": -7.7749415648237346,
+              "faster": 84,
+              "equal": 9,
+              "slower": 3,
+              "largest_regressions": [
+                {
+                  "case_id": "E2-dev-q4-fixed_positive_bias-45000106",
+                  "delta_s_per_source": 6.394004416666746
+                },
+                {
+                  "case_id": "E2-dev-q4-origin_cluster-45000163",
+                  "delta_s_per_source": 2.326034461538484
+                },
+                {
+                  "case_id": "E2-dev-q4-exactly16_sources-45000191",
+                  "delta_s_per_source": 2.2067884999999876
+                },
+                {
+                  "case_id": "E2-dev-q4-edge_mixed_min_radius-45000145",
+                  "delta_s_per_source": 0.0
+                },
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000153",
+                  "delta_s_per_source": 0.0
+                }
+              ],
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E2_r2_one_round",
+      "kind": "completed_stage4_candidate",
+      "title": "r2_one_round",
+      "status": "completed_4800_all_clear",
+      "direction_tags": [
+        "E2_refine"
+      ],
+      "round": 2,
+      "round_key": "E2_refine_R2",
+      "parents": [
+        {
+          "id": "S4_E2_r1_station_only",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_1c24ace04812748a"
+        }
+      ],
+      "design_parent": "S4_E2_r1_station_only",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E2_r2_one_round.json",
+      "primary_effects": [
+        {
+          "suite": "combined",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 235.87694581189243,
+          "reported_mean_before_completeness_gate": 235.87694581189243,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "largest_regressions": null,
+          "worst_s_per_source": 375.1605581
+        },
+        {
+          "suite": "combined",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 457.7214998657269,
+          "reported_mean_before_completeness_gate": 457.7214998657269,
+          "baseline_mean_s_per_source": 473.8974929996439,
+          "delta_s_per_source": -16.17599313391696,
+          "faster": 2085,
+          "equal": 18,
+          "slower": 297,
+          "largest_regressions": null,
+          "worst_s_per_source": 697.27526
+        }
+      ],
+      "development_summary": [
+        {
+          "batch": "r2_development",
+          "variant": "r2_one_round",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 458.39101202869324,
+              "reported_mean_before_completeness_gate": 458.39101202869324,
+              "baseline_mean_s_per_source": 472.835401084817,
+              "delta_s_per_source": -14.444389056123782,
+              "faster": 85,
+              "equal": 0,
+              "slower": 11,
+              "largest_regressions": [
+                {
+                  "case_id": "E2-dev-q4-exactly16_sources-45000184",
+                  "delta_s_per_source": 63.62371350000001
+                },
+                {
+                  "case_id": "E2-dev-q4-edge_mixed_min_radius-45000150",
+                  "delta_s_per_source": 31.470486384615356
+                },
+                {
+                  "case_id": "E2-dev-q4-reference_assumed-45000099",
+                  "delta_s_per_source": 22.38333790909087
+                },
+                {
+                  "case_id": "E2-dev-q4-origin_cluster-45000167",
+                  "delta_s_per_source": 21.163941769230746
+                },
+                {
+                  "case_id": "E2-dev-q4-minimum_radius-45000168",
+                  "delta_s_per_source": 21.04585668750002
+                }
+              ],
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r3_development",
+          "variant": "r2_one_round",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 460.5277917552014,
+              "reported_mean_before_completeness_gate": 460.5277917552014,
+              "baseline_mean_s_per_source": 478.43656184556863,
+              "delta_s_per_source": -17.908770090367227,
+              "faster": 83,
+              "equal": 0,
+              "slower": 13,
+              "largest_regressions": [
+                {
+                  "case_id": "E2-dev-q4-fixed_negative_bias-45000215",
+                  "delta_s_per_source": 28.541568769230707
+                },
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000253",
+                  "delta_s_per_source": 21.47943209999994
+                },
+                {
+                  "case_id": "E2-dev-q4-cell50_shared_field-45000224",
+                  "delta_s_per_source": 15.502130916666601
+                },
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000255",
+                  "delta_s_per_source": 11.871735272727335
+                },
+                {
+                  "case_id": "E2-dev-q4-minimum_radius-45000265",
+                  "delta_s_per_source": 10.110430071428596
+                }
+              ],
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r4_development",
+          "variant": "r2_one_round",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 451.13701868587896,
+              "reported_mean_before_completeness_gate": 451.13701868587896,
+              "baseline_mean_s_per_source": 465.0141567902983,
+              "delta_s_per_source": -13.877138104419316,
+              "faster": 83,
+              "equal": 1,
+              "slower": 12,
+              "largest_regressions": [
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000349",
+                  "delta_s_per_source": 125.42992625000002
+                },
+                {
+                  "case_id": "E2-dev-q4-origin_cluster-45000352",
+                  "delta_s_per_source": 48.92432375
+                },
+                {
+                  "case_id": "E2-dev-q4-exactly16_sources-45000376",
+                  "delta_s_per_source": 19.04011175000005
+                },
+                {
+                  "case_id": "E2-dev-q4-edge_mixed_min_radius-45000338",
+                  "delta_s_per_source": 13.514494272727234
+                },
+                {
+                  "case_id": "E2-dev-q4-exactly10_sources-45000370",
+                  "delta_s_per_source": 12.997897999999964
+                }
+              ],
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E2_r3_failure_cells",
+      "kind": "completed_stage4_candidate",
+      "title": "r3_failure_cells",
+      "status": "completed_4800_all_clear",
+      "direction_tags": [
+        "E2_refine"
+      ],
+      "round": 3,
+      "round_key": "E2_refine_R3",
+      "parents": [
+        {
+          "id": "S4_E2_r2_one_round",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_1c24ace04812748a"
+        }
+      ],
+      "design_parent": "S4_E2_r2_one_round",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E2_r3_failure_cells.json",
+      "primary_effects": [
+        {
+          "suite": "combined",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 235.87694581189243,
+          "reported_mean_before_completeness_gate": 235.87694581189243,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "largest_regressions": null,
+          "worst_s_per_source": 375.1605581
+        },
+        {
+          "suite": "combined",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 457.66404224116917,
+          "reported_mean_before_completeness_gate": 457.66404224116917,
+          "baseline_mean_s_per_source": 473.8974929996439,
+          "delta_s_per_source": -16.233450758474703,
+          "faster": 2089,
+          "equal": 8,
+          "slower": 303,
+          "largest_regressions": null,
+          "worst_s_per_source": 697.27526
+        }
+      ],
+      "development_summary": [
+        {
+          "batch": "r3_development",
+          "variant": "r3_failure_cells",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 460.46648627065247,
+              "reported_mean_before_completeness_gate": 460.46648627065247,
+              "baseline_mean_s_per_source": 478.43656184556863,
+              "delta_s_per_source": -17.970075574916166,
+              "faster": 83,
+              "equal": 0,
+              "slower": 13,
+              "largest_regressions": [
+                {
+                  "case_id": "E2-dev-q4-fixed_negative_bias-45000215",
+                  "delta_s_per_source": 28.541568769230707
+                },
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000253",
+                  "delta_s_per_source": 20.47232530000008
+                },
+                {
+                  "case_id": "E2-dev-q4-cell50_shared_field-45000224",
+                  "delta_s_per_source": 15.502130916666601
+                },
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000255",
+                  "delta_s_per_source": 11.226597363636415
+                },
+                {
+                  "case_id": "E2-dev-q4-minimum_radius-45000265",
+                  "delta_s_per_source": 10.110430071428596
+                }
+              ],
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E2_r3_failure_hull",
+      "kind": "development_only",
+      "title": "r3_failure_hull",
+      "status": "no_completed_4800_record_for_this_deployment",
+      "direction_tags": [
+        "E2_refine"
+      ],
+      "round": 3,
+      "round_key": "E2_refine_R3",
+      "parents": [
+        {
+          "id": "S4_E2_r2_one_round",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_1c24ace04812748a"
+        }
+      ],
+      "design_parent": "S4_E2_r2_one_round",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E2_r3_failure_hull.json",
+      "primary_effects": [],
+      "development_summary": [
+        {
+          "batch": "r3_development",
+          "variant": "r3_failure_hull",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 460.6557484410988,
+              "reported_mean_before_completeness_gate": 460.6557484410988,
+              "baseline_mean_s_per_source": 478.43656184556863,
+              "delta_s_per_source": -17.780813404469825,
+              "faster": 83,
+              "equal": 0,
+              "slower": 13,
+              "largest_regressions": [
+                {
+                  "case_id": "E2-dev-q4-fixed_negative_bias-45000215",
+                  "delta_s_per_source": 28.541568769230707
+                },
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000253",
+                  "delta_s_per_source": 21.479140099999995
+                },
+                {
+                  "case_id": "E2-dev-q4-cell50_shared_field-45000224",
+                  "delta_s_per_source": 15.502130916666601
+                },
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000255",
+                  "delta_s_per_source": 11.871730090909125
+                },
+                {
+                  "case_id": "E2-dev-q4-minimum_radius-45000265",
+                  "delta_s_per_source": 10.1192765714286
+                }
+              ],
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E2_r4_optical_1",
+      "kind": "development_only",
+      "title": "r4_optical_1",
+      "status": "no_completed_4800_record_for_this_deployment",
+      "direction_tags": [
+        "E2_refine"
+      ],
+      "round": 4,
+      "round_key": "E2_refine_R4",
+      "parents": [
+        {
+          "id": "S4_E2_r2_one_round",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_1c24ace04812748a"
+        }
+      ],
+      "design_parent": "S4_E2_r2_one_round",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E2_r4_optical_1.json",
+      "primary_effects": [],
+      "development_summary": [
+        {
+          "batch": "r4_development",
+          "variant": "r4_optical_1",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 451.12191586231125,
+              "reported_mean_before_completeness_gate": 451.12191586231125,
+              "baseline_mean_s_per_source": 465.0141567902983,
+              "delta_s_per_source": -13.892240927987018,
+              "faster": 83,
+              "equal": 1,
+              "slower": 12,
+              "largest_regressions": [
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000349",
+                  "delta_s_per_source": 125.42992625000002
+                },
+                {
+                  "case_id": "E2-dev-q4-origin_cluster-45000352",
+                  "delta_s_per_source": 48.92432375
+                },
+                {
+                  "case_id": "E2-dev-q4-exactly16_sources-45000376",
+                  "delta_s_per_source": 19.04011175000005
+                },
+                {
+                  "case_id": "E2-dev-q4-edge_mixed_min_radius-45000338",
+                  "delta_s_per_source": 13.514494272727234
+                },
+                {
+                  "case_id": "E2-dev-q4-exactly10_sources-45000370",
+                  "delta_s_per_source": 12.997897999999964
+                }
+              ],
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E2_r4_optical_3",
+      "kind": "development_only",
+      "title": "r4_optical_3",
+      "status": "no_completed_4800_record_for_this_deployment",
+      "direction_tags": [
+        "E2_refine"
+      ],
+      "round": 4,
+      "round_key": "E2_refine_R4",
+      "parents": [
+        {
+          "id": "S4_E2_r2_one_round",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_1c24ace04812748a"
+        }
+      ],
+      "design_parent": "S4_E2_r2_one_round",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E2_r4_optical_3.json",
+      "primary_effects": [],
+      "development_summary": [
+        {
+          "batch": "r4_development",
+          "variant": "r4_optical_3",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 451.1217716943425,
+              "reported_mean_before_completeness_gate": 451.1217716943425,
+              "baseline_mean_s_per_source": 465.0141567902983,
+              "delta_s_per_source": -13.892385095955774,
+              "faster": 83,
+              "equal": 1,
+              "slower": 12,
+              "largest_regressions": [
+                {
+                  "case_id": "E2-dev-q4-offcenter_cluster-45000349",
+                  "delta_s_per_source": 125.42992625000002
+                },
+                {
+                  "case_id": "E2-dev-q4-origin_cluster-45000352",
+                  "delta_s_per_source": 48.92432375
+                },
+                {
+                  "case_id": "E2-dev-q4-exactly16_sources-45000376",
+                  "delta_s_per_source": 19.04011175000005
+                },
+                {
+                  "case_id": "E2-dev-q4-edge_mixed_min_radius-45000338",
+                  "delta_s_per_source": 13.514494272727234
+                },
+                {
+                  "case_id": "E2-dev-q4-exactly10_sources-45000370",
+                  "delta_s_per_source": 12.997897999999964
+                }
+              ],
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E3_R1",
+      "kind": "completed_stage4_candidate",
+      "title": "paid unknown-channel initialization",
+      "status": "completed_4800_all_clear",
+      "direction_tags": [
+        "E3_expand"
+      ],
+      "round": 1,
+      "round_key": "E3_expand_R1",
+      "parents": [
+        {
+          "id": "S4_S1",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_a3d1108367d5ac1b"
+        }
+      ],
+      "design_parent": "S4_S1",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E3_R1.json",
+      "primary_effects": [
+        {
+          "suite": "combined",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 235.87694581189243,
+          "reported_mean_before_completeness_gate": 235.87694581189243,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "largest_regressions": null,
+          "worst_s_per_source": 375.1605581
+        },
+        {
+          "suite": "combined",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 475.1317668788888,
+          "reported_mean_before_completeness_gate": 475.1317668788888,
+          "baseline_mean_s_per_source": 473.8974929996439,
+          "delta_s_per_source": 1.2342738792449381,
+          "faster": 278,
+          "equal": 1526,
+          "slower": 596,
+          "largest_regressions": null,
+          "worst_s_per_source": 718.4786471
+        }
+      ],
+      "development_summary": [
+        {
+          "batch": "r1_development",
+          "variant": "clear600",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 504.1294879821121,
+              "reported_mean_before_completeness_gate": 504.1294879821121,
+              "baseline_mean_s_per_source": 491.6275157174178,
+              "delta_s_per_source": 12.501972264694302,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r1_development",
+          "variant": "clear1000",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 490.653289627666,
+              "reported_mean_before_completeness_gate": 490.653289627666,
+              "baseline_mean_s_per_source": 491.6275157174178,
+              "delta_s_per_source": -0.9742260897517667,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r1_development",
+          "variant": "stop600",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 503.3185563097052,
+              "reported_mean_before_completeness_gate": 503.3185563097052,
+              "baseline_mean_s_per_source": 491.6275157174178,
+              "delta_s_per_source": 11.69104059228738,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r1_development",
+          "variant": "stop1000",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 490.6748549219828,
+              "reported_mean_before_completeness_gate": 490.6748549219828,
+              "baseline_mean_s_per_source": 491.6275157174178,
+              "delta_s_per_source": -0.9526607954350084,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r2_development",
+          "variant": "clear1000",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 481.50686447693283,
+              "reported_mean_before_completeness_gate": 481.50686447693283,
+              "baseline_mean_s_per_source": 482.7777610232842,
+              "delta_s_per_source": -1.2708965463513664,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E3_R2",
+      "kind": "development_only",
+      "title": "joint information side score",
+      "status": "no_completed_4800_record_for_this_deployment",
+      "direction_tags": [
+        "E3_expand"
+      ],
+      "round": 2,
+      "round_key": "E3_expand_R2",
+      "parents": [
+        {
+          "id": "S4_S1",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_a3d1108367d5ac1b"
+        }
+      ],
+      "design_parent": "S4_S1",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E3_R2.json",
+      "primary_effects": [],
+      "development_summary": [
+        {
+          "batch": "r2_development",
+          "variant": "joint05",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 483.0963652221185,
+              "reported_mean_before_completeness_gate": 483.0963652221185,
+              "baseline_mean_s_per_source": 482.7777610232842,
+              "delta_s_per_source": 0.3186041988342936,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r2_development",
+          "variant": "joint1",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 483.1713854150794,
+              "reported_mean_before_completeness_gate": 483.1713854150794,
+              "baseline_mean_s_per_source": 482.7777610232842,
+              "delta_s_per_source": 0.3936243917951856,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r2_development",
+          "variant": "joint3",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 483.4034914810364,
+              "reported_mean_before_completeness_gate": 483.4034914810364,
+              "baseline_mean_s_per_source": 482.7777610232842,
+              "delta_s_per_source": 0.6257304577521836,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E3_R3",
+      "kind": "completed_stage4_candidate",
+      "title": "convex-footprint no-signal exclusion",
+      "status": "completed_4800_all_clear",
+      "direction_tags": [
+        "E3_expand"
+      ],
+      "round": 3,
+      "round_key": "E3_expand_R3",
+      "parents": [
+        {
+          "id": "S4_S1",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_a3d1108367d5ac1b"
+        }
+      ],
+      "design_parent": "S4_S1",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E3_R3.json",
+      "primary_effects": [
+        {
+          "suite": "combined",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 235.87694581189243,
+          "reported_mean_before_completeness_gate": 235.87694581189243,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "largest_regressions": null,
+          "worst_s_per_source": 375.1605581
+        },
+        {
+          "suite": "combined",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 473.62043910359387,
+          "reported_mean_before_completeness_gate": 473.62043910359387,
+          "baseline_mean_s_per_source": 473.8974929996439,
+          "delta_s_per_source": -0.2770538960500062,
+          "faster": 847,
+          "equal": 1182,
+          "slower": 371,
+          "largest_regressions": null,
+          "worst_s_per_source": 718.4786471
+        }
+      ],
+      "development_summary": [
+        {
+          "batch": "r3_development",
+          "variant": "convex_negative",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 402.4640323150737,
+              "reported_mean_before_completeness_gate": 402.4640323150737,
+              "baseline_mean_s_per_source": 402.4991890229623,
+              "delta_s_per_source": -0.035156707888575056,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_E3_R4",
+      "kind": "development_only",
+      "title": "conditioned finite hypothetical observation tree",
+      "status": "no_completed_4800_record_for_this_deployment",
+      "direction_tags": [
+        "E3_expand"
+      ],
+      "round": 4,
+      "round_key": "E3_expand_R4",
+      "parents": [
+        {
+          "id": "S4_S1",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_a3d1108367d5ac1b"
+        }
+      ],
+      "design_parent": "S4_S1",
+      "control_or_wiring": false,
+      "details": "nodes/S4_E3_R4.json",
+      "primary_effects": [],
+      "development_summary": [
+        {
+          "batch": "r4_confirmation",
+          "variant": "depth1",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 456.01688512365644,
+              "reported_mean_before_completeness_gate": 456.01688512365644,
+              "baseline_mean_s_per_source": 455.11772587965885,
+              "delta_s_per_source": 0.8991592439975875,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r4_confirmation",
+          "variant": "depth2",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 456.495783952929,
+              "reported_mean_before_completeness_gate": 456.495783952929,
+              "baseline_mean_s_per_source": 455.11772587965885,
+              "delta_s_per_source": 1.3780580732701537,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r4_confirmation",
+          "variant": "depth2max",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 456.3742293993332,
+              "reported_mean_before_completeness_gate": 456.3742293993332,
+              "baseline_mean_s_per_source": 455.11772587965885,
+              "delta_s_per_source": 1.256503519674368,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r4_development",
+          "variant": "depth1",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 48,
+              "complete_cases": 48,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 479.11990602265627,
+              "reported_mean_before_completeness_gate": 479.11990602265627,
+              "baseline_mean_s_per_source": 484.01341172248266,
+              "delta_s_per_source": -4.893505699826392,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r4_development",
+          "variant": "depth2",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 48,
+              "complete_cases": 48,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 480.3813869675347,
+              "reported_mean_before_completeness_gate": 480.3813869675347,
+              "baseline_mean_s_per_source": 484.01341172248266,
+              "delta_s_per_source": -3.632024754947963,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r4_development",
+          "variant": "depth2max",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 48,
+              "complete_cases": 48,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 481.71258516041667,
+              "reported_mean_before_completeness_gate": 481.71258516041667,
+              "baseline_mean_s_per_source": 484.01341172248266,
+              "delta_s_per_source": -2.3008265620659927,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r4_guarded_development",
+          "variant": "both",
+          "comparison_reference": "both",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 456.60580133260504,
+              "reported_mean_before_completeness_gate": 456.60580133260504,
+              "baseline_mean_s_per_source": 456.60580133260504,
+              "delta_s_per_source": 0.0,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r4_guarded_development",
+          "variant": "visibility",
+          "comparison_reference": "both",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 456.546069123469,
+              "reported_mean_before_completeness_gate": 456.546069123469,
+              "baseline_mean_s_per_source": 456.60580133260504,
+              "delta_s_per_source": -0.059732209136029724,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        },
+        {
+          "batch": "r4_guarded_development",
+          "variant": "margin",
+          "comparison_reference": "both",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 456.1480326014695,
+              "reported_mean_before_completeness_gate": 456.1480326014695,
+              "baseline_mean_s_per_source": 456.60580133260504,
+              "delta_s_per_source": -0.45776873113555894,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_ROOT_C1",
+      "kind": "control_or_wiring",
+      "title": "C1",
+      "status": "not_counted_as_new_research_round",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_ROOT_C1_combined",
+          "relationship": "byte_identical_replay_or_wiring_control",
+          "evidence_source": "s4src_65496895f012a5dc"
+        }
+      ],
+      "design_parent": null,
+      "control_or_wiring": true,
+      "details": "nodes/S4_ROOT_C1.json",
+      "primary_effects": [],
+      "development_summary": []
+    },
+    {
+      "id": "S4_ROOT_C1_combined",
+      "kind": "completed_stage4_candidate",
+      "title": "C1_combined",
+      "status": "completed_4800_all_clear",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_E1_R1",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_0c528cb1a1ad8651"
+        },
+        {
+          "id": "S4_E2_r1_station_only",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_0c528cb1a1ad8651"
+        }
+      ],
+      "design_parent": "S4_E1_R1",
+      "control_or_wiring": false,
+      "details": "nodes/S4_ROOT_C1_combined.json",
+      "primary_effects": [
+        {
+          "suite": "combined",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 235.87694581189243,
+          "reported_mean_before_completeness_gate": 235.87694581189243,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "largest_regressions": null,
+          "worst_s_per_source": 375.1605581
+        },
+        {
+          "suite": "combined",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 464.92592020986854,
+          "reported_mean_before_completeness_gate": 464.92592020986854,
+          "baseline_mean_s_per_source": 473.8974929996439,
+          "delta_s_per_source": -8.971572789775337,
+          "faster": 1729,
+          "equal": 139,
+          "slower": 532,
+          "largest_regressions": null,
+          "worst_s_per_source": 724.9533244
+        }
+      ],
+      "development_summary": [
+        {
+          "batch": "development_r1",
+          "variant": "C1_combined",
+          "comparison_reference": "S1",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": 1148,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 510.1478499991353,
+              "reported_mean_before_completeness_gate": 510.1478499991353,
+              "baseline_mean_s_per_source": 523.0739499442544,
+              "delta_s_per_source": -12.92609994511912,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_ROOT_C1_gate_off",
+      "kind": "control_or_wiring",
+      "title": "C1_gate_off",
+      "status": "not_counted_as_new_research_round",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_ROOT_C1_combined",
+          "relationship": "ablation_of_not_all_components_active",
+          "evidence_source": "s4src_0c528cb1a1ad8651"
+        },
+        {
+          "id": "S4_E1_R1",
+          "relationship": "wiring_comparison_target_not_active_mechanism",
+          "evidence_source": "s4src_0c528cb1a1ad8651"
+        }
+      ],
+      "design_parent": null,
+      "control_or_wiring": true,
+      "details": "nodes/S4_ROOT_C1_gate_off.json",
+      "primary_effects": [],
+      "development_summary": []
+    },
+    {
+      "id": "S4_ROOT_C1_route_off",
+      "kind": "control_or_wiring",
+      "title": "C1_route_off",
+      "status": "not_counted_as_new_research_round",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_ROOT_C1_combined",
+          "relationship": "ablation_of_not_all_components_active",
+          "evidence_source": "s4src_0c528cb1a1ad8651"
+        },
+        {
+          "id": "S4_E2_r1_station_only",
+          "relationship": "wiring_comparison_target_not_active_mechanism",
+          "evidence_source": "s4src_0c528cb1a1ad8651"
+        }
+      ],
+      "design_parent": null,
+      "control_or_wiring": true,
+      "details": "nodes/S4_ROOT_C1_route_off.json",
+      "primary_effects": [],
+      "development_summary": []
+    },
+    {
+      "id": "S4_ROOT_C2",
+      "kind": "control_or_wiring",
+      "title": "C2",
+      "status": "not_counted_as_new_research_round",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_ROOT_C2_conditional_round",
+          "relationship": "byte_identical_replay_or_wiring_control",
+          "evidence_source": "s4src_fbc4a7eea381bdd4"
+        }
+      ],
+      "design_parent": null,
+      "control_or_wiring": true,
+      "details": "nodes/S4_ROOT_C2.json",
+      "primary_effects": [],
+      "development_summary": []
+    },
+    {
+      "id": "S4_ROOT_C2_conditional_round",
+      "kind": "completed_stage4_candidate",
+      "title": "C2_conditional_round",
+      "status": "completed_4800_all_clear",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_ROOT_C1_combined",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_65496895f012a5dc"
+        },
+        {
+          "id": "S4_E2_r2_one_round",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_65496895f012a5dc"
+        }
+      ],
+      "design_parent": "S4_ROOT_C1_combined",
+      "control_or_wiring": false,
+      "details": "nodes/S4_ROOT_C2_conditional_round.json",
+      "primary_effects": [
+        {
+          "suite": "combined",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 235.87694581189243,
+          "reported_mean_before_completeness_gate": 235.87694581189243,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "largest_regressions": null,
+          "worst_s_per_source": 375.1605581
+        },
+        {
+          "suite": "combined",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 456.21840032177465,
+          "reported_mean_before_completeness_gate": 456.21840032177465,
+          "baseline_mean_s_per_source": 473.8974929996439,
+          "delta_s_per_source": -17.67909267786922,
+          "faster": 1986,
+          "equal": 12,
+          "slower": 402,
+          "largest_regressions": null,
+          "worst_s_per_source": 721.5208154
+        }
+      ],
+      "development_summary": [
+        {
+          "batch": "development_r2",
+          "variant": "C2_conditional_round",
+          "comparison_reference": "E2_R2",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 379.9123453146735,
+              "reported_mean_before_completeness_gate": 379.9123453146735,
+              "baseline_mean_s_per_source": 383.3730248948117,
+              "delta_s_per_source": -3.460679580138219,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_ROOT_C2_route_off",
+      "kind": "control_or_wiring",
+      "title": "C2_route_off",
+      "status": "not_counted_as_new_research_round",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_ROOT_C2_conditional_round",
+          "relationship": "ablation_of_not_all_components_active",
+          "evidence_source": "s4src_65496895f012a5dc"
+        },
+        {
+          "id": "S4_E2_r2_one_round",
+          "relationship": "wiring_comparison_target_not_active_mechanism",
+          "evidence_source": "s4src_65496895f012a5dc"
+        }
+      ],
+      "design_parent": null,
+      "control_or_wiring": true,
+      "details": "nodes/S4_ROOT_C2_route_off.json",
+      "primary_effects": [],
+      "development_summary": []
+    },
+    {
+      "id": "S4_ROOT_C3_entry_station",
+      "kind": "development_only",
+      "title": "C3_entry_station",
+      "status": "no_completed_4800_record_for_this_deployment",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_E1_R5",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_65496895f012a5dc"
+        },
+        {
+          "id": "S4_E2_r1_station_only",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_65496895f012a5dc"
+        }
+      ],
+      "design_parent": "S4_E1_R5",
+      "control_or_wiring": false,
+      "details": "nodes/S4_ROOT_C3_entry_station.json",
+      "primary_effects": [],
+      "development_summary": [
+        {
+          "batch": "development_r2",
+          "variant": "C3_entry_station",
+          "comparison_reference": "E2_R2",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 393.3620017974192,
+              "reported_mean_before_completeness_gate": 393.3620017974192,
+              "baseline_mean_s_per_source": 383.3730248948117,
+              "delta_s_per_source": 9.988976902607533,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_ROOT_C3_gate_off",
+      "kind": "control_or_wiring",
+      "title": "C3_gate_off",
+      "status": "not_counted_as_new_research_round",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_ROOT_C3_entry_station",
+          "relationship": "ablation_of_not_all_components_active",
+          "evidence_source": "s4src_65496895f012a5dc"
+        },
+        {
+          "id": "S4_E1_R5",
+          "relationship": "wiring_comparison_target_not_active_mechanism",
+          "evidence_source": "s4src_65496895f012a5dc"
+        }
+      ],
+      "design_parent": null,
+      "control_or_wiring": true,
+      "details": "nodes/S4_ROOT_C3_gate_off.json",
+      "primary_effects": [],
+      "development_summary": []
+    },
+    {
+      "id": "S4_ROOT_C4_entry_round",
+      "kind": "development_only",
+      "title": "C4_entry_round",
+      "status": "no_completed_4800_record_for_this_deployment",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_ROOT_C3_entry_station",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_65496895f012a5dc"
+        },
+        {
+          "id": "S4_E2_r2_one_round",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_65496895f012a5dc"
+        }
+      ],
+      "design_parent": "S4_ROOT_C3_entry_station",
+      "control_or_wiring": false,
+      "details": "nodes/S4_ROOT_C4_entry_round.json",
+      "primary_effects": [],
+      "development_summary": [
+        {
+          "batch": "development_r2",
+          "variant": "C4_entry_round",
+          "comparison_reference": "E2_R2",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 385.6374625584468,
+              "reported_mean_before_completeness_gate": 385.6374625584468,
+              "baseline_mean_s_per_source": 383.3730248948117,
+              "delta_s_per_source": 2.2644376636351353,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_ROOT_C5_cells",
+      "kind": "development_only",
+      "title": "C5_cells",
+      "status": "no_completed_4800_record_for_this_deployment",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_ROOT_C2_conditional_round",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_fbc4a7eea381bdd4"
+        },
+        {
+          "id": "S4_E2_r3_failure_cells",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_fbc4a7eea381bdd4"
+        }
+      ],
+      "design_parent": "S4_ROOT_C2_conditional_round",
+      "control_or_wiring": false,
+      "details": "nodes/S4_ROOT_C5_cells.json",
+      "primary_effects": [],
+      "development_summary": [
+        {
+          "batch": "development_r3",
+          "variant": "C5_cells",
+          "comparison_reference": "C2",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 401.1407269399244,
+              "reported_mean_before_completeness_gate": 401.1407269399244,
+              "baseline_mean_s_per_source": 401.1380771384611,
+              "delta_s_per_source": 0.0026498014632920786,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_ROOT_C6_wedge",
+      "kind": "development_only",
+      "title": "C6_wedge",
+      "status": "no_completed_4800_record_for_this_deployment",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_ROOT_C2_conditional_round",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_fbc4a7eea381bdd4"
+        },
+        {
+          "id": "S4_E3_R3",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_fbc4a7eea381bdd4"
+        }
+      ],
+      "design_parent": "S4_ROOT_C2_conditional_round",
+      "control_or_wiring": false,
+      "details": "nodes/S4_ROOT_C6_wedge.json",
+      "primary_effects": [],
+      "development_summary": [
+        {
+          "batch": "development_r3",
+          "variant": "C6_wedge",
+          "comparison_reference": "C2",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 400.75760914274554,
+              "reported_mean_before_completeness_gate": 400.75760914274554,
+              "baseline_mean_s_per_source": 401.1380771384611,
+              "delta_s_per_source": -0.38046799571554857,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_ROOT_C7_both",
+      "kind": "completed_stage4_candidate",
+      "title": "C7_both",
+      "status": "completed_4800_all_clear",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_ROOT_C2_conditional_round",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_fbc4a7eea381bdd4"
+        },
+        {
+          "id": "S4_E2_r3_failure_cells",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_fbc4a7eea381bdd4"
+        },
+        {
+          "id": "S4_E3_R3",
+          "relationship": "code_or_active_component_parent",
+          "evidence_source": "s4src_fbc4a7eea381bdd4"
+        }
+      ],
+      "design_parent": "S4_ROOT_C2_conditional_round",
+      "control_or_wiring": false,
+      "details": "nodes/S4_ROOT_C7_both.json",
+      "primary_effects": [
+        {
+          "suite": "combined",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 235.87694581189243,
+          "reported_mean_before_completeness_gate": 235.87694581189243,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "largest_regressions": null,
+          "worst_s_per_source": 375.1605581
+        },
+        {
+          "suite": "combined",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "all_clear_and_normal": true,
+          "mean_s_per_source": 456.11182087573513,
+          "reported_mean_before_completeness_gate": 456.11182087573513,
+          "baseline_mean_s_per_source": 473.8974929996439,
+          "delta_s_per_source": -17.78567212390874,
+          "faster": 1995,
+          "equal": 2,
+          "slower": 403,
+          "largest_regressions": null,
+          "worst_s_per_source": 722.4135973
+        }
+      ],
+      "development_summary": [
+        {
+          "batch": "development_r3",
+          "variant": "C7_both",
+          "comparison_reference": "C2",
+          "effects": [
+            {
+              "suite": "development",
+              "mode": 4,
+              "group": "ALL",
+              "cases": 96,
+              "complete_cases": 96,
+              "error_cases": null,
+              "source_count": null,
+              "cleared_count": null,
+              "all_clear_and_normal": true,
+              "mean_s_per_source": 400.756178653249,
+              "reported_mean_before_completeness_gate": 400.756178653249,
+              "baseline_mean_s_per_source": 401.1380771384611,
+              "delta_s_per_source": -0.3818984852121048,
+              "faster": null,
+              "equal": null,
+              "slower": null,
+              "largest_regressions": null,
+              "worst_s_per_source": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4_ROOT_C7_off",
+      "kind": "control_or_wiring",
+      "title": "C7_off",
+      "status": "not_counted_as_new_research_round",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_ROOT_C7_both",
+          "relationship": "ablation_of_not_all_components_active",
+          "evidence_source": "s4src_fbc4a7eea381bdd4"
+        },
+        {
+          "id": "S4_ROOT_C2_conditional_round",
+          "relationship": "wiring_comparison_target_not_active_mechanism",
+          "evidence_source": "s4src_fbc4a7eea381bdd4"
+        }
+      ],
+      "design_parent": null,
+      "control_or_wiring": true,
+      "details": "nodes/S4_ROOT_C7_off.json",
+      "primary_effects": [],
+      "development_summary": []
+    },
+    {
+      "id": "S4_ROOT_E1_R1",
+      "kind": "control_or_wiring",
+      "title": "E1_R1",
+      "status": "not_counted_as_new_research_round",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_E1_R1",
+          "relationship": "byte_identical_replay_or_wiring_control",
+          "evidence_source": "s4src_0c528cb1a1ad8651"
+        }
+      ],
+      "design_parent": null,
+      "control_or_wiring": true,
+      "details": "nodes/S4_ROOT_E1_R1.json",
+      "primary_effects": [],
+      "development_summary": []
+    },
+    {
+      "id": "S4_ROOT_E1_R5",
+      "kind": "control_or_wiring",
+      "title": "E1_R5",
+      "status": "not_counted_as_new_research_round",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_E1_R5",
+          "relationship": "byte_identical_replay_or_wiring_control",
+          "evidence_source": "s4src_65496895f012a5dc"
+        }
+      ],
+      "design_parent": null,
+      "control_or_wiring": true,
+      "details": "nodes/S4_ROOT_E1_R5.json",
+      "primary_effects": [],
+      "development_summary": []
+    },
+    {
+      "id": "S4_ROOT_E2_R2",
+      "kind": "control_or_wiring",
+      "title": "E2_R2",
+      "status": "not_counted_as_new_research_round",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_E2_r2_one_round",
+          "relationship": "byte_identical_replay_or_wiring_control",
+          "evidence_source": "s4src_65496895f012a5dc"
+        }
+      ],
+      "design_parent": null,
+      "control_or_wiring": true,
+      "details": "nodes/S4_ROOT_E2_R2.json",
+      "primary_effects": [],
+      "development_summary": []
+    },
+    {
+      "id": "S4_ROOT_E2_station",
+      "kind": "control_or_wiring",
+      "title": "E2_station",
+      "status": "not_counted_as_new_research_round",
+      "direction_tags": [
+        "ROOT"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "S4_E2_r1_station_only",
+          "relationship": "byte_identical_replay_or_wiring_control",
+          "evidence_source": "s4src_0c528cb1a1ad8651"
+        }
+      ],
+      "design_parent": null,
+      "control_or_wiring": true,
+      "details": "nodes/S4_ROOT_E2_station.json",
+      "primary_effects": [],
+      "development_summary": []
+    },
+    {
+      "id": "S4_S1",
+      "kind": "background",
+      "title": "第四阶段固定S1：Q3 R2R4 / Q4 R3R5",
+      "status": "previously_executed_control_reused",
+      "direction_tags": [
+        "background"
+      ],
+      "round": null,
+      "round_key": null,
+      "parents": [
+        {
+          "id": "R2_open_R4",
+          "relationship": "mode_3_dispatch_component",
+          "evidence_source": "s4src_ef9d74a5da36689d"
+        },
+        {
+          "id": "R3_open_R5",
+          "relationship": "mode_4_dispatch_component",
+          "evidence_source": "s4src_ef9d74a5da36689d"
+        }
+      ],
+      "design_parent": null,
+      "control_or_wiring": false,
+      "details": "nodes/S4_S1.json",
+      "primary_effects": [],
+      "development_summary": []
+    }
+  ],
+  "edges": [
+    {
+      "source": "R2_open_R4",
+      "target": "S4_S1",
+      "type": "mode_3_dispatch_component",
+      "evidence_source": "s4src_ef9d74a5da36689d"
+    },
+    {
+      "source": "R3_open_R5",
+      "target": "S4_S1",
+      "type": "mode_4_dispatch_component",
+      "evidence_source": "s4src_ef9d74a5da36689d"
+    },
+    {
+      "source": "S4_S1",
+      "target": "S4_E1_R1",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_5bdc426a08e79b49"
+    },
+    {
+      "source": "CONDITIONAL_DISCOVERY_ROUTE_PROPOSED",
+      "target": "S4_E1_R1",
+      "type": "mechanism_inspiration_not_whole_code_parent",
+      "evidence_source": "s4src_5bdc426a08e79b49"
+    },
+    {
+      "source": "S4_E1_R1",
+      "target": "S4_E1_R2",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_5bdc426a08e79b49"
+    },
+    {
+      "source": "S4_S1",
+      "target": "S4_E1_R3",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_5bdc426a08e79b49"
+    },
+    {
+      "source": "JOINT_CLEAR_ROUTE_PROPOSED",
+      "target": "S4_E1_R3",
+      "type": "mechanism_inspiration_not_whole_code_parent",
+      "evidence_source": "s4src_5bdc426a08e79b49"
+    },
+    {
+      "source": "S4_S1",
+      "target": "S4_E1_R4",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_5bdc426a08e79b49"
+    },
+    {
+      "source": "S4_E1_R3",
+      "target": "S4_E1_R4",
+      "type": "mechanism_inspiration_not_whole_code_parent",
+      "evidence_source": "s4src_5bdc426a08e79b49"
+    },
+    {
+      "source": "S4_E1_R4",
+      "target": "S4_E1_R5",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_5bdc426a08e79b49"
+    },
+    {
+      "source": "S4_S1",
+      "target": "S4_E2_r1_off",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_1c24ace04812748a"
+    },
+    {
+      "source": "S4_S1",
+      "target": "S4_E2_r1_cost_opportunity",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_1c24ace04812748a"
+    },
+    {
+      "source": "S4_S1",
+      "target": "S4_E2_r1_cost_all",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_1c24ace04812748a"
+    },
+    {
+      "source": "S4_S1",
+      "target": "S4_E2_r1_station_only",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_1c24ace04812748a"
+    },
+    {
+      "source": "S4_S1",
+      "target": "S4_E2_r1_station_uncertified",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_1c24ace04812748a"
+    },
+    {
+      "source": "S4_E2_r1_station_only",
+      "target": "S4_E2_r2_here",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_1c24ace04812748a"
+    },
+    {
+      "source": "S4_E2_r1_station_only",
+      "target": "S4_E2_r2_one_round",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_1c24ace04812748a"
+    },
+    {
+      "source": "S4_E2_r2_one_round",
+      "target": "S4_E2_r3_failure_hull",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_1c24ace04812748a"
+    },
+    {
+      "source": "S4_E2_r2_one_round",
+      "target": "S4_E2_r3_failure_cells",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_1c24ace04812748a"
+    },
+    {
+      "source": "S4_E2_r2_one_round",
+      "target": "S4_E2_r4_optical_1",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_1c24ace04812748a"
+    },
+    {
+      "source": "S4_E2_r2_one_round",
+      "target": "S4_E2_r4_optical_3",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_1c24ace04812748a"
+    },
+    {
+      "source": "S4_S1",
+      "target": "S4_E3_R1",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_a3d1108367d5ac1b"
+    },
+    {
+      "source": "S4_S1",
+      "target": "S4_E3_R2",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_a3d1108367d5ac1b"
+    },
+    {
+      "source": "S4_S1",
+      "target": "S4_E3_R3",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_a3d1108367d5ac1b"
+    },
+    {
+      "source": "S4_S1",
+      "target": "S4_E3_R4",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_a3d1108367d5ac1b"
+    },
+    {
+      "source": "S4_E1_R1",
+      "target": "S4_ROOT_C1_combined",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_0c528cb1a1ad8651"
+    },
+    {
+      "source": "S4_E2_r1_station_only",
+      "target": "S4_ROOT_C1_combined",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_0c528cb1a1ad8651"
+    },
+    {
+      "source": "S4_ROOT_C1_combined",
+      "target": "S4_ROOT_C2_conditional_round",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_65496895f012a5dc"
+    },
+    {
+      "source": "S4_E2_r2_one_round",
+      "target": "S4_ROOT_C2_conditional_round",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_65496895f012a5dc"
+    },
+    {
+      "source": "S4_E1_R5",
+      "target": "S4_ROOT_C3_entry_station",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_65496895f012a5dc"
+    },
+    {
+      "source": "S4_E2_r1_station_only",
+      "target": "S4_ROOT_C3_entry_station",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_65496895f012a5dc"
+    },
+    {
+      "source": "S4_ROOT_C3_entry_station",
+      "target": "S4_ROOT_C4_entry_round",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_65496895f012a5dc"
+    },
+    {
+      "source": "S4_E2_r2_one_round",
+      "target": "S4_ROOT_C4_entry_round",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_65496895f012a5dc"
+    },
+    {
+      "source": "S4_ROOT_C2_conditional_round",
+      "target": "S4_ROOT_C5_cells",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_fbc4a7eea381bdd4"
+    },
+    {
+      "source": "S4_E2_r3_failure_cells",
+      "target": "S4_ROOT_C5_cells",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_fbc4a7eea381bdd4"
+    },
+    {
+      "source": "S4_ROOT_C2_conditional_round",
+      "target": "S4_ROOT_C6_wedge",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_fbc4a7eea381bdd4"
+    },
+    {
+      "source": "S4_E3_R3",
+      "target": "S4_ROOT_C6_wedge",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_fbc4a7eea381bdd4"
+    },
+    {
+      "source": "S4_ROOT_C2_conditional_round",
+      "target": "S4_ROOT_C7_both",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_fbc4a7eea381bdd4"
+    },
+    {
+      "source": "S4_E2_r3_failure_cells",
+      "target": "S4_ROOT_C7_both",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_fbc4a7eea381bdd4"
+    },
+    {
+      "source": "S4_E3_R3",
+      "target": "S4_ROOT_C7_both",
+      "type": "code_or_active_component_parent",
+      "evidence_source": "s4src_fbc4a7eea381bdd4"
+    },
+    {
+      "source": "S4_ROOT_C1_combined",
+      "target": "S4_ROOT_C1",
+      "type": "byte_identical_replay_or_wiring_control",
+      "evidence_source": "s4src_65496895f012a5dc"
+    },
+    {
+      "source": "S4_ROOT_C1_combined",
+      "target": "S4_ROOT_C1_gate_off",
+      "type": "ablation_of_not_all_components_active",
+      "evidence_source": "s4src_0c528cb1a1ad8651"
+    },
+    {
+      "source": "S4_E1_R1",
+      "target": "S4_ROOT_C1_gate_off",
+      "type": "wiring_comparison_target_not_active_mechanism",
+      "evidence_source": "s4src_0c528cb1a1ad8651"
+    },
+    {
+      "source": "S4_ROOT_C1_combined",
+      "target": "S4_ROOT_C1_route_off",
+      "type": "ablation_of_not_all_components_active",
+      "evidence_source": "s4src_0c528cb1a1ad8651"
+    },
+    {
+      "source": "S4_E2_r1_station_only",
+      "target": "S4_ROOT_C1_route_off",
+      "type": "wiring_comparison_target_not_active_mechanism",
+      "evidence_source": "s4src_0c528cb1a1ad8651"
+    },
+    {
+      "source": "S4_ROOT_C2_conditional_round",
+      "target": "S4_ROOT_C2",
+      "type": "byte_identical_replay_or_wiring_control",
+      "evidence_source": "s4src_fbc4a7eea381bdd4"
+    },
+    {
+      "source": "S4_ROOT_C2_conditional_round",
+      "target": "S4_ROOT_C2_route_off",
+      "type": "ablation_of_not_all_components_active",
+      "evidence_source": "s4src_65496895f012a5dc"
+    },
+    {
+      "source": "S4_E2_r2_one_round",
+      "target": "S4_ROOT_C2_route_off",
+      "type": "wiring_comparison_target_not_active_mechanism",
+      "evidence_source": "s4src_65496895f012a5dc"
+    },
+    {
+      "source": "S4_ROOT_C3_entry_station",
+      "target": "S4_ROOT_C3_gate_off",
+      "type": "ablation_of_not_all_components_active",
+      "evidence_source": "s4src_65496895f012a5dc"
+    },
+    {
+      "source": "S4_E1_R5",
+      "target": "S4_ROOT_C3_gate_off",
+      "type": "wiring_comparison_target_not_active_mechanism",
+      "evidence_source": "s4src_65496895f012a5dc"
+    },
+    {
+      "source": "S4_ROOT_C7_both",
+      "target": "S4_ROOT_C7_off",
+      "type": "ablation_of_not_all_components_active",
+      "evidence_source": "s4src_fbc4a7eea381bdd4"
+    },
+    {
+      "source": "S4_ROOT_C2_conditional_round",
+      "target": "S4_ROOT_C7_off",
+      "type": "wiring_comparison_target_not_active_mechanism",
+      "evidence_source": "s4src_fbc4a7eea381bdd4"
+    },
+    {
+      "source": "S4_E1_R1",
+      "target": "S4_ROOT_E1_R1",
+      "type": "byte_identical_replay_or_wiring_control",
+      "evidence_source": "s4src_0c528cb1a1ad8651"
+    },
+    {
+      "source": "S4_E1_R5",
+      "target": "S4_ROOT_E1_R5",
+      "type": "byte_identical_replay_or_wiring_control",
+      "evidence_source": "s4src_65496895f012a5dc"
+    },
+    {
+      "source": "S4_E2_r2_one_round",
+      "target": "S4_ROOT_E2_R2",
+      "type": "byte_identical_replay_or_wiring_control",
+      "evidence_source": "s4src_65496895f012a5dc"
+    },
+    {
+      "source": "S4_E2_r1_station_only",
+      "target": "S4_ROOT_E2_station",
+      "type": "byte_identical_replay_or_wiring_control",
+      "evidence_source": "s4src_0c528cb1a1ad8651"
+    }
+  ],
+  "source_manifest": "manifest.json",
+  "warnings": [],
+  "current_best_reported": {
+    "fixed_baseline": "S1",
+    "current_best": "C7",
+    "candidate": "combination/geometry_fusions/C7_both.py",
+    "candidate_sha256": "cf37866829b9c6f376895075e819a732939e6fa8ad6d8d6297a151d7a213dcb3",
+    "dependencies": {},
+    "modes": {
+      "3": 235.87694581189243,
+      "4": 456.11182087573513
+    },
+    "source_count_each_mode": 30970,
+    "data_role": "4800 exposed local regression",
+    "Q3_alternative": {
+      "candidate": "../E1_refine/snapshots/r5_immediate_block.py",
+      "mean": 235.80780532211148,
+      "boundary": "0.0293% pooled improvement with opposite signs in the two batches; default Q3 retains S1."
+    }
+  },
+  "current_best_source": "s4src_99084d6ddaed72ed"
+}

@@ -113,7 +113,7 @@ def main():
     worst=max((r for r in winrows if r['mode']==4),key=lambda r:r['average_clear_time_s']-baseindex[r['case_id']]['average_clear_time_s'])
     lines+=['',f'仍有{w4["slower"]}个Q4单局慢于S1，最大单局回退{worst["average_clear_time_s"]-baseindex[worst["case_id"]]["average_clear_time_s"]:.6f}秒/源（{worst["case_id"]}）。均值改善不代表逐局占优。所有退步保存在配对表及原始结果。', '',
       '## 来源、版本与方法边界', '',
-      '完整[文献阅读账本](../E3_expand/literature.json)与[论文逐条说明](../E3_expand/RESEARCH_BRIEF.md)区分下载、关键章节阅读、完整阅读和未取得的准确版本。八条线索没有按相似题名重复计成新机制。主要更正包括：JFR文件名含2013但正式发表2014；T-RO题名包含静态目标与移动测向传感器；ISRR2015会议稿和2017/2018期刊扩展分开；Engin–Isler题名是from Noisy Relative Measurements，WAFR2020与2021书章不同时间；ICRA2013同题2012技术报告不能冒称camera-ready全文。', '',
+      '完整[文献阅读账本](../E3_expand/literature.json)与[论文逐条说明](../E3_expand/RESEARCH_BRIEF.md)区分下载、关键章节阅读、完整阅读和未取得的准确版本。八条线索没有按相似题名重复计成新机制。主要更正包括：JFR文件名含2013但正式发表2014；T-RO题名包含静态目标与移动测向传感器；ISRR2015会议稿、IJRR2017扩展与后续书章分别记录；Engin–Isler题名是from Noisy Relative Measurements，WAFR2020与2021书章不同时间；ICRA2013同题2012技术报告不能冒称camera-ready全文，且该报告在R3冻结后才取得，只用于事后理论对照。', '',
       '双机器人通信、动态无标识目标、Gaussian/EKF/CRLB或每步免费观测全部目标的理论保证不能直接搬到本题。概率和未来观测仅用于动作排序；可靠可行集合只接受题设支持的实际信息。', '',
       '## 执行预算与研究收束', '',
       '| 负责部分 | 实际策略任务 | 独特新开发案例 |', '|---|---:|---:|']
@@ -125,8 +125,8 @@ def main():
       f'- [推荐已测试单文件]({chosen["candidate"]})；SHA256 `{chosen["candidate_sha256"]}`。',
       '- [候选与原始结果身份](candidate_registry.json)、[分题默认选择](CURRENT_BEST.json)。',
       '- [E1完整报告](../E1_refine/report.md)、[E2完整报告](../E2_refine/report.md)、[E3完整报告](../E3_expand/report.md)。',
-      '- [第四阶段方向图增量](../R1_atlas/stage4_increment/README.md)、[AI增量索引](../R1_atlas/stage4_increment/index.json)、[此前70节点总图](../R1_atlas/DIRECTION_MAP.md)。', '',
-      '上传范围沿用用户对既定私有GitHub仓库的迭代授权。中途两次自动审批因授权和目的地不可见而拒绝，已补原始授权、实时private/ADMIN确认及提交范围检查，再正常完成推送；未更改目的地或公开仓库。未上传论文全文、官方二进制或参赛身份日志。']
+      '- [第四阶段可读方向图](../R1_atlas/STAGE4_PROGRESS.md)、[增量说明](../R1_atlas/stage4_increment/README.md)、[AI增量索引](../R1_atlas/stage4_increment/index.json)、[此前70节点总图](../R1_atlas/DIRECTION_MAP.md)。', '',
+      '候选、完整结果和报告保存到既定私有GitHub仓库；来源仅保存链接、阅读范围与研究笔记。']
     (HERE/'REPORT.md').write_text('\n'.join(lines)+'\n')
     print(json.dumps(dict(winner=winner,Q4=w4['candidate_mean_s_per_source'],reduction=w4['reduction_fraction'],total_runs=total,new_cases=unique),ensure_ascii=False))
 
