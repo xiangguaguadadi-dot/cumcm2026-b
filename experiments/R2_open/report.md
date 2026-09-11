@@ -48,8 +48,13 @@ Q3为1559局更快、0局相同、841局更慢。最大单局退步54.962975秒/
 
 首轮实际完整策略执行6264次：开发1344、quick120、full2400、旧final补跑2400。开发192个不同案例、暴露4800个不同案例；quick是full子集。开发现实12.187秒、quick0.859秒、full16.703秒、补跑18.346秒；并行负载和读写开销存在，不拿历史缓存现实时间声称计算加速。规则与几何检查另列于[execution_budget.json](execution_budget.json)。
 
-候选：[r1_solver.py](snapshots/r1_solver.py)，SHA256 `a820e8a8326fe39b9820e0cab4939524ca712e870ab13962567f6f71f5e9b11c`。构建父身份见[r1_build_provenance.json](research/r1_build_provenance.json)，完整保存状态见[best.json](best.json)。
+候选：[r1_solver.py](snapshots/r1_solver.py)，SHA256 `a820e8a8326fe39b9820e0cab4939524ca712e870ab13962567f6f71f5e9b11c`。代码与完整结果提交 `c24ed9c`，已推送专属分支。构建父身份见[r1_build_provenance.json](research/r1_build_provenance.json)，完整保存状态见[best.json](best.json)。
 
 ## 后续研究
 
 R3_open R1同期把Q4改为514.876836277秒/源，故本文件中的R1是有益Q3组件，尚未包含共同最新两题最佳；最后按题融合仍需真实验证。下一步检查主动第二测点、同址机会clear，以及文献提供的更直接任务成本代理。没有固定迭代轮数或连续失败自动停规则，当前仍有可执行方向，继续研究。
+
+
+## R2更新：同址认证服务保留，主动测点未采纳
+
+R2完整4800全清，Q3=236.506128826秒/源，较S0降低0.805423%，比R1再降低0.020916512秒/源；Q4仍S0=524.827143981。其独立作用很小，不把按题S0选择计为成果。12个fresh开发种子×12场景×2题比较父、主动第二测点、同址服务、直接组合；主动测点虽然少行20.337米/局，却多3次请求并退步。R2只有同址服务开启。完整结果、48场景和负例见research/r2_results.md；包含性与283091秒上界见research/r2_reliability.md。新文献将用于下一轮任务成本门控，尚未执行。R3另有更强Q4，最终共同候选需实际融合。
