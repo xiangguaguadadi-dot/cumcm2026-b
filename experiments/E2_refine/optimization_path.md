@@ -1,14 +1,17 @@
-# E2 optimization path
+# E2 迭代路径与状态
 
-R1 examined five deployed variants from S1, with one unexecuted exact-parent packaging snapshot. The current accepted component is **r1_station_only**.
+四轮已在本次方法范围内收束。固定父候选S1，当前单独最佳r3_failure_cells；主收益组件r1_station_only、r2_one_round。
 
-- No opportunity sensing: rejected (quick +20.830, new development +16.691 s/source).
-- Task-cost gate only at opportunity stops: rejected (+0.594 / +0.971).
-- Task-cost gate at opportunity and known-source station revisits: completed 4800, Q4 467.405184, all complete.
-- Preserve S1 opportunity sensing, gate only known-source station revisits: current best, 4800 Q4 466.842681; Q3 unchanged 235.876946.
-- Skip station retests only when radius<=20: controlled simpler alternative, development -1.843 versus -7.129 for the full station cost gate; not promoted to full.
+- r1_off: parent=S1; rejected_development_quick
+- r1_cost_opportunity: parent=S1; rejected_development_quick
+- r1_cost_all: parent=S1; full_dominated_by_r1_station_only
+- r1_station_only: parent=S1; accepted_R1_major_component
+- r1_station_uncertified: parent=S1; simpler_control_inferior
+- r2_here: parent=r1_station_only; rejected_development_quick
+- r2_one_round: parent=r1_station_only; accepted_R2_major_component
+- r3_failure_hull: parent=r2_one_round; rejected_development_quick
+- r3_failure_cells: parent=r2_one_round; accepted_R3_small_component
+- r4_optical_1: parent=r2_one_round; bounded_development_only_tiny_gain
+- r4_optical_3: parent=r2_one_round; bounded_development_only_tiny_gain
 
-Independent source development uses 96 new mixed-Q4 cases, shared between controlled variants; quick/full/old-final are already exposed. R1 does not claim a travel saving: on development movement increased 0.281 s/source while nonmovement decreased 7.410. Remaining hypotheses are not declared saturated.
-
-
-R2 tested two source-service units. Same-location certified clear had no development benefit (465.060460 vs R1 465.036237); rejected. One persistent original service-loop round then global replanning gave 457.721499865727 on4800 exposed cases, allcomplete, Q3 unchanged. OwnR1 decrease 9.121181599098 s/source. Both distinct controls retained.
+完整数值、局限与停止理由见[报告](report.md)。R4仅开发+quick；没有冒称full。

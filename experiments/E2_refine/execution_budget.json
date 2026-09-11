@@ -1,7 +1,7 @@
 {
-  "actual_strategy_executions": 16200,
-  "distinct_new_development_cases": 192,
-  "reused_case_executions": 16008,
+  "actual_strategy_executions": 22248,
+  "distinct_new_development_cases": 384,
+  "reused_case_executions": 21864,
   "rounds": [
     {
       "path": "results/r1_cost_all_exposed/summary.json",
@@ -69,6 +69,36 @@
       "role": "quick exposed regression"
     },
     {
+      "path": "results/r3_failure_cells_exposed/summary.json",
+      "actual_runs": 2400,
+      "role": "exposed previous_final after exact-hash v1 reuse"
+    },
+    {
+      "path": "results/r3_failure_cells_full/summary.json",
+      "actual_runs": 2400,
+      "role": "full exposed regression"
+    },
+    {
+      "path": "results/r3_failure_cells_quick/summary.json",
+      "actual_runs": 120,
+      "role": "quick exposed regression"
+    },
+    {
+      "path": "results/r3_failure_hull_quick/summary.json",
+      "actual_runs": 120,
+      "role": "quick exposed regression"
+    },
+    {
+      "path": "results/r4_optical_1_quick/summary.json",
+      "actual_runs": 120,
+      "role": "quick exposed regression"
+    },
+    {
+      "path": "results/r4_optical_3_quick/summary.json",
+      "actual_runs": 120,
+      "role": "quick exposed regression"
+    },
+    {
       "path": "results/r1_ablation/budget.json",
       "actual_runs": 192,
       "role": "legal development, not holdout"
@@ -82,7 +112,18 @@
       "path": "results/r2_development/budget.json",
       "actual_runs": 384,
       "role": "legal development, not holdout"
+    },
+    {
+      "path": "results/r3_development/budget.json",
+      "actual_runs": 384,
+      "role": "legal development, not holdout"
+    },
+    {
+      "path": "results/r4_development/budget.json",
+      "actual_runs": 384,
+      "role": "legal development, not holdout"
     }
   ],
-  "note": "Quick is a full subset; v1 reuse and historical caches are not execution. No fresh final holdout."
+  "rule_checks": "12 existing frozen rule tests each build; five new targeted cell-certificate cases, zero strategy episodes",
+  "note": "Quick is a full subset; v1 reuse and historical caches are not execution. No fresh final holdout. All actual runs include weak/rejected controls."
 }

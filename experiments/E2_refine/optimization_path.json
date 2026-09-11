@@ -1,51 +1,46 @@
 {
   "fixed_parent": "S1",
-  "current": "r2_one_round",
+  "current": "r3_failure_cells",
+  "research_status": "locally_saturated_after_bounded_R4_optical_unit_contrast",
   "nodes": [
     {
       "id": "r1_off",
+      "parent": "S1",
       "status": "rejected_development_quick",
       "candidate": "experiments/E2_refine/snapshots/r1_off.py",
       "sha256": "f3afd70fcca612b31686ad87ba4c1c253e05d6bb568a3605592b65453c33157b",
-      "q4_config": {
+      "config": {
         "e2_opportunity": "off",
         "e2_station_cost": false
       },
-      "parents": [
-        "S1"
-      ],
       "evidence": [
         "experiments/E2_refine/results/r1_off_quick"
       ]
     },
     {
       "id": "r1_cost_opportunity",
+      "parent": "S1",
       "status": "rejected_development_quick",
       "candidate": "experiments/E2_refine/snapshots/r1_cost_opportunity.py",
       "sha256": "340324e5b49e252414923e3d01eee249df2ebc0e3fe20f0a1871ccac1df72945",
-      "q4_config": {
+      "config": {
         "e2_opportunity": "cost",
         "e2_station_cost": false
       },
-      "parents": [
-        "S1"
-      ],
       "evidence": [
         "experiments/E2_refine/results/r1_cost_opportunity_quick"
       ]
     },
     {
       "id": "r1_cost_all",
-      "status": "full_regression_dominated_after_ablation",
+      "parent": "S1",
+      "status": "full_dominated_by_r1_station_only",
       "candidate": "experiments/E2_refine/snapshots/r1_cost_all.py",
       "sha256": "8dc51cf911e99263c982df876e44d5590533f2c7e4310151ecc7955c54d68fd9",
-      "q4_config": {
+      "config": {
         "e2_opportunity": "cost",
         "e2_station_cost": true
       },
-      "parents": [
-        "S1"
-      ],
       "evidence": [
         "experiments/E2_refine/results/r1_cost_all_exposed",
         "experiments/E2_refine/results/r1_cost_all_full",
@@ -54,16 +49,14 @@
     },
     {
       "id": "r1_station_only",
-      "status": "accepted_exposed_best",
+      "parent": "S1",
+      "status": "accepted_R1_major_component",
       "candidate": "experiments/E2_refine/snapshots/r1_station_only.py",
       "sha256": "c459591b21c192fce79d6d93a9d753f21c0ef09ba8b46d8821803d1f929d904c",
-      "q4_config": {
+      "config": {
         "e2_opportunity": "parent",
         "e2_station_cost": true
       },
-      "parents": [
-        "S1"
-      ],
       "evidence": [
         "experiments/E2_refine/results/r1_station_only_exposed",
         "experiments/E2_refine/results/r1_station_only_full",
@@ -72,53 +65,103 @@
     },
     {
       "id": "r1_station_uncertified",
-      "status": "simpler_component_control_inferior",
+      "parent": "S1",
+      "status": "simpler_control_inferior",
       "candidate": "experiments/E2_refine/snapshots/r1_station_uncertified.py",
       "sha256": "a8627e6e438226c14ec287446626802b5a7ac37b8b01a15df7d75f8ad872a75f",
-      "q4_config": {
+      "config": {
         "e2_opportunity": "parent",
         "e2_station_cost": true,
         "e2_station_mode": "uncertified"
       },
-      "parents": [
-        "S1"
-      ],
       "evidence": [
         "experiments/E2_refine/results/r1_station_uncertified_quick"
       ]
     },
     {
       "id": "r2_here",
+      "parent": "r1_station_only",
       "status": "rejected_development_quick",
       "candidate": "experiments/E2_refine/snapshots/r2_here.py",
       "sha256": "106b6ef2c9bb9b5ee8ebae3475a00e836900e097f273d943acc19a012cf90940",
-      "q4_config": {
+      "config": {
         "e2_same_here": true,
         "e2_one_round": false
       },
-      "parents": [
-        "r1_station_only"
-      ],
       "evidence": [
         "experiments/E2_refine/results/r2_here_quick"
       ]
     },
     {
       "id": "r2_one_round",
-      "status": "accepted_exposed_best",
+      "parent": "r1_station_only",
+      "status": "accepted_R2_major_component",
       "candidate": "experiments/E2_refine/snapshots/r2_one_round.py",
       "sha256": "7f486891b0255054cb05dcf749ecd7b1ecbfec49b1834670a0c3b466c18d8fd6",
-      "q4_config": {
+      "config": {
         "e2_same_here": false,
         "e2_one_round": true
       },
-      "parents": [
-        "r1_station_only"
-      ],
       "evidence": [
         "experiments/E2_refine/results/r2_one_round_exposed",
         "experiments/E2_refine/results/r2_one_round_full",
         "experiments/E2_refine/results/r2_one_round_quick"
+      ]
+    },
+    {
+      "id": "r3_failure_hull",
+      "parent": "r2_one_round",
+      "status": "rejected_development_quick",
+      "candidate": "experiments/E2_refine/snapshots/r3_failure_hull.py",
+      "sha256": "1b4c33a34363d92b65de338eb9262549eb343af3f8d6712552ead14d912a4740",
+      "config": {
+        "e2_failure_hull": true,
+        "e2_failure_cells": false
+      },
+      "evidence": [
+        "experiments/E2_refine/results/r3_failure_hull_quick"
+      ]
+    },
+    {
+      "id": "r3_failure_cells",
+      "parent": "r2_one_round",
+      "status": "accepted_R3_small_component",
+      "candidate": "experiments/E2_refine/snapshots/r3_failure_cells.py",
+      "sha256": "5d3e8c1ba1f1bd26a326dbd1241776177e2c8902b5a2a6a8f87982925cbade09",
+      "config": {
+        "e2_failure_hull": false,
+        "e2_failure_cells": true
+      },
+      "evidence": [
+        "experiments/E2_refine/results/r3_failure_cells_exposed",
+        "experiments/E2_refine/results/r3_failure_cells_full",
+        "experiments/E2_refine/results/r3_failure_cells_quick"
+      ]
+    },
+    {
+      "id": "r4_optical_1",
+      "parent": "r2_one_round",
+      "status": "bounded_development_only_tiny_gain",
+      "candidate": "experiments/E2_refine/snapshots/r4_optical_1.py",
+      "sha256": "5d5d083541aa0153ee8e72e9b46f3b79470032ca9cd4dd697b4bc7d486d90881",
+      "config": {
+        "e2_optical_quota": 1
+      },
+      "evidence": [
+        "experiments/E2_refine/results/r4_optical_1_quick"
+      ]
+    },
+    {
+      "id": "r4_optical_3",
+      "parent": "r2_one_round",
+      "status": "bounded_development_only_tiny_gain",
+      "candidate": "experiments/E2_refine/snapshots/r4_optical_3.py",
+      "sha256": "1722c97ca14214eedd1a8fc250578e4fdf1e9bbab825af365dd880907c39e669",
+      "config": {
+        "e2_optical_quota": 3
+      },
+      "evidence": [
+        "experiments/E2_refine/results/r4_optical_3_quick"
       ]
     }
   ],
@@ -149,14 +192,34 @@
       "relation": "controlled_component_contrast"
     },
     {
-      "from_node": "r1_station_only",
+      "from": "r1_station_only",
       "to": "r2_here",
-      "relation": "source_service_unit_contrast"
+      "relation": "controlled_component_contrast"
     },
     {
-      "from_node": "r1_station_only",
+      "from": "r1_station_only",
       "to": "r2_one_round",
-      "relation": "source_service_unit_contrast"
+      "relation": "controlled_component_contrast"
+    },
+    {
+      "from": "r2_one_round",
+      "to": "r3_failure_hull",
+      "relation": "controlled_component_contrast"
+    },
+    {
+      "from": "r2_one_round",
+      "to": "r3_failure_cells",
+      "relation": "controlled_component_contrast"
+    },
+    {
+      "from": "r2_one_round",
+      "to": "r4_optical_1",
+      "relation": "controlled_component_contrast"
+    },
+    {
+      "from": "r2_one_round",
+      "to": "r4_optical_3",
+      "relation": "controlled_component_contrast"
     }
   ]
 }
