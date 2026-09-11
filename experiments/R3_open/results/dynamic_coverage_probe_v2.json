@@ -1,0 +1,6165 @@
+{
+  "label": "optimistic continuous-leaf certificate diagnostic; not efficiency comparison",
+  "candidate_sha256": "9e9b35972bee009f37ad97cd068ff72b03be4a6448cbb8c99c4dada72865c149",
+  "certificate_sha256": "8eaeae3c86cd7378ef4a242afdae2ba35d3620ba0c82cf9419ab5ebdb4cdeaba",
+  "data_role": "12 reused seen development Q4 cases",
+  "actual_runs": 12,
+  "new_unique_cases": 0,
+  "assumptions": [
+    "Every extra arrival from the completed R3 trajectory can be used for all unknown channels at zero sensing cost.",
+    "Future arrival locations and their dependence on the original station are ignored.",
+    "Each station deletion is checked separately, never a simultaneous-deletion guarantee.",
+    "Floating conservative checks test a sufficient certificate on fixed old leaves; acceptance would still require exact runtime or static proof."
+  ],
+  "rows": [
+    {
+      "case_id": "R3-open-development-q4-cell500_shared_field-43005000",
+      "mode": 4,
+      "group": "cell500_shared_field",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 21,
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 126,
+          "failed_square": [
+            [
+              112.5,
+              56.25
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              168.75,
+              112.5
+            ],
+            [
+              112.5,
+              112.5
+            ]
+          ]
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 418,
+          "failed_square": [
+            [
+              900.0,
+              675.0
+            ],
+            [
+              1125.0,
+              675.0
+            ],
+            [
+              1125.0,
+              900.0
+            ],
+            [
+              900.0,
+              900.0
+            ]
+          ]
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 67,
+          "failed_square": [
+            [
+              956.25,
+              1518.75
+            ],
+            [
+              984.375,
+              1518.75
+            ],
+            [
+              984.375,
+              1546.875
+            ],
+            [
+              956.25,
+              1546.875
+            ]
+          ]
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ]
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 30,
+          "failed_square": [
+            [
+              0.0,
+              675.0
+            ],
+            [
+              225.0,
+              675.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              0.0,
+              900.0
+            ]
+          ]
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 39,
+          "failed_square": [
+            [
+              -84.375,
+              28.125
+            ],
+            [
+              -56.25,
+              28.125
+            ],
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -84.375,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              0.0,
+              -168.75
+            ],
+            [
+              56.25,
+              -168.75
+            ],
+            [
+              56.25,
+              -112.5
+            ],
+            [
+              0.0,
+              -112.5
+            ]
+          ]
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 6,
+          "failed_square": [
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              843.75,
+              -562.5
+            ],
+            [
+              843.75,
+              -506.25
+            ],
+            [
+              787.5,
+              -506.25
+            ]
+          ]
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 36,
+          "failed_square": [
+            [
+              112.5,
+              0.0
+            ],
+            [
+              168.75,
+              0.0
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              112.5,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ]
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ]
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 17,
+          "failed_square": [
+            [
+              -112.5,
+              1743.75
+            ],
+            [
+              -56.25,
+              1743.75
+            ],
+            [
+              -56.25,
+              1800.0
+            ],
+            [
+              -112.5,
+              1800.0
+            ]
+          ]
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ]
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ]
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ]
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ]
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              900.0,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1476.5625
+            ],
+            [
+              900.0,
+              -1476.5625
+            ]
+          ]
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 33,
+          "failed_square": [
+            [
+              1434.375,
+              -1096.875
+            ],
+            [
+              1448.4375,
+              -1096.875
+            ],
+            [
+              1448.4375,
+              -1082.8125
+            ],
+            [
+              1434.375,
+              -1082.8125
+            ]
+          ]
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 13,
+          "failed_square": [
+            [
+              1771.875,
+              -56.25
+            ],
+            [
+              1800.0,
+              -56.25
+            ],
+            [
+              1800.0,
+              -28.125
+            ],
+            [
+              1771.875,
+              -28.125
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-cell50_shared_field-43005000",
+      "mode": 4,
+      "group": "cell50_shared_field",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 20,
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 135,
+          "failed_square": [
+            [
+              56.25,
+              28.125
+            ],
+            [
+              84.375,
+              28.125
+            ],
+            [
+              84.375,
+              56.25
+            ],
+            [
+              56.25,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 410,
+          "failed_square": [
+            [
+              1237.5,
+              787.5
+            ],
+            [
+              1350.0,
+              787.5
+            ],
+            [
+              1350.0,
+              900.0
+            ],
+            [
+              1237.5,
+              900.0
+            ]
+          ]
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 67,
+          "failed_square": [
+            [
+              956.25,
+              1518.75
+            ],
+            [
+              984.375,
+              1518.75
+            ],
+            [
+              984.375,
+              1546.875
+            ],
+            [
+              956.25,
+              1546.875
+            ]
+          ]
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ]
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 30,
+          "failed_square": [
+            [
+              0.0,
+              675.0
+            ],
+            [
+              225.0,
+              675.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              0.0,
+              900.0
+            ]
+          ]
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 39,
+          "failed_square": [
+            [
+              -84.375,
+              28.125
+            ],
+            [
+              -56.25,
+              28.125
+            ],
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -84.375,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              0.0,
+              -168.75
+            ],
+            [
+              56.25,
+              -168.75
+            ],
+            [
+              56.25,
+              -112.5
+            ],
+            [
+              0.0,
+              -112.5
+            ]
+          ]
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 6,
+          "failed_square": [
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              843.75,
+              -562.5
+            ],
+            [
+              843.75,
+              -506.25
+            ],
+            [
+              787.5,
+              -506.25
+            ]
+          ]
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 36,
+          "failed_square": [
+            [
+              112.5,
+              0.0
+            ],
+            [
+              168.75,
+              0.0
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              112.5,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ]
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ]
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 17,
+          "failed_square": [
+            [
+              -112.5,
+              1743.75
+            ],
+            [
+              -56.25,
+              1743.75
+            ],
+            [
+              -56.25,
+              1800.0
+            ],
+            [
+              -112.5,
+              1800.0
+            ]
+          ]
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ]
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ]
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ]
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ]
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 29,
+          "failed_square": [
+            [
+              787.5,
+              -1631.25
+            ],
+            [
+              843.75,
+              -1631.25
+            ],
+            [
+              843.75,
+              -1575.0
+            ],
+            [
+              787.5,
+              -1575.0
+            ]
+          ]
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 345,
+          "failed_square": [
+            [
+              900.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -900.0
+            ],
+            [
+              900.0,
+              -900.0
+            ]
+          ]
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 19,
+          "failed_square": [
+            [
+              1687.5,
+              -225.0
+            ],
+            [
+              1800.0,
+              -225.0
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1687.5,
+              -112.5
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-edge_mixed_min_radius-43005000",
+      "mode": 4,
+      "group": "edge_mixed_min_radius",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 32,
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 9,
+          "failed_square": [
+            [
+              787.5,
+              450.0
+            ],
+            [
+              843.75,
+              450.0
+            ],
+            [
+              843.75,
+              506.25
+            ],
+            [
+              787.5,
+              506.25
+            ]
+          ]
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 418,
+          "failed_square": [
+            [
+              900.0,
+              675.0
+            ],
+            [
+              1125.0,
+              675.0
+            ],
+            [
+              1125.0,
+              900.0
+            ],
+            [
+              900.0,
+              900.0
+            ]
+          ]
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 19,
+          "failed_square": [
+            [
+              1518.75,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ],
+            [
+              1546.875,
+              956.25
+            ],
+            [
+              1518.75,
+              956.25
+            ]
+          ]
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 246,
+          "failed_square": [
+            [
+              562.5,
+              1125.0
+            ],
+            [
+              675.0,
+              1125.0
+            ],
+            [
+              675.0,
+              1237.5
+            ],
+            [
+              562.5,
+              1237.5
+            ]
+          ]
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              112.5,
+              900.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              225.0,
+              1012.5
+            ],
+            [
+              112.5,
+              1012.5
+            ]
+          ]
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 11,
+          "failed_square": [
+            [
+              -112.5,
+              112.5
+            ],
+            [
+              -56.25,
+              112.5
+            ],
+            [
+              -56.25,
+              168.75
+            ],
+            [
+              -112.5,
+              168.75
+            ]
+          ]
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              0.0,
+              -3.515625
+            ],
+            [
+              1.7578125,
+              -3.515625
+            ],
+            [
+              1.7578125,
+              -1.7578125
+            ],
+            [
+              0.0,
+              -1.7578125
+            ]
+          ]
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 5,
+          "failed_square": [
+            [
+              450.0,
+              -450.0
+            ],
+            [
+              562.5,
+              -450.0
+            ],
+            [
+              562.5,
+              -337.5
+            ],
+            [
+              450.0,
+              -337.5
+            ]
+          ]
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 8,
+          "failed_square": [
+            [
+              900.0,
+              112.5
+            ],
+            [
+              1012.5,
+              112.5
+            ],
+            [
+              1012.5,
+              225.0
+            ],
+            [
+              900.0,
+              225.0
+            ]
+          ]
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ]
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 8,
+          "failed_square": [
+            [
+              843.75,
+              1575.0
+            ],
+            [
+              871.875,
+              1575.0
+            ],
+            [
+              871.875,
+              1603.125
+            ],
+            [
+              843.75,
+              1603.125
+            ]
+          ]
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 413,
+          "failed_square": [
+            [
+              -646.875,
+              1659.375
+            ],
+            [
+              -618.75,
+              1659.375
+            ],
+            [
+              -618.75,
+              1687.5
+            ],
+            [
+              -646.875,
+              1687.5
+            ]
+          ]
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 43,
+          "failed_square": [
+            [
+              -956.25,
+              1518.75
+            ],
+            [
+              -928.125,
+              1518.75
+            ],
+            [
+              -928.125,
+              1546.875
+            ],
+            [
+              -956.25,
+              1546.875
+            ]
+          ]
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 31,
+          "failed_square": [
+            [
+              -1350.0,
+              112.5
+            ],
+            [
+              -1237.5,
+              112.5
+            ],
+            [
+              -1237.5,
+              225.0
+            ],
+            [
+              -1350.0,
+              225.0
+            ]
+          ]
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ]
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 83,
+          "failed_square": [
+            [
+              -225.0,
+              -1800.0
+            ],
+            [
+              -112.5,
+              -1800.0
+            ],
+            [
+              -112.5,
+              -1687.5
+            ],
+            [
+              -225.0,
+              -1687.5
+            ]
+          ]
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 32,
+          "failed_square": [
+            [
+              731.25,
+              -1659.375
+            ],
+            [
+              759.375,
+              -1659.375
+            ],
+            [
+              759.375,
+              -1631.25
+            ],
+            [
+              731.25,
+              -1631.25
+            ]
+          ]
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1462.5,
+              -900.0
+            ],
+            [
+              1518.75,
+              -900.0
+            ],
+            [
+              1518.75,
+              -843.75
+            ],
+            [
+              1462.5,
+              -843.75
+            ]
+          ]
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 19,
+          "failed_square": [
+            [
+              1687.5,
+              -225.0
+            ],
+            [
+              1800.0,
+              -225.0
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1687.5,
+              -112.5
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-exactly10_sources-43005000",
+      "mode": 4,
+      "group": "exactly10_sources",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 16,
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 9,
+          "failed_square": [
+            [
+              787.5,
+              450.0
+            ],
+            [
+              843.75,
+              450.0
+            ],
+            [
+              843.75,
+              506.25
+            ],
+            [
+              787.5,
+              506.25
+            ]
+          ]
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 430,
+          "failed_square": [
+            [
+              900.0,
+              281.25
+            ],
+            [
+              956.25,
+              281.25
+            ],
+            [
+              956.25,
+              337.5
+            ],
+            [
+              900.0,
+              337.5
+            ]
+          ]
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 374,
+          "failed_square": [
+            [
+              900.0,
+              1125.0
+            ],
+            [
+              1125.0,
+              1125.0
+            ],
+            [
+              1125.0,
+              1350.0
+            ],
+            [
+              900.0,
+              1350.0
+            ]
+          ]
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 244,
+          "failed_square": [
+            [
+              675.0,
+              900.0
+            ],
+            [
+              900.0,
+              900.0
+            ],
+            [
+              900.0,
+              1125.0
+            ],
+            [
+              675.0,
+              1125.0
+            ]
+          ]
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              112.5,
+              900.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              225.0,
+              1012.5
+            ],
+            [
+              112.5,
+              1012.5
+            ]
+          ]
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 51,
+          "failed_square": [
+            [
+              -450.0,
+              112.5
+            ],
+            [
+              -337.5,
+              112.5
+            ],
+            [
+              -337.5,
+              225.0
+            ],
+            [
+              -450.0,
+              225.0
+            ]
+          ]
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 40,
+          "failed_square": [
+            [
+              0.0,
+              -675.0
+            ],
+            [
+              225.0,
+              -675.0
+            ],
+            [
+              225.0,
+              -450.0
+            ],
+            [
+              0.0,
+              -450.0
+            ]
+          ]
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 11,
+          "failed_square": [
+            [
+              731.25,
+              -618.75
+            ],
+            [
+              787.5,
+              -618.75
+            ],
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              731.25,
+              -562.5
+            ]
+          ]
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 8,
+          "failed_square": [
+            [
+              900.0,
+              112.5
+            ],
+            [
+              1012.5,
+              112.5
+            ],
+            [
+              1012.5,
+              225.0
+            ],
+            [
+              900.0,
+              225.0
+            ]
+          ]
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 8,
+          "failed_square": [
+            [
+              1575.0,
+              843.75
+            ],
+            [
+              1603.125,
+              843.75
+            ],
+            [
+              1603.125,
+              871.875
+            ],
+            [
+              1575.0,
+              871.875
+            ]
+          ]
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 8,
+          "failed_square": [
+            [
+              843.75,
+              1575.0
+            ],
+            [
+              871.875,
+              1575.0
+            ],
+            [
+              871.875,
+              1603.125
+            ],
+            [
+              843.75,
+              1603.125
+            ]
+          ]
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 23,
+          "failed_square": [
+            [
+              -225.0,
+              1687.5
+            ],
+            [
+              -112.5,
+              1687.5
+            ],
+            [
+              -112.5,
+              1800.0
+            ],
+            [
+              -225.0,
+              1800.0
+            ]
+          ]
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 43,
+          "failed_square": [
+            [
+              -956.25,
+              1518.75
+            ],
+            [
+              -928.125,
+              1518.75
+            ],
+            [
+              -928.125,
+              1546.875
+            ],
+            [
+              -956.25,
+              1546.875
+            ]
+          ]
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 28,
+          "failed_square": [
+            [
+              -1350.0,
+              225.0
+            ],
+            [
+              -1125.0,
+              225.0
+            ],
+            [
+              -1125.0,
+              450.0
+            ],
+            [
+              -1350.0,
+              450.0
+            ]
+          ]
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ]
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 81,
+          "failed_square": [
+            [
+              -112.5,
+              -1800.0
+            ],
+            [
+              -56.25,
+              -1800.0
+            ],
+            [
+              -56.25,
+              -1743.75
+            ],
+            [
+              -112.5,
+              -1743.75
+            ]
+          ]
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              900.0,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1476.5625
+            ],
+            [
+              900.0,
+              -1476.5625
+            ]
+          ]
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              1518.75,
+              -984.375
+            ],
+            [
+              1546.875,
+              -984.375
+            ],
+            [
+              1546.875,
+              -956.25
+            ],
+            [
+              1518.75,
+              -956.25
+            ]
+          ]
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 13,
+          "failed_square": [
+            [
+              1771.875,
+              -56.25
+            ],
+            [
+              1800.0,
+              -56.25
+            ],
+            [
+              1800.0,
+              -28.125
+            ],
+            [
+              1771.875,
+              -28.125
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-exactly16_sources-43005000",
+      "mode": 4,
+      "group": "exactly16_sources",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 32,
+      "individual_removals_certified": [
+        2
+      ],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 114,
+          "failed_square": [
+            [
+              225.0,
+              225.0
+            ],
+            [
+              450.0,
+              225.0
+            ],
+            [
+              450.0,
+              450.0
+            ],
+            [
+              225.0,
+              450.0
+            ]
+          ]
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 394,
+          "failed_square": [
+            [
+              1350.0,
+              225.0
+            ],
+            [
+              1575.0,
+              225.0
+            ],
+            [
+              1575.0,
+              450.0
+            ],
+            [
+              1350.0,
+              450.0
+            ]
+          ]
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": true,
+          "checked_leaves": 798
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 497,
+          "failed_square": [
+            [
+              225.0,
+              225.0
+            ],
+            [
+              450.0,
+              225.0
+            ],
+            [
+              450.0,
+              450.0
+            ],
+            [
+              225.0,
+              450.0
+            ]
+          ]
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 33,
+          "failed_square": [
+            [
+              0.0,
+              225.0
+            ],
+            [
+              112.5,
+              225.0
+            ],
+            [
+              112.5,
+              337.5
+            ],
+            [
+              0.0,
+              337.5
+            ]
+          ]
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 13,
+          "failed_square": [
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -28.125,
+              56.25
+            ],
+            [
+              -28.125,
+              84.375
+            ],
+            [
+              -56.25,
+              84.375
+            ]
+          ]
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              0.0,
+              -3.515625
+            ],
+            [
+              1.7578125,
+              -3.515625
+            ],
+            [
+              1.7578125,
+              -1.7578125
+            ],
+            [
+              0.0,
+              -1.7578125
+            ]
+          ]
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 21,
+          "failed_square": [
+            [
+              562.5,
+              -900.0
+            ],
+            [
+              675.0,
+              -900.0
+            ],
+            [
+              675.0,
+              -787.5
+            ],
+            [
+              562.5,
+              -787.5
+            ]
+          ]
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 31,
+          "failed_square": [
+            [
+              450.0,
+              0.0
+            ],
+            [
+              675.0,
+              0.0
+            ],
+            [
+              675.0,
+              225.0
+            ],
+            [
+              450.0,
+              225.0
+            ]
+          ]
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ]
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 8,
+          "failed_square": [
+            [
+              843.75,
+              1575.0
+            ],
+            [
+              871.875,
+              1575.0
+            ],
+            [
+              871.875,
+              1603.125
+            ],
+            [
+              843.75,
+              1603.125
+            ]
+          ]
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 14,
+          "failed_square": [
+            [
+              -56.25,
+              1771.875
+            ],
+            [
+              -28.125,
+              1771.875
+            ],
+            [
+              -28.125,
+              1800.0
+            ],
+            [
+              -56.25,
+              1800.0
+            ]
+          ]
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 43,
+          "failed_square": [
+            [
+              -956.25,
+              1518.75
+            ],
+            [
+              -928.125,
+              1518.75
+            ],
+            [
+              -928.125,
+              1546.875
+            ],
+            [
+              -956.25,
+              1546.875
+            ]
+          ]
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 28,
+          "failed_square": [
+            [
+              -1350.0,
+              225.0
+            ],
+            [
+              -1125.0,
+              225.0
+            ],
+            [
+              -1125.0,
+              450.0
+            ],
+            [
+              -1350.0,
+              450.0
+            ]
+          ]
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 75,
+          "failed_square": [
+            [
+              -1350.0,
+              -787.5
+            ],
+            [
+              -1237.5,
+              -787.5
+            ],
+            [
+              -1237.5,
+              -675.0
+            ],
+            [
+              -1350.0,
+              -675.0
+            ]
+          ]
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 54,
+          "failed_square": [
+            [
+              -450.0,
+              -1350.0
+            ],
+            [
+              -225.0,
+              -1350.0
+            ],
+            [
+              -225.0,
+              -1125.0
+            ],
+            [
+              -450.0,
+              -1125.0
+            ]
+          ]
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 23,
+          "failed_square": [
+            [
+              843.75,
+              -1575.0
+            ],
+            [
+              900.0,
+              -1575.0
+            ],
+            [
+              900.0,
+              -1518.75
+            ],
+            [
+              843.75,
+              -1518.75
+            ]
+          ]
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 13,
+          "failed_square": [
+            [
+              1546.875,
+              -928.125
+            ],
+            [
+              1575.0,
+              -928.125
+            ],
+            [
+              1575.0,
+              -900.0
+            ],
+            [
+              1546.875,
+              -900.0
+            ]
+          ]
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              1743.75,
+              -112.5
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1800.0,
+              -56.25
+            ],
+            [
+              1743.75,
+              -56.25
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-fixed_negative_bias-43005000",
+      "mode": 4,
+      "group": "fixed_negative_bias",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 21,
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 135,
+          "failed_square": [
+            [
+              56.25,
+              28.125
+            ],
+            [
+              84.375,
+              28.125
+            ],
+            [
+              84.375,
+              56.25
+            ],
+            [
+              56.25,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 418,
+          "failed_square": [
+            [
+              900.0,
+              675.0
+            ],
+            [
+              1125.0,
+              675.0
+            ],
+            [
+              1125.0,
+              900.0
+            ],
+            [
+              900.0,
+              900.0
+            ]
+          ]
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 75,
+          "failed_square": [
+            [
+              914.0625,
+              1490.625
+            ],
+            [
+              928.125,
+              1490.625
+            ],
+            [
+              928.125,
+              1504.6875
+            ],
+            [
+              914.0625,
+              1504.6875
+            ]
+          ]
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ]
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 30,
+          "failed_square": [
+            [
+              0.0,
+              675.0
+            ],
+            [
+              225.0,
+              675.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              0.0,
+              900.0
+            ]
+          ]
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 39,
+          "failed_square": [
+            [
+              -84.375,
+              28.125
+            ],
+            [
+              -56.25,
+              28.125
+            ],
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -84.375,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              0.0,
+              -168.75
+            ],
+            [
+              56.25,
+              -168.75
+            ],
+            [
+              56.25,
+              -112.5
+            ],
+            [
+              0.0,
+              -112.5
+            ]
+          ]
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 6,
+          "failed_square": [
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              843.75,
+              -562.5
+            ],
+            [
+              843.75,
+              -506.25
+            ],
+            [
+              787.5,
+              -506.25
+            ]
+          ]
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 36,
+          "failed_square": [
+            [
+              112.5,
+              0.0
+            ],
+            [
+              168.75,
+              0.0
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              112.5,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ]
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ]
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 17,
+          "failed_square": [
+            [
+              -112.5,
+              1743.75
+            ],
+            [
+              -56.25,
+              1743.75
+            ],
+            [
+              -56.25,
+              1800.0
+            ],
+            [
+              -112.5,
+              1800.0
+            ]
+          ]
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ]
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ]
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ]
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ]
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 29,
+          "failed_square": [
+            [
+              787.5,
+              -1631.25
+            ],
+            [
+              843.75,
+              -1631.25
+            ],
+            [
+              843.75,
+              -1575.0
+            ],
+            [
+              787.5,
+              -1575.0
+            ]
+          ]
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 345,
+          "failed_square": [
+            [
+              900.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -900.0
+            ],
+            [
+              900.0,
+              -900.0
+            ]
+          ]
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 19,
+          "failed_square": [
+            [
+              1687.5,
+              -225.0
+            ],
+            [
+              1800.0,
+              -225.0
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1687.5,
+              -112.5
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-fixed_positive_bias-43005000",
+      "mode": 4,
+      "group": "fixed_positive_bias",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 21,
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 126,
+          "failed_square": [
+            [
+              112.5,
+              56.25
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              168.75,
+              112.5
+            ],
+            [
+              112.5,
+              112.5
+            ]
+          ]
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 418,
+          "failed_square": [
+            [
+              900.0,
+              675.0
+            ],
+            [
+              1125.0,
+              675.0
+            ],
+            [
+              1125.0,
+              900.0
+            ],
+            [
+              900.0,
+              900.0
+            ]
+          ]
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 75,
+          "failed_square": [
+            [
+              914.0625,
+              1490.625
+            ],
+            [
+              928.125,
+              1490.625
+            ],
+            [
+              928.125,
+              1504.6875
+            ],
+            [
+              914.0625,
+              1504.6875
+            ]
+          ]
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ]
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 30,
+          "failed_square": [
+            [
+              0.0,
+              675.0
+            ],
+            [
+              225.0,
+              675.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              0.0,
+              900.0
+            ]
+          ]
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 39,
+          "failed_square": [
+            [
+              -84.375,
+              28.125
+            ],
+            [
+              -56.25,
+              28.125
+            ],
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -84.375,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              0.0,
+              -168.75
+            ],
+            [
+              56.25,
+              -168.75
+            ],
+            [
+              56.25,
+              -112.5
+            ],
+            [
+              0.0,
+              -112.5
+            ]
+          ]
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 6,
+          "failed_square": [
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              843.75,
+              -562.5
+            ],
+            [
+              843.75,
+              -506.25
+            ],
+            [
+              787.5,
+              -506.25
+            ]
+          ]
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 36,
+          "failed_square": [
+            [
+              112.5,
+              0.0
+            ],
+            [
+              168.75,
+              0.0
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              112.5,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ]
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ]
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 17,
+          "failed_square": [
+            [
+              -112.5,
+              1743.75
+            ],
+            [
+              -56.25,
+              1743.75
+            ],
+            [
+              -56.25,
+              1800.0
+            ],
+            [
+              -112.5,
+              1800.0
+            ]
+          ]
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ]
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ]
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ]
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ]
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              900.0,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1476.5625
+            ],
+            [
+              900.0,
+              -1476.5625
+            ]
+          ]
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 33,
+          "failed_square": [
+            [
+              1434.375,
+              -1096.875
+            ],
+            [
+              1448.4375,
+              -1096.875
+            ],
+            [
+              1448.4375,
+              -1082.8125
+            ],
+            [
+              1434.375,
+              -1082.8125
+            ]
+          ]
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              1743.75,
+              -112.5
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1800.0,
+              -56.25
+            ],
+            [
+              1743.75,
+              -56.25
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-minimum_radius-43005000",
+      "mode": 4,
+      "group": "minimum_radius",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 23,
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 126,
+          "failed_square": [
+            [
+              112.5,
+              56.25
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              168.75,
+              112.5
+            ],
+            [
+              112.5,
+              112.5
+            ]
+          ]
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 410,
+          "failed_square": [
+            [
+              1237.5,
+              787.5
+            ],
+            [
+              1350.0,
+              787.5
+            ],
+            [
+              1350.0,
+              900.0
+            ],
+            [
+              1237.5,
+              900.0
+            ]
+          ]
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 67,
+          "failed_square": [
+            [
+              956.25,
+              1518.75
+            ],
+            [
+              984.375,
+              1518.75
+            ],
+            [
+              984.375,
+              1546.875
+            ],
+            [
+              956.25,
+              1546.875
+            ]
+          ]
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ]
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 30,
+          "failed_square": [
+            [
+              0.0,
+              675.0
+            ],
+            [
+              225.0,
+              675.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              0.0,
+              900.0
+            ]
+          ]
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 39,
+          "failed_square": [
+            [
+              -84.375,
+              28.125
+            ],
+            [
+              -56.25,
+              28.125
+            ],
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -84.375,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              0.0,
+              -168.75
+            ],
+            [
+              56.25,
+              -168.75
+            ],
+            [
+              56.25,
+              -112.5
+            ],
+            [
+              0.0,
+              -112.5
+            ]
+          ]
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 6,
+          "failed_square": [
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              843.75,
+              -562.5
+            ],
+            [
+              843.75,
+              -506.25
+            ],
+            [
+              787.5,
+              -506.25
+            ]
+          ]
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 36,
+          "failed_square": [
+            [
+              112.5,
+              0.0
+            ],
+            [
+              168.75,
+              0.0
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              112.5,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ]
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ]
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 17,
+          "failed_square": [
+            [
+              -112.5,
+              1743.75
+            ],
+            [
+              -56.25,
+              1743.75
+            ],
+            [
+              -56.25,
+              1800.0
+            ],
+            [
+              -112.5,
+              1800.0
+            ]
+          ]
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ]
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ]
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ]
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ]
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              900.0,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1476.5625
+            ],
+            [
+              900.0,
+              -1476.5625
+            ]
+          ]
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 345,
+          "failed_square": [
+            [
+              900.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -900.0
+            ],
+            [
+              900.0,
+              -900.0
+            ]
+          ]
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              1743.75,
+              -112.5
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1800.0,
+              -56.25
+            ],
+            [
+              1743.75,
+              -56.25
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-offcenter_cluster-43005000",
+      "mode": 4,
+      "group": "offcenter_cluster",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 16,
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 9,
+          "failed_square": [
+            [
+              787.5,
+              450.0
+            ],
+            [
+              843.75,
+              450.0
+            ],
+            [
+              843.75,
+              506.25
+            ],
+            [
+              787.5,
+              506.25
+            ]
+          ]
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 383,
+          "failed_square": [
+            [
+              1771.875,
+              28.125
+            ],
+            [
+              1800.0,
+              28.125
+            ],
+            [
+              1800.0,
+              56.25
+            ],
+            [
+              1771.875,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 69,
+          "failed_square": [
+            [
+              928.125,
+              1518.75
+            ],
+            [
+              956.25,
+              1518.75
+            ],
+            [
+              956.25,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ]
+          ]
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ]
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              0.0,
+              1293.75
+            ],
+            [
+              56.25,
+              1293.75
+            ],
+            [
+              56.25,
+              1350.0
+            ],
+            [
+              0.0,
+              1350.0
+            ]
+          ]
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              -450.0,
+              450.0
+            ],
+            [
+              -337.5,
+              450.0
+            ],
+            [
+              -337.5,
+              562.5
+            ],
+            [
+              -450.0,
+              562.5
+            ]
+          ]
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              0.0,
+              -3.515625
+            ],
+            [
+              1.7578125,
+              -3.515625
+            ],
+            [
+              1.7578125,
+              -1.7578125
+            ],
+            [
+              0.0,
+              -1.7578125
+            ]
+          ]
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 5,
+          "failed_square": [
+            [
+              450.0,
+              -450.0
+            ],
+            [
+              562.5,
+              -450.0
+            ],
+            [
+              562.5,
+              -337.5
+            ],
+            [
+              450.0,
+              -337.5
+            ]
+          ]
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              1293.75,
+              0.0
+            ],
+            [
+              1350.0,
+              0.0
+            ],
+            [
+              1350.0,
+              56.25
+            ],
+            [
+              1293.75,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 8,
+          "failed_square": [
+            [
+              1575.0,
+              843.75
+            ],
+            [
+              1603.125,
+              843.75
+            ],
+            [
+              1603.125,
+              871.875
+            ],
+            [
+              1575.0,
+              871.875
+            ]
+          ]
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ]
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              0.0,
+              1771.875
+            ],
+            [
+              28.125,
+              1771.875
+            ],
+            [
+              28.125,
+              1800.0
+            ],
+            [
+              0.0,
+              1800.0
+            ]
+          ]
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ]
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ]
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ]
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ]
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              900.0,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1476.5625
+            ],
+            [
+              900.0,
+              -1476.5625
+            ]
+          ]
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1462.5,
+              -900.0
+            ],
+            [
+              1518.75,
+              -900.0
+            ],
+            [
+              1518.75,
+              -843.75
+            ],
+            [
+              1462.5,
+              -843.75
+            ]
+          ]
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1771.875,
+              0.0
+            ],
+            [
+              1800.0,
+              0.0
+            ],
+            [
+              1800.0,
+              28.125
+            ],
+            [
+              1771.875,
+              28.125
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-origin_cluster-43005000",
+      "mode": 4,
+      "group": "origin_cluster",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 32,
+      "individual_removals_certified": [
+        0
+      ],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": true,
+          "checked_leaves": 644
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 11,
+          "failed_square": [
+            [
+              1687.5,
+              590.625
+            ],
+            [
+              1701.5625,
+              590.625
+            ],
+            [
+              1701.5625,
+              604.6875
+            ],
+            [
+              1687.5,
+              604.6875
+            ]
+          ]
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ]
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              0.0,
+              1293.75
+            ],
+            [
+              56.25,
+              1293.75
+            ],
+            [
+              56.25,
+              1350.0
+            ],
+            [
+              0.0,
+              1350.0
+            ]
+          ]
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 43,
+          "failed_square": [
+            [
+              -225.0,
+              112.5
+            ],
+            [
+              -112.5,
+              112.5
+            ],
+            [
+              -112.5,
+              225.0
+            ],
+            [
+              -225.0,
+              225.0
+            ]
+          ]
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 46,
+          "failed_square": [
+            [
+              0.0,
+              -1125.0
+            ],
+            [
+              112.5,
+              -1125.0
+            ],
+            [
+              112.5,
+              -1012.5
+            ],
+            [
+              0.0,
+              -1012.5
+            ]
+          ]
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              450.0,
+              -675.0
+            ],
+            [
+              675.0,
+              -675.0
+            ],
+            [
+              675.0,
+              -450.0
+            ],
+            [
+              450.0,
+              -450.0
+            ]
+          ]
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              1293.75,
+              0.0
+            ],
+            [
+              1350.0,
+              0.0
+            ],
+            [
+              1350.0,
+              56.25
+            ],
+            [
+              1293.75,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ]
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ]
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              0.0,
+              1771.875
+            ],
+            [
+              28.125,
+              1771.875
+            ],
+            [
+              28.125,
+              1800.0
+            ],
+            [
+              0.0,
+              1800.0
+            ]
+          ]
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ]
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ]
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ]
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ]
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              900.0,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1476.5625
+            ],
+            [
+              900.0,
+              -1476.5625
+            ]
+          ]
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1462.5,
+              -900.0
+            ],
+            [
+              1518.75,
+              -900.0
+            ],
+            [
+              1518.75,
+              -843.75
+            ],
+            [
+              1462.5,
+              -843.75
+            ]
+          ]
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1771.875,
+              0.0
+            ],
+            [
+              1800.0,
+              0.0
+            ],
+            [
+              1800.0,
+              28.125
+            ],
+            [
+              1771.875,
+              28.125
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-reference_assumed-43005000",
+      "mode": 4,
+      "group": "reference_assumed",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 19,
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 126,
+          "failed_square": [
+            [
+              112.5,
+              56.25
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              168.75,
+              112.5
+            ],
+            [
+              112.5,
+              112.5
+            ]
+          ]
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 410,
+          "failed_square": [
+            [
+              1237.5,
+              787.5
+            ],
+            [
+              1350.0,
+              787.5
+            ],
+            [
+              1350.0,
+              900.0
+            ],
+            [
+              1237.5,
+              900.0
+            ]
+          ]
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 67,
+          "failed_square": [
+            [
+              956.25,
+              1518.75
+            ],
+            [
+              984.375,
+              1518.75
+            ],
+            [
+              984.375,
+              1546.875
+            ],
+            [
+              956.25,
+              1546.875
+            ]
+          ]
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ]
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 30,
+          "failed_square": [
+            [
+              0.0,
+              675.0
+            ],
+            [
+              225.0,
+              675.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              0.0,
+              900.0
+            ]
+          ]
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 39,
+          "failed_square": [
+            [
+              -84.375,
+              28.125
+            ],
+            [
+              -56.25,
+              28.125
+            ],
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -84.375,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              0.0,
+              -168.75
+            ],
+            [
+              56.25,
+              -168.75
+            ],
+            [
+              56.25,
+              -112.5
+            ],
+            [
+              0.0,
+              -112.5
+            ]
+          ]
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 6,
+          "failed_square": [
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              843.75,
+              -562.5
+            ],
+            [
+              843.75,
+              -506.25
+            ],
+            [
+              787.5,
+              -506.25
+            ]
+          ]
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 35,
+          "failed_square": [
+            [
+              168.75,
+              0.0
+            ],
+            [
+              225.0,
+              0.0
+            ],
+            [
+              225.0,
+              56.25
+            ],
+            [
+              168.75,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ]
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ]
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 17,
+          "failed_square": [
+            [
+              -112.5,
+              1743.75
+            ],
+            [
+              -56.25,
+              1743.75
+            ],
+            [
+              -56.25,
+              1800.0
+            ],
+            [
+              -112.5,
+              1800.0
+            ]
+          ]
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ]
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ]
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ]
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ]
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 29,
+          "failed_square": [
+            [
+              787.5,
+              -1631.25
+            ],
+            [
+              843.75,
+              -1631.25
+            ],
+            [
+              843.75,
+              -1575.0
+            ],
+            [
+              787.5,
+              -1575.0
+            ]
+          ]
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 345,
+          "failed_square": [
+            [
+              900.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -900.0
+            ],
+            [
+              900.0,
+              -900.0
+            ]
+          ]
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 19,
+          "failed_square": [
+            [
+              1687.5,
+              -225.0
+            ],
+            [
+              1800.0,
+              -225.0
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1687.5,
+              -112.5
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-smooth_shared_field-43005000",
+      "mode": 4,
+      "group": "smooth_shared_field",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 21,
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 126,
+          "failed_square": [
+            [
+              112.5,
+              56.25
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              168.75,
+              112.5
+            ],
+            [
+              112.5,
+              112.5
+            ]
+          ]
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 418,
+          "failed_square": [
+            [
+              900.0,
+              675.0
+            ],
+            [
+              1125.0,
+              675.0
+            ],
+            [
+              1125.0,
+              900.0
+            ],
+            [
+              900.0,
+              900.0
+            ]
+          ]
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 67,
+          "failed_square": [
+            [
+              956.25,
+              1518.75
+            ],
+            [
+              984.375,
+              1518.75
+            ],
+            [
+              984.375,
+              1546.875
+            ],
+            [
+              956.25,
+              1546.875
+            ]
+          ]
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ]
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 30,
+          "failed_square": [
+            [
+              0.0,
+              675.0
+            ],
+            [
+              225.0,
+              675.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              0.0,
+              900.0
+            ]
+          ]
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 39,
+          "failed_square": [
+            [
+              -84.375,
+              28.125
+            ],
+            [
+              -56.25,
+              28.125
+            ],
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -84.375,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              0.0,
+              -168.75
+            ],
+            [
+              56.25,
+              -168.75
+            ],
+            [
+              56.25,
+              -112.5
+            ],
+            [
+              0.0,
+              -112.5
+            ]
+          ]
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 6,
+          "failed_square": [
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              843.75,
+              -562.5
+            ],
+            [
+              843.75,
+              -506.25
+            ],
+            [
+              787.5,
+              -506.25
+            ]
+          ]
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 36,
+          "failed_square": [
+            [
+              112.5,
+              0.0
+            ],
+            [
+              168.75,
+              0.0
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              112.5,
+              56.25
+            ]
+          ]
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ]
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ]
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ]
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 17,
+          "failed_square": [
+            [
+              -112.5,
+              1743.75
+            ],
+            [
+              -56.25,
+              1743.75
+            ],
+            [
+              -56.25,
+              1800.0
+            ],
+            [
+              -112.5,
+              1800.0
+            ]
+          ]
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ]
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ]
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ]
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ]
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              900.0,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1476.5625
+            ],
+            [
+              900.0,
+              -1476.5625
+            ]
+          ]
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 33,
+          "failed_square": [
+            [
+              1434.375,
+              -1096.875
+            ],
+            [
+              1448.4375,
+              -1096.875
+            ],
+            [
+              1448.4375,
+              -1082.8125
+            ],
+            [
+              1434.375,
+              -1082.8125
+            ]
+          ]
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              1743.75,
+              -112.5
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1800.0,
+              -56.25
+            ],
+            [
+              1743.75,
+              -56.25
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "wall_s": 0.5780933339847252
+}

@@ -1,0 +1,8593 @@
+{
+  "label": "optimistic continuous-leaf certificate diagnostic; not efficiency comparison",
+  "candidate_sha256": "9e9b35972bee009f37ad97cd068ff72b03be4a6448cbb8c99c4dada72865c149",
+  "certificate_sha256": "8eaeae3c86cd7378ef4a242afdae2ba35d3620ba0c82cf9419ab5ebdb4cdeaba",
+  "data_role": "12 reused seen development Q4 cases",
+  "actual_runs": 12,
+  "new_unique_cases": 0,
+  "assumptions": [
+    "Every extra arrival from the completed R3 trajectory can be used for all unknown channels at zero sensing cost.",
+    "Future arrival locations and their dependence on the original station are ignored.",
+    "Each station deletion is checked separately, never a simultaneous-deletion guarantee.",
+    "Floating conservative checks test a sufficient certificate on fixed old leaves; acceptance would still require exact runtime or static proof."
+  ],
+  "rows": [
+    {
+      "case_id": "R3-open-development-q4-cell500_shared_field-43005000",
+      "mode": 4,
+      "group": "cell500_shared_field",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 21,
+      "extra_arrival_coordinates": [
+        [
+          -1322.2711631871211,
+          -1162.001639063364
+        ],
+        [
+          -1304.6619385592435,
+          -1152.3508808886775
+        ],
+        [
+          -1268.010985761243,
+          -1131.9972785648692
+        ],
+        [
+          -862.1185029271485,
+          -901.0207152246671
+        ],
+        [
+          -840.3888918880117,
+          307.06869995840407
+        ],
+        [
+          -615.39101134926,
+          1253.6004944608478
+        ],
+        [
+          59.47221618298685,
+          109.94569342308992
+        ],
+        [
+          71.36665941958422,
+          131.9348321077079
+        ],
+        [
+          83.26110265618159,
+          153.9239707923259
+        ],
+        [
+          95.15554589277896,
+          175.91310947694387
+        ],
+        [
+          97.10325957088945,
+          175.8025026954304
+        ],
+        [
+          107.35653355662969,
+          715.7319899919065
+        ],
+        [
+          771.8827844961033,
+          564.756605923933
+        ],
+        [
+          977.7645219931966,
+          -1506.5288261888238
+        ],
+        [
+          992.4388274518303,
+          -1107.5022321595318
+        ],
+        [
+          1023.5290439863932,
+          -1398.7862993776475
+        ],
+        [
+          1070.557791551256,
+          -1431.445006197128
+        ],
+        [
+          1109.7653937386947,
+          -203.9881078251713
+        ],
+        [
+          1115.0580879727863,
+          -1183.3012457552952
+        ],
+        [
+          1417.4176946676273,
+          -79.36168882561222
+        ],
+        [
+          1454.4471203549936,
+          -350.9046737798851
+        ]
+      ],
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 126,
+          "failed_square": [
+            [
+              112.5,
+              56.25
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              168.75,
+              112.5
+            ],
+            [
+              112.5,
+              112.5
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              112.5,
+              98.4375
+            ],
+            "radius_m": 1000,
+            "direction_rad": 4.550241202886415,
+            "receiver_count": 11,
+            "max_forward_dot": -2.7965294356517987,
+            "max_angular_gap_rad": 3.2447130517038887,
+            "min_excluded_distance_m": 1000.2398209577603
+          }
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 418,
+          "failed_square": [
+            [
+              900.0,
+              675.0
+            ],
+            [
+              1125.0,
+              675.0
+            ],
+            [
+              1125.0,
+              900.0
+            ],
+            [
+              900.0,
+              900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 67,
+          "failed_square": [
+            [
+              956.25,
+              1518.75
+            ],
+            [
+              984.375,
+              1518.75
+            ],
+            [
+              984.375,
+              1546.875
+            ],
+            [
+              956.25,
+              1546.875
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 30,
+          "failed_square": [
+            [
+              0.0,
+              675.0
+            ],
+            [
+              225.0,
+              675.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              0.0,
+              900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 39,
+          "failed_square": [
+            [
+              -84.375,
+              28.125
+            ],
+            [
+              -56.25,
+              28.125
+            ],
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -84.375,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              0.0,
+              -168.75
+            ],
+            [
+              56.25,
+              -168.75
+            ],
+            [
+              56.25,
+              -112.5
+            ],
+            [
+              0.0,
+              -112.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 6,
+          "failed_square": [
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              843.75,
+              -562.5
+            ],
+            [
+              843.75,
+              -506.25
+            ],
+            [
+              787.5,
+              -506.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 36,
+          "failed_square": [
+            [
+              112.5,
+              0.0
+            ],
+            [
+              168.75,
+              0.0
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              112.5,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 0.008383767747227377,
+            "receiver_count": 3,
+            "max_forward_dot": -421.38600495718845,
+            "max_angular_gap_rad": 4.676998176248308,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 1.5012176745987906,
+            "receiver_count": 3,
+            "max_forward_dot": -230.76292865757776,
+            "max_angular_gap_rad": 4.541683417757407,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              1546.875
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.80675020101292,
+            "receiver_count": 4,
+            "max_forward_dot": -8.07497213896734,
+            "max_angular_gap_rad": 3.3584831558829475,
+            "min_excluded_distance_m": 1053.6446344119065
+          }
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 17,
+          "failed_square": [
+            [
+              -112.5,
+              1743.75
+            ],
+            [
+              -56.25,
+              1743.75
+            ],
+            [
+              -56.25,
+              1800.0
+            ],
+            [
+              -112.5,
+              1800.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -112.5,
+              1757.8125
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.3424216399117936,
+            "receiver_count": 3,
+            "max_forward_dot": -2.333485133114891,
+            "max_angular_gap_rad": 3.1717617072938245,
+            "min_excluded_distance_m": 1054.316987856155
+          }
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -900.0,
+              1462.5
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.370825440604065,
+            "receiver_count": 4,
+            "max_forward_dot": -3.324159881730317,
+            "max_angular_gap_rad": 3.184458409191665,
+            "min_excluded_distance_m": 1012.3399873560265
+          }
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              900.0,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1476.5625
+            ],
+            [
+              900.0,
+              -1476.5625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              -1490.625
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.3892302175533384,
+            "receiver_count": 8,
+            "max_forward_dot": -0.7163277237607666,
+            "max_angular_gap_rad": 3.152809862979616,
+            "min_excluded_distance_m": 1025.5218869556124
+          }
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 33,
+          "failed_square": [
+            [
+              1434.375,
+              -1096.875
+            ],
+            [
+              1448.4375,
+              -1096.875
+            ],
+            [
+              1448.4375,
+              -1082.8125
+            ],
+            [
+              1434.375,
+              -1082.8125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 13,
+          "failed_square": [
+            [
+              1771.875,
+              -56.25
+            ],
+            [
+              1800.0,
+              -56.25
+            ],
+            [
+              1800.0,
+              -28.125
+            ],
+            [
+              1771.875,
+              -28.125
+            ]
+          ],
+          "separation_witness": null
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-cell50_shared_field-43005000",
+      "mode": 4,
+      "group": "cell50_shared_field",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 20,
+      "extra_arrival_coordinates": [
+        [
+          -1322.6698192919857,
+          -1156.8164265515434
+        ],
+        [
+          -1306.5129191492533,
+          -1139.3471684477593
+        ],
+        [
+          -868.7134112164451,
+          -896.6210019604652
+        ],
+        [
+          -843.5276045269536,
+          307.83456082356935
+        ],
+        [
+          -620.4372849052286,
+          1282.6647866537664
+        ],
+        [
+          31.83335081043356,
+          56.46052749881792
+        ],
+        [
+          43.85578096287058,
+          80.54746547734042
+        ],
+        [
+          111.93369175049259,
+          746.2193975319158
+        ],
+        [
+          457.09753165628183,
+          -1661.310942261483
+        ],
+        [
+          771.1819634032757,
+          568.0620865831181
+        ],
+        [
+          978.4586802056549,
+          -1110.5580891799002
+        ],
+        [
+          993.6162190913949,
+          -1096.9985435739177
+        ],
+        [
+          1034.7060143261815,
+          -1063.0506408226736
+        ],
+        [
+          1083.5196390320132,
+          -1445.0958026129
+        ],
+        [
+          1109.246661891206,
+          -1476.0710659208798
+        ],
+        [
+          1112.9447810597662,
+          -205.36042642822014
+        ],
+        [
+          1286.493323782412,
+          -1337.8707788417594
+        ],
+        [
+          1427.576374823394,
+          -96.9340694128488
+        ],
+        [
+          1481.1816334963034,
+          -367.31123350300544
+        ],
+        [
+          1618.7099081345436,
+          -439.39600550646384
+        ]
+      ],
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 135,
+          "failed_square": [
+            [
+              56.25,
+              28.125
+            ],
+            [
+              84.375,
+              28.125
+            ],
+            [
+              84.375,
+              56.25
+            ],
+            [
+              56.25,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 410,
+          "failed_square": [
+            [
+              1237.5,
+              787.5
+            ],
+            [
+              1350.0,
+              787.5
+            ],
+            [
+              1350.0,
+              900.0
+            ],
+            [
+              1237.5,
+              900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 67,
+          "failed_square": [
+            [
+              956.25,
+              1518.75
+            ],
+            [
+              984.375,
+              1518.75
+            ],
+            [
+              984.375,
+              1546.875
+            ],
+            [
+              956.25,
+              1546.875
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 30,
+          "failed_square": [
+            [
+              0.0,
+              675.0
+            ],
+            [
+              225.0,
+              675.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              0.0,
+              900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 39,
+          "failed_square": [
+            [
+              -84.375,
+              28.125
+            ],
+            [
+              -56.25,
+              28.125
+            ],
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -84.375,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              0.0,
+              -168.75
+            ],
+            [
+              56.25,
+              -168.75
+            ],
+            [
+              56.25,
+              -112.5
+            ],
+            [
+              0.0,
+              -112.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 6,
+          "failed_square": [
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              843.75,
+              -562.5
+            ],
+            [
+              843.75,
+              -506.25
+            ],
+            [
+              787.5,
+              -506.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 36,
+          "failed_square": [
+            [
+              112.5,
+              0.0
+            ],
+            [
+              168.75,
+              0.0
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              112.5,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1546.875,
+              900.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": -1.1469799943886823,
+            "receiver_count": 4,
+            "max_forward_dot": -1.4526171511358044,
+            "max_angular_gap_rad": 3.1805353962242653,
+            "min_excluded_distance_m": 1004.046662623352
+          }
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 0.006742449239920845,
+            "receiver_count": 3,
+            "max_forward_dot": -422.10198657302465,
+            "max_angular_gap_rad": 4.680280813262922,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 1.5012176745987906,
+            "receiver_count": 3,
+            "max_forward_dot": -230.76292865757776,
+            "max_angular_gap_rad": 4.541683417757407,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              1546.875
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.80675020101292,
+            "receiver_count": 4,
+            "max_forward_dot": -8.07497213896734,
+            "max_angular_gap_rad": 3.3584831558829475,
+            "min_excluded_distance_m": 1053.6446344119065
+          }
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 17,
+          "failed_square": [
+            [
+              -112.5,
+              1743.75
+            ],
+            [
+              -56.25,
+              1743.75
+            ],
+            [
+              -56.25,
+              1800.0
+            ],
+            [
+              -112.5,
+              1800.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -112.5,
+              1771.875
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.2971826438566367,
+            "receiver_count": 3,
+            "max_forward_dot": -5.84865101528203,
+            "max_angular_gap_rad": 3.2220594746853473,
+            "min_excluded_distance_m": 1049.923757644775
+          }
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -900.0,
+              1462.5
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.370825440604065,
+            "receiver_count": 4,
+            "max_forward_dot": -3.324159881730317,
+            "max_angular_gap_rad": 3.184458409191665,
+            "min_excluded_distance_m": 1012.3399873560265
+          }
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 29,
+          "failed_square": [
+            [
+              787.5,
+              -1631.25
+            ],
+            [
+              843.75,
+              -1631.25
+            ],
+            [
+              843.75,
+              -1575.0
+            ],
+            [
+              787.5,
+              -1575.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 345,
+          "failed_square": [
+            [
+              900.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -900.0
+            ],
+            [
+              900.0,
+              -900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 19,
+          "failed_square": [
+            [
+              1687.5,
+              -225.0
+            ],
+            [
+              1800.0,
+              -225.0
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1687.5,
+              -112.5
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1743.75,
+              -225.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": -0.5094060250072956,
+            "receiver_count": 6,
+            "max_forward_dot": -4.612198568763731,
+            "max_angular_gap_rad": 3.1787607455560147,
+            "min_excluded_distance_m": 1097.7578285776458
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-edge_mixed_min_radius-43005000",
+      "mode": 4,
+      "group": "edge_mixed_min_radius",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 32,
+      "extra_arrival_coordinates": [
+        [
+          -1855.3501497090163,
+          329.4988950644892
+        ],
+        [
+          -1767.655583574422,
+          371.27395812220215
+        ],
+        [
+          -1652.792028045802,
+          599.7021517461053
+        ],
+        [
+          -1606.542531635324,
+          604.8090223906967
+        ],
+        [
+          -1214.8227561717563,
+          -1276.8511695565649
+        ],
+        [
+          -1199.8044855494031,
+          -1259.1014515665045
+        ],
+        [
+          -1169.7679443046927,
+          -1223.6020155863787
+        ],
+        [
+          -997.6287012601986,
+          603.348751410435
+        ],
+        [
+          -912.820796695536,
+          1527.559855079338
+        ],
+        [
+          -821.7463731070216,
+          -926.4408448028222
+        ],
+        [
+          -713.539463464087,
+          -1586.0856662270385
+        ],
+        [
+          -684.583578474842,
+          -1627.4381451725064
+        ],
+        [
+          -437.1671569496841,
+          -1640.6049373450128
+        ],
+        [
+          -412.71029356421,
+          1820.303707732311
+        ],
+        [
+          -263.91962954549797,
+          1692.1821173546466
+        ],
+        [
+          42.72458118404708,
+          -1796.364135529678
+        ],
+        [
+          77.4095356020334,
+          -1765.7844609577392
+        ],
+        [
+          105.36794128077129,
+          -1778.2042106820033
+        ],
+        [
+          154.8190712040668,
+          -1667.5689219154783
+        ],
+        [
+          309.6381424081336,
+          -1471.1378438309564
+        ],
+        [
+          330.3391373816729,
+          -1737.1767855597661
+        ],
+        [
+          458.08643443966776,
+          -1663.0689880429065
+        ],
+        [
+          491.6351776361327,
+          1405.982485547986
+        ],
+        [
+          711.8175888180664,
+          1510.126919273993
+        ],
+        [
+          810.7207283789802,
+          1524.5059678851633
+        ],
+        [
+          821.9087944090331,
+          1562.1991361369965
+        ],
+        [
+          871.643284338341,
+          894.6663725598166
+        ],
+        [
+          1257.3324115811781,
+          -63.13592129626194
+        ],
+        [
+          1341.0369681066245,
+          1158.4549755482867
+        ],
+        [
+          1672.8256667451092,
+          -355.9627569843421
+        ],
+        [
+          1714.75078262329,
+          -375.5261247258322
+        ],
+        [
+          1735.7133405623802,
+          -385.3078085965773
+        ]
+      ],
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 9,
+          "failed_square": [
+            [
+              787.5,
+              450.0
+            ],
+            [
+              843.75,
+              450.0
+            ],
+            [
+              843.75,
+              506.25
+            ],
+            [
+              787.5,
+              506.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 418,
+          "failed_square": [
+            [
+              900.0,
+              675.0
+            ],
+            [
+              1125.0,
+              675.0
+            ],
+            [
+              1125.0,
+              900.0
+            ],
+            [
+              900.0,
+              900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 19,
+          "failed_square": [
+            [
+              1518.75,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ],
+            [
+              1546.875,
+              956.25
+            ],
+            [
+              1518.75,
+              956.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 246,
+          "failed_square": [
+            [
+              562.5,
+              1125.0
+            ],
+            [
+              675.0,
+              1125.0
+            ],
+            [
+              675.0,
+              1237.5
+            ],
+            [
+              562.5,
+              1237.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              112.5,
+              900.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              225.0,
+              1012.5
+            ],
+            [
+              112.5,
+              1012.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 11,
+          "failed_square": [
+            [
+              -112.5,
+              112.5
+            ],
+            [
+              -56.25,
+              112.5
+            ],
+            [
+              -56.25,
+              168.75
+            ],
+            [
+              -112.5,
+              168.75
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              0.0,
+              -3.515625
+            ],
+            [
+              1.7578125,
+              -3.515625
+            ],
+            [
+              1.7578125,
+              -1.7578125
+            ],
+            [
+              0.0,
+              -1.7578125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 5,
+          "failed_square": [
+            [
+              450.0,
+              -450.0
+            ],
+            [
+              562.5,
+              -450.0
+            ],
+            [
+              562.5,
+              -337.5
+            ],
+            [
+              450.0,
+              -337.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 8,
+          "failed_square": [
+            [
+              900.0,
+              112.5
+            ],
+            [
+              1012.5,
+              112.5
+            ],
+            [
+              1012.5,
+              225.0
+            ],
+            [
+              900.0,
+              225.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1546.875,
+              900.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": -1.2359538742180236,
+            "receiver_count": 7,
+            "max_forward_dot": -8.074972138967343,
+            "max_angular_gap_rad": 3.358483155882948,
+            "min_excluded_distance_m": 1005.7165174140627
+          }
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 0.08212477151072894,
+            "receiver_count": 8,
+            "max_forward_dot": -17.810308225465228,
+            "max_angular_gap_rad": 4.5295161687213055,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 0.8766531384002091,
+            "receiver_count": 8,
+            "max_forward_dot": -27.010603688048946,
+            "max_angular_gap_rad": 3.292554345360244,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 8,
+          "failed_square": [
+            [
+              843.75,
+              1575.0
+            ],
+            [
+              871.875,
+              1575.0
+            ],
+            [
+              871.875,
+              1603.125
+            ],
+            [
+              843.75,
+              1603.125
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              843.75,
+              1575.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.003903646682498,
+            "receiver_count": 8,
+            "max_forward_dot": -1.3926553991298007,
+            "max_angular_gap_rad": 3.1704290420509613,
+            "min_excluded_distance_m": 1003.5697063128952
+          }
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 413,
+          "failed_square": [
+            [
+              -646.875,
+              1659.375
+            ],
+            [
+              -618.75,
+              1659.375
+            ],
+            [
+              -618.75,
+              1687.5
+            ],
+            [
+              -646.875,
+              1687.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 43,
+          "failed_square": [
+            [
+              -956.25,
+              1518.75
+            ],
+            [
+              -928.125,
+              1518.75
+            ],
+            [
+              -928.125,
+              1546.875
+            ],
+            [
+              -956.25,
+              1546.875
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -956.25,
+              1518.75
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.994697813355531,
+            "receiver_count": 6,
+            "max_forward_dot": -10.007649939902043,
+            "max_angular_gap_rad": 3.3450382300182286,
+            "min_excluded_distance_m": 1016.6669193988757
+          }
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 31,
+          "failed_square": [
+            [
+              -1350.0,
+              112.5
+            ],
+            [
+              -1237.5,
+              112.5
+            ],
+            [
+              -1237.5,
+              225.0
+            ],
+            [
+              -1350.0,
+              225.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -1350.0,
+              112.5
+            ],
+            "radius_m": 1000,
+            "direction_rad": 4.354507874736303,
+            "receiver_count": 8,
+            "max_forward_dot": -17.579792658201484,
+            "max_angular_gap_rad": 3.2370187433105952,
+            "min_excluded_distance_m": 1041.5459930817326
+          }
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 83,
+          "failed_square": [
+            [
+              -225.0,
+              -1800.0
+            ],
+            [
+              -112.5,
+              -1800.0
+            ],
+            [
+              -112.5,
+              -1687.5
+            ],
+            [
+              -225.0,
+              -1687.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 32,
+          "failed_square": [
+            [
+              731.25,
+              -1659.375
+            ],
+            [
+              759.375,
+              -1659.375
+            ],
+            [
+              759.375,
+              -1631.25
+            ],
+            [
+              731.25,
+              -1631.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1462.5,
+              -900.0
+            ],
+            [
+              1518.75,
+              -900.0
+            ],
+            [
+              1518.75,
+              -843.75
+            ],
+            [
+              1462.5,
+              -843.75
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1462.5,
+              -900.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": 4.483156193370418,
+            "receiver_count": 7,
+            "max_forward_dot": -3.3241598817303633,
+            "max_angular_gap_rad": 3.184458409191665,
+            "min_excluded_distance_m": 1012.3399873560265
+          }
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 19,
+          "failed_square": [
+            [
+              1687.5,
+              -225.0
+            ],
+            [
+              1800.0,
+              -225.0
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1687.5,
+              -112.5
+            ]
+          ],
+          "separation_witness": null
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-exactly10_sources-43005000",
+      "mode": 4,
+      "group": "exactly10_sources",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 16,
+      "extra_arrival_coordinates": [
+        [
+          -1641.9179099619946,
+          480.57143541097963
+        ],
+        [
+          -1017.4496585870038,
+          616.137326397715
+        ],
+        [
+          -943.8345439386077,
+          562.7803054896683
+        ],
+        [
+          -941.460993573172,
+          1087.0691744672
+        ],
+        [
+          -934.6383208593421,
+          557.9101282556345
+        ],
+        [
+          -782.6882615921497,
+          947.2745173924725
+        ],
+        [
+          -776.6257527427831,
+          1529.94216410149
+        ],
+        [
+          -654.7159400073796,
+          -1066.2273413479536
+        ],
+        [
+          -443.8287271890031,
+          135.55448366018396
+        ],
+        [
+          -402.69551853846906,
+          -1445.2436846250052
+        ],
+        [
+          -388.6329168092337,
+          -1462.6498908290814
+        ],
+        [
+          620.1648168009033,
+          1467.5697417264435
+        ],
+        [
+          837.4874357174729,
+          -1217.3088484419582
+        ],
+        [
+          1015.8580952501369,
+          203.57346938027126
+        ],
+        [
+          1059.9784458357299,
+          1068.9856552763536
+        ],
+        [
+          1265.0457456638935,
+          -402.0626178771991
+        ]
+      ],
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 9,
+          "failed_square": [
+            [
+              787.5,
+              450.0
+            ],
+            [
+              843.75,
+              450.0
+            ],
+            [
+              843.75,
+              506.25
+            ],
+            [
+              787.5,
+              506.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 430,
+          "failed_square": [
+            [
+              900.0,
+              281.25
+            ],
+            [
+              956.25,
+              281.25
+            ],
+            [
+              956.25,
+              337.5
+            ],
+            [
+              900.0,
+              337.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 374,
+          "failed_square": [
+            [
+              900.0,
+              1125.0
+            ],
+            [
+              1125.0,
+              1125.0
+            ],
+            [
+              1125.0,
+              1350.0
+            ],
+            [
+              900.0,
+              1350.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 244,
+          "failed_square": [
+            [
+              675.0,
+              900.0
+            ],
+            [
+              900.0,
+              900.0
+            ],
+            [
+              900.0,
+              1125.0
+            ],
+            [
+              675.0,
+              1125.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              675.0,
+              900.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.2701442058835006,
+            "receiver_count": 7,
+            "max_forward_dot": -6.321451106404933,
+            "max_angular_gap_rad": 3.2060656265172547,
+            "min_excluded_distance_m": 1125.0
+          }
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              112.5,
+              900.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              225.0,
+              1012.5
+            ],
+            [
+              112.5,
+              1012.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 51,
+          "failed_square": [
+            [
+              -450.0,
+              112.5
+            ],
+            [
+              -337.5,
+              112.5
+            ],
+            [
+              -337.5,
+              225.0
+            ],
+            [
+              -450.0,
+              225.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 40,
+          "failed_square": [
+            [
+              0.0,
+              -675.0
+            ],
+            [
+              225.0,
+              -675.0
+            ],
+            [
+              225.0,
+              -450.0
+            ],
+            [
+              0.0,
+              -450.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 11,
+          "failed_square": [
+            [
+              731.25,
+              -618.75
+            ],
+            [
+              787.5,
+              -618.75
+            ],
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              731.25,
+              -562.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 8,
+          "failed_square": [
+            [
+              900.0,
+              112.5
+            ],
+            [
+              1012.5,
+              112.5
+            ],
+            [
+              1012.5,
+              225.0
+            ],
+            [
+              900.0,
+              225.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 8,
+          "failed_square": [
+            [
+              1575.0,
+              843.75
+            ],
+            [
+              1603.125,
+              843.75
+            ],
+            [
+              1603.125,
+              871.875
+            ],
+            [
+              1575.0,
+              871.875
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1575.0,
+              843.75
+            ],
+            "radius_m": 1000,
+            "direction_rad": -0.5683112997418336,
+            "receiver_count": 4,
+            "max_forward_dot": -14.398663510039071,
+            "max_angular_gap_rad": 3.4408370017594256,
+            "min_excluded_distance_m": 1003.5697063128952
+          }
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": -0.08212153391535493,
+            "receiver_count": 4,
+            "max_forward_dot": -286.842751625341,
+            "max_angular_gap_rad": 4.858008779573474,
+            "min_excluded_distance_m": 1035.4953017984212
+          }
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 1.0006798012213394,
+            "receiver_count": 4,
+            "max_forward_dot": -70.98790468155849,
+            "max_angular_gap_rad": 3.5406076710025043,
+            "min_excluded_distance_m": 1035.4953017984212
+          }
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 8,
+          "failed_square": [
+            [
+              843.75,
+              1575.0
+            ],
+            [
+              871.875,
+              1575.0
+            ],
+            [
+              871.875,
+              1603.125
+            ],
+            [
+              843.75,
+              1603.125
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              843.75,
+              1575.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.004099622711067,
+            "receiver_count": 4,
+            "max_forward_dot": -1.411583412575773,
+            "max_angular_gap_rad": 3.170820994108099,
+            "min_excluded_distance_m": 1003.5697063128952
+          }
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 23,
+          "failed_square": [
+            [
+              -225.0,
+              1687.5
+            ],
+            [
+              -112.5,
+              1687.5
+            ],
+            [
+              -112.5,
+              1800.0
+            ],
+            [
+              -225.0,
+              1800.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -225.0,
+              1771.875
+            ],
+            "radius_m": 1000,
+            "direction_rad": 1.971765998005233,
+            "receiver_count": 6,
+            "max_forward_dot": -3.0021221478740756,
+            "max_angular_gap_rad": 3.1662889316694236,
+            "min_excluded_distance_m": 1167.6848502689845
+          }
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 43,
+          "failed_square": [
+            [
+              -956.25,
+              1518.75
+            ],
+            [
+              -928.125,
+              1518.75
+            ],
+            [
+              -928.125,
+              1546.875
+            ],
+            [
+              -956.25,
+              1546.875
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -956.25,
+              1518.75
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.983434251675516,
+            "receiver_count": 8,
+            "max_forward_dot": -8.902736096130212,
+            "max_angular_gap_rad": 3.322511106658198,
+            "min_excluded_distance_m": 1016.6669193988757
+          }
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 28,
+          "failed_square": [
+            [
+              -1350.0,
+              225.0
+            ],
+            [
+              -1125.0,
+              225.0
+            ],
+            [
+              -1125.0,
+              450.0
+            ],
+            [
+              -1350.0,
+              450.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -1350.0,
+              225.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": 4.067814803753473,
+            "receiver_count": 10,
+            "max_forward_dot": -28.89124008949375,
+            "max_angular_gap_rad": 3.2906600794528065,
+            "min_excluded_distance_m": 1132.1337078077893
+          }
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 81,
+          "failed_square": [
+            [
+              -112.5,
+              -1800.0
+            ],
+            [
+              -56.25,
+              -1800.0
+            ],
+            [
+              -56.25,
+              -1743.75
+            ],
+            [
+              -112.5,
+              -1743.75
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -112.5,
+              -1785.9375
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.977130791769483,
+            "receiver_count": 5,
+            "max_forward_dot": -17.56695419844815,
+            "max_angular_gap_rad": 3.39888350743061,
+            "min_excluded_distance_m": 1058.5128794803707
+          }
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              900.0,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1476.5625
+            ],
+            [
+              900.0,
+              -1476.5625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              -1490.625
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.3892302175533384,
+            "receiver_count": 4,
+            "max_forward_dot": -0.7163277237607666,
+            "max_angular_gap_rad": 3.152809862979616,
+            "min_excluded_distance_m": 1025.5218869556124
+          }
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              1518.75,
+              -984.375
+            ],
+            [
+              1546.875,
+              -984.375
+            ],
+            [
+              1546.875,
+              -956.25
+            ],
+            [
+              1518.75,
+              -956.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 13,
+          "failed_square": [
+            [
+              1771.875,
+              -56.25
+            ],
+            [
+              1800.0,
+              -56.25
+            ],
+            [
+              1800.0,
+              -28.125
+            ],
+            [
+              1771.875,
+              -28.125
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1785.9375,
+              -56.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": -0.9655575828867038,
+            "receiver_count": 4,
+            "max_forward_dot": -1.8437863313737282,
+            "max_angular_gap_rad": 3.1799203649956898,
+            "min_excluded_distance_m": 1003.0490160135872
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-exactly16_sources-43005000",
+      "mode": 4,
+      "group": "exactly16_sources",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 32,
+      "extra_arrival_coordinates": [
+        [
+          -1642.4443243696664,
+          469.64962717267133
+        ],
+        [
+          -1351.0598710327376,
+          -814.8558564976141
+        ],
+        [
+          -1253.9748931264,
+          439.7614424221572
+        ],
+        [
+          -1091.9652739903306,
+          323.9148991782921
+        ],
+        [
+          -1041.223994860952,
+          705.3258363189582
+        ],
+        [
+          -915.3164858508997,
+          529.9451769000833
+        ],
+        [
+          -386.3641986653774,
+          -1477.7682514518033
+        ],
+        [
+          -328.63995335946595,
+          1215.8158783043355
+        ],
+        [
+          206.5226013824663,
+          274.5357879899544
+        ],
+        [
+          210.9588843731649,
+          285.64033188869513
+        ],
+        [
+          215.40347051099542,
+          1253.209401572148
+        ],
+        [
+          230.01429935881242,
+          301.8233835083607
+        ],
+        [
+          378.09254158117733,
+          -1119.0479783348287
+        ],
+        [
+          379.34676154584963,
+          1249.8965947851339
+        ],
+        [
+          382.32627917740297,
+          -1143.6868798112807
+        ],
+        [
+          392.3870970735271,
+          -1143.6310869017225
+        ],
+        [
+          402.7314430576291,
+          -1114.814240738603
+        ],
+        [
+          406.96518065385476,
+          -1139.453142215055
+        ],
+        [
+          411.1989182500804,
+          -1164.0920436915071
+        ],
+        [
+          431.6040821303068,
+          -1135.2194046188295
+        ],
+        [
+          440.4563979755469,
+          148.1765246158804
+        ],
+        [
+          690.990113015927,
+          1173.2061670643222
+        ],
+        [
+          717.7728948500372,
+          -838.8496492833287
+        ],
+        [
+          786.2131134642464,
+          732.241189504097
+        ],
+        [
+          803.7685361367828,
+          743.5527187933419
+        ],
+        [
+          861.6826928838651,
+          901.311460621568
+        ],
+        [
+          982.4121111745721,
+          625.5053766954393
+        ],
+        [
+          1060.3342012722894,
+          683.9152951361477
+        ],
+        [
+          1130.2249470811819,
+          940.6708409407216
+        ],
+        [
+          1245.8603215342869,
+          1116.311774903233
+        ],
+        [
+          1265.4359008405618,
+          1131.2378723685933
+        ],
+        [
+          1272.1942944417117,
+          -554.8712619590675
+        ]
+      ],
+      "individual_removals_certified": [
+        2
+      ],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 114,
+          "failed_square": [
+            [
+              225.0,
+              225.0
+            ],
+            [
+              450.0,
+              225.0
+            ],
+            [
+              450.0,
+              450.0
+            ],
+            [
+              225.0,
+              450.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              225.0,
+              225.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.9342495692796255,
+            "receiver_count": 12,
+            "max_forward_dot": -22.310108267259036,
+            "max_angular_gap_rad": 4.012854814345033,
+            "min_excluded_distance_m": 1028.254183973782
+          }
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 394,
+          "failed_square": [
+            [
+              1350.0,
+              225.0
+            ],
+            [
+              1575.0,
+              225.0
+            ],
+            [
+              1575.0,
+              450.0
+            ],
+            [
+              1350.0,
+              450.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": true,
+          "checked_leaves": 798,
+          "separation_witness": null
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 497,
+          "failed_square": [
+            [
+              225.0,
+              225.0
+            ],
+            [
+              450.0,
+              225.0
+            ],
+            [
+              450.0,
+              450.0
+            ],
+            [
+              225.0,
+              450.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 33,
+          "failed_square": [
+            [
+              0.0,
+              225.0
+            ],
+            [
+              112.5,
+              225.0
+            ],
+            [
+              112.5,
+              337.5
+            ],
+            [
+              0.0,
+              337.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 13,
+          "failed_square": [
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -28.125,
+              56.25
+            ],
+            [
+              -28.125,
+              84.375
+            ],
+            [
+              -56.25,
+              84.375
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              0.0,
+              -3.515625
+            ],
+            [
+              1.7578125,
+              -3.515625
+            ],
+            [
+              1.7578125,
+              -1.7578125
+            ],
+            [
+              0.0,
+              -1.7578125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 21,
+          "failed_square": [
+            [
+              562.5,
+              -900.0
+            ],
+            [
+              675.0,
+              -900.0
+            ],
+            [
+              675.0,
+              -787.5
+            ],
+            [
+              562.5,
+              -787.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 31,
+          "failed_square": [
+            [
+              450.0,
+              0.0
+            ],
+            [
+              675.0,
+              0.0
+            ],
+            [
+              675.0,
+              225.0
+            ],
+            [
+              450.0,
+              225.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1553.90625,
+              900.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": -1.1031888943317707,
+            "receiver_count": 12,
+            "max_forward_dot": -1.3550953995884747,
+            "max_angular_gap_rad": 3.1812629502948733,
+            "min_excluded_distance_m": 1057.317807609927
+          }
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 0.11909490714298654,
+            "receiver_count": 12,
+            "max_forward_dot": -96.88866046362048,
+            "max_angular_gap_rad": 4.455575897456791,
+            "min_excluded_distance_m": 1143.8934139051667
+          }
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 1.1509351089560496,
+            "receiver_count": 12,
+            "max_forward_dot": -83.00570406939688,
+            "max_angular_gap_rad": 3.841118286471925,
+            "min_excluded_distance_m": 1143.8934139051667
+          }
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 8,
+          "failed_square": [
+            [
+              843.75,
+              1575.0
+            ],
+            [
+              871.875,
+              1575.0
+            ],
+            [
+              871.875,
+              1603.125
+            ],
+            [
+              843.75,
+              1603.125
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              843.75,
+              1575.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.0167902728626395,
+            "receiver_count": 13,
+            "max_forward_dot": -2.637140089731453,
+            "max_angular_gap_rad": 3.1962022944112443,
+            "min_excluded_distance_m": 1003.5697063128952
+          }
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 14,
+          "failed_square": [
+            [
+              -56.25,
+              1771.875
+            ],
+            [
+              -28.125,
+              1771.875
+            ],
+            [
+              -28.125,
+              1800.0
+            ],
+            [
+              -56.25,
+              1800.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -56.25,
+              1771.875
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.6397595617079936,
+            "receiver_count": 6,
+            "max_forward_dot": -4.99929797697272,
+            "max_angular_gap_rad": 3.2342567196487,
+            "min_excluded_distance_m": 1000.7382135442318
+          }
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 43,
+          "failed_square": [
+            [
+              -956.25,
+              1518.75
+            ],
+            [
+              -928.125,
+              1518.75
+            ],
+            [
+              -928.125,
+              1546.875
+            ],
+            [
+              -956.25,
+              1546.875
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -956.25,
+              1518.75
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.9652403273389574,
+            "receiver_count": 5,
+            "max_forward_dot": -7.115654354730392,
+            "max_angular_gap_rad": 3.2861232579850816,
+            "min_excluded_distance_m": 1016.6669193988757
+          }
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 28,
+          "failed_square": [
+            [
+              -1350.0,
+              225.0
+            ],
+            [
+              -1125.0,
+              225.0
+            ],
+            [
+              -1125.0,
+              450.0
+            ],
+            [
+              -1350.0,
+              450.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -1350.0,
+              225.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": 4.0790465718065585,
+            "receiver_count": 8,
+            "max_forward_dot": -24.11987225541847,
+            "max_angular_gap_rad": 3.2681965433466353,
+            "min_excluded_distance_m": 1039.856396633205
+          }
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 75,
+          "failed_square": [
+            [
+              -1350.0,
+              -787.5
+            ],
+            [
+              -1237.5,
+              -787.5
+            ],
+            [
+              -1237.5,
+              -675.0
+            ],
+            [
+              -1350.0,
+              -675.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 54,
+          "failed_square": [
+            [
+              -450.0,
+              -1350.0
+            ],
+            [
+              -225.0,
+              -1350.0
+            ],
+            [
+              -225.0,
+              -1125.0
+            ],
+            [
+              -450.0,
+              -1125.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -450.0,
+              -1350.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.5621944144819437,
+            "receiver_count": 11,
+            "max_forward_dot": -5.920486937077193,
+            "max_angular_gap_rad": 3.2245722478163055,
+            "min_excluded_distance_m": 1047.9924358078335
+          }
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 23,
+          "failed_square": [
+            [
+              843.75,
+              -1575.0
+            ],
+            [
+              900.0,
+              -1575.0
+            ],
+            [
+              900.0,
+              -1518.75
+            ],
+            [
+              843.75,
+              -1518.75
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              843.75,
+              -1575.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": 4.127203153882365,
+            "receiver_count": 10,
+            "max_forward_dot": -16.008295553475065,
+            "max_angular_gap_rad": 3.4745860552804064,
+            "min_excluded_distance_m": 1003.5697063128952
+          }
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 13,
+          "failed_square": [
+            [
+              1546.875,
+              -928.125
+            ],
+            [
+              1575.0,
+              -928.125
+            ],
+            [
+              1575.0,
+              -900.0
+            ],
+            [
+              1546.875,
+              -900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              1743.75,
+              -112.5
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1800.0,
+              -56.25
+            ],
+            [
+              1743.75,
+              -56.25
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1757.8125,
+              -112.5
+            ],
+            "radius_m": 1000,
+            "direction_rad": -0.7942540473332611,
+            "receiver_count": 3,
+            "max_forward_dot": -5.832851904934898,
+            "max_angular_gap_rad": 3.2170191757265525,
+            "min_excluded_distance_m": 1054.316987856155
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-fixed_negative_bias-43005000",
+      "mode": 4,
+      "group": "fixed_negative_bias",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 21,
+      "extra_arrival_coordinates": [
+        [
+          -1319.8065932302995,
+          -1152.3495099305958
+        ],
+        [
+          -1316.3478683767853,
+          -1148.2341307834279
+        ],
+        [
+          -1296.7760654621072,
+          -1126.9089063933113
+        ],
+        [
+          -869.0790910458135,
+          -896.3770430871712
+        ],
+        [
+          -855.2880519422521,
+          288.8083420792064
+        ],
+        [
+          -614.163773065153,
+          1283.823538037182
+        ],
+        [
+          -608.8161738211221,
+          1297.1127029840763
+        ],
+        [
+          31.98968440306508,
+          55.196200226011996
+        ],
+        [
+          44.22812322137541,
+          78.81158489457309
+        ],
+        [
+          45.50164838365485,
+          81.56207036038576
+        ],
+        [
+          116.11344961679387,
+          715.9468507656527
+        ],
+        [
+          462.3366891960783,
+          -1670.943917203215
+        ],
+        [
+          767.3913744649748,
+          573.2329109684191
+        ],
+        [
+          1005.38442968659,
+          -1109.9163071292423
+        ],
+        [
+          1084.0209554867115,
+          -1447.3124731265464
+        ],
+        [
+          1106.6217903081142,
+          -1480.9860976720715
+        ],
+        [
+          1110.503871177382,
+          -200.79253480881746
+        ],
+        [
+          1281.2435806162284,
+          -1347.700842344143
+        ],
+        [
+          1423.82440209064,
+          -66.61679638710477
+        ],
+        [
+          1483.198681160165,
+          -363.41137505362747
+        ],
+        [
+          1621.3793368949282,
+          -439.131659202968
+        ]
+      ],
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 135,
+          "failed_square": [
+            [
+              56.25,
+              28.125
+            ],
+            [
+              84.375,
+              28.125
+            ],
+            [
+              84.375,
+              56.25
+            ],
+            [
+              56.25,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 418,
+          "failed_square": [
+            [
+              900.0,
+              675.0
+            ],
+            [
+              1125.0,
+              675.0
+            ],
+            [
+              1125.0,
+              900.0
+            ],
+            [
+              900.0,
+              900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 75,
+          "failed_square": [
+            [
+              914.0625,
+              1490.625
+            ],
+            [
+              928.125,
+              1490.625
+            ],
+            [
+              928.125,
+              1504.6875
+            ],
+            [
+              914.0625,
+              1504.6875
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 30,
+          "failed_square": [
+            [
+              0.0,
+              675.0
+            ],
+            [
+              225.0,
+              675.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              0.0,
+              900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 39,
+          "failed_square": [
+            [
+              -84.375,
+              28.125
+            ],
+            [
+              -56.25,
+              28.125
+            ],
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -84.375,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              0.0,
+              -168.75
+            ],
+            [
+              56.25,
+              -168.75
+            ],
+            [
+              56.25,
+              -112.5
+            ],
+            [
+              0.0,
+              -112.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 6,
+          "failed_square": [
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              843.75,
+              -562.5
+            ],
+            [
+              843.75,
+              -506.25
+            ],
+            [
+              787.5,
+              -506.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 36,
+          "failed_square": [
+            [
+              112.5,
+              0.0
+            ],
+            [
+              168.75,
+              0.0
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              112.5,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 0.00301573318870485,
+            "receiver_count": 3,
+            "max_forward_dot": -423.7234423606984,
+            "max_angular_gap_rad": 4.687734245365354,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 1.5012176745987906,
+            "receiver_count": 3,
+            "max_forward_dot": -230.76292865757776,
+            "max_angular_gap_rad": 4.541683417757407,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              1546.875
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.80675020101292,
+            "receiver_count": 4,
+            "max_forward_dot": -8.07497213896734,
+            "max_angular_gap_rad": 3.3584831558829475,
+            "min_excluded_distance_m": 1053.6446344119065
+          }
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 17,
+          "failed_square": [
+            [
+              -112.5,
+              1743.75
+            ],
+            [
+              -56.25,
+              1743.75
+            ],
+            [
+              -56.25,
+              1800.0
+            ],
+            [
+              -112.5,
+              1800.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -112.5,
+              1771.875
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.2954757768497944,
+            "receiver_count": 4,
+            "max_forward_dot": -5.600652643949076,
+            "max_angular_gap_rad": 3.218645740671663,
+            "min_excluded_distance_m": 1056.323416169357
+          }
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -900.0,
+              1462.5
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.370825440604065,
+            "receiver_count": 5,
+            "max_forward_dot": -3.324159881730317,
+            "max_angular_gap_rad": 3.184458409191665,
+            "min_excluded_distance_m": 1012.3399873560265
+          }
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 29,
+          "failed_square": [
+            [
+              787.5,
+              -1631.25
+            ],
+            [
+              843.75,
+              -1631.25
+            ],
+            [
+              843.75,
+              -1575.0
+            ],
+            [
+              787.5,
+              -1575.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 345,
+          "failed_square": [
+            [
+              900.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -900.0
+            ],
+            [
+              900.0,
+              -900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 19,
+          "failed_square": [
+            [
+              1687.5,
+              -225.0
+            ],
+            [
+              1800.0,
+              -225.0
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1687.5,
+              -112.5
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1743.75,
+              -225.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": -0.5050011470119569,
+            "receiver_count": 6,
+            "max_forward_dot": -3.4969079763651507,
+            "max_angular_gap_rad": 3.1699509895653373,
+            "min_excluded_distance_m": 1143.6089126006375
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-fixed_positive_bias-43005000",
+      "mode": 4,
+      "group": "fixed_positive_bias",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 21,
+      "extra_arrival_coordinates": [
+        [
+          -1316.9055596499213,
+          -1160.6731760974694
+        ],
+        [
+          -1308.2197490906829,
+          -1156.409578928934
+        ],
+        [
+          -1266.6209063960687,
+          -1132.3101201656168
+        ],
+        [
+          -861.791630768185,
+          -901.2387840302372
+        ],
+        [
+          -859.867366202932,
+          291.9405871504502
+        ],
+        [
+          -631.3601712617782,
+          1256.7653321178732
+        ],
+        [
+          56.92369110639001,
+          111.2865373296532
+        ],
+        [
+          68.30842932766801,
+          133.54384479558385
+        ],
+        [
+          79.69316754894601,
+          155.8011522615145
+        ],
+        [
+          87.40125170082287,
+          167.36743108852193
+        ],
+        [
+          91.077905770224,
+          178.05845972744513
+        ],
+        [
+          94.46497516052492,
+          746.6470150233652
+        ],
+        [
+          769.5061517399848,
+          574.0391508071715
+        ],
+        [
+          977.8377006619953,
+          -1504.0110286419658
+        ],
+        [
+          994.3384589717905,
+          -1113.432039826682
+        ],
+        [
+          1023.6754013239907,
+          -1393.7507042839316
+        ],
+        [
+          1067.140186338007,
+          -1433.029154513747
+        ],
+        [
+          1115.3508026479815,
+          -1173.2300555678632
+        ],
+        [
+          1118.9196261452498,
+          -207.15877001355597
+        ],
+        [
+          1442.004368969481,
+          -78.31071795993559
+        ],
+        [
+          1467.2941818581928,
+          -355.46717606594393
+        ]
+      ],
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 126,
+          "failed_square": [
+            [
+              112.5,
+              56.25
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              168.75,
+              112.5
+            ],
+            [
+              112.5,
+              112.5
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              112.5,
+              98.4375
+            ],
+            "radius_m": 1000,
+            "direction_rad": 4.558877292813811,
+            "receiver_count": 11,
+            "max_forward_dot": -4.199791922635454,
+            "max_angular_gap_rad": 3.227440871849095,
+            "min_excluded_distance_m": 1000.2398209577603
+          }
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 418,
+          "failed_square": [
+            [
+              900.0,
+              675.0
+            ],
+            [
+              1125.0,
+              675.0
+            ],
+            [
+              1125.0,
+              900.0
+            ],
+            [
+              900.0,
+              900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 75,
+          "failed_square": [
+            [
+              914.0625,
+              1490.625
+            ],
+            [
+              928.125,
+              1490.625
+            ],
+            [
+              928.125,
+              1504.6875
+            ],
+            [
+              914.0625,
+              1504.6875
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 30,
+          "failed_square": [
+            [
+              0.0,
+              675.0
+            ],
+            [
+              225.0,
+              675.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              0.0,
+              900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 39,
+          "failed_square": [
+            [
+              -84.375,
+              28.125
+            ],
+            [
+              -56.25,
+              28.125
+            ],
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -84.375,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              0.0,
+              -168.75
+            ],
+            [
+              56.25,
+              -168.75
+            ],
+            [
+              56.25,
+              -112.5
+            ],
+            [
+              0.0,
+              -112.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 6,
+          "failed_square": [
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              843.75,
+              -562.5
+            ],
+            [
+              843.75,
+              -506.25
+            ],
+            [
+              787.5,
+              -506.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 36,
+          "failed_square": [
+            [
+              112.5,
+              0.0
+            ],
+            [
+              168.75,
+              0.0
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              112.5,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 0.0035819736854185713,
+            "receiver_count": 3,
+            "max_forward_dot": -423.4774555388212,
+            "max_angular_gap_rad": 4.686601764371926,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 1.5012176745987906,
+            "receiver_count": 3,
+            "max_forward_dot": -230.76292865757776,
+            "max_angular_gap_rad": 4.541683417757407,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              1546.875
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.80675020101292,
+            "receiver_count": 4,
+            "max_forward_dot": -8.07497213896734,
+            "max_angular_gap_rad": 3.3584831558829475,
+            "min_excluded_distance_m": 1053.6446344119065
+          }
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 17,
+          "failed_square": [
+            [
+              -112.5,
+              1743.75
+            ],
+            [
+              -56.25,
+              1743.75
+            ],
+            [
+              -56.25,
+              1800.0
+            ],
+            [
+              -112.5,
+              1800.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -112.5,
+              1757.8125
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.333034031681054,
+            "receiver_count": 3,
+            "max_forward_dot": -0.8813075337440637,
+            "max_angular_gap_rad": 3.152986490832345,
+            "min_excluded_distance_m": 1032.128935235918
+          }
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -900.0,
+              1462.5
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.370825440604065,
+            "receiver_count": 4,
+            "max_forward_dot": -3.324159881730317,
+            "max_angular_gap_rad": 3.184458409191665,
+            "min_excluded_distance_m": 1012.3399873560265
+          }
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              900.0,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1476.5625
+            ],
+            [
+              900.0,
+              -1476.5625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              -1490.625
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.3892302175533384,
+            "receiver_count": 8,
+            "max_forward_dot": -0.7163277237607666,
+            "max_angular_gap_rad": 3.152809862979616,
+            "min_excluded_distance_m": 1025.5218869556124
+          }
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 33,
+          "failed_square": [
+            [
+              1434.375,
+              -1096.875
+            ],
+            [
+              1448.4375,
+              -1096.875
+            ],
+            [
+              1448.4375,
+              -1082.8125
+            ],
+            [
+              1434.375,
+              -1082.8125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              1743.75,
+              -112.5
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1800.0,
+              -56.25
+            ],
+            [
+              1743.75,
+              -56.25
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1743.75,
+              -112.5
+            ],
+            "radius_m": 1000,
+            "direction_rad": -0.8342326120065593,
+            "receiver_count": 5,
+            "max_forward_dot": -2.5603912494737813,
+            "max_angular_gap_rad": 3.172691087251483,
+            "min_excluded_distance_m": 1052.494641330278
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-minimum_radius-43005000",
+      "mode": 4,
+      "group": "minimum_radius",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 23,
+      "extra_arrival_coordinates": [
+        [
+          -1330.8051904022727,
+          -1167.04833041204
+        ],
+        [
+          -1304.90987726782,
+          -1151.1384365484982
+        ],
+        [
+          -1253.1192509989128,
+          -1119.3186488214133
+        ],
+        [
+          -862.3364670655034,
+          -900.8753030872143
+        ],
+        [
+          -847.6010977449945,
+          324.04503368337146
+        ],
+        [
+          -622.0274278348155,
+          1257.8985857684872
+        ],
+        [
+          68.283347282166,
+          90.84375669591694
+        ],
+        [
+          73.00407733827517,
+          771.9588102301749
+        ],
+        [
+          77.51396156955461,
+          86.46281705341815
+        ],
+        [
+          94.6492268518723,
+          744.0037122597862
+        ],
+        [
+          95.68978282794968,
+          759.5557677759969
+        ],
+        [
+          97.80420108026804,
+          768.8038360017791
+        ],
+        [
+          155.02792313910922,
+          172.9256341068363
+        ],
+        [
+          169.84150764011315,
+          435.9301721031686
+        ],
+        [
+          310.05584627821844,
+          345.8512682136726
+        ],
+        [
+          772.9837748380535,
+          553.9397489293804
+        ],
+        [
+          990.4085771547922,
+          -1083.3980217475823
+        ],
+        [
+          1083.6919141343187,
+          -1443.8592067935144
+        ],
+        [
+          1110.0529975760296,
+          -1474.5909232697957
+        ],
+        [
+          1128.2441814712663,
+          -218.23870867939021
+        ],
+        [
+          1288.105995152059,
+          -1334.9104935395912
+        ],
+        [
+          1418.169252612045,
+          -93.12940740827706
+        ],
+        [
+          1466.9833422231293,
+          -356.53462014341034
+        ]
+      ],
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 126,
+          "failed_square": [
+            [
+              112.5,
+              56.25
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              168.75,
+              112.5
+            ],
+            [
+              112.5,
+              112.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 410,
+          "failed_square": [
+            [
+              1237.5,
+              787.5
+            ],
+            [
+              1350.0,
+              787.5
+            ],
+            [
+              1350.0,
+              900.0
+            ],
+            [
+              1237.5,
+              900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 67,
+          "failed_square": [
+            [
+              956.25,
+              1518.75
+            ],
+            [
+              984.375,
+              1518.75
+            ],
+            [
+              984.375,
+              1546.875
+            ],
+            [
+              956.25,
+              1546.875
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 30,
+          "failed_square": [
+            [
+              0.0,
+              675.0
+            ],
+            [
+              225.0,
+              675.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              0.0,
+              900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 39,
+          "failed_square": [
+            [
+              -84.375,
+              28.125
+            ],
+            [
+              -56.25,
+              28.125
+            ],
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -84.375,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              0.0,
+              -168.75
+            ],
+            [
+              56.25,
+              -168.75
+            ],
+            [
+              56.25,
+              -112.5
+            ],
+            [
+              0.0,
+              -112.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 6,
+          "failed_square": [
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              843.75,
+              -562.5
+            ],
+            [
+              843.75,
+              -506.25
+            ],
+            [
+              787.5,
+              -506.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 36,
+          "failed_square": [
+            [
+              112.5,
+              0.0
+            ],
+            [
+              168.75,
+              0.0
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              112.5,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1546.875,
+              900.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": -1.1389038428583387,
+            "receiver_count": 4,
+            "max_forward_dot": -0.8501496471998067,
+            "max_angular_gap_rad": 3.164383093163578,
+            "min_excluded_distance_m": 1001.434565645608
+          }
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 0.01319373916755362,
+            "receiver_count": 3,
+            "max_forward_dot": -419.2812518978836,
+            "max_angular_gap_rad": 4.667378233407656,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 1.5012176745987906,
+            "receiver_count": 3,
+            "max_forward_dot": -230.76292865757776,
+            "max_angular_gap_rad": 4.541683417757407,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              1546.875
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.80675020101292,
+            "receiver_count": 3,
+            "max_forward_dot": -8.07497213896734,
+            "max_angular_gap_rad": 3.3584831558829475,
+            "min_excluded_distance_m": 1001.0262405516974
+          }
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 17,
+          "failed_square": [
+            [
+              -112.5,
+              1743.75
+            ],
+            [
+              -56.25,
+              1743.75
+            ],
+            [
+              -56.25,
+              1800.0
+            ],
+            [
+              -112.5,
+              1800.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -112.5,
+              1757.8125
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.337004146553395,
+            "receiver_count": 3,
+            "max_forward_dot": -1.4954650753931844,
+            "max_angular_gap_rad": 3.1609267205770273,
+            "min_excluded_distance_m": 1003.1546542492356
+          }
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -900.0,
+              1462.5
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.370825440604065,
+            "receiver_count": 4,
+            "max_forward_dot": -3.324159881730317,
+            "max_angular_gap_rad": 3.184458409191665,
+            "min_excluded_distance_m": 1012.3399873560265
+          }
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              900.0,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1476.5625
+            ],
+            [
+              900.0,
+              -1476.5625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              -1490.625
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.3892302175533384,
+            "receiver_count": 7,
+            "max_forward_dot": -0.7163277237607666,
+            "max_angular_gap_rad": 3.152809862979616,
+            "min_excluded_distance_m": 1025.5218869556124
+          }
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 345,
+          "failed_square": [
+            [
+              900.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -900.0
+            ],
+            [
+              900.0,
+              -900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              1743.75,
+              -112.5
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1800.0,
+              -56.25
+            ],
+            [
+              1743.75,
+              -56.25
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1743.75,
+              -112.5
+            ],
+            "radius_m": 1000,
+            "direction_rad": -0.833424190968697,
+            "receiver_count": 5,
+            "max_forward_dot": -2.4272835734843454,
+            "max_angular_gap_rad": 3.1710742451757583,
+            "min_excluded_distance_m": 1052.494641330278
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-offcenter_cluster-43005000",
+      "mode": 4,
+      "group": "offcenter_cluster",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 16,
+      "extra_arrival_coordinates": [
+        [
+          1001.353913785658,
+          548.7351180079795
+        ],
+        [
+          1011.1331879136759,
+          753.6089173205035
+        ],
+        [
+          1215.4540326647073,
+          294.59916977164096
+        ],
+        [
+          1241.4970118057704,
+          594.6202847638745
+        ],
+        [
+          1275.8371053756318,
+          621.2448764936997
+        ],
+        [
+          1287.066476973985,
+          552.2674075712127
+        ],
+        [
+          1298.5500557371872,
+          651.1174979197314
+        ],
+        [
+          1303.799238794108,
+          557.4876172314612
+        ],
+        [
+          1309.3654034598387,
+          636.6083934196597
+        ],
+        [
+          1325.4824856318212,
+          534.7651059742888
+        ],
+        [
+          1333.983843649878,
+          527.6464957654451
+        ],
+        [
+          1335.4963517216531,
+          601.5197573174853
+        ],
+        [
+          1346.5026973616873,
+          552.502719549549
+        ],
+        [
+          1347.3831973958734,
+          548.752355596063
+        ],
+        [
+          1368.7239401129243,
+          637.6171415461081
+        ],
+        [
+          1387.871371797731,
+          581.8217155220171
+        ]
+      ],
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 9,
+          "failed_square": [
+            [
+              787.5,
+              450.0
+            ],
+            [
+              843.75,
+              450.0
+            ],
+            [
+              843.75,
+              506.25
+            ],
+            [
+              787.5,
+              506.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 383,
+          "failed_square": [
+            [
+              1771.875,
+              28.125
+            ],
+            [
+              1800.0,
+              28.125
+            ],
+            [
+              1800.0,
+              56.25
+            ],
+            [
+              1771.875,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 69,
+          "failed_square": [
+            [
+              928.125,
+              1518.75
+            ],
+            [
+              956.25,
+              1518.75
+            ],
+            [
+              956.25,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              0.0,
+              1293.75
+            ],
+            [
+              56.25,
+              1293.75
+            ],
+            [
+              56.25,
+              1350.0
+            ],
+            [
+              0.0,
+              1350.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              -450.0,
+              450.0
+            ],
+            [
+              -337.5,
+              450.0
+            ],
+            [
+              -337.5,
+              562.5
+            ],
+            [
+              -450.0,
+              562.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              0.0,
+              -3.515625
+            ],
+            [
+              1.7578125,
+              -3.515625
+            ],
+            [
+              1.7578125,
+              -1.7578125
+            ],
+            [
+              0.0,
+              -1.7578125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 5,
+          "failed_square": [
+            [
+              450.0,
+              -450.0
+            ],
+            [
+              562.5,
+              -450.0
+            ],
+            [
+              562.5,
+              -337.5
+            ],
+            [
+              450.0,
+              -337.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              1293.75,
+              0.0
+            ],
+            [
+              1350.0,
+              0.0
+            ],
+            [
+              1350.0,
+              56.25
+            ],
+            [
+              1293.75,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 8,
+          "failed_square": [
+            [
+              1575.0,
+              843.75
+            ],
+            [
+              1603.125,
+              843.75
+            ],
+            [
+              1603.125,
+              871.875
+            ],
+            [
+              1575.0,
+              871.875
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1575.0,
+              843.75
+            ],
+            "radius_m": 1000,
+            "direction_rad": -0.4991914304562015,
+            "receiver_count": 18,
+            "max_forward_dot": -7.767602143259673,
+            "max_angular_gap_rad": 3.3025972631881615,
+            "min_excluded_distance_m": 1003.5697063128952
+          }
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 0.4137452160714117,
+            "receiver_count": 18,
+            "max_forward_dot": -207.85680424623231,
+            "max_angular_gap_rad": 3.86627527959994,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 1.5012176745987906,
+            "receiver_count": 18,
+            "max_forward_dot": -230.76292865757776,
+            "max_angular_gap_rad": 4.541683417757407,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              1546.875
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.80675020101292,
+            "receiver_count": 7,
+            "max_forward_dot": -8.07497213896734,
+            "max_angular_gap_rad": 3.3584831558829475,
+            "min_excluded_distance_m": 1003.2725650902228
+          }
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              0.0,
+              1771.875
+            ],
+            [
+              28.125,
+              1771.875
+            ],
+            [
+              28.125,
+              1800.0
+            ],
+            [
+              0.0,
+              1800.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -900.0,
+              1462.5
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.370825440604065,
+            "receiver_count": 3,
+            "max_forward_dot": -3.324159881730317,
+            "max_angular_gap_rad": 3.184458409191665,
+            "min_excluded_distance_m": 1012.3399873560265
+          }
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              900.0,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1476.5625
+            ],
+            [
+              900.0,
+              -1476.5625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              -1490.625
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.3892302175533384,
+            "receiver_count": 3,
+            "max_forward_dot": -0.7163277237607666,
+            "max_angular_gap_rad": 3.152809862979616,
+            "min_excluded_distance_m": 1025.5218869556124
+          }
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1462.5,
+              -900.0
+            ],
+            [
+              1518.75,
+              -900.0
+            ],
+            [
+              1518.75,
+              -843.75
+            ],
+            [
+              1462.5,
+              -843.75
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1462.5,
+              -900.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": 4.483156193370418,
+            "receiver_count": 3,
+            "max_forward_dot": -3.3241598817303633,
+            "max_angular_gap_rad": 3.184458409191665,
+            "min_excluded_distance_m": 1012.3399873560265
+          }
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1771.875,
+              0.0
+            ],
+            [
+              1800.0,
+              0.0
+            ],
+            [
+              1800.0,
+              28.125
+            ],
+            [
+              1771.875,
+              28.125
+            ]
+          ],
+          "separation_witness": null
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-origin_cluster-43005000",
+      "mode": 4,
+      "group": "origin_cluster",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 32,
+      "extra_arrival_coordinates": [
+        [
+          -88.7315344876456,
+          53.7097663367033
+        ],
+        [
+          -84.94326753191984,
+          54.192985939679204
+        ],
+        [
+          -76.20420914295593,
+          39.9785782228373
+        ],
+        [
+          -73.50691403885901,
+          33.44538676176876
+        ],
+        [
+          -72.57525061381043,
+          -1.8976748382457593
+        ],
+        [
+          -71.45631993453871,
+          71.78093016596797
+        ],
+        [
+          -70.66037065838088,
+          36.43455178359636
+        ],
+        [
+          -69.86442138222306,
+          1.0881734012248678
+        ],
+        [
+          -55.36955152632743,
+          16.239687674285847
+        ],
+        [
+          -54.43788810127873,
+          -19.103373925728786
+        ],
+        [
+          -53.38515610527399,
+          54.50571561286104
+        ],
+        [
+          -52.589206829116165,
+          19.15933723048954
+        ],
+        [
+          -51.79325755295845,
+          -16.187041151882067
+        ],
+        [
+          -47.53991510964139,
+          -48.821282452596705
+        ],
+        [
+          -44.29493462889493,
+          5.181561987763285
+        ],
+        [
+          -42.97998754840715,
+          7.863911379038658
+        ],
+        [
+          -38.16385243884443,
+          34.377050186817456
+        ],
+        [
+          -37.23218901379573,
+          -0.9660114131971795
+        ],
+        [
+          -36.30052558874715,
+          -36.309073013211815
+        ],
+        [
+          -35.27802983112668,
+          -36.785138174639954
+        ],
+        [
+          -34.51804299985156,
+          1.8841226773826065
+        ],
+        [
+          -33.72209372369373,
+          -33.46225570498889
+        ],
+        [
+          -31.10178840453493,
+          34.80146615329532
+        ],
+        [
+          -19.09482650126415,
+          -18.171710500680206
+        ],
+        [
+          -0.9574639887325702,
+          -35.37740958816323
+        ],
+        [
+          1.1003702236281754,
+          24.206345928375857
+        ],
+        [
+          8.875204184287282,
+          19.615736159733395
+        ],
+        [
+          15.768534529184926,
+          -48.01158517697393
+        ],
+        [
+          23.257648522467534,
+          20.0790050622971
+        ],
+        [
+          37.05147373414465,
+          -4.60242559743164
+        ],
+        [
+          303.1187823346266,
+          -476.61706397514035
+        ],
+        [
+          411.4505824871691,
+          216.69249399273303
+        ]
+      ],
+      "individual_removals_certified": [
+        0
+      ],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": true,
+          "checked_leaves": 644,
+          "separation_witness": null
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 11,
+          "failed_square": [
+            [
+              1687.5,
+              590.625
+            ],
+            [
+              1701.5625,
+              590.625
+            ],
+            [
+              1701.5625,
+              604.6875
+            ],
+            [
+              1687.5,
+              604.6875
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.9302220643855277,
+            "receiver_count": 2,
+            "max_forward_dot": -4.492581231905319,
+            "max_angular_gap_rad": 3.166678417028292,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              0.0,
+              1293.75
+            ],
+            [
+              56.25,
+              1293.75
+            ],
+            [
+              56.25,
+              1350.0
+            ],
+            [
+              0.0,
+              1350.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 43,
+          "failed_square": [
+            [
+              -225.0,
+              112.5
+            ],
+            [
+              -112.5,
+              112.5
+            ],
+            [
+              -112.5,
+              225.0
+            ],
+            [
+              -225.0,
+              225.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 46,
+          "failed_square": [
+            [
+              0.0,
+              -1125.0
+            ],
+            [
+              112.5,
+              -1125.0
+            ],
+            [
+              112.5,
+              -1012.5
+            ],
+            [
+              0.0,
+              -1012.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              450.0,
+              -675.0
+            ],
+            [
+              675.0,
+              -675.0
+            ],
+            [
+              675.0,
+              -450.0
+            ],
+            [
+              450.0,
+              -450.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              450.0,
+              -675.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": 4.201771475308956,
+            "receiver_count": 35,
+            "max_forward_dot": -97.91222075285177,
+            "max_angular_gap_rad": 3.9191136205888975,
+            "min_excluded_distance_m": 1055.7247153337137
+          }
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              1293.75,
+              0.0
+            ],
+            [
+              1350.0,
+              0.0
+            ],
+            [
+              1350.0,
+              56.25
+            ],
+            [
+              1293.75,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1546.875,
+              900.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": -1.2359538742180236,
+            "receiver_count": 3,
+            "max_forward_dot": -8.074972138967343,
+            "max_angular_gap_rad": 3.358483155882948,
+            "min_excluded_distance_m": 1053.6446344119065
+          }
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": -0.08212153391535493,
+            "receiver_count": 2,
+            "max_forward_dot": -459.1192829531484,
+            "max_angular_gap_rad": 4.858008779573474,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 1.5012176745987906,
+            "receiver_count": 2,
+            "max_forward_dot": -230.76292865757776,
+            "max_angular_gap_rad": 4.541683417757407,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              1546.875
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.80675020101292,
+            "receiver_count": 3,
+            "max_forward_dot": -8.07497213896734,
+            "max_angular_gap_rad": 3.3584831558829475,
+            "min_excluded_distance_m": 1053.6446344119065
+          }
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              0.0,
+              1771.875
+            ],
+            [
+              28.125,
+              1771.875
+            ],
+            [
+              28.125,
+              1800.0
+            ],
+            [
+              0.0,
+              1800.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -900.0,
+              1462.5
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.370825440604065,
+            "receiver_count": 3,
+            "max_forward_dot": -3.324159881730317,
+            "max_angular_gap_rad": 3.184458409191665,
+            "min_excluded_distance_m": 1012.3399873560265
+          }
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              900.0,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1476.5625
+            ],
+            [
+              900.0,
+              -1476.5625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              -1490.625
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.3892302175533384,
+            "receiver_count": 3,
+            "max_forward_dot": -0.7163277237607666,
+            "max_angular_gap_rad": 3.152809862979616,
+            "min_excluded_distance_m": 1025.5218869556124
+          }
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1462.5,
+              -900.0
+            ],
+            [
+              1518.75,
+              -900.0
+            ],
+            [
+              1518.75,
+              -843.75
+            ],
+            [
+              1462.5,
+              -843.75
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1462.5,
+              -900.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": 4.483156193370418,
+            "receiver_count": 3,
+            "max_forward_dot": -3.3241598817303633,
+            "max_angular_gap_rad": 3.184458409191665,
+            "min_excluded_distance_m": 1012.3399873560265
+          }
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1771.875,
+              0.0
+            ],
+            [
+              1800.0,
+              0.0
+            ],
+            [
+              1800.0,
+              28.125
+            ],
+            [
+              1771.875,
+              28.125
+            ]
+          ],
+          "separation_witness": null
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-reference_assumed-43005000",
+      "mode": 4,
+      "group": "reference_assumed",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 19,
+      "extra_arrival_coordinates": [
+        [
+          -1330.8051904022727,
+          -1167.04833041204
+        ],
+        [
+          -1304.90987726782,
+          -1151.1384365484982
+        ],
+        [
+          -1253.1192509989128,
+          -1119.3186488214133
+        ],
+        [
+          -862.3364670655034,
+          -900.8753030872143
+        ],
+        [
+          -843.1085321349032,
+          313.7697275700579
+        ],
+        [
+          -618.9583876363303,
+          1280.1835961962174
+        ],
+        [
+          60.09928345076796,
+          114.20988369000223
+        ],
+        [
+          92.63548562397482,
+          736.3362084407707
+        ],
+        [
+          455.3509423399577,
+          -1658.2695349083774
+        ],
+        [
+          781.735704131657,
+          553.3188710526877
+        ],
+        [
+          981.8376586386855,
+          -1105.0669103690711
+        ],
+        [
+          1042.5929044705717,
+          -1048.9544827169022
+        ],
+        [
+          1083.6919141343187,
+          -1443.8592067935144
+        ],
+        [
+          1110.0529975760296,
+          -1474.5909232697957
+        ],
+        [
+          1131.5214566486275,
+          -219.28259924950453
+        ],
+        [
+          1288.105995152059,
+          -1334.9104935395912
+        ],
+        [
+          1437.193586209673,
+          -80.87611498249387
+        ],
+        [
+          1475.2670538272785,
+          -364.8509899510714
+        ],
+        [
+          1614.66861414207,
+          -439.7924973320457
+        ]
+      ],
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 126,
+          "failed_square": [
+            [
+              112.5,
+              56.25
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              168.75,
+              112.5
+            ],
+            [
+              112.5,
+              112.5
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              112.5,
+              98.4375
+            ],
+            "radius_m": 1000,
+            "direction_rad": 4.5462784633987035,
+            "receiver_count": 7,
+            "max_forward_dot": -6.890946160702324,
+            "max_angular_gap_rad": 3.252638530679311,
+            "min_excluded_distance_m": 1000.2398209577603
+          }
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 410,
+          "failed_square": [
+            [
+              1237.5,
+              787.5
+            ],
+            [
+              1350.0,
+              787.5
+            ],
+            [
+              1350.0,
+              900.0
+            ],
+            [
+              1237.5,
+              900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 67,
+          "failed_square": [
+            [
+              956.25,
+              1518.75
+            ],
+            [
+              984.375,
+              1518.75
+            ],
+            [
+              984.375,
+              1546.875
+            ],
+            [
+              956.25,
+              1546.875
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 30,
+          "failed_square": [
+            [
+              0.0,
+              675.0
+            ],
+            [
+              225.0,
+              675.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              0.0,
+              900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 39,
+          "failed_square": [
+            [
+              -84.375,
+              28.125
+            ],
+            [
+              -56.25,
+              28.125
+            ],
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -84.375,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              0.0,
+              -168.75
+            ],
+            [
+              56.25,
+              -168.75
+            ],
+            [
+              56.25,
+              -112.5
+            ],
+            [
+              0.0,
+              -112.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 6,
+          "failed_square": [
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              843.75,
+              -562.5
+            ],
+            [
+              843.75,
+              -506.25
+            ],
+            [
+              787.5,
+              -506.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 35,
+          "failed_square": [
+            [
+              168.75,
+              0.0
+            ],
+            [
+              225.0,
+              0.0
+            ],
+            [
+              225.0,
+              56.25
+            ],
+            [
+              168.75,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 0.017202926168657928,
+            "receiver_count": 3,
+            "max_forward_dot": -417.5194925861766,
+            "max_angular_gap_rad": 4.6593598594054475,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 1.5012176745987906,
+            "receiver_count": 3,
+            "max_forward_dot": -230.76292865757776,
+            "max_angular_gap_rad": 4.541683417757407,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              1546.875
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.80675020101292,
+            "receiver_count": 3,
+            "max_forward_dot": -8.07497213896734,
+            "max_angular_gap_rad": 3.3584831558829475,
+            "min_excluded_distance_m": 1000.5699501014426
+          }
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 17,
+          "failed_square": [
+            [
+              -112.5,
+              1743.75
+            ],
+            [
+              -56.25,
+              1743.75
+            ],
+            [
+              -56.25,
+              1800.0
+            ],
+            [
+              -112.5,
+              1800.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -112.5,
+              1771.875
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.299175223121794,
+            "receiver_count": 3,
+            "max_forward_dot": -6.13814019600342,
+            "max_angular_gap_rad": 3.2260446332156616,
+            "min_excluded_distance_m": 1055.6614780724608
+          }
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -900.0,
+              1462.5
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.370825440604065,
+            "receiver_count": 4,
+            "max_forward_dot": -3.324159881730317,
+            "max_angular_gap_rad": 3.184458409191665,
+            "min_excluded_distance_m": 1012.3399873560265
+          }
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 29,
+          "failed_square": [
+            [
+              787.5,
+              -1631.25
+            ],
+            [
+              843.75,
+              -1631.25
+            ],
+            [
+              843.75,
+              -1575.0
+            ],
+            [
+              787.5,
+              -1575.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 345,
+          "failed_square": [
+            [
+              900.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -1125.0
+            ],
+            [
+              1125.0,
+              -900.0
+            ],
+            [
+              900.0,
+              -900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 19,
+          "failed_square": [
+            [
+              1687.5,
+              -225.0
+            ],
+            [
+              1800.0,
+              -225.0
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1687.5,
+              -112.5
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1743.75,
+              -225.0
+            ],
+            "radius_m": 1000,
+            "direction_rad": -0.5159729954789807,
+            "receiver_count": 6,
+            "max_forward_dot": -6.302052847704331,
+            "max_angular_gap_rad": 3.191894686499385,
+            "min_excluded_distance_m": 1081.9067714921382
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "R3-open-development-q4-smooth_shared_field-43005000",
+      "mode": 4,
+      "group": "smooth_shared_field",
+      "seed": 43005000,
+      "actual_complete": true,
+      "extra_arrivals": 21,
+      "extra_arrival_coordinates": [
+        [
+          -1318.543425058513,
+          -1159.4475636445945
+        ],
+        [
+          -1298.237650121609,
+          -1147.660139054828
+        ],
+        [
+          -1257.3168837473638,
+          -1123.858023123974
+        ],
+        [
+          -862.0458570327244,
+          -901.069180054088
+        ],
+        [
+          -844.2543537277771,
+          319.16446688695027
+        ],
+        [
+          -608.3508802509455,
+          1253.7908214138415
+        ],
+        [
+          60.715656733485815,
+          109.26394202764936
+        ],
+        [
+          72.85878808018298,
+          131.11673043317924
+        ],
+        [
+          85.00191942688014,
+          152.9695188387091
+        ],
+        [
+          97.1450507735773,
+          174.82230724423897
+        ],
+        [
+          104.79243316244201,
+          184.70827804320302
+        ],
+        [
+          116.99873472530248,
+          724.7320518870755
+        ],
+        [
+          772.8394105001498,
+          567.5678173885565
+        ],
+        [
+          977.7470741680703,
+          -1507.245401049719
+        ],
+        [
+          1000.834574821324,
+          -1100.2757493182403
+        ],
+        [
+          1023.4941483361406,
+          -1400.219449099438
+        ],
+        [
+          1069.4325095053714,
+          -1433.7738618514381
+        ],
+        [
+          1114.0139967016175,
+          -206.20168010063546
+        ],
+        [
+          1114.9882966722812,
+          -1186.1675451988756
+        ],
+        [
+          1428.7182251346783,
+          -75.16869884420949
+        ],
+        [
+          1468.1891154086827,
+          -349.233615804424
+        ]
+      ],
+      "individual_removals_certified": [],
+      "checks": [
+        {
+          "station": 0,
+          "radius_m": 0.0,
+          "certified": false,
+          "checked_leaves": 126,
+          "failed_square": [
+            [
+              112.5,
+              56.25
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              168.75,
+              112.5
+            ],
+            [
+              112.5,
+              112.5
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              112.5,
+              98.4375
+            ],
+            "radius_m": 1000,
+            "direction_rad": 4.554045560241152,
+            "receiver_count": 11,
+            "max_forward_dot": -2.5255134107831214,
+            "max_angular_gap_rad": 3.237104336994416,
+            "min_excluded_distance_m": 1000.2398209577603
+          }
+        },
+        {
+          "station": 1,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 418,
+          "failed_square": [
+            [
+              900.0,
+              675.0
+            ],
+            [
+              1125.0,
+              675.0
+            ],
+            [
+              1125.0,
+              900.0
+            ],
+            [
+              900.0,
+              900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 2,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 67,
+          "failed_square": [
+            [
+              956.25,
+              1518.75
+            ],
+            [
+              984.375,
+              1518.75
+            ],
+            [
+              984.375,
+              1546.875
+            ],
+            [
+              956.25,
+              1546.875
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 3,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 7,
+          "failed_square": [
+            [
+              871.875,
+              1406.25
+            ],
+            [
+              900.0,
+              1406.25
+            ],
+            [
+              900.0,
+              1434.375
+            ],
+            [
+              871.875,
+              1434.375
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 4,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 30,
+          "failed_square": [
+            [
+              0.0,
+              675.0
+            ],
+            [
+              225.0,
+              675.0
+            ],
+            [
+              225.0,
+              900.0
+            ],
+            [
+              0.0,
+              900.0
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 5,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 39,
+          "failed_square": [
+            [
+              -84.375,
+              28.125
+            ],
+            [
+              -56.25,
+              28.125
+            ],
+            [
+              -56.25,
+              56.25
+            ],
+            [
+              -84.375,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 6,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              0.0,
+              -168.75
+            ],
+            [
+              56.25,
+              -168.75
+            ],
+            [
+              56.25,
+              -112.5
+            ],
+            [
+              0.0,
+              -112.5
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 7,
+          "radius_m": 999.0,
+          "certified": false,
+          "checked_leaves": 6,
+          "failed_square": [
+            [
+              787.5,
+              -562.5
+            ],
+            [
+              843.75,
+              -562.5
+            ],
+            [
+              843.75,
+              -506.25
+            ],
+            [
+              787.5,
+              -506.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 8,
+          "radius_m": 998.999999426733,
+          "certified": false,
+          "checked_leaves": 36,
+          "failed_square": [
+            [
+              112.5,
+              0.0
+            ],
+            [
+              168.75,
+              0.0
+            ],
+            [
+              168.75,
+              56.25
+            ],
+            [
+              112.5,
+              56.25
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 9,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1546.875,
+              900.0
+            ],
+            [
+              1575.0,
+              900.0
+            ],
+            [
+              1575.0,
+              928.125
+            ],
+            [
+              1546.875,
+              928.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 10,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 0.007651147844076167,
+            "receiver_count": 3,
+            "max_forward_dot": -421.7057313159524,
+            "max_angular_gap_rad": 4.678463416054611,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 11,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              1357.03125,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1181.25
+            ],
+            [
+              1360.546875,
+              1184.765625
+            ],
+            [
+              1357.03125,
+              1184.765625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1357.03125,
+              1181.25
+            ],
+            "radius_m": 1000,
+            "direction_rad": 1.5012176745987906,
+            "receiver_count": 3,
+            "max_forward_dot": -230.76292865757776,
+            "max_angular_gap_rad": 4.541683417757407,
+            "min_excluded_distance_m": 1234.3167901622996
+          }
+        },
+        {
+          "station": 12,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              900.0,
+              1546.875
+            ],
+            [
+              928.125,
+              1546.875
+            ],
+            [
+              928.125,
+              1575.0
+            ],
+            [
+              900.0,
+              1575.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              1546.875
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.80675020101292,
+            "receiver_count": 4,
+            "max_forward_dot": -8.07497213896734,
+            "max_angular_gap_rad": 3.3584831558829475,
+            "min_excluded_distance_m": 1053.6446344119065
+          }
+        },
+        {
+          "station": 13,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 17,
+          "failed_square": [
+            [
+              -112.5,
+              1743.75
+            ],
+            [
+              -56.25,
+              1743.75
+            ],
+            [
+              -56.25,
+              1800.0
+            ],
+            [
+              -112.5,
+              1800.0
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -112.5,
+              1757.8125
+            ],
+            "radius_m": 1000,
+            "direction_rad": 2.3458516305605257,
+            "receiver_count": 3,
+            "max_forward_dot": -2.864028943480136,
+            "max_angular_gap_rad": 3.178621688591289,
+            "min_excluded_distance_m": 1054.316987856155
+          }
+        },
+        {
+          "station": 14,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 1,
+          "failed_square": [
+            [
+              -900.0,
+              1462.5
+            ],
+            [
+              -843.75,
+              1462.5
+            ],
+            [
+              -843.75,
+              1518.75
+            ],
+            [
+              -900.0,
+              1518.75
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              -900.0,
+              1462.5
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.370825440604065,
+            "receiver_count": 4,
+            "max_forward_dot": -3.324159881730317,
+            "max_angular_gap_rad": 3.184458409191665,
+            "min_excluded_distance_m": 1012.3399873560265
+          }
+        },
+        {
+          "station": 15,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 4,
+          "failed_square": [
+            [
+              -900.0,
+              235.546875
+            ],
+            [
+              -896.484375,
+              235.546875
+            ],
+            [
+              -896.484375,
+              239.0625
+            ],
+            [
+              -900.0,
+              239.0625
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 16,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              -1406.25,
+              0.0
+            ],
+            [
+              -1378.125,
+              0.0
+            ],
+            [
+              -1378.125,
+              28.125
+            ],
+            [
+              -1406.25,
+              28.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 17,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              0.0,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1406.25
+            ],
+            [
+              28.125,
+              -1378.125
+            ],
+            [
+              0.0,
+              -1378.125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 18,
+          "radius_m": 1864.0,
+          "certified": false,
+          "checked_leaves": 2,
+          "failed_square": [
+            [
+              900.0,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1490.625
+            ],
+            [
+              914.0625,
+              -1476.5625
+            ],
+            [
+              900.0,
+              -1476.5625
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              900.0,
+              -1490.625
+            ],
+            "radius_m": 1000,
+            "direction_rad": 3.3892302175533384,
+            "receiver_count": 8,
+            "max_forward_dot": -0.7163277237607666,
+            "max_angular_gap_rad": 3.152809862979616,
+            "min_excluded_distance_m": 1025.5218869556124
+          }
+        },
+        {
+          "station": 19,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 33,
+          "failed_square": [
+            [
+              1434.375,
+              -1096.875
+            ],
+            [
+              1448.4375,
+              -1096.875
+            ],
+            [
+              1448.4375,
+              -1082.8125
+            ],
+            [
+              1434.375,
+              -1082.8125
+            ]
+          ],
+          "separation_witness": null
+        },
+        {
+          "station": 20,
+          "radius_m": 1864.0000002994773,
+          "certified": false,
+          "checked_leaves": 16,
+          "failed_square": [
+            [
+              1743.75,
+              -112.5
+            ],
+            [
+              1800.0,
+              -112.5
+            ],
+            [
+              1800.0,
+              -56.25
+            ],
+            [
+              1743.75,
+              -56.25
+            ]
+          ],
+          "separation_witness": {
+            "source_xy": [
+              1743.75,
+              -112.5
+            ],
+            "radius_m": 1000,
+            "direction_rad": -0.8398639252168536,
+            "receiver_count": 5,
+            "max_forward_dot": -3.48754377029195,
+            "max_angular_gap_rad": 3.1839537136720715,
+            "min_excluded_distance_m": 1052.494641330278
+          }
+        }
+      ]
+    }
+  ],
+  "wall_s": 0.5286819169996306
+}

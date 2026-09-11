@@ -1,8 +1,8 @@
 {
   "runtime": "Python 3.12.14",
   "unbounded_iterations": true,
-  "actual_runs": 22404,
-  "unique_training_development_cases": 1728,
+  "actual_runs": 28548,
+  "unique_training_development_cases": 2304,
   "unique_exposed_cases": 4800,
   "entries": [
     {
@@ -171,6 +171,75 @@
       "unique_cases": 12,
       "reuses": "r3_development Q4",
       "wall_seconds": 0.3919872500700876
+    },
+    {
+      "round": 3,
+      "kind": "optimistic_dynamic_coverage_diagnostic_v2",
+      "actual_runs": 12,
+      "unique_cases": 12,
+      "reuses": "r3_development Q4",
+      "wall_seconds": 0.5780933339847252
+    },
+    {
+      "round": 3,
+      "kind": "optimistic_dynamic_coverage_diagnostic_v3",
+      "actual_runs": 12,
+      "unique_cases": 12,
+      "reuses": "r3_development Q4",
+      "wall_seconds": 0.5286819169996306
+    },
+    {
+      "round": 4,
+      "kind": "train",
+      "actual_runs": 576,
+      "unique_cases": 288,
+      "wall_seconds": 5.155826834030449,
+      "seed_range": [
+        43006000,
+        43006011
+      ]
+    },
+    {
+      "round": 4,
+      "kind": "development",
+      "actual_runs": 576,
+      "unique_cases": 288,
+      "wall_seconds": 5.588090417091735,
+      "seed_range": [
+        43007000,
+        43007011
+      ]
+    },
+    {
+      "round": 4,
+      "kind": "finite_parent_equivalence",
+      "actual_runs": 48,
+      "unique_cases": 24,
+      "reuses": "development"
+    },
+    {
+      "round": 4,
+      "kind": "quick",
+      "actual_runs": 120,
+      "unique_cases": 120,
+      "wall_seconds": 1.082185541978106,
+      "baseline_cached": true
+    },
+    {
+      "round": 4,
+      "kind": "full",
+      "actual_runs": 2400,
+      "unique_cases": 2400,
+      "wall_seconds": 20.589712249930017,
+      "baseline_cached": true
+    },
+    {
+      "round": 4,
+      "kind": "previous_final",
+      "actual_runs": 2400,
+      "unique_cases": 2400,
+      "wall_seconds": 21.118900208966807,
+      "v1_reuse": true
     }
   ],
   "checks": {
