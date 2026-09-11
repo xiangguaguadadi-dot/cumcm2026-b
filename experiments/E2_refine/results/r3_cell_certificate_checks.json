@@ -1,0 +1,35 @@
+{
+  "purpose": "Targeted geometric safety cases, no environment strategy episodes",
+  "checks": [
+    {
+      "name": "no_failed_disk",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "whole_cell_inside",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "center_inside_far_corner_outside",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "boundary_not_strictly_excluded",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "strict_margin_inside",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    }
+  ]
+}

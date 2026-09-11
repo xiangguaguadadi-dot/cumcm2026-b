@@ -1,36 +1,70 @@
-# E2 refinement report — R1 accepted, research continues
+# E2：费用门控与有限服务单元研究
 
-Current standalone snapshot: `experiments/E2_refine/snapshots/r1_station_only.py`. SHA256 `c459591b21c192fce79d6d93a9d753f21c0ef09ba8b46d8821803d1f929d904c`. It embeds both frozen S1 components, so no deployment dependency is needed.
+本轮已收束。当前单独候选为 [r3_failure_cells](snapshots/r3_failure_cells.py)，SHA256 `5d3e8c1ba1f1bd26a326dbd1241776177e2c8902b5a2a6a8f87982925cbade09`，单文件可部署，无外部依赖。4800 个已暴露本地案例全部清除：Q3 **235.876945812**、Q4 **457.664042241 秒/源**；每题清除 30970 / 30970 个源。主要收益来自 R1 的已知频道重测费用门控与 R2 的持久单轮定位服务。R3 只有很小增益；R4 的有上限对照未发现足以继续扩展的收益。
 
-## Change
+这些是本地研发结果；没有执行官方 Windows 测试，也没有新增最终留出集。完整回归由既有 v1 2400 例和此前已暴露 final 2400 例组成。下表各候选 Q3 的 2400 行均与固定 S1 原样一致。
 
-Q4 retains S1 opportunity sensing and route selection. At an actual coverage station it still measures every undiscovered channel and records the same discovery evidence, but retests an already discovered source only when a finite downstream action-cost proxy predicts that the positive-observation benefit exceeds the 5–6 second measurement fee. Visibility uses the existing orientation/range hypothesis model. `no_signal` does not remove any possible location: its continuation cost retains the entire current polygon. Known unresolved sources remain pending for actual localization/clear; every exit still uses the original complete geometric coverage or 16-distinct-source certificate.
+| 候选 | Q3 秒/源 | Q4 秒/源 | Q4 相对固定 S1 | 完成情况 |
+|---|---:|---:|---:|---|
+| 固定 S1 | 235.876946 | 473.897493 | — | 4800/4800，历史记录复用 |
+| [r1_cost_all](results/r1_cost_all_exposed/summary.json) | 235.876946 | 467.405184 | -1.369982% | 4800/4800 |
+| [r1_station_only](results/r1_station_only_exposed/summary.json) | 235.876946 | 466.842681 | -1.488679% | 4800/4800 |
+| [r2_one_round](results/r2_one_round_exposed/summary.json) | 235.876946 | 457.721500 | -3.413395% | 4800/4800 |
+| [r3_failure_cells](results/r3_failure_cells_exposed/summary.json) | 235.876946 | 457.664042 | -3.425519% | 4800/4800 |
 
-## Actual result
+## 实现及作用
 
-Both 4800-case candidates were actually executed on full v1 plus previous_final. Reuse covers only the exact-hash already executed v1 half. Current result: Q3 235.876945811892, Q4 466.842681464825 seconds/source. Every one of 4800 cases completed; each problem cleared 30970/30970 sources. Q3 is identical to S1 on all 2400 rows. Q4 improves 7.054811534819 seconds/source (1.488679%), with 2044 faster, 276 equal and 80 slower cases. It also improves 0.562502812091 seconds/source over cost_all on the same cases.
+**R1：检测费是否能够避免后续动作。** 原 S1 在覆盖站会对所有已知未清除频道重测。候选仍完整扫描未知频道并登记原覆盖证据，仅对已知频道，用一次假想正观测后的后续移动、定位、清除费用下降与实际 5–6 秒测向费用比较，决定是否重测。保持原 S1 机会补测；禁用全部补测、仅改机会停点门控、仅跳过已经可清除区域都做了独立对照。no_signal 的预测分支保留整个真实可行区域，未当作 Q4 的范围排除。开发中主要减少非移动费用。
 
-The largest Q4 regression is 55.849658375 seconds/source (LOCAL-v1-q4-exactly16_sources-5018); every positive regression is retained in results/r1_station_only_regressions.json. Per-suite and per-scenario means and all raw rows are in results/r1_station_only_exposed/. This is exposed local research regression, not official testing or a fresh holdout.
+**R2：一次调度只做原定位循环的一轮。** 原 localize 要服务同一源至清除或完整兜底，期间不能全局换目标。`ServiceDirectional(CostDirectional)` 提取原循环的动作逻辑，每次执行一轮后返回原全局规划。每频道迭代计数持久保留，第 9 轮后仍进入有限光学覆盖，避免反复选中重置预算。每一轮可能包含实际付费的失败清除、测向和失联恢复序列；没有把这一轮当成一次 API 调用。仍用原第二测点、原恢复点、原完整未知频道覆盖和退出证明。96 个新开发例中，R2 比 R1 少 6.645225 秒/源，其中移动少 6.763856、非移动多 0.118631。4800 回归进一步比 R1 少 9.121182 秒/源。
 
-## Controls and interpretation
+**R3：失败清除后，删除已能证明没有源的光学网格区域。** 第一种对照把失败 20 米圆盘外区域取凸包，开发退步而未晋级。第二种保留所有实际失败圆盘，只在一个网格与当前多边形的完整交集，被某个失败圆盘严格包含时删去该格。判定全部交集顶点距该失败点均小于等于 `20-1e-6`，凭圆盘凸性证明整个区域被排除；从未仅因格中心落在失败圆内就删格。该规则独立于定向天线。Q4 的 no_signal 不产生 1000 米圆排除。原完整光学覆盖覆盖剩余区域，完整退出条件保持。五项针对性几何检查包括“格中心在圆内但远端顶点在圆外时必须保留”，记录见 [检查](results/r3_cell_certificate_checks.json)。
 
-96 new legal mixed-source Q4 cases (unique seeds 45000000..45000095) give S1 465.136981317, off 481.828134225, opportunity cost 466.108429079, cost_all 458.633598800, station_only 458.007845173 and clearable-only skip 463.294170319 seconds/source. All complete. The station-only winner is 87 faster / 9 equal / 0 slower in development; its movement increases 0.280763986 seconds/source and its nonmovement decreases 7.409900130. Thus the established R1 mechanism is useful selective station retesting, predominantly reducing paid reads, not proven avoidance of dedicated travel. The simpler radius<=20 skip explains only part of the gain.
+R3 相对 R2：Q4 仅少 0.057457625 秒/源（0.012553%）；505 快、1620 同、275 慢。最大单局退步 14.265423000 秒/源，详见[完整退步列表](results/r3_failure_cells_regressions_to_R2.json)。这是小型组件收益，不称为新突破。
 
-Read-only diagnosis inspected 12 saved raw S1 and 12 corresponding cost_all trajectories, not the entire historical corpus: known-source station measures fell from 281 to 88 in these traces, while undiscovered-channel observations remained 2826 in both. Raw trace paths and counts are recorded in results/r1_trace_diagnosis.json.
+**R4：光学兜底按 1 / 3 次付费 clear 分块。** 基于冻结 R2，建立每频道持久完整格队列，一项仅在实际 clear 返回失败后消耗，下一实际格点进入原全局路径代理；已有新观测只会收紧原区域，原队列继续覆盖真源。到 180000 秒安全切换点，一次完成全部剩余队列。12 条 R2 已存轨迹只有 15 个光学块、49 次 clear，总计 375.476 秒，最长 14 次 clear / 114.017 秒。96 个新开发例中两种分块均只有 1 局改善、95 局逐行相同，平均仅省约 0.015 秒/源；quick120 全清且近乎相同。按有上限的方法对照要求，未追加 full 或参数搜索。未宣称它已经完整 4800 验证。
 
-Rules: 12 frozen rule tests passed for each code build; every candidate change ran quick120, no missing/error rows. Five quick runs, two full runs, two 2400 previous_final completions and 576 development executions total **10776 actual strategy executions**, with **96 distinct new development cases**. Cache reuse is not counted as execution.
+## 全部开发对照
 
-## Next hypotheses
+每行与同批同案例父候选配对；不同批次均值不能直接作为提升依据。每批是合法混合 Q4，10–16 个不同频道源，至少一个全向和一个定向。R1 的两个批目录共享同 96 个案例，R2–R4 每轮分别新增 96 个。
 
-The R1 result does not exhaust Q4 travel. Next, test independently (1) clearing other already certified sources at the current real stopping point and (2) a bounded single-target service round that returns to global scheduling with persistent progress. The latter changes a planning unit, not the measurement point candidate set; E1 is researching conditional discovery routes and joint clear-region points, E3 cross-target/multi-step bearing selection. Failure-clear exclusion is another available component; do not mix it into the same ablation without evidence.
+| 变体 | 同批父候选 | 平均秒/源 | 配对变化 | 快 / 同 / 慢 |
+|---|---|---:|---:|---|
+| r1_off | S1 | 481.828134 | +16.691153 | 32 / 2 / 62 |
+| r1_cost_opportunity | S1 | 466.108429 | +0.971448 | 11 / 18 / 67 |
+| r1_cost_all | S1 | 458.633599 | -6.503383 | 85 / 4 / 7 |
+| r1_station_only | S1 | 458.007845 | -7.129136 | 87 / 9 / 0 |
+| r1_station_uncertified | S1 | 463.294170 | -1.842811 | 74 / 22 / 0 |
+| r2_here | r1_station_only | 465.060460 | +0.024223 | 1 / 94 / 1 |
+| r2_one_round | r1_station_only | 458.391012 | -6.645225 | 63 / 8 / 25 |
+| r3_failure_hull | r2_one_round | 460.655748 | +0.127957 | 29 / 46 / 21 |
+| r3_failure_cells | r2_one_round | 460.466486 | -0.061305 | 15 / 72 / 9 |
+| r4_optical_1 | r2_one_round | 451.121916 | -0.015103 | 1 / 95 / 0 |
+| r4_optical_3 | r2_one_round | 451.121772 | -0.015247 | 1 / 95 / 0 |
 
+## R3 相对 R2 的分场景结果
 
-## R2 accepted: bounded source-service round
+| 场景 | R2 秒/源 | R3 秒/源 | 变化 | 快 / 同 / 慢 |
+|---|---:|---:|---:|---|
+| cell500_shared_field | 458.586978 | 458.573317 | -0.013661 | 39 / 142 / 19 |
+| cell50_shared_field | 460.318180 | 460.230376 | -0.087804 | 41 / 146 / 13 |
+| edge_mixed_min_radius | 501.162237 | 501.168076 | +0.005839 | 16 / 173 / 11 |
+| exactly10_sources | 589.304499 | 589.405203 | +0.100703 | 24 / 149 / 27 |
+| exactly16_sources | 318.040788 | 317.964995 | -0.075793 | 50 / 123 / 27 |
+| fixed_negative_bias | 461.872096 | 461.890459 | +0.018363 | 43 / 124 / 33 |
+| fixed_positive_bias | 460.475952 | 460.257533 | -0.218419 | 41 / 122 / 37 |
+| minimum_radius | 474.092001 | 474.009196 | -0.082805 | 47 / 139 / 14 |
+| offcenter_cluster | 411.920116 | 411.983535 | +0.063418 | 24 / 159 / 17 |
+| origin_cluster | 435.405847 | 435.225705 | -0.180142 | 78 / 90 / 32 |
+| reference_assumed | 460.733629 | 460.641686 | -0.091943 | 51 / 129 / 20 |
+| smooth_shared_field | 460.745675 | 460.618427 | -0.127248 | 51 / 124 / 25 |
 
-Current best is `experiments/E2_refine/snapshots/r2_one_round.py`, SHA256 `7f486891b0255054cb05dcf749ecd7b1ecbfec49b1834670a0c3b466c18d8fd6`; no deployment dependency. All4800 exposed cases completed; each question cleared30970/30970 sources. Q3 remains235.876945811892, Q4457.721499865727 seconds/source: decrease16.175993133917 (3.413395%) from fixedS1, and9.121181599098 (1.953802%) from ownR1. Against ownR1: 1701 faster/228 equal/471 slowerQ4 cases. The largest fixedS1 regression is234.257174062; all regressions are retained in results/r2_one_round_regressions.json and per-scenario comparisons in the exposed summary.
+## 预算、范围与停止理由
 
-The original localize loop becomes a single service round followed by global replanning. Each channel retains its iteration count, so revisiting a channel cannot reset the9-round finite optical fallback. The original within-round measurement/clear/recovery actions, complete discovery route, and exit certificate remain. This changes the planning unit, not the candidate measurement points. One round may contain a paid failed-clear measurement or recovery sequence; it is not falsely counted as one API call.
+实际策略执行 **22248 次**，其中 **384 个不同新开发案例**；其余为同案例对照或已暴露回归重用案例执行。11 个 quick 各 120 次，4 个晋级候选各实际 4800 次，共 19200 次完整候选执行；开发共 1728 次。已有精确哈希 v1 结果在4800汇总中复用，不重复计为新执行。种子从 45000000 单调登记至 45000383，下一可用 45000384。全部尝试及实际执行路径保存在[预算](execution_budget.json)、[种子账本](used_seeds.json)、[路径图](optimization_path.json)和 results/。
 
-The96 new mixedQ4 development cases (seeds45000096..45000191) give R1=465.036236679248, same-location certified clear=465.060459519993 (rejected), one-round=458.391012028693; allcomplete. One-round moves333.764794269518 seconds/source versus R1 340.528650094121, with nonmovement124.626217759175 versus124.507586585127. Thus this round's observed saving is primarily movement. Rules and bothquick120 passed; only the useful one-round candidate ranfull2400+oldfinal2400. Cumulative actual strategy executions=16200, unique new development cases=192; all other cases are exposed or reused. No official or new final holdout.
+每轮保留 12 项冻结环境规则检查；它们验证规则而非声称证明新策略对所有环境均成功。R3 另有 5 项与几何删格直接相关的检查。关键候选的完整结果、失败行检查与安全证明已足够，没有重审全部历史或追加无关校验。
 
-Research continues with independent failed-clear geometry and certified optical-cell removal contrasts. Root handles empirical fusion with E1; E2 does not claim untested combination gains.
+阅读范围为既有70节点索引、当前 S1 源码、相关早期费用/几何/服务机制、开发中选定的原始轨迹及动作费用；没有新增外部论文全文阅读，也没有将旧论文启发称为论文算法的严格复现。失败圆外凸包复用了已经部署在 Q3 的保守几何函数思想；本次单独验证它在 Q4 的效果，并保留负面结果。
+
+本轮明确比较了补测费用、源服务拆分、失败信息几何形式、光学服务拆分这四类假设。主要增益已经固定；剩余两个尾部方向开发/完整结果只有很小或负收益，继续扫微小参数缺乏证据，因此在本轮范围收束。并不证明全局最优，也不排除后续新机制。E1 的路线融合由协调者独立实测，E2 没有以未经实际部署的代码叠加宣称组合成绩。

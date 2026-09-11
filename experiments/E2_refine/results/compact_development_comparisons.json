@@ -1,0 +1,123 @@
+[
+  {
+    "batch": "r1_development",
+    "name": "r1_off",
+    "parent": "S1",
+    "cases": 96,
+    "mean": 481.8281342254446,
+    "delta": 16.69115290854167,
+    "faster": 32,
+    "equal": 2,
+    "slower": 62
+  },
+  {
+    "batch": "r1_development",
+    "name": "r1_cost_opportunity",
+    "parent": "S1",
+    "cases": 96,
+    "mean": 466.1084290790019,
+    "delta": 0.9714477620989669,
+    "faster": 11,
+    "equal": 18,
+    "slower": 67
+  },
+  {
+    "batch": "r1_development",
+    "name": "r1_cost_all",
+    "parent": "S1",
+    "cases": 96,
+    "mean": 458.63359879956516,
+    "delta": -6.503382517337786,
+    "faster": 85,
+    "equal": 4,
+    "slower": 7
+  },
+  {
+    "batch": "r1_ablation",
+    "name": "r1_station_only",
+    "parent": "S1",
+    "cases": 96,
+    "mean": 458.0078451733861,
+    "delta": -7.129136143516859,
+    "faster": 87,
+    "equal": 9,
+    "slower": 0
+  },
+  {
+    "batch": "r1_ablation",
+    "name": "r1_station_uncertified",
+    "parent": "S1",
+    "cases": 96,
+    "mean": 463.2941703192882,
+    "delta": -1.8428109976147615,
+    "faster": 74,
+    "equal": 22,
+    "slower": 0
+  },
+  {
+    "batch": "r2_development",
+    "name": "r2_here",
+    "parent": "r1_station_only",
+    "cases": 96,
+    "mean": 465.0604595199933,
+    "delta": 0.024222840745192542,
+    "faster": 1,
+    "equal": 94,
+    "slower": 1
+  },
+  {
+    "batch": "r2_development",
+    "name": "r2_one_round",
+    "parent": "r1_station_only",
+    "cases": 96,
+    "mean": 458.39101202869324,
+    "delta": -6.6452246505548755,
+    "faster": 63,
+    "equal": 8,
+    "slower": 25
+  },
+  {
+    "batch": "r3_development",
+    "name": "r3_failure_hull",
+    "parent": "r2_one_round",
+    "cases": 96,
+    "mean": 460.6557484410988,
+    "delta": 0.1279566858973936,
+    "faster": 29,
+    "equal": 46,
+    "slower": 21
+  },
+  {
+    "batch": "r3_development",
+    "name": "r3_failure_cells",
+    "parent": "r2_one_round",
+    "cases": 96,
+    "mean": 460.46648627065247,
+    "delta": -0.0613054845489156,
+    "faster": 15,
+    "equal": 72,
+    "slower": 9
+  },
+  {
+    "batch": "r4_development",
+    "name": "r4_optical_1",
+    "parent": "r2_one_round",
+    "cases": 96,
+    "mean": 451.12191586231125,
+    "delta": -0.015102823567708276,
+    "faster": 1,
+    "equal": 95,
+    "slower": 0
+  },
+  {
+    "batch": "r4_development",
+    "name": "r4_optical_3",
+    "parent": "r2_one_round",
+    "cases": 96,
+    "mean": 451.1217716943425,
+    "delta": -0.01524699153645829,
+    "faster": 1,
+    "equal": 95,
+    "slower": 0
+  }
+]
