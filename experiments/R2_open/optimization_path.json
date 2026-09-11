@@ -50,6 +50,46 @@
       "q4": 524.8271439810878,
       "regressions": "Q3 841 single episodes; origin_cluster two batches +0.4972/+0.3674 s/source",
       "known_common_best_boundary": "R3_open R1 now improves Q4 to514.8768362771; this candidate intentionally retains S0 Q4, so Q3 component is useful but is not the complete current task-wise joint best; merge must be evaluated"
+    },
+    {
+      "id": "R2_open_R2",
+      "parents": [
+        "R2_open_R1",
+        "A2_information_R8"
+      ],
+      "status": "accepted_exposed_best",
+      "before": {
+        "utc": "2026-09-11T03:11:26.085200+00:00",
+        "problem": "Second bearing still uses fixed geometric placement; arrival location may already certify another discovered source.",
+        "plan": "Transplant A2 active second-point expected action cost and introduce same-location all-vertex certified service; compare parent, active only, service only, naive both on fresh 12x12x2 cases.",
+        "selection": "All cases complete; Q4 identical; choose lowest Q3 development mean among four variants. No new exposed tuning.",
+        "seed_range": [
+          42000008,
+          42000019
+        ],
+        "hypotheses": "Active placement may reduce failed clears and route detours. Same-location certification may avoid visits for clustered sources; no claimed additivity.",
+        "new_guarantee": "Same-location all-vertex distance <=20-eps certifies any source inside convex outer set; <=16 added clears, no added movement. Active points remain bounded and do not update authoritative set."
+      },
+      "after_development": {
+        "selected": "same_location",
+        "development_means": {
+          "parent": 241.09929129999654,
+          "active": 242.35292563626692,
+          "same_location": 241.09864149797482,
+          "both": 242.35275515207402
+        },
+        "geometry_checks": 64662,
+        "same_location_clears": 25,
+        "q4_task_fields_equal": true,
+        "candidate_sha256": "7b2e493a66aa8ebc2608566e50e9488f07934d55cbfbd779269eb327b2b223da",
+        "data_role": "development selection, not holdout",
+        "active_negative_result": "Active component increases Q3 mean 1.253634336s/source with 3 extra requests/episode despite 20.337m lower distance. Same-location improvement is extremely small; awaiting full exposed test."
+      },
+      "q3": 236.50612882579435,
+      "q4": 524.8271439810878,
+      "decision": "Keep same-location certified service; reject active A2 second point by independent development; continue decision-aware opportunity sensing.",
+      "results": "results/r2_exposed/summary.json",
+      "boundary": "Q4 remains S0; R3_open has separate stronger Q4 component. Must actually fuse and run to claim joint new best."
     }
   ]
 }
