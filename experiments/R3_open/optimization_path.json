@@ -1,0 +1,93 @@
+{
+  "nodes": [
+    {
+      "id": "R3_R1",
+      "status": "accepted_exposed_regression",
+      "parents": [
+        "S0",
+        "B1_R1",
+        "B3_R1"
+      ],
+      "hypothesis": "Opportunity sensing and 21 stations can interact usefully; cannot add inherited effects",
+      "data_role": "new train and development; exposed regression after freezing",
+      "variants": [
+        "S0",
+        "B1",
+        "naive60",
+        "visibility60",
+        "quadrature60",
+        "visibility30"
+      ],
+      "train_seeds": [
+        43000000,
+        43000011
+      ],
+      "development_seeds": [
+        43001000,
+        43001011
+      ],
+      "selected": "visibility30",
+      "candidate": "experiments/R3_open/snapshots/r1.py",
+      "candidate_sha256": "508ffddc556e4df6a192b30e700463956b54f8b6cc8b96778253d72c0ecea9e8",
+      "selection_reason": "Lowest Q4 development mean (545.6321860794715 vs S0 553.1003198464797), Q3 equal; training prefers visibility60 by 0.5048097654, explicitly retained ranking instability",
+      "mode_totals": [
+        {
+          "suite": "combined",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "valid_comparison": true,
+          "candidate_complete": 2400,
+          "baseline_complete": 2400,
+          "candidate_cleared": 30970,
+          "source_count": 30970,
+          "candidate_errors": 0,
+          "baseline_mean_s_per_source": 238.42647061615037,
+          "candidate_mean_s_per_source": 238.42647061615037,
+          "delta_s_per_source": 0.0,
+          "reduction_fraction": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "worst_s_per_source": 382.750049,
+          "max_virtual_s": 4256.245002,
+          "mean_runtime_s": 0.003679993370945643
+        },
+        {
+          "suite": "combined",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "valid_comparison": true,
+          "candidate_complete": 2400,
+          "baseline_complete": 2400,
+          "candidate_cleared": 30970,
+          "source_count": 30970,
+          "candidate_errors": 0,
+          "baseline_mean_s_per_source": 524.8271439810878,
+          "candidate_mean_s_per_source": 514.8768362770995,
+          "delta_s_per_source": -9.950307703988301,
+          "reduction_fraction": 0.018959209366554486,
+          "faster": 1399,
+          "equal": 115,
+          "slower": 886,
+          "worst_s_per_source": 843.5765793,
+          "max_virtual_s": 8911.392936,
+          "mean_runtime_s": 0.011415123157882286
+        }
+      ],
+      "regressed_batch_scenarios": [],
+      "max_regression": {
+        "case_id": "LOCAL-v1-q4-origin_cluster-5062",
+        "mode": 4,
+        "suite": "v1",
+        "group": "origin_cluster",
+        "source_count": 16,
+        "baseline": 165.4582276875,
+        "candidate": 328.1264575625,
+        "delta": 162.66822987499998
+      },
+      "decision": "Q3 identical, Q4 improved 1.8959209367%; continue next evidence-backed idea"
+    }
+  ]
+}
