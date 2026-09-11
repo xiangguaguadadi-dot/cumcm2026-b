@@ -1,8 +1,8 @@
 {
   "runtime": "Python 3.12.14",
   "unbounded_iterations": true,
-  "actual_runs": 8424,
-  "unique_training_development_cases": 576,
+  "actual_runs": 15120,
+  "unique_training_development_cases": 1152,
   "unique_exposed_cases": 4800,
   "entries": [
     {
@@ -13,7 +13,8 @@
       "seed_range": [
         43000000,
         43000011
-      ]
+      ],
+      "round": 1
     },
     {
       "kind": "development",
@@ -23,33 +24,91 @@
       "seed_range": [
         43001000,
         43001011
-      ]
+      ],
+      "round": 1
     },
     {
       "kind": "finite_parent_equivalence",
       "actual_runs": 48,
       "unique_cases": 24,
-      "reuses": "development"
+      "reuses": "development",
+      "round": 1
     },
     {
       "kind": "quick",
       "actual_runs": 120,
       "unique_cases": 120,
       "wall_seconds": 0.9636560420040041,
-      "baseline_cached": true
+      "baseline_cached": true,
+      "round": 1
     },
     {
       "kind": "full",
       "actual_runs": 2400,
       "unique_cases": 2400,
       "wall_seconds": 17.676807040930726,
-      "baseline_cached": true
+      "baseline_cached": true,
+      "round": 1
     },
     {
       "kind": "previous_final",
       "actual_runs": 2400,
       "unique_cases": 2400,
       "wall_seconds": 19.450800666003488,
+      "v1_reuse": true,
+      "round": 1
+    },
+    {
+      "round": 2,
+      "kind": "train",
+      "actual_runs": 864,
+      "unique_cases": 288,
+      "wall_seconds": 6.58362429193221,
+      "seed_range": [
+        43002000,
+        43002011
+      ]
+    },
+    {
+      "round": 2,
+      "kind": "development",
+      "actual_runs": 864,
+      "unique_cases": 288,
+      "wall_seconds": 5.871806500013918,
+      "seed_range": [
+        43003000,
+        43003011
+      ]
+    },
+    {
+      "round": 2,
+      "kind": "finite_parent_equivalence",
+      "actual_runs": 48,
+      "unique_cases": 24,
+      "reuses": "development"
+    },
+    {
+      "round": 2,
+      "kind": "quick",
+      "actual_runs": 120,
+      "unique_cases": 120,
+      "wall_seconds": 0.9354445420904085,
+      "baseline_cached": true
+    },
+    {
+      "round": 2,
+      "kind": "full",
+      "actual_runs": 2400,
+      "unique_cases": 2400,
+      "wall_seconds": 17.01526512496639,
+      "baseline_cached": true
+    },
+    {
+      "round": 2,
+      "kind": "previous_final",
+      "actual_runs": 2400,
+      "unique_cases": 2400,
+      "wall_seconds": 16.911728625069372,
       "v1_reuse": true
     }
   ],
