@@ -52,7 +52,9 @@ def main():
                 source_count_each_mode=30970,
                 retained_alternative={'candidate':'../E2_refine/snapshots/r1_station_only.py',
                  'Q4_mean':466.8426814648249,'reason':'Slightly worse mean but fewer single-case regressions than C1.'})
-    save(STAGE / 'CURRENT_BEST.json', best)
+    # This is a historical report builder, so rerunning it must not overwrite
+    # a later coordinator selection.
+    save(HERE / 'best_at_c1.json', best)
     lines = ['# C1组合：已完整验证并保留', '',
              'E1条件发现路线与E2站内费用门控在原S1相同几何组件上组合。两个组件关闭开关在同96开发案例分别恢复对应父法的逐局动作指标。开发结果不能代替下表的完整回归。', '',
              '4800已暴露本地案例全部正常退出、全部清除；两题各2400局、30970个源。第三问逐局保持S1，均值235.876945812秒/源。下表是第四问，秒/源按每局指标取算术均值。', '',

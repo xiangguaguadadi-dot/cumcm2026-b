@@ -1,0 +1,79 @@
+{
+  "candidates": {
+    "C2": {
+      "file": "service_fusions/C2_conditional_round.py",
+      "sha256": "3c57f38a15231602fb8f8435b3379669857d25764cc30661cef629967f00aa91",
+      "role": "current best"
+    },
+    "C5_cells": {
+      "file": "geometry_fusions/C5_cells.py",
+      "sha256": "ade0917c7e8bb396c07d10c91daede2af85a3a216d89d38c0241c071bc3fad80",
+      "config": {
+        "e2_failure_hull": false,
+        "e2_failure_cells": true,
+        "convex_no_signal": false
+      },
+      "role": "new conservative exclusion combination",
+      "dependencies": {}
+    },
+    "C6_wedge": {
+      "file": "geometry_fusions/C6_wedge.py",
+      "sha256": "03600ce049b35a856ede4a25fee8f367ba178776ce8805f780b94a47f6d01526",
+      "config": {
+        "e2_failure_hull": false,
+        "e2_failure_cells": false,
+        "convex_no_signal": true
+      },
+      "role": "new conservative exclusion combination",
+      "dependencies": {}
+    },
+    "C7_both": {
+      "file": "geometry_fusions/C7_both.py",
+      "sha256": "cf37866829b9c6f376895075e819a732939e6fa8ad6d8d6297a151d7a213dcb3",
+      "config": {
+        "e2_failure_hull": false,
+        "e2_failure_cells": true,
+        "convex_no_signal": true
+      },
+      "role": "new conservative exclusion combination",
+      "dependencies": {}
+    },
+    "C7_off": {
+      "file": "geometry_fusions/C7_off.py",
+      "sha256": "4a39f4aaa69fd0d56789a820aca9b18a4ba256c9b296d13d07d24fd58ba86ac6",
+      "config": {
+        "e2_failure_hull": false,
+        "e2_failure_cells": false,
+        "convex_no_signal": false
+      },
+      "role": "wiring check",
+      "dependencies": {}
+    }
+  },
+  "wiring_pairs": [
+    [
+      "C7_off",
+      "C2"
+    ]
+  ],
+  "parents": {
+    "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/20260911_stage4/combination/service_fusions/C2_conditional_round.py": "3c57f38a15231602fb8f8435b3379669857d25764cc30661cef629967f00aa91",
+    "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/E2_refine/experiments/E2_refine/snapshots/r3_failure_cells.py": "5d3e8c1ba1f1bd26a326dbd1241776177e2c8902b5a2a6a8f87982925cbade09",
+    "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/coordinator/experiments/E3_expand/snapshots/r3.py": "7d113e5262d52eaca7e0287ea062e3221b0cadf33340f3536b2b1adbe8f7ec27"
+  },
+  "hypothesis": "Test optical-cell and radio-negative exclusions on the current retained action schedule; reliable information need not reduce total task time.",
+  "selection": "All clear/normal, then lower all-case Q4 mean than C2. Only useful candidate is promoted, with all negative interactions retained.",
+  "seeds": [
+    47000016,
+    47000017,
+    47000018,
+    47000019,
+    47000020,
+    47000021,
+    47000022,
+    47000023
+  ],
+  "case_count": 96,
+  "generator_sha256": "6da3aa3f61eae748204366129761dea4a1e131a9d2b464a6651ac5901404cfea",
+  "role": "new development, not holdout"
+}

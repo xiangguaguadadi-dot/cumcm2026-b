@@ -1,0 +1,82 @@
+{
+  "candidates": {
+    "C1": {
+      "file": "service_fusions/C1.py",
+      "sha256": "dc7e88a92b677e7b632c66aaf8317b85855db298d581fc12d2fd2e1cbe4582d2",
+      "role": "previous combined best",
+      "dependencies": {}
+    },
+    "E2_R2": {
+      "file": "service_fusions/E2_R2.py",
+      "sha256": "7f486891b0255054cb05dcf749ecd7b1ecbfec49b1834670a0c3b466c18d8fd6",
+      "role": "current Q4 best",
+      "dependencies": {}
+    },
+    "E1_R5": {
+      "file": "service_fusions/E1_R5.py",
+      "sha256": "f8413f0017d5699e6d1e06b2f8c85d2e86c0f6b69afc32a29377dbda8907d604",
+      "role": "independent immediate-entry route control",
+      "dependencies": {}
+    },
+    "C2_conditional_round": {
+      "file": "service_fusions/C2_conditional_round.py",
+      "sha256": "3c57f38a15231602fb8f8435b3379669857d25764cc30661cef629967f00aa91",
+      "role": "new conditional route plus persistent round",
+      "dependencies": {}
+    },
+    "C2_route_off": {
+      "file": "service_fusions/C2_route_off.py",
+      "sha256": "59359ed54c712933a29be2acafe3602b72705b50a939f5047fd9be7c9c145aa9",
+      "role": "wiring check against E2_R2",
+      "dependencies": {}
+    },
+    "C3_entry_station": {
+      "file": "service_fusions/C3_entry_station.py",
+      "sha256": "75797a01fa5d60eeac6ed26df016b2989eb226542914e6f6d374eb7888d130f3",
+      "role": "immediate-entry route with station gate, no conditional cancellation",
+      "dependencies": {}
+    },
+    "C3_gate_off": {
+      "file": "service_fusions/C3_gate_off.py",
+      "sha256": "7341127401d088cedac2826fac2f3215b2fa7ccfe19df7c76a82078400422098",
+      "role": "Q4 wiring check against E1_R5; Q3 deliberately retains S1",
+      "dependencies": {}
+    },
+    "C4_entry_round": {
+      "file": "service_fusions/C4_entry_round.py",
+      "sha256": "4dea923f61d547332b88f58dee1276d0f0fef011081ecff8d3f52866472bf92c",
+      "role": "entry-route/persistent-round interaction; forecast exit need not equal actual end of one round",
+      "dependencies": {}
+    }
+  },
+  "wiring_pairs": [
+    [
+      "C2_route_off",
+      "E2_R2"
+    ],
+    [
+      "C3_gate_off",
+      "E1_R5"
+    ]
+  ],
+  "parents": {
+    "C1": "dc7e88a92b677e7b632c66aaf8317b85855db298d581fc12d2fd2e1cbe4582d2",
+    "E2_R2": "7f486891b0255054cb05dcf749ecd7b1ecbfec49b1834670a0c3b466c18d8fd6",
+    "E1_R5": "f8413f0017d5699e6d1e06b2f8c85d2e86c0f6b69afc32a29377dbda8907d604"
+  },
+  "hypothesis": "Test component interactions on new development before complete regression. No predicted additive gain.",
+  "selection": "All normal/clear, then Q4 mean over all new cases. Promote only a useful change beyond E2_R2.",
+  "seeds": [
+    47000008,
+    47000009,
+    47000010,
+    47000011,
+    47000012,
+    47000013,
+    47000014,
+    47000015
+  ],
+  "case_count": 96,
+  "generator_sha256": "6da3aa3f61eae748204366129761dea4a1e131a9d2b464a6651ac5901404cfea",
+  "role": "new development, not holdout"
+}
