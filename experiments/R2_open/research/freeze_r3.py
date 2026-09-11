@@ -1,0 +1,13 @@
+from pathlib import Path
+import json,hashlib,statistics
+OUT=Path(__file__).resolve().parents[1]
+def read(p):return json.loads(p.read_text())
+def save(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2))
+s=read(OUT/'results/r3_development/summary.json');means={n:next(g['mean'] for g in x['groups'] if g['mode']==3 and g['group']=='ALL') for n,x in s.items()};choice=min(means,key=means.get);assert choice=='cost'
+rows={n:read(OUT/f'results/r3_development/{n}_rows.json') for n in s};fields=['cleared_count','source_count','complete','exit_reason','error','average_clear_time_s','total_virtual_time_s','distance_m','requests','clear_failures'];idx={r['case_id']:r for r in rows['parent']}
+assert all(r['complete'] for z in rows.values() for r in z);assert all(r[k]==idx[r['case_id']][k] for z in rows.values() for r in z if r['mode']==4 for k in fields)
+src=(OUT/'snapshots/r3_development.py').read_text().replace('decision_gate="parent"),','decision_gate="cost"),');(OUT/'snapshots/r3_solver.py').write_text(src)
+result=dict(selected=choice,development_means=means,q4_exact=True,candidate_sha256=hashlib.sha256(src.encode()).hexdigest(),geometry_checks=sum(v['geometry_checks'] for v in s.values()),diagnostics={n:dict(gate_evaluations=sum(r['counters'].get('decision_gate_evaluations',0) for r in z),fallback=sum(r['counters'].get('decision_gate_fallback',0) for r in z),opportunity_measures=sum(r['counters'].get('opportunity_measures',0) for r in z),sharing_spent_s=sum(r['sharing_spent_s'] for r in z),clear_failures=sum(r['clear_failures'] for r in z)) for n,z in rows.items()},boundary='Development selection, no fresh holdout; certificate gate and off are negative results; full regression pending.')
+save(OUT/'research/r3_selection.json',result);p=read(OUT/'optimization_path.json');p['rounds'][-1].update(status='frozen_awaiting_regression',after_development=result);save(OUT/'optimization_path.json',p)
+(OUT/'research/r3_reliability.md').write_text('''# R3：决策费用门控的保证边界\n\n新门控只改变哪些已到达位置上的额外measure值得付费。候选位置、60米去重、6000秒共享预算、180000秒共同切换、_sharing互斥、R2同址认证和真实几何均保留。_gate_prediction只读取已有观测和P，构造临时posterior/negative；没有写入self.polygons或观测历史。中心和误差三节点及接收半径条件均匀先验仅动作排序，费用式也不是实际代价上界。真源发现/清除/退出仍完全由连续几何及真实反馈支持。候选只在Q3生效，Q4字节保留。\n\n同址补测每次measure含可能的near清除≤11秒，原预算最多6000+11秒，与同址认证≤80秒总附加界一致；不改动作位置上界。沿用R2合成283091秒<360000秒。若判断成本为负，跳过的是额外补测，不是必需扫描/定位步骤；连续覆盖、有限光学fallback和公开源数上限证书不受影响。预测None回原60米门控仅稳定排序，不能认证任何目标不存在。\n\n文献DRD的有限已知先验、确定反馈、固定测试费用前提不满足，本轮仅采纳任务相关动作价值思路。R2同址clear早于收到资料，本轮不把该旧组件归为文献成果。开发2/3认证门控使Q3变差18.423851秒/源；关闭补测变差33.130044秒/源，说明只等待一步已可clear会错失中间信息价值。本轮完整费用代理待暴露复核。\n''')
+print(json.dumps(result,ensure_ascii=False))

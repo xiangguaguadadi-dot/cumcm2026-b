@@ -90,6 +90,77 @@
       "decision": "Keep same-location certified service; reject active A2 second point by independent development; continue decision-aware opportunity sensing.",
       "results": "results/r2_exposed/summary.json",
       "boundary": "Q4 remains S0; R3_open has separate stronger Q4 component. Must actually fuse and run to claim joint new best."
+    },
+    {
+      "id": "R2_open_R3",
+      "parents": [
+        "R2_open_R2"
+      ],
+      "inspired_by": [
+        "Javdani et al. 2014 Decision Region Determination"
+      ],
+      "status": "accepted_exposed_best",
+      "before": {
+        "utc": "2026-09-11T03:17:58.774434+00:00",
+        "problem": "B1 measures whenever radius gain >=60m, even if the changed set does not justify a paid action.",
+        "plan": "Keep same arrival points, center hypothesis count=1, three bounded error nodes, actual polygons and hard budget. Compare original radius gate, at least 2/3 predicted certified clear gate, physical action-cost proxy gate and sharing off.",
+        "selection": "All cases complete, Q4 exact control; lowest Q3 development mean (including parent); if no new variant wins, preserve diagnostic result and retain parent.",
+        "seed_range": [
+          42000020,
+          42000035
+        ],
+        "proxy": "C(P,p)=max(0,dist(p,center)-max(0,20-r))/5+5+[r>20]*(8+max(0,r-20)/5)+[r>100]*6; net=C_before-6-E(C_after). This is a ranking proxy, not a proven cost bound or calibrated probability.",
+        "probability": "One parent center hypothesis; error nodes -0.8,0,+0.8; unknown receive radius uniform interval constrained by actual positive/no-signal distances at this hypothesis. Inconsistent center falls back to parent gate. Includes near/no-signal predictions."
+      },
+      "after_development": {
+        "selected": "cost",
+        "development_means": {
+          "parent": 239.05251433635505,
+          "certificate": 257.4763654295234,
+          "cost": 238.98020555843465,
+          "off": 272.18255864140673
+        },
+        "q4_exact": true,
+        "candidate_sha256": "da7b0d172f748453cfbd2fed6ae75bdfdc4d576dd160407f0a79ba3c1e656dfd",
+        "geometry_checks": 87803,
+        "diagnostics": {
+          "parent": {
+            "gate_evaluations": 0,
+            "fallback": 0,
+            "opportunity_measures": 2916,
+            "sharing_spent_s": 17312.0,
+            "clear_failures": 1439
+          },
+          "certificate": {
+            "gate_evaluations": 11555,
+            "fallback": 51,
+            "opportunity_measures": 921,
+            "sharing_spent_s": 5528.0,
+            "clear_failures": 1450
+          },
+          "cost": {
+            "gate_evaluations": 6104,
+            "fallback": 11,
+            "opportunity_measures": 2948,
+            "sharing_spent_s": 17600.0,
+            "clear_failures": 1375
+          },
+          "off": {
+            "gate_evaluations": 0,
+            "fallback": 0,
+            "opportunity_measures": 0,
+            "sharing_spent_s": 0.0,
+            "clear_failures": 1629
+          }
+        },
+        "boundary": "Development selection, no fresh holdout; certificate gate and off are negative results; full regression pending."
+      },
+      "q3": 236.05265906868271,
+      "q4": 524.8271439810878,
+      "decision": "保留DRD启发的补测动作费用代理；开发认证一步门控与关闭补测明显退步，均未采纳。费用代理不是保证或真实先验。",
+      "next": "融合A2全部合法清除位置与B1后续路线，独立比较最近进入位置和进入加离开代理。",
+      "results": "results/r3_exposed/summary.json",
+      "boundary": "Q4 keeps S0, stronger independent R3_open Q4 component awaits actual joint integration."
     }
   ]
 }

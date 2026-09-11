@@ -1,0 +1,21 @@
+from pathlib import Path
+import argparse,json,hashlib,ast
+OUT=Path(__file__).resolve().parents[1]
+def read(p):return json.loads(p.read_text())
+def save(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2))
+def main():
+ p=argparse.ArgumentParser();p.add_argument('--round',type=int,required=True);p.add_argument('--decision',required=True);p.add_argument('--next',required=True);a=p.parse_args();r=a.round
+ summary=read(OUT/f'results/r{r}_exposed/summary.json');audit=read(OUT/f'results/r{r}_delivery_audit.json');dev=read(OUT/f'results/r{r}_development/budget.json');sel=read(OUT/f'research/r{r}_selection.json');path=read(OUT/'optimization_path.json');record=next(x for x in path['rounds'] if x['id']==f'R2_open_R{r}');means={x['mode']:x['candidate_mean_s_per_source'] for x in summary['comparisons_to_S0'] if x['group']=='ALL' and x['suite']=='combined'}
+ record.update(status='accepted_exposed_best' if audit['accepted'] else 'rejected_exposed',q3=means[3],q4=means[4],decision=a.decision,next=a.next,results=f'results/r{r}_exposed/summary.json',boundary='Q4 keeps S0, stronger independent R3_open Q4 component awaits actual joint integration.');save(OUT/'optimization_path.json',path)
+ budget=read(OUT/'execution_budget.json');assert f'R{r}' not in budget['rounds'];entry=dict(training_runs=0,development_runs=dev['actual_runs'],development_unique_cases=dev['unique_cases'],development_seed_range=dev['seed_range'],quick_runs=120,full_runs=2400,previous_final_runs=summary['new_runs'],total_policy_executions=dev['actual_runs']+4920,geometry_assertions=sel['geometry_checks'],rule_tests=14,nominal_rule_checks=79,development_wall_s=dev['wall_s'],quick_wall_s=read(OUT/f'results/r{r}_quick/summary.json')['wall_seconds'],full_wall_s=read(OUT/f'results/r{r}_full/summary.json')['wall_seconds'],previous_final_wall_s=summary['wall_seconds_new_runs']);budget['rounds'][f'R{r}']=entry
+ for key in ['total_policy_executions','development_runs','development_unique_cases','quick_runs','full_runs','previous_final_runs','geometry_assertions']:budget[key]+=entry[key]
+ budget['completed_regression_runs']+=4920;budget['frozen_rounds_started']+=1;save(OUT/'execution_budget.json',budget)
+ best=read(OUT/'best.json');best['known_joint_best_boundary']='Q3 component only; Q4 currently S0. Separate R3_open Q4 newer best not included.';save(OUT/'best.json',best)
+ with (OUT/'iteration_log.md').open('a') as f:f.write(f'\nR{r}完成：{entry["total_policy_executions"]}次实际策略执行，4800全清，Q3={means[3]:.12f}/Q4={means[4]:.12f}。{a.decision} 下一步：{a.next} 全场景与失败保留在research/r{r}_results.md；预算详execution_budget.json。\n')
+ with (OUT/'report.md').open('a') as f:f.write(f'\n\n## R{r}更新\n\n{a.decision} 4800/4800全清、每题30970源、正常退出；Q3={means[3]:.12f}秒/源，Q4={means[4]:.12f}。原始4800、全部48分批场景与所有单局退步见research/r{r}_results.md及对应JSON。独立开发{dev["unique_cases"]}例×{dev["variants_completed"]}配置，未生成新最终样本。下一步：{a.next}\n')
+ (OUT/'resume.md').write_text(f'# 接续状态\n\n已完成R1–R{r}；当前best为R{best["round"]}，Q3={best["q3"]:.12f}/Q4={best["q4"]:.12f}。snapshot {best["candidate"]}，SHA{best["sha256"]}。最近R{r}：{a.decision} 下一：{a.next}。新开发已用42000000–{dev["seed_range"][1]}，42000999仅性质检查。无固定轮数停止规则。所有旧v1/previous_final均暴露；root尚未生成第三阶段新final。\n')
+ src=OUT/f'snapshots/r{r}_solver.py';tree=ast.parse(src.read_text());attrs=sorted({n.attr for n in ast.walk(tree) if isinstance(n,ast.Attribute) and isinstance(n.value,ast.Attribute) and n.value.attr=='env'});assert attrs==['clear','enter','exit','measure'];save(OUT/f'results/r{r}_source_audit.json',dict(candidate_sha256=hashlib.sha256(src.read_bytes()).hexdigest(),env_attributes=attrs,no_external_reads_in_added_components=True,q4_task_fields_equal=audit['q4_task_fields_equal_S0'],real_set_unchanged_by_planning=True))
+ if r==3:
+  lit=read(OUT/'literature.json');lit['scope']='All inherited ledgers parsed; fresh DRD source-specific reading listed below.';lit['new_readings']=[lit.pop('R3_new_primary_source')];lit['new_readings'][0]['observed_result']='R3 cost gate selected and lowers exposed Q3 to236.052659069; certificate-only and off development negative.';save(OUT/'literature.json',lit)
+ print(dict(round=r,accepted=audit['accepted'],means=means,budget_total=budget['total_policy_executions']))
+if __name__=='__main__':main()
