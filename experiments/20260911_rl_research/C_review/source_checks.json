@@ -1,0 +1,157 @@
+{
+  "as_of": "2026-09-11",
+  "role": "targeted independent review, not a third broad literature route",
+  "strategy_implementation_runs": 0,
+  "training_runs": 0,
+  "environment_runs": 0,
+  "checks": [
+    {
+      "id": "RF_PPO_DQN",
+      "url": "https://arxiv.org/pdf/2605.12569v1",
+      "title": "Active Sensing with Meta-Reinforcement Learning for Emitter Localization from RF Observations",
+      "arxiv_date": "2026-05-12",
+      "pdf_sha256": "000eb18f1b02bf041be7005f2143189af133621ecefa5a11eac53033d434abfb",
+      "pdf_pages": 6,
+      "reading_scope": "Selected passages from abstract p1, problem formulation p3, simulation and hyperparameters p4, evaluation VI(a,b) p5. Not a full independent reproduction.",
+      "status": "numeric claim verified; algorithm-selection extrapolation unsupported",
+      "findings": [
+        "VI(a) reports PPO success 80.1 percent and DQN 76.3 percent.",
+        "The study uses a stationary GNSS source, multi-antenna IQ observations, Sionna indoor multipath simulation and navigation actions rather than bounded bearing multichannel complete clearing.",
+        "DQN and PPO use different gamma values and collection/update configurations; the percentage gap is not a controlled update-rule-only causal effect.",
+        "VI(b) recurrent PPO stability is supported mainly by value explained variance in Figure 7; do not convert this into directly measured accuracy of a certified belief.",
+        "The arXiv date is 2026, while the PDF carries a 2025 IEEE copyright line. Formal venue/date must be recorded separately rather than inferred."
+      ],
+      "feedback_sent_to": "A"
+    },
+    {
+      "id": "MASK_THEORY",
+      "url": "https://arxiv.org/pdf/2006.14171v3",
+      "title": "A Closer Look at Invalid Action Masking in Policy Gradient Algorithms",
+      "version_date": "2022-05-31",
+      "pdf_sha256": "a12e4130dc9705a5222462e6a40d6e3a4535c62f74e00b3484ed1780eaeeefe2",
+      "pdf_pages": 10,
+      "reading_scope": "Selected introduction and mechanism passages pp1-3, Proposition 1 proof p3, conclusion p6.",
+      "status": "verified within stated policy-gradient setting",
+      "findings": [
+        "State-dependent valid-action masking defines a differentiable behavior policy and Proposition 1 analyzes its policy gradient.",
+        "This result is not a theorem that candidate pruning preserves every optimal action, or that an exit mask guarantees finite complete clearing.",
+        "PPO likelihood ratios must refer to the same stored state/candidate payload/mask used during behavior sampling."
+      ]
+    },
+    {
+      "id": "POTENTIAL_SHAPING",
+      "url": "https://people.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf",
+      "title": "Policy Invariance under Reward Transformations: Theory and Application to Reward Shaping",
+      "authors": [
+        "Andrew Y. Ng",
+        "Daishi Harada",
+        "Stuart Russell"
+      ],
+      "year": 1999,
+      "pdf_sha256": "a641bf38a15f97d0ab182cb99a8257eafb9abca0d011434fa0ce1904b322d4e3",
+      "pdf_pages": 10,
+      "reading_scope": "Selected pp3-4: regularity/proper-policy assumptions, potential-difference form and Theorem 1 statement. Full proof and experiments not reread.",
+      "status": "classical result verified; task telescoping argument independently specified in PRE_REVIEW",
+      "findings": [
+        "The paper states proper-policy assumptions for its undiscounted finite-state setup and boundedness qualifications for broader settings.",
+        "Potential shaping must use the same discount convention as the return; terminal and truncation handling cannot be omitted.",
+        "The task proposal still needs bounded potential, finite completion and an explicit T versus T/N objective; citing the theorem does not prove PPO convergence on compressed belief."
+      ]
+    },
+    {
+      "id": "SB3_MASK_API",
+      "url": "https://sb3-contrib.readthedocs.io/en/master/modules/ppo_mask.html",
+      "documentation_version": "2.9.0 as retrieved by root on 2026-09-11",
+      "retrieved_html_sha256": "b52a8e1e7945841e693c9e805d7bb3e5b578ef09d1fe434e1030816045042cb6",
+      "reading_scope": "Official document cached by root, independently read Can I use and warning/API passages, text lines73,95-98,330.",
+      "status": "verified from current official-source cache; own direct request received403",
+      "findings": [
+        "MaskablePPO explicitly does not support recurrent policies.",
+        "Evaluation must use mask-aware evaluation helpers.",
+        "SubprocVecEnv requires action_masks implemented inside the environment."
+      ]
+    },
+    {
+      "id": "SB3_RECURRENT_API",
+      "url": "https://sb3-contrib.readthedocs.io/en/master/modules/ppo_recurrent.html",
+      "documentation_version": "2.9.0 as retrieved by root on 2026-09-11",
+      "retrieved_html_sha256": "88010b81c745e5b52460d814e561b96a3f41a4d267dde70554da01671317fe46",
+      "reading_scope": "Official-source cache: Can I use, LSTM state/reset example and predict signature.",
+      "status": "verified from current official-source cache; own direct request received403",
+      "findings": [
+        "RecurrentPPO is a separate LSTM implementation with explicit hidden-state and episode-start handling.",
+        "A masked pointer plus recurrent model needs a specified compatible implementation rather than composing two public algorithm class names."
+      ]
+    },
+    {
+      "id": "SB3_PPO_DEVICE",
+      "url": "https://stable-baselines3.readthedocs.io/en/master/modules/ppo.html",
+      "retrieved_html_sha256": "afe97ed47c9aaae098bb864885c5c8e0d93d4ce3cf229d8875756441ce043fbc",
+      "reading_scope": "Official-source cache device note, text lines141-147.",
+      "status": "verified recommendation, not a hardware benchmark",
+      "findings": [
+        "Documentation recommends primarily CPU execution for PPO, especially non-CNN policies.",
+        "It does not prove CPU or MPS speed for this graph/geometry pipeline; measurement remains a user-approved future engineering task."
+      ]
+    },
+    {
+      "id": "OFFRIPP",
+      "url": "https://arxiv.org/pdf/2409.16830",
+      "title": "OffRIPP: Offline RL-based Informative Path Planning",
+      "pdf_sha256": "b56f7c70a1997e3cc695bb1d9cf108cc366a533e3fa686395ad9fdfee1fdcadf",
+      "pdf_pages": 7,
+      "reading_scope": "Selected abstract p1, policy-learning Eq4-5 p3, datasets p4, TableI and comparison protocol p5, discussion p6. Not a reproduction.",
+      "status": "method identity verified; threshold explanation inconsistent; cross-task superiority unsupported",
+      "findings": [
+        "Eq4 restricts actions by behavior probability greater than tau, while adjacent prose reverses the intuitive tau endpoints. With a strict greater-than gate, tau=1 can leave no actions.",
+        "A relative support gate with a nonempty fallback is a project-specific repaired definition; it must not be claimed as a byte-for-byte reproduction without reading official code.",
+        "TableI expert-data OffRIPP covariance traces23.28/7.83/3.96 are worse than generating behavior18.48/6.96/3.73. The paper explicitly does not treat that online-trained behavior as a matched baseline.",
+        "The table CAtNIPP comparison is naive offline PPO on a dataset, not the correctly online-trained PPO alternative proposed by A.",
+        "Reported benefit on particular light-intensity and fruit datasets supports investigating replay/support control, not a guarantee of improvement over strong C7 or PPO under the present cost objective."
+      ],
+      "feedback_sent_to": "B"
+    }
+  ],
+  "access_log": [
+    {
+      "method": "web search",
+      "queries": [
+        "Ng Harada Russell 1999 shaping",
+        "Sutton Precup Singh 1999 options",
+        "Huang Ontanon invalid action masking"
+      ],
+      "outcome": "tool connection failed; no search results used"
+    },
+    {
+      "method": "urllib configured proxy",
+      "outcome": "SSL unexpected EOF on four source requests; no content used"
+    },
+    {
+      "method": "direct urllib",
+      "url": "https://www.cs.utexas.edu/~pstone/Papers/RLsurvey/NgHR99.pdf",
+      "outcome": "404; replaced with author Berkeley primary PDF"
+    },
+    {
+      "method": "direct urllib",
+      "urls": [
+        "https://sb3-contrib.readthedocs.io/en/master/modules/ppo_mask.html",
+        "https://sb3-contrib.readthedocs.io/en/master/modules/ppo_recurrent.html"
+      ],
+      "outcome": "403; used root current official-source cache with recorded hashes"
+    },
+    {
+      "method": "direct urllib",
+      "url": "https://arxiv.org/abs/2006.14171",
+      "outcome": "200; title/version identity verified, followed by v3PDF"
+    },
+    {
+      "method": "direct urllib",
+      "outcome": "RF, masking and Berkeley shaping PDFs retrieved and selected sections read in memory; no paper full text added to project"
+    },
+    {
+      "method": "direct urllib",
+      "url": "https://arxiv.org/pdf/2409.16830",
+      "outcome": "200; selected sections read in memory, no paper text added to repository"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "as_of": "2026-09-11",
+  "aggregation": "gate-based; no weighted score",
+  "proposal_quality_only": true,
+  "not_a_performance_ranking": true,
+  "user_execution_approval": false,
+  "criteria": [
+    {
+      "id": "G0",
+      "criterion": "执行边界",
+      "acceptance": "只交待批准方案；没有策略/训练/环境实施",
+      "failure_consequence": "违反用户先审阅要求",
+      "status": "awaiting_full_proposals"
+    },
+    {
+      "id": "G1",
+      "criterion": "来源身份与证据",
+      "acceptance": "论文题名/日期/版本/原文定位准确；跨任务主张有边界",
+      "failure_consequence": "算法选择依赖错误归因",
+      "status": "awaiting_full_proposals"
+    },
+    {
+      "id": "G2",
+      "criterion": "可观测actor",
+      "acceptance": "无真值/seed/场景泄漏；若privileged training明确隔离",
+      "failure_consequence": "部署无法成立",
+      "status": "awaiting_full_proposals"
+    },
+    {
+      "id": "G3",
+      "criterion": "可靠集合与soft belief",
+      "acceptance": "1.005001°外包、类型/方向联合性、粒子空集恢复；证书不依赖采样",
+      "failure_consequence": "漏源或错误清除证书",
+      "status": "awaiting_full_proposals"
+    },
+    {
+      "id": "G4",
+      "criterion": "状态与记忆",
+      "acceptance": "摘要不谎称Markov；历史/GRU的必要性有最小对照",
+      "failure_consequence": "结构复杂却无法解释收益",
+      "status": "awaiting_full_proposals"
+    },
+    {
+      "id": "G5",
+      "criterion": "宏动作与mask",
+      "acceptance": "完整事件账本、同候选身份/顺序、旧新mask一致；保留C7与fallback动作",
+      "failure_consequence": "计时错误或学习更新不成立",
+      "status": "awaiting_full_proposals"
+    },
+    {
+      "id": "G6",
+      "criterion": "完成与时限",
+      "acceptance": "有限进度、动作范围、剩余fallback最坏预算、接续状态契约、双时限条件",
+      "failure_consequence": "能阻止退出但无法按时完成",
+      "status": "awaiting_full_proposals"
+    },
+    {
+      "id": "G7",
+      "criterion": "目标与shaping",
+      "acceptance": "E[T/N]对应明确；γ、终端potential、截断bootstrap一致",
+      "failure_consequence": "优化了另一目标",
+      "status": "awaiting_full_proposals"
+    },
+    {
+      "id": "G8",
+      "criterion": "算法实现",
+      "acceptance": "PPO或Q/IDS公式、buffer/target与动态候选可执行；代理不冒定理",
+      "failure_consequence": "名称合理而实现缺项",
+      "status": "awaiting_full_proposals"
+    },
+    {
+      "id": "G9",
+      "criterion": "强基线与归因",
+      "acceptance": "C7原版、同wrapper/候选/shield下C7选择器和学习选择器；必要消融",
+      "failure_consequence": "增益来自候选器却归给RL",
+      "status": "awaiting_full_proposals"
+    },
+    {
+      "id": "G10",
+      "criterion": "数据与课程",
+      "acceptance": "新训练/开发/选择/最终层隔离；Q4正式评估合法混合；无同址重抽误差",
+      "failure_consequence": "回归污染或任务错配",
+      "status": "awaiting_full_proposals"
+    },
+    {
+      "id": "G11",
+      "criterion": "成本与首版顺序",
+      "acceptance": "批准后才实测CPU/MPS、几何/网络/采集耗时、存储、训练seed预算",
+      "failure_consequence": "仅凭百万参数低估成本",
+      "status": "awaiting_full_proposals"
+    },
+    {
+      "id": "G12",
+      "criterion": "未解决项与选择",
+      "acceptance": "经验效果和发布新颖性均标为待验证；不强迫PPO/Q达成虚假定论",
+      "failure_consequence": "提案通过被误当性能通过",
+      "status": "awaiting_full_proposals"
+    }
+  ]
+}

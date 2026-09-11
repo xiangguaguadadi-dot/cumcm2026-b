@@ -1,0 +1,70 @@
+{
+  "unique_worlds": 192,
+  "episode_executions": 192,
+  "business_primitives": 37494,
+  "successes": 192,
+  "failures": [],
+  "execution_wall_s": 61.87782566586975,
+  "raw_json_bytes": 286911793,
+  "gzip_bytes": 39463015,
+  "storage_wall_s": 6.68181895185262,
+  "storage_timing_unavailable_count": 0,
+  "peak_process_mib": 301.890625,
+  "model_id": "ppo_init81002_ep0256",
+  "algorithm": "ppo",
+  "seed": 81002,
+  "checkpoint": {
+    "algorithm": "ppo",
+    "seed": 81002,
+    "episodes": 256,
+    "path": "results/g2/init_81002/ppo/checkpoints/episode_0256.pt",
+    "sha256": "c0e289d6a1c607eba4816361efa3f351d853808801a436a92b7d7fd0075657d4"
+  },
+  "wall_time_this_invocation_s": 69.11541479197331,
+  "rows_sha256": "0a6eda046ad5ddd010c6f9fac1be8a8f1645a75229bc1b181662a559dbfe7321",
+  "timing_ms": {
+    "snapshot_build_s": {
+      "n": 5531,
+      "mean": 6.984844478958542,
+      "p50": 5.4578329436481,
+      "p95": 15.106458507943898,
+      "p99": 49.87953748786818,
+      "max": 100.51741695497185
+    },
+    "selector_s": {
+      "n": 5531,
+      "mean": 3.604833615138585,
+      "p50": 2.670499961823225,
+      "p95": 7.70770845701918,
+      "p99": 11.54367087874561,
+      "max": 69.09391598310322
+    },
+    "prepare_to_macro_s": {
+      "n": 5531,
+      "mean": 10.611038663672241,
+      "p50": 8.176291943527758,
+      "p95": 23.99189554853365,
+      "p99": 57.837700075469876,
+      "max": 130.69437502417713
+    },
+    "compute_since_previous_response_s": {
+      "n": 37494,
+      "mean": 1.6441953301897174,
+      "p50": 0.008791976142674685,
+      "p95": 12.588760309154162,
+      "p99": 22.52179700415581,
+      "max": 132.8297919826582
+    },
+    "backend_call_s": {
+      "n": 37494,
+      "mean": 0.005382379041064135,
+      "p50": 0.003625056706368923,
+      "p95": 0.012709060683846474,
+      "p99": 0.018207946559414268,
+      "max": 0.12274994514882565
+    }
+  },
+  "selection_only": true,
+  "official_validation": false,
+  "final_blind_validation": false
+}

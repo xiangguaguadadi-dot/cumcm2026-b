@@ -1,0 +1,27 @@
+{
+  "phase": "G0 synthetic correctness only",
+  "as_of_utc": "2026-09-11T10:30:14.741080+00:00",
+  "command": "python -m unittest discover -s tests -p 'test_ppo*.py' -v",
+  "python_executable": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/rl_execution_runtime/venv/bin/python",
+  "torch_version": "2.8.0",
+  "device": "cpu",
+  "test_count": 16,
+  "passed": 16,
+  "failed": 0,
+  "task_worlds": 0,
+  "environment_interactions": 0,
+  "real_demonstrations": 0,
+  "real_training_episodes": 0,
+  "notes": [
+    "8 scalar fixtures and 8 shared-network fixtures; fixture reruns did not add task worlds.",
+    "Initial scalar equality exposed floating summation order; fixed by accumulating raw seconds before normalization.",
+    "Final run includes checkpoint model/optimizer/version/RNG roundtrip within existing neural fixture.",
+    "Existing PPO fixture also rejects different initializations with the same policy_version via first-pass old-logprob/value identity checks.",
+    "Existing checkpoint fixture verifies stored CPU model tensors do not alias subsequent live parameter mutations."
+  ],
+  "file_sha256": {
+    "__init__.py": "e27cc492fb9fed7ac5e8d331f84aacd458fddb909addda6da7d9b6d64a614e00",
+    "returns.py": "6bbadd6fa2b9b267207ade649bd7a55100af5b8d2906000f9d2c3af5b8ddb39c",
+    "trainer.py": "126e996daf3d9c9a10820f3ef79f0b8573c6b35c340f48eeacc0111370a3ef72"
+  }
+}

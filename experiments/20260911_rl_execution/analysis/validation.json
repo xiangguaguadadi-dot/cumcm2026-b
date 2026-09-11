@@ -1,0 +1,28 @@
+{
+  "validation_version": "g2-selection-synthetic-v1",
+  "unique_synthetic_fixtures_added": 3,
+  "test_method_executions": 3,
+  "all_passed": true,
+  "unittest_elapsed_s": 0.602,
+  "actual_world_executions": 0,
+  "training_executions": 0,
+  "real_selection_outcomes_read": 0,
+  "g0_unique_fixture_total_after_addition": 79,
+  "g0_fixture_cap": 80,
+  "command": "python -m unittest discover -s analysis -p test_analyze_selection.py -v",
+  "runtime": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/rl_execution_runtime/venv/bin/python",
+  "source_sha256": {
+    "analyze_selection.py": "be28d1272d4eab37e2666568c5e2d5e5570a153ba1631aaf019b0b6a5f426646",
+    "test_analyze_selection.py": "8ad79427eec095870bb99e27971c3a8abcf0877da014097b165225ef9f2d814d",
+    "README.md": "83d2cb7042e015a3862effac509f8f80f1264a550abfb2df7b39f1f6d09ca8ea"
+  },
+  "checks": [
+    "Stratified paired percentile CI and exact constant deltas",
+    "Initialization averaging within each world before resampling",
+    "Missing, duplicate, failed and inconsistent rows excluded without dropping recorded costs",
+    "Stable preregistered tie break and failed fastest checkpoint exclusion",
+    "Both comparator thresholds and complete three-initialization gate",
+    "Saved synthetic row ledgers to summary and Chinese report"
+  ],
+  "boundary": "Synthetic statistical rows only; no world recipe instantiated; no actual selection or policy results used"
+}

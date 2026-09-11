@@ -1,0 +1,255 @@
+{
+  "schema": "rl-proposal-cross-review-v1",
+  "reviewer": "C / solver",
+  "as_of": "2026-09-11",
+  "overall_decision": "ready_for_user_review_with_explicit_conditions",
+  "meaning": "Proposal quality is ready for user review. This is not execution authorization, implementation validation, performance certification, or a convergence/optimality guarantee.",
+  "execution_authorized": false,
+  "strategy_implementations_in_this_phase": 0,
+  "training_runs_in_this_phase": 0,
+  "policy_environment_runs_in_this_phase": 0,
+  "reviewed_inputs": [
+    {
+      "route": "A_user_method",
+      "version": "R2",
+      "proposal_path": "A_user_method/PROPOSAL.md",
+      "proposal_sha256": "ecdbd154d6373cca1bd9c549df0cf62f87ca3692f3298f6a93799c23e2ee80eb",
+      "revision_log_path": "A_user_method/revision_log.md",
+      "revision_log_sha256": "f492df252372a56018b133841609a25ad14603fecea447da99cac03fa055ba5e",
+      "source_claims_sha256": "6e28688e275d0c87e95cd56c8806b0d0295306ba453d53115a22095b71f43aa5"
+    },
+    {
+      "route": "B_frontier",
+      "version": "R1 with final review patches",
+      "proposal_path": "B_frontier/PROPOSAL.md",
+      "proposal_sha256": "444217bdedafaf92fa44364fc6df6dc2bcc67b910b53a34abce75568f33fdddf",
+      "revision_log_path": "B_frontier/revision_log.md",
+      "revision_log_sha256": "d9180707c8871df6c4dac9e55c2956c4e54675483341d5089952c9e9e6f2691b",
+      "source_claims_sha256": "598c8633a6ce78140673569220ff7f5143455a5d42a57cd81ec7a30dfaeb1c23"
+    }
+  ],
+  "formal_first_reviews": [
+    "C_review/REVIEW_R1_A.md",
+    "C_review/REVIEW_R1_B.md"
+  ],
+  "substantive_revision_cycles": {
+    "A": 1,
+    "B": 1,
+    "final_followups": [
+      "B fallback-tail terminal d=1/no bootstrap/no double count",
+      "shared 10000 accepted learning requests and 32 no-progress decisions",
+      "per-question promotion and C7 retained for questions that fail"
+    ]
+  },
+  "literature_scope": {
+    "A_unique": 29,
+    "A_core_selected_body_sections": 9,
+    "B_unique": 21,
+    "B_core_selected_body_sections": 8,
+    "cross_route_id_overlap": 9,
+    "merged_unique": 41,
+    "merged_core_at_least_one_reader": 14,
+    "merged_extended_only": 27,
+    "cover_to_cover_claimed": false,
+    "C_targeted_source_checks": 7,
+    "independent_policy_reproductions": 0
+  },
+  "gates": [
+    {
+      "id": "G0",
+      "topic": "scope",
+      "proposal_status": "ready",
+      "assessment": "本轮仅研究、纸面推导与文件检查；两条路线无新策略/训练/环境执行。",
+      "outstanding_validation_or_limit": "Any implementation requires user review and authorization."
+    },
+    {
+      "id": "G1",
+      "topic": "sources",
+      "proposal_status": "ready_with_source_limits",
+      "assessment": "RF和OffRIPP的关键主张独立核对；IRIS机制/AID-RL身份缺口及C-IDS未核理论明确保留，不用作核心保证。",
+      "outstanding_validation_or_limit": "Source access gaps and no comprehensive novelty certification."
+    },
+    {
+      "id": "G2",
+      "topic": "observable_policy",
+      "proposal_status": "specified_not_implemented",
+      "assessment": "真N仅终局训练标签，禁止actor/Q决策/候选/mask/GRU/previous_reward泄露；原始接口费用及clear success可观察。",
+      "outstanding_validation_or_limit": "Trace actual feature and label data flow after authorization."
+    },
+    {
+      "id": "G3",
+      "topic": "certified_geometry",
+      "proposal_status": "paper_logic_resolved",
+      "assessment": "F_alive可靠为空且absent可行才排空；整体F矛盾触发恢复，有限粒子不发证书；1.005001度外包。",
+      "outstanding_validation_or_limit": "Floating-point conservativeness, accepted-event consistency and recovery not verified in code."
+    },
+    {
+      "id": "G4",
+      "topic": "state_and_memory",
+      "proposal_status": "explicit_empirical_question",
+      "assessment": "完整历史定义与压缩z分开；未声明Markov，首版无GRU，记忆模块需要同预算消融。",
+      "outstanding_validation_or_limit": "Compressed-state aliasing and net value of memory remain empirical."
+    },
+    {
+      "id": "G5",
+      "topic": "actions_masks_replay",
+      "proposal_status": "specified_not_implemented",
+      "assessment": "完整payload含route_successor/阶段/版本，保存候选/mask/old概率/next动作；合法clear、付费复测、重试分开。",
+      "outstanding_validation_or_limit": "C7 wrapper equivalence conditional; raw C7 retained independently."
+    },
+    {
+      "id": "G6",
+      "topic": "completion_and_deadlines",
+      "proposal_status": "conditional_paper_contract",
+      "assessment": "共同box4000、49站304格、备用53000、next2300、学习时间300000、请求10000、32无进展决策；总虚拟<355300。",
+      "outstanding_validation_or_limit": "Numerical program not implemented; real deadline has no verified deterministic latency/compute bounds."
+    },
+    {
+      "id": "G7",
+      "topic": "objective_terminal_shaping",
+      "proposal_status": "paper_definition_resolved",
+      "assessment": "T0=1000、gamma1、r=-dt/(1000N)、真失败一次-100；A完整MC/PPO，B归一MC/TD；fallback成本完整、真terminal不bootstrap。",
+      "outstanding_validation_or_limit": "Finite failure penalty is not lexicographic zero-failure optimization; approximation and convergence unproved."
+    },
+    {
+      "id": "G8",
+      "topic": "algorithm_execution_plan",
+      "proposal_status": "specified_not_implemented",
+      "assessment": "A首版episode加权MC PPO明确；B支持门控/行为MC/受控多样性/Double-Q明确；IDS只作后续代理研究。",
+      "outstanding_validation_or_limit": "Q support and extrapolation, PPO stability and relative performance require experiments."
+    },
+    {
+      "id": "G9",
+      "topic": "baseline_and_attribution",
+      "proposal_status": "ready_as_protocol",
+      "assessment": "原C7独立，包装内C7/非学习/BC/PPO/Q共享底座；guard触发差异不得归因RL。",
+      "outstanding_validation_or_limit": "No learned-policy result or C7 replacement in this phase."
+    },
+    {
+      "id": "G10",
+      "topic": "data_selection",
+      "proposal_status": "ready_as_protocol",
+      "assessment": "新训练/示范/选择/初始化/最终分离；旧4800仅暴露回归；Q4正式混合；同址固定误差。",
+      "outstanding_validation_or_limit": "Final samples not generated; selection CI is exploratory, not blind confirmation."
+    },
+    {
+      "id": "G11",
+      "topic": "resources_and_budget",
+      "proposal_status": "user_review_required",
+      "assessment": "G0/G1先行；G2共享512示范、每算法每初始化1024局或1M请求、3初始化、192选择局、4 checkpoint。",
+      "outstanding_validation_or_limit": "Proposed ceilings are not approved or executed; no measured training-hour estimates."
+    },
+    {
+      "id": "G12",
+      "topic": "decision_and_uncertainty",
+      "proposal_status": "ready_for_user_review",
+      "assessment": "按题晋级，未过题保留C7；保留A优先PPO/B优先Q分歧；只确认提案质量。",
+      "outstanding_validation_or_limit": "Performance, novelty, optimality, convergence and real-deadline completion remain unverified."
+    }
+  ],
+  "unresolved_proposal_definition_blockers": [],
+  "conditional_paper_contract": {
+    "scope": "Ideal task-consistent responses and explicit wrapper/position/budget contract; no code proof",
+    "source_domain_radius_m": 1800,
+    "receiver_radius_m": [
+      1000,
+      1500
+    ],
+    "bearing_outer_half_angle_deg": 1.005001,
+    "learning_box_m": [
+      -4000,
+      4000
+    ],
+    "discovery_stations": 49,
+    "clear_grid_points_per_source": 304,
+    "max_sources": 16,
+    "fallback_measure_clear_requests_max": 5844,
+    "fallback_exit_requests": 1,
+    "fallback_virtual_upper_bound_s": 53000,
+    "next_learning_primitive_upper_bound_s": 2300,
+    "learning_virtual_threshold_s": 300000,
+    "learning_accepted_measure_clear_limit": 10000,
+    "no_progress_learning_decision_limit": 32,
+    "total_virtual_bound_s": 355300,
+    "task_virtual_limit_s": 360000,
+    "real_deadline": "min(enter_time + 1200 seconds, actual 25-minute-window close)",
+    "real_guarantee_status": "not established; needs deterministic request, compute, retry bounds and adequate balance from the start",
+    "raw_C7_fully_in_box_or_wrapper_equivalent": "not verified; raw C7 kept independently"
+  },
+  "common_training_target": {
+    "T0_seconds": 1000,
+    "gamma": 1,
+    "macro_reward": "-sum(actual primitive delta time)/(1000*N) - 100*true_failure_terminal",
+    "failure_penalty_once": 100,
+    "true_N": "trainer-only post-episode label metadata including failures",
+    "lexicographic_failure_guarantee": false,
+    "shaping_first_version": false,
+    "PPO": "complete-episode MC, equal episodes, sum actual sampled decisions, no fake fallback logprob",
+    "Q": "normalized MC/TD and full saved next candidate identity; compressed state approximation"
+  },
+  "recommended_if_user_authorizes": {
+    "initial_scope": [
+      "G0",
+      "G1",
+      "conditional G2"
+    ],
+    "G0": {
+      "max_control_fixtures": 80,
+      "max_new_unique_complete_episodes": 40
+    },
+    "G1": {
+      "max_new_unique_complete_episodes": 24,
+      "max_new_primitive_interactions": 100000
+    },
+    "G2": {
+      "shared_C7_demonstration_episodes": 512,
+      "new_training_episodes_per_algorithm_per_initialization_max": 1024,
+      "new_training_primitive_interactions_per_algorithm_per_initialization_max": 1000000,
+      "training_initializations": 3,
+      "unique_selection_episodes": 192,
+      "registered_checkpoints_per_model_max": 4,
+      "budget_stop_rule": "first cap reached, full completion reserve within budget; all actual costs recorded"
+    },
+    "unapproved_later_scope": [
+      "graph/GRU/IDS expansion",
+      "shallow planning experiments",
+      "long training",
+      "replace default C7",
+      "new final test execution"
+    ]
+  },
+  "promotion_rule": {
+    "unit": "each claimed-improved question separately",
+    "completeness": "all deployment evaluation rows normal full completion and valid exit",
+    "minimum_mean_relative_gain_over_raw_C7_and_BC": 0.02,
+    "paired_difference_95CI_upper_bound": "less than zero",
+    "improving_initializations_min": 2,
+    "initializations_total": 3,
+    "selection_only": true,
+    "failed_question": "retain C7",
+    "threshold_status": "proposed engineering gate, not official rule or paper theorem"
+  },
+  "remaining_limits": [
+    {
+      "kind": "source",
+      "item": "IRIS body/implementation mechanism unavailable; exact AID-RL identity unresolved"
+    },
+    {
+      "kind": "source",
+      "item": "RF sample count/CI and goal-feature deployment boundary limited; C-IDS proof questions not independently fully adjudicated"
+    },
+    {
+      "kind": "implementation",
+      "item": "Observable feature isolation, snapshots, wrapper handoff, numerical geometry and exception budgets not implemented"
+    },
+    {
+      "kind": "empirical",
+      "item": "PPO versus Q, support collapse to BC, memory/planning value, CPU/MPS cost and real interface completion remain unmeasured"
+    },
+    {
+      "kind": "research_claim",
+      "item": "No new performance, SOTA, novelty, optimality or learning convergence claim"
+    }
+  ],
+  "author_editing_state": "Authors asked to stop substantive editing after reviewed hashes; substantive changes require renewed review."
+}

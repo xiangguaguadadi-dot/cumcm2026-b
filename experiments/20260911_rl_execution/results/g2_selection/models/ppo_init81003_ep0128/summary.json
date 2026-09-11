@@ -1,0 +1,70 @@
+{
+  "unique_worlds": 192,
+  "episode_executions": 192,
+  "business_primitives": 38205,
+  "successes": 192,
+  "failures": [],
+  "execution_wall_s": 78.6229569488205,
+  "raw_json_bytes": 286408732,
+  "gzip_bytes": 39931291,
+  "storage_wall_s": 8.445020960294642,
+  "storage_timing_unavailable_count": 0,
+  "peak_process_mib": 297.515625,
+  "model_id": "ppo_init81003_ep0128",
+  "algorithm": "ppo",
+  "seed": 81003,
+  "checkpoint": {
+    "algorithm": "ppo",
+    "seed": 81003,
+    "episodes": 128,
+    "path": "results/g2/init_81003/ppo/checkpoints/episode_0128.pt",
+    "sha256": "e7065172ce712f7d54b9dd22c52cca1bbbfc346c9eaec0f8d482161b02ec7679"
+  },
+  "wall_time_this_invocation_s": 87.75021937501151,
+  "rows_sha256": "15c00f0f51808799b035482dc0294ef47c0e0e32f3e107f97694e2e146416b9a",
+  "timing_ms": {
+    "snapshot_build_s": {
+      "n": 5579,
+      "mean": 8.756796246282503,
+      "p50": 7.168874959461391,
+      "p95": 18.058687273878608,
+      "p99": 59.84273756155744,
+      "max": 90.9127501072362
+    },
+    "selector_s": {
+      "n": 5579,
+      "mean": 4.576945778206666,
+      "p50": 3.5238330019637942,
+      "p95": 9.231933357659727,
+      "p99": 13.308172267861677,
+      "max": 133.0930000403896
+    },
+    "prepare_to_macro_s": {
+      "n": 5579,
+      "mean": 13.359680539560456,
+      "p50": 10.793625027872622,
+      "p95": 28.45703772036359,
+      "p99": 71.36344670085238,
+      "max": 151.4188750879839
+    },
+    "compute_since_previous_response_s": {
+      "n": 38205,
+      "mean": 2.0491873027884546,
+      "p50": 0.011541997082531452,
+      "p95": 15.530641376972204,
+      "p99": 26.960315313190204,
+      "max": 151.55533305369318
+    },
+    "backend_call_s": {
+      "n": 38205,
+      "mean": 0.006678944271744787,
+      "p50": 0.004624947905540466,
+      "p95": 0.015583005733788013,
+      "p99": 0.02216699067503214,
+      "max": 0.07595808710902929
+    }
+  },
+  "selection_only": true,
+  "official_validation": false,
+  "final_blind_validation": false
+}

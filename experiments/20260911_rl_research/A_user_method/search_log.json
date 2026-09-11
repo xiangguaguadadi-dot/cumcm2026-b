@@ -1,0 +1,252 @@
+{
+  "scope": "2024-01-01 to2026-09-11 plus3 foundational records; only review/proposal, no implementation or experiment",
+  "queries": [
+    {
+      "id": "web-batch",
+      "query": "\"IRIS\" \"Information-Directed\" reinforcement2026; \"RF emitter\" \"80.1\" PPO; \"CAtNIPP\" \"AID-RL\"",
+      "source": "web.run",
+      "status": "connection failure",
+      "decision": "No results used",
+      "searched_on": "2026-09-11",
+      "cache_file": null
+    },
+    {
+      "id": "search_rf",
+      "query": "\"RF emitter\"",
+      "source": "arXiv all",
+      "status": "success",
+      "decision": "Broad search found directional-emitter adjacent paper but notRF RL",
+      "searched_on": "2026-09-11",
+      "cache_file": "search_rf.html"
+    },
+    {
+      "id": "search_iris",
+      "query": "IRIS Information Directed",
+      "source": "arXiv all",
+      "status": "success",
+      "decision": "Loose matching polluted by homonyms; no inference of absence",
+      "searched_on": "2026-09-11",
+      "cache_file": "search_iris.html"
+    },
+    {
+      "id": "search_catnipp",
+      "query": "CAtNIPP",
+      "source": "arXiv all",
+      "status": "success-empty",
+      "decision": "Recovered via survey citation then officialPMLR",
+      "searched_on": "2026-09-11",
+      "cache_file": "search_catnipp.html"
+    },
+    {
+      "id": "search_aidrl",
+      "query": "AID-RL",
+      "source": "arXiv all",
+      "status": "success-noisy",
+      "decision": "Tokenization mixed unrelated aid/RL results",
+      "searched_on": "2026-09-11",
+      "cache_file": "search_aidrl.html"
+    },
+    {
+      "id": "search_aipp",
+      "query": "adaptive informative path planning",
+      "source": "arXiv all",
+      "status": "success-noisy",
+      "decision": "Switched to title phrase to improve relevance",
+      "searched_on": "2026-09-11",
+      "cache_file": "search_aipp.html"
+    },
+    {
+      "id": "search_ids",
+      "query": "\"information-directed\"",
+      "source": "arXiv all",
+      "status": "success",
+      "decision": "C-IDS and offline-to-online candidate; notIRIS",
+      "searched_on": "2026-09-11",
+      "cache_file": "search_ids.html"
+    },
+    {
+      "id": "search_emitterrl",
+      "query": "emitter reinforcement",
+      "source": "arXiv all",
+      "status": "success",
+      "decision": "Located2605.12569",
+      "searched_on": "2026-09-11",
+      "cache_file": "search_emitterrl.html"
+    },
+    {
+      "id": "search_asrl",
+      "query": "\"active sensing\" reinforcement",
+      "source": "arXiv all",
+      "status": "success",
+      "decision": "Located2605.12569 andLASER",
+      "searched_on": "2026-09-11",
+      "cache_file": "search_asrl.html"
+    },
+    {
+      "id": "search_ipp_title",
+      "query": "\"informative path planning\"",
+      "source": "arXiv title size200",
+      "status": "success",
+      "decision": "Screened recent25±topic candidates; not exhaustive database enumeration",
+      "searched_on": "2026-09-11",
+      "cache_file": "search_ipp_title.html"
+    },
+    {
+      "id": "search_iris_title",
+      "query": "IRIS",
+      "source": "arXiv title size50",
+      "status": "success",
+      "decision": "Screened2026homonyms; correctjournal paper nothere",
+      "searched_on": "2026-09-11",
+      "cache_file": "search_iris_title.html"
+    },
+    {
+      "id": "google_iris",
+      "query": "\"IRIS\" \"information-directed\"2026",
+      "source": "Google",
+      "status": "JS redirect only",
+      "decision": "Not usable search evidence",
+      "searched_on": "2026-09-11",
+      "cache_file": "google_iris.html"
+    },
+    {
+      "id": "google_aidrl",
+      "query": "\"AID-RL\" planning",
+      "source": "Google",
+      "status": "SSL_ERROR_SYSCALL",
+      "decision": "Noresults",
+      "searched_on": "2026-09-11",
+      "cache_file": null
+    },
+    {
+      "id": "pmlr205",
+      "query": "CAtNIPP",
+      "source": "PMLR officialvolume205",
+      "status": "success",
+      "decision": "Foundcao23b after wrongguesscao23a",
+      "searched_on": "2026-09-11",
+      "cache_file": "pmlr205.html"
+    },
+    {
+      "id": "search_information_title",
+      "query": "\"information\" \"sampling\"",
+      "source": "arXiv title size200",
+      "status": "success-noisy",
+      "decision": "ExpandedIDSbranch",
+      "searched_on": "2026-09-11",
+      "cache_file": "search_information_title.html"
+    },
+    {
+      "id": "search_informative_title",
+      "query": "\"informative\"",
+      "source": "arXiv title size200",
+      "status": "success-noisy",
+      "decision": "Foundgas-source adjacent2026papers; filteredbyas-ofdate",
+      "searched_on": "2026-09-11",
+      "cache_file": "search_informative_title.html"
+    },
+    {
+      "id": "search_aid_exact_title",
+      "query": "\"AID-RL\"",
+      "source": "arXiv title",
+      "status": "success-no-match",
+      "decision": "AID2512.02535 fromB then independently bodyread; notassumedexactmatch",
+      "searched_on": "2026-09-11",
+      "cache_file": "search_aid_exact_title.html"
+    },
+    {
+      "id": "root-crossref-iris",
+      "query": "IRIS information directed sampling",
+      "source": "Crossref query via root",
+      "status": "success",
+      "decision": "IdentifiedDOI10.1016/j.patcog.2025.112400; A independently fetchedfullmetadata",
+      "searched_on": "2026-09-11",
+      "cache_file": null
+    },
+    {
+      "id": "iris_repo_search",
+      "query": "IRIS informative path planning",
+      "source": "GitHub repositorysearch",
+      "status": "success-empty",
+      "decision": "Notproof ofnoauthorcode",
+      "searched_on": "2026-09-11",
+      "cache_file": null
+    },
+    {
+      "id": "iris_openaccess",
+      "query": "DOI:10.1016/j.patcog.2025.112400",
+      "source": "SemanticScholar/OpenAlex",
+      "status": "success-noOA",
+      "decision": "NoaccessiblePDFlinkfound",
+      "searched_on": "2026-09-11",
+      "cache_file": null
+    },
+    {
+      "id": "iris_ucl",
+      "query": "IRIS information path planning",
+      "source": "UCLinstitutionalrepository",
+      "status": "challenge-page",
+      "decision": "Noautomatedbypassattempted",
+      "searched_on": "2026-09-11",
+      "cache_file": "iris_ucl.html"
+    },
+    {
+      "id": "retrieval-failures",
+      "searched_on": "2026-09-11",
+      "source": "transport/publisher",
+      "status": "mixed",
+      "details": [
+        "Initial sandboxcurl DNSfailed; authorized publicnetworkretrieval succeeded with --noproxy.",
+        "IRIS DOIredirect reachedlinkinghub; ScienceDirectcontenterror.",
+        "ElsevierarticleAPI/abstractAPI coredataonly, noabstract/body.",
+        "SSRNpageblockedbyJS/cookiechallenge.",
+        "SSRNcrossrefexactmetadataDNSfailedtwice.",
+        "Noinstalledlibraries, noexecutedplanner, nodeployment/simulation."
+      ]
+    }
+  ],
+  "citation_expansion": [
+    "Dynamic Graph paper→CAtNIPP originalPMLR and author code",
+    "AIPPsurvey§3/4→comparisonprotocol and neighboring methods",
+    "Title search→MapAgnostic/DyPNIPP/OffRIPP2024,AID2025/26,2026modelplanning/gassource branches",
+    "B suppliedAID/exactoffline-onlineidentity; root suppliedIRIS DOI; each separately recorded"
+  ],
+  "accessed_primary_metadata_ids": [
+    "catnipp-corl2022",
+    "2605.12569",
+    "2402.04894",
+    "2410.17166",
+    "2409.16830",
+    "2410.17186",
+    "2404.06940",
+    "2512.02535",
+    "2602.03939",
+    "2603.06924",
+    "2602.05198",
+    "2602.10702",
+    "2601.17227",
+    "2506.08434",
+    "2502.15961",
+    "2409.16967",
+    "2404.18374",
+    "2402.08841",
+    "2411.04364",
+    "2609.05515",
+    "2606.16780",
+    "2608.14466",
+    "2604.19355",
+    "2605.29405",
+    "2609.05569",
+    "2608.30673",
+    "1708.08611",
+    "2006.14171",
+    "iris-patcog112400"
+  ],
+  "coverage_limits": [
+    "NoexhaustiveIEEE/Scopus/WoScensus",
+    "IRISbodyunavailable",
+    "19extendedabstract/keypoint+1metadataonly records are not corefulltext reading",
+    "Officialcode existence checkedfor4repos; none reproduced"
+  ],
+  "transport_note": "Noaccessrestrictionbypass; normalpublicAPIandrepositories only"
+}

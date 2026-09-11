@@ -1,0 +1,275 @@
+{
+  "as_of": "2026-09-11",
+  "scope": "userattachmentclaimverification; manuscriptclaimsandprojectderivations separated",
+  "status_definitions": {
+    "verified": "source or explicit proof supports the bounded statement, not a reproduced performance result",
+    "partial": "some factual part supported but scope/interpretation materially narrower",
+    "unverified": "no adequate source/body/experiment available",
+    "contradicted": "statement as phrased conflicts with actual protocol/source/logic"
+  },
+  "claims": [
+    {
+      "id": "RF-identity",
+      "claim": "刚发表到arXiv的RF emitter active sensing工作",
+      "status": "verified",
+      "finding": "准确题名Active Sensing with Meta-Reinforcement Learning for Emitter Localization from RF Observations；arXiv2605.12569v1，2026-05-12。页首©2025IEEE不够核实正式venue。",
+      "sources": [
+        "https://arxiv.org/abs/2605.12569"
+      ],
+      "evidence_locator": "arXivmetadata; manuscriptp1",
+      "consequence_for_proposal": "写预印本日期，不写2026正式录用。"
+    },
+    {
+      "id": "RF-80.1-76.3",
+      "claim": "PPO success80.1%、DQN success76.3%",
+      "status": "verified",
+      "finding": "正文VI(a)确有这些作者报告数值；Sionna多路径单静态源、2×2天线IQ导航。实际测试N和CI在所读全文未找到。",
+      "sources": [
+        "https://arxiv.org/html/2605.12569v1"
+      ],
+      "evidence_locator": "§IV,V,VI(a)",
+      "consequence_for_proposal": "数值可引用，但不迁移本题全清率。"
+    },
+    {
+      "id": "RF-only-algorithm",
+      "claim": "由80.1/76.3可断定噪声/POMDP下PPO更合适",
+      "status": "partial",
+      "finding": "PPO/DQN在gamma、并行环境、经验buffer等设置不同；没有本题同输入/候选/预算的算法单变量证据。",
+      "sources": [
+        "https://arxiv.org/html/2605.12569v1"
+      ],
+      "evidence_locator": "IV-Bparameterfootnote; VI(a)",
+      "consequence_for_proposal": "保留PPO与Q法对照，不预定最终胜者。"
+    },
+    {
+      "id": "RF-recurrent-state",
+      "claim": "recurrentPPO状态估计和价值学习更稳定",
+      "status": "partial",
+      "finding": "VI(b)报告循环PPO较高value explained variance；它衡量critic return拟合，不能自动推出belief误差更低。",
+      "sources": [
+        "https://arxiv.org/html/2605.12569v1"
+      ],
+      "evidence_locator": "VI(b),Fig7",
+      "consequence_for_proposal": "GRU必须独立消融；准确转述value证据。"
+    },
+    {
+      "id": "RF-information",
+      "claim": "RF工作与本题具有相同可观测actor协议",
+      "status": "unverified",
+      "finding": "IV-C输入X第二维current/goalstatefeatures；goal端部署可得性未澄清。IV-B真实距离progress奖励属于可能的训练特权，不单凭此指控部署泄漏。",
+      "sources": [
+        "https://arxiv.org/html/2605.12569v1"
+      ],
+      "evidence_locator": "IV-B Eq9–12; IV-C",
+      "consequence_for_proposal": "明确goal特征信息边界未解决；本题actor只用接口事件。"
+    },
+    {
+      "id": "IRIS-identity",
+      "claim": "2026 IRIS是一篇信息路径规划RL+IDS工作",
+      "status": "verified",
+      "finding": "ZiyuanLiu,YanZhuang,PengWu,YuanchangLiu；PatternRecognition172:112400，print2026-04。DOIcreated2025-09-04只是注册时间，online日期未核。",
+      "sources": [
+        "https://doi.org/10.1016/j.patcog.2025.112400",
+        "https://api.crossref.org/works/10.1016/j.patcog.2025.112400"
+      ],
+      "evidence_locator": "publisher/Crossrefcoremetadata",
+      "consequence_for_proposal": "保留准确身份；不把arXiv同名文误当IRIS。"
+    },
+    {
+      "id": "IRIS-DQN-IDS",
+      "claim": "IRIS认为off-policy/value-based尤其适合IDS，并采用DQN/Pointer",
+      "status": "unverified",
+      "finding": "本轮未取得IRIS摘要/正文；publisher只给核心数据，ScienceDirect/SSRN/UCL访问受限，开放索引无PDF。不能从题名和用户附件补足机制。",
+      "sources": [
+        "https://doi.org/10.1016/j.patcog.2025.112400"
+      ],
+      "evidence_locator": "bodyunavailable; search_log.json",
+      "consequence_for_proposal": "从证据支持的主方案论证中撤去此归因；等待准确原文。"
+    },
+    {
+      "id": "IDS-exclusive",
+      "claim": "IDS适配DQN因此DQN是最先进唯一选择",
+      "status": "contradicted",
+      "finding": "不存在这种普遍结论；C-IDS原文用variational policy gradient和LSTM优化信息目标，但保证仅针对其固定context假设。",
+      "sources": [
+        "https://arxiv.org/html/2602.03939v1"
+      ],
+      "evidence_locator": "§2.2,§3,§4",
+      "consequence_for_proposal": "PPO/Q均保留；C-IDS仅作policy-gradient机制来源，未独立通过全部证明。B提出的Lemma3.6/Eq19及context条件疑问列限制，不声称理论已证伪。"
+    },
+    {
+      "id": "CATNIPP-architecture",
+      "claim": "候选图+attention+recurrent+pointer+PPO是合理架构先例",
+      "status": "verified",
+      "finding": "CAtNIPP原文§4.2/4.3明确Transformer、LSTM、pointerdecoder和PPO；CoRL2022/PMLR2023。",
+      "sources": [
+        "https://proceedings.mlr.press/v205/cao23b.html"
+      ],
+      "evidence_locator": "PDFpp4–6,Fig2",
+      "consequence_for_proposal": "可以借鉴，组合本身不能作为首创贡献。"
+    },
+    {
+      "id": "DYNAMIC-candidate",
+      "claim": "DynamicGraphAIPP采用动态候选图节点决策",
+      "status": "verified",
+      "finding": "2402.04894v2动态局部位置/yaw图+PPO；表II同reward时动态图K20 65.49、CAtNIPP63.27，不能把表I总体差全归图。",
+      "sources": [
+        "https://arxiv.org/html/2402.04894v2"
+      ],
+      "evidence_locator": "III-C/D,TablesI–III",
+      "consequence_for_proposal": "图/候选/reward要分开对照，500trials不是本题全清。"
+    },
+    {
+      "id": "AIDRL-name",
+      "claim": "AID-RL是附件信息增益算法的准确来源",
+      "status": "unverified",
+      "finding": "检索到AID2512.02535为AgentIntentfromDiffusion：多agent扩散意图、BC→DPPO；不能未经证实认定就是AID-RL。",
+      "sources": [
+        "https://arxiv.org/html/2512.02535v2"
+      ],
+      "evidence_locator": "§4.3–4.6,§5",
+      "consequence_for_proposal": "写准确AID，撤去其对单狗IDS的归因。"
+    },
+    {
+      "id": "BEARING-bound",
+      "claim": "两位小数示向度直接用±1°可靠集合",
+      "status": "partial",
+      "finding": "题设误差±1°；公开响应又保留两位小数，可靠集合需要0.005°舍入裕量与数值容差。",
+      "sources": [
+        "local:题目与附件/附件2.docx",
+        "local:docs/评测标准_v1.md"
+      ],
+      "evidence_locator": "svd_degresponseformat; officialboundederror",
+      "consequence_for_proposal": "提案采用1.005001°，含0.005°舍入及0.000001°数值外包；实际裁剪/外近似运算仍须验证保守性。"
+    },
+    {
+      "id": "PARTICLE-empty",
+      "claim": "删光jointparticles可以证明certified-empty",
+      "status": "contradicted",
+      "finding": "有限样本不是连续假设空间的外包络。真位置/方向可能从未抽到；joint粒子存在/权重与sound集合必须分离。",
+      "sources": [
+        "project:paperderivation"
+      ],
+      "evidence_locator": "PROPOSAL§3",
+      "consequence_for_proposal": "有限粒子不授予空性证书；仅在可靠F_alive为空且absent仍可行且无相矛盾活源证据时certified-empty。整体F为空表示不一致，不能据此退出。"
+    },
+    {
+      "id": "BELIEF-markov",
+      "claim": "中心/面积/半径/熵的压缩belief已经Markov",
+      "status": "unverified",
+      "finding": "这些摘要可能丢失no_signal空间形状与位置—方向相关性；同摘要不保证同未来分布。GRU并不能把这种断言变定理。",
+      "sources": [
+        "project:stateanalysis",
+        "https://arxiv.org/html/2410.17166v2"
+      ],
+      "evidence_locator": "PROPOSAL§3; MapAgnosticEq5",
+      "consequence_for_proposal": "显式说明近似POMDP，历史模块待消融。"
+    },
+    {
+      "id": "REPEAT-mask",
+      "claim": "曾在(S,c)测量后应永远mask该measure",
+      "status": "partial",
+      "finding": "同址固定误差意味着没有独立新样本，但measure还承担移动和切频道。无free move时可能为C7接续/兜底所需。",
+      "sources": [
+        "local:附件1/2接口语义",
+        "project:actionanalysis"
+      ],
+      "evidence_locator": "PROPOSAL§4",
+      "consequence_for_proposal": "区分无信息/被支配动作与合法交通动作；重试非新策略动作。"
+    },
+    {
+      "id": "Q4-grid",
+      "claim": "600m正方形网格顶点可发现任意半平面定向源",
+      "status": "verified",
+      "finding": "纸面推导：四顶点距cell内点≤600√2<1000，点在顶点convexhull中，任意过点闭半平面含至少一顶点。",
+      "sources": [
+        "project:geometricproof"
+      ],
+      "evidence_locator": "PROPOSAL§7.2",
+      "consequence_for_proposal": "实际测满49网格点且全no_signal可给排空证书；不是概率证书。"
+    },
+    {
+      "id": "SHIELD-completion",
+      "claim": "有EXITmask就能保证永不漏源/期限内全清",
+      "status": "contradicted",
+      "finding": "禁止早退不排除无限拖延、预算耗尽或网络失联；需有限进度fallback、同状态接管与双deadline预留。",
+      "sources": [
+        "https://arxiv.org/abs/1708.08611",
+        "project:livenessanalysis"
+      ],
+      "evidence_locator": "PROPOSAL§7",
+      "consequence_for_proposal": "统一入口box[-4000,4000]^2；纸面fallback<53000s/5844+EXIT；下一primitive<2300、RL阈值300000下总<355300。原C7-wrapper等价与现实deadline保证仍为未验条件，不声称已部署。"
+    },
+    {
+      "id": "PPO-shaping",
+      "claim": "宏动作固定gamma下potentialshaping保持真实总时间目标",
+      "status": "partial",
+      "finding": "正确形态取决于折扣；提案选有限episodeγ=1和terminalΦ0，势差望远镜和才不改目标。宏动作须用全部实际成本。",
+      "sources": [
+        "project:telescopingsumproof"
+      ],
+      "evidence_locator": "PROPOSAL§6",
+      "consequence_for_proposal": "首版T0=1000s、γ=1完整episode MC PPO、每局等权且内部实际学习决策求和，无shaping/GAE。fallback后续费用入return，无伪logprob；所有真实terminal不bootstrap。"
+    },
+    {
+      "id": "METRIC-success-only",
+      "claim": "全清率差不多100%后按E[T|success]选方法",
+      "status": "contradicted",
+      "finding": "本项目冻结规则规定场景任一候选不完整则不给时间排名，保留所有失败；源数变化下E[T]与每局T/N均值不同。",
+      "sources": [
+        "local:docs/评测标准_v1.md"
+      ],
+      "evidence_locator": "officialcolumnsandcomparisonprotocol",
+      "consequence_for_proposal": "目标为每局T/N，N只在训练终局缩放；失败一次-100无量纲训练罚分不等词典序可靠性。评估保留全部失败，零失败门槛独立于时间排名。"
+    },
+    {
+      "id": "CURRICULUM-direction",
+      "claim": "Q4最终可以训练/评价100%directional",
+      "status": "partial",
+      "finding": "全定向可作为课程/压力分布，Q4正式问题要求全向与定向共存，每局必须两类都有。",
+      "sources": [
+        "local:docs/评测标准_v1.md"
+      ],
+      "evidence_locator": "Q4physicalrules",
+      "consequence_for_proposal": "训练课程标签和最终Q4评测分开。"
+    },
+    {
+      "id": "MAC-feasible",
+      "claim": "24GBApple训练百万参数网络没问题，瓶颈一定simulator",
+      "status": "unverified",
+      "finding": "容量/arm64已实查，未做吞吐/峰值内存/MPS测量；指定Python没安装torch等；论文CUDA/Ray栈不是即插即用。",
+      "sources": [
+        "project:rootruntimeinspection",
+        "https://github.com/marmotlab/CAtNIPP",
+        "https://github.com/dmar-bonn/ipp-rl-3d"
+      ],
+      "evidence_locator": "rootimplementation_sources; officialREADMEs",
+      "consequence_for_proposal": "获批后先做资源测量，预算用实测决定，不能预计小时数当事实。"
+    },
+    {
+      "id": "MASK-RECURRENT",
+      "claim": "可直接用MaskablePPO加RecurrentPPO拼成最终模型",
+      "status": "contradicted",
+      "finding": "官方MaskablePPO文档CanIuse中recurrentpolicies标否；pointer和变长候选、序列rollout需额外实现。",
+      "sources": [
+        "https://sb3-contrib.readthedocs.io/en/master/modules/ppo_mask.html",
+        "https://sb3-contrib.readthedocs.io/en/master/modules/ppo_recurrent.html"
+      ],
+      "evidence_locator": "officialdocumentationreadbyroot; cache/rootimplementation_sources.json",
+      "consequence_for_proposal": "先memoryless，后由收益决定定制循环。"
+    },
+    {
+      "id": "NOVELTY",
+      "claim": "没找到相同组合即可认为有发表价值/创新成立",
+      "status": "unverified",
+      "finding": "检索不是穷尽noveltysearch。CAtNIPP已有attention+LSTM+pointer+PPO，2026气源工作已有belief+RL+planner混合近邻。",
+      "sources": [
+        "https://proceedings.mlr.press/v205/cao23b.html",
+        "https://arxiv.org/abs/2609.05569",
+        "https://arxiv.org/abs/2608.30673"
+      ],
+      "evidence_locator": "literature/taxonomy; extendedabstracts",
+      "consequence_for_proposal": "贡献应落到本题信息协议、长期调度与完成责任的受控验证，现不承诺发表或收益。"
+    }
+  ]
+}

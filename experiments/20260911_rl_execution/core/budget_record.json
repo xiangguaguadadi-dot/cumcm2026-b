@@ -1,0 +1,175 @@
+{
+  "scope": "G0 shared core, 2026-09-11; no training or policy optimization",
+  "unique_synthetic_fixtures": 29,
+  "fixture_execution_history": [
+    {
+      "fixture_tests_executed": 27,
+      "passed": 27,
+      "version": "before public count/history contradiction and timing amendments"
+    },
+    {
+      "fixture_tests_executed": 29,
+      "passed": 29,
+      "version": "current core hashes in g0_results_v1/manifest.json"
+    }
+  ],
+  "fixture_test_invocations_total": 56,
+  "current_fixture_ids": [
+    "core-01",
+    "core-02",
+    "core-03",
+    "core-04",
+    "core-05",
+    "core-06",
+    "core-07",
+    "core-08",
+    "core-09",
+    "core-10",
+    "core-11",
+    "core-12",
+    "core-13",
+    "core-14",
+    "core-15",
+    "core-16",
+    "core-17",
+    "core-18",
+    "core-19",
+    "core-20",
+    "core-21",
+    "core-22",
+    "core-23",
+    "core-24",
+    "core-25",
+    "core-26",
+    "core-27",
+    "core-28",
+    "core-29"
+  ],
+  "unique_registered_complete_worlds": 40,
+  "new_worlds_generated_by_core": 0,
+  "complete_world_episode_executions": 120,
+  "business_primitives": 79153,
+  "actual_whole_audit_wall_s": 14.39604108396452,
+  "source_of_counts": "g0_results_v1 60 raw records plus g0_audit_v1 60 lossless compressed records; each split uses 20 different coordinator-registered worlds",
+  "evidence_boundary": "40 shared worlds, each executed under 3 variants; 120 executions are not independent worlds. Zero RL training, zero new world generation, zero official runs.",
+  "first_g0_core_batch": {
+    "unique_registered_complete_worlds": 20,
+    "complete_world_episode_executions": 60,
+    "business_primitives": 67853,
+    "by_label": {
+      "original_c7": {
+        "episode_executions": 20,
+        "source_denominator_sum": 248,
+        "cleared_sum": 248,
+        "business_primitives": 3956,
+        "actual_execution_wall_s": 0.34715316898655146
+      },
+      "teacher_wrapper": {
+        "episode_executions": 20,
+        "source_denominator_sum": 248,
+        "cleared_sum": 248,
+        "business_primitives": 3956,
+        "actual_execution_wall_s": 2.2213532517198473
+      },
+      "forced_fallback_after_one": {
+        "episode_executions": 20,
+        "source_denominator_sum": 248,
+        "cleared_sum": 248,
+        "business_primitives": 59941,
+        "actual_execution_wall_s": 0.20098120800685138
+      }
+    },
+    "actual_whole_audit_wall_s": 4.78441245900467
+  },
+  "second_g0_audit_batch": {
+    "unique_worlds_executed": 20,
+    "episode_executions": 60,
+    "business_primitives": 11300,
+    "all_complete": true,
+    "all_planned_executed": true,
+    "max_partition_error_s": 0.0,
+    "by_selector": {
+      "teacher": {
+        "executions": 20,
+        "all_complete": true,
+        "source_denominator_sum": 269,
+        "cleared_sum": 269,
+        "business_primitives": 3799,
+        "fallback_executions": 0,
+        "controller_recovery_executions": 0
+      },
+      "greedy_cost": {
+        "executions": 20,
+        "all_complete": true,
+        "source_denominator_sum": 269,
+        "cleared_sum": 269,
+        "business_primitives": 3733,
+        "fallback_executions": 0,
+        "controller_recovery_executions": 0
+      },
+      "random_legal": {
+        "executions": 20,
+        "all_complete": true,
+        "source_denominator_sum": 269,
+        "cleared_sum": 269,
+        "business_primitives": 3768,
+        "fallback_executions": 0,
+        "controller_recovery_executions": 0
+      }
+    },
+    "snapshot_count": 1751,
+    "payload_count": 24068,
+    "privileged_key_violations": 0,
+    "raw_bytes": 95218450,
+    "gzip_bytes": 10677551,
+    "wall_time_s": 9.611628624959849,
+    "core_hashes_unchanged": true,
+    "interpretation": "G0 correctness/support diversity evidence, not trained-policy performance ranking"
+  },
+  "compressed_evidence_integrity": {
+    "records": 60,
+    "gzip_and_raw_hashes_pass": true,
+    "json_parse_pass": true
+  },
+  "first_batch_by_label": {
+    "original_c7": {
+      "episode_executions": 20,
+      "source_denominator_sum": 248,
+      "cleared_sum": 248,
+      "business_primitives": 3956,
+      "actual_execution_wall_s": 0.34715316898655146
+    },
+    "teacher_wrapper": {
+      "episode_executions": 20,
+      "source_denominator_sum": 248,
+      "cleared_sum": 248,
+      "business_primitives": 3956,
+      "actual_execution_wall_s": 2.2213532517198473
+    },
+    "forced_fallback_after_one": {
+      "episode_executions": 20,
+      "source_denominator_sum": 248,
+      "cleared_sum": 248,
+      "business_primitives": 59941,
+      "actual_execution_wall_s": 0.20098120800685138
+    }
+  },
+  "first_batch_raw_json_total_bytes": 148130932,
+  "exposed_frozen_v1_regression": {
+    "report": "regression_v1/REPORT.md",
+    "checks": "regression_v1/final_checks.json",
+    "unique_old_cases": 2400,
+    "new_worlds": 0,
+    "actual_candidate_episode_executions": 2520,
+    "cached_baseline_rows": 2520,
+    "new_baseline_executions": 0,
+    "candidate_accepted_business_requests": 499464,
+    "rules_and_nominal_accepted_business_requests": 165,
+    "phase_accepted_business_requests": 499629,
+    "phase_call_attempts": 499649,
+    "all_complete": true,
+    "unit_methods_passed": 14,
+    "nominal_passed": 79,
+    "scope": "Separate exposed regression; existing G0 world and primitive totals above remain scoped to G0"
+  }
+}

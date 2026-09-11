@@ -1,0 +1,2307 @@
+{
+  "as_of": "2026-09-11",
+  "status": "research proposal only; no new algorithm, training or policy environment runs",
+  "counts": {
+    "researcher_records": {
+      "A": 29,
+      "B": 21
+    },
+    "unique": 41,
+    "core": 14,
+    "extended": 27,
+    "overlap_unique": 9
+  },
+  "deduplication": "Merge arXiv base ID across versions, exact DOI, otherwise normalized title. Preserve researcher-specific metadata and reading scopes. Reviewer source checks and software documentation are not counted as additional papers.",
+  "records": [
+    {
+      "id": "arxiv:2605.12569",
+      "title": "Active Sensing with Meta-Reinforcement Learning for Emitter Localization from RF Observations",
+      "primary_url": "https://arxiv.org/abs/2605.12569",
+      "researcher_records": {
+        "A": {
+          "id": "2605.12569",
+          "title": "Active Sensing with Meta-Reinforcement Learning for Emitter Localization from RF Observations",
+          "authors": [
+            "Khan, M. Shamail J.",
+            "Raichur, Nisha L.",
+            "Heublein, Lucas",
+            "Wielenberg, Christian",
+            "Mattick, Alexander",
+            "Feigl, Tobias",
+            "Mutschler, Christopher",
+            "Ott, Felix"
+          ],
+          "first_posted": "2026/05/12",
+          "submission_history": "[v1] Tue, 12 May 2026 10:03:41 UTC (5,842 KB) [v2] Fri, 3 Jul 2026 19:37:48 UTC (5,843 KB)",
+          "publication_status": "arXiv v1 2026-05-12; paper header ©2025 IEEE alone does not establish a venue or acceptance date",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2605.12569",
+          "fulltext_url": "https://arxiv.org/html/2605.12569v1",
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "core",
+          "reading_scope": "IV-A–D, V, VI(a–c); figures 2–9 and hyperparameter footnote",
+          "body_access": true,
+          "primary_path": "A3/历史状态聚合",
+          "secondary_tags": [],
+          "problem_and_method": "单静态RF源的多天线IQ导航；CNN表征与可选LSTM，比较PPO/DQN和meta-adaptation。",
+          "experiment_protocol_and_budget": "Sionna室内工业厅、2×2天线、每天线1024 IQ样本；1e6训练步；成功=进入未给数值的epsilon目标邻域。",
+          "reported_results": "VI(a)PPO80.1%、DQN76.3%，return4.98/-0.09；VI(b)循环PPO的value explained variance更高。",
+          "limitations": "未找到实际evaluation N/CI；gamma、并行度等不同；goal-state输入的部署可得性未澄清；不支持多源全清或PPO普遍优于DQN。",
+          "transfer_to_this_task": "只将循环是否改善压缩belief当消融假设；保留训练奖励/actor信息边界。",
+          "evidence_locator": "IV-A–D, V, VI(a–c); figures 2–9 and hyperparameter footnote",
+          "classification_confidence": "high",
+          "source_grade": "primary manuscript",
+          "notes": "本轮核心数值按已读v1定位；元数据列有2026-07-03 v2，不据此声称v2逐页核验。6 pages, 9 figures。"
+        }
+      },
+      "evidence_tier": "core",
+      "display_id": "L01"
+    },
+    {
+      "id": "arxiv:2512.02535",
+      "title": "AID: Agent Intent from Diffusion for Multi-Agent Informative Path Planning",
+      "primary_url": "https://arxiv.org/abs/2512.02535",
+      "researcher_records": {
+        "A": {
+          "id": "2512.02535",
+          "title": "AID: Agent Intent from Diffusion for Multi-Agent Informative Path Planning",
+          "authors": [
+            "Lew, Jeric",
+            "Cao, Yuhong",
+            "Tan, Derek Ming Siang",
+            "Sartoretti, Guillaume"
+          ],
+          "first_posted": "2025/12/02",
+          "submission_history": "[v1] Tue, 2 Dec 2025 09:00:12 UTC (1,063 KB) [v2] Thu, 30 Apr 2026 01:12:10 UTC (3,757 KB)",
+          "publication_status": "arXiv v1 2025-12-02/v2 2026-04-30; formal venue not verified",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2512.02535",
+          "fulltext_url": "https://arxiv.org/html/2512.02535",
+          "code_url": "https://github.com/marmotlab/AID",
+          "code_status": "public repository API verified; not installed/run",
+          "evidence_layer": "core",
+          "reading_scope": "§3.2, §4.1–4.6, §5; Table1",
+          "body_access": true,
+          "primary_path": "A5/扩散轨迹与意图",
+          "secondary_tags": [],
+          "problem_and_method": "多智能体图attention编码，diffusion一次产生长期意图轨迹，BC后DPPO微调。",
+          "experiment_protocol_and_budget": "3agent训练，200PRM节点、20邻居、20去噪步/后10步微调、8步预测/2步执行、每步5候选轨迹；100未见测试环境、3/5/10agent。",
+          "reported_results": "3agent RIGTreeSGA trace68.4→56.5约17%；3agent IntentMAIPP38.6→13.0s；不是本题虚拟任务耗时。",
+          "limitations": "AID不是已确认AID-RL全称；多智能体意图非本题需求；BC alone较专家差，FT收益依专家。15–30h来自RTX4080SUPER不可外推Mac。",
+          "transfer_to_this_task": "支持先BC再RL且保留BC-only对照；不建议当前先加diffusion或多智能体模块。",
+          "evidence_locator": "§3.2, §4.1–4.6, §5; Table1",
+          "classification_confidence": "high",
+          "source_grade": "primary manuscript",
+          "notes": null
+        },
+        "B": {
+          "id": "arxiv:2512.02535",
+          "short_name": "AID",
+          "title": "AID: Agent Intent from Diffusion for Multi-Agent Informative Path Planning",
+          "authors": [
+            "Lew, Jeric",
+            "Cao, Yuhong",
+            "Tan, Derek Ming Siang",
+            "Sartoretti, Guillaume"
+          ],
+          "first_public_date": "2025-12-02",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only;  ; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "extended",
+          "primary_url": "https://arxiv.org/abs/2512.02535",
+          "full_text_url": "https://arxiv.org/pdf/2512.02535",
+          "pdf_downloaded": true,
+          "actual_read_scope": "arXiv摘要与元数据；PDF下载但未读方法全文",
+          "code_url": "https://github.com/marmotlab/AID",
+          "project_url": null,
+          "code_status": "Official repository page fetched and title/identity checked 2026-09-11; implementation not read or executed",
+          "data_url": null,
+          "problem": "多agent信息收集的长期intent与协调。",
+          "mechanism": "扩散生成长期轨迹，既有planner示范BC→DPPO。",
+          "experiment_protocol": "多agent IPP；摘要声称4×执行/最高17%IG，B未核完整实验条件不采用数值。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "BC后RL工作流。",
+          "limitations": "单机器狗无队友意图，核心多agent收益不能移植；A负责用户AID-RL身份进一步核实。",
+          "primary_classification_path": [
+            "学习长期任务价值",
+            "多机器人轨迹策略",
+            "扩散BC后DPPO"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "medium_abstract_based",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2512.02535",
+              "locator": "arXiv identity, date, abstract/comments"
+            },
+            {
+              "source": "https://arxiv.org/pdf/2512.02535",
+              "locator": "arXiv摘要与元数据；PDF下载但未读方法全文"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "core",
+      "display_id": "L02"
+    },
+    {
+      "id": "arxiv:2602.03939",
+      "title": "C-IDS: Solving Contextual POMDP via Information-Directed Objective",
+      "primary_url": "https://arxiv.org/abs/2602.03939",
+      "researcher_records": {
+        "A": {
+          "id": "2602.03939",
+          "title": "C-IDS: Solving Contextual POMDP via Information-Directed Objective",
+          "authors": [
+            "Shi, Chongyang",
+            "Dorothy, Michael",
+            "Fu, Jie"
+          ],
+          "first_posted": "2026/02/03",
+          "submission_history": "[v1] Tue, 3 Feb 2026 19:00:34 UTC (451 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2602.03939",
+          "fulltext_url": "https://arxiv.org/html/2602.03939",
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "core",
+          "reading_scope": "§2.1–2.2, §3 statement/assumptions, §4 experiment; proofs not line-by-line verified",
+          "body_access": true,
+          "primary_path": "A6/信息导向目标",
+          "secondary_tags": [],
+          "problem_and_method": "contextual POMDP信息目标采用reward+互信息的拉格朗日形式，用variational policy gradient与LSTM实现。",
+          "experiment_protocol_and_budget": "一维Light-Dark、2latentcontext、三离散动作、T20；理论context跨episode固定；有界reward与Bayes-optimal比较。",
+          "reported_results": "给出特定假设下Bayesian regret界；文中Light-Dark验证，未复算理论或实验。",
+          "limitations": "本题新局重新源配置，与固定context跨局设定不同；不能把actor分数或log-area称真实regret/MI。 B对Lemma3.6/Eq19及跨episode context语义提出尚待核实疑问；A未完成全证明复核，不将regret保证迁移本题，也不声称已证伪整篇。",
+          "transfer_to_this_task": "直接反例于“IDS只能用DQN”；可研究信息目标，但Q+IG打分若非posterior IDS应叫代理。",
+          "evidence_locator": "§2.1–2.2, §3 statement/assumptions, §4 experiment; proofs not line-by-line verified",
+          "classification_confidence": "high",
+          "source_grade": "primary manuscript",
+          "notes": null
+        },
+        "B": {
+          "id": "arxiv:2602.03939",
+          "short_name": "C-IDS",
+          "title": "C-IDS: Solving Contextual POMDP via Information-Directed Objective",
+          "authors": [
+            "Shi, Chongyang",
+            "Dorothy, Michael",
+            "Fu, Jie"
+          ],
+          "first_public_date": "2026-02-03",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only;  ; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "core",
+          "primary_url": "https://arxiv.org/abs/2602.03939",
+          "full_text_url": "https://arxiv.org/pdf/2602.03939",
+          "pdf_downloaded": true,
+          "actual_read_scope": "PDF p1–8；附录Lemma3.6/Eq19前后；17页全文已取得但非全证明核验",
+          "code_url": null,
+          "project_url": null,
+          "code_status": "no direct official code URL verified in B; absence not asserted",
+          "data_url": null,
+          "problem": "在未知context的POMDP中同时获取回报和context信息。",
+          "mechanism": "reward+τMI的variational policy gradient；LSTM+EKF似然；线性而非平方信息比率。",
+          "experiment_protocol": "一维Light–Dark，2 contexts、3 actions、horizon20；10000训练episode；每梯度200轨迹；200测试trajectory；比较POMCP/RDPG-RNN。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "说明信息驱动不限DQN；可明确检测可见侧等χ并评估信息作用。",
+          "limitations": "§2.1可变context与§3固定context不同；附录从有限episode断言universal η的正信息界未核通过；实验窄且Gaussian可重复噪声不同；ICML模板不等于录用。",
+          "primary_classification_path": [
+            "信息价值与探索",
+            "上下文识别",
+            "线性信息比率的策略梯度目标"
+          ],
+          "secondary_tags": [
+            "partial_observability"
+          ],
+          "classification_confidence": "high",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2602.03939",
+              "locator": "arXiv identity, date, abstract/comments"
+            },
+            {
+              "source": "https://arxiv.org/pdf/2602.03939",
+              "locator": "PDF p1–8；附录Lemma3.6/Eq19前后；17页全文已取得但非全证明核验"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "core",
+      "display_id": "L03"
+    },
+    {
+      "id": "title:catnippcontextawareattentionbasednetworkforinformativepathplanning",
+      "title": "CAtNIPP: Context-Aware Attention-based Network for Informative Path Planning",
+      "primary_url": "https://proceedings.mlr.press/v205/cao23b.html",
+      "researcher_records": {
+        "A": {
+          "id": "catnipp-corl2022",
+          "title": "CAtNIPP: Context-Aware Attention-based Network for Informative Path Planning",
+          "authors": [
+            "Yuhong Cao",
+            "Yizhuo Wang",
+            "Apoorva Vashisth",
+            "Haolin Fan",
+            "Guillaume Adrien Sartoretti"
+          ],
+          "first_posted": null,
+          "publication_status": "CoRL2022 (paper page1); PMLR205:1928–1937,2023 (official proceedings)",
+          "venue_awards": "no award claim",
+          "paper_url": "https://proceedings.mlr.press/v205/cao23b.html",
+          "fulltext_url": "https://proceedings.mlr.press/v205/cao23b/cao23b.pdf",
+          "code_url": "https://github.com/marmotlab/CAtNIPP",
+          "code_status": "public repository API/README verified; original code and pretrained model link, not run",
+          "evidence_layer": "core",
+          "reading_scope": "PDF pp3–7: §3,§4.1–4.4,§5.1; Fig2,Table1; p1 venue and p6 hardware footnotes",
+          "body_access": true,
+          "primary_path": "A1/候选图注意力",
+          "secondary_tags": [
+            "PPO",
+            "LSTM",
+            "Pointer",
+            "budget-mask"
+          ],
+          "problem_and_method": "GP belief-augmented PRM、Transformer attention、LSTM历史与pointer actor/critic，用PPO选择邻接点。",
+          "experiment_protocol_and_budget": "200–400训练节点、20邻居、32并行实例；10trials×30instances/budget；移动0.2单位自动测量；原文GPU训练配置不用于Mac估时。",
+          "reported_results": "Table1报告covariance trace和规划现实耗时；不等同本题虚拟秒/源。",
+          "limitations": "到destination的预算mask不提供多源全清；原文自己指出动态reward归一化与目标有偏差；图/LSTM/PPO/pointer组合已有先例。",
+          "transfer_to_this_task": "作为结构先例与强消融设计，不能把组合本身称新架构贡献。",
+          "evidence_locator": "pp4–6,Fig2,Table1",
+          "classification_confidence": "high",
+          "source_grade": "official proceedings PDF"
+        }
+      },
+      "evidence_tier": "core",
+      "display_id": "L04"
+    },
+    {
+      "id": "arxiv:2402.04894",
+      "title": "Deep Reinforcement Learning with Dynamic Graphs for Adaptive Informative Path Planning",
+      "primary_url": "https://arxiv.org/abs/2402.04894",
+      "researcher_records": {
+        "A": {
+          "id": "2402.04894",
+          "title": "Deep Reinforcement Learning with Dynamic Graphs for Adaptive Informative Path Planning",
+          "authors": [
+            "Vashisth, Apoorva",
+            "Rückin, Julius",
+            "Magistri, Federico",
+            "Stachniss, Cyrill",
+            "Popović, Marija"
+          ],
+          "first_posted": "2024/02/07",
+          "submission_history": "[v1] Wed, 7 Feb 2024 14:24:41 UTC (17,723 KB) [v2] Fri, 5 Jul 2024 06:07:43 UTC (7,017 KB)",
+          "publication_status": "arXiv v1 2024-02-07/v2 2024-07-05; official author repo identifies RA-L 2024 and links IEEE10578000; no award claim",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2402.04894",
+          "fulltext_url": "https://arxiv.org/html/2402.04894",
+          "code_url": "https://github.com/dmar-bonn/ipp-rl-3d",
+          "code_status": "public repository API and README verified; not installed/run",
+          "evidence_layer": "core",
+          "reading_scope": "III-A–D, IV-A–D; Tables I–III",
+          "body_access": true,
+          "primary_path": "A1/候选图注意力",
+          "secondary_tags": [],
+          "problem_and_method": "以局部动态候选位置和yaw构图，继承CAtNIPP注意力actor-critic并用PPO，奖励兼顾探索与目标发现。",
+          "experiment_protocol_and_budget": "50³体素果园；训练约440000交互、12并行环境；测试25环境×20试验=500trials，预算10。",
+          "reported_results": "Table I K20:发现率65.49±6.23%，CAtNIPP ts57.14±7.60%；同reward图消融中CAtNIPP63.27±6.89，图本身差异小于总差异。",
+          "limitations": "按移动固定间隔免费获图像，指标是预算内发现率，未全清；局部图可能遗漏全局任务。作者代码README列Python3.7/PyTorch1.13/Ray2.7，非本机就绪。",
+          "transfer_to_this_task": "可迁移动态候选与同reward消融；保留C7 continuation/fallback候选避免候选集缺失。",
+          "evidence_locator": "III-A–D, IV-A–D; Tables I–III",
+          "classification_confidence": "high",
+          "source_grade": "primary manuscript",
+          "notes": "8 pages, 6 figures"
+        }
+      },
+      "evidence_tier": "core",
+      "display_id": "L05"
+    },
+    {
+      "id": "arxiv:2410.17186",
+      "title": "DyPNIPP: Predicting Environment Dynamics for RL-based Robust Informative Path Planning",
+      "primary_url": "https://arxiv.org/abs/2410.17186",
+      "researcher_records": {
+        "A": {
+          "id": "2410.17186",
+          "title": "DyPNIPP: Predicting Environment Dynamics for RL-based Robust Informative Path Planning",
+          "authors": [
+            "Deolasee, Srujan",
+            "Kailas, Siva",
+            "Luo, Wenhao",
+            "Sycara, Katia",
+            "Kim, Woojun"
+          ],
+          "first_posted": "2024/10/22",
+          "submission_history": "[v1] Tue, 22 Oct 2024 17:07:26 UTC (14,039 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2410.17186",
+          "fulltext_url": "https://arxiv.org/html/2410.17186",
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "core",
+          "reading_scope": "III-B1–3, IV-A–D; TablesI–IV",
+          "body_access": true,
+          "primary_path": "A3/历史状态聚合",
+          "secondary_tags": [],
+          "problem_and_method": "domain randomization加时序动态预测encoder，把16维环境context送入CAtNIPP的LSTM/PPO。",
+          "experiment_protocol_and_budget": "FireCommander动态火场；fuel1–10、风向随机；200图节点/20邻居；16并行环境，原文硬件EPYC7713/RTX6000Ada。",
+          "reported_results": "文中变化fuel/火源数时预测context改善RMSE；不移植数值至静态本题。",
+          "limitations": "研究真实动态场，和本题静态源+同址固定误差不同；单纯有历史不证明GRU在本题有收益。",
+          "transfer_to_this_task": "仅借鉴误差场/任务参数随机化及受控记忆消融，不训练虚构源运动。",
+          "evidence_locator": "III-B1–3, IV-A–D; TablesI–IV",
+          "classification_confidence": "high",
+          "source_grade": "primary manuscript",
+          "notes": "8 pages, 4 figures, submitted to IEEE RA-L"
+        },
+        "B": {
+          "id": "arxiv:2410.17186",
+          "short_name": "DyPNIPP",
+          "title": "DyPNIPP: Predicting Environment Dynamics for RL-based Robust Informative Path Planning",
+          "authors": [
+            "Deolasee, Srujan",
+            "Kailas, Siva",
+            "Luo, Wenhao",
+            "Sycara, Katia",
+            "Kim, Woojun"
+          ],
+          "first_public_date": "2024-10-22",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only; 8 pages, 4 figures, submitted to IEEE RA-L ; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "extended",
+          "primary_url": "https://arxiv.org/abs/2410.17186",
+          "full_text_url": "https://arxiv.org/pdf/2410.17186",
+          "pdf_downloaded": true,
+          "actual_read_scope": "arXiv摘要/元数据；PDF下载但未读方法全文",
+          "code_url": null,
+          "project_url": null,
+          "code_status": "no direct official code URL verified in B; absence not asserted",
+          "data_url": null,
+          "problem": "动态环境IPP泛化。",
+          "mechanism": "域随机化+动态预测模型。",
+          "experiment_protocol": "wildfire spatio-temporal environments；本轮只读摘要，详细budget未核。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "误差场域随机化可借鉴思路。",
+          "limitations": "本题源静态；不能因此制造移动源或假装重现wildfire实验。",
+          "primary_classification_path": [
+            "统一任务表示",
+            "环境变化适配",
+            "动态预测与域随机化"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "medium_abstract_based",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2410.17186",
+              "locator": "arXiv identity, date, abstract/comments"
+            },
+            {
+              "source": "https://arxiv.org/pdf/2410.17186",
+              "locator": "arXiv摘要/元数据；PDF下载但未读方法全文"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "core",
+      "display_id": "L06"
+    },
+    {
+      "id": "arxiv:2405.15384",
+      "title": "Efficient Recurrent Off-Policy RL Requires a Context-Encoder-Specific Learning Rate",
+      "primary_url": "https://arxiv.org/abs/2405.15384",
+      "researcher_records": {
+        "B": {
+          "id": "arxiv:2405.15384",
+          "short_name": "RESeL",
+          "title": "Efficient Recurrent Off-Policy RL Requires a Context-Encoder-Specific Learning Rate",
+          "authors": [
+            "Luo, Fan-Ming",
+            "Tu, Zuolin",
+            "Huang, Zefang",
+            "Yu, Yang"
+          ],
+          "first_public_date": "2024-05-24",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only;  ; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "core",
+          "primary_url": "https://arxiv.org/abs/2405.15384",
+          "full_text_url": "https://arxiv.org/pdf/2405.15384",
+          "pdf_downloaded": true,
+          "actual_read_scope": "PDF p1–4问题与架构；p6–9实验/限制；附录C.2 p17、表2 p21",
+          "code_url": null,
+          "project_url": null,
+          "code_status": "no direct official code URL verified in B; absence not asserted",
+          "data_url": null,
+          "problem": "稳定训练部分可观测任务的recurrent off-policy actor-critic。",
+          "mechanism": "SAC+8 critic ensemble，context encoder用更小学习率；GRU/Mamba比较；全轨迹重放。",
+          "experiment_protocol": "18 POMDP与5 MDP locomotion任务；PyBullet隐藏位置/速度、MuJoCo重力随机化、meta-RL、credit assignment；各任务多百万交互，GRU部分消融0.75M。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "部分可观测不排除off-policy；若GRU有增益须调独立编码器学习率并验证训练/部署序列一致。",
+          "limitations": "连续动作SAC不同于本题候选Q；默认Mamba含自定义reset，Apple直接可用未核实；完整序列重放有padding/峰值内存成本；未证明GRU总必要。",
+          "primary_classification_path": [
+            "学习长期任务价值",
+            "历史编码稳定性",
+            "编码器专用学习率"
+          ],
+          "secondary_tags": [
+            "partial_observability"
+          ],
+          "classification_confidence": "high",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2405.15384",
+              "locator": "arXiv identity, date, abstract/comments"
+            },
+            {
+              "source": "https://arxiv.org/pdf/2405.15384",
+              "locator": "PDF p1–4问题与架构；p6–9实验/限制；附录C.2 p17、表2 p21"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "core",
+      "display_id": "L07"
+    },
+    {
+      "id": "arxiv:2502.02538",
+      "title": "Flow Q-Learning",
+      "primary_url": "https://arxiv.org/abs/2502.02538",
+      "researcher_records": {
+        "B": {
+          "id": "arxiv:2502.02538",
+          "short_name": "FQL",
+          "title": "Flow Q-Learning",
+          "authors": [
+            "Park, Seohong",
+            "Li, Qiyang",
+            "Levine, Sergey"
+          ],
+          "first_public_date": "2025-02-04",
+          "publication_status": "ICML 2025 / PMLR267",
+          "publication_status_evidence": "arXiv metadata and PMLR conference-paper PDF header; official proceedings not independently opened",
+          "award_status": "not checked; none claimed",
+          "tier": "core",
+          "primary_url": "https://arxiv.org/abs/2502.02538",
+          "full_text_url": "https://arxiv.org/pdf/2502.02538",
+          "pdf_downloaded": true,
+          "actual_read_scope": "PDF p1–7，重点§2–3/Algorithm1及§5.1/表2",
+          "code_url": "https://github.com/seohongpark/fql",
+          "project_url": "https://seohong.me/projects/fql/",
+          "code_status": "Official repository page fetched and title/identity checked 2026-09-11; implementation not read or executed",
+          "data_url": null,
+          "problem": "用表达力强但高效的策略处理复杂离线动作分布。",
+          "mechanism": "flow只做BC；另一个一步策略在蒸馏约束下优化Q，绕开迭代flow的Q反传。",
+          "experiment_protocol": "73任务=50 state OGBench+5 visual+6 D4RL antmaze+12 adroit；state8 seeds/pixel4 seeds；固定梯度步评估；部分对照为既有文献数字。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "连续多个优良清除/测点落点若为瓶颈，可考虑流策略；当前有限候选先用离散打分。",
+          "limitations": "动作空间R^d；频道/动作类型混合离散需重新设计；不是硬完整性约束；JAX原代码不等于MPS直接部署。",
+          "primary_classification_path": [
+            "学习长期任务价值",
+            "连续多峰动作",
+            "流BC蒸馏一步价值策略"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "high",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2502.02538",
+              "locator": "arXiv identity, date, abstract/comments"
+            },
+            {
+              "source": "https://arxiv.org/pdf/2502.02538",
+              "locator": "PDF p1–7，重点§2–3/Algorithm1及§5.1/表2"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "core",
+      "display_id": "L08"
+    },
+    {
+      "id": "arxiv:2605.29405",
+      "title": "Information-Directed Offline-to-Online Reinforcement Learning",
+      "primary_url": "https://arxiv.org/abs/2605.29405",
+      "researcher_records": {
+        "A": {
+          "id": "2605.29405",
+          "title": "Information-Directed Offline-to-Online Reinforcement Learning",
+          "authors": [
+            "Chen, Keru"
+          ],
+          "first_posted": "2026/05/28",
+          "submission_history": "[v1] Thu, 28 May 2026 05:58:15 UTC (32 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2605.29405",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only; B supplied discovery identity",
+          "body_access": false,
+          "primary_path": "A6/信息导向目标",
+          "secondary_tags": [],
+          "problem_and_method": "条件于离线数据的剩余信息与IDS regret证书。",
+          "experiment_protocol_and_budget": "known-dynamics Bayesian linear reward理论例；只核摘要。",
+          "reported_results": "不复述未读证明或数值。",
+          "limitations": "不是IRIS；理论posterior和参考策略条件不可直接用于Q+IG代理。",
+          "transfer_to_this_task": "作为B路线文献对照，本A不冒称已深读。",
+          "evidence_locator": "arXiv metadata and abstract only; B supplied discovery identity",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": null
+        },
+        "B": {
+          "id": "arxiv:2605.29405",
+          "short_name": "ROID / Offline-to-Online IDS",
+          "title": "Information-Directed Offline-to-Online Reinforcement Learning",
+          "authors": [
+            "Chen, Keru"
+          ],
+          "first_public_date": "2026-05-28",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only;  ; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "core",
+          "primary_url": "https://arxiv.org/abs/2605.29405",
+          "full_text_url": "https://arxiv.org/pdf/2605.29405",
+          "pdf_downloaded": true,
+          "actual_read_scope": "PDF p1–4、§6–7 p7–9、Table1/2；未完整核验附录全部regret证明",
+          "code_url": null,
+          "project_url": null,
+          "code_status": "no direct official code URL verified in B; absence not asserted",
+          "data_url": null,
+          "problem": "离线warm-start后定向消除剩余不确定性。",
+          "mechanism": "Δ²/(g+η)；线性Gaussian精确posterior/MI；deep TD3+BC ensemble仅作posterior/IG代理。",
+          "experiment_protocol": "隐藏模式bandit10 seeds、线性context bandit20 seeds；D4RL deep3 seeds；已知动力学线性reward理论与deep实验分开。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "IDS若使用要标明学习目标和信息估计；先比较无IDS Q/PPO，后测残余可见侧信息。",
+          "limitations": "预印本；deep保证不随理论自动转移；D4RL优势非本题SOTA；固定误差场、连续joint belief及未知源数均未覆盖。",
+          "primary_classification_path": [
+            "信息价值与探索",
+            "残余不确定性",
+            "离线后信息比率"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "high",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2605.29405",
+              "locator": "arXiv identity, date, abstract/comments"
+            },
+            {
+              "source": "https://arxiv.org/pdf/2605.29405",
+              "locator": "PDF p1–4、§6–7 p7–9、Table1/2；未完整核验附录全部regret证明"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "core",
+      "display_id": "L09"
+    },
+    {
+      "id": "arxiv:2404.06940",
+      "title": "Learning-based Methods for Adaptive Informative Path Planning",
+      "primary_url": "https://arxiv.org/abs/2404.06940",
+      "researcher_records": {
+        "A": {
+          "id": "2404.06940",
+          "title": "Learning-based Methods for Adaptive Informative Path Planning",
+          "authors": [
+            "Popovic, Marija",
+            "Ott, Joshua",
+            "Rückin, Julius",
+            "Kochenderfer, Mykel J."
+          ],
+          "first_posted": "2024/04/10",
+          "submission_history": "[v1] Wed, 10 Apr 2024 11:45:31 UTC (121 KB) [v2] Mon, 15 Apr 2024 07:47:10 UTC (121 KB) [v3] Tue, 23 Jul 2024 12:55:33 UTC (923 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2404.06940",
+          "fulltext_url": "https://arxiv.org/html/2404.06940",
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "core",
+          "reading_scope": "§2, §3.2–3.3, §4.2 and CAtNIPP/graph references; not all cited papers",
+          "body_access": true,
+          "primary_path": "D/分类与评测综述",
+          "secondary_tags": [],
+          "problem_and_method": "从学习算法与应用两轴梳理AIPP，统一POMDP、belief、动作和信息目标。",
+          "experiment_protocol_and_budget": "综述；§3.3明确任务、传感器、地图、模拟器不同造成benchmark不可比。",
+          "reported_results": "不提供本题算法排名；用于检索扩展与评测边界。",
+          "limitations": "2024综述不能代表2026已穷尽；其引用条目不计作本轮已读正文。",
+          "transfer_to_this_task": "同一env/action/cost/预算比较，区别地图信息指标与全源清除时间。",
+          "evidence_locator": "§2, §3.2–3.3, §4.2 and CAtNIPP/graph references; not all cited papers",
+          "classification_confidence": "high",
+          "source_grade": "primary manuscript",
+          "notes": "24 pages, 3 figures"
+        }
+      },
+      "evidence_tier": "core",
+      "display_id": "L10"
+    },
+    {
+      "id": "arxiv:2301.04104",
+      "title": "Mastering Diverse Domains through World Models",
+      "primary_url": "https://arxiv.org/abs/2301.04104",
+      "researcher_records": {
+        "B": {
+          "id": "arxiv:2301.04104",
+          "short_name": "DreamerV3",
+          "title": "Mastering Diverse Domains through World Models",
+          "authors": [
+            "Hafner, Danijar",
+            "Pasukonis, Jurgis",
+            "Ba, Jimmy",
+            "Lillicrap, Timothy"
+          ],
+          "first_public_date": "2023-01-10",
+          "publication_status": "arXiv v2, 2024-04-17 read",
+          "publication_status_evidence": "foundational 2023 preprint with 2024 update; no later journal-version claim in B",
+          "award_status": "not checked; none claimed",
+          "tier": "core",
+          "primary_url": "https://arxiv.org/abs/2301.04104",
+          "full_text_url": "https://arxiv.org/pdf/2301.04104",
+          "pdf_downloaded": true,
+          "actual_read_scope": "实际取得并阅读arXiv v2（2024-04-17）PDF p1–3、p5–9；未声称读后续期刊终稿",
+          "code_url": null,
+          "project_url": "https://danijar.com/dreamerv3",
+          "code_status": "Project request returned HTML redirect to /project/dreamerv3/; destination and code not audited in this batch",
+          "data_url": null,
+          "problem": "单配置跨多种控制/游戏任务稳定学习。",
+          "mechanism": "RSSM压缩观测，想象轨迹训练actor/critic；symlog、return normalization、KL balance等稳定化。",
+          "experiment_protocol": "8 domains、150+任务；任务预算不同；每个agent单A100；环境执行用actor而非每步lookahead；本文版本非本题。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "区分训练时想象与部署规划；可借成本尺度稳定化，但不能直接改任务目标。",
+          "limitations": "完整世界模型工程与训练预算大；gamma0.997/T16不可照抄到SMDP时间目标；“跨域通用”不意味源定位保证。",
+          "primary_classification_path": [
+            "模型辅助决策",
+            "想象轨迹学习",
+            "循环世界模型训练actor"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "high",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2301.04104",
+              "locator": "arXiv identity, date, abstract/comments"
+            },
+            {
+              "source": "https://arxiv.org/pdf/2301.04104",
+              "locator": "实际取得并阅读arXiv v2（2024-04-17）PDF p1–3、p5–9；未声称读后续期刊终稿"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "core",
+      "display_id": "L11"
+    },
+    {
+      "id": "arxiv:2409.16830",
+      "title": "OffRIPP: Offline RL-based Informative Path Planning",
+      "primary_url": "https://arxiv.org/abs/2409.16830",
+      "researcher_records": {
+        "A": {
+          "id": "2409.16830",
+          "title": "OffRIPP: Offline RL-based Informative Path Planning",
+          "authors": [
+            "Gadipudi, Srikar Babu",
+            "Deolasee, Srujan",
+            "Kailas, Siva",
+            "Luo, Wenhao",
+            "Sycara, Katia",
+            "Kim, Woojun"
+          ],
+          "first_posted": "2024/09/25",
+          "submission_history": "[v1] Wed, 25 Sep 2024 11:30:59 UTC (840 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2409.16830",
+          "fulltext_url": "https://arxiv.org/html/2409.16830",
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "core",
+          "reading_scope": "III-A–B, IV-A–E; Eq3–5 and TablesI–II",
+          "body_access": true,
+          "primary_path": "A4/离线行为支持约束",
+          "secondary_tags": [],
+          "problem_and_method": "先行为克隆近似数据行为分布，再用batch-constrained Q选择支持内动作以减轻外推误差。",
+          "experiment_protocol_and_budget": "light-intensity及3D果实；expert/medium/greedy三类离线数据；50测试环境；batch256、1epoch，原文3/18小时是其Xeon/3×RTX6000硬件。",
+          "reported_results": "多数条件优于BC及离线训练PPO；3D专家数据budget10为61.48±6.88% vs BC59.69±7.51%。",
+          "limitations": "PPO对照是直接用固定离线集训练，非公平在线PPO算法排序。Eq4阈值条件与tau=0/1解释文字表面相反，未核官方代码，不能直接照抄实现。",
+          "transfer_to_this_task": "可考虑C7轨迹预训练/保守离线Q对照；BC必须作为独立对照，固定数据不直接拿来做on-policy PPO。",
+          "evidence_locator": "III-A–B, IV-A–E; Eq3–5 and TablesI–II",
+          "classification_confidence": "high",
+          "source_grade": "primary manuscript",
+          "notes": "7 pages, 6 figures, submitted to ICRA 2025"
+        },
+        "B": {
+          "id": "arxiv:2409.16830",
+          "short_name": "OffRIPP",
+          "title": "OffRIPP: Offline RL-based Informative Path Planning",
+          "authors": [
+            "Gadipudi, Srikar Babu",
+            "Deolasee, Srujan",
+            "Kailas, Siva",
+            "Luo, Wenhao",
+            "Sycara, Katia",
+            "Kim, Woojun"
+          ],
+          "first_public_date": "2024-09-25",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only; 7 pages, 6 figures, submitted to ICRA 2025 ; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "core",
+          "primary_url": "https://arxiv.org/abs/2409.16830",
+          "full_text_url": "https://arxiv.org/pdf/2409.16830",
+          "pdf_downloaded": true,
+          "actual_read_scope": "PDF p1–6全文；p7参考文献中CAtNIPP、Dynamic Graph、BCQ/CQL链路",
+          "code_url": null,
+          "project_url": null,
+          "code_status": "no direct official code URL verified in B; absence not asserted",
+          "data_url": null,
+          "problem": "从既有IPP数据学习预算内最大信息量路径。",
+          "mechanism": "行为策略拟合+batch-constrained Q；复用GP图注意力/LSTM骨干。",
+          "experiment_protocol": "2D光强及3D水果识别；每类数据18500轨迹，预算6/8/10；50环境实例；2D400 PRM节点、20邻居、256步上限；小型机器人投影光场演示。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "直接支持先用C7示范、显式约束离线动作支持、对BC独立比较。",
+          "limitations": "表I专家数据下不及数据生成专家；PPO对照直接离线训练，不证明胜正确on-policy PPO；Eq4门槛与端点文字矛盾；数据分布外动作估值问题；无本题方向源/清除完整性。",
+          "primary_classification_path": [
+            "学习长期任务价值",
+            "行为支持约束",
+            "离线候选Q"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "high",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2409.16830",
+              "locator": "arXiv identity, date, abstract/comments"
+            },
+            {
+              "source": "https://arxiv.org/pdf/2409.16830",
+              "locator": "PDF p1–6全文；p7参考文献中CAtNIPP、Dynamic Graph、BCQ/CQL链路"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "core",
+      "display_id": "L12"
+    },
+    {
+      "id": "arxiv:2310.16828",
+      "title": "TD-MPC2: Scalable, Robust World Models for Continuous Control",
+      "primary_url": "https://arxiv.org/abs/2310.16828",
+      "researcher_records": {
+        "B": {
+          "id": "arxiv:2310.16828",
+          "short_name": "TD-MPC2",
+          "title": "TD-MPC2: Scalable, Robust World Models for Continuous Control",
+          "authors": [
+            "Hansen, Nicklas",
+            "Su, Hao",
+            "Wang, Xiaolong"
+          ],
+          "first_public_date": "2023-10-25",
+          "publication_status": "ICLR 2024",
+          "publication_status_evidence": "arXiv metadata and conference-paper PDF header; official proceedings not independently opened",
+          "award_status": "not checked; none claimed",
+          "tier": "core",
+          "primary_url": "https://arxiv.org/abs/2310.16828",
+          "full_text_url": "https://arxiv.org/pdf/2310.16828",
+          "pdf_downloaded": true,
+          "actual_read_scope": "PDF p1–5，§3.1–3.3、Fig1/4和§4开头",
+          "code_url": "https://github.com/nicklashansen/tdmpc2",
+          "project_url": "https://tdmpc2.com",
+          "code_status": "Code link read from official project page; repository implementation not independently audited",
+          "data_url": null,
+          "problem": "跨连续控制任务训练可扩展、稳健的隐式世界模型并规划。",
+          "mechanism": "decoder-free latent dynamics/reward/value联合学习、SimNorm、Q ensemble、MPPI+policy prior+learned terminal value。",
+          "experiment_protocol": "104 online control tasks、4 task domains；主要图3 seeds/95%CI；多任务317M模型80任务；连续动作最高39维。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "借用短规划+终值分解；本题移动计费已知，优先用解析转移，不直接重学物理。",
+          "limitations": "模型近似误差、规划预算、连续动作；task embedding若含本题不可知任务标签会泄漏；动作维度mask不等于动态候选安全证书。",
+          "primary_classification_path": [
+            "模型辅助决策",
+            "学习潜在动力学",
+            "短视规划与终值"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "high",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2310.16828",
+              "locator": "arXiv identity, date, abstract/comments"
+            },
+            {
+              "source": "https://arxiv.org/pdf/2310.16828",
+              "locator": "PDF p1–5，§3.1–3.3、Fig1/4和§4开头"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "core",
+      "display_id": "L13"
+    },
+    {
+      "id": "arxiv:2410.17166",
+      "title": "Towards Map-Agnostic Policies for Adaptive Informative Path Planning",
+      "primary_url": "https://arxiv.org/abs/2410.17166",
+      "researcher_records": {
+        "A": {
+          "id": "2410.17166",
+          "title": "Towards Map-Agnostic Policies for Adaptive Informative Path Planning",
+          "authors": [
+            "Rückin, Julius",
+            "Morilla-Cabello, David",
+            "Stachniss, Cyrill",
+            "Montijano, Eduardo",
+            "Popović, Marija"
+          ],
+          "first_posted": "2024/10/22",
+          "submission_history": "[v1] Tue, 22 Oct 2024 16:43:21 UTC (7,072 KB) [v2] Mon, 7 Apr 2025 07:35:49 UTC (7,150 KB)",
+          "publication_status": "arXiv v1 2024-10-22/v2 2025-04-07; manuscript says accepted2025-03-18; final publisher record not checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2410.17166",
+          "fulltext_url": "https://arxiv.org/html/2410.17166",
+          "code_url": "https://github.com/dmar-bonn/ipp-rl-gen",
+          "code_status": "public repository API verified; not installed/run",
+          "evidence_layer": "core",
+          "reading_scope": "IV-A–C, V-A–D; Eq5 and TableI",
+          "body_access": true,
+          "primary_path": "A2/统一belief摘要",
+          "secondary_tags": [],
+          "problem_and_method": "用兴趣概率、地图不确定性、机器人状态与任务超参数统一不同地图；PPO+IMPALA/MLP。",
+          "experiment_protocol_and_budget": "连续GP/离散占据图；固定与变化超参数场景；真实地形数据Temperature/Potsdam/RIT-18。",
+          "reported_results": "变化任务参数时统一表征在文中优于地图专用策略；非本题结果，不移植数值。",
+          "limitations": "依赖指定概率地图模型；兴趣概率/熵摘要不因此成为任何任务的充分Markov状态。",
+          "transfer_to_this_task": "强belief与任务上下文可先用于轻量策略；不必默认异构图和GRU都必要。",
+          "evidence_locator": "IV-A–C, V-A–D; Eq5 and TableI",
+          "classification_confidence": "high",
+          "source_grade": "primary manuscript",
+          "notes": "8 pages, 4 figures"
+        },
+        "B": {
+          "id": "arxiv:2410.17166",
+          "short_name": "Map-Agnostic IPP",
+          "title": "Towards Map-Agnostic Policies for Adaptive Informative Path Planning",
+          "authors": [
+            "Rückin, Julius",
+            "Morilla-Cabello, David",
+            "Stachniss, Cyrill",
+            "Montijano, Eduardo",
+            "Popović, Marija"
+          ],
+          "first_public_date": "2024-10-22",
+          "publication_status": "IEEE RA-L accepted 2025-03-18",
+          "publication_status_evidence": "PDF p1 acceptance line; final publisher DOI not independently checked",
+          "award_status": "not checked; none claimed",
+          "tier": "core",
+          "primary_url": "https://arxiv.org/abs/2410.17166",
+          "full_text_url": "https://arxiv.org/pdf/2410.17166",
+          "pdf_downloaded": true,
+          "actual_read_scope": "PDF p1–7，重点§III–IV公式5/8、§V表I–III",
+          "code_url": "https://github.com/dmar-bonn/ipp-rl-gen",
+          "project_url": null,
+          "code_status": "Official repository page fetched and title/identity checked 2026-09-11; implementation not read or executed",
+          "data_url": null,
+          "problem": "将连续与离散地图上的IPP统一表示，降低任务/地图依赖。",
+          "mechanism": "兴趣概率+地图不确定性+机器人/剩余预算/任务参数，PPO或Greedy/MCTS/CMA-ES共享表示。",
+          "experiment_protocol": "连续GP与离散occupancy；Static/Varying参数；预算100s；100 missions×3 seeds；Temperature/Potsdam/RIT-18真实地图数据评估。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "把belief/动作表示改善与训练算法改善分开消融；不预设图优于小网络。",
+          "limitations": "概率地图成立是其前提；不是有界角度集合定位；实体机器人真实部署与真实地图回放不同；4ms论文耗时不是本机推理证据。",
+          "primary_classification_path": [
+            "统一任务表示",
+            "概率地图接口",
+            "兴趣概率与不确定性分离"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "high",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2410.17166",
+              "locator": "arXiv identity, date, abstract/comments"
+            },
+            {
+              "source": "https://arxiv.org/pdf/2410.17166",
+              "locator": "PDF p1–7，重点§III–IV公式5/8、§V表I–III"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "core",
+      "display_id": "L14"
+    },
+    {
+      "id": "arxiv:2006.14171",
+      "title": "A Closer Look at Invalid Action Masking in Policy Gradient Algorithms",
+      "primary_url": "https://arxiv.org/abs/2006.14171",
+      "researcher_records": {
+        "A": {
+          "id": "2006.14171",
+          "title": "A Closer Look at Invalid Action Masking in Policy Gradient Algorithms",
+          "authors": [
+            "Huang, Shengyi",
+            "Ontañón, Santiago"
+          ],
+          "first_posted": "2020/06/25",
+          "submission_history": "[v1] Thu, 25 Jun 2020 04:47:09 UTC (4,391 KB) [v2] Fri, 26 Jun 2020 19:15:38 UTC (4,392 KB) [v3] Tue, 31 May 2022 01:58:03 UTC (1,379 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2006.14171",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "C2/运行时安全约束",
+          "secondary_tags": [],
+          "problem_and_method": "研究policy-gradient invalid action masking。",
+          "experiment_protocol_and_budget": "方法奠基；当前仅身份/摘要。",
+          "reported_results": "不引实验数值。",
+          "limitations": "mask合法性不等于任务完整性。",
+          "transfer_to_this_task": "保证存储旧mask/candidates供PPO概率ratio重算。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": "Accepted into the proceedings of International FLAIRS Conference Proceedings, Vol. 35 (2022)"
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L15"
+    },
+    {
+      "id": "arxiv:2603.03191",
+      "title": "A Covering Framework for Offline POMDPs Learning using Belief Space Metric",
+      "primary_url": "https://arxiv.org/abs/2603.03191",
+      "researcher_records": {
+        "B": {
+          "id": "arxiv:2603.03191",
+          "short_name": "Belief-Metric Offline POMDP",
+          "title": "A Covering Framework for Offline POMDPs Learning using Belief Space Metric",
+          "authors": [
+            "Zhu, Youheng",
+            "Lu, Yiping"
+          ],
+          "first_public_date": "2026-03-03",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only;  ; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "extended",
+          "primary_url": "https://arxiv.org/abs/2603.03191",
+          "full_text_url": "https://arxiv.org/pdf/2603.03191",
+          "pdf_downloaded": false,
+          "actual_read_scope": "arXiv摘要与元数据；无正文阅读",
+          "code_url": null,
+          "project_url": null,
+          "code_status": "no direct official code URL verified in B; absence not asserted",
+          "data_url": null,
+          "problem": "部分可观测离线评估的历史/时间长度覆盖困难。",
+          "mechanism": "价值相关函数belief Lipschitz假设下度量覆盖误差界。",
+          "experiment_protocol": "理论OPE框架，double-sampling Bellman/FDVF示例；B未核证明。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "离线覆盖须看belief状态与动作，不只统计出现频道。",
+          "limitations": "摘要级；Lipschitz值假设遇硬接收/清除边界未证，不能赋予Q有限数据保证。",
+          "primary_classification_path": [
+            "学习长期任务价值",
+            "离线覆盖理论",
+            "belief度量下OPE"
+          ],
+          "secondary_tags": [
+            "partial_observability"
+          ],
+          "classification_confidence": "medium_abstract_based",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2603.03191",
+              "locator": "abstract and metadata only"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L16"
+    },
+    {
+      "id": "arxiv:2602.10702",
+      "title": "A Unified Experimental Architecture for Informative Path Planning: from Simulation to Deployment with GuadalPlanner",
+      "primary_url": "https://arxiv.org/abs/2602.10702",
+      "researcher_records": {
+        "A": {
+          "id": "2602.10702",
+          "title": "A Unified Experimental Architecture for Informative Path Planning: from Simulation to Deployment with GuadalPlanner",
+          "authors": [
+            "Barrionuevo, Alejandro Mendoza",
+            "Diop, Dame Seck",
+            "Pérez, Alejandro Casado",
+            "Reina, Daniel Gutiérrez",
+            "Marín, Sergio L. Toral",
+            "Luis, Samuel Yanes"
+          ],
+          "first_posted": "2026/02/11",
+          "submission_history": "[v1] Wed, 11 Feb 2026 10:02:31 UTC (3,318 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2602.10702",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "C3/统一执行评测接口",
+          "secondary_tags": [],
+          "problem_and_method": "GuadalPlanner将高层规划与sensing/执行分离，在sim/SITL/实艇共用接口。",
+          "experiment_protocol_and_budget": "ROS2/MAVLink/MQTT；水质监测。",
+          "reported_results": "未读正文结果，不报数值。",
+          "limitations": "本题固定HTTP/JSON协议且只单狗，无需引入整个机器人栈。",
+          "transfer_to_this_task": "提出StateStore/候选payload/事件账本的工程边界。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": null
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L17"
+    },
+    {
+      "id": "arxiv:2605.14624",
+      "title": "An Amortized Efficiency Threshold for Comparing Neural and Heuristic Solvers in Combinatorial Optimization",
+      "primary_url": "https://arxiv.org/abs/2605.14624",
+      "researcher_records": {
+        "B": {
+          "id": "arxiv:2605.14624",
+          "short_name": "Amortized Efficiency Threshold",
+          "title": "An Amortized Efficiency Threshold for Comparing Neural and Heuristic Solvers in Combinatorial Optimization",
+          "authors": [
+            "Afifi, Sohaib"
+          ],
+          "first_public_date": "2026-05-14",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only; 13 pages, 3 figures, 1 table. Code and benchmark pipeline at this https URL . v1: initial release with CVRP n=50 ; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "extended",
+          "primary_url": "https://arxiv.org/abs/2605.14624",
+          "full_text_url": "https://arxiv.org/pdf/2605.14624",
+          "pdf_downloaded": true,
+          "actual_read_scope": "PDF p1–2；arXiv摘要/版本信息；未复算其能源日志",
+          "code_url": "https://github.com/sohaibafifi/aet",
+          "project_url": null,
+          "code_status": "Official repository page fetched and title/identity checked 2026-09-11; implementation not read or executed",
+          "data_url": null,
+          "problem": "公平比较神经与启发式总训练+部署能耗。",
+          "mechanism": "固定训练成本与每次边际成本、质量约束、部署量盈亏平衡。",
+          "experiment_protocol": "CVRP50、100epochs×20000训练instance、5seeds；HGS/PyVRP；单配置，本文数值不作本机预算。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "报告总研发成本、每局推理和部署量，避免只报一次网络快。",
+          "limitations": "能源数字未独立核，GPU batch吞吐不适合本题在线batch1直接比较；上下文目标虚拟时间不同。",
+          "primary_classification_path": [
+            "评测与采用边界",
+            "成本摊销",
+            "质量门槛下部署盈亏平衡"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "medium_abstract_based",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2605.14624",
+              "locator": "arXiv identity, date, abstract/comments"
+            },
+            {
+              "source": "https://arxiv.org/pdf/2605.14624",
+              "locator": "PDF p1–2；arXiv摘要/版本信息；未复算其能源日志"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L18"
+    },
+    {
+      "id": "arxiv:2402.08841",
+      "title": "Approximate Sequential Optimization for Informative Path Planning",
+      "primary_url": "https://arxiv.org/abs/2402.08841",
+      "researcher_records": {
+        "A": {
+          "id": "2402.08841",
+          "title": "Approximate Sequential Optimization for Informative Path Planning",
+          "authors": [
+            "Ott, Joshua",
+            "Kochenderfer, Mykel J.",
+            "Boyd, Stephen"
+          ],
+          "first_posted": "2024/02/13",
+          "submission_history": "[v1] Tue, 13 Feb 2024 23:15:13 UTC (2,307 KB) [v2] Tue, 1 Oct 2024 20:52:57 UTC (2,469 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2402.08841",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "B2/状态相关代价优化",
+          "secondary_tags": [],
+          "problem_and_method": "convex relaxation给界，dynamic-programming orienteering逐段重算信息路径。",
+          "experiment_protocol_and_budget": "图上噪声线性观测与固定path budget。",
+          "reported_results": "未读正文/不引gap数值。",
+          "limitations": "不存在对本题联合belief的直接近似界。",
+          "transfer_to_this_task": "用明确成本/候选相同的模型规划作竞争路线。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": null
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L19"
+    },
+    {
+      "id": "arxiv:2506.08434",
+      "title": "Attention-based Learning for 3D Informative Path Planning",
+      "primary_url": "https://arxiv.org/abs/2506.08434",
+      "researcher_records": {
+        "A": {
+          "id": "2506.08434",
+          "title": "Attention-based Learning for 3D Informative Path Planning",
+          "authors": [
+            "Zhao, Rui",
+            "Zhang, Xingjian",
+            "Cao, Yuhong",
+            "Wang, Yizhuo",
+            "Sartoretti, Guillaume"
+          ],
+          "first_posted": "2025/06/10",
+          "submission_history": "[v1] Tue, 10 Jun 2025 04:16:10 UTC (22,967 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2506.08434",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "A1/候选图注意力",
+          "secondary_tags": [],
+          "problem_and_method": "3D位置调整sensor footprint/accuracy的attention RL。",
+          "experiment_protocol_and_budget": "aerial terrain monitoring；只读摘要。",
+          "reported_results": "不引数值。",
+          "limitations": "高度/footprint权衡不存在于本题。",
+          "transfer_to_this_task": "强调候选几何与网络representation的分开消融。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": null
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L20"
+    },
+    {
+      "id": "arxiv:2608.30673",
+      "title": "CIG-RL: Curiosity-Driven Information-Guided Reinforcement Learning for Source Term Estimation in Uncertain Environments",
+      "primary_url": "https://arxiv.org/abs/2608.30673",
+      "researcher_records": {
+        "A": {
+          "id": "2608.30673",
+          "title": "CIG-RL: Curiosity-Driven Information-Guided Reinforcement Learning for Source Term Estimation in Uncertain Environments",
+          "authors": [
+            "Lee, Junhee",
+            "Kim, Seunghwan",
+            "Jang, Hongro",
+            "Kim, Hyungjin",
+            "Park, Hyoungho",
+            "Kim, Changseung",
+            "Oh, Hyondong"
+          ],
+          "first_posted": "2026/08/31",
+          "submission_history": "[v1] Mon, 31 Aug 2026 12:13:55 UTC (8,184 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2608.30673",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "A6/信息导向目标",
+          "secondary_tags": [],
+          "problem_and_method": "belief转移curiosity和uncertainty-adaptive reward指导source-term估计。",
+          "experiment_protocol_and_budget": "高噪气源STE；只读摘要。",
+          "reported_results": "不引性能。",
+          "limitations": "不能把curiosity直接当信息theorem。",
+          "transfer_to_this_task": "直接相邻2026 source-seeking候选，后续选算法应控相同任务。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": null
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L21"
+    },
+    {
+      "id": "arxiv:2606.16780",
+      "title": "DIFF-IPPO: Diffusion-Based Informative Path Planning with Open-Vocabulary Belief Maps",
+      "primary_url": "https://arxiv.org/abs/2606.16780",
+      "researcher_records": {
+        "A": {
+          "id": "2606.16780",
+          "title": "DIFF-IPPO: Diffusion-Based Informative Path Planning with Open-Vocabulary Belief Maps",
+          "authors": [
+            "Karaf, Sausar",
+            "Sautenkov, Oleg",
+            "Martynov, Mikhail",
+            "Tsetserukou, Dzmitry"
+          ],
+          "first_posted": "2026/06/15",
+          "submission_history": "[v1] Mon, 15 Jun 2026 14:26:02 UTC (4,380 KB) [v2] Thu, 18 Jun 2026 10:52:53 UTC (4,380 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2606.16780",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "A5/扩散轨迹与意图",
+          "secondary_tags": [],
+          "problem_and_method": "open-vocabulary非高斯belief图条件扩散路径。",
+          "experiment_protocol_and_budget": "模拟search/rescue建筑；只读摘要。",
+          "reported_results": "不引81.49–86.55%摘要值。",
+          "limitations": "语义感知/图像target并非本题。",
+          "transfer_to_this_task": "多峰belief可存在，但不因此必须diffusion。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": null
+        },
+        "B": {
+          "id": "arxiv:2606.16780",
+          "short_name": "DIFF-IPPO",
+          "title": "DIFF-IPPO: Diffusion-Based Informative Path Planning with Open-Vocabulary Belief Maps",
+          "authors": [
+            "Karaf, Sausar",
+            "Sautenkov, Oleg",
+            "Martynov, Mikhail",
+            "Tsetserukou, Dzmitry"
+          ],
+          "first_public_date": "2026-06-15",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only;  ; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "extended",
+          "primary_url": "https://arxiv.org/abs/2606.16780",
+          "full_text_url": "https://arxiv.org/pdf/2606.16780",
+          "pdf_downloaded": false,
+          "actual_read_scope": "arXiv摘要与元数据；无正文阅读",
+          "code_url": null,
+          "project_url": null,
+          "code_status": "no direct official code URL verified in B; absence not asserted",
+          "data_url": null,
+          "problem": "开放词汇目标搜索中的多峰belief全局路径。",
+          "mechanism": "开放词汇belief map+diffusion planner。",
+          "experiment_protocol": "仿真SAR，5 drones；摘要detection数值B未核正文，未用于推荐。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "如果未来概率belief多峰，可考虑多样候选生成。",
+          "limitations": "不是已核RL算法；视觉语义与多无人机第一发现，非本题全源清除。",
+          "primary_classification_path": [
+            "模型辅助决策",
+            "非Gaussian地图轨迹",
+            "扩散生成全局路径"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "medium_abstract_based",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2606.16780",
+              "locator": "abstract and metadata only"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L22"
+    },
+    {
+      "id": "arxiv:2605.04568",
+      "title": "Dream-MPC: Gradient-Based Model Predictive Control with Latent Imagination",
+      "primary_url": "https://arxiv.org/abs/2605.04568",
+      "researcher_records": {
+        "B": {
+          "id": "arxiv:2605.04568",
+          "short_name": "Dream-MPC",
+          "title": "Dream-MPC: Gradient-Based Model Predictive Control with Latent Imagination",
+          "authors": [
+            "Spieler, Jonathan",
+            "Behnke, Sven"
+          ],
+          "first_public_date": "2026-05-06",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only; Accepted for International Conference on Machine Learning (ICML) 2026 ; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "extended",
+          "primary_url": "https://arxiv.org/abs/2605.04568",
+          "full_text_url": "https://arxiv.org/pdf/2605.04568",
+          "pdf_downloaded": false,
+          "actual_read_scope": "arXiv摘要与元数据；无正文阅读",
+          "code_url": null,
+          "project_url": "https://dream-mpc.github.io",
+          "code_status": "no direct official code URL verified in B; absence not asserted",
+          "data_url": null,
+          "problem": "高维连续任务中低成本优化模型规划。",
+          "mechanism": "少量policy rollout做gradient ascent，uncertainty regularization及跨步复用动作。",
+          "experiment_protocol": "24 continuous control任务；作者metadata称ICML2026，官方会务页未核。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "策略proposal+有限规划改进可能适用，但先解析转移与离散候选。",
+          "limitations": "clear/no_signal不光滑；梯度优化物理接受边界风险，需单独验证。",
+          "primary_classification_path": [
+            "模型辅助决策",
+            "学习潜在动力学",
+            "策略轨迹的梯度MPC"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "medium_abstract_based",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2605.04568",
+              "locator": "abstract and metadata only"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L23"
+    },
+    {
+      "id": "arxiv:2411.04364",
+      "title": "Efficient Localization of Directional Emitters via Joint Beampattern Estimation",
+      "primary_url": "https://arxiv.org/abs/2411.04364",
+      "researcher_records": {
+        "A": {
+          "id": "2411.04364",
+          "title": "Efficient Localization of Directional Emitters via Joint Beampattern Estimation",
+          "authors": [
+            "Williams, Fraser",
+            "Pemasiri, Akila",
+            "Jayalath, Dhammika",
+            "Martin, Terry",
+            "Fookes, Clinton"
+          ],
+          "first_posted": "2024/11/07",
+          "submission_history": "[v1] Thu, 7 Nov 2024 01:44:40 UTC (2,691 KB) [v2] Mon, 11 Nov 2024 03:59:25 UTC (2,691 KB) [v3] Mon, 27 Oct 2025 07:15:04 UTC (6,249 KB) [v4] Wed, 29 Oct 2025 08:19:05 UTC (6,250 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2411.04364",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "C1/联合状态估计",
+          "secondary_tags": [],
+          "problem_and_method": "联合估计位置和beampattern以解释directional RSS调制。",
+          "experiment_protocol_and_budget": "DPD同时AOA/TDOA/RSS；CRLB/数值仿真。",
+          "reported_results": "不引误差改善百分比。",
+          "limitations": "本题只有方向/near/no_signal，无RSS/TDOA可读；半平面模型也不同。",
+          "transfer_to_this_task": "支持保持位置—方向相关性，而非独立marginal任意组合。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": "13 pages, 9 figures, submitted to IEEE Transactions on Aerospace and Electronic Systems"
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L24"
+    },
+    {
+      "id": "arxiv:2608.14466",
+      "title": "Expected Free Energy-based Informative Path Planning for Robotic Mars Exploration",
+      "primary_url": "https://arxiv.org/abs/2608.14466",
+      "researcher_records": {
+        "A": {
+          "id": "2608.14466",
+          "title": "Expected Free Energy-based Informative Path Planning for Robotic Mars Exploration",
+          "authors": [
+            "Meera, Ajith Anil",
+            "Lanillos, Pablo",
+            "Kouw, Wouter"
+          ],
+          "first_posted": "2026/08/14",
+          "submission_history": "[v1] Fri, 14 Aug 2026 16:46:18 UTC (3,554 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2608.14466",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "B3/主动推断目标",
+          "secondary_tags": [],
+          "problem_and_method": "expected free energy统一信息与高价值区域，hard path约束。",
+          "experiment_protocol_and_budget": "Mars exploration GP模型。",
+          "reported_results": "未读正文/不引优势。",
+          "limitations": "目标是地图+价值非allclear time。",
+          "transfer_to_this_task": "可比较信息价值目标，但非PPO必要性证据。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": "accepted for IWAI 2026"
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L25"
+    },
+    {
+      "id": "arxiv:2606.10613",
+      "title": "Fast and Highly Expressive Policy Learning for Offline Reinforcement Learning via Bootstrapped Flow Q-Learning",
+      "primary_url": "https://arxiv.org/abs/2606.10613",
+      "researcher_records": {
+        "B": {
+          "id": "arxiv:2606.10613",
+          "short_name": "Bootstrapped Flow Q-Learning",
+          "title": "Fast and Highly Expressive Policy Learning for Offline Reinforcement Learning via Bootstrapped Flow Q-Learning",
+          "authors": [
+            "Nguyen, Thanh",
+            "Ton, Tri",
+            "Choe, Hongbin",
+            "Luu, Tung M.",
+            "Yoo, Chang D."
+          ],
+          "first_public_date": "2026-06-09",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only; ICML 2026, 19 pages ICML 2026; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "extended",
+          "primary_url": "https://arxiv.org/abs/2606.10613",
+          "full_text_url": "https://arxiv.org/pdf/2606.10613",
+          "pdf_downloaded": false,
+          "actual_read_scope": "arXiv摘要/元数据；FQL API前向查询发现；无正文阅读",
+          "code_url": null,
+          "project_url": null,
+          "code_status": "no direct official code URL verified in B; absence not asserted",
+          "data_url": null,
+          "problem": "避免扩散Q多步去噪开销。",
+          "mechanism": "短位移分解后bootstrapping一步noise-to-action，无额外distillation。",
+          "experiment_protocol": "D4RL；metadata称ICML2026，官方录用/正文未核。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "连续落点路线未来比较FQL后续，不以2026更新自动替换主法。",
+          "limitations": "动作混合离散与本题证书不适配；样本/算力预算未核。",
+          "primary_classification_path": [
+            "学习长期任务价值",
+            "连续多峰动作",
+            "自举一步流生成"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "medium_abstract_based",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2606.10613",
+              "locator": "abstract and metadata only"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L26"
+    },
+    {
+      "id": "arxiv:2601.17227",
+      "title": "Hierarchical Informative Path Planning via Graph Guidance and Trajectory Optimization",
+      "primary_url": "https://arxiv.org/abs/2601.17227",
+      "researcher_records": {
+        "A": {
+          "id": "2601.17227",
+          "title": "Hierarchical Informative Path Planning via Graph Guidance and Trajectory Optimization",
+          "authors": [
+            "Iskandar, Avraiem",
+            "Dutta, Shamak",
+            "Murrant, Kevin",
+            "Pant, Yash Vardhan",
+            "Smith, Stephen L."
+          ],
+          "first_posted": "2026/01/23",
+          "submission_history": "[v1] Fri, 23 Jan 2026 23:27:20 UTC (1,380 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2601.17227",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "B2/状态相关代价优化",
+          "secondary_tags": [],
+          "problem_and_method": "图全局引导、分段预算与样条连续优化。",
+          "experiment_protocol_and_budget": "GP场和cluttered环境；摘要提Arctic数据。",
+          "reported_results": "未核速度倍数，不引用摘要宣传数值。",
+          "limitations": "本题无障碍、观测要停车且按频道付费。",
+          "transfer_to_this_task": "可作为未来分层候选生成对照，不先引入轨迹优化器。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": null
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L27"
+    },
+    {
+      "id": "arxiv:2609.07990",
+      "title": "HyCO: A Hybrid Neural Solver for Combinatorial Optimization",
+      "primary_url": "https://arxiv.org/abs/2609.07990",
+      "researcher_records": {
+        "B": {
+          "id": "arxiv:2609.07990",
+          "short_name": "HyCO",
+          "title": "HyCO: A Hybrid Neural Solver for Combinatorial Optimization",
+          "authors": [
+            "Li, Yuheng",
+            "Yang, Di",
+            "Chen, Haipeng",
+            "Xiong, Yanhai"
+          ],
+          "first_public_date": "2026-09-07",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only;  ; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "extended",
+          "primary_url": "https://arxiv.org/abs/2609.07990",
+          "full_text_url": "https://arxiv.org/pdf/2609.07990",
+          "pdf_downloaded": false,
+          "actual_read_scope": "arXiv摘要与元数据；2026-09-07截止日前；无正文阅读",
+          "code_url": null,
+          "project_url": null,
+          "code_status": "no direct official code URL verified in B; absence not asserted",
+          "data_url": null,
+          "problem": "组合优化RL逐步构造与全局扩散的互补误差。",
+          "mechanism": "RL prefix后自适应切换conditional diffusion completion；entropy/disagreement trigger。",
+          "experiment_protocol": "摘要称多benchmark，B未核正文/预算/代码。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "混合控制器切换是一类方案；启发切换条件应实测且保留固定fallback。",
+          "limitations": "理论依赖显式error-scaling假设；proxy trigger不等于最优逐局切换；不能直接套清除任务。",
+          "primary_classification_path": [
+            "学习长期任务价值",
+            "混合求解调度",
+            "RL前缀与扩散补全"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "medium_abstract_based",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2609.07990",
+              "locator": "abstract and metadata only"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L28"
+    },
+    {
+      "id": "arxiv:2502.15961",
+      "title": "IA-TIGRIS: An Incremental and Adaptive Sampling-Based Planner for Online Informative Path Planning",
+      "primary_url": "https://arxiv.org/abs/2502.15961",
+      "researcher_records": {
+        "A": {
+          "id": "2502.15961",
+          "title": "IA-TIGRIS: An Incremental and Adaptive Sampling-Based Planner for Online Informative Path Planning",
+          "authors": [
+            "Moon, Brady",
+            "Suvarna, Nayana",
+            "Jong, Andrew",
+            "Chatterjee, Satrajit",
+            "Yuan, Junbin",
+            "Cao, Muqing",
+            "Scherer, Sebastian"
+          ],
+          "first_posted": "2025/02/21",
+          "submission_history": "[v1] Fri, 21 Feb 2025 21:46:56 UTC (15,378 KB) [v2] Fri, 5 Sep 2025 16:48:02 UTC (15,195 KB) [v3] Wed, 1 Apr 2026 23:28:14 UTC (14,958 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2502.15961",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "B1/增量采样规划",
+          "secondary_tags": [],
+          "problem_and_method": "IA-TIGRIS复用搜索树并随belief变化更新信息路径。",
+          "experiment_protocol_and_budget": "hexarotor/fixedwing；只读摘要。",
+          "reported_results": "不引38%摘要数值。",
+          "limitations": "控制模型与预算任务不同。",
+          "transfer_to_this_task": "强非学习对照应复用过去规划，而非每次重建弱MCTS。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": "Published in IEEE Transactions on Robotics, 19 pages, 19 figures"
+        },
+        "B": {
+          "id": "arxiv:2502.15961",
+          "short_name": "IA-TIGRIS",
+          "title": "IA-TIGRIS: An Incremental and Adaptive Sampling-Based Planner for Online Informative Path Planning",
+          "authors": [
+            "Moon, Brady",
+            "Suvarna, Nayana",
+            "Jong, Andrew",
+            "Chatterjee, Satrajit",
+            "Yuan, Junbin",
+            "Cao, Muqing",
+            "Scherer, Sebastian"
+          ],
+          "first_public_date": "2025-02-21",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only; Published in IEEE Transactions on Robotics, 19 pages, 19 figures ; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "extended",
+          "primary_url": "https://arxiv.org/abs/2502.15961",
+          "full_text_url": "https://arxiv.org/pdf/2502.15961",
+          "pdf_downloaded": false,
+          "actual_read_scope": "arXiv摘要与元数据；无正文阅读",
+          "code_url": null,
+          "project_url": "https://ia-tigris.github.io",
+          "code_status": "no direct official code URL verified in B; absence not asserted",
+          "data_url": null,
+          "problem": "在线适应新观测并复用过去信息路径计算。",
+          "mechanism": "增量树 refinement+belief更新适应。",
+          "experiment_protocol": "仿真+hexarotor/fixed-wing平台；arXiv记录T-RO2026 DOI，B未打开期刊正式页。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "浅belief规划可维护跨步树，避免反复重建。",
+          "limitations": "完整动作/观测分支模型不同；摘要最高38%IG不表示本题速度提升。",
+          "primary_classification_path": [
+            "模型辅助决策",
+            "已知观测模型搜索",
+            "增量信息树"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "medium_abstract_based",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2502.15961",
+              "locator": "abstract and metadata only"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L29"
+    },
+    {
+      "id": "arxiv:2609.05569",
+      "title": "Information-Guided Safe Reinforcement Learning for Autonomous Gas Source Localization using sUAS",
+      "primary_url": "https://arxiv.org/abs/2609.05569",
+      "researcher_records": {
+        "A": {
+          "id": "2609.05569",
+          "title": "Information-Guided Safe Reinforcement Learning for Autonomous Gas Source Localization using sUAS",
+          "authors": [
+            "Giri, Sachin",
+            "Zhao, Thomas",
+            "Huynh, Matthew",
+            "Chen, YangQuan"
+          ],
+          "first_posted": "2026/09/04",
+          "submission_history": "[v1] Fri, 4 Sep 2026 00:29:37 UTC (1,041 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2609.05569",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "A6/信息导向目标",
+          "secondary_tags": [],
+          "problem_and_method": "EMGR estimator+SAC探索与可靠性meta-supervisor混合。",
+          "experiment_protocol_and_budget": "3D gas puff/wind仿真；只读摘要。",
+          "reported_results": "不引性能数值。",
+          "limitations": "气体扩散/噪声和安全supervisor不等于本题硬全清证书。",
+          "transfer_to_this_task": "说明belief+学习+硬规划混合已有近邻，组合新颖性仍待检索。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": "8 pages, 5 figures, 2 tables. Submitted to the 2026 IEEE Conference on Decision and Control (CDC). Code: this https URL"
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L30"
+    },
+    {
+      "id": "arxiv:2602.05198",
+      "title": "Informative Path Planning with Guaranteed Estimation Uncertainty",
+      "primary_url": "https://arxiv.org/abs/2602.05198",
+      "researcher_records": {
+        "A": {
+          "id": "2602.05198",
+          "title": "Informative Path Planning with Guaranteed Estimation Uncertainty",
+          "authors": [
+            "Jakkala, Kalvik",
+            "Agarwal, Saurav",
+            "O'Kane, Jason",
+            "Akella, Srinivas"
+          ],
+          "first_posted": "2026/02/05",
+          "submission_history": "[v1] Thu, 5 Feb 2026 01:51:38 UTC (8,331 KB) [v2] Mon, 11 May 2026 16:29:35 UTC (7,692 KB) [v3] Tue, 26 May 2026 18:16:31 UTC (8,902 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2602.05198",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "C2/估计质量保证",
+          "secondary_tags": [],
+          "problem_and_method": "GP模型转覆盖约束，设计使全域posterior variance低于阈值的路线。",
+          "experiment_protocol_and_budget": "摘要中环境监测GP；正文预算未读。",
+          "reported_results": "只核身份/机制摘要；不引结果数值。",
+          "limitations": "依赖GP模型的uncertainty guarantee不是确定性有界误差的全源清除。",
+          "transfer_to_this_task": "比较证书到底保证什么，避免把概率模型质量等同物理完整性。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": "15 pages, 11 figures, RSS 2026"
+        },
+        "B": {
+          "id": "arxiv:2602.05198",
+          "short_name": "Guaranteed-Uncertainty IPP",
+          "title": "Informative Path Planning with Guaranteed Estimation Uncertainty",
+          "authors": [
+            "Jakkala, Kalvik",
+            "Agarwal, Saurav",
+            "O'Kane, Jason",
+            "Akella, Srinivas"
+          ],
+          "first_public_date": "2026-02-05",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only; 15 pages, 11 figures, RSS 2026 ; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "extended",
+          "primary_url": "https://arxiv.org/abs/2602.05198",
+          "full_text_url": "https://arxiv.org/pdf/2602.05198",
+          "pdf_downloaded": false,
+          "actual_read_scope": "arXiv摘要与元数据；无正文阅读",
+          "code_url": null,
+          "project_url": "http://www.sgp-tools.com",
+          "code_status": "no direct official code URL verified in B; absence not asserted",
+          "data_url": null,
+          "problem": "满足区域GP后验方差阈值的短路由。",
+          "mechanism": "把kernel转换coverage map，再选点/路由近似优化。",
+          "experiment_protocol": "真实topography数据与船/水下实验；摘要称RSS2026，未独立核会务页。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "可靠性条件必须写清模型；覆盖层与效率层可分离。",
+          "limitations": "GP模型内方差保证不是有界测向真实位置包络，不能直接认证空频道。",
+          "primary_classification_path": [
+            "完成与估计约束",
+            "模型条件覆盖",
+            "GP方差阈值"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "medium_abstract_based",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2602.05198",
+              "locator": "abstract and metadata only"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L31"
+    },
+    {
+      "id": "doi:10.1016/j.patcog.2025.112400",
+      "title": "IRIS: An information path planning method based on reinforcement learning and information-directed sampling",
+      "primary_url": "https://doi.org/10.1016/j.patcog.2025.112400",
+      "researcher_records": {
+        "A": {
+          "id": "iris-patcog112400",
+          "title": "IRIS: An information path planning method based on reinforcement learning and information-directed sampling",
+          "authors": [
+            "Ziyuan Liu",
+            "Yan Zhuang",
+            "Peng Wu",
+            "Yuanchang Liu"
+          ],
+          "first_posted": null,
+          "publication_status": "Pattern Recognition172,112400; print date2026-04 verified by publisher/Crossref; DOI registered2025-09-04 is not proven online-publication date",
+          "venue_awards": "no award claim",
+          "paper_url": "https://doi.org/10.1016/j.patcog.2025.112400",
+          "fulltext_url": null,
+          "related_version": "SSRN5011191 DOI10.2139/ssrn.5011191 title match found by root; fulltext not compared, merged as candidate version not counted again",
+          "code_url": null,
+          "code_status": "not located; GitHub public repo query returned0, not proof of no code",
+          "evidence_layer": "extended",
+          "reading_scope": "Crossref registered metadata; Elsevier article API coredata; no accessible abstract/body",
+          "body_access": false,
+          "primary_path": "A6/信息导向目标",
+          "secondary_tags": [
+            "identity-verified",
+            "method-unverified"
+          ],
+          "problem_and_method": "Title identifies reinforcement learning + information-directed sampling for information path planning; DQN,attention,pointer specifics not verified from body.",
+          "experiment_protocol_and_budget": "unverified",
+          "reported_results": "unverified; no numerical claim repeated",
+          "limitations": "ScienceDirect content error,SSRN and UCL challenge pages; indexOA search no accessible manuscript; exact mechanisms remain open",
+          "transfer_to_this_task": "Can cite existence/year/title only; cannot use as DQN/IDS/pointer implementation proof or state-of-the-art ranking",
+          "evidence_locator": "DOI publisher/Crossref metadata",
+          "classification_confidence": "medium",
+          "source_grade": "publisher metadata"
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L32"
+    },
+    {
+      "id": "arxiv:2604.19355",
+      "title": "LASER: Learning Active Sensing for Continuum Field Reconstruction",
+      "primary_url": "https://arxiv.org/abs/2604.19355",
+      "researcher_records": {
+        "A": {
+          "id": "2604.19355",
+          "title": "LASER: Learning Active Sensing for Continuum Field Reconstruction",
+          "authors": [
+            "Deng, Huayu",
+            "Zhong, Jinghui",
+            "Zhu, Xiangming",
+            "Wang, Yunbo",
+            "Yang, Xiaokang"
+          ],
+          "first_posted": "2026/04/21",
+          "submission_history": "[v1] Tue, 21 Apr 2026 11:36:09 UTC (10,186 KB) [v2] Wed, 27 May 2026 09:37:48 UTC (18,186 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2604.19355",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "A3/历史状态聚合",
+          "secondary_tags": [],
+          "problem_and_method": "continuum latent worldmodel中想象sensing并输出intrinsic reward。",
+          "experiment_protocol_and_budget": "连续物理场重建；只读摘要。",
+          "reported_results": "未读正文/不引优势。",
+          "limitations": "重建动态worldmodel成本高，本题几何已强。",
+          "transfer_to_this_task": "可选模型学习不是首轮默认工程。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": "Accepted by ICML 2026 (Oral)"
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L33"
+    },
+    {
+      "id": "arxiv:2607.16591",
+      "title": "Learning from World Feedback: Why Model Uncertainty Fails as a Risk Signal in Model-Based RL",
+      "primary_url": "https://arxiv.org/abs/2607.16591",
+      "researcher_records": {
+        "B": {
+          "id": "arxiv:2607.16591",
+          "short_name": "World Feedback Risk Audit",
+          "title": "Learning from World Feedback: Why Model Uncertainty Fails as a Risk Signal in Model-Based RL",
+          "authors": [
+            "Wang, Zhaohui"
+          ],
+          "first_public_date": "2026-07-18",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only; Accepted at the ICML 2026 Workshop on Reinforcement Learning from X Feedback (RLxF). 14 pages ; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "extended",
+          "primary_url": "https://arxiv.org/abs/2607.16591",
+          "full_text_url": "https://arxiv.org/pdf/2607.16591",
+          "pdf_downloaded": true,
+          "actual_read_scope": "PDF p1–2；arXiv摘要/元数据；未独立重跑",
+          "code_url": null,
+          "project_url": null,
+          "code_status": "no direct official code URL verified in B; absence not asserted",
+          "data_url": null,
+          "problem": "模型预测误差与安全风险代理是否一致。",
+          "mechanism": "固定规划器更换世界模型与风险信号，对照真实碰撞/传感器约束。",
+          "experiment_protocol": "2D navigation POMDP，4模型、200episode数据约57k transitions、30epochs；200 pooled评测来自4runs。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "ensemble方差不能拿作完整性证明。",
+          "limitations": "论文声称ICML2026 RLxF workshop而非主会，官方workshop名单未核；局部实验不能证明所有uncertainty都无效。",
+          "primary_classification_path": [
+            "评测与采用边界",
+            "代理风险审计",
+            "模型不确定性与真实约束分离"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "medium_abstract_based",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2607.16591",
+              "locator": "arXiv identity, date, abstract/comments"
+            },
+            {
+              "source": "https://arxiv.org/pdf/2607.16591",
+              "locator": "PDF p1–2；arXiv摘要/元数据；未独立重跑"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L34"
+    },
+    {
+      "id": "arxiv:2603.06924",
+      "title": "LIPP: Load-Aware Informative Path Planning with Physical Sampling",
+      "primary_url": "https://arxiv.org/abs/2603.06924",
+      "researcher_records": {
+        "A": {
+          "id": "2603.06924",
+          "title": "LIPP: Load-Aware Informative Path Planning with Physical Sampling",
+          "authors": [
+            "Kim, Hojune",
+            "Shi, Guangyao",
+            "Sukhatme, Gaurav S."
+          ],
+          "first_posted": "2026/03/06",
+          "submission_history": "[v1] Fri, 6 Mar 2026 22:52:24 UTC (6,636 KB) [v2] Tue, 7 Jul 2026 02:40:04 UTC (1,571 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2603.06924",
+          "fulltext_url": "https://arxiv.org/html/2603.06924",
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "Abstract; III-A–C, IV overview, VI setup selectively",
+          "body_access": true,
+          "primary_path": "B2/状态相关代价优化",
+          "secondary_tags": [],
+          "problem_and_method": "将物理采样导致载荷与后续边cost改变纳入MIQP。",
+          "experiment_protocol_and_budget": "物理采样/GP地图；非本题multi-channel清除。",
+          "reported_results": "未核查全部结果表，不引数值。",
+          "limitations": "未知场景与MIQP开销；改变代价模型与本题clear频道状态不同。",
+          "transfer_to_this_task": "提醒按真实状态转移建模cost，不能把动作代价看成固定节点属性。",
+          "evidence_locator": "Abstract; III-A–C, IV overview, VI setup selectively",
+          "classification_confidence": "medium",
+          "source_grade": "primary manuscript",
+          "notes": "Accepted for presentation at IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2026)"
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L35"
+    },
+    {
+      "id": "arxiv:2609.05515",
+      "title": "Multi-robot Learning-based Informative Path Planning Using Spatio-Temporal Gaussian Process Kalman Filter",
+      "primary_url": "https://arxiv.org/abs/2609.05515",
+      "researcher_records": {
+        "A": {
+          "id": "2609.05515",
+          "title": "Multi-robot Learning-based Informative Path Planning Using Spatio-Temporal Gaussian Process Kalman Filter",
+          "authors": [
+            "Cao, Muqing",
+            "Lee, Yunwoo",
+            "Yuan, Junbin",
+            "Schenk, Lorenzo",
+            "Scherer, Sebastian"
+          ],
+          "first_posted": "2026/08/31",
+          "submission_history": "[v1] Mon, 31 Aug 2026 11:05:50 UTC (1,380 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2609.05515",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "C1/联合状态估计",
+          "secondary_tags": [],
+          "problem_and_method": "spatio-temporal GP-Kalman匿名目标field与covariance intersection融合。",
+          "experiment_protocol_and_budget": "多机器人、移动目标、camera footprint和通信。",
+          "reported_results": "未核正文结果。",
+          "limitations": "本题频道已区分目标，静态源不需动态GP预测。",
+          "transfer_to_this_task": "对未知相关性应保守，不能将marginal熵当联合证书。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": null
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L36"
+    },
+    {
+      "id": "arxiv:2606.18514",
+      "title": "N(CO)$^2$: Neural Combinatorial Optimization with Chance Constraints to Solve Stochastic Orienteering",
+      "primary_url": "https://arxiv.org/abs/2606.18514",
+      "researcher_records": {
+        "B": {
+          "id": "arxiv:2606.18514",
+          "short_name": "N(CO)^2",
+          "title": "N(CO)$^2$: Neural Combinatorial Optimization with Chance Constraints to Solve Stochastic Orienteering",
+          "authors": [
+            "Saeed, Anas",
+            "Zuzuárregui, Marcos Abel",
+            "Carpin, Stefano"
+          ],
+          "first_public_date": "2026-06-16",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only;  In Proceedings of the IEEE International Conference on Automation Science and Engineering (CASE), 2025; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "extended",
+          "primary_url": "https://arxiv.org/abs/2606.18514",
+          "full_text_url": "https://arxiv.org/pdf/2606.18514",
+          "pdf_downloaded": true,
+          "actual_read_scope": "PDF p1–2；arXiv元数据；后续方法实验未读",
+          "code_url": null,
+          "project_url": null,
+          "code_status": "No direct official code URL verified in B; absence not asserted",
+          "data_url": null,
+          "problem": "随机orienteering，在随机边成本下满足预算概率约束。",
+          "mechanism": "edge-augmented graph transformer学习边heatmap与构造过程。",
+          "experiment_protocol": "SOPCC已知随机边分布，chance constraint；元数据标CASE2025，arXiv2026，尚未独立核正式会议信息。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "路线边特征/学习排序可启发多目标调度。",
+          "limitations": "chance constraint允许失败概率，不满足本题全清保证；边成本未知机制不同。",
+          "primary_classification_path": [
+            "模型辅助决策",
+            "不确定路线构造",
+            "机会约束图边启发式"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "medium_abstract_based",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2606.18514",
+              "locator": "arXiv identity, date, abstract/comments"
+            },
+            {
+              "source": "https://arxiv.org/pdf/2606.18514",
+              "locator": "PDF p1–2；arXiv元数据；后续方法实验未读"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L37"
+    },
+    {
+      "id": "arxiv:2508.02510",
+      "title": "On Distributional Dependent Performance of Classical and Neural Routing Solvers",
+      "primary_url": "https://arxiv.org/abs/2508.02510",
+      "researcher_records": {
+        "B": {
+          "id": "arxiv:2508.02510",
+          "short_name": "Distributional Routing Audit",
+          "title": "On Distributional Dependent Performance of Classical and Neural Routing Solvers",
+          "authors": [
+            "Thyssens, Daniela",
+            "Dernedde, Tim",
+            "Sentanoe, Wilson",
+            "Schmidt-Thieme, Lars"
+          ],
+          "first_public_date": "2025-08-04",
+          "publication_status": "arXiv preprint",
+          "publication_status_evidence": "metadata only; 9 pages, 2 figures ; author supplied venue labels not promoted to independently verified acceptance",
+          "award_status": "not checked; none claimed",
+          "tier": "extended",
+          "primary_url": "https://arxiv.org/abs/2508.02510",
+          "full_text_url": "https://arxiv.org/pdf/2508.02510",
+          "pdf_downloaded": false,
+          "actual_read_scope": "arXiv摘要与元数据；无正文阅读",
+          "code_url": null,
+          "project_url": null,
+          "code_status": "no direct official code URL verified in B; absence not asserted",
+          "data_url": null,
+          "problem": "神经路由相对专门OR heuristic的分布依赖。",
+          "mechanism": "在带植入结构base distribution中采样训练/测试routing子问题。",
+          "experiment_protocol": "代表NCO与OR heuristic，unseen子问题但共享base分布；详细数值未核。",
+          "results_summary": "See evidence and limitations; no cross-paper numeric ranking",
+          "transfer_to_this_project": "新场景种子不一定代表新分布，需分布迁移压力测试。",
+          "limitations": "论文摘要称差距缩小并非普遍超过；只作协议启发。",
+          "primary_classification_path": [
+            "评测与采用边界",
+            "分布泛化",
+            "经典与神经路线比较"
+          ],
+          "secondary_tags": [],
+          "classification_confidence": "medium_abstract_based",
+          "source_evidence": [
+            {
+              "source": "https://arxiv.org/abs/2508.02510",
+              "locator": "abstract and metadata only"
+            }
+          ],
+          "independent_reproduction": false
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L38"
+    },
+    {
+      "id": "arxiv:1708.08611",
+      "title": "Safe Reinforcement Learning via Shielding",
+      "primary_url": "https://arxiv.org/abs/1708.08611",
+      "researcher_records": {
+        "A": {
+          "id": "1708.08611",
+          "title": "Safe Reinforcement Learning via Shielding",
+          "authors": [
+            "Alshiekh, Mohammed",
+            "Bloem, Roderick",
+            "Ehlers, Ruediger",
+            "Könighofer, Bettina",
+            "Niekum, Scott",
+            "Topcu, Ufuk"
+          ],
+          "first_posted": "2017/08/29",
+          "submission_history": "[v1] Tue, 29 Aug 2017 07:16:54 UTC (3,245 KB) [v2] Sun, 3 Sep 2017 20:35:33 UTC (3,244 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/1708.08611",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "C2/运行时安全约束",
+          "secondary_tags": [],
+          "problem_and_method": "shield约束RL动作满足形式安全规格。",
+          "experiment_protocol_and_budget": "方法奠基；当前仅身份/摘要。",
+          "reported_results": "不引用未读定理细节。",
+          "limitations": "安全不自动包含liveness或现实deadline完成。",
+          "transfer_to_this_task": "拆开合法动作、终止证书、有限完成三层责任。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": null
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L39"
+    },
+    {
+      "id": "arxiv:2409.16967",
+      "title": "Scalable Multi-Robot Informative Path Planning for Target Mapping via Deep Reinforcement Learning",
+      "primary_url": "https://arxiv.org/abs/2409.16967",
+      "researcher_records": {
+        "A": {
+          "id": "2409.16967",
+          "title": "Scalable Multi-Robot Informative Path Planning for Target Mapping via Deep Reinforcement Learning",
+          "authors": [
+            "Vashisth, Apoorva",
+            "Kulshrestha, Manav",
+            "Conover, Damon",
+            "Bera, Aniket"
+          ],
+          "first_posted": "2024/09/25",
+          "submission_history": "[v1] Wed, 25 Sep 2024 14:27:37 UTC (6,700 KB) [v2] Tue, 1 Oct 2024 16:11:29 UTC (6,700 KB) [v3] Mon, 2 Jun 2025 19:56:43 UTC (4,960 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2409.16967",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "A1/候选图注意力",
+          "secondary_tags": [],
+          "problem_and_method": "coordination graph加CTDE共享策略的多机器人目标发现。",
+          "experiment_protocol_and_budget": "3D静态targets、未知障碍、通信约束。",
+          "reported_results": "未核数值。",
+          "limitations": "多机器人通信/碰撞组件不需要用于本题。",
+          "transfer_to_this_task": "只有候选/目标关系结构可借，不能搬团队性能。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": null
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L40"
+    },
+    {
+      "id": "arxiv:2404.18374",
+      "title": "Trajectory Optimization for Adaptive Informative Path Planning with Multimodal Sensing",
+      "primary_url": "https://arxiv.org/abs/2404.18374",
+      "researcher_records": {
+        "A": {
+          "id": "2404.18374",
+          "title": "Trajectory Optimization for Adaptive Informative Path Planning with Multimodal Sensing",
+          "authors": [
+            "Ott, Joshua",
+            "Balaban, Edward",
+            "Kochenderfer, Mykel"
+          ],
+          "first_posted": "2024/04/29",
+          "submission_history": "[v1] Mon, 29 Apr 2024 02:24:25 UTC (4,536 KB)",
+          "publication_status": "arXiv preprint/version verified; separate venue not independently checked",
+          "venue_awards": "no award claim",
+          "paper_url": "https://arxiv.org/abs/2404.18374",
+          "fulltext_url": null,
+          "code_url": null,
+          "code_status": "not established in sources checked",
+          "evidence_layer": "extended",
+          "reading_scope": "arXiv metadata and abstract only",
+          "body_access": false,
+          "primary_path": "B2/状态相关代价优化",
+          "secondary_tags": [],
+          "problem_and_method": "按不同精度/成本传感器做GP方差轨迹优化。",
+          "experiment_protocol_and_budget": "NASA VIPER相关multimodal sensing。",
+          "reported_results": "不引85%/50%摘要结果。",
+          "limitations": "传感器概率模型/连续轨迹与本题不同。",
+          "transfer_to_this_task": "measure与clear两种不同语义应显式建模。",
+          "evidence_locator": "arXiv metadata and abstract only",
+          "classification_confidence": "medium",
+          "source_grade": "primary metadata/abstract",
+          "notes": "IEEE International Conference on Control, Decision and Information Technologies"
+        }
+      },
+      "evidence_tier": "extended",
+      "display_id": "L41"
+    }
+  ]
+}

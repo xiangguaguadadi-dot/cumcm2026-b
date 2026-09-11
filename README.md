@@ -1,5 +1,7 @@
 # 数学建模2026 B题代码
 
+2026-09-11 第五阶段已完成BC、PPO和约束Q的实施及预算内训练：[本轮结果报告](experiments/20260911_rl_execution/REPORT.md)、[代码与复核入口](experiments/20260911_rl_execution/README.md)、[RL方向图增量](experiments/R1_atlas/rl_increment/README.md)。PPO/Q各3次初始化、每次1,024个新训练局；24个检查点和6个对照共5,760次选择评估全部正常全清，但PPO在Q3/Q4比C7慢3.836%/5.569%，Q慢3.488%/6.478%，两路线均未达到预登记晋级门槛，继续保留C7。结果属于本地检查点选择证据，未新增最终密封测试或官方执行；此前[41篇来源的研究审阅稿](experiments/20260911_rl_research/RESEARCH_PROPOSAL.md)与全部负结果一并保留。
+
 2026-09-11 第四阶段已完成13轮方法研究和3批融合筛选：[本轮报告](experiments/20260911_stage4/REPORT.md)、[第四阶段方向图](experiments/R1_atlas/STAGE4_PROGRESS.md)、[AI增量索引](experiments/R1_atlas/stage4_increment/index.json)。推荐[C7单文件候选](experiments/20260911_stage4/combination/geometry_fusions/C7_both.py)：Q3保持235.876946秒/源，Q4为456.111821秒/源，比本轮起点降低3.7531%；4800已暴露本地案例全部正常全清。三位的负结果、实际阅读范围和来源版本均保留，无新增最终留出或官方测试。
 
 2026-09-11 第三阶段已收束：[研究汇总与最终效果](experiments/20260911_stage3/REPORT.md)、[全历程方向图](experiments/R1_atlas/DIRECTION_MAP.md)、[AI读取入口](experiments/R1_atlas/AI_README.md)。第三问与第四问相对本阶段起点分别改善1.0693%和9.7041%，4800已暴露案例全部清除。按用户最新要求直接交付，不再执行额外新留出；Windows官方测试尚未运行。

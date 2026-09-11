@@ -1,0 +1,658 @@
+{
+  "generator_version": "rl-new-world-recipe-v1",
+  "worlds": [
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q3:00000",
+      "split": "g0_core",
+      "mode": 3,
+      "index": 0,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 1804073964
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q4:00000",
+      "split": "g0_core",
+      "mode": 4,
+      "index": 0,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 1317681831
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q3:00001",
+      "split": "g0_core",
+      "mode": 3,
+      "index": 1,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 592581662
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q4:00001",
+      "split": "g0_core",
+      "mode": 4,
+      "index": 1,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 1562833679
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q3:00002",
+      "split": "g0_core",
+      "mode": 3,
+      "index": 2,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 845256622
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q4:00002",
+      "split": "g0_core",
+      "mode": 4,
+      "index": 2,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 1880963812
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q3:00003",
+      "split": "g0_core",
+      "mode": 3,
+      "index": 3,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 1617368670
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q4:00003",
+      "split": "g0_core",
+      "mode": 4,
+      "index": 3,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 50291382
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q3:00004",
+      "split": "g0_core",
+      "mode": 3,
+      "index": 4,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 716730450
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q4:00004",
+      "split": "g0_core",
+      "mode": 4,
+      "index": 4,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 1714763709
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q3:00005",
+      "split": "g0_core",
+      "mode": 3,
+      "index": 5,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 901665517
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q4:00005",
+      "split": "g0_core",
+      "mode": 4,
+      "index": 5,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 1962487664
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q3:00006",
+      "split": "g0_core",
+      "mode": 3,
+      "index": 6,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 1349452881
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q4:00006",
+      "split": "g0_core",
+      "mode": 4,
+      "index": 6,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 1273475360
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q3:00007",
+      "split": "g0_core",
+      "mode": 3,
+      "index": 7,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 456404429
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q4:00007",
+      "split": "g0_core",
+      "mode": 4,
+      "index": 7,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 360978045
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q3:00008",
+      "split": "g0_core",
+      "mode": 3,
+      "index": 8,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 1578474362
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q4:00008",
+      "split": "g0_core",
+      "mode": 4,
+      "index": 8,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 15999123
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q3:00009",
+      "split": "g0_core",
+      "mode": 3,
+      "index": 9,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 587496764
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_core:q4:00009",
+      "split": "g0_core",
+      "mode": 4,
+      "index": 9,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 611133355
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q3:00000",
+      "split": "g0_audit",
+      "mode": 3,
+      "index": 0,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 1008365274
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q4:00000",
+      "split": "g0_audit",
+      "mode": 4,
+      "index": 0,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 1756230311
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q3:00001",
+      "split": "g0_audit",
+      "mode": 3,
+      "index": 1,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 1610649503
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q4:00001",
+      "split": "g0_audit",
+      "mode": 4,
+      "index": 1,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 1330833941
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q3:00002",
+      "split": "g0_audit",
+      "mode": 3,
+      "index": 2,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 493350831
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q4:00002",
+      "split": "g0_audit",
+      "mode": 4,
+      "index": 2,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 70910307
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q3:00003",
+      "split": "g0_audit",
+      "mode": 3,
+      "index": 3,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 1522360136
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q4:00003",
+      "split": "g0_audit",
+      "mode": 4,
+      "index": 3,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 1344677542
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q3:00004",
+      "split": "g0_audit",
+      "mode": 3,
+      "index": 4,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 877499656
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q4:00004",
+      "split": "g0_audit",
+      "mode": 4,
+      "index": 4,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 688844574
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q3:00005",
+      "split": "g0_audit",
+      "mode": 3,
+      "index": 5,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 1783328131
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q4:00005",
+      "split": "g0_audit",
+      "mode": 4,
+      "index": 5,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 1734679224
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q3:00006",
+      "split": "g0_audit",
+      "mode": 3,
+      "index": 6,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 1809488445
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q4:00006",
+      "split": "g0_audit",
+      "mode": 4,
+      "index": 6,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 215897210
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q3:00007",
+      "split": "g0_audit",
+      "mode": 3,
+      "index": 7,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 1897773646
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q4:00007",
+      "split": "g0_audit",
+      "mode": 4,
+      "index": 7,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 347688707
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q3:00008",
+      "split": "g0_audit",
+      "mode": 3,
+      "index": 8,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 1175648773
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q4:00008",
+      "split": "g0_audit",
+      "mode": 4,
+      "index": 8,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 1837859764
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q3:00009",
+      "split": "g0_audit",
+      "mode": 3,
+      "index": 9,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 726867062
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g0_audit:q4:00009",
+      "split": "g0_audit",
+      "mode": 4,
+      "index": 9,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 20861351
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q3:00000",
+      "split": "g1_resource",
+      "mode": 3,
+      "index": 0,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 45672751
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q4:00000",
+      "split": "g1_resource",
+      "mode": 4,
+      "index": 0,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 1308811288
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q3:00001",
+      "split": "g1_resource",
+      "mode": 3,
+      "index": 1,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 1546338906
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q4:00001",
+      "split": "g1_resource",
+      "mode": 4,
+      "index": 1,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 1577956904
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q3:00002",
+      "split": "g1_resource",
+      "mode": 3,
+      "index": 2,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 105546156
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q4:00002",
+      "split": "g1_resource",
+      "mode": 4,
+      "index": 2,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 1580486075
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q3:00003",
+      "split": "g1_resource",
+      "mode": 3,
+      "index": 3,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 845148812
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q4:00003",
+      "split": "g1_resource",
+      "mode": 4,
+      "index": 3,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 1816015923
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q3:00004",
+      "split": "g1_resource",
+      "mode": 3,
+      "index": 4,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 989286734
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q4:00004",
+      "split": "g1_resource",
+      "mode": 4,
+      "index": 4,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 1467359671
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q3:00005",
+      "split": "g1_resource",
+      "mode": 3,
+      "index": 5,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 282076771
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q4:00005",
+      "split": "g1_resource",
+      "mode": 4,
+      "index": 5,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 1751741054
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q3:00006",
+      "split": "g1_resource",
+      "mode": 3,
+      "index": 6,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 1066627704
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q4:00006",
+      "split": "g1_resource",
+      "mode": 4,
+      "index": 6,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 739754368
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q3:00007",
+      "split": "g1_resource",
+      "mode": 3,
+      "index": 7,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 2001505183
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q4:00007",
+      "split": "g1_resource",
+      "mode": 4,
+      "index": 7,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 308996375
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q3:00008",
+      "split": "g1_resource",
+      "mode": 3,
+      "index": 8,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 1947591228
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q4:00008",
+      "split": "g1_resource",
+      "mode": 4,
+      "index": 8,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 1467541740
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q3:00009",
+      "split": "g1_resource",
+      "mode": 3,
+      "index": 9,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 1441347129
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q4:00009",
+      "split": "g1_resource",
+      "mode": 4,
+      "index": 9,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 791024761
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q3:00010",
+      "split": "g1_resource",
+      "mode": 3,
+      "index": 10,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 748528912
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q4:00010",
+      "split": "g1_resource",
+      "mode": 4,
+      "index": 10,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 1520642347
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q3:00011",
+      "split": "g1_resource",
+      "mode": 3,
+      "index": 11,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 1826110916
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g1_resource:q4:00011",
+      "split": "g1_resource",
+      "mode": 4,
+      "index": 11,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 124640284
+    }
+  ],
+  "old_exposed_seed_overlap": 0,
+  "old_sources": [
+    {
+      "path": "evaluation/cases_v1.json",
+      "sha256": "988f42a74cac1aa8249cb0d138e1b1a5de927ef41ad38efa4e70a9c4d97457ac"
+    },
+    {
+      "path": "experiments/20260911_stage4/exposed_cases.json",
+      "sha256": "e5bdfb611ff26a38dd5655b8f0d036936c178310bf0cc2197f82afa46225855a"
+    }
+  ],
+  "final_worlds_generated": 0,
+  "future_splits": "demo and training/selection generated only when gates pass; all seeds rechecked then"
+}

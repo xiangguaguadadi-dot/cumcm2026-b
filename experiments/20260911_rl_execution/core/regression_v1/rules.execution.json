@@ -1,0 +1,42 @@
+{
+  "label": "rules",
+  "argv": [
+    "python",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "exit_code": 0,
+  "wall_time_s": 0.06398312503006309,
+  "interface_calls": {
+    "enter": {
+      "attempts": 25,
+      "accepted": 24,
+      "rejected": 1,
+      "exception_or_no_response": 0
+    },
+    "measure": {
+      "attempts": 18,
+      "accepted": 8,
+      "rejected": 1,
+      "exception_or_no_response": 9
+    },
+    "clear": {
+      "attempts": 12,
+      "accepted": 3,
+      "rejected": 0,
+      "exception_or_no_response": 9
+    },
+    "exit": {
+      "attempts": 1,
+      "accepted": 1,
+      "rejected": 0,
+      "exception_or_no_response": 0
+    }
+  },
+  "total_attempts": 56,
+  "accepted_business_requests": 36,
+  "measurement_scope": "sys.setprofile observes original LocalEnv function call/return; no method or file mutation",
+  "synthetic_rule_checks_not_new_worlds": true
+}

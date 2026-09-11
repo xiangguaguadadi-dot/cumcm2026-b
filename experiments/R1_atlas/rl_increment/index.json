@@ -1,0 +1,874 @@
+{
+  "schema_version": "rl-atlas-increment-v1",
+  "built_utc": "2026-09-11T12:20:51.796014+00:00",
+  "generation_complete": true,
+  "legacy": {
+    "stage4_index_source": "rlsrc_27e0f6e6d6fd27a6",
+    "c7_parent_node": "S4_ROOT_C7_both",
+    "legacy_nodes_unchanged": true,
+    "old_readmes_and_direction_maps_unchanged": true
+  },
+  "counts": {
+    "new_learning_routes": 2,
+    "supporting_bc_parents": 3,
+    "initializations_per_route": 3,
+    "planned_checkpoints_per_initialization": 4,
+    "planned_model_checkpoint_positions": 24,
+    "actual_retained_and_evaluated_model_checkpoints": 24,
+    "registered_unique_selection_worlds": 192,
+    "unique_selection_worlds_per_question": 96,
+    "actual_saved_selection_episode_rows": 5760,
+    "new_world_executions_by_builder": 0,
+    "new_optimization_round_count": null
+  },
+  "count_semantics": "24 = 2 routes × 3 initializations × 4 registered training positions. It is not 24 optimization rounds, research rounds, independent training runs or independent validation populations.",
+  "read_order": "Read unchanged stage4_increment/index.json for C7 history, then this index and the two route detail files.",
+  "nodes": [
+    {
+      "id": "RL_PPO",
+      "title": "PPO：C7候选上的学习调度",
+      "kind": "rl_route_training_and_checkpoint_selection",
+      "status": "completed_saved_selection_evidence",
+      "details": "nodes/RL_PPO.json",
+      "parents": [
+        {
+          "id": "S4_ROOT_C7_both",
+          "relationship": "shared_candidate_and_execution_component_parent",
+          "source": "rlsrc_dc6fcd965433a144"
+        },
+        {
+          "id": "RL_BC_INIT81001",
+          "initialization_seed": 81001,
+          "relationship": "corresponding_bc_initial_parameters_and_comparator"
+        },
+        {
+          "id": "RL_BC_INIT81002",
+          "initialization_seed": 81002,
+          "relationship": "corresponding_bc_initial_parameters_and_comparator"
+        },
+        {
+          "id": "RL_BC_INIT81003",
+          "initialization_seed": 81003,
+          "relationship": "corresponding_bc_initial_parameters_and_comparator"
+        }
+      ],
+      "question_gates": {
+        "3": false,
+        "4": false
+      },
+      "selected_checkpoints": {
+        "3": {
+          "81001": 256,
+          "81002": 128,
+          "81003": 256
+        },
+        "4": {
+          "81001": 512,
+          "81002": 256,
+          "81003": 256
+        }
+      }
+    },
+    {
+      "id": "RL_Q",
+      "title": "Q：C7候选上的学习调度",
+      "kind": "rl_route_training_and_checkpoint_selection",
+      "status": "completed_saved_selection_evidence",
+      "details": "nodes/RL_Q.json",
+      "parents": [
+        {
+          "id": "S4_ROOT_C7_both",
+          "relationship": "shared_candidate_and_execution_component_parent",
+          "source": "rlsrc_dc6fcd965433a144"
+        },
+        {
+          "id": "RL_BC_INIT81001",
+          "initialization_seed": 81001,
+          "relationship": "corresponding_bc_initial_parameters_and_comparator"
+        },
+        {
+          "id": "RL_BC_INIT81002",
+          "initialization_seed": 81002,
+          "relationship": "corresponding_bc_initial_parameters_and_comparator"
+        },
+        {
+          "id": "RL_BC_INIT81003",
+          "initialization_seed": 81003,
+          "relationship": "corresponding_bc_initial_parameters_and_comparator"
+        }
+      ],
+      "question_gates": {
+        "3": false,
+        "4": false
+      },
+      "selected_checkpoints": {
+        "3": {
+          "81001": 128,
+          "81002": 128,
+          "81003": 512
+        },
+        "4": {
+          "81001": 1024,
+          "81002": 128,
+          "81003": 512
+        }
+      }
+    }
+  ],
+  "supporting_parents": [
+    {
+      "id": "RL_BC_INIT81001",
+      "kind": "supporting_behavior_clone_parent_not_new_rl_route",
+      "initialization_seed": 81001,
+      "model_id": "bc_init81001",
+      "parents": [
+        {
+          "id": "S4_ROOT_C7_both",
+          "relationship": "teacher_demonstration_source",
+          "source": "rlsrc_dc6fcd965433a144"
+        }
+      ],
+      "shared_demonstration_episodes": 512,
+      "training_summary": {
+        "seed": 81001,
+        "shared_demonstrations": 512,
+        "new_episodes": 0,
+        "optimizer_steps": 512,
+        "passes": 8,
+        "load_and_training_wall_s": 261.3641005210811,
+        "peak_process_mib": 442.828125,
+        "checkpoint": "final.pt",
+        "sha256": "8ad9e00ca045a2bd2434a2cd20b60d45d553312423034bae03622733b562f6ad"
+      },
+      "training_summary_source": "rlsrc_6df519796f34a5e5",
+      "weights": {
+        "source": "rlsrc_629c32935fa4f0fb",
+        "path": "experiments/20260911_rl_execution/results/g2/init_81001/bc/final.pt",
+        "sha256": "8ad9e00ca045a2bd2434a2cd20b60d45d553312423034bae03622733b562f6ad",
+        "bytes": 336900
+      },
+      "selection_questions": {
+        "3": {
+          "expected_rows": 96,
+          "recorded_expected_rows": 96,
+          "unique_expected_worlds": 96,
+          "missing_world_ids": [],
+          "duplicate_world_ids": [],
+          "unexpected_rows": [],
+          "invalid_rows": [],
+          "failed_rows": [],
+          "collection_complete": true,
+          "eligible_for_selection": true,
+          "status": "complete_success",
+          "mean_seconds_per_source": 243.30249724140108,
+          "clear_fraction": 1.0,
+          "successful_worlds": 96,
+          "fallback_worlds": 0,
+          "groups": {
+            "cell500_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 265.47466847553903
+            },
+            "cell50_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 254.477986010464
+            },
+            "edge_mixed_min_radius": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 279.0478386660256
+            },
+            "exactly10_sources": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 299.10733812499996
+            },
+            "exactly16_sources": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 217.5593910703125
+            },
+            "fixed_negative_bias": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 233.35965090486494
+            },
+            "fixed_positive_bias": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 259.25378541818395
+            },
+            "minimum_radius": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 271.98232076414627
+            },
+            "offcenter_cluster": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 192.06377122046706
+            },
+            "origin_cluster": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 168.9042415121795
+            },
+            "reference_assumed": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 223.92671259503203
+            },
+            "smooth_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 254.4722621345982
+            }
+          }
+        },
+        "4": {
+          "expected_rows": 96,
+          "recorded_expected_rows": 96,
+          "unique_expected_worlds": 96,
+          "missing_world_ids": [],
+          "duplicate_world_ids": [],
+          "unexpected_rows": [],
+          "invalid_rows": [],
+          "failed_rows": [],
+          "collection_complete": true,
+          "eligible_for_selection": true,
+          "status": "complete_success",
+          "mean_seconds_per_source": 470.6927854461325,
+          "clear_fraction": 1.0,
+          "successful_worlds": 96,
+          "fallback_worlds": 0,
+          "groups": {
+            "cell500_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 463.67514516458334
+            },
+            "cell50_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 477.74641015617556
+            },
+            "edge_mixed_min_radius": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 567.0945031298228
+            },
+            "exactly10_sources": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 651.30171415
+            },
+            "exactly16_sources": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 345.5497708359375
+            },
+            "fixed_negative_bias": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 465.5173760955201
+            },
+            "fixed_positive_bias": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 470.14891951379195
+            },
+            "minimum_radius": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 402.86059873624083
+            },
+            "offcenter_cluster": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 485.11786810583794
+            },
+            "origin_cluster": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 383.3613544008299
+            },
+            "reference_assumed": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 438.78389552760416
+            },
+            "smooth_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 497.1558695372461
+            }
+          }
+        }
+      },
+      "selection_sources": {
+        "rows": "rlsrc_715bc1f7b210de59",
+        "completed_summary": "rlsrc_2aa097afcb55ee2c",
+        "model_manifest": "rlsrc_4703113b077ec8ba"
+      }
+    },
+    {
+      "id": "RL_BC_INIT81002",
+      "kind": "supporting_behavior_clone_parent_not_new_rl_route",
+      "initialization_seed": 81002,
+      "model_id": "bc_init81002",
+      "parents": [
+        {
+          "id": "S4_ROOT_C7_both",
+          "relationship": "teacher_demonstration_source",
+          "source": "rlsrc_dc6fcd965433a144"
+        }
+      ],
+      "shared_demonstration_episodes": 512,
+      "training_summary": {
+        "seed": 81002,
+        "shared_demonstrations": 512,
+        "new_episodes": 0,
+        "optimizer_steps": 512,
+        "passes": 8,
+        "load_and_training_wall_s": 261.7462637091521,
+        "peak_process_mib": 446.203125,
+        "checkpoint": "final.pt",
+        "sha256": "2ef3293828bd12952de057dbde6bd612e6f519728df847b2fff84304f5127432"
+      },
+      "training_summary_source": "rlsrc_8c801a5407dcbd82",
+      "weights": {
+        "source": "rlsrc_cf09f3eecffad8a6",
+        "path": "experiments/20260911_rl_execution/results/g2/init_81002/bc/final.pt",
+        "sha256": "2ef3293828bd12952de057dbde6bd612e6f519728df847b2fff84304f5127432",
+        "bytes": 336900
+      },
+      "selection_questions": {
+        "3": {
+          "expected_rows": 96,
+          "recorded_expected_rows": 96,
+          "unique_expected_worlds": 96,
+          "missing_world_ids": [],
+          "duplicate_world_ids": [],
+          "unexpected_rows": [],
+          "invalid_rows": [],
+          "failed_rows": [],
+          "collection_complete": true,
+          "eligible_for_selection": true,
+          "status": "complete_success",
+          "mean_seconds_per_source": 243.08527185705012,
+          "clear_fraction": 1.0,
+          "successful_worlds": 96,
+          "fallback_worlds": 0,
+          "groups": {
+            "cell500_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 263.7299454416375
+            },
+            "cell50_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 253.6481078153409
+            },
+            "edge_mixed_min_radius": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 284.3116814458333
+            },
+            "exactly10_sources": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 296.41615987500006
+            },
+            "exactly16_sources": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 211.41593608593752
+            },
+            "fixed_negative_bias": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 225.87441487756982
+            },
+            "fixed_positive_bias": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 258.0459775716263
+            },
+            "minimum_radius": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 277.94177749986056
+            },
+            "offcenter_cluster": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 190.5655980430403
+            },
+            "origin_cluster": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 166.07171551794875
+            },
+            "reference_assumed": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 226.1082485727049
+            },
+            "smooth_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 262.89369953810206
+            }
+          }
+        },
+        "4": {
+          "expected_rows": 96,
+          "recorded_expected_rows": 96,
+          "unique_expected_worlds": 96,
+          "missing_world_ids": [],
+          "duplicate_world_ids": [],
+          "unexpected_rows": [],
+          "invalid_rows": [],
+          "failed_rows": [],
+          "collection_complete": true,
+          "eligible_for_selection": true,
+          "status": "complete_success",
+          "mean_seconds_per_source": 469.1819319023959,
+          "clear_fraction": 1.0,
+          "successful_worlds": 96,
+          "fallback_worlds": 0,
+          "groups": {
+            "cell500_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 466.3048054125
+            },
+            "cell50_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 464.8577993732887
+            },
+            "edge_mixed_min_radius": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 557.7298156681886
+            },
+            "exactly10_sources": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 643.01982565
+            },
+            "exactly16_sources": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 339.405193125
+            },
+            "fixed_negative_bias": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 458.82990670510634
+            },
+            "fixed_positive_bias": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 467.63205312911936
+            },
+            "minimum_radius": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 404.9411773006067
+            },
+            "offcenter_cluster": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 477.1152028224817
+            },
+            "origin_cluster": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 404.7695059806948
+            },
+            "reference_assumed": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 443.2223692614812
+            },
+            "smooth_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 502.35552840028305
+            }
+          }
+        }
+      },
+      "selection_sources": {
+        "rows": "rlsrc_0c8b025904403090",
+        "completed_summary": "rlsrc_c8e5aec9158eeda6",
+        "model_manifest": "rlsrc_ce58e9c93867f4b6"
+      }
+    },
+    {
+      "id": "RL_BC_INIT81003",
+      "kind": "supporting_behavior_clone_parent_not_new_rl_route",
+      "initialization_seed": 81003,
+      "model_id": "bc_init81003",
+      "parents": [
+        {
+          "id": "S4_ROOT_C7_both",
+          "relationship": "teacher_demonstration_source",
+          "source": "rlsrc_dc6fcd965433a144"
+        }
+      ],
+      "shared_demonstration_episodes": 512,
+      "training_summary": {
+        "seed": 81003,
+        "shared_demonstrations": 512,
+        "new_episodes": 0,
+        "optimizer_steps": 512,
+        "passes": 8,
+        "load_and_training_wall_s": 261.5016717038816,
+        "peak_process_mib": 451.75,
+        "checkpoint": "final.pt",
+        "sha256": "00ee637b96c6aa05ef02a8ee4567834a86c7e8de8fa7e655788f8da18206285d"
+      },
+      "training_summary_source": "rlsrc_0dae6152c515f8b1",
+      "weights": {
+        "source": "rlsrc_d60dfdd19df0c20d",
+        "path": "experiments/20260911_rl_execution/results/g2/init_81003/bc/final.pt",
+        "sha256": "00ee637b96c6aa05ef02a8ee4567834a86c7e8de8fa7e655788f8da18206285d",
+        "bytes": 336900
+      },
+      "selection_questions": {
+        "3": {
+          "expected_rows": 96,
+          "recorded_expected_rows": 96,
+          "unique_expected_worlds": 96,
+          "missing_world_ids": [],
+          "duplicate_world_ids": [],
+          "unexpected_rows": [],
+          "invalid_rows": [],
+          "failed_rows": [],
+          "collection_complete": true,
+          "eligible_for_selection": true,
+          "status": "complete_success",
+          "mean_seconds_per_source": 242.8090702002995,
+          "clear_fraction": 1.0,
+          "successful_worlds": 96,
+          "fallback_worlds": 0,
+          "groups": {
+            "cell500_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 262.4223102731643
+            },
+            "cell50_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 252.78123870056817
+            },
+            "edge_mixed_min_radius": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 287.22074873814097
+            },
+            "exactly10_sources": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 286.5043552125
+            },
+            "exactly16_sources": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 211.9952325703125
+            },
+            "fixed_negative_bias": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 234.7170537697745
+            },
+            "fixed_positive_bias": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 257.2795139600878
+            },
+            "minimum_radius": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 278.19434391414626
+            },
+            "offcenter_cluster": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 192.6155593658425
+            },
+            "origin_cluster": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 165.54709640624998
+            },
+            "reference_assumed": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 223.5980537451809
+            },
+            "smooth_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 260.8333357476258
+            }
+          }
+        },
+        "4": {
+          "expected_rows": 96,
+          "recorded_expected_rows": 96,
+          "unique_expected_worlds": 96,
+          "missing_world_ids": [],
+          "duplicate_world_ids": [],
+          "unexpected_rows": [],
+          "invalid_rows": [],
+          "failed_rows": [],
+          "collection_complete": true,
+          "eligible_for_selection": true,
+          "status": "complete_success",
+          "mean_seconds_per_source": 467.50372184949583,
+          "clear_fraction": 1.0,
+          "successful_worlds": 96,
+          "fallback_worlds": 0,
+          "groups": {
+            "cell500_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 459.6270293791667
+            },
+            "cell50_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 474.9147008826637
+            },
+            "edge_mixed_min_radius": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 553.9094236289841
+            },
+            "exactly10_sources": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 643.6819490749999
+            },
+            "exactly16_sources": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 339.10186464843747
+            },
+            "fixed_negative_bias": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 453.3380216342912
+            },
+            "fixed_positive_bias": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 468.20746885742017
+            },
+            "minimum_radius": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 398.1682432935554
+            },
+            "offcenter_cluster": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 491.69017313276095
+            },
+            "origin_cluster": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 377.36676367581845
+            },
+            "reference_assumed": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 462.0733470833619
+            },
+            "smooth_shared_field": {
+              "expected_worlds": 8,
+              "recorded_unique_worlds": 8,
+              "complete_success": true,
+              "mean_seconds_per_source": 487.9656769024892
+            }
+          }
+        }
+      },
+      "selection_sources": {
+        "rows": "rlsrc_7a4c60416e820ef5",
+        "completed_summary": "rlsrc_ca2a3e67ff752abe",
+        "model_manifest": "rlsrc_0096c90817ec723e"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "S4_ROOT_C7_both",
+      "target": "RL_BC_INIT81001",
+      "relationship": "teacher_demonstration_source"
+    },
+    {
+      "source": "S4_ROOT_C7_both",
+      "target": "RL_BC_INIT81002",
+      "relationship": "teacher_demonstration_source"
+    },
+    {
+      "source": "S4_ROOT_C7_both",
+      "target": "RL_BC_INIT81003",
+      "relationship": "teacher_demonstration_source"
+    },
+    {
+      "source": "S4_ROOT_C7_both",
+      "target": "RL_PPO",
+      "relationship": "shared_candidate_and_execution_component_parent"
+    },
+    {
+      "source": "RL_BC_INIT81001",
+      "target": "RL_PPO",
+      "relationship": "corresponding_bc_initial_parameters_and_comparator"
+    },
+    {
+      "source": "RL_BC_INIT81002",
+      "target": "RL_PPO",
+      "relationship": "corresponding_bc_initial_parameters_and_comparator"
+    },
+    {
+      "source": "RL_BC_INIT81003",
+      "target": "RL_PPO",
+      "relationship": "corresponding_bc_initial_parameters_and_comparator"
+    },
+    {
+      "source": "S4_ROOT_C7_both",
+      "target": "RL_Q",
+      "relationship": "shared_candidate_and_execution_component_parent"
+    },
+    {
+      "source": "RL_BC_INIT81001",
+      "target": "RL_Q",
+      "relationship": "corresponding_bc_initial_parameters_and_comparator"
+    },
+    {
+      "source": "RL_BC_INIT81002",
+      "target": "RL_Q",
+      "relationship": "corresponding_bc_initial_parameters_and_comparator"
+    },
+    {
+      "source": "RL_BC_INIT81003",
+      "target": "RL_Q",
+      "relationship": "corresponding_bc_initial_parameters_and_comparator"
+    }
+  ],
+  "source_manifest": "source_manifest.json",
+  "evidence_boundary": {
+    "evidence": "checkpoint-selection evidence with selection bias",
+    "final_blind_validation": false,
+    "official_validation": false,
+    "old_exposed_regression_is_not_new_validation": true,
+    "policy_or_training_tuned_by_this_analysis": false,
+    "default_c7_replacement_authorized": false,
+    "inference_scope": "Twelve registered local scenario groups; no claim about official environment or unseen distributions",
+    "interval_limitation": "Exploratory percentile intervals after checkpoint selection; no correction for selection or multiple comparisons"
+  },
+  "recorded_selection_cost": {
+    "episode_rows": 5760,
+    "business_primitives": 1119488,
+    "execution_wall_s": 1867.8809100696817,
+    "cost_rows_invalid": 0,
+    "note": "Sum of saved evaluation rows across all parts, including rejected checkpoints. Not training cost or controlled machine throughput."
+  },
+  "links": {
+    "execution_report": {
+      "source": "rlsrc_4c00051c586c4b31",
+      "path": "experiments/20260911_rl_execution/REPORT.md",
+      "sha256": "418b258579491785170f3c470f83c77b824d6155a47f69deedfcd23bfa2e1bd3",
+      "bytes": 14069,
+      "status": "available_and_hashed_at_build_time"
+    },
+    "implementation": "rlsrc_ddce517be02cfd30",
+    "research_proposal": "rlsrc_4535545fbfd70a42",
+    "selection_summary": "rlsrc_b4b25917700b4eb8"
+  },
+  "builder_source": "rlsrc_b538f1f9ea5f3cfd",
+  "literature_review_status_unchanged": true,
+  "new_paper_adoption_claims": [],
+  "gate_scope": "Per question, aggregate the three selected initialization checkpoints by world before inference; checkpoint completion gates are separate from the joint route promotion gate."
+}

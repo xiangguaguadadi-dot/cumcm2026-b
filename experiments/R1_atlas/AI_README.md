@@ -1,4 +1,6 @@
-最新第四阶段：先读[stage4_increment/index.json](stage4_increment/index.json)和[第四阶段说明](stage4_increment/README.md)，再按节点读取详情；人工阅读见[STAGE4_PROGRESS.md](STAGE4_PROGRESS.md)。新增39条记录包含11完整候选、14开发节点、13对照及1背景，不能称39个新研究方向。三位共13轮研究，主协调另做3批融合；当前入口与全部4800回归结果见[阶段报告](../20260911_stage4/REPORT.md)。全部是已暴露本地回归，无新增最终留出。
+最新第五阶段：先读[rl_increment/index.json](rl_increment/index.json)与[RL增量说明](rl_increment/README.md)，再按PPO/Q两个路线节点读取全部模型、对应BC父及逐题结果。2路线×3初始化×4检查点共24个模型位置，不是24轮优化。全部5,760次本地选择执行全清，但两路线两题均未晋级，保留C7；完整实现、成本与边界见[本轮报告](../20260911_rl_execution/REPORT.md)。研究审阅状态和历史节点保持原样。
+
+第四阶段：先读[stage4_increment/index.json](stage4_increment/index.json)和[第四阶段说明](stage4_increment/README.md)，再按节点读取详情；人工阅读见[STAGE4_PROGRESS.md](STAGE4_PROGRESS.md)。新增39条记录包含11完整候选、14开发节点、13对照及1背景，不能称39个新研究方向。三位共13轮研究，主协调另做3批融合；入口与全部4800回归结果见[阶段报告](../20260911_stage4/REPORT.md)。全部是已暴露本地回归，无新增最终留出。
 
 以下保留第三阶段及更早历史读取协议：[FINAL_REPORT.md](FINAL_REPORT.md)。原70节点、48历史＋9第三阶段完整回归及开发/诊断/未实施分型保持不变。
 

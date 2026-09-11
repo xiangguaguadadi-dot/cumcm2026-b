@@ -1,0 +1,70 @@
+{
+  "unique_worlds": 192,
+  "episode_executions": 192,
+  "business_primitives": 36994,
+  "successes": 192,
+  "failures": [],
+  "execution_wall_s": 37.32068566966336,
+  "raw_json_bytes": 313534228,
+  "gzip_bytes": 44081692,
+  "storage_wall_s": 4.738819252466783,
+  "storage_timing_unavailable_count": 0,
+  "peak_process_mib": 297.515625,
+  "model_id": "q_init81003_ep0512",
+  "algorithm": "q",
+  "seed": 81003,
+  "checkpoint": {
+    "algorithm": "q",
+    "seed": 81003,
+    "episodes": 512,
+    "path": "results/g2/init_81003/q/checkpoints/episode_0512.pt",
+    "sha256": "e73bc4c95ad0d9af141ed1c873956790c32202e1f86de14992d7c4d6d49e6423"
+  },
+  "wall_time_this_invocation_s": 42.45377279201057,
+  "rows_sha256": "4308a617c7bf90d4ea7bb8d28c41ec4b85ad275f25dfcf821c227d19ec71516c",
+  "timing_ms": {
+    "snapshot_build_s": {
+      "n": 5885,
+      "mean": 4.602023010904139,
+      "p50": 3.733666962943971,
+      "p95": 9.29902484640479,
+      "p99": 34.47404495906084,
+      "max": 43.22541691362858
+    },
+    "selector_s": {
+      "n": 5885,
+      "mean": 1.4065273704296872,
+      "p50": 1.179667073301971,
+      "p95": 2.580333803780377,
+      "p99": 3.189038592390714,
+      "max": 36.671207984909415
+    },
+    "prepare_to_macro_s": {
+      "n": 5885,
+      "mean": 6.020122667586236,
+      "p50": 4.922499996609986,
+      "p95": 12.21777442842722,
+      "p99": 37.106330543756464,
+      "max": 46.47341696545482
+    },
+    "compute_since_previous_response_s": {
+      "n": 36994,
+      "mean": 1.0050591993815903,
+      "p50": 0.005666050128638744,
+      "p95": 7.401185302296651,
+      "p99": 11.703643912915139,
+      "max": 47.042874968610704
+    },
+    "backend_call_s": {
+      "n": 36994,
+      "mean": 0.0032858399708987477,
+      "p50": 0.0023329630494117737,
+      "p95": 0.007458031177520752,
+      "p99": 0.010336932027712452,
+      "max": 0.05029106978327036
+    }
+  },
+  "selection_only": true,
+  "official_validation": false,
+  "final_blind_validation": false
+}

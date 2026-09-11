@@ -1,0 +1,78 @@
+{
+  "version": "rl-execution-final-delivery-v1",
+  "recorded_utc": "2026-09-11T12:23:58.555540+00:00",
+  "base_commit": "9608e63f372e29acceaeb8564237b850f840bb5d",
+  "experiment_complete": true,
+  "new_phase_costs": {
+    "included_disjoint_stages": [
+      "g0_results_v1",
+      "g0_audit_v1",
+      "g1",
+      "shared_demonstrations",
+      "selection",
+      "train/81001/ppo",
+      "train/81001/q",
+      "train/81002/ppo",
+      "train/81002/q",
+      "train/81003/ppo",
+      "train/81003/q"
+    ],
+    "indexed_episode_executions": 12609,
+    "indexed_business_primitives": 3968212,
+    "unique_executed_world_ids": 3840,
+    "note": "Selection per-model stages are not added again. Orphan archives and unresolved attempts are listed separately; no zero imputation."
+  },
+  "archive_checks": {
+    "paid_events_recomputed": 3968212,
+    "original_c7_without_core_events": 212,
+    "archives_read": 12609,
+    "compressed_or_json_bytes": 2817818626,
+    "decoded_bytes": 19163996602,
+    "snapshots": 360814,
+    "candidate_payloads": 4885681,
+    "original_c7_primitive_logs_read": 192
+  },
+  "synthetic_unique_fixtures": 79,
+  "synthetic_fixture_cap": 80,
+  "old_teacher_regression": {
+    "candidate_executions": 2520,
+    "candidate_accepted_requests": 499464,
+    "including_rules_accepted_requests": 499629,
+    "including_rules_attempted_requests": 499649,
+    "new_worlds": 0
+  },
+  "selection_episodes": 5760,
+  "deployment_checkpoints": 27,
+  "selected_algorithm_question_gates": {
+    "ppo": {
+      "3": false,
+      "4": false
+    },
+    "q": {
+      "3": false,
+      "4": false
+    }
+  },
+  "default_solver_replaced": false,
+  "additional_final_worlds": 0,
+  "official_worlds": 0,
+  "files_sha256": {
+    "experiments/20260911_rl_execution/REPORT.md": "418b258579491785170f3c470f83c77b824d6155a47f69deedfcd23bfa2e1bd3",
+    "experiments/20260911_rl_execution/IMPLEMENTATION.md": "dd13fb835e2c46c3b8b793e9ec48e0d0b5ba9e62d7adb63d09773666c4cf75fe",
+    "experiments/20260911_rl_execution/README.md": "31902e28a3d903faabeac9668f6ed87af1c4bb651bceaa1e882100f6ff65f365",
+    "experiments/20260911_rl_execution/data/g2_plan.json": "d1f97c7fac97365e9fef08bad774316d3797fb76dcc050cc98a8a3a196390821",
+    "experiments/20260911_rl_execution/data/selection_freeze.json": "3b46066d7705ff2273590e21f90479ba0ff41fa02b869d221c0a7abe0b488b9b",
+    "experiments/20260911_rl_execution/analysis/selection_result/selection_summary.json": "9a5b32efe5df4a19946a04081b6d6bd6dd22311a904f892729ab03270be43844",
+    "experiments/20260911_rl_execution/analysis/delivery_summary.json": "105895bd8604396163c4d8c6e970d809ff64872be32d344093be7df6aafc3e85",
+    "experiments/20260911_rl_execution/verification/full_audit_v1/audit.json": "ba4c7c2d79608daea5849de1631b4a6bda0d91c072ec6d29847389bc97f60dce",
+    "experiments/20260911_rl_execution/verification/full_audit_v1/local_only_trajectory_manifest.json": "47529fa00313c4c95cfbfe84a1412980c5a1b92c9339b74f1980bb340a81bd89",
+    "experiments/20260911_rl_execution/verification/checkpoint_review.json": "558c832a8d09ee2f78db8d7facfdd9d2251204059f3fd3c3e3cb563c649ee4c4",
+    "experiments/20260911_rl_execution/verification/selection_independent_review.json": "6f2f14279df7d38a187f47a68b82c4a80f9ebc424bf7ee1da7e24df574fba7e9",
+    "experiments/20260911_rl_execution/verification/q_diagnostics_v1/q_diagnostics.json": "ce8b49a9b27569a21183cfee767bd62b61a396db17f8b0af9d8e7916271f942f",
+    "experiments/20260911_rl_execution/verification/q_diagnostics_v1/validation_and_readout.json": "933d99db5b6b54f47e4d79a48980d0ab0dd452b9dc67f45727dc5f7832d03354",
+    "experiments/R1_atlas/rl_increment/index.json": "eb397356bdafd2639c06ed579eadbb00f79adfae892e3cd8df995f1c4e342b77",
+    "experiments/R1_atlas/rl_increment/source_manifest.json": "23bcf8e7b3519419e31f3f03e983f7146413ad8d6c665ad23479a2d87e04c9f3",
+    "experiments/R1_atlas/rl_increment/FINAL_BUILD_CHECK.json": "26a5b95e4b558354224624e41972c8b3239c8a04bca297aa42c634cb663666e9"
+  },
+  "integrity_note": "Record excludes its own hash and the future Git commit. Raw trajectories remain local; Git preserves their manifest. Reading/checking these files did not execute environments."
+}

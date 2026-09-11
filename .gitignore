@@ -9,3 +9,13 @@ client_log*.jsonl
 *.exe
 *.zip
 *.enc
+
+# RL raw trajectories remain locally available and are indexed by SHA256.
+# Commit recipes, per-episode metrics, model checkpoints and evidence indexes.
+experiments/20260911_rl_execution/**/episodes/
+experiments/20260911_rl_execution/core/g0_results_v1/[0-9][0-9]_*.json
+experiments/20260911_rl_execution/core/g0_audit_v1/*.json.gz
+experiments/20260911_rl_execution/**/resume.pt
+experiments/20260911_rl_execution/**/mc_resume.pt
+experiments/20260911_rl_execution/**/pending_update.json
+experiments/20260911_rl_execution/**/*.tmp

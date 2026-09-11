@@ -1,0 +1,167 @@
+{
+  "date": "2026-09-11",
+  "scope": "B own high-impact source and adoption claims; user IRIS/RF claims owned by A",
+  "claims": [
+    {
+      "id": "B01",
+      "claim": "OffRIPP can learn offline IPP using behavior-supported Q",
+      "status": "verified",
+      "source_id": "arxiv:2409.16830",
+      "evidence_locator": "PDF §III p3–4",
+      "conclusion": "Supports workflow, not our performance."
+    },
+    {
+      "id": "B02",
+      "claim": "OffRIPP Eq4 threshold endpoints are mutually consistent",
+      "status": "contradicted",
+      "source_id": "arxiv:2409.16830",
+      "evidence_locator": "PDF p3 Eq4 and following prose",
+      "conclusion": "Equation gates probability>τ, while prose swaps τ=0/1 meanings; specify own nonempty support rule."
+    },
+    {
+      "id": "B03",
+      "claim": "OffRIPP always exceeds its generating expert",
+      "status": "contradicted",
+      "source_id": "arxiv:2409.16830",
+      "evidence_locator": "TableI p5",
+      "conclusion": "Expert-data trace OffRIPP23.28/7.83/3.96 versus expert18.48/6.96/3.73; lower is better."
+    },
+    {
+      "id": "B04",
+      "claim": "OffRIPP proves Q better than properly online-trained PPO",
+      "status": "contradicted",
+      "source_id": "arxiv:2409.16830",
+      "evidence_locator": "§IV-C p5–6",
+      "conclusion": "Compared CAtNIPP is directly offline-trained PPO; no such inference allowed."
+    },
+    {
+      "id": "B05",
+      "claim": "OffRIPP training takes3/18h on this Apple machine",
+      "status": "unverified",
+      "source_id": "arxiv:2409.16830",
+      "evidence_locator": "§IV-B p5",
+      "conclusion": "3/18h are authors’ Xeon+3RTX6000 run; no Apple measurements."
+    },
+    {
+      "id": "B06",
+      "claim": "RESeL evidence rules out a universal partially-observable→PPO preference",
+      "status": "verified",
+      "source_id": "arxiv:2405.15384",
+      "evidence_locator": "§5 p6–9",
+      "conclusion": "Recurrent off-policy performs well on its POMDP suite; not guarantee this Q method."
+    },
+    {
+      "id": "B07",
+      "claim": "FQL evaluation includes73 tasks",
+      "status": "verified",
+      "source_id": "arxiv:2502.02538",
+      "evidence_locator": "§5.1 p6–7",
+      "conclusion": "50+5+6+12; 8state/4pixel seeds, some historical baseline cells; no common cross-paper leaderboard."
+    },
+    {
+      "id": "B08",
+      "claim": "TD-MPC2 performs104 task evaluation with learned terminal value",
+      "status": "verified",
+      "source_id": "arxiv:2310.16828",
+      "evidence_locator": "§3/§4 p3–5",
+      "conclusion": "Continuous-control evidence, not source localization."
+    },
+    {
+      "id": "B09",
+      "claim": "DreamerV3 requires test-time lookahead MPC",
+      "status": "contradicted",
+      "source_id": "arxiv:2301.04104",
+      "evidence_locator": "v2 p5 critic learning",
+      "conclusion": "Imagined training; environment actions sampled from actor without lookahead."
+    },
+    {
+      "id": "B10",
+      "claim": "ROID deep ensemble variance is exact mutual information with inherited regret guarantee",
+      "status": "contradicted",
+      "source_id": "arxiv:2605.29405",
+      "evidence_locator": "§3 p3–4 and §6 p7",
+      "conclusion": "Linear Gaussian exactMI vs deep ensemble proxies explicitly separated."
+    },
+    {
+      "id": "B11",
+      "claim": "C-IDS is DQN-based and demonstrates only value-based methods can use IDS",
+      "status": "contradicted",
+      "source_id": "arxiv:2602.03939",
+      "evidence_locator": "§2.2 and §4 p4/7",
+      "conclusion": "Variational policy gradient with LSTM and EKF likelihood."
+    },
+    {
+      "id": "B12",
+      "claim": "C-IDS gives a directly applicable regret guarantee for this project",
+      "status": "contradicted",
+      "source_id": "arxiv:2602.03939",
+      "evidence_locator": "§2.1 vs §3, appendixLemma3.6/Eq19",
+      "conclusion": "Finite contexts/fixed-across-episode theorem and Gaussian toy experiment differ; positive-information bound proof step not accepted by B."
+    },
+    {
+      "id": "B13",
+      "claim": "C-IDS proof step finite episodes implies universalη withH≤I/η",
+      "status": "unverified",
+      "source_id": "arxiv:2602.03939",
+      "evidence_locator": "Appendix proofLemma3.6 Eq19",
+      "conclusion": "Finite K alone does not ensureI>0 whenH>0 or K-independentη. B flags missing sufficient conditions, does not claim complete theorem disproof."
+    },
+    {
+      "id": "B14",
+      "claim": "Amortized cost paper provides our deployment ROI",
+      "status": "contradicted",
+      "source_id": "arxiv:2605.14624",
+      "evidence_locator": "p1–2",
+      "conclusion": "ItsCVRP50energy/batched-GPU economics cannot replace measured batch1 latency or virtual task time."
+    },
+    {
+      "id": "B15",
+      "claim": "World model ensemble confidence certifies task completion",
+      "status": "contradicted",
+      "source_id": "arxiv:2607.16591",
+      "evidence_locator": "p1–2 plus project logical separation",
+      "conclusion": "Empirical risk proxy warning only; deterministic certificates require continuous geometry and finite fallback proof."
+    },
+    {
+      "id": "B16",
+      "claim": "Newest arXiv titles in B are verified conference acceptances/SOTA",
+      "status": "unverified",
+      "source_id": "multiple",
+      "evidence_locator": "metadata versus actual paper headers recorded individually",
+      "conclusion": "No venue award or task-generalSOTA claim.2026items use author-labeled status unless primary proceedings checked."
+    },
+    {
+      "id": "B17",
+      "claim": "B RL proposal has improved C7",
+      "status": "unverified",
+      "source_id": "project",
+      "evidence_locator": "No policy implementation/training/environment run in current research phase",
+      "conclusion": "All proposed benefits are hypotheses. C7 existing4800exposed full-clear evidence remains the only cited local performance."
+    },
+    {
+      "id": "B18",
+      "claim": "The new RL wrapper has a paper-only finite fallback virtual bound below 53000 seconds from position box [-4000,4000]^2",
+      "status": "verified",
+      "source_id": "project-derived",
+      "evidence_locator": "PROPOSAL.md sections 6.1–6.3; public problem disk radius 1800, source range 1000–1500, angle rounding",
+      "conclusion": "Conditional geometric construction: 49 stations, 304 clear points per source, <=5844 measure/clear plus EXIT, bound 52195.68773235279 s. RL preemption 300000+2300+53000<360000. New wrapper contract, not a proof that original C7 stays in the box; no implementation or environment execution. Common wrapper also caps accepted learning primitives at 10000 and hands over after 32 learning scheduling decisions without certified progress; same guard for Q/PPO."
+    },
+    {
+      "id": "B19",
+      "claim": "The fallback also unconditionally completes within the real 1200-second limit",
+      "status": "unverified",
+      "source_id": "project-derived",
+      "evidence_locator": "PROPOSAL.md section 6.3",
+      "conclusion": "Only conditional on deterministic request/compute bounds and adequate remaining 25-minute window. No such bounds measured or established. P99 reserve is engineering evidence, not deterministic guarantee."
+    },
+    {
+      "id": "B20",
+      "claim": "B Q labels are in the same per-source normalized units as the E[T/N] objective",
+      "status": "verified",
+      "source_id": "project-derived",
+      "evidence_locator": "PROPOSAL.md section 4.2 symbolic three-step check",
+      "conclusion": "T0=1000; cost reward -dt/(1000N); failure terminal once -100; history-Q marginalizes hidden N; N only post-episode trainer labels. Approximate compressed Q/off-policy learning is not proved exact or optimal; finite failure penalty is not lexicographic completeness."
+    }
+  ],
+  "revision": "R1"
+}

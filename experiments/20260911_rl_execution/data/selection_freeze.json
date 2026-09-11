@@ -1,0 +1,2497 @@
+{
+  "version": "registered_selection_freeze_v1",
+  "plan_sha256": "d1f97c7fac97365e9fef08bad774316d3797fb76dcc050cc98a8a3a196390821",
+  "baselines": [
+    {
+      "model_id": "original_c7",
+      "algorithm": "original_c7",
+      "seed": null,
+      "checkpoint": null
+    },
+    {
+      "model_id": "teacher_wrapper",
+      "algorithm": "teacher_wrapper",
+      "seed": null,
+      "checkpoint": null
+    },
+    {
+      "model_id": "same_candidates_greedy",
+      "algorithm": "same_candidates_greedy",
+      "seed": null,
+      "checkpoint": null
+    },
+    {
+      "model_id": "bc_init81001",
+      "algorithm": "bc",
+      "seed": 81001,
+      "checkpoint": {
+        "path": "results/g2/init_81001/bc/final.pt",
+        "sha256": "8ad9e00ca045a2bd2434a2cd20b60d45d553312423034bae03622733b562f6ad",
+        "episodes": 0
+      }
+    },
+    {
+      "model_id": "bc_init81002",
+      "algorithm": "bc",
+      "seed": 81002,
+      "checkpoint": {
+        "path": "results/g2/init_81002/bc/final.pt",
+        "sha256": "2ef3293828bd12952de057dbde6bd612e6f519728df847b2fff84304f5127432",
+        "episodes": 0
+      }
+    },
+    {
+      "model_id": "bc_init81003",
+      "algorithm": "bc",
+      "seed": 81003,
+      "checkpoint": {
+        "path": "results/g2/init_81003/bc/final.pt",
+        "sha256": "00ee637b96c6aa05ef02a8ee4567834a86c7e8de8fa7e655788f8da18206285d",
+        "episodes": 0
+      }
+    }
+  ],
+  "models": [
+    {
+      "model_id": "ppo_init81001_ep0128",
+      "algorithm": "ppo",
+      "seed": 81001,
+      "checkpoint": {
+        "algorithm": "ppo",
+        "seed": 81001,
+        "episodes": 128,
+        "path": "results/g2/init_81001/ppo/checkpoints/episode_0128.pt",
+        "sha256": "699da9b80a0ed3ce83fa63b31838c82936137cb43a8f7511aafbf236e70142cb"
+      }
+    },
+    {
+      "model_id": "ppo_init81001_ep0256",
+      "algorithm": "ppo",
+      "seed": 81001,
+      "checkpoint": {
+        "algorithm": "ppo",
+        "seed": 81001,
+        "episodes": 256,
+        "path": "results/g2/init_81001/ppo/checkpoints/episode_0256.pt",
+        "sha256": "dcd3b5da8914163c6faef45a81ba4793d5bd6b39c4e2dd2ed94a3912f779a803"
+      }
+    },
+    {
+      "model_id": "ppo_init81001_ep0512",
+      "algorithm": "ppo",
+      "seed": 81001,
+      "checkpoint": {
+        "algorithm": "ppo",
+        "seed": 81001,
+        "episodes": 512,
+        "path": "results/g2/init_81001/ppo/checkpoints/episode_0512.pt",
+        "sha256": "1723fc5d854d0b9ceec42bd7c940442e39e17adabfb851a8de3a0d30c4d065fb"
+      }
+    },
+    {
+      "model_id": "ppo_init81001_ep1024",
+      "algorithm": "ppo",
+      "seed": 81001,
+      "checkpoint": {
+        "algorithm": "ppo",
+        "seed": 81001,
+        "episodes": 1024,
+        "path": "results/g2/init_81001/ppo/checkpoints/episode_1024.pt",
+        "sha256": "f2dab241bd10adca9c6328bc1745904e45413400c5556209d4615b61f3ed570c"
+      }
+    },
+    {
+      "model_id": "q_init81001_ep0128",
+      "algorithm": "q",
+      "seed": 81001,
+      "checkpoint": {
+        "algorithm": "q",
+        "seed": 81001,
+        "episodes": 128,
+        "path": "results/g2/init_81001/q/checkpoints/episode_0128.pt",
+        "sha256": "3c6d0c1e3f73aea23604c4f387067348015ed16f4121a28f2ed7933158136ccb"
+      }
+    },
+    {
+      "model_id": "q_init81001_ep0256",
+      "algorithm": "q",
+      "seed": 81001,
+      "checkpoint": {
+        "algorithm": "q",
+        "seed": 81001,
+        "episodes": 256,
+        "path": "results/g2/init_81001/q/checkpoints/episode_0256.pt",
+        "sha256": "71e49504c0bd3e2644d320feb6441b4141dbc7d7595d4bcdf6c85fa09fadf8b6"
+      }
+    },
+    {
+      "model_id": "q_init81001_ep0512",
+      "algorithm": "q",
+      "seed": 81001,
+      "checkpoint": {
+        "algorithm": "q",
+        "seed": 81001,
+        "episodes": 512,
+        "path": "results/g2/init_81001/q/checkpoints/episode_0512.pt",
+        "sha256": "2873a2517099ab88669fd0c3198484f002ac29b2b363b35901b2717841717064"
+      }
+    },
+    {
+      "model_id": "q_init81001_ep1024",
+      "algorithm": "q",
+      "seed": 81001,
+      "checkpoint": {
+        "algorithm": "q",
+        "seed": 81001,
+        "episodes": 1024,
+        "path": "results/g2/init_81001/q/checkpoints/episode_1024.pt",
+        "sha256": "9483208dabe02e0440583ff12b82c98be2df34710f18159f26ed78bdd54f751a"
+      }
+    },
+    {
+      "model_id": "ppo_init81002_ep0128",
+      "algorithm": "ppo",
+      "seed": 81002,
+      "checkpoint": {
+        "algorithm": "ppo",
+        "seed": 81002,
+        "episodes": 128,
+        "path": "results/g2/init_81002/ppo/checkpoints/episode_0128.pt",
+        "sha256": "39e9522d6fd1330a2d052c8cb1552d4970c6e77b24fef05f80b9c18ede3f530f"
+      }
+    },
+    {
+      "model_id": "ppo_init81002_ep0256",
+      "algorithm": "ppo",
+      "seed": 81002,
+      "checkpoint": {
+        "algorithm": "ppo",
+        "seed": 81002,
+        "episodes": 256,
+        "path": "results/g2/init_81002/ppo/checkpoints/episode_0256.pt",
+        "sha256": "c0e289d6a1c607eba4816361efa3f351d853808801a436a92b7d7fd0075657d4"
+      }
+    },
+    {
+      "model_id": "ppo_init81002_ep0512",
+      "algorithm": "ppo",
+      "seed": 81002,
+      "checkpoint": {
+        "algorithm": "ppo",
+        "seed": 81002,
+        "episodes": 512,
+        "path": "results/g2/init_81002/ppo/checkpoints/episode_0512.pt",
+        "sha256": "1f5e86884a827390265c611cb345d43fe4630ddebdb07727af3ceb642491793f"
+      }
+    },
+    {
+      "model_id": "ppo_init81002_ep1024",
+      "algorithm": "ppo",
+      "seed": 81002,
+      "checkpoint": {
+        "algorithm": "ppo",
+        "seed": 81002,
+        "episodes": 1024,
+        "path": "results/g2/init_81002/ppo/checkpoints/episode_1024.pt",
+        "sha256": "10da5d192703cf30f0eb04f7d61cf576c12edee053f7fec8b74fdccbc46627c7"
+      }
+    },
+    {
+      "model_id": "q_init81002_ep0128",
+      "algorithm": "q",
+      "seed": 81002,
+      "checkpoint": {
+        "algorithm": "q",
+        "seed": 81002,
+        "episodes": 128,
+        "path": "results/g2/init_81002/q/checkpoints/episode_0128.pt",
+        "sha256": "eb07d0145ff830f874f39f086935692de1250cea7a82d3536c8e21ada54a2816"
+      }
+    },
+    {
+      "model_id": "q_init81002_ep0256",
+      "algorithm": "q",
+      "seed": 81002,
+      "checkpoint": {
+        "algorithm": "q",
+        "seed": 81002,
+        "episodes": 256,
+        "path": "results/g2/init_81002/q/checkpoints/episode_0256.pt",
+        "sha256": "80c0b7f09142f66768f02f7fcf144726546c22fcac696184f0d0ede22e39e408"
+      }
+    },
+    {
+      "model_id": "q_init81002_ep0512",
+      "algorithm": "q",
+      "seed": 81002,
+      "checkpoint": {
+        "algorithm": "q",
+        "seed": 81002,
+        "episodes": 512,
+        "path": "results/g2/init_81002/q/checkpoints/episode_0512.pt",
+        "sha256": "880cde8a357d841cd9aa8dd361fc35e42b5e961d846b6ad0c7eabb97b3c5d95b"
+      }
+    },
+    {
+      "model_id": "q_init81002_ep1024",
+      "algorithm": "q",
+      "seed": 81002,
+      "checkpoint": {
+        "algorithm": "q",
+        "seed": 81002,
+        "episodes": 1024,
+        "path": "results/g2/init_81002/q/checkpoints/episode_1024.pt",
+        "sha256": "6294fd7cca2469a67b0688c98685561299e9b6b6e1f296d922ada0ed24c0170d"
+      }
+    },
+    {
+      "model_id": "ppo_init81003_ep0128",
+      "algorithm": "ppo",
+      "seed": 81003,
+      "checkpoint": {
+        "algorithm": "ppo",
+        "seed": 81003,
+        "episodes": 128,
+        "path": "results/g2/init_81003/ppo/checkpoints/episode_0128.pt",
+        "sha256": "e7065172ce712f7d54b9dd22c52cca1bbbfc346c9eaec0f8d482161b02ec7679"
+      }
+    },
+    {
+      "model_id": "ppo_init81003_ep0256",
+      "algorithm": "ppo",
+      "seed": 81003,
+      "checkpoint": {
+        "algorithm": "ppo",
+        "seed": 81003,
+        "episodes": 256,
+        "path": "results/g2/init_81003/ppo/checkpoints/episode_0256.pt",
+        "sha256": "7b06ea91beafbf7130351cfbff4465f4c536467365bfed44734c7fe79849f4fb"
+      }
+    },
+    {
+      "model_id": "ppo_init81003_ep0512",
+      "algorithm": "ppo",
+      "seed": 81003,
+      "checkpoint": {
+        "algorithm": "ppo",
+        "seed": 81003,
+        "episodes": 512,
+        "path": "results/g2/init_81003/ppo/checkpoints/episode_0512.pt",
+        "sha256": "35bcbb0a09f1ad6543829115ff407a383529828b1031c53c7d877075b808adcb"
+      }
+    },
+    {
+      "model_id": "ppo_init81003_ep1024",
+      "algorithm": "ppo",
+      "seed": 81003,
+      "checkpoint": {
+        "algorithm": "ppo",
+        "seed": 81003,
+        "episodes": 1024,
+        "path": "results/g2/init_81003/ppo/checkpoints/episode_1024.pt",
+        "sha256": "7444aedcc0fef8fadd1fab5b663a55e8991103e6b843cd6fcaccb18929962db4"
+      }
+    },
+    {
+      "model_id": "q_init81003_ep0128",
+      "algorithm": "q",
+      "seed": 81003,
+      "checkpoint": {
+        "algorithm": "q",
+        "seed": 81003,
+        "episodes": 128,
+        "path": "results/g2/init_81003/q/checkpoints/episode_0128.pt",
+        "sha256": "efa2d9a46776523501b72a7725f1962eb3412c7a81bd94eb2bc66cb14781e896"
+      }
+    },
+    {
+      "model_id": "q_init81003_ep0256",
+      "algorithm": "q",
+      "seed": 81003,
+      "checkpoint": {
+        "algorithm": "q",
+        "seed": 81003,
+        "episodes": 256,
+        "path": "results/g2/init_81003/q/checkpoints/episode_0256.pt",
+        "sha256": "dd5cc0551ca9d400a49c6d1fbec703eedfbcadbca236afa749a0d7ac2cc30f15"
+      }
+    },
+    {
+      "model_id": "q_init81003_ep0512",
+      "algorithm": "q",
+      "seed": 81003,
+      "checkpoint": {
+        "algorithm": "q",
+        "seed": 81003,
+        "episodes": 512,
+        "path": "results/g2/init_81003/q/checkpoints/episode_0512.pt",
+        "sha256": "e73bc4c95ad0d9af141ed1c873956790c32202e1f86de14992d7c4d6d49e6423"
+      }
+    },
+    {
+      "model_id": "q_init81003_ep1024",
+      "algorithm": "q",
+      "seed": 81003,
+      "checkpoint": {
+        "algorithm": "q",
+        "seed": 81003,
+        "episodes": 1024,
+        "path": "results/g2/init_81003/q/checkpoints/episode_1024.pt",
+        "sha256": "b399478c9cc39cc47ae88a28cc4c35639b8c21b13ddb02d89e745973c5997676"
+      }
+    }
+  ],
+  "training_summaries": {
+    "ppo_init81001": {
+      "summary": {
+        "unique_worlds": 1024,
+        "episode_executions": 1024,
+        "business_primitives": 205618,
+        "successes": 1024,
+        "failures": [],
+        "execution_wall_s": 192.10673114366364,
+        "raw_json_bytes": 1437623777,
+        "gzip_bytes": 207417317,
+        "storage_wall_s": 21.000706793623976,
+        "storage_timing_unavailable_count": 0,
+        "peak_process_mib": 442.828125,
+        "seed": 81001,
+        "algorithm": "ppo",
+        "completed_training_episodes": 1024,
+        "optimizer_steps": 512,
+        "optimizer_wall_s": 67.51726896408945,
+        "stop_reason": "episode_cap",
+        "checkpoint_positions": [
+          128,
+          256,
+          512,
+          1024
+        ],
+        "partial_final_batch": 0,
+        "final_state_sha256": "1006400ddeee6e217b25dd695a1de68ffee51a5c6a47c1dccdfc9bd0de81248f"
+      },
+      "sha256": "c168a9c1004ee066c0120e4f29cb84a4e3ddd8d0e6daabb1e42d234e7320c26b",
+      "rows_sha256": "79ce833b1f3345a152d65a83cee61cbf8522cdfeb394a2944e525543e34f15ec",
+      "missing_planned_checkpoints": []
+    },
+    "q_init81001": {
+      "summary": {
+        "unique_worlds": 1024,
+        "episode_executions": 1024,
+        "business_primitives": 678955,
+        "successes": 1024,
+        "failures": [],
+        "execution_wall_s": 255.56452600634657,
+        "raw_json_bytes": 1613755527,
+        "gzip_bytes": 224199183,
+        "storage_wall_s": 35.086233968730085,
+        "storage_timing_unavailable_count": 0,
+        "peak_process_mib": 442.828125,
+        "seed": 81001,
+        "algorithm": "q",
+        "completed_training_episodes": 1024,
+        "td_optimizer_steps": 1024,
+        "load_convert_optimizer_wall_s": 1025.6370695077349,
+        "stop_reason": "episode_cap",
+        "checkpoint_positions": [
+          128,
+          256,
+          512,
+          1024
+        ],
+        "range_revision": 1536,
+        "range_snapshot_count": 41813,
+        "final_state_sha256": "46f16d7286d35a50081edc54904acb5c349af8a87a9fdbda43902ba0ded48ed5"
+      },
+      "sha256": "5e51a6cf3f6192f041499cc4eb98dca99b238e2912d8bcfc39e630f449988f8a",
+      "rows_sha256": "3b1280be82bb34c091c92557aad6cb20ccbf3a08d086d6e66154e3f41ac93ff8",
+      "missing_planned_checkpoints": []
+    },
+    "ppo_init81002": {
+      "summary": {
+        "unique_worlds": 1024,
+        "episode_executions": 1024,
+        "business_primitives": 204523,
+        "successes": 1024,
+        "failures": [],
+        "execution_wall_s": 199.3322607218288,
+        "raw_json_bytes": 1501603204,
+        "gzip_bytes": 216564528,
+        "storage_wall_s": 21.477596078650095,
+        "storage_timing_unavailable_count": 0,
+        "peak_process_mib": 446.203125,
+        "seed": 81002,
+        "algorithm": "ppo",
+        "completed_training_episodes": 1024,
+        "optimizer_steps": 512,
+        "optimizer_wall_s": 70.99838546430692,
+        "stop_reason": "episode_cap",
+        "checkpoint_positions": [
+          128,
+          256,
+          512,
+          1024
+        ],
+        "partial_final_batch": 0,
+        "final_state_sha256": "957d2c46afd655f81d58e22303fe0523e248a7055681002cf034f6b4a86e14c2"
+      },
+      "sha256": "045cd5ab5f2402676bdc249bffcd92830809b91943f9ecf0309282218d2a89d3",
+      "rows_sha256": "ba56b7c4678d2c78b121509eedb05d6b487bfbccc76afe67a8b69bdf5c60133c",
+      "missing_planned_checkpoints": []
+    },
+    "q_init81002": {
+      "summary": {
+        "unique_worlds": 1024,
+        "episode_executions": 1024,
+        "business_primitives": 681238,
+        "successes": 1024,
+        "failures": [],
+        "execution_wall_s": 260.0467984660063,
+        "raw_json_bytes": 1638072914,
+        "gzip_bytes": 228121233,
+        "storage_wall_s": 35.805233720340766,
+        "storage_timing_unavailable_count": 0,
+        "peak_process_mib": 446.203125,
+        "seed": 81002,
+        "algorithm": "q",
+        "completed_training_episodes": 1024,
+        "td_optimizer_steps": 1024,
+        "load_convert_optimizer_wall_s": 1027.2444887699094,
+        "stop_reason": "episode_cap",
+        "checkpoint_positions": [
+          128,
+          256,
+          512,
+          1024
+        ],
+        "range_revision": 1536,
+        "range_snapshot_count": 41651,
+        "final_state_sha256": "40608ed753107a58a876b8d8752290e7b821038a453d857fa04d2871efbc288c"
+      },
+      "sha256": "8f33b8b74c0d7fbcfc229b69aa2d792d2fb40db269b382ed8513bb70cab8ab99",
+      "rows_sha256": "2cebe9152d388abda03e3e9eb966c681be3f8befde288294caa6a5868d58e80a",
+      "missing_planned_checkpoints": []
+    },
+    "ppo_init81003": {
+      "summary": {
+        "unique_worlds": 1024,
+        "episode_executions": 1024,
+        "business_primitives": 203585,
+        "successes": 1024,
+        "failures": [],
+        "execution_wall_s": 196.37743625149596,
+        "raw_json_bytes": 1484799177,
+        "gzip_bytes": 213215811,
+        "storage_wall_s": 21.26814965927042,
+        "storage_timing_unavailable_count": 0,
+        "peak_process_mib": 451.75,
+        "seed": 81003,
+        "algorithm": "ppo",
+        "completed_training_episodes": 1024,
+        "optimizer_steps": 512,
+        "optimizer_wall_s": 70.44315720791928,
+        "stop_reason": "episode_cap",
+        "checkpoint_positions": [
+          128,
+          256,
+          512,
+          1024
+        ],
+        "partial_final_batch": 0,
+        "final_state_sha256": "06ec2778646167547836b455c7587c855e6af9019b03138918aa304d72aa5310"
+      },
+      "sha256": "634eefe99937add742cdf5712ed96caa359d059cf9f6f3b469ad6bed363e4dfc",
+      "rows_sha256": "67395dc3bfbe095dec4d774d6060599a728d7993e04bf4a7693e87bac5497832",
+      "missing_planned_checkpoints": []
+    },
+    "q_init81003": {
+      "summary": {
+        "unique_worlds": 1024,
+        "episode_executions": 1024,
+        "business_primitives": 678104,
+        "successes": 1024,
+        "failures": [],
+        "execution_wall_s": 256.7370769936824,
+        "raw_json_bytes": 1606388664,
+        "gzip_bytes": 226407226,
+        "storage_wall_s": 35.57750401447993,
+        "storage_timing_unavailable_count": 0,
+        "peak_process_mib": 451.75,
+        "seed": 81003,
+        "algorithm": "q",
+        "completed_training_episodes": 1024,
+        "td_optimizer_steps": 1024,
+        "load_convert_optimizer_wall_s": 1009.836286473088,
+        "stop_reason": "episode_cap",
+        "checkpoint_positions": [
+          128,
+          256,
+          512,
+          1024
+        ],
+        "range_revision": 1536,
+        "range_snapshot_count": 41776,
+        "final_state_sha256": "90f726b12685c2a3de7ddbcfc8516c9b54e8d3e5523201b5e1bd3071b3683fcb"
+      },
+      "sha256": "12b7a79f270f8b76ac616301f24654ebc38906df7fcd558c4921c9f840736b0b",
+      "rows_sha256": "82a18f5612104717b63fbe6e8b15d5a90723b3103708bdd4db8c3b11ee644927",
+      "missing_planned_checkpoints": []
+    }
+  },
+  "selection_worlds": [
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00000",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 0,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 1913277159
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00000",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 0,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 1809146196
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00001",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 1,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 1367899539
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00001",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 1,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 1732824069
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00002",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 2,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 436045340
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00002",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 2,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 605710979
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00003",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 3,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 1280780453
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00003",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 3,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 53165510
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00004",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 4,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 1142306017
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00004",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 4,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 477337474
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00005",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 5,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 886640319
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00005",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 5,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 551441709
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00006",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 6,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 1438906400
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00006",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 6,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 1212098334
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00007",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 7,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 846870747
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00007",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 7,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 1347782441
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00008",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 8,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 472104112
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00008",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 8,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 24995368
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00009",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 9,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 825381586
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00009",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 9,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 1921920257
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00010",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 10,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 1819192808
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00010",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 10,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 327262137
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00011",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 11,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 913533600
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00011",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 11,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 1507564609
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00012",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 12,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 609081161
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00012",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 12,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 1820159891
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00013",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 13,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 508277466
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00013",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 13,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 967058886
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00014",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 14,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 613804982
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00014",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 14,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 233077701
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00015",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 15,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 1450796272
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00015",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 15,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 1551798980
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00016",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 16,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 315453386
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00016",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 16,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 839994754
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00017",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 17,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 1191898271
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00017",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 17,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 1736112392
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00018",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 18,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 1617798326
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00018",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 18,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 52527046
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00019",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 19,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 1482009262
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00019",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 19,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 525932923
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00020",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 20,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 1082834271
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00020",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 20,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 874458241
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00021",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 21,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 17998305
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00021",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 21,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 1549465888
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00022",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 22,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 524918431
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00022",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 22,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 887240816
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00023",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 23,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 225475447
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00023",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 23,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 727839766
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00024",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 24,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 1901052219
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00024",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 24,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 832872280
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00025",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 25,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 669355892
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00025",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 25,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 1144269644
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00026",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 26,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 1331568420
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00026",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 26,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 741508752
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00027",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 27,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 1237987526
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00027",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 27,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 1368176315
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00028",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 28,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 1396761410
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00028",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 28,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 492217141
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00029",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 29,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 1520757486
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00029",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 29,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 408222940
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00030",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 30,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 1317612401
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00030",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 30,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 855401715
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00031",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 31,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 1860978752
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00031",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 31,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 1522232935
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00032",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 32,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 1672452555
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00032",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 32,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 1835210870
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00033",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 33,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 1884559583
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00033",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 33,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 1004273876
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00034",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 34,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 146241705
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00034",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 34,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 1744004527
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00035",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 35,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 467320525
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00035",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 35,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 1646260182
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00036",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 36,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 562856100
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00036",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 36,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 912760393
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00037",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 37,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 515979822
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00037",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 37,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 820767044
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00038",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 38,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 1849025668
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00038",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 38,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 1059238063
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00039",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 39,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 930139683
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00039",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 39,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 223481006
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00040",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 40,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 1462975844
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00040",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 40,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 445453078
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00041",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 41,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 824928627
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00041",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 41,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 1309339747
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00042",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 42,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 694880056
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00042",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 42,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 1712193176
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00043",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 43,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 280225191
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00043",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 43,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 1247731318
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00044",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 44,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 1206884378
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00044",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 44,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 1950252044
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00045",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 45,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 995855217
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00045",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 45,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 580208340
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00046",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 46,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 1228317763
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00046",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 46,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 1362726842
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00047",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 47,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 1160157544
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00047",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 47,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 2009388679
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00048",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 48,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 607866377
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00048",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 48,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 735718095
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00049",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 49,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 480730416
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00049",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 49,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 1712196706
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00050",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 50,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 1199165146
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00050",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 50,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 1467901449
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00051",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 51,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 437296224
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00051",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 51,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 403816919
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00052",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 52,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 324832739
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00052",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 52,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 1144312538
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00053",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 53,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 617845641
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00053",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 53,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 1956195982
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00054",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 54,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 503356792
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00054",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 54,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 841193317
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00055",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 55,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 1195612775
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00055",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 55,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 1936174570
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00056",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 56,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 917025818
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00056",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 56,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 411239398
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00057",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 57,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 352646621
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00057",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 57,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 544988627
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00058",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 58,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 1848924838
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00058",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 58,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 1920084472
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00059",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 59,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 1814045217
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00059",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 59,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 211959505
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00060",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 60,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 196838439
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00060",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 60,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 1035687925
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00061",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 61,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 1794002335
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00061",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 61,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 1673123026
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00062",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 62,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 877226188
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00062",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 62,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 481232975
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00063",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 63,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 1223108428
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00063",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 63,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 622838400
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00064",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 64,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 363164899
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00064",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 64,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 1978621507
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00065",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 65,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 1099355095
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00065",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 65,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 844139253
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00066",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 66,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 1842310510
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00066",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 66,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 463210442
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00067",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 67,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 1489069998
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00067",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 67,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 1730181836
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00068",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 68,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 1139853978
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00068",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 68,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 592805530
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00069",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 69,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 1400616081
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00069",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 69,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 751748770
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00070",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 70,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 572395515
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00070",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 70,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 1962318463
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00071",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 71,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 834387301
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00071",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 71,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 1845695358
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00072",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 72,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 151863104
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00072",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 72,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 287048277
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00073",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 73,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 687301910
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00073",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 73,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 211521806
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00074",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 74,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 1354362864
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00074",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 74,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 278435834
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00075",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 75,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 1297262808
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00075",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 75,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 280531482
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00076",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 76,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 268368170
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00076",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 76,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 1185931913
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00077",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 77,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 1423077383
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00077",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 77,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 1867118716
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00078",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 78,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 906941868
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00078",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 78,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 1175018503
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00079",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 79,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 395798390
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00079",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 79,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 971073943
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00080",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 80,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 1807778098
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00080",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 80,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 1832028918
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00081",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 81,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 1454485241
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00081",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 81,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 949714995
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00082",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 82,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 246999295
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00082",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 82,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 1983474708
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00083",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 83,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 1629887111
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00083",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 83,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 1693467438
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00084",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 84,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 1473821178
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00084",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 84,
+      "group": "reference_assumed",
+      "scenario": "random",
+      "noise": "uniform",
+      "seed": 1830338210
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00085",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 85,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 645427597
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00085",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 85,
+      "group": "fixed_positive_bias",
+      "scenario": "random",
+      "noise": "positive",
+      "seed": 1800187190
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00086",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 86,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 514331562
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00086",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 86,
+      "group": "fixed_negative_bias",
+      "scenario": "random",
+      "noise": "negative",
+      "seed": 160517499
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00087",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 87,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 379530336
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00087",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 87,
+      "group": "smooth_shared_field",
+      "scenario": "random",
+      "noise": "smooth_shared",
+      "seed": 1075200708
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00088",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 88,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 1574151661
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00088",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 88,
+      "group": "cell50_shared_field",
+      "scenario": "random",
+      "noise": "cell_50",
+      "seed": 172114305
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00089",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 89,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 1390749440
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00089",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 89,
+      "group": "cell500_shared_field",
+      "scenario": "random",
+      "noise": "cell_500",
+      "seed": 1483319914
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00090",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 90,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 1258643245
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00090",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 90,
+      "group": "edge_mixed_min_radius",
+      "scenario": "edge_mixed",
+      "noise": "uniform",
+      "seed": 1557146067
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00091",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 91,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 141338233
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00091",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 91,
+      "group": "offcenter_cluster",
+      "scenario": "cluster_offcenter",
+      "noise": "uniform",
+      "seed": 646322116
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00092",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 92,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 526712938
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00092",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 92,
+      "group": "origin_cluster",
+      "scenario": "cluster_origin",
+      "noise": "uniform",
+      "seed": 605548575
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00093",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 93,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 241349377
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00093",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 93,
+      "group": "minimum_radius",
+      "scenario": "min_radius",
+      "noise": "uniform",
+      "seed": 1535544130
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00094",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 94,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 1042988389
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00094",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 94,
+      "group": "exactly10_sources",
+      "scenario": "count10",
+      "noise": "uniform",
+      "seed": 1064303864
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q3:00095",
+      "split": "g2_checkpoint_selection",
+      "mode": 3,
+      "index": 95,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 1838521917
+    },
+    {
+      "world_id": "rl-new-world-recipe-v1:g2_checkpoint_selection:q4:00095",
+      "split": "g2_checkpoint_selection",
+      "mode": 4,
+      "index": 95,
+      "group": "exactly16_sources",
+      "scenario": "count16",
+      "noise": "uniform",
+      "seed": 1294777915
+    }
+  ],
+  "runtime_sha256": {
+    "experiments/20260911_rl_execution/shared.py": "eff005477c5801f37d371e621fee86e7bcef8189e8b6f8c4a97f2d970d4ab849",
+    "experiments/20260911_rl_execution/runners/common.py": "52f55ae1f73cea1d26e0f16d9bdee48efa1c96ea2ef0361d365bf8b38126e74e",
+    "experiments/20260911_rl_execution/runners/selection_eval.py": "1d6fdef8ec5ff2432a8bbaf3af5e84a28364e60a59d99e7305b9aa88f61ffcc6",
+    "experiments/20260911_rl_execution/data/worlds.py": "f595623edd01fbcaeefd64a05bf3905f13deb25f9508d2f813e94715a5509f80",
+    "local_env.py": "99587518fa378e1bef2fbbaa9425ee907bea80885a69666b3765311cbcf4f42a",
+    "experiments/20260911_stage4/combination/geometry_fusions/C7_both.py": "cf37866829b9c6f376895075e819a732939e6fa8ad6d8d6297a151d7a213dcb3",
+    "experiments/20260911_rl_execution/core/teacher_adapter.py": "6e68b2eb64cac262ae9b0d3b6a4c4b909598048809022367fb1d50771a2ea679",
+    "experiments/20260911_rl_execution/core/interface.py": "ed5d3e98ab846dc546f9e5d5adcbc8e8c63e936e99e1f5f2cdf1096dd77042f3",
+    "experiments/20260911_rl_execution/core/__init__.py": "9945e9aed1ffb85144b35a1afbdc2fb6ff86d66929f2cd96977492b9b3771bc1",
+    "experiments/20260911_rl_execution/core/engine.py": "dd143ba911a7e6bd46a79fe7ae5d98bd98681e7d20764b57436c321e1af0894c",
+    "experiments/20260911_rl_execution/core/geometry.py": "a7a5a98efe5be405e45f796421b35eb1ecdad07bcb3977774d45a3bcedd764a3",
+    "experiments/20260911_rl_execution/core/fallback.py": "fcc07db4e62341cbdc8d20335096d3541bacfbbdbd1614bf3c1a5936525f00c3",
+    "experiments/20260911_rl_execution/core/schema.py": "2ef71e8a18dc068847e070e13ff469916abeaf46588036cb4d1d602f4f9c2f68",
+    "experiments/20260911_rl_execution/ppo/__init__.py": "e27cc492fb9fed7ac5e8d331f84aacd458fddb909addda6da7d9b6d64a614e00",
+    "experiments/20260911_rl_execution/ppo/returns.py": "6bbadd6fa2b9b267207ade649bd7a55100af5b8d2906000f9d2c3af5b8ddb39c",
+    "experiments/20260911_rl_execution/ppo/trainer.py": "126e996daf3d9c9a10820f3ef79f0b8573c6b35c340f48eeacc0111370a3ef72",
+    "experiments/20260911_rl_execution/q_learning/policy.py": "ad900bb796466d074d0fcd7444db4ed2c4a3035a04a66e7e213c53570721fbf4",
+    "experiments/20260911_rl_execution/q_learning/__init__.py": "a42d4069bf32408471413046b52ac2dc46f2e21d87c8a0f3c4db8bb9d3501b13",
+    "experiments/20260911_rl_execution/q_learning/replay.py": "06029000eeb97d3de77d647435c79dacf2b26bc677cfec453cade93c1efdbdb5",
+    "experiments/20260911_rl_execution/q_learning/math.py": "8929998bf09d60c769de6c9151dd98271df362d6a38cb57ac8eb133741c5103c",
+    "experiments/20260911_rl_execution/q_learning/trainer.py": "2f1a0bb4026e37b528017770351ffff21e8f7ef5a7e9ac6884a36d37901a4511"
+  },
+  "software_identity": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "torch": "2.8.0",
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "torch_threads": 1,
+    "device": "cpu"
+  },
+  "physics_freeze_sha256": "8ee84c6a979c6bab432e4933a0e503d912ec5aa98daff46174361d01f339ba2b",
+  "frozen_unix_s": 1789127433.239532,
+  "final_test_worlds": 0,
+  "default_solver_replacement": false
+}

@@ -1,0 +1,680 @@
+{
+  "research_date": "2026-09-11",
+  "cutoff": "2026-09-11",
+  "scope": "B independent scan; frontier roles in active sensing, off-policy POMDP, world models, value policy extraction, NCO evidence/constraints",
+  "strategy": [
+    "Initial topic searches plus arXiv API",
+    "Backward follow-up from OffRIPP to CAtNIPP/BCQ and RESeL to recurrent off-policy",
+    "Forward FQL API variants",
+    "Competitive world-model/planning and audit searches",
+    "Parent lead C-IDS followed by direct primary retrieval"
+  ],
+  "queries": [
+    {
+      "name": "ids",
+      "query": "all:\"information directed sampling\" AND submittedDate:[202401010000 TO 202609112359]",
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22information+directed+sampling%22+AND+submittedDate%3A%5B202401010000+TO+202609112359%5D&start=0&max_results=30&sortBy=submittedDate&sortOrder=descending",
+      "accessed_utc": "2026-09-11T09:15:14Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "api_ids.xml",
+      "elapsed_s": 1.3379499912261963
+    },
+    {
+      "name": "fql",
+      "query": "ti:\"Flow Q-Learning\"",
+      "url": "https://export.arxiv.org/api/query?search_query=ti%3A%22Flow+Q-Learning%22&start=0&max_results=30&sortBy=submittedDate&sortOrder=descending",
+      "accessed_utc": "2026-09-11T09:15:15Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "api_fql.xml",
+      "elapsed_s": 0.6223311424255371
+    },
+    {
+      "name": "tdmpc",
+      "query": "ti:\"TD-MPC2\"",
+      "url": "https://export.arxiv.org/api/query?search_query=ti%3A%22TD-MPC2%22&start=0&max_results=30&sortBy=submittedDate&sortOrder=descending",
+      "accessed_utc": "2026-09-11T09:15:15Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "api_tdmpc.xml",
+      "elapsed_s": 0.5863981246948242
+    },
+    {
+      "name": "dreamer",
+      "query": "ti:\"Mastering Diverse Control Tasks\"",
+      "url": "https://export.arxiv.org/api/query?search_query=ti%3A%22Mastering+Diverse+Control+Tasks%22&start=0&max_results=30&sortBy=submittedDate&sortOrder=descending",
+      "accessed_utc": "2026-09-11T09:15:16Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "api_dreamer.xml",
+      "elapsed_s": 0.6540439128875732
+    },
+    {
+      "name": "nco_audit",
+      "query": "all:\"neural combinatorial optimization\" AND (all:benchmark OR all:generalization) AND submittedDate:[202401010000 TO 202609112359]",
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22neural+combinatorial+optimization%22+AND+%28all%3Abenchmark+OR+all%3Ageneralization%29+AND+submittedDate%3A%5B202401010000+TO+202609112359%5D&start=0&max_results=30&sortBy=submittedDate&sortOrder=descending",
+      "accessed_utc": "2026-09-11T09:15:17Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "api_nco_audit.xml",
+      "elapsed_s": 1.2115111351013184
+    },
+    {
+      "name": "offpolicy",
+      "query": "all:\"off-policy\" AND all:\"partially observable\" AND submittedDate:[202401010000 TO 202609112359]",
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22off-policy%22+AND+all%3A%22partially+observable%22+AND+submittedDate%3A%5B202401010000+TO+202609112359%5D&start=0&max_results=30&sortBy=submittedDate&sortOrder=descending",
+      "accessed_utc": "2026-09-11T09:15:18Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "api_offpolicy.xml",
+      "elapsed_s": 0.8664181232452393
+    },
+    {
+      "name": "worldmodel",
+      "query": "all:\"world model\" AND all:\"reinforcement learning\" AND (all:uncertainty OR all:\"data efficiency\") AND submittedDate:[202401010000 TO 202609112359]",
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22world+model%22+AND+all%3A%22reinforcement+learning%22+AND+%28all%3Auncertainty+OR+all%3A%22data+efficiency%22%29+AND+submittedDate%3A%5B202401010000+TO+202609112359%5D&start=0&max_results=30&sortBy=submittedDate&sortOrder=descending",
+      "accessed_utc": "2026-09-11T09:15:19Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "api_worldmodel.xml",
+      "elapsed_s": 1.1225948333740234
+    }
+  ],
+  "cached_initial_discovery": {
+    "arxiv_ipp.xml": "actual API result cached before reset; exact original query string not retained, not fabricated",
+    "search_ipp.html": "cached search page; contents not used as primary numerical evidence",
+    "search_pomdp.html": "cached search page; contents not used as primary numerical evidence",
+    "search_combinatorial.html": "cached search page; contents not used as primary numerical evidence",
+    "search_offline.html": "cached search page; contents not used as primary numerical evidence"
+  },
+  "failures": [
+    {
+      "tool": "web.run",
+      "date": "2026-09-11",
+      "queries": [
+        "Information-Directed Offline-to-Online Reinforcement Learning",
+        "Efficient Recurrent Off-Policy RL Requires a Context-Encoder-Specific Learning Rate"
+      ],
+      "error": "Fatal error: connection failed: error sending request",
+      "resolution": "direct primary arXiv access with curl"
+    },
+    {
+      "tool": "curl sandbox",
+      "date_utc": "2026-09-11T09:25:15Z",
+      "urls": [
+        "https://arxiv.org/abs/2602.03939",
+        "https://arxiv.org/abs/2606.16780",
+        "https://arxiv.org/abs/2602.05198",
+        "https://arxiv.org/abs/2502.15961",
+        "https://arxiv.org/abs/2603.03191",
+        "https://arxiv.org/abs/2606.10613",
+        "https://arxiv.org/abs/2605.04568",
+        "https://arxiv.org/abs/2508.02510",
+        "https://arxiv.org/abs/2609.07990",
+        "https://arxiv.org/pdf/2602.03939"
+      ],
+      "error": "Could not resolve host: arxiv.org (code 6)",
+      "resolution": "authorized network retry succeeded; this failure recorded separately because retrieval log was overwritten by successful retry"
+    },
+    {
+      "tool": "metadata parser",
+      "error": "bs4 unavailable in bundled Python",
+      "resolution": "standard-library parser; no library installed"
+    }
+  ],
+  "primary_downloads": [
+    {
+      "paper": "2409.16830",
+      "name": "OffRIPP",
+      "url": "https://arxiv.org/abs/2409.16830",
+      "accessed_utc": "2026-09-11T09:17:04Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2409.16830.html",
+      "bytes": 41115,
+      "elapsed_s": 0.45397210121154785
+    },
+    {
+      "paper": "2409.16830",
+      "name": "OffRIPP",
+      "url": "https://arxiv.org/pdf/2409.16830",
+      "accessed_utc": "2026-09-11T09:17:05Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2409.16830.pdf",
+      "bytes": 1030458,
+      "elapsed_s": 0.8824062347412109
+    },
+    {
+      "paper": "2410.17166",
+      "name": "MapAgnostic",
+      "url": "https://arxiv.org/abs/2410.17166",
+      "accessed_utc": "2026-09-11T09:17:05Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2410.17166.html",
+      "bytes": 41819,
+      "elapsed_s": 0.6057870388031006
+    },
+    {
+      "paper": "2410.17166",
+      "name": "MapAgnostic",
+      "url": "https://arxiv.org/pdf/2410.17166",
+      "accessed_utc": "2026-09-11T09:17:09Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2410.17166.pdf",
+      "bytes": 5603857,
+      "elapsed_s": 4.003277063369751
+    },
+    {
+      "paper": "2405.15384",
+      "name": "RESeL",
+      "url": "https://arxiv.org/abs/2405.15384",
+      "accessed_utc": "2026-09-11T09:17:10Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2405.15384.html",
+      "bytes": 43076,
+      "elapsed_s": 0.6909081935882568
+    },
+    {
+      "paper": "2405.15384",
+      "name": "RESeL",
+      "url": "https://arxiv.org/pdf/2405.15384",
+      "accessed_utc": "2026-09-11T09:17:12Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2405.15384.pdf",
+      "bytes": 7429753,
+      "elapsed_s": 1.9409818649291992
+    },
+    {
+      "paper": "2502.02538",
+      "name": "FQL",
+      "url": "https://arxiv.org/abs/2502.02538",
+      "accessed_utc": "2026-09-11T09:17:13Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2502.02538.html",
+      "bytes": 40630,
+      "elapsed_s": 0.47686100006103516
+    },
+    {
+      "paper": "2502.02538",
+      "name": "FQL",
+      "url": "https://arxiv.org/pdf/2502.02538",
+      "accessed_utc": "2026-09-11T09:17:15Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2502.02538.pdf",
+      "bytes": 2725987,
+      "elapsed_s": 2.211071014404297
+    },
+    {
+      "paper": "2310.16828",
+      "name": "TDMPC2",
+      "url": "https://arxiv.org/abs/2310.16828",
+      "accessed_utc": "2026-09-11T09:17:15Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2310.16828.html",
+      "bytes": 41722,
+      "elapsed_s": 0.4097721576690674
+    },
+    {
+      "paper": "2310.16828",
+      "name": "TDMPC2",
+      "url": "https://arxiv.org/pdf/2310.16828",
+      "accessed_utc": "2026-09-11T09:17:17Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2310.16828.pdf",
+      "bytes": 7858004,
+      "elapsed_s": 1.3383936882019043
+    },
+    {
+      "paper": "2301.04104",
+      "name": "DreamerV3",
+      "url": "https://arxiv.org/abs/2301.04104",
+      "accessed_utc": "2026-09-11T09:17:17Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2301.04104.html",
+      "bytes": 41612,
+      "elapsed_s": 0.5229918956756592
+    },
+    {
+      "paper": "2301.04104",
+      "name": "DreamerV3",
+      "url": "https://arxiv.org/pdf/2301.04104",
+      "accessed_utc": "2026-09-11T09:17:18Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2301.04104.pdf",
+      "bytes": 2874717,
+      "elapsed_s": 1.0579018592834473
+    },
+    {
+      "paper": "2605.29405",
+      "name": "OfflineOnlineIDS",
+      "url": "https://arxiv.org/abs/2605.29405",
+      "accessed_utc": "2026-09-11T09:17:31Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2605.29405.html",
+      "bytes": 43043,
+      "elapsed_s": 13.052192449569702
+    },
+    {
+      "paper": "2605.29405",
+      "name": "OfflineOnlineIDS",
+      "url": "https://arxiv.org/pdf/2605.29405",
+      "accessed_utc": "2026-09-11T09:17:32Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2605.29405.pdf",
+      "bytes": 579093,
+      "elapsed_s": 0.821605920791626
+    },
+    {
+      "paper": "2606.18514",
+      "name": "StochasticOrienteering",
+      "url": "https://arxiv.org/abs/2606.18514",
+      "accessed_utc": "2026-09-11T09:17:33Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2606.18514.html",
+      "bytes": 41605,
+      "elapsed_s": 0.6114706993103027
+    },
+    {
+      "paper": "2606.18514",
+      "name": "StochasticOrienteering",
+      "url": "https://arxiv.org/pdf/2606.18514",
+      "accessed_utc": "2026-09-11T09:17:34Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2606.18514.pdf",
+      "bytes": 5004295,
+      "elapsed_s": 1.7156119346618652
+    },
+    {
+      "paper": "2605.14624",
+      "name": "AmortizedEfficiency",
+      "url": "https://arxiv.org/abs/2605.14624",
+      "accessed_utc": "2026-09-11T09:17:35Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2605.14624.html",
+      "bytes": 44440,
+      "elapsed_s": 0.6415867805480957
+    },
+    {
+      "paper": "2605.14624",
+      "name": "AmortizedEfficiency",
+      "url": "https://arxiv.org/pdf/2605.14624",
+      "accessed_utc": "2026-09-11T09:17:36Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2605.14624.pdf",
+      "bytes": 822383,
+      "elapsed_s": 0.9960720539093018
+    },
+    {
+      "paper": "2607.16591",
+      "name": "ModelUncertaintyRisk",
+      "url": "https://arxiv.org/abs/2607.16591",
+      "accessed_utc": "2026-09-11T09:17:36Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2607.16591.html",
+      "bytes": 42484,
+      "elapsed_s": 0.4945511817932129
+    },
+    {
+      "paper": "2607.16591",
+      "name": "ModelUncertaintyRisk",
+      "url": "https://arxiv.org/pdf/2607.16591",
+      "accessed_utc": "2026-09-11T09:17:37Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2607.16591.pdf",
+      "bytes": 804577,
+      "elapsed_s": 0.9100799560546875
+    },
+    {
+      "paper": "2410.17186",
+      "name": "DyPNIPP",
+      "url": "https://arxiv.org/abs/2410.17186",
+      "accessed_utc": "2026-09-11T09:17:38Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2410.17186.html",
+      "bytes": 41614,
+      "elapsed_s": 0.46840786933898926
+    },
+    {
+      "paper": "2410.17186",
+      "name": "DyPNIPP",
+      "url": "https://arxiv.org/pdf/2410.17186",
+      "accessed_utc": "2026-09-11T09:17:40Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2410.17186.pdf",
+      "bytes": 8478424,
+      "elapsed_s": 2.28346586227417
+    },
+    {
+      "paper": "2512.02535",
+      "name": "AID",
+      "url": "https://arxiv.org/abs/2512.02535",
+      "accessed_utc": "2026-09-11T09:17:41Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2512.02535.html",
+      "bytes": 42847,
+      "elapsed_s": 0.6154038906097412
+    },
+    {
+      "paper": "2512.02535",
+      "name": "AID",
+      "url": "https://arxiv.org/pdf/2512.02535",
+      "accessed_utc": "2026-09-11T09:17:42Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2512.02535.pdf",
+      "bytes": 4367964,
+      "elapsed_s": 1.4723680019378662
+    }
+  ],
+  "expansion_downloads": [
+    {
+      "url": "https://arxiv.org/abs/2602.03939",
+      "accessed_utc": "2026-09-11T09:25:27Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2602.03939.html",
+      "bytes": 41120,
+      "elapsed_s": 0.42143917083740234
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.16780",
+      "accessed_utc": "2026-09-11T09:25:27Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2606.16780.html",
+      "bytes": 42076,
+      "elapsed_s": 0.5191910266876221
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.05198",
+      "accessed_utc": "2026-09-11T09:25:27Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2602.05198.html",
+      "bytes": 43866,
+      "elapsed_s": 0.5087049007415771
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.15961",
+      "accessed_utc": "2026-09-11T09:25:27Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2502.15961.html",
+      "bytes": 44465,
+      "elapsed_s": 0.5107560157775879
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.03191",
+      "accessed_utc": "2026-09-11T09:25:28Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2603.03191.html",
+      "bytes": 41169,
+      "elapsed_s": 0.6223559379577637
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.10613",
+      "accessed_utc": "2026-09-11T09:25:27Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2606.10613.html",
+      "bytes": 43544,
+      "elapsed_s": 0.42699122428894043
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.04568",
+      "accessed_utc": "2026-09-11T09:25:27Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2605.04568.html",
+      "bytes": 42927,
+      "elapsed_s": 0.4270131587982178
+    },
+    {
+      "url": "https://arxiv.org/abs/2508.02510",
+      "accessed_utc": "2026-09-11T09:25:27Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2508.02510.html",
+      "bytes": 42032,
+      "elapsed_s": 0.42075085639953613
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.07990",
+      "accessed_utc": "2026-09-11T09:25:28Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2609.07990.html",
+      "bytes": 43225,
+      "elapsed_s": 0.39621996879577637
+    },
+    {
+      "url": "https://arxiv.org/pdf/2602.03939",
+      "accessed_utc": "2026-09-11T09:25:28Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "2602.03939.pdf",
+      "bytes": 771088,
+      "elapsed_s": 0.8414340019226074
+    }
+  ],
+  "screening": [
+    {
+      "id": "arxiv:2409.16830",
+      "decision": "core",
+      "reason": "直接支持先用C7示范、显式约束离线动作支持、对BC独立比较。",
+      "excluded_claims": "表I专家数据下不及数据生成专家；PPO对照直接离线训练，不证明胜正确on-policy PPO；Eq4门槛与端点文字矛盾；数据分布外动作估值问题；无本题方向源/清除完整性。"
+    },
+    {
+      "id": "arxiv:2405.15384",
+      "decision": "core",
+      "reason": "部分可观测不排除off-policy；若GRU有增益须调独立编码器学习率并验证训练/部署序列一致。",
+      "excluded_claims": "连续动作SAC不同于本题候选Q；默认Mamba含自定义reset，Apple直接可用未核实；完整序列重放有padding/峰值内存成本；未证明GRU总必要。"
+    },
+    {
+      "id": "arxiv:2410.17166",
+      "decision": "core",
+      "reason": "把belief/动作表示改善与训练算法改善分开消融；不预设图优于小网络。",
+      "excluded_claims": "概率地图成立是其前提；不是有界角度集合定位；实体机器人真实部署与真实地图回放不同；4ms论文耗时不是本机推理证据。"
+    },
+    {
+      "id": "arxiv:2502.02538",
+      "decision": "core",
+      "reason": "连续多个优良清除/测点落点若为瓶颈，可考虑流策略；当前有限候选先用离散打分。",
+      "excluded_claims": "动作空间R^d；频道/动作类型混合离散需重新设计；不是硬完整性约束；JAX原代码不等于MPS直接部署。"
+    },
+    {
+      "id": "arxiv:2310.16828",
+      "decision": "core",
+      "reason": "借用短规划+终值分解；本题移动计费已知，优先用解析转移，不直接重学物理。",
+      "excluded_claims": "模型近似误差、规划预算、连续动作；task embedding若含本题不可知任务标签会泄漏；动作维度mask不等于动态候选安全证书。"
+    },
+    {
+      "id": "arxiv:2301.04104",
+      "decision": "core",
+      "reason": "区分训练时想象与部署规划；可借成本尺度稳定化，但不能直接改任务目标。",
+      "excluded_claims": "完整世界模型工程与训练预算大；gamma0.997/T16不可照抄到SMDP时间目标；“跨域通用”不意味源定位保证。"
+    },
+    {
+      "id": "arxiv:2605.29405",
+      "decision": "core",
+      "reason": "IDS若使用要标明学习目标和信息估计；先比较无IDS Q/PPO，后测残余可见侧信息。",
+      "excluded_claims": "预印本；deep保证不随理论自动转移；D4RL优势非本题SOTA；固定误差场、连续joint belief及未知源数均未覆盖。"
+    },
+    {
+      "id": "arxiv:2602.03939",
+      "decision": "core",
+      "reason": "说明信息驱动不限DQN；可明确检测可见侧等χ并评估信息作用。",
+      "excluded_claims": "§2.1可变context与§3固定context不同；附录从有限episode断言universal η的正信息界未核通过；实验窄且Gaussian可重复噪声不同；ICML模板不等于录用。"
+    },
+    {
+      "id": "arxiv:2410.17186",
+      "decision": "extended",
+      "reason": "误差场域随机化可借鉴思路。",
+      "excluded_claims": "本题源静态；不能因此制造移动源或假装重现wildfire实验。"
+    },
+    {
+      "id": "arxiv:2512.02535",
+      "decision": "extended",
+      "reason": "BC后RL工作流。",
+      "excluded_claims": "单机器狗无队友意图，核心多agent收益不能移植；A负责用户AID-RL身份进一步核实。"
+    },
+    {
+      "id": "arxiv:2606.18514",
+      "decision": "extended",
+      "reason": "路线边特征/学习排序可启发多目标调度。",
+      "excluded_claims": "chance constraint允许失败概率，不满足本题全清保证；边成本未知机制不同。"
+    },
+    {
+      "id": "arxiv:2605.14624",
+      "decision": "extended",
+      "reason": "报告总研发成本、每局推理和部署量，避免只报一次网络快。",
+      "excluded_claims": "能源数字未独立核，GPU batch吞吐不适合本题在线batch1直接比较；上下文目标虚拟时间不同。"
+    },
+    {
+      "id": "arxiv:2607.16591",
+      "decision": "extended",
+      "reason": "ensemble方差不能拿作完整性证明。",
+      "excluded_claims": "论文声称ICML2026 RLxF workshop而非主会，官方workshop名单未核；局部实验不能证明所有uncertainty都无效。"
+    },
+    {
+      "id": "arxiv:2606.16780",
+      "decision": "extended",
+      "reason": "如果未来概率belief多峰，可考虑多样候选生成。",
+      "excluded_claims": "不是已核RL算法；视觉语义与多无人机第一发现，非本题全源清除。"
+    },
+    {
+      "id": "arxiv:2602.05198",
+      "decision": "extended",
+      "reason": "可靠性条件必须写清模型；覆盖层与效率层可分离。",
+      "excluded_claims": "GP模型内方差保证不是有界测向真实位置包络，不能直接认证空频道。"
+    },
+    {
+      "id": "arxiv:2502.15961",
+      "decision": "extended",
+      "reason": "浅belief规划可维护跨步树，避免反复重建。",
+      "excluded_claims": "完整动作/观测分支模型不同；摘要最高38%IG不表示本题速度提升。"
+    },
+    {
+      "id": "arxiv:2603.03191",
+      "decision": "extended",
+      "reason": "离线覆盖须看belief状态与动作，不只统计出现频道。",
+      "excluded_claims": "摘要级；Lipschitz值假设遇硬接收/清除边界未证，不能赋予Q有限数据保证。"
+    },
+    {
+      "id": "arxiv:2606.10613",
+      "decision": "extended",
+      "reason": "连续落点路线未来比较FQL后续，不以2026更新自动替换主法。",
+      "excluded_claims": "动作混合离散与本题证书不适配；样本/算力预算未核。"
+    },
+    {
+      "id": "arxiv:2605.04568",
+      "decision": "extended",
+      "reason": "策略proposal+有限规划改进可能适用，但先解析转移与离散候选。",
+      "excluded_claims": "clear/no_signal不光滑；梯度优化物理接受边界风险，需单独验证。"
+    },
+    {
+      "id": "arxiv:2508.02510",
+      "decision": "extended",
+      "reason": "新场景种子不一定代表新分布，需分布迁移压力测试。",
+      "excluded_claims": "论文摘要称差距缩小并非普遍超过；只作协议启发。"
+    },
+    {
+      "id": "arxiv:2609.07990",
+      "decision": "extended",
+      "reason": "混合控制器切换是一类方案；启发切换条件应实测且保留固定fallback。",
+      "excluded_claims": "理论依赖显式error-scaling假设；proxy trigger不等于最优逐局切换；不能直接套清除任务。"
+    }
+  ],
+  "not_included": [
+    {
+      "source": "arXiv API many VLA/LLM/RLHF/quantum/world model results",
+      "reason": "weak transfer to single-robot low-dimensional static-emitter sensing; counted as raw search hits, not paper corpus"
+    },
+    {
+      "source": "same-name IRIS Minecraft/world-model and Iris search agent",
+      "reason": "not user IPP IRIS; A independently resolving DOI 10.1016/j.patcog.2025.112400"
+    }
+  ],
+  "stop_reason": "Major proposed mechanisms have primary core coverage and recent competitive/negative branches; direct additional candidates mainly add continuous/multi-agent/generic theory mismatches. No claim of exhaustive survey.",
+  "official_link_access_checks": [
+    {
+      "name": "fql_code",
+      "url": "https://github.com/seohongpark/fql",
+      "accessed_utc": "2026-09-11T09:32:54Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "fql_code.html",
+      "bytes": 375681
+    },
+    {
+      "name": "map_code",
+      "url": "https://github.com/dmar-bonn/ipp-rl-gen",
+      "accessed_utc": "2026-09-11T09:32:54Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "map_code.html",
+      "bytes": 321144
+    },
+    {
+      "name": "tdmpc_project",
+      "url": "https://tdmpc2.com",
+      "accessed_utc": "2026-09-11T09:32:55Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "tdmpc_project.html",
+      "bytes": 19701
+    },
+    {
+      "name": "dreamer_project",
+      "url": "https://danijar.com/dreamerv3",
+      "accessed_utc": "2026-09-11T09:32:55Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "dreamer_project.html",
+      "bytes": 497
+    },
+    {
+      "name": "aid_code",
+      "url": "https://github.com/marmotlab/AID",
+      "accessed_utc": "2026-09-11T09:32:55Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "aid_code.html",
+      "bytes": 295539
+    },
+    {
+      "name": "aet_code",
+      "url": "https://github.com/sohaibafifi/aet",
+      "accessed_utc": "2026-09-11T09:32:55Z",
+      "returncode": 0,
+      "stderr": "",
+      "file": "aet_code.html",
+      "bytes": 299030
+    }
+  ],
+  "official_link_check_scope": "Four repository HTML identity/title checks and two project-page requests; no code implementation audit. Dreamer URL returned a short HTML redirect only; destination was not read in this batch."
+}

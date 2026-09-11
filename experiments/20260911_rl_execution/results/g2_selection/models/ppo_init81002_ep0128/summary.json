@@ -1,0 +1,70 @@
+{
+  "unique_worlds": 192,
+  "episode_executions": 192,
+  "business_primitives": 37857,
+  "successes": 192,
+  "failures": [],
+  "execution_wall_s": 58.41178592387587,
+  "raw_json_bytes": 278035662,
+  "gzip_bytes": 38520126,
+  "storage_wall_s": 6.280234872829169,
+  "storage_timing_unavailable_count": 0,
+  "peak_process_mib": 296.203125,
+  "model_id": "ppo_init81002_ep0128",
+  "algorithm": "ppo",
+  "seed": 81002,
+  "checkpoint": {
+    "algorithm": "ppo",
+    "seed": 81002,
+    "episodes": 128,
+    "path": "results/g2/init_81002/ppo/checkpoints/episode_0128.pt",
+    "sha256": "39e9522d6fd1330a2d052c8cb1552d4970c6e77b24fef05f80b9c18ede3f530f"
+  },
+  "wall_time_this_invocation_s": 65.22093641594984,
+  "rows_sha256": "237073d8702e5f0efacab5d6a6795285370b580626a633cb4424aadb9c88a082",
+  "timing_ms": {
+    "snapshot_build_s": {
+      "n": 5455,
+      "mean": 6.720139953204517,
+      "p50": 5.2252080058678985,
+      "p95": 14.452137483749544,
+      "p99": 48.28879612497987,
+      "max": 69.937749998644
+    },
+    "selector_s": {
+      "n": 5455,
+      "mean": 3.392456089104607,
+      "p50": 2.532667014747858,
+      "p95": 7.14452494867146,
+      "p99": 9.589967904612422,
+      "max": 53.376125055365264
+    },
+    "prepare_to_macro_s": {
+      "n": 5455,
+      "mean": 10.13317919215896,
+      "p50": 7.805165951140225,
+      "p95": 22.614079201594,
+      "p99": 55.568607933819294,
+      "max": 77.77112501207739
+    },
+    "compute_since_previous_response_s": {
+      "n": 37857,
+      "mean": 1.5362326201397316,
+      "p50": 0.008500064723193645,
+      "p95": 11.767199845053254,
+      "p99": 20.827140053734183,
+      "max": 77.82266603317112
+    },
+    "backend_call_s": {
+      "n": 37857,
+      "mean": 0.00510538085402798,
+      "p50": 0.003500026650726795,
+      "p95": 0.01195794902741909,
+      "p99": 0.016750069335103035,
+      "max": 0.05337502807378769
+    }
+  },
+  "selection_only": true,
+  "official_validation": false,
+  "final_blind_validation": false
+}

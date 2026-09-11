@@ -1,0 +1,63 @@
+{
+  "unique_worlds": 24,
+  "episode_executions": 73,
+  "business_primitives": 15593,
+  "successes": 73,
+  "failures": [],
+  "execution_wall_s": 10.02271470532287,
+  "raw_json_bytes": 107474732,
+  "gzip_bytes": 14765506,
+  "storage_wall_s": 1.2814052092144266,
+  "peak_process_mib": 379.390625,
+  "complete_pipeline_timings_ms": {
+    "snapshot_build_s": {
+      "n": 2237,
+      "mean": 3.189616083680824,
+      "p50": 2.6949590537697077,
+      "p95": 7.08044993225485,
+      "p99": 22.258590031415096,
+      "max": 32.96383400447667
+    },
+    "selector_s": {
+      "n": 2237,
+      "mean": 1.0282378382506212,
+      "p50": 0.8098749676719308,
+      "p95": 2.052133833058178,
+      "p99": 2.6725248526781775,
+      "max": 31.027666991576552
+    },
+    "prepare_to_macro_s": {
+      "n": 2237,
+      "mean": 4.226359205152281,
+      "p50": 3.7742089480161667,
+      "p95": 8.974407985806463,
+      "p99": 26.561890002340018,
+      "max": 35.10049998294562
+    }
+  },
+  "bc_holdout_before": {
+    "correct": 45,
+    "decisions": 343,
+    "accuracy": 0.13119533527696792
+  },
+  "bc_holdout_after": {
+    "correct": 124,
+    "decisions": 343,
+    "accuracy": 0.36151603498542273
+  },
+  "actual_optimizer_steps": {
+    "bc": 24,
+    "q_mc": 1,
+    "q_td": 1,
+    "ppo": 4
+  },
+  "local_only": true,
+  "selected_device": "cpu",
+  "g2_data_generated": 0,
+  "passed": true,
+  "wall_time_this_invocation_s": 18.093663959065452,
+  "storage_timing_unavailable_count": 1,
+  "timing_scope_note": "Storage time sums 72 measured saves; first completed episode was saved before a path-display exception and recovered without reexecution. Invocation wall time starts at resumed G1 run; execution_wall_s includes all 73 actual episodes.",
+  "q_diagnostic_scope": "Reused eight G1 teacher episodes for one MC and one TD update; no Q deployment world was executed.",
+  "bc_diagnostic_scope": "Twelve G1 training and twelve disjoint G1 diagnostic worlds; the latter are now exposed diagnostics, not G2 selection or final validation."
+}

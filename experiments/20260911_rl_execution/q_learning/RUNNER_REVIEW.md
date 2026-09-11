@@ -1,0 +1,13 @@
+# G1/G2 runner resource/data review
+
+Read-only review requested by root after Q implementation; no task worlds, environment calls, extra fixtures or optimizer steps were executed.
+
+The proposed gzip raw-episode storage and path-only replay buffer is compatible with Q APIs. Load one envelope, validate its split/terminal labels, call `replay_from_episode(raw, true_source_count, success=validated_bool, episode_id=...)`, and release the raw envelope before retaining the next replay item. Keep terminal truth outside every observable snapshot. A batch of eight replay episodes then feeds `update`.
+
+For MC initialization, make four seeded shuffled passes over the 512 unique demonstration paths, load batches of eight, call `q.update(batch, kind='mc')`, and call `q.sync_target()` after the fourth pass. This is normally 256 extra MC Adam updates per initialization, separate from BC's 512. Do not pass a generator into `fit_mc`: its convenience `fit` implementation requires sequence length and indexing. Empty-decision batches have no optimizer step and must be reported as such.
+
+Uniform replay sampling is over unique episode paths, including failed and empty-decision episodes. Long episodes are not sampled more often. Shared demonstration paths appear once in each logical buffer without collecting new demonstrations per initialization. Keep per-run replay membership and RNG explicit.
+
+Register feature bounds once for each shared demonstration in each Q trainer, then once after each newly executed own Q training episode terminates. Never register while merely loading replay, iterating MC epochs or evaluating selection/regression. `register_training_snapshots` materializes its passed iterable, so stream one episode's snapshots per call; passing an iterable over all 512 restored episodes would defeat memory savings. Existing explorer selectors synchronize automatically. Each frozen checkpoint saves its corresponding bounds/revision.
+
+Gzip JSON must preserve full candidate order, floats, payload and metadata, use `allow_nan=False`, and write a temporary file before atomic publication. Save an integrity digest and actual compressed byte count. Optional deterministic gzip `mtime=0` avoids compression header timestamps changing hashes; record the exact choice. Serialization/compression, load/decompression, replay conversion and complete eight-episode update timing are separate resource ledger entries. Measure peak RSS as well as tensor time; repeated JSON decoding/canonicalization may dominate. Python may retain freed arenas, so a peak RSS that does not immediately fall is not by itself a live-object leak; sequential per-initialization subprocesses can release process state cleanly.
