@@ -1,0 +1,75 @@
+{
+  "id": "R3_dynamic_cover_diagnostic",
+  "kind": "geometry_diagnostic",
+  "round": null,
+  "date": "2026-09-11",
+  "title": "动态删站的有限轨迹连续覆盖诊断",
+  "status": "diagnostic_no_online_candidate",
+  "selection": "do_not_implement_online_on_current_evidence",
+  "exploration": "用12条已见开发Q4轨迹，把所有未来停点免费赋给每个未知频道，对每条轨迹单独删除21站之一。",
+  "changes": "三次几何诊断版本分别扩展候选见证与分离反例搜索；不是三套新在线策略。",
+  "reference_candidate_node": "R3_open_R3",
+  "design_parent": "R3_open_R3",
+  "retained_best_before_round": "R3_open_R3",
+  "retained_best_after_round": "R3_open_R3",
+  "effects": [],
+  "comparison_baseline": null,
+  "data_roles": [
+    "12 reused seen development Q4 trajectories",
+    "optimistic geometry-only diagnostic",
+    "no efficiency comparison"
+  ],
+  "diagnostic_effects": {
+    "geometry_cases": 12,
+    "single_station_case_pairs": 252,
+    "individually_certified": 2,
+    "exact_separation_witnesses": 96,
+    "undecided": 154,
+    "inference": "Only within augmented frozen trajectories; no global impossibility or actual route-time saving."
+  },
+  "negative_examples": {
+    "reference": "results/dynamic_probe_exact_audit.json",
+    "count": 96,
+    "meaning": "Exact domain-valid source/closed-emission-halfplane separation witnesses for those augmented receiver sets."
+  },
+  "budget": {
+    "policy_task_runs": 36,
+    "unique_existing_cases": 12,
+    "new_unique_cases": 0,
+    "checker_versions": 3,
+    "atlas_proof_replay_task_runs": 0
+  },
+  "lesson": "即使免费提前加入未来停点，252个单删站组合仅2个被证书认可；154个未定不能写成失败或不可能。真实未知频道仍需付费检测。",
+  "next_hypothesis": null,
+  "next_hypothesis_status": "No new online candidate selected after this limited diagnosis.",
+  "literature_basis": {
+    "paper_ids": [
+      "L3_FULLVIEW2013"
+    ],
+    "new_literature_causal_adoption": false,
+    "relationship": "independent_idea_then_new_paper_supported_design_and_diagnostic",
+    "boundary": "The dynamic-cover idea predates batch1; exact180-degree certificate is problem-specific."
+  },
+  "evidence_level": "frozen_source_and_results; exact certificate replay uses frozen B3 verifier, not new proof or policy inference",
+  "unimplemented": false,
+  "online_policy_implemented": false,
+  "direction_tags": [
+    "R3_open"
+  ],
+  "sources": [
+    "src_4828943ae48e6b",
+    "src_358dd574e69381",
+    "src_71f5318271829b",
+    "src_25b29be51931c7",
+    "src_42dc21d072ad3e",
+    "src_5192798de61813"
+  ],
+  "evidence_commit": "10bae05ff1290f033351ee645d65810aa0deea24",
+  "parents": [
+    {
+      "id": "R3_open_R3",
+      "relationship": "derived_from"
+    }
+  ],
+  "frozen_report_url": "https://github.com/xiangguaguadadi-dot/cumcm2026-b/blob/10bae05ff1290f033351ee645d65810aa0deea24/experiments/R3_open/report.md"
+}

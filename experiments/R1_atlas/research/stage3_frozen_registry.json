@@ -83,6 +83,196 @@
       "retained_best": "R3_open_R2",
       "next_hypothesis": "先诊断真实测点替代未来站的连续覆盖潜力。",
       "retained_best_before_round": "R3_open_R1"
+    },
+    {
+      "id": "R2_open_R3",
+      "agent": "R2_open",
+      "round": 3,
+      "commit": "b085676",
+      "candidate": "snapshots/r3_solver.py",
+      "sha256": "da7b0d172f748453cfbd2fed6ae75bdfdc4d576dd160407f0a79ba3c1e656dfd",
+      "results": "results/r3_exposed",
+      "parents": [
+        "R2_open_R2"
+      ],
+      "title": "Q3机会补测的动作费用代理",
+      "changes": "保留真实到达点、单中心位置假说和补测预算；以三误差节点预测clear/后续测量费用代替硬半径门槛。一步可clear门槛及关闭补测开发失败。",
+      "lesson": "对R2再快0.453470秒/源；新文献启发费用代理，未实现HEC。一步完成门槛失败原因仍需状态级核验。",
+      "selection": "accepted_exposed_best",
+      "retained_best": "R2_open_R3",
+      "retained_best_before_round": "R2_open_R2",
+      "next_hypothesis": "比较父安全圆盘、A2最近投影和全顶点可靠圆弧的进入与后继路线代价。",
+      "literature_basis": {
+        "new_batch1_role": "DRD decision-cost concept inspired this experiment",
+        "new_literature_causal_adoption": true,
+        "paper_ids": [
+          "L3_DRD2014"
+        ],
+        "relationship": "inspired_by_not_code_fusion",
+        "not_adopted": [
+          "HEC hyperedge algorithm",
+          "original guarantee",
+          "DIRECt2015 received later"
+        ]
+      },
+      "next_hypothesis_evidence": "optimization_path.md R4 pre-experiment record"
+    },
+    {
+      "id": "R3_open_R3",
+      "agent": "R3_open",
+      "round": 3,
+      "commit": "b662fd8",
+      "candidate": "snapshots/r3.py",
+      "sha256": "9e9b35972bee009f37ad97cd068ff72b03be4a6448cbb8c99c4dada72865c149",
+      "results": "results/r3_exposed",
+      "parents": [
+        "R3_open_R2",
+        "A1_space_R8"
+      ],
+      "title": "Q4覆盖站和待清源的全局路径融合",
+      "changes": "移植A1完整spatial_next_task多起点2-opt及单节点重插，不设半径门槛；只融合路径调度，未采A1 route_clear_point。",
+      "lesson": "对R2再快28.369960秒/源，但两批原点簇及533局回退；固定任务路径代理改善不等于每局改进。",
+      "selection": "accepted_exposed_best",
+      "retained_best": "R3_open_R3",
+      "retained_best_before_round": "R3_open_R2",
+      "next_hypothesis": "在已选路径内独立测试可靠清除区域与后继站联动；动态覆盖先做有限轨迹诊断。",
+      "literature_basis": {
+        "new_batch1_role": "Full-view paper concerns separate dynamic-cover diagnostic; route fusion from preexisting A1",
+        "new_literature_causal_adoption": false,
+        "paper_ids": [],
+        "relationship": "prior_method_code_fusion"
+      },
+      "next_hypothesis_evidence": "optimization_path.json and researcher preregistered next-round description"
+    },
+    {
+      "id": "R2_open_R4",
+      "agent": "R2_open",
+      "round": 4,
+      "commit": "6913faf",
+      "candidate": "snapshots/r4_solver.py",
+      "sha256": "d0bda0a51470eda3bd5f713be1552a004c7a73b8debcb333c323afd06d4c68f3",
+      "results": "results/r4_exposed",
+      "parents": [
+        "R2_open_R3"
+      ],
+      "inspired_by": [
+        "A2_information_R8"
+      ],
+      "title": "Q3全顶点可清交集与后继路线",
+      "changes": "在20米动作圆交集边界枚举可行圆弧，优化进入和后继路程；父安全圆盘点保底。A2最近进入点只作未采纳控制，选中route臂不调用该控制方法。",
+      "lesson": "对R3再快0.175713秒/源；最近进入点开发变慢。固定状态代理不增不代表在线总任务不增，原点簇仍退步。",
+      "selection": "accepted_exposed_best",
+      "retained_best": "R2_open_R4",
+      "retained_best_before_round": "R2_open_R3",
+      "next_hypothesis": "固定多位置假说后，对比当前费用、平均费用与连续决策进展代理。",
+      "next_hypothesis_evidence": "Researcher preregistered R5 development record after R4 freeze",
+      "literature_basis": {
+        "new_batch1_role": "R4 geometry/route experiment continues independently; no new paper algorithm adopted in this round",
+        "new_literature_causal_adoption": false,
+        "paper_ids": [],
+        "relationship": "problem_specific_geometry_with_prior_A2_control"
+      },
+      "component_sources": [
+        {
+          "node": "R2_open_R3",
+          "role": "active_parent"
+        },
+        {
+          "node": "A2_information_R8",
+          "method": "nearest_certified_clear",
+          "role": "unselected_development_control; not active route branch"
+        },
+        {
+          "path": "research/r4_component.py",
+          "methods": [
+            "_lens_arc_intervals",
+            "_lens_route_point"
+          ],
+          "role": "new_deployed_geometry"
+        }
+      ]
+    },
+    {
+      "id": "R3_open_R4",
+      "agent": "R3_open",
+      "round": 4,
+      "commit": "10bae05",
+      "candidate": "snapshots/r4.py",
+      "sha256": "56c5df3394bdea0ce2691f269695f07e02034bc195acc215bdfe6d7fc14b9ceb",
+      "results": "results/r4_exposed",
+      "parents": [
+        "R3_open_R3",
+        "A1_space_R8"
+      ],
+      "title": "Q4安全清除圆内的后继路线选点",
+      "changes": "将A1 route_clear_point实质接到Q4；在半径20-r保守服务圆内选进入与后继代价更低的点，改变真实后续补测位置。",
+      "lesson": "对R3仅快0.121555秒/源；v1改善0.326473而previous_final慢0.083364，分批反转须保留。",
+      "selection": "accepted_exposed_best",
+      "retained_best": "R3_open_R4",
+      "retained_best_before_round": "R3_open_R3",
+      "next_hypothesis": "对R2全顶点可靠动作交集圆弧组件作Q4独立融合与最近进入点控制。",
+      "next_hypothesis_evidence": "optimization_path.md R5 preregistration",
+      "literature_basis": {
+        "new_batch1_role": "Separate Full-view dynamic diagnostic does not originate this A1 route_clear transfer",
+        "new_literature_causal_adoption": false,
+        "paper_ids": [],
+        "relationship": "prior_method_code_fusion"
+      },
+      "component_sources": [
+        {
+          "node": "R3_open_R3",
+          "role": "active_parent"
+        },
+        {
+          "node": "A1_space_R8",
+          "method": "route_clear_point",
+          "role": "active_Q4_code_transfer"
+        }
+      ]
+    },
+    {
+      "id": "R3_open_R5",
+      "agent": "R3_open",
+      "round": 5,
+      "commit": "cd78a80",
+      "candidate": "snapshots/r5.py",
+      "sha256": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf",
+      "results": "results/r5_exposed",
+      "parents": [
+        "R3_open_R4",
+        "R2_open_R4"
+      ],
+      "title": "Q4迁移全顶点可清区域圆弧路线",
+      "changes": "将R2 R4已冻结的全顶点动作交集路线组件迁入Q4，保持R4安全圆盘回退；A2最近进入点是未采纳的显式训练/开发控制。",
+      "lesson": "对R4仅快0.310438秒/源；训练nearest胜route而开发反转，自父6个分批场景及281局回退，按用户允许近收敛收尾。",
+      "selection": "accepted_exposed_final_for_this_stage",
+      "retained_best": "R3_open_R5",
+      "retained_best_before_round": "R3_open_R4",
+      "next_hypothesis": null,
+      "next_hypothesis_evidence": "Research frozen; unimplemented alternatives recorded as separate proposed nodes.",
+      "literature_basis": {
+        "new_batch1_role": "Geometry component transfer from R2 R4,not DRD implementation; DRD read later for unimplemented Q4 gate",
+        "new_literature_causal_adoption": false,
+        "paper_ids": [],
+        "relationship": "cross_route_frozen_component_fusion"
+      },
+      "component_sources": [
+        {
+          "node": "R3_open_R4",
+          "role": "active_Q4_parent"
+        },
+        {
+          "node": "R2_open_R4",
+          "path": "research/r4_component.py",
+          "sha256": "c62ffb9f66d88a0ba2dbc7deb9fe489ac2108bb39813f9470beb74eb62bfb104",
+          "role": "active_lens_arc_route_component"
+        },
+        {
+          "node": "A2_information_R8",
+          "method": "nearest_certified_clear",
+          "role": "unselected_nearest_development_control"
+        }
+      ]
     }
   ]
 }
