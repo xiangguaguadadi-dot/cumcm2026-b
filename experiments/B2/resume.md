@@ -1,3 +1,3 @@
-# B2 接续状态
+# B2接续
 
-R1完整4800回归已改善并成为当前最佳，R2尚未实现。请读PROTOCOL、plan、optimization_path.json及rounds.json。R1代码在snapshots/r1.py，部署依赖parent_a1.py/parent_a4.py及dependencies.json；禁止修改这些已冻结文件。R2从新架构文件开始，探索保留光学失败后的非凸剩余区域。尚需初3轮及符合协议的延长、完整中文报告、文献实际阅读范围、最终冻结给root新样本。
+R1和R3刷新，R2非凸碎片方案失败。当前最佳R3 snapshots/r3.py，依赖parent_a1/parent_a4保持SHA冻结。R3全部4800结果在results/r3_exposed，Q3=271.0549810869074，Q4=536.8726762375112。初三轮完成，R3刷新所以必须延长至连续两轮不刷新后停止。下一自主候选R4拟融合A2合法失败clear/no_signal凸包排除到强Q3 A1，不限制方向。还需完成延长、完整报告/成本/预算/图谱/读取范围、commitpush及交给root新样本验证。原final已暴露，禁止称盲测。

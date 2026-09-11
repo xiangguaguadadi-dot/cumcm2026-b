@@ -1,0 +1,140 @@
+{
+  "agent": "B2",
+  "cutoff": "2026-09-11",
+  "scope": "读取全部六路线既有文献账本，按当前几何子问题重读3篇缓存正文的指定页。不新增论文检索、不声称全面领域综述或全部论文深读。",
+  "search_window": "既有语料，不建立新的时间窗口",
+  "queries": [],
+  "search_channels": [
+    "prior campaign literature ledgers",
+    "cached primary paper text"
+  ],
+  "core_section_reread_count": 3,
+  "extended_ledger": "research/prior_literature_complete.json",
+  "dedup": "稳定arxiv号忽略版本；主分类每篇只有一条",
+  "papers": [
+    {
+      "id": "2207.06209",
+      "title": "Environmental Sampling with the Boustrophedon Decomposition Algorithm",
+      "authors": [
+        "He, Hannah",
+        "Norby, Joe",
+        "Wang, Sean",
+        "Sihota, Natasha",
+        "Hoelen, Thomas P.",
+        "Lowry, Gregory V.",
+        "Johnson, Aaron M."
+      ],
+      "year": 2022,
+      "url": "https://arxiv.org/abs/2207.06209",
+      "pdf_url": "https://arxiv.org/pdf/2207.06209",
+      "publication_status": "此前原路线核验arXiv正文；B2本轮未联网重验会议/出版身份，不使用获奖或近期SOTA声明",
+      "awards": "not_checked",
+      "project_url": null,
+      "code_url": null,
+      "dataset_url": null,
+      "source_level": "cached_primary_text_sections_re_read",
+      "primary_classification": [
+        "几何覆盖",
+        "凸块分解与采样点",
+        "Boustrophedon cellular decomposition"
+      ],
+      "secondary_tags": [],
+      "classification_confidence": "high",
+      "actual_b2_reading_scope": {
+        "pages": [
+          2,
+          3
+        ],
+        "source_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A1_space/experiments/A1_space/research/cache/2207.06209.txt",
+        "source_sha256": "2986ae8f910c858326b79396f3635bdf843730869f7317b34034af4bf7ab2b20",
+        "characters": 11020,
+        "scope": "仅列明正文页；其余逐篇信息是旧路线文献账本，不能继承其阅读范围"
+      },
+      "problem": "先分解无障碍单元，再按采样间距栅扫，并量化采样精度与路径长度的冲突。",
+      "mechanism": "论文按障碍连通拓扑分块并栅扫，逐格采样且可从四角进入；B2只借分区覆盖与进入相位这一原则。",
+      "inspiration_to_implementation": "R1/R3 partition_points、PhaseSolver.optical_points",
+      "limits": "论文环境采样不提供B2连续20米清除覆盖证明；B2贪心最小圆分区是本题自拟。",
+      "original_empirical_evidence": "正文用 Monte Carlo 随机环境比较 RMSE、热点漏检、路径和样本数，增加间距虽然缩短路径但可能漏热点。",
+      "evidence_boundary": "旧路线记录的论文实验在B2没有复现，不作为本题性能数值依据"
+    },
+    {
+      "id": "2603.04867",
+      "title": "Set-Membership Localization via Range Measurements",
+      "authors": [
+        "Giuseppe C. Calafiore"
+      ],
+      "year": 2026,
+      "url": "https://arxiv.org/abs/2603.04867",
+      "pdf_url": "https://arxiv.org/pdf/2603.04867",
+      "publication_status": "此前原路线核验arXiv正文；B2本轮未联网重验会议/出版身份，不使用获奖或近期SOTA声明",
+      "awards": "not_checked",
+      "project_url": null,
+      "code_url": null,
+      "dataset_url": null,
+      "source_level": "cached_primary_text_sections_re_read",
+      "primary_classification": [
+        "几何可靠性",
+        "集合成员外包",
+        "差分距离凸外包"
+      ],
+      "secondary_tags": [],
+      "classification_confidence": "high",
+      "actual_b2_reading_scope": {
+        "pages": [
+          3,
+          7
+        ],
+        "source_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/experiments/A2_information/research/2603.04867.txt",
+        "source_sha256": "90ec133a4dbe8c3a4cd78370f67baf9011d1107486eb16521122f7e533f0b922",
+        "characters": 5751,
+        "scope": "仅列明正文页；其余逐篇信息是旧路线文献账本，不能继承其阅读范围"
+      },
+      "problem": "已知锚点，带区间误差的距离测量下返回保证包含真实位置的区域。",
+      "mechanism": "原文区分中心估计与保证包含真值的外包；差分距离方程是其特有机制。",
+      "inspiration_to_implementation": "R2 residual_components保守排除；R1全凸块最小包围圆认证",
+      "limits": "本题没有距离读数，不复现SOCP/SDP；R2碎片机制正确但本地任务更慢。",
+      "original_empirical_evidence": "第3节给出真集合包含于外包集合的证明；第5节给出外包盒与椭球程序；第7节在2D/3D、随机锚点、100次重复上评估集合尺寸和包含率。第8节承认几何保守度仍缺正式刻画。",
+      "evidence_boundary": "旧路线记录的论文实验在B2没有复现，不作为本题性能数值依据"
+    },
+    {
+      "id": "2011.10474v2",
+      "title": "Probabilistic Radio-Visual Active Sensing for Search and Tracking",
+      "authors": [
+        "L. Varotto",
+        "A. Cenedese",
+        "A. Cavallaro"
+      ],
+      "year": 2020,
+      "url": "https://arxiv.org/abs/2011.10474v2",
+      "pdf_url": "https://arxiv.org/pdf/2011.10474v2",
+      "publication_status": "此前原路线核验arXiv正文；B2本轮未联网重验会议/出版身份，不使用获奖或近期SOTA声明",
+      "awards": "not_checked",
+      "project_url": null,
+      "code_url": null,
+      "dataset_url": null,
+      "source_level": "cached_primary_text_sections_re_read",
+      "primary_classification": [
+        "动作规划",
+        "多模态观测与无检测",
+        "贝叶斯射频视觉似然"
+      ],
+      "secondary_tags": [],
+      "classification_confidence": "high",
+      "actual_b2_reading_scope": {
+        "pages": [
+          3
+        ],
+        "source_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A4_directional/experiments/A4_directional/research/2011.10474v2.txt",
+        "source_sha256": "d83d09130edeaaa01d8e45a097e4e3f00ce88a866bbe762c2bb2b24da9f2828a",
+        "characters": 4010,
+        "scope": "仅列明正文页；其余逐篇信息是旧路线文献账本，不能继承其阅读范围"
+      },
+      "problem": "带无线电接收机和云台相机的UAV搜寻并跟踪发射目标；方向性相机和低精度RSSI互补。",
+      "mechanism": "公式15按可见域内外给未检测不同似然，公式16联合两模态；控制目标为MAP接近且正文承认纯利用。",
+      "inspiration_to_implementation": "继承A4 visibility_hypotheses；R3仅失败clear修正有限位置权重再比较两个完整覆盖",
+      "limits": "发射端半圆与相机视域模型不同，B2是离散近似排序而非校准后验；不声称概率最优或原论文复现。",
+      "original_empirical_evidence": "作者Python合成环境150次、每次100迭代；表I给出RF+V 77%、RF 55%、V 26%、2RF 64%检测成功率。位置/云台固定消融39%和29%。这是移动目标检测比例，不是本题全清时间。",
+      "evidence_boundary": "旧路线记录的论文实验在B2没有复现，不作为本题性能数值依据"
+    }
+  ]
+}
