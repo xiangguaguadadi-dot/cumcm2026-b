@@ -1,8 +1,23 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "validation": "research/graph_validation.json",
-  "historical_rounds": 48,
-  "stage3_rounds": 6,
+  "historical_full_rounds": 48,
+  "stage3_full_rounds": 9,
+  "counts_by_kind": {
+    "background": 6,
+    "cancelled_before_implementation": 1,
+    "completed_optimization_round": 48,
+    "completed_stage3_round": 9,
+    "development_only": 1,
+    "geometry_development": 1,
+    "geometry_diagnostic": 1,
+    "unimplemented_direction": 3
+  },
+  "latest_retained_full_components": {
+    "Q3": "R2_open_R4",
+    "Q4": "R3_open_R5",
+    "boundary": "Separate retained components; joint dispatch and fresh final validation are coordinated separately."
+  },
   "read_order": "Read this index, then selected nodes/id.json, then source rows as needed. Full graph retains all matrices.",
   "nodes": [
     {
@@ -2504,7 +2519,7 @@
     },
     {
       "id": "B3_GEOMETRY",
-      "kind": "background",
+      "kind": "geometry_development",
       "direction_tags": [
         "background"
       ],
@@ -2524,7 +2539,7 @@
     },
     {
       "id": "B4_CANCELLED",
-      "kind": "background",
+      "kind": "cancelled_before_implementation",
       "direction_tags": [
         "background"
       ],
@@ -3100,6 +3115,582 @@
       ],
       "comparison_baseline": "S0",
       "details": "nodes/R3_open_R3.json"
+    },
+    {
+      "id": "R2_open_R4",
+      "kind": "completed_stage3_round",
+      "direction_tags": [
+        "R2_open"
+      ],
+      "round": 4,
+      "title": "Q3全顶点可清交集与后继路线",
+      "status": "accepted_exposed_best",
+      "parents": [
+        {
+          "id": "R2_open_R3",
+          "relationship": "frozen_report_documented_parent"
+        }
+      ],
+      "design_parent": "R2_open_R3",
+      "retained_best_before_round": "R2_open_R3",
+      "retained_best_after_round": "R2_open_R4",
+      "exploration": "在20米动作圆交集边界枚举可行圆弧，优化进入和后继路程；父安全圆盘点保底。A2最近进入点只作未采纳控制，选中route臂不调用该控制方法。",
+      "lesson": "对R3再快0.175713秒/源；最近进入点开发变慢。固定状态代理不增不代表在线总任务不增，原点簇仍退步。",
+      "next_hypothesis": "固定多位置假说后，对比当前费用、平均费用与连续决策进展代理。",
+      "primary_effects": [
+        {
+          "suite": "combined",
+          "mode": 3,
+          "cases": 2400,
+          "mean_s_per_source": 235.87694581189243,
+          "baseline_mean_s_per_source": 238.42647061615037,
+          "delta_s_per_source": -2.5495248042579615,
+          "all_clear_and_normal": true
+        },
+        {
+          "suite": "combined",
+          "mode": 4,
+          "cases": 2400,
+          "mean_s_per_source": 524.8271439810879,
+          "baseline_mean_s_per_source": 524.8271439810879,
+          "delta_s_per_source": 0.0,
+          "all_clear_and_normal": true
+        },
+        {
+          "suite": "previous_final",
+          "mode": 3,
+          "cases": 1200,
+          "mean_s_per_source": 236.51830908072677,
+          "baseline_mean_s_per_source": 238.92088840741698,
+          "delta_s_per_source": -2.4025793266902196,
+          "all_clear_and_normal": true
+        },
+        {
+          "suite": "previous_final",
+          "mode": 4,
+          "cases": 1200,
+          "mean_s_per_source": 528.1829693035472,
+          "baseline_mean_s_per_source": 528.1829693035472,
+          "delta_s_per_source": 0.0,
+          "all_clear_and_normal": true
+        },
+        {
+          "suite": "v1",
+          "mode": 3,
+          "cases": 1200,
+          "mean_s_per_source": 235.23558254305806,
+          "baseline_mean_s_per_source": 237.93205282488378,
+          "delta_s_per_source": -2.6964702818257025,
+          "all_clear_and_normal": true
+        },
+        {
+          "suite": "v1",
+          "mode": 4,
+          "cases": 1200,
+          "mean_s_per_source": 521.4713186586285,
+          "baseline_mean_s_per_source": 521.4713186586285,
+          "delta_s_per_source": 0.0,
+          "all_clear_and_normal": true
+        }
+      ],
+      "comparison_baseline": "S0",
+      "details": "nodes/R2_open_R4.json"
+    },
+    {
+      "id": "R3_open_R4",
+      "kind": "completed_stage3_round",
+      "direction_tags": [
+        "R3_open"
+      ],
+      "round": 4,
+      "title": "Q4安全清除圆内的后继路线选点",
+      "status": "accepted_exposed_best",
+      "parents": [
+        {
+          "id": "R3_open_R3",
+          "relationship": "frozen_report_documented_parent"
+        },
+        {
+          "id": "A1_space_R8",
+          "relationship": "frozen_report_documented_parent"
+        }
+      ],
+      "design_parent": "R3_open_R3",
+      "retained_best_before_round": "R3_open_R3",
+      "retained_best_after_round": "R3_open_R4",
+      "exploration": "将A1 route_clear_point实质接到Q4；在半径20-r保守服务圆内选进入与后继代价更低的点，改变真实后续补测位置。",
+      "lesson": "对R3仅快0.121555秒/源；v1改善0.326473而previous_final慢0.083364，分批反转须保留。",
+      "next_hypothesis": "对R2全顶点可靠动作交集圆弧组件作Q4独立融合与最近进入点控制。",
+      "primary_effects": [
+        {
+          "suite": "combined",
+          "mode": 3,
+          "cases": 2400,
+          "mean_s_per_source": 238.42647061615037,
+          "baseline_mean_s_per_source": 238.42647061615037,
+          "delta_s_per_source": 0.0,
+          "all_clear_and_normal": true
+        },
+        {
+          "suite": "combined",
+          "mode": 4,
+          "cases": 2400,
+          "mean_s_per_source": 474.2079310968789,
+          "baseline_mean_s_per_source": 524.8271439810879,
+          "delta_s_per_source": -50.619212884209006,
+          "all_clear_and_normal": true
+        },
+        {
+          "suite": "previous_final",
+          "mode": 3,
+          "cases": 1200,
+          "mean_s_per_source": 238.92088840741698,
+          "baseline_mean_s_per_source": 238.92088840741698,
+          "delta_s_per_source": 0.0,
+          "all_clear_and_normal": true
+        },
+        {
+          "suite": "previous_final",
+          "mode": 4,
+          "cases": 1200,
+          "mean_s_per_source": 478.8191167888544,
+          "baseline_mean_s_per_source": 528.1829693035472,
+          "delta_s_per_source": -49.36385251469278,
+          "all_clear_and_normal": true
+        },
+        {
+          "suite": "v1",
+          "mode": 3,
+          "cases": 1200,
+          "mean_s_per_source": 237.93205282488378,
+          "baseline_mean_s_per_source": 237.93205282488378,
+          "delta_s_per_source": 0.0,
+          "all_clear_and_normal": true
+        },
+        {
+          "suite": "v1",
+          "mode": 4,
+          "cases": 1200,
+          "mean_s_per_source": 469.5967454049033,
+          "baseline_mean_s_per_source": 521.4713186586285,
+          "delta_s_per_source": -51.87457325372522,
+          "all_clear_and_normal": true
+        }
+      ],
+      "comparison_baseline": "S0",
+      "details": "nodes/R3_open_R4.json"
+    },
+    {
+      "id": "R3_open_R5",
+      "kind": "completed_stage3_round",
+      "direction_tags": [
+        "R3_open"
+      ],
+      "round": 5,
+      "title": "Q4迁移全顶点可清区域圆弧路线",
+      "status": "accepted_exposed_final_for_this_stage",
+      "parents": [
+        {
+          "id": "R3_open_R4",
+          "relationship": "frozen_report_documented_parent"
+        },
+        {
+          "id": "R2_open_R4",
+          "relationship": "frozen_report_documented_parent"
+        }
+      ],
+      "design_parent": "R3_open_R4",
+      "retained_best_before_round": "R3_open_R4",
+      "retained_best_after_round": "R3_open_R5",
+      "exploration": "将R2 R4已冻结的全顶点动作交集路线组件迁入Q4，保持R4安全圆盘回退；A2最近进入点是未采纳的显式训练/开发控制。",
+      "lesson": "对R4仅快0.310438秒/源；训练nearest胜route而开发反转，自父6个分批场景及281局回退，按用户允许近收敛收尾。",
+      "next_hypothesis": null,
+      "primary_effects": [
+        {
+          "suite": "combined",
+          "mode": 3,
+          "cases": 2400,
+          "mean_s_per_source": 238.42647061615037,
+          "baseline_mean_s_per_source": 238.42647061615037,
+          "delta_s_per_source": 0.0,
+          "all_clear_and_normal": true
+        },
+        {
+          "suite": "combined",
+          "mode": 4,
+          "cases": 2400,
+          "mean_s_per_source": 473.89749299964393,
+          "baseline_mean_s_per_source": 524.8271439810879,
+          "delta_s_per_source": -50.929650981443984,
+          "all_clear_and_normal": true
+        },
+        {
+          "suite": "previous_final",
+          "mode": 3,
+          "cases": 1200,
+          "mean_s_per_source": 238.92088840741698,
+          "baseline_mean_s_per_source": 238.92088840741698,
+          "delta_s_per_source": 0.0,
+          "all_clear_and_normal": true
+        },
+        {
+          "suite": "previous_final",
+          "mode": 4,
+          "cases": 1200,
+          "mean_s_per_source": 478.63951302952825,
+          "baseline_mean_s_per_source": 528.1829693035472,
+          "delta_s_per_source": -49.54345627401897,
+          "all_clear_and_normal": true
+        },
+        {
+          "suite": "v1",
+          "mode": 3,
+          "cases": 1200,
+          "mean_s_per_source": 237.93205282488378,
+          "baseline_mean_s_per_source": 237.93205282488378,
+          "delta_s_per_source": 0.0,
+          "all_clear_and_normal": true
+        },
+        {
+          "suite": "v1",
+          "mode": 4,
+          "cases": 1200,
+          "mean_s_per_source": 469.1554729697595,
+          "baseline_mean_s_per_source": 521.4713186586285,
+          "delta_s_per_source": -52.315845688869,
+          "all_clear_and_normal": true
+        }
+      ],
+      "comparison_baseline": "S0",
+      "details": "nodes/R3_open_R5.json"
+    },
+    {
+      "id": "R3_dynamic_cover_diagnostic",
+      "kind": "geometry_diagnostic",
+      "direction_tags": [
+        "R3_open"
+      ],
+      "round": null,
+      "title": "动态删站的有限轨迹连续覆盖诊断",
+      "status": "diagnostic_no_online_candidate",
+      "parents": [
+        {
+          "id": "R3_open_R3",
+          "relationship": "derived_from"
+        }
+      ],
+      "design_parent": "R3_open_R3",
+      "retained_best_before_round": "R3_open_R3",
+      "retained_best_after_round": "R3_open_R3",
+      "exploration": "用12条已见开发Q4轨迹，把所有未来停点免费赋给每个未知频道，对每条轨迹单独删除21站之一。",
+      "lesson": "即使免费提前加入未来停点，252个单删站组合仅2个被证书认可；154个未定不能写成失败或不可能。真实未知频道仍需付费检测。",
+      "next_hypothesis": null,
+      "primary_effects": [],
+      "comparison_baseline": null,
+      "details": "nodes/R3_dynamic_cover_diagnostic.json",
+      "diagnostic_summary": {
+        "geometry_cases": 12,
+        "single_station_case_pairs": 252,
+        "individually_certified": 2,
+        "exact_separation_witnesses": 96,
+        "undecided": 154,
+        "inference": "Only within augmented frozen trajectories; no global impossibility or actual route-time saving."
+      }
+    },
+    {
+      "id": "Q4_COST_GATE_PROPOSED",
+      "kind": "unimplemented_direction",
+      "direction_tags": [
+        "R3_open"
+      ],
+      "round": null,
+      "title": "Q4任务费用信息门控",
+      "status": "not_started_at_stage_close",
+      "parents": [
+        {
+          "id": "R3_open_R5",
+          "relationship": "inspired_by"
+        }
+      ],
+      "design_parent": null,
+      "retained_best_before_round": "R3_open_R5",
+      "retained_best_after_round": "R3_open_R5",
+      "exploration": "在保留定向可见性和真实无信号约束的前提下，检验机会补测的任务费用代理。",
+      "lesson": "只在Q3有相邻组件结果；Q4尚无本方向开发或全回归，不能移用Q3收益。",
+      "next_hypothesis": null,
+      "primary_effects": [],
+      "comparison_baseline": null,
+      "details": "nodes/Q4_COST_GATE_PROPOSED.json"
+    },
+    {
+      "id": "JOINT_CLEAR_ROUTE_PROPOSED",
+      "kind": "unimplemented_direction",
+      "direction_tags": [
+        "R3_open"
+      ],
+      "round": null,
+      "title": "固定序多个凸服务区的联合连续选点",
+      "status": "not_started_at_stage_close",
+      "parents": [
+        {
+          "id": "R3_open_R5",
+          "relationship": "inspired_by"
+        }
+      ],
+      "design_parent": null,
+      "retained_best_before_round": "R3_open_R5",
+      "retained_best_after_round": "R3_open_R5",
+      "exploration": "给定待访问任务顺序，联合优化多个已认证clear区域内的落点。",
+      "lesson": "已测试的单clear点entry/exit不同于整段联合优化；尚未实施。",
+      "next_hypothesis": null,
+      "primary_effects": [],
+      "comparison_baseline": null,
+      "details": "nodes/JOINT_CLEAR_ROUTE_PROPOSED.json"
+    },
+    {
+      "id": "CONDITIONAL_DISCOVERY_ROUTE_PROPOSED",
+      "kind": "unimplemented_direction",
+      "direction_tags": [
+        "R3_open"
+      ],
+      "round": null,
+      "title": "考虑条件发现结束的路由代理",
+      "status": "not_started_at_stage_close",
+      "parents": [
+        {
+          "id": "R3_open_R5",
+          "relationship": "inspired_by"
+        }
+      ],
+      "design_parent": null,
+      "retained_best_before_round": "R3_open_R5",
+      "retained_best_after_round": "R3_open_R5",
+      "exploration": "在内部路径评分中表达观测满16频道后未来发现站可被取消，真实退出仍使用原证书。",
+      "lesson": "全程路径代理可能牺牲早期发现；此为待检验假设，不能从个别退步证明因果。",
+      "next_hypothesis": null,
+      "primary_effects": [],
+      "comparison_baseline": null,
+      "details": "nodes/CONDITIONAL_DISCOVERY_ROUTE_PROPOSED.json"
+    },
+    {
+      "id": "R2_open_R5",
+      "kind": "development_only",
+      "direction_tags": [
+        "R2_open"
+      ],
+      "round": 5,
+      "title": "Q3多位置费用与连续决策图代理开发止步",
+      "status": "rejected_development",
+      "parents": [
+        {
+          "id": "R2_open_R4",
+          "relationship": "fusion"
+        },
+        {
+          "id": "A2_information_R8",
+          "relationship": "fusion"
+        }
+      ],
+      "design_parent": "R2_open_R4",
+      "retained_best_before_round": "R2_open_R4",
+      "retained_best_after_round": "R2_open_R4",
+      "exploration": "固定A2九点位置假说；对照父单中心费用、多位置平均费用与EC2剩余边权Noisy-OR代理。",
+      "lesson": "最终父231.260930396、多位置费用231.366209748、图进展232.454322791秒/源；两变体多付检测费且推理更慢，保留R4。此否证只限具体代理，不反驳DIRECt定理。",
+      "next_hypothesis": null,
+      "primary_effects": [],
+      "comparison_baseline": null,
+      "details": "nodes/R2_open_R5.json",
+      "development_summary": [
+        {
+          "revision": "r5_development",
+          "variant": "parent",
+          "data_role": "initial fresh development",
+          "effects": [
+            {
+              "mode": 3,
+              "cases": 192,
+              "mean_s_per_source": 231.2609303958209,
+              "delta_s_per_source": 0.0,
+              "all_clear_and_normal": true
+            },
+            {
+              "mode": 4,
+              "cases": 192,
+              "mean_s_per_source": 526.8804490395278,
+              "delta_s_per_source": 0.0,
+              "all_clear_and_normal": true
+            }
+          ]
+        },
+        {
+          "revision": "r5_development",
+          "variant": "multi_cost",
+          "data_role": "initial fresh development",
+          "effects": [
+            {
+              "mode": 3,
+              "cases": 192,
+              "mean_s_per_source": 231.36620974768513,
+              "delta_s_per_source": 0.10527935186417336,
+              "all_clear_and_normal": true
+            },
+            {
+              "mode": 4,
+              "cases": 192,
+              "mean_s_per_source": 526.8804490395278,
+              "delta_s_per_source": 0.0,
+              "all_clear_and_normal": true
+            }
+          ]
+        },
+        {
+          "revision": "r5_development",
+          "variant": "direct",
+          "data_role": "initial fresh development",
+          "effects": [
+            {
+              "mode": 3,
+              "cases": 192,
+              "mean_s_per_source": 232.9694147540231,
+              "delta_s_per_source": 1.7084843582021705,
+              "all_clear_and_normal": true
+            },
+            {
+              "mode": 4,
+              "cases": 192,
+              "mean_s_per_source": 526.8804490395278,
+              "delta_s_per_source": 0.0,
+              "all_clear_and_normal": true
+            }
+          ]
+        },
+        {
+          "revision": "r5_corrected_development",
+          "variant": "parent",
+          "data_role": "same development cases reused after source correctness correction",
+          "effects": [
+            {
+              "mode": 3,
+              "cases": 192,
+              "mean_s_per_source": 231.2609303958209,
+              "delta_s_per_source": 0.0,
+              "all_clear_and_normal": true
+            },
+            {
+              "mode": 4,
+              "cases": 192,
+              "mean_s_per_source": 526.8804490395278,
+              "delta_s_per_source": 0.0,
+              "all_clear_and_normal": true
+            }
+          ]
+        },
+        {
+          "revision": "r5_corrected_development",
+          "variant": "multi_cost",
+          "data_role": "same development cases reused after source correctness correction",
+          "effects": [
+            {
+              "mode": 3,
+              "cases": 192,
+              "mean_s_per_source": 231.36620974768513,
+              "delta_s_per_source": 0.10527935186417336,
+              "all_clear_and_normal": true
+            },
+            {
+              "mode": 4,
+              "cases": 192,
+              "mean_s_per_source": 526.8804490395278,
+              "delta_s_per_source": 0.0,
+              "all_clear_and_normal": true
+            }
+          ]
+        },
+        {
+          "revision": "r5_corrected_development",
+          "variant": "direct",
+          "data_role": "same development cases reused after source correctness correction",
+          "effects": [
+            {
+              "mode": 3,
+              "cases": 192,
+              "mean_s_per_source": 232.45171862441575,
+              "delta_s_per_source": 1.1907882285948004,
+              "all_clear_and_normal": true
+            },
+            {
+              "mode": 4,
+              "cases": 192,
+              "mean_s_per_source": 526.8804490395278,
+              "delta_s_per_source": 0.0,
+              "all_clear_and_normal": true
+            }
+          ]
+        },
+        {
+          "revision": "r5_final_development",
+          "variant": "parent",
+          "data_role": "same development cases reused after source correctness correction",
+          "effects": [
+            {
+              "mode": 3,
+              "cases": 192,
+              "mean_s_per_source": 231.2609303958209,
+              "delta_s_per_source": 0.0,
+              "all_clear_and_normal": true
+            },
+            {
+              "mode": 4,
+              "cases": 192,
+              "mean_s_per_source": 526.8804490395278,
+              "delta_s_per_source": 0.0,
+              "all_clear_and_normal": true
+            }
+          ]
+        },
+        {
+          "revision": "r5_final_development",
+          "variant": "multi_cost",
+          "data_role": "same development cases reused after source correctness correction",
+          "effects": [
+            {
+              "mode": 3,
+              "cases": 192,
+              "mean_s_per_source": 231.36620974768513,
+              "delta_s_per_source": 0.10527935186417336,
+              "all_clear_and_normal": true
+            },
+            {
+              "mode": 4,
+              "cases": 192,
+              "mean_s_per_source": 526.8804490395278,
+              "delta_s_per_source": 0.0,
+              "all_clear_and_normal": true
+            }
+          ]
+        },
+        {
+          "revision": "r5_final_development",
+          "variant": "direct",
+          "data_role": "same development cases reused after source correctness correction",
+          "effects": [
+            {
+              "mode": 3,
+              "cases": 192,
+              "mean_s_per_source": 232.4543227910824,
+              "delta_s_per_source": 1.1933923952614671,
+              "all_clear_and_normal": true
+            },
+            {
+              "mode": 4,
+              "cases": 192,
+              "mean_s_per_source": 526.8804490395278,
+              "delta_s_per_source": 0.0,
+              "all_clear_and_normal": true
+            }
+          ]
+        }
+      ]
     }
   ]
 }

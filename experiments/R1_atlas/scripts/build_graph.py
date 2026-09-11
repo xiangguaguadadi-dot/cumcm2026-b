@@ -174,8 +174,9 @@ edge('A2_information_R8','B2_R2','inspired_by',['experiments/B2/optimization_pat
 edge('B2_R2','B2_R3','inspired_by',['experiments/B2/optimization_path.json'],'Negative-result diagnosis; actual implementation parent R1.')
 edge('A4_directional_R6','B2_R3','inspired_by',['experiments/B2/optimization_path.json'],'Expected-first-hit ordering mechanism; C0 already carries A4 parent.')
 bg('B3_GEOMETRY','B3几何构型开发','18个几何构型：9个20点和6个小内环21点失败；仅旋转0的999/1864结构做连续认证及任务验证。',['experiments/B3/research/geometry_probe.json','experiments/B3/research/certificate_21_999_1864.json'],'geometry_exploration_not_policy_round')
+nodes[-1]['kind']='geometry_development'
 edge('C0','B3_GEOMETRY','derived_from',['experiments/B3/optimization_path.json']);edge('B3_GEOMETRY','B3_R1','derived_from',['experiments/B3/optimization_path.json'])
-bg('B4_CANCELLED','B4取消未实施','只有初步阅读；没有候选、没有实验，不计入48轮。',['experiments/20260911_breakthrough/STAGE_REPORT.md'],'cancelled_before_implementation');nodes[-1]['unimplemented']=True
+bg('B4_CANCELLED','B4取消未实施','只有初步阅读；没有候选、没有实验，不计入48轮。',['experiments/20260911_breakthrough/STAGE_REPORT.md'],'cancelled_before_implementation');nodes[-1]['unimplemented']=True;nodes[-1]['kind']='cancelled_before_implementation'
 bg('S0','第三阶段起点S0','Q3 B1 R1/Q4 B3 R1按题分派，合并均值238.426470616/524.827143981秒/源；原4800局均已暴露。',['experiments/20260911_stage3/baseline/provenance.json','experiments/20260911_stage3/baseline/expected_rows.json'])
 s0rows=read(ROOT/'experiments/20260911_stage3/baseline/expected_rows.json','4800_exposed_S0_parent_rows');nodes[-1]['effects']=summarize(s0rows,None,'exposed');nodes[-1]['verification_note']='Expected parent rows independently recomputed here; stage3 coordinator actual rerun status is separate.'
 for p in ['B1_R1','B3_R1']:edge(p,'S0','fusion',['experiments/20260911_stage3/baseline/provenance.json'],'Known mode dispatch only, not new stage3 improvement.')
@@ -233,7 +234,7 @@ for n in completed:
 (OUT/'AI_README.md').write_text('''# Agent读取协议
 
 1. 先读exploration_index.json，再按问题选择nodes/<id>.json；无需先载入整张图。DIRECTION_MAP.md供人浏览，第三阶段PROTOCOL.md定义当前研究边界，RESEARCH_BRIEF.md提供新文献。research/graph_validation.json提供枚举与散列检查结论。
-2. kind=completed_optimization_round才计入48个历史轮次；completed_stage3_round另计当前冻结增量。background与cancelled节点不能算实验。需要全量场景矩阵、全部边或所有来源清单时再读exploration_graph.json。
+2. kind=completed_optimization_round计入48个历史完整轮次；completed_stage3_round另计当前4800全回归轮。development_only是真实开发探索，geometry_development/geometry_diagnostic为几何试验或诊断，均不计全回归轮；unimplemented_direction与cancelled_before_implementation没有策略实验。需要全量场景矩阵、全部边或所有来源清单时再读exploration_graph.json。
 3. effects包含当前轮原判定口径；comparison_baseline明确R0或C0。later_validation另载旧final，当时是新样本、当前已暴露。S0只是按题分派，第三阶段比较须对S0。
 4. iteration/fusion/derived_from构成DAG。reverts_to只是决策引用，可以逆时，不参与拓扑排序；inspired_by不能冒充代码采纳。parents分清行为父与结构来源，AST差异不是语义等价证明。
 5. candidate给精确SHA、提交和路径。六路线旧文件在只读旧工作树；repository_url可回到同一私有仓库的固定提交。sources给每文件散列/行数/实际处理深度，沿source id追溯。

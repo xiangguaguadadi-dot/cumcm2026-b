@@ -1,11 +1,13 @@
 {
   "passed": true,
   "historical_rounds": 48,
-  "all_registered_rounds": 54,
+  "all_registered_rounds": 57,
   "all_node_references_valid": true,
-  "source_files_sha_matched": 951,
+  "source_files_sha_matched": 993,
   "implementation_dag_acyclic": true,
   "compact_index_and_node_files_match": true,
+  "non_full_and_unimplemented_kinds_separated": true,
+  "reading_coverage_matches_graph": true,
   "retained_decision_references_match": true,
   "retention_checks": [
     {
@@ -578,6 +580,21 @@
     },
     {
       "node": "R3_open_R3",
+      "candidate_current_sha_matches": true,
+      "effect_denominators_match": true
+    },
+    {
+      "node": "R2_open_R4",
+      "candidate_current_sha_matches": true,
+      "effect_denominators_match": true
+    },
+    {
+      "node": "R3_open_R4",
+      "candidate_current_sha_matches": true,
+      "effect_denominators_match": true
+    },
+    {
+      "node": "R3_open_R5",
       "candidate_current_sha_matches": true,
       "effect_denominators_match": true
     }

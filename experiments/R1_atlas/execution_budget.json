@@ -1,1 +1,23 @@
-{"schema_version":1,"agent":"R1_atlas","date":"2026-09-11","new_policy_executions":0,"new_training_cases":0,"new_development_cases":0,"note":"Historical parsing, graph building, literature reading and graph validation are not policy executions; costs will be incrementally recorded."}
+{
+  "schema_version": 2,
+  "agent": "R1_atlas",
+  "date": "2026-09-11",
+  "status": "closed_for_coordinator_final_validation",
+  "new_policy_executions": 0,
+  "new_training_cases": 0,
+  "new_development_cases": 0,
+  "historical_full_candidate_rows_recomputed": 127200,
+  "old_final_candidate_rows_recomputed": 24000,
+  "stage3_full_candidate_rows_recomputed": 43200,
+  "development_rows_recomputed": {
+    "R2_R3": 1536,
+    "R2_R5": 3456
+  },
+  "exact_geometry_certificate_replay": {
+    "policy_executions": 0,
+    "positive_certificates": 2,
+    "separation_witnesses": 96,
+    "undecided": 154
+  },
+  "note": "Processing/recomputing already saved results and exact geometry proof replay; these repeated rows are not new inference or independent samples."
+}

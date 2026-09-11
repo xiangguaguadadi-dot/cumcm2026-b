@@ -36,6 +36,16 @@ assert byid['A6_learning_R9']['design_parent']=='A6_learning_R8'
 assert byid['A6_learning_R9']['retained_best_after_round']=='A6_learning_R7'
 index=json.loads((out/'exploration_index.json').read_text())
 assert {n['id'] for n in index['nodes']}==ids
+assert index['counts_by_kind']==dict(collections.Counter(n['kind'] for n in nodes))
+assert len([n for n in nodes if n['kind']=='completed_stage3_round'])==9
+assert byid['R2_open_R5']['kind']=='development_only' and byid['R2_open_R5']['effects']==[]
+assert byid['R2_open_R5']['retained_best_after_round']=='R2_open_R4'
+assert byid['R2_open_R5']['budget']['policy_task_runs']==3456
+assert all(a['all_clear_and_normal'] for d in byid['R2_open_R5']['development_effects'] for a in d['effects'])
+assert sum(n['kind']=='unimplemented_direction' for n in nodes)==3
+assert all(not n.get('effects') and n['budget']['policy_task_runs']==0 for n in nodes if n['kind']=='unimplemented_direction')
+assert byid['R3_dynamic_cover_diagnostic']['diagnostic_effects']['undecided']==154
+coverage=json.loads((out/'reading_coverage.json').read_text());assert coverage['sources']==g['sources'] and coverage['coverage_audit']==g['coverage_audit']
 for entry in index['nodes']:
  assert json.loads((out/entry['details']).read_text())==byid[entry['id']]
  assert entry['next_hypothesis']==byid[entry['id']].get('next_hypothesis')
@@ -57,5 +67,5 @@ while queue:
   deg[j]-=1
   if not deg[j]:queue.append(j)
 assert set(seen)==ids
-result={'passed':True,'historical_rounds':48,'all_registered_rounds':len(rounds),'all_node_references_valid':True,'source_files_sha_matched':len(g['sources']),'implementation_dag_acyclic':True,'compact_index_and_node_files_match':True,'retained_decision_references_match':True,'retention_checks':retention_checks,'checks':checks,'new_policy_executions':0}
+result={'passed':True,'historical_rounds':48,'all_registered_rounds':len(rounds),'all_node_references_valid':True,'source_files_sha_matched':len(g['sources']),'implementation_dag_acyclic':True,'compact_index_and_node_files_match':True,'non_full_and_unimplemented_kinds_separated':True,'reading_coverage_matches_graph':True,'retained_decision_references_match':True,'retention_checks':retention_checks,'checks':checks,'new_policy_executions':0}
 (out/'research/graph_validation.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(json.dumps({k:v for k,v in result.items() if k not in ('checks','retention_checks')}))
