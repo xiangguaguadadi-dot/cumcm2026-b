@@ -49,3 +49,7 @@ README导航与DIRECTION_MAP.md给总图和分支详图，AI_README.md说明Agen
 原冻结规则、第一二问与root solver保持不变。本轮所有实验路径新建，不覆盖旧数据。每次有效结果即时提交并推送自己分支到既有私有仓库xiangguaguadadi-dot/cumcm2026-b，主协调独立核验后整合。用户此前已授权每次迭代上传GitHub，且本轮继续授权提交；不需要反复询问。当前环境无沙箱权限请求，exec_command不可传sandbox_permissions。网络代理必要时git -c http.proxy= -c https.proxy= push origin 专属分支；不改全局代理、不force push、不删分支，不上传凭据/官方身份日志/二进制/PDF大文件。
 
 两位形成最终冻结候选后，主协调登记所有候选与已用种子，再另取未见100种子×12场景×2题=2400局，同S0全量实际比较。新最终数据不反馈调参或事后选新组合；如果继续研发，需另立阶段/新最终集。图和研究报告可依据最终结果更新证据标签，不改历史决策记录。最终交付完整方向图、新文献可行动摘要、两份研究报告及优化路径、原始结果与独立审计。
+
+## 本机解释器
+
+使用/Users/t/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3（3.12.14）。系统python3为3.9，不支持已冻结环境的类型注解；不要改冻结环境来兼容，改用已验证运行时。

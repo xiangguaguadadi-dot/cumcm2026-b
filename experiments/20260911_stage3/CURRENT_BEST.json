@@ -1,0 +1,22 @@
+{
+  "version": "S0_verified",
+  "fixed_anchor": "S0",
+  "selection": "per-known-question dispatch; not a new algorithmic gain",
+  "modes": {
+    "3": {
+      "name": "B1_R1",
+      "candidate": "experiments/20260911_stage3/baseline/B1_R1.py",
+      "sha256": "ba417e4ac97d9d7ce04f7b6c0831f3c38bc70f81e4c0f313f1ebb60663dfab98",
+      "mean_s_per_source": 238.42647061615037
+    },
+    "4": {
+      "name": "B3_R1",
+      "candidate": "experiments/20260911_stage3/baseline/B3_R1.py",
+      "sha256": "02e845c7638236bd2834c9d2bf5a38a2aedb24515dc4e4e5d361bbc471b4db96",
+      "mean_s_per_source": 524.8271439810878
+    }
+  },
+  "baseline_rows": "baseline/equivalence/case_metrics.json",
+  "actual_dispatch_verified": true,
+  "notes": "S0 remains fixed anchor. Track own best and known per-question common best separately; new advances in another question do not erase an independently improving component. Further method fusion requires actual implementation and evaluation."
+}
