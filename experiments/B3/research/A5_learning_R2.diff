@@ -1,0 +1,45 @@
+--- baseline
++++ A5_learning_R2
+@@ -15,12 +15,5 @@
+                        route_optimization=False,upper_bound_stop=False,rescue_initial_clear=True,
+                        joint_scheduling=False,clear_standoff=False)
+-OPTIMIZED_CONFIGS = {
+-    3: dict(advance_fraction=.60,lateral_fraction=.15,clear_trial_radius=100,
+-            route_optimization=True,upper_bound_stop=True,rescue_initial_clear=False,
+-            joint_scheduling=True,source_priority=1.55,clear_standoff=True),
+-    4: dict(advance_fraction=.60,lateral_fraction=.15,clear_trial_radius=100,
+-            route_optimization=True,upper_bound_stop=True,rescue_initial_clear=False,
+-            joint_scheduling=True,source_priority=1.60,clear_standoff=True),
+-}
++OPTIMIZED_CONFIGS = {3: {'advance_fraction': 0.6, 'lateral_fraction': 0.15, 'clear_trial_radius': 100, 'route_optimization': True, 'upper_bound_stop': True, 'rescue_initial_clear': False, 'joint_scheduling': True, 'source_priority': 1.55, 'clear_standoff': True, 'priority_uncertainty': 0.0, 'priority_pending': 0.0, 'source_uncertainty_cost': 0.0}, 4: {'advance_fraction': 0.7165499736366616, 'lateral_fraction': 0.11498778234989403, 'clear_trial_radius': 186.75959165603547, 'route_optimization': True, 'upper_bound_stop': True, 'rescue_initial_clear': False, 'joint_scheduling': True, 'source_priority': 1.4111337287763024, 'clear_standoff': True, 'priority_uncertainty': 0.06524228650244446, 'priority_pending': -0.31069683674814663, 'source_uncertainty_cost': 0.6969504169454712}}
+ 
+ 
+@@ -414,4 +407,18 @@
+         return min(candidates,key=length)[0]
+ 
++    def learned_source_score(self, ch):
++        """Observable-only task distance proxy; zero weight recovers baseline."""
++        center, radius = enclosing_circle(self.polygons[ch])
++        return max(0.0, dist(self.position, center) +
++                   self.config.get('source_uncertainty_cost', 0.0) * radius)
++
++    def learned_source_multiplier(self, ch, pending_count):
++        """Bounded contextual policy. It cannot alter coverage or termination."""
++        center, radius = enclosing_circle(self.polygons[ch])
++        exponent = (self.config.get('priority_uncertainty', 0.0) * (radius / 750.0) +
++                    self.config.get('priority_pending', 0.0) * (pending_count / 16.0))
++        return max(0.1, min(6.0, self.config.get('source_priority', 1.0) *
++                           math.exp(max(-2.0, min(2.0, exponent)))))
++
+     def run(self):
+         started=time.monotonic()
+@@ -426,7 +433,6 @@
+                 index=self.next_station(todo) if todo else None
+                 if pending:
+-                    ch=min(pending,key=lambda c:dist(self.position,enclosing_circle(self.polygons[c])[0]))
+-                    target=enclosing_circle(self.polygons[ch])[0]
+-                    source_cost=dist(self.position,target)*self.config.get('source_priority',1.0)
++                    ch=min(pending,key=self.learned_source_score)
++                    source_cost=self.learned_source_score(ch)*self.learned_source_multiplier(ch,len(pending))
+                     station_cost=(dist(self.position,self.points[index]) if index is not None else float('inf'))
+                     if source_cost<=station_cost:

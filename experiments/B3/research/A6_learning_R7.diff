@@ -1,0 +1,86 @@
+--- baseline
++++ A6_learning_R7
+@@ -15,12 +15,5 @@
+                        route_optimization=False,upper_bound_stop=False,rescue_initial_clear=True,
+                        joint_scheduling=False,clear_standoff=False)
+-OPTIMIZED_CONFIGS = {
+-    3: dict(advance_fraction=.60,lateral_fraction=.15,clear_trial_radius=100,
+-            route_optimization=True,upper_bound_stop=True,rescue_initial_clear=False,
+-            joint_scheduling=True,source_priority=1.55,clear_standoff=True),
+-    4: dict(advance_fraction=.60,lateral_fraction=.15,clear_trial_radius=100,
+-            route_optimization=True,upper_bound_stop=True,rescue_initial_clear=False,
+-            joint_scheduling=True,source_priority=1.60,clear_standoff=True),
+-}
++OPTIMIZED_CONFIGS = {3: {'advance_fraction': 0.6, 'lateral_fraction': 0.15, 'clear_trial_radius': 100, 'route_optimization': True, 'upper_bound_stop': True, 'rescue_initial_clear': False, 'joint_scheduling': True, 'source_priority': 1.55, 'clear_standoff': True}, 4: {'advance_fraction': 0.6, 'lateral_fraction': 0.15, 'clear_trial_radius': 100, 'route_optimization': True, 'upper_bound_stop': True, 'rescue_initial_clear': False, 'joint_scheduling': True, 'source_priority': 2.004736280465327, 'clear_standoff': True, 'schedule_uncertainty': 1.3227659012697082, 'schedule_density': 0.1024358824899248, 'schedule_station_gain': -0.47466339558754406, 'second_range_weight': 0.0, 'second_uncertainty_weight': 0.0, 'second_route_weight': 0.0, 'schedule_missing': -0.38800613440593723, 'schedule_repeat': -0.5026382344755622, 'schedule_workload': -0.18457534783107643, 'schedule_boundary': -0.10092733680249596}}
+ 
+ 
+@@ -220,11 +213,17 @@
+         # The candidate moves mostly toward the source, adding enough lateral
+         # baseline to resolve range while avoiding a long out-and-back detour.
+-        advance = max(30, length * self.config.get('advance_fraction',0.78))
+-        lateral = max(45,min(190,length*self.config.get('lateral_fraction',0.20)))
++        # Features are current bearing-set geometry, not latent source range.
++        range_feature=max(-.5,min(.5,length/1500.0-.5))
++        uncertainty_feature=min(1.0,radius/750.0)-.5
++        advance_fraction=max(.20,min(.98,self.config.get('advance_fraction',.60)
++            +self.config.get('second_range_weight',0.0)*range_feature
++            +self.config.get('second_uncertainty_weight',0.0)*uncertainty_feature))
++        advance = max(30, length * advance_fraction)
++        lateral = max(45,min(190,length*self.config.get('lateral_fraction',0.15)))
+         candidates = [(p[0]+advance*ux+sign*lateral*(-uy),
+                        p[1]+advance*uy+sign*lateral*ux) for sign in [-1,1]]
+         # Favor candidate nearer the other planned search stations, a cheap
+         # approximation to downstream route cost, with deterministic tie-break.
+-        return min(candidates,key=lambda q: (dist(q,self.position) + 0.12*min(dist(q,w) for w in self.points),q))
++        return min(candidates,key=lambda q: (dist(q,self.position) + (0.12+self.config.get('second_route_weight',0.0))*min(dist(q,w) for w in self.points),q))
+ 
+     def localize(self,ch):
+@@ -414,4 +413,37 @@
+         return min(candidates,key=length)[0]
+ 
++    def learned_source_cost(self,ch,estimates,index):
++        """Only public observation-derived geometry; no source truth or labels.
++
++        Exponential scaling stays positive.  At zero feature weights this is
++        exactly the original distance times source_priority score.
++        """
++        center,radius=estimates[ch]
++        distance=dist(self.position,center)
++        uncertainty=min(1.0,radius/750.0)
++        others=[c for c in estimates if c!=ch]
++        density=(sum(math.exp(-dist(center,estimates[c][0])/400.0) for c in others)
++                 /max(1,len(others)))
++        station_gain=0.0
++        if index is not None:
++            station=self.points[index]
++            station_gain=max(-1.0,min(1.0,(dist(center,station)-dist(self.position,station))/1800.0))
++        # Missing RF is a cost feature only: it never deletes feasible sources
++        # or certifies an unscanned channel absent.
++        observed=len(self.observations[ch])
++        missing=len(self.no_signal_points[ch])
++        missing_fraction=missing/max(1,observed+missing)
++        repeat_fraction=min(1.0,max(0,observed-1)/2.0)
++        workload=len(estimates)/16.0
++        boundary=max(0.0,min(1.0,(math.hypot(center[0],center[1])-1350.0)/450.0))
++        log_scale=(self.config.get('schedule_uncertainty',0.0)*uncertainty
++                   +self.config.get('schedule_density',0.0)*density
++                   +self.config.get('schedule_station_gain',0.0)*station_gain
++                   +self.config.get('schedule_missing',0.0)*missing_fraction
++                   +self.config.get('schedule_repeat',0.0)*repeat_fraction
++                   +self.config.get('schedule_workload',0.0)*workload
++                   +self.config.get('schedule_boundary',0.0)*boundary)
++        return distance*self.config.get('source_priority',1.0)*math.exp(max(-4.0,min(4.0,log_scale)))
++
+     def run(self):
+         started=time.monotonic()
+@@ -426,7 +458,7 @@
+                 index=self.next_station(todo) if todo else None
+                 if pending:
+-                    ch=min(pending,key=lambda c:dist(self.position,enclosing_circle(self.polygons[c])[0]))
+-                    target=enclosing_circle(self.polygons[ch])[0]
+-                    source_cost=dist(self.position,target)*self.config.get('source_priority',1.0)
++                    estimates={c:enclosing_circle(self.polygons[c]) for c in pending}
++                    ch=min(pending,key=lambda c:self.learned_source_cost(c,estimates,index))
++                    source_cost=self.learned_source_cost(ch,estimates,index)
+                     station_cost=(dist(self.position,self.points[index]) if index is not None else float('inf'))
+                     if source_cost<=station_cost:

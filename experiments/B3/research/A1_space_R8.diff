@@ -1,0 +1,207 @@
+--- baseline
++++ A1_space_R8
+@@ -106,5 +106,10 @@
+     """Analytic source of the certificate, independent of external JSON data."""
+     if mode == 3:
+-        rr = 1800 * math.cos(math.pi / 6)
++        # The source radius r is either <=1000 (origin detects it), or
++        # in [1000,1800] with angle <=pi/6 to one of these six stations.
++        # d(r)^2=r*r+rr*rr-2*r*rr*cos(pi/6) is convex in r.  At both
++        # endpoints it is <1000^2 for rr=1124.  Thus all source positions
++        # are detectable.  Moving the ring inward shortens mandatory travel.
++        rr = 1124.0
+         return [(0.0, 0.0)] + [(rr * math.cos(i * math.pi / 3), rr * math.sin(i * math.pi / 3)) for i in range(6)]
+     # Seven sectors, each split into four triangles.  The outer heptagon
+@@ -118,4 +123,6 @@
+ 
+ def default_points(mode):
++    if mode == 3:
++        return certified_points(mode)
+     filename=os.path.join(os.path.dirname(__file__),'coverage_points.json')
+     if os.path.exists(filename):
+@@ -228,4 +235,49 @@
+         return min(candidates,key=lambda q: (dist(q,self.position) + 0.12*min(dist(q,w) for w in self.points),q))
+ 
++    def route_clear_point(self, center, radius, original):
++        """Shorten the predicted entry+exit path inside a certified clear disk.
++
++        If polygon lies in B(center,radius), every point in
++        B(center,20-radius) is <=20 m from every feasible source. Only this
++        feasible disk is optimized. The next route point is a forecast, so
++        its shorter surrogate path is not claimed as global online optimality.
++        """
++        target=getattr(self,'route_successor',None)
++        margin=max(0.0,20-radius-1e-6)
++        if target is None or margin<=1e-6:
++            return original
++        start=self.position
++        if dist(start,center)<=margin:
++            return start
++        def cost(p):return dist(start,p)+dist(p,target)
++        vx,vy=target[0]-start[0],target[1]-start[1]
++        dx,dy=start[0]-center[0],start[1]-center[1]
++        aa=vx*vx+vy*vy;bb=2*(dx*vx+dy*vy)
++        cc=dx*dx+dy*dy-margin*margin
++        candidates=[original,center]
++        disc=bb*bb-4*aa*cc
++        if aa>1e-12 and disc>=0:
++            low=(-bb-math.sqrt(disc))/(2*aa)
++            high=(-bb+math.sqrt(disc))/(2*aa)
++            if low<=1 and high>=0:
++                t=max(0.0,low)
++                candidates.append((start[0]+t*vx,start[1]+t*vy))
++        step=2*math.pi/32
++        point=lambda a:(center[0]+margin*math.cos(a),center[1]+margin*math.sin(a))
++        best_angle=min(range(32),key=lambda i:cost(point(i*step)))*step
++        lo,hi=best_angle-step,best_angle+step
++        golden=(math.sqrt(5)-1)/2
++        a=hi-golden*(hi-lo);b=lo+golden*(hi-lo)
++        fa,fb=cost(point(a)),cost(point(b))
++        for _ in range(28):
++            if fa<=fb:
++                hi,b,fb=b,a,fa;a=hi-golden*(hi-lo);fa=cost(point(a))
++            else:
++                lo,a,fa=a,b,fb;b=lo+golden*(hi-lo);fb=cost(point(b))
++        candidates.extend([point(a),point(b)])
++        # A numerical feasibility recheck preserves the pre-existing margin.
++        feasible=[p for p in candidates if dist(p,center)<=margin+1e-8]
++        return min(feasible,key=cost) if feasible else original
++
+     def localize(self,ch):
+         if ch in self.cleared:
+@@ -246,4 +298,6 @@
+                         clear_point=(center[0]+margin*(self.position[0]-center[0])/distance,
+                                      center[1]+margin*(self.position[1]-center[1])/distance)
++                if radius<=20 and self.config.get('route_clear',True):
++                    clear_point=self.route_clear_point(center,radius,clear_point)
+                 if self.clear(clear_point,ch,certified=radius<=20):
+                     return
+@@ -369,4 +423,16 @@
+             self.measure(p,ch)
+             self.scanned[ch].add(index)
++        if (self.mode == 3 and index == 0 and not self.cleared and
++                not any(self.observations.values()) and
++                self.config.get('adaptive_ring',True) and
++                not any(i != 0 for indices in self.scanned.values() for i in indices)):
++            # All channels were silent at the origin, so every real source is
++            # farther than 1000 m.  Choose the equally certified outer ring
++            # before any non-origin station is visited.  This does not infer
++            # source count or terminate search; only the route geometry changes.
++            # Both rings satisfy max_{r in [1000,1800]} d(r) < 1000.
++            rr=1800*math.cos(math.pi/6)
++            self.points=[(0.0,0.0)]+[(rr*math.cos(i*math.pi/3),
++                                      rr*math.sin(i*math.pi/3)) for i in range(6)]
+         pending=[c for c in range(1,21) if self.observations[c] and c not in self.cleared]
+         if defer:
+@@ -414,4 +480,81 @@
+         return min(candidates,key=length)[0]
+ 
++    def spatial_next_task(self, todo):
++        """Receding-horizon open tour of certified stations and known regions.
++
++        Source centers are estimates used only for route ordering. They are
++        never optical certificates; localization still uses its bounded set.
++        Every route contains each remaining station and each pending source.
++        """
++        tasks=[('station',i) for i in sorted(todo)]+[
++            ('source',c) for c in range(1,21)
++            if self.observations[c] and c not in self.cleared]
++        positions=[self.position]+[
++            self.points[k] if kind=='station' else enclosing_circle(self.polygons[k])[0]
++            for kind,k in tasks]
++        n=len(tasks)
++        ds=[[dist(a,b) for b in positions] for a in positions]
++        remaining=set(range(1,n+1));greedy=[];p=0
++        while remaining:
++            q=min(remaining,key=lambda j:(ds[p][j],j))
++            greedy.append(q);remaining.remove(q);p=q
++        def improve(route):
++            route=route[:]
++            for _ in range(60):
++                best=None;delta=0.
++                for i in range(n-1):
++                    before=0 if i==0 else route[i-1]
++                    a=route[i]
++                    for j in range(i+1,n):
++                        b=route[j]
++                        change=ds[before][b]-ds[before][a]
++                        if j+1<n:
++                            after=route[j+1];change+=ds[a][after]-ds[b][after]
++                        if change<delta-1e-7:delta=change;best=(i,j)
++                if best is None:break
++                i,j=best;route[i:j+1]=reversed(route[i:j+1])
++            return route
++        # Multiple deterministic starts guard against short-sighted nearest
++        # neighbor choices while keeping the total cost tied to physical metres.
++        starts=[greedy,list(range(1,n+1)),list(range(n,0,-1))]
++        routes=[improve(x) for x in starts]
++        def reinsert(route):
++            route=route[:]
++            for _ in range(30):
++                best=None;delta=0.
++                for i,x in enumerate(route):
++                    before=0 if i==0 else route[i-1]
++                    after=route[i+1] if i+1<n else None
++                    remove=-ds[before][x]
++                    if after is not None:remove+=ds[before][after]-ds[x][after]
++                    short=route[:i]+route[i+1:]
++                    for j in range(n):
++                        if j==i:continue
++                        left=0 if j==0 else short[j-1]
++                        right=short[j] if j<len(short) else None
++                        change=remove+ds[left][x]
++                        if right is not None:change+=ds[x][right]-ds[left][right]
++                        if change<delta-1e-7:best=(i,j);delta=change
++                if best is None:break
++                i,j=best;x=route.pop(i);route.insert(j,x)
++                route=improve(route)
++            return route
++        # Keep every original 2-opt tour as well: extra search cannot worsen
++        # the fixed-state distance proxy, although online realized cost may vary.
++        routes+= [reinsert(x) for x in routes]
++        length=lambda r:ds[0][r[0]]+sum(ds[a][b] for a,b in zip(r,r[1:]))
++        best=min(routes,key=lambda r:(length(r),r))
++        self.route_successor=positions[best[1]] if len(best)>1 else None
++        return tasks[best[0]-1]
++
++    def all_sources_discovered(self):
++        """Observed distinct channels saturate the public upper bound of 16.
++
++        Positive bearing/near/clear feedback is required for every counted
++        channel.  This establishes discovery, never successful clearance.
++        """
++        known=self.cleared | {c for c in range(1,21) if self.observations[c]}
++        return len(known)>=16
++
+     def run(self):
+         started=time.monotonic()
+@@ -422,4 +565,29 @@
+         visited=[]
+         while todo or any(self.observations[c] and c not in self.cleared for c in range(1,21)):
++            if todo and self.all_sources_discovered():
++                # No possible unseen emitter remains; retain all pending
++                # localization work and the final 16-success exit certificate.
++                self.counters['stations_waived_after_all_discovered']=len(todo)
++                todo.clear()
++            self.route_successor=None
++            pending=[c for c in range(1,21)
++                     if self.observations[c] and c not in self.cleared]
++            # In mode 4 an early bearing wedge can be long and its center
++            # a poor future route endpoint.  Use the global spatial tour only
++            # after every pending region fits the existing optical-trial scale.
++            # This is route eligibility, not a clearing or absence certificate.
++            ready=(self.mode == 3 or (pending and all(
++                enclosing_circle(self.polygons[c])[1] <=
++                self.config.get('clear_trial_radius',100) for c in pending)))
++            if ready and self.config.get('spatial_route',True):
++                kind,key=self.spatial_next_task(todo)
++                if kind=='source':
++                    self.localize(key)
++                else:
++                    self.scan_station(key,defer=True)
++                    visited.append(key);todo.remove(key)
++                if self.config.get('upper_bound_stop',True) and len(self.cleared)>=16:
++                    break
++                continue
+             if self.config.get('joint_scheduling',False):
+                 pending=[c for c in range(1,21) if self.observations[c] and c not in self.cleared]
