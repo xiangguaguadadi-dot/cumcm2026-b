@@ -1,6 +1,6 @@
 {
   "as_of": "2026-09-11",
-  "status": "live working source ledger",
+  "status": "final stage-four E3 source ledger",
   "user_supplied_leads": 8,
   "record_count": 10,
   "deduplication": "Conference and journal development within one mechanism family are cross-linked; ISRR2015/IJRR2017/2018 grouped in one record. ICRA2012/JFR2014 separate requested texts but not separate mechanism.",
@@ -20,7 +20,7 @@
       "identity_verification": "verified",
       "reading_scope": "PDF pp.1–4: context, initialization, open-loop/greedy/min-max tree; experiments not yet fully read",
       "main_classification": "online planning / measurement-outcome tree",
-      "problem": "Active localization/search from uncertain sensor observations",
+      "problem": "Adaptive observation branches; charge motion plus each measurement.",
       "transfer_to_task": "Adaptive observation branches; charge motion plus each measurement.",
       "limitations": "Gaussian/EKF and 180-degree ambiguity; fixed grid/action discretization and hypothetical future bearings differ from this task.",
       "versions": [
@@ -29,11 +29,18 @@
           "date": "2011-09"
         }
       ],
-      "implementation": "Existing sampled active-measurement planners overlap; bounded two-step planning remains under study.",
+      "implementation": "E3 R4 uses explicit hypothetical observation branches for scoring next real action. It is a finite task adaptation, not the paper EKF/Bhattacharyya state tree. All variants were negative on the second development cohort; rejected.",
       "tier": "core",
       "awards": "not investigated; no award claim",
       "code_url": null,
-      "data_url": null
+      "data_url": null,
+      "classification_confidence": "high",
+      "benchmark_comparability": "Not comparable to CUMCM virtual seconds per cleared source; no cross-paper performance ranking.",
+      "task_results": "See optimization_path.json; source theorem or paper experiment is not evidence of this solver performance.",
+      "method": "online planning / measurement-outcome tree",
+      "primary_source_verified": true,
+      "result_evidence_scope": "Theoretical statements or experiments only within reading_scope; no unverified effect-size claim.",
+      "datasets_and_evaluation": "Paper-native field telemetry/simulation; task uses frozen local CUMCM v1 and previous-final cases."
     },
     {
       "id": "ICRA2012",
@@ -50,7 +57,7 @@
       "identity_verification": "verified",
       "reading_scope": "PDF pp.1–4: problem, EKF, beta-caution constraint, algorithm; detailed proof deferred by paper to technical report",
       "main_classification": "local geometry / cautious approach",
-      "problem": "Active localization/search from uncertain sensor observations",
+      "problem": "Choose perpendicular-to-major-uncertainty views and account for measurement cost.",
       "transfer_to_task": "Choose perpendicular-to-major-uncertainty views and account for measurement cost.",
       "limitations": "Probabilistic backward ambiguity/EKF bound is not a deterministic source-containment theorem; no direct 20 m clearing guarantee.",
       "versions": [
@@ -63,7 +70,14 @@
       "tier": "core",
       "awards": "not investigated; no award claim",
       "code_url": null,
-      "data_url": null
+      "data_url": null,
+      "classification_confidence": "high",
+      "benchmark_comparability": "Not comparable to CUMCM virtual seconds per cleared source; no cross-paper performance ranking.",
+      "task_results": "See optimization_path.json; source theorem or paper experiment is not evidence of this solver performance.",
+      "method": "local geometry / cautious approach",
+      "primary_source_verified": true,
+      "result_evidence_scope": "Theoretical statements or experiments only within reading_scope; no unverified effect-size claim.",
+      "datasets_and_evaluation": "Paper-native field telemetry/simulation; task uses frozen local CUMCM v1 and previous-final cases."
     },
     {
       "id": "ICRA2013",
@@ -74,20 +88,39 @@
       ],
       "year": 2013,
       "venue": "ICRA 2013",
-      "primary_url": "https://doi.org/10.1109/ICRA.2013.6630920",
+      "primary_url": "https://conservancy.umn.edu/server/api/core/bitstreams/e1afd743-659c-4cb3-aabf-928d2d977c61/content",
       "source_level": "primary author-hosted text and/or publisher metadata",
       "identity_verification": "verified",
-      "reading_scope": "Identity verified from publisher-deposited metadata and author publication list. Author PDF link returns 404; university repository copy encountered HTML challenge; full text still being recovered.",
+      "reading_scope": "University TR 12-006, dated 2012-02-24, PDF pp.1,3–8,11–13 read: bounded-wedge/adversarial model, triangular grid and three/six-sensor selection theorem statements. Appendix proofs not fully read; this is the precursor technical report, not claimed byte-identical to ICRA2013 camera-ready.",
       "main_classification": "set geometry / bounded-error sensor selection",
-      "problem": "Active localization/search from uncertain sensor observations",
-      "transfer_to_task": "Relevant to worst-case region width and observation-set selection; detailed theorem not attributed without full text.",
-      "limitations": "No paper-specific guarantee or algorithm adopted while source text remains inaccessible.",
-      "versions": [],
-      "implementation": "R3 convex no-signal exclusion is our own derivation, not claimed as this paper algorithm.",
-      "tier": "identity_only",
+      "problem": "Worst-case region diameter and area depend jointly on source position and realized bounded-error bearings. Small local sensor subsets can suffice under a suitable enclosing grid.",
+      "transfer_to_task": "Worst-case region diameter and area depend jointly on source position and realized bounded-error bearings. Small local sensor subsets can suffice under a suitable enclosing grid.",
+      "limitations": "The report assumes unrestricted observations without receive range or directional loss, no sensor travel cost, and a square workspace. Static placement guarantees and three-sensor counts do not transfer to paid, sequential, complete clearing.",
+      "versions": [
+        {
+          "venue": "ICRA",
+          "year": 2013,
+          "doi": "10.1109/ICRA.2013.6630920"
+        },
+        {
+          "venue": "University of Minnesota technical report TR 12-006",
+          "date": "2012-02-24",
+          "url": "https://conservancy.umn.edu/server/api/core/bitstreams/e1afd743-659c-4cb3-aabf-928d2d977c61/content",
+          "note": "Actual retrieved source; prior author conference PDF link was 404, initial repository download returned HTML, public server API provided PDF."
+        }
+      ],
+      "implementation": "The technical report was recovered after E3 R3 was frozen. It supports retrospective comparison of bounded-set geometry, not a claim that it caused the R3 derivation. Static triangular global placement was not implemented because travel/range/complete-search constraints differ.",
+      "tier": "core",
       "awards": "not investigated; no award claim",
       "code_url": null,
-      "data_url": null
+      "data_url": null,
+      "classification_confidence": "high",
+      "benchmark_comparability": "Not comparable to CUMCM virtual seconds per cleared source; no cross-paper performance ranking.",
+      "task_results": "See optimization_path.json; source theorem or paper experiment is not evidence of this solver performance.",
+      "method": "set geometry / bounded-error sensor selection",
+      "primary_source_verified": true,
+      "result_evidence_scope": "Theoretical statements or experiments only within reading_scope; no unverified effect-size claim.",
+      "datasets_and_evaluation": "Geometric worst-case theorem analysis; no empirical CUMCM-like benchmark claimed."
     },
     {
       "id": "ISER2013",
@@ -107,7 +140,7 @@
       "identity_verification": "verified",
       "reading_scope": "PDF pp.1–15 read: problem, failed initialization alternatives, four-ray/single/multi-target search, cost analysis, simulations, field deployment, limitations, references.",
       "main_classification": "discovery and initialization / shared local-search cost",
-      "problem": "Active localization/search from uncertain sensor observations",
+      "problem": "Reuse already visited target neighborhoods to initialize other undetected channels; all extra measurements charged.",
       "transfer_to_task": "Reuse already visited target neighborhoods to initialize other undetected channels; all extra measurements charged.",
       "limitations": "Four-ray circle fitting needs isotropic receive circles/aggregation and cheap detection; Q4 is directional and measures cost 5–6 seconds.",
       "versions": [
@@ -121,7 +154,14 @@
       "tier": "core",
       "awards": "not investigated; no award claim",
       "code_url": null,
-      "data_url": null
+      "data_url": null,
+      "classification_confidence": "high",
+      "benchmark_comparability": "Not comparable to CUMCM virtual seconds per cleared source; no cross-paper performance ranking.",
+      "task_results": "See optimization_path.json; source theorem or paper experiment is not evidence of this solver performance.",
+      "method": "discovery and initialization / shared local-search cost",
+      "primary_source_verified": true,
+      "result_evidence_scope": "Theoretical statements or experiments only within reading_scope; no unverified effect-size claim.",
+      "datasets_and_evaluation": "Paper-native field telemetry/simulation; task uses frozen local CUMCM v1 and previous-final cases."
     },
     {
       "id": "JFR2014",
@@ -138,7 +178,7 @@
       "identity_verification": "verified",
       "reading_scope": "PDF pp.1–3 and 6–8 read: identity/version, assumptions, closest-approach ellipse, Algorithm 1, initialization and guarantee statement; full appendices not read.",
       "main_classification": "local geometry / cautious approach",
-      "problem": "Active localization/search from uncertain sensor observations",
+      "problem": "Uncertainty-adaptive approach distance; decouple initialization, active sensing and complete coverage.",
       "transfer_to_task": "Uncertainty-adaptive approach distance; decouple initialization, active sensing and complete coverage.",
       "limitations": "Expected constant-factor claims depend on paper assumptions, not inherited by ±1-degree hulls or deterministic local noise fields.",
       "versions": [
@@ -153,7 +193,14 @@
       "tier": "core",
       "awards": "not investigated; no award claim",
       "code_url": null,
-      "data_url": null
+      "data_url": null,
+      "classification_confidence": "high",
+      "benchmark_comparability": "Not comparable to CUMCM virtual seconds per cleared source; no cross-paper performance ranking.",
+      "task_results": "See optimization_path.json; source theorem or paper experiment is not evidence of this solver performance.",
+      "method": "local geometry / cautious approach",
+      "primary_source_verified": true,
+      "result_evidence_scope": "Theoretical statements or experiments only within reading_scope; no unverified effect-size claim.",
+      "datasets_and_evaluation": "Paper-native field telemetry/simulation; task uses frozen local CUMCM v1 and previous-final cases."
     },
     {
       "id": "TRO2015",
@@ -170,7 +217,7 @@
       "identity_verification": "verified",
       "reading_scope": "PDF pp.1–2 and 8–9 read: cost/CRLB model and MULTI-STEP online conversion. Offline algorithms and full proof not independently rederived.",
       "main_classification": "online planning / conservative-region multi-step conversion",
-      "problem": "Active localization/search from uncertain sensor observations",
+      "problem": "Plan from a conservative region and revisit belief after observations; closest feasible location prevents committing to an unreliable distant centroid.",
       "transfer_to_task": "Plan from a conservative region and revisit belief after observations; closest feasible location prevents committing to an unreliable distant centroid.",
       "limitations": "Communication/rendezvous and parallel robots do not exist here; CRLB, independent Gaussian updates and log-factor result are not task guarantees.",
       "versions": [
@@ -183,7 +230,14 @@
       "tier": "core",
       "awards": "not investigated; no award claim",
       "code_url": null,
-      "data_url": null
+      "data_url": null,
+      "classification_confidence": "high",
+      "benchmark_comparability": "Not comparable to CUMCM virtual seconds per cleared source; no cross-paper performance ranking.",
+      "task_results": "See optimization_path.json; source theorem or paper experiment is not evidence of this solver performance.",
+      "method": "online planning / conservative-region multi-step conversion",
+      "primary_source_verified": true,
+      "result_evidence_scope": "Theoretical statements or experiments only within reading_scope; no unverified effect-size claim.",
+      "datasets_and_evaluation": "Paper-native field telemetry/simulation; task uses frozen local CUMCM v1 and previous-final cases."
     },
     {
       "id": "ISRR2015_family",
@@ -194,13 +248,13 @@
         "Vijay Kumar"
       ],
       "year": 2015,
-      "venue": "ISRR 2015; book chapter 2017; extended IJRR 2017/2018",
+      "venue": "ISRR 2015; book chapter online 2017, author listing 2018; extended IJRR 2017",
       "primary_url": "https://raaslab.org/pubs/dames2017detecting.pdf",
       "source_level": "primary author-hosted text and/or publisher metadata",
       "identity_verification": "verified",
-      "reading_scope": "Author 2015 conference listing verified. Downloaded file is IJRR 2017 manuscript, pp.1–2 read; full conference version link 404. Also downloaded 2018 journal version, not counted as a new method.",
+      "reading_scope": "ISRR 2015 identity from author list. IJRR2017 manuscript PDF pp.1–2 and 6–8 read: RFS problem, receding-horizon trajectory assignment, MI/END objectives and submodularity proof. Author file dames2018detecting.pdf is the 16-page book-chapter manuscript; its pp.1–2 read. Versions grouped, not counted as independent methods.",
       "main_classification": "discovery and tracking / random-finite-set intensity",
-      "problem": "Active localization/search from uncertain sensor observations",
+      "problem": "Separate expected detection count from conditional localization accuracy; explore undetected mass without declaring source absence.",
       "transfer_to_task": "Separate expected detection count from conditional localization accuracy; explore undetected mass without declaring source absence.",
       "limitations": "Unknown data association, target births/deaths, mobile targets and false positives are absent in task; a low posterior existence weight cannot certify channel absence.",
       "versions": [
@@ -216,14 +270,21 @@
         {
           "doi": "10.1177/0278364917709507",
           "online_date": "2017-06-05",
-          "note": "Journal extension; 2018 issue version exists."
+          "note": "Journal extension. The separately cached author file with 2018 name is a book chapter, not a journal issue version."
         }
       ],
       "implementation": "Unknown-channel R1 probes expected discovery benefit directly; no PHD filter implemented.",
       "tier": "core",
       "awards": "not investigated; no award claim",
       "code_url": null,
-      "data_url": null
+      "data_url": null,
+      "classification_confidence": "high",
+      "benchmark_comparability": "Not comparable to CUMCM virtual seconds per cleared source; no cross-paper performance ranking.",
+      "task_results": "See optimization_path.json; source theorem or paper experiment is not evidence of this solver performance.",
+      "method": "discovery and tracking / random-finite-set intensity",
+      "primary_source_verified": true,
+      "result_evidence_scope": "Theoretical statements or experiments only within reading_scope; no unverified effect-size claim.",
+      "datasets_and_evaluation": "Taxi-motion dataset-derived GP/birth/death model and simulated fixed-wing camera teams; compare MI, expected detections and coverage controller."
     },
     {
       "id": "ATL2020",
@@ -239,7 +300,7 @@
       "identity_verification": "verified",
       "reading_scope": "PDF pp.1–16 read: assumptions, histogram, TD3, image and multimodal states/rewards, offline-Fisher comparison, static/dynamic/generalization experiments and references.",
       "main_classification": "online planning / learned multi-target belief policy",
-      "problem": "Active localization/search from uncertain sensor observations",
+      "problem": "Joint belief representation can value a route beyond immediate single-target shrinkage.",
       "transfer_to_task": "Joint belief representation can value a route beyond immediate single-target shrinkage.",
       "limitations": "All targets initially observable; per-step observations from all targets; Gaussian noise; finite horizon and estimation error rather than paid-channel complete clearing. Multimodal reward uses true positions in training; only image reward avoids them.",
       "versions": [
@@ -253,7 +314,14 @@
       "tier": "core",
       "awards": "not investigated; no award claim",
       "code_url": null,
-      "data_url": null
+      "data_url": null,
+      "classification_confidence": "high",
+      "benchmark_comparability": "Not comparable to CUMCM virtual seconds per cleared source; no cross-paper performance ranking.",
+      "task_results": "See optimization_path.json; source theorem or paper experiment is not evidence of this solver performance.",
+      "method": "online planning / learned multi-target belief policy",
+      "primary_source_verified": true,
+      "result_evidence_scope": "Theoretical statements or experiments only within reading_scope; no unverified effect-size claim.",
+      "datasets_and_evaluation": "Static 2/4/8 targets, mean and SD over100 simulated episodes in20x20 domain; dynamic Brownian examples and 2-target-trained to6/12-target tests. Offline-Fisher knows true positions."
     },
     {
       "id": "CDC2016",
@@ -267,9 +335,9 @@
       "primary_url": "https://raaslab.org/pubs/zhang2016nonmyopic.pdf",
       "source_level": "primary author-hosted text and/or publisher metadata",
       "identity_verification": "verified",
-      "reading_scope": "PDF pp.1–3 read: nonlinear observation dependence, finite outcome/action minimax tree, alpha pruning, algebraic redundancy statement.",
+      "reading_scope": "PDF pp.1–6 read: finite measurement/action tree, alpha and algebraic pruning conditions, relaxed error bounds, simulation setup/results and discretization limitation; separate supplementary proofs not read.",
       "main_classification": "online planning / robust outcome tree and pruning",
-      "problem": "Active localization/search from uncertain sensor observations",
+      "problem": "Use observed-outcome branches rather than a single imagined bearing; bound computation with fixed small branch set.",
       "transfer_to_task": "Use observed-outcome branches rather than a single imagined bearing; bound computation with fixed small branch set.",
       "limitations": "Gaussian EKF and covariance monotonicity/pruning assumptions differ from bounded polygon loss of signal; cannot reuse pruning guarantees without proof.",
       "versions": [
@@ -278,11 +346,18 @@
           "year": 2016
         }
       ],
-      "implementation": "Candidate finite robust lookahead still under study; not claimed implemented.",
+      "implementation": "E3 R4 actual finite conditionally sampled one/two-observation tree: paid actions and no-signal branches, mean or max of three error hypotheses; no EKF pruning guarantee claimed. Second-cohort development and all three conservative guards were negative; no full regression was run.",
       "tier": "extension",
       "awards": "not investigated; no award claim",
       "code_url": null,
-      "data_url": null
+      "data_url": null,
+      "classification_confidence": "high",
+      "benchmark_comparability": "Not comparable to CUMCM virtual seconds per cleared source; no cross-paper performance ranking.",
+      "task_results": "See optimization_path.json; source theorem or paper experiment is not evidence of this solver performance.",
+      "method": "online planning / robust outcome tree and pruning",
+      "primary_source_verified": true,
+      "result_evidence_scope": "Theoretical statements or experiments only within reading_scope; no unverified effect-size claim.",
+      "datasets_and_evaluation": "Simulated four motion controls, five discretized future observations; node counts and covariance comparison. The paper itself notes remaining exponential growth and unbounded discretization suboptimality."
     },
     {
       "id": "ICRA2017_FOV",
@@ -298,7 +373,7 @@
       "identity_verification": "verified",
       "reading_scope": "PDF pp.1–2 read: assumptions, search/tracking split and GM-PHD equations.",
       "main_classification": "discovery and tracking / limited-FoV birth and track management",
-      "problem": "Active localization/search from uncertain sensor observations",
+      "problem": "Maintain discovered and not-yet-observed hypotheses separately; missed observations are not nonexistence.",
       "transfer_to_task": "Maintain discovered and not-yet-observed hypotheses separately; missed observations are not nonexistence.",
       "limitations": "Requires mobile anonymous targets, Gaussian position observations, false-positive process and survival/birth models. Static known-channel task has no birth/death or data association.",
       "versions": [
@@ -311,7 +386,14 @@
       "tier": "extension",
       "awards": "not investigated; no award claim",
       "code_url": null,
-      "data_url": null
+      "data_url": null,
+      "classification_confidence": "high",
+      "benchmark_comparability": "Not comparable to CUMCM virtual seconds per cleared source; no cross-paper performance ranking.",
+      "task_results": "See optimization_path.json; source theorem or paper experiment is not evidence of this solver performance.",
+      "method": "discovery and tracking / limited-FoV birth and track management",
+      "primary_source_verified": true,
+      "result_evidence_scope": "Theoretical statements or experiments only within reading_scope; no unverified effect-size claim.",
+      "datasets_and_evaluation": "Paper-native field telemetry/simulation; task uses frozen local CUMCM v1 and previous-final cases."
     }
   ]
 }

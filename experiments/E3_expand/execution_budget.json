@@ -1,17 +1,126 @@
 {
-  "development_environment_runs": 1248,
-  "development_distinct_cases": 288,
-  "development_distinct_seeds": 24,
+  "state": "final; no environment execution during finalization",
+  "actual_environment_runs": 11952,
+  "development_environment_runs": 2112,
+  "development_distinct_cases": 432,
+  "development_distinct_seeds": 36,
+  "development_seed_interval": [
+    46000000,
+    46000035
+  ],
+  "actual_S1_development_runs": 432,
+  "actual_candidate_runs": 11520,
+  "development_candidate_runs": 1680,
   "quick_candidate_runs": 240,
   "full_candidate_runs": 9600,
   "full_distinct_cases": 4800,
-  "actual_environment_runs": 11088,
-  "actual_S1_development_runs": 288,
+  "quick_is_full_subset": true,
   "cache_comparison_rows": 9600,
+  "cached_quick_baseline_rows": 240,
+  "reused_development_reference_cases": 192,
+  "reused_development_paired_comparisons": 384,
   "cache_rows_are_not_new_executions": true,
   "geometry_fixture_checks": 8000,
   "geometry_fixtures_are_not_strategy_episodes": true,
-  "development_wall_s": 20.17673412396107,
+  "development_wall_s": 47.48169087385759,
+  "quick_wall_s": 2.7754102089675143,
   "full_wall_s": 111.12876233295538,
-  "state": "ongoing; add subsequent attempts"
+  "all_recorded_environment_runs_complete": true,
+  "completed_source_events": 154506,
+  "source_events_are_repeated_executions_not_unique_sources": true,
+  "development_batches": [
+    {
+      "batch": "r1_development",
+      "actual_runs": 480,
+      "unique_cases": 96,
+      "seeds": [
+        46000000,
+        46000001,
+        46000002,
+        46000003,
+        46000004,
+        46000005,
+        46000006,
+        46000007
+      ],
+      "wall_s": 6.958773082937114
+    },
+    {
+      "batch": "r2_development",
+      "actual_runs": 480,
+      "unique_cases": 96,
+      "seeds": [
+        46000008,
+        46000009,
+        46000010,
+        46000011,
+        46000012,
+        46000013,
+        46000014,
+        46000015
+      ],
+      "wall_s": 7.294728083070368
+    },
+    {
+      "batch": "r3_development",
+      "actual_runs": 192,
+      "unique_cases": 96,
+      "seeds": [
+        46000016,
+        46000017,
+        46000018,
+        46000019,
+        46000020,
+        46000021,
+        46000022,
+        46000023
+      ],
+      "wall_s": 3.734237500000745
+    },
+    {
+      "batch": "r3_extended_development",
+      "actual_runs": 96,
+      "unique_cases": 96,
+      "new_unique_cases": 0,
+      "reused_baseline_rows": 96,
+      "wall_s": 2.188995457952842
+    },
+    {
+      "batch": "r4_development",
+      "actual_runs": 192,
+      "unique_cases": 48,
+      "seeds": [
+        46000024,
+        46000025,
+        46000026,
+        46000027
+      ],
+      "wall_s": 6.726019708905369
+    },
+    {
+      "batch": "r4_confirmation",
+      "actual_runs": 384,
+      "unique_cases": 96,
+      "seeds": [
+        46000028,
+        46000029,
+        46000030,
+        46000031,
+        46000032,
+        46000033,
+        46000034,
+        46000035
+      ],
+      "wall_s": 12.334921499947086
+    },
+    {
+      "batch": "r4_guarded_development",
+      "actual_runs": 288,
+      "unique_cases": 96,
+      "new_unique_cases": 0,
+      "reused_baseline_rows": 96,
+      "wall_s": 8.244015541044064
+    }
+  ],
+  "recorded_execution_wall_s": 161.38586341578048
 }

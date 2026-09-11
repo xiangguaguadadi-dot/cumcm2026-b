@@ -1,0 +1,62 @@
+{
+  "objective": "paid complete clearing; mean episode virtual seconds per cleared source",
+  "implemented_rounds": [
+    "E3_R1",
+    "E3_R2",
+    "E3_R3",
+    "E3_R4"
+  ],
+  "branches": [
+    {
+      "name": "reliable feasible set",
+      "sources": [
+        "ICRA2013",
+        "TRO2015"
+      ],
+      "rounds": [
+        "E3_R3"
+      ],
+      "caveat": "R3 independently derived before ICRA2013 report recovery"
+    },
+    {
+      "name": "conditional information action",
+      "sources": [
+        "IROS2011",
+        "CDC2016"
+      ],
+      "rounds": [
+        "E3_R4"
+      ]
+    },
+    {
+      "name": "discovery and cross-target coordination",
+      "sources": [
+        "ISER2013",
+        "ATL2020",
+        "ISRR2015_family"
+      ],
+      "rounds": [
+        "E3_R1",
+        "E3_R2"
+      ],
+      "caveat": "R2 existing mechanism recheck"
+    },
+    {
+      "name": "not transferred",
+      "sources": [
+        "ICRA2012",
+        "JFR2014",
+        "TRO2015",
+        "ICRA2013",
+        "ISRR2015_family",
+        "ICRA2017_FOV"
+      ],
+      "reasons": [
+        "probabilistic EKF differs",
+        "no parallel robots or communication constraint",
+        "static grid lacks receive range/travel/unknown-source guarantee",
+        "static identified channels have no birth/death/data association"
+      ]
+    }
+  ]
+}

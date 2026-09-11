@@ -166,7 +166,7 @@
   {
     "id": "E3_R3",
     "mechanism": "convex-footprint no-signal exclusion",
-    "status": "retained_component_S1; current-common-best integration not run here",
+    "status": "final_E3_component_against_S1; integration_owned_by_coordinator",
     "parent": "S1",
     "development": "results/r3_development",
     "extra_development": "results/r3_extended_development",
@@ -316,5 +316,20 @@
       }
     ],
     "wall_s": 56.38809699995909
+  },
+  {
+    "id": "E3_R4",
+    "mechanism": "conditioned finite hypothetical observation tree",
+    "status": "rejected_development_after_reversal_and_all_guards_negative",
+    "parent": "S1",
+    "development": "results/r4_development",
+    "confirmation": "results/r4_confirmation",
+    "guarded_development": "results/r4_guarded_development",
+    "snapshot": "snapshots/r4_development.py",
+    "guarded_snapshot": "snapshots/r4_guarded.py",
+    "source": "IROS2011; CDC2016; finite task adaptation, not EKF/pruning reproduction",
+    "sha256": "2d6b95d0d2b6e9b21d0ed09798d2473f02df7efb67f5dda57bda6d9dc1d4f4a7",
+    "guarded_sha256": "5d86c87d5a13c10fd6f34121c697d536878daf0ed2350bc81643785737f0dede",
+    "full": null
   }
 ]
