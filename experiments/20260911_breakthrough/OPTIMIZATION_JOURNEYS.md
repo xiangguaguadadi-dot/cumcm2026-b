@@ -10,14 +10,16 @@
 
 ## 按研究者追踪
 
-各链接指向持续更新的本机研究记录；第四位正在等待并发槽，路径将在实际启动后建立。最终报告会补精确提交版本的仓库链接。
+四位均已实际启动。各链接指向持续更新的本机研究记录；B1完成首轮后暂时让出并发位置给B4，稍后接续，未达到停止条件。最终报告会补精确提交版本的仓库链接。
 
-|研究者|阶段性自主判断（未验证）|优化路径|初始计划|
+|研究者|自主方向与当前证据|优化路径|初始计划|
 |---|---|---|---|
-|B1|将机会补测与路径/可见性决策组合，检验额外信息是否抵得过检测成本|[时间线与分支图](</Users/t/Documents/Codex/2026-09-10/new-chat/work/breakthrough/B1/experiments/B1/optimization_path.md>)|[计划](</Users/t/Documents/Codex/2026-09-10/new-chat/work/breakthrough/B1/experiments/B1/plan.md>)|
-|B2|用有几何证书的自适应凸分区覆盖，减少狭长候选区域中的冗余光学停点|[时间线与分支图](</Users/t/Documents/Codex/2026-09-10/new-chat/work/breakthrough/B2/experiments/B2/optimization_path.md>)|[计划](</Users/t/Documents/Codex/2026-09-10/new-chat/work/breakthrough/B2/experiments/B2/plan.md>)|
-|B3|研究更紧凑的第四问搜索点和连续覆盖结构|启动后的记录待更新|启动后的计划待更新|
-|B4|尚未启动，不预设方向|等待并发槽|等待并发槽|
+|B1|机会补测与路径/可见性融合；R1的4800局全清，相对C0两题均值改善12.0376%/1.9472%；已保存，阶段暂停|[时间线与分支图](</Users/t/Documents/Codex/2026-09-10/new-chat/work/breakthrough/B1/experiments/B1/optimization_path.md>)|[计划](</Users/t/Documents/Codex/2026-09-10/new-chat/work/breakthrough/B1/experiments/B1/plan.md>)|
+|B2|自适应凸分区光学覆盖；R1的4800局全清，Q3相同、Q4改善约0.08769%；R2研究失败clear后的非凸区域|[时间线与分支图](</Users/t/Documents/Codex/2026-09-10/new-chat/work/breakthrough/B2/experiments/B2/optimization_path.md>)|[计划](</Users/t/Documents/Codex/2026-09-10/new-chat/work/breakthrough/B2/experiments/B2/plan.md>)|
+|B3|21个第四问搜索点；连续覆盖证书通过独立整数复核，任务耗时待完整实测|[时间线与分支图](</Users/t/Documents/Codex/2026-09-10/new-chat/work/breakthrough/B3/experiments/B3/optimization_path.md>)|[计划](</Users/t/Documents/Codex/2026-09-10/new-chat/work/breakthrough/B3/experiments/B3/plan.md>)|
+|B4|已启动，自主阅读研究，不预设方向|记录建立中|计划建立中|
+
+上述百分比都是已暴露研发集上的阶段结果，不能当作第二阶段的新样本验证。B1虽然48个分批场景均值均改善，Q3/Q4仍分别414/873局更慢，完整负结果保留在其优化路径与结果文件中。
 
 ## 每个节点记录什么
 
