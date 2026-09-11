@@ -126,4 +126,6 @@ lines+=['','R2/R3实际执行合计63564，其中9轮完整已暴露回归43200�
 (OUT/'STAGE3_PROGRESS.md').write_text('\n'.join(lines)+'\n')
 for name,text in [('README.md','\n新增[紧凑索引](exploration_index.json)与[nodes逐节点文件](nodes/)、[第三阶段冻结增量](STAGE3_PROGRESS.md)、[新文献支援](RESEARCH_BRIEF.md)。下次Agent先读紧凑索引再按需载入节点。\n'),('AI_README.md','\n优先读取exploration_index.json，每节点details指向nodes/<id>.json；无需先载入完整所有场景矩阵。design_parent表示设计来源，retained_best_after_round表示当时实际保留最佳，两者不能混淆。refresh_atlas.py依登记表重建历史并合入已冻结第三阶段节点；validate_graph.py验证结果。新论文与先前独立想法的关系存research/adoption_timeline.json，不能反向归因。\n'),('DIRECTION_MAP.md','\n第三阶段已冻结新节点见[STAGE3_PROGRESS.md](STAGE3_PROGRESS.md)；AI先读[紧凑索引](exploration_index.json)，再打开对应nodes/<id>.json。\n')]:
  with (OUT/name).open('a') as f:f.write(text)
+from update_overview import update_overview
+update_overview(OUT,g)
 print(json.dumps({'history_rounds':48,'stage3_rounds':len(reg['rounds']),'total_nodes':len(g['nodes']),'index_nodes':len(index),'sources':len(sources)}))
