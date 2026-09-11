@@ -83,6 +83,9 @@ def main():
         return
     candidate=Path(a.candidate).resolve()
     csha=sha(candidate)
+    script_hash=sha(__file__)
+    shared_hashes={str(HERE/'baseline'/f):h for f,h in provenance['files'].items()}
+    shared_hashes[str(HERE/'baseline/expected_rows.json')]=provenance['expected_rows_sha256']
     before={str(f):sha(f) for f in list(ROOT.glob('*.py'))+list(ROOT.glob('*.json')) if f.is_file()}
     deps=read(a.dependency_manifest) if a.dependency_manifest else {}
     deps={str((ROOT/f).resolve()):h for f,h in deps.items()}
@@ -113,14 +116,19 @@ def main():
     rows=[]
     for c in cases:
         r=byid[c['case_id']]
-        assert (r['mode'],r['group'],r['source_count'])==(c['mode'],c['group'],len(c['sources']))
-        rows.append(dict(r,exposure_suite=c['exposure_suite'],seed_cluster=c['seed']))
+        # Frozen timeout/crash rows omit group/exit_reason: preserve failure,
+        # and restore only known evaluation metadata from the input case.
+        assert (r['mode'],r.get('group',c['group']),r['source_count'])==(c['mode'],c['group'],len(c['sources']))
+        rows.append(dict(r,group=c['group'],exposure_suite=c['exposure_suite'],seed_cluster=c['seed']))
     evaluate.verify()
     assert sha(candidate)==csha and sha(exposed)==read(HERE/'exposure_manifest.json')['cases_sha256']
     assert before=={str(f):sha(f) for f in list(ROOT.glob('*.py'))+list(ROOT.glob('*.json')) if f.is_file()}
     assert optional==(sha(coverage) if coverage.is_file() else None)
     for f,h in deps.items():
         assert sha(f)==h
+    for f,h in shared_hashes.items():
+        assert sha(f)==h, 'C0 dependency/cache changed during evaluation'
+    assert sha(__file__)==script_hash
     if reuse:
         assert sha(Path(reuse['path'])/'case_metrics.json')==reuse['rows_sha256']
         assert sha(Path(reuse['path'])/'summary.json')==reuse['summary_sha256']
