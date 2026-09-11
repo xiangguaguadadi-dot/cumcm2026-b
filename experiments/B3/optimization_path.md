@@ -27,3 +27,20 @@ graph LR
 ```
 
 2026-09-11：R1完整4800局通过并成为当前最佳，代码提交 `4aab7c27c791877ac220e3fe78ba7028764d935e`。Q4两批分别减少12.955493/12.294656秒/源，Q3逐局一致。边缘场景退步保留。下一步R2尚未启动。
+
+2026-09-11：用户要求先查看已有成果，B3在R2开始前暂停。R1为本阶段唯一冻结候选和当前最佳；R2/R3未启动，本次整理没有新增实验或新最终样本。暂停来自用户阶段选择，未达到连续不改善的经验停止条件。
+
+```mermaid
+graph LR
+ C0[C0 初始强对照] --> R1[R1 21点认证覆盖 当前最佳]
+ G20[20点构型 9个反例失败] -.几何研究.-> G21[21点连续凸包证书]
+ G21 --> R1
+ R1 --> DONE[R1 4800局完整暴露验证]
+ DONE --> PAUSE[用户要求阶段报告 暂停]
+ click C0 "../20260911_breakthrough/baseline/C0.py"
+ click G20 "research/geometry_probe.json"
+ click G21 "research/certificate_21_999_1864.json"
+ click R1 "snapshots/r1_solver.py"
+ click DONE "research/r1_results.md"
+ click PAUSE "report.md"
+```

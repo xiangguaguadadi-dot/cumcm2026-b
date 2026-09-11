@@ -1,6 +1,6 @@
 {
   "agent": "B3",
-  "status": "R1_completed_continue_R2_R3",
+  "status": "stage_delivery_R1_user_paused_before_R2",
   "best_round": 1,
   "candidate_path": "experiments/B3/snapshots/r1_solver.py",
   "candidate_sha256": "02e845c7638236bd2834c9d2bf5a38a2aedb24515dc4e4e5d361bbc471b4db96",
@@ -313,5 +313,14 @@
   ],
   "selection_reason": "4800全清正常退出，Q3逐局等于C0；Q4两个暴露批次分别改善；保持所有场景及单局退步",
   "empirical_stop": false,
-  "consecutive_rounds_without_new_best": 0
+  "consecutive_rounds_without_new_best": 0,
+  "pause_reason": "用户要求先查看已有成果和报告；R2尚未启动，未达到经验停止条件",
+  "new_final_validation_generated": false,
+  "completed_rounds": [
+    1
+  ],
+  "unstarted_rounds": [
+    2,
+    3
+  ]
 }

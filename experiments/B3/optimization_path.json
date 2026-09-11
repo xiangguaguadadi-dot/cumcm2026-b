@@ -32,6 +32,22 @@
         "exact_integer_leaf_checks": 11200
       },
       "next": "R1 full task testing"
+    },
+    {
+      "id": "USER_STAGE_PAUSE",
+      "time": "2026-09-11T02:16:42.068286+00:00",
+      "phase": "stage_delivery",
+      "reason": "用户要求先查看已有成果和报告，取消B4；B3不开始R2",
+      "completed_rounds": [
+        "R1"
+      ],
+      "unstarted_rounds": [
+        "R2",
+        "R3"
+      ],
+      "additional_complete_task_runs": 0,
+      "new_final_validation_generated": false,
+      "next": "仅在用户继续研究时恢复保留想法；未达到经验停止条件"
     }
   ],
   "rounds": [
@@ -371,5 +387,7 @@
       },
       "code_commit": "4aab7c27c791877ac220e3fe78ba7028764d935e"
     }
-  ]
+  ],
+  "stage_status": "user_paused_after_R1",
+  "empirical_stop": false
 }
