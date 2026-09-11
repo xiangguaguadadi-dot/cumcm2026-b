@@ -226,6 +226,304 @@
       "next": "DIRECt启发的连续决策价值：固定同一多位置假说，独立对照多位置费用和区域边权进展门控。",
       "results": "results/r4_exposed/summary.json",
       "boundary": "Q4 keeps S0, stronger independent R3_open Q4 component awaits actual joint integration."
+    },
+    {
+      "id": "R2_open_R5",
+      "parents": [
+        "R2_open_R4",
+        "A2_information_R8"
+      ],
+      "inspired_by": [
+        "Chen et al. 2015 Submodular Surrogates for Value of Information"
+      ],
+      "status": "rejected_development",
+      "before": {
+        "utc": "2026-09-11T03:34:20.220551+00:00",
+        "problem": "R3 one-center cost gate cannot represent ambiguity between different service locations; hard one-step certification has already failed.",
+        "plan": "Compare original single-center cost; fixed 9-point A2 planning quadrature averaged cost; same quadrature with colored decision-region EC2 remaining edge mass and Noisy-OR progress. Same arrival points/real geometry/budget.",
+        "selection": "All complete and Q4 exact; lowest Q3 on fresh42000052-67x12x2. Include unchanged parent. No tuning on exposed rows.",
+        "seed_range": [
+          42000052,
+          42000067
+        ],
+        "graph": "Actions at each hypothesis plus pair midpoints where pair distance<=40. Unique optical coverage masks cover H. Greedy color disjoint regions. Each color induces selected decision classes + remaining membership-pattern classes. EC2 ratio=(k^2-sum(class_survivor_count^2))/(n^2-sum(class_count^2)), with original unnormalized weights. F=1-product ratios.",
+        "model_boundary": "Finite hypotheses are state-local planning proposals, not true known prior; bounded-error geometric consistency sets for hypothetical outcomes can overlap. Thus expected F is a heuristic surrogate, not exact deterministic DRD expected value. No approximation theorem transfers. Gate uses F*(8+(r-20)+/5+6*[r>100])-6 seconds proxy.",
+        "degenerate": "Fewer than2 valid positions fall back to parent; zero-edge graph/unmodeled empty outcome fall back to same multi-cost."
+      },
+      "in_development_correction": {
+        "utc": "2026-09-11T03:36:25.922098+00:00",
+        "old_snapshot": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/snapshots/r5_initial_graph.py",
+        "old_sha256": "f3ba2f5c628f72588cacec0fb2c68673ed54ad2a00e7a6d2388748f1dc0237e3",
+        "new_sha256": "616dd26e6599142a2d6a25e44172a32f717131532fce5178380bc42c9551270d",
+        "original_results": "results/r5_development",
+        "reason": "An ECD color with zero original edge mass means a finite decision already succeeds. Omitting that color could invent residual ambiguity. Return the explicit degenerate signal and fall back to multi-cost, without any continuous certificate change.",
+        "run_status": "Original384x3 all complete and retained; corrected full384x3 will rerun same development cases. They are not fresh or independent replication.",
+        "data_boundary": "This correction was prompted by source/logic review, not selection of exposed performance. No R5 exposed run exists."
+      },
+      "kind": "development_only",
+      "after_development": {
+        "id": "R2_open_R5",
+        "kind": "development_only",
+        "status": "rejected_development",
+        "selected": "R2_open_R4",
+        "builds": [
+          {
+            "name": "r5_development",
+            "variants": [
+              {
+                "name": "parent",
+                "q3": 231.26093039582094,
+                "q4": 526.8804490395278,
+                "mean_requests": 132.52083333333334,
+                "mean_distance_m": 10742.349076522052,
+                "mean_runtime_s": 0.008386771510534649,
+                "mean_sharing_spent_s": 100.49479166666667,
+                "clear_failures": 480,
+                "opportunity_measures": 3219,
+                "geometry_checks": 22236,
+                "rows_sha256": "0a557a627dc4c6c640240d3012d9cee8f94298e32f306d34053a973b3f195dad"
+              },
+              {
+                "name": "multi_cost",
+                "q3": 231.3662097476851,
+                "q4": 526.8804490395278,
+                "mean_requests": 133.17708333333334,
+                "mean_distance_m": 10729.429324326127,
+                "mean_runtime_s": 0.02506979967680915,
+                "mean_sharing_spent_s": 105.57291666666667,
+                "clear_failures": 461,
+                "opportunity_measures": 3383,
+                "geometry_checks": 22381,
+                "rows_sha256": "75c0a8c1f5736fe716b576097cbf335686831994159a86beee93e11552c70858"
+              },
+              {
+                "name": "direct",
+                "q3": 232.9694147540231,
+                "q4": 526.8804490395278,
+                "mean_requests": 136.76041666666666,
+                "mean_distance_m": 10726.88481359759,
+                "mean_runtime_s": 0.023940327919262927,
+                "mean_sharing_spent_s": 130.66666666666669,
+                "clear_failures": 413,
+                "opportunity_measures": 4200,
+                "geometry_checks": 23132,
+                "rows_sha256": "ae2115e2b042a7cd8b9ecc25c89bd866ae9a74e0a158b6c185973ab53af3eb4a"
+              }
+            ],
+            "budget": {
+              "seed_range": [
+                42000052,
+                42000067
+              ],
+              "variants_completed": 3,
+              "actual_runs": 1152,
+              "unique_cases": 384,
+              "wall_s": 15.753948916913942,
+              "execution": [
+                {
+                  "name": "parent",
+                  "runs": 384,
+                  "wall_s": 3.1499099580105394
+                },
+                {
+                  "name": "multi_cost",
+                  "runs": 384,
+                  "wall_s": 6.4094502499792725
+                },
+                {
+                  "name": "direct",
+                  "runs": 384,
+                  "wall_s": 6.17704258300364
+                }
+              ]
+            },
+            "cases_sha256": "27fdd4c8d353ced4c62e642c91b0e12ded79938a03dfe382aa0c3a7b306851d3"
+          },
+          {
+            "name": "r5_corrected_development",
+            "variants": [
+              {
+                "name": "parent",
+                "q3": 231.26093039582094,
+                "q4": 526.8804490395278,
+                "mean_requests": 132.52083333333334,
+                "mean_distance_m": 10742.349076522052,
+                "mean_runtime_s": 0.00930144243951266,
+                "mean_sharing_spent_s": 100.49479166666667,
+                "clear_failures": 480,
+                "opportunity_measures": 3219,
+                "geometry_checks": 22236,
+                "rows_sha256": "20e6da46794cd77f1df6683ffe76c9c0d9f128fa6f5e60d0e45ffc673ee6cdf2"
+              },
+              {
+                "name": "multi_cost",
+                "q3": 231.3662097476851,
+                "q4": 526.8804490395278,
+                "mean_requests": 133.17708333333334,
+                "mean_distance_m": 10729.429324326127,
+                "mean_runtime_s": 0.025639244120005362,
+                "mean_sharing_spent_s": 105.57291666666667,
+                "clear_failures": 461,
+                "opportunity_measures": 3383,
+                "geometry_checks": 22381,
+                "rows_sha256": "1ae97dabd8d51ad5fed732a0dc6378b93a250f66a6100056af1c727a4648b8eb"
+              },
+              {
+                "name": "direct",
+                "q3": 232.45171862441575,
+                "q4": 526.8804490395278,
+                "mean_requests": 135.94270833333334,
+                "mean_distance_m": 10716.561529154278,
+                "mean_runtime_s": 0.026348077025735012,
+                "mean_sharing_spent_s": 124.72395833333334,
+                "clear_failures": 426,
+                "opportunity_measures": 4009,
+                "geometry_checks": 22957,
+                "rows_sha256": "205cc95d891586f471ae898b52eb7072066051edf9e38a989ad92fa65b130f57"
+              }
+            ],
+            "budget": {
+              "seed_range": [
+                42000052,
+                42000067
+              ],
+              "variants_completed": 3,
+              "actual_runs": 1152,
+              "unique_cases": 384,
+              "wall_s": 17.060271834023297,
+              "execution": [
+                {
+                  "name": "parent",
+                  "runs": 384,
+                  "wall_s": 3.4585652090609074
+                },
+                {
+                  "name": "multi_cost",
+                  "runs": 384,
+                  "wall_s": 6.700192874995992
+                },
+                {
+                  "name": "direct",
+                  "runs": 384,
+                  "wall_s": 6.880355083034374
+                }
+              ]
+            },
+            "cases_sha256": "27fdd4c8d353ced4c62e642c91b0e12ded79938a03dfe382aa0c3a7b306851d3"
+          },
+          {
+            "name": "r5_final_development",
+            "variants": [
+              {
+                "name": "parent",
+                "q3": 231.26093039582094,
+                "q4": 526.8804490395278,
+                "mean_requests": 132.52083333333334,
+                "mean_distance_m": 10742.349076522052,
+                "mean_runtime_s": 0.008610257368976212,
+                "mean_sharing_spent_s": 100.49479166666667,
+                "clear_failures": 480,
+                "opportunity_measures": 3219,
+                "geometry_checks": 22236,
+                "rows_sha256": "183a74e021bef6e002085cd7c9b2a7e9f2686c1f4de2e17b50eb5f3806dbbd6f"
+              },
+              {
+                "name": "multi_cost",
+                "q3": 231.3662097476851,
+                "q4": 526.8804490395278,
+                "mean_requests": 133.17708333333334,
+                "mean_distance_m": 10729.429324326127,
+                "mean_runtime_s": 0.026144187273530406,
+                "mean_sharing_spent_s": 105.57291666666667,
+                "clear_failures": 461,
+                "opportunity_measures": 3383,
+                "geometry_checks": 22381,
+                "rows_sha256": "b3fed260578f165534db71133a0695086aa50a8946a15d28f5a33b353c137d99"
+              },
+              {
+                "name": "direct",
+                "q3": 232.4543227910824,
+                "q4": 526.8804490395278,
+                "mean_requests": 135.94791666666666,
+                "mean_distance_m": 10716.561529154278,
+                "mean_runtime_s": 0.024093922063912032,
+                "mean_sharing_spent_s": 124.75520833333334,
+                "clear_failures": 426,
+                "opportunity_measures": 4010,
+                "geometry_checks": 22958,
+                "rows_sha256": "39879ceff26a65b94ca7b0482e89e634bd30ae96c53cc056cb52e7657cece26b"
+              }
+            ],
+            "budget": {
+              "seed_range": [
+                42000052,
+                42000067
+              ],
+              "variants_completed": 3,
+              "actual_runs": 1152,
+              "unique_cases": 384,
+              "wall_s": 16.231034541968256,
+              "execution": [
+                {
+                  "name": "parent",
+                  "runs": 384,
+                  "wall_s": 3.2906587090110406
+                },
+                {
+                  "name": "multi_cost",
+                  "runs": 384,
+                  "wall_s": 6.704312958056107
+                },
+                {
+                  "name": "direct",
+                  "runs": 384,
+                  "wall_s": 6.227773916092701
+                }
+              ]
+            },
+            "cases_sha256": "27fdd4c8d353ced4c62e642c91b0e12ded79938a03dfe382aa0c3a7b306851d3"
+          }
+        ],
+        "total_policy_executions": 3456,
+        "unique_cases": 384,
+        "code_correction": {
+          "utc": "2026-09-11T03:36:25.922098+00:00",
+          "old_snapshot": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/snapshots/r5_initial_graph.py",
+          "old_sha256": "f3ba2f5c628f72588cacec0fb2c68673ed54ad2a00e7a6d2388748f1dc0237e3",
+          "new_sha256": "616dd26e6599142a2d6a25e44172a32f717131532fce5178380bc42c9551270d",
+          "original_results": "results/r5_development",
+          "reason": "An ECD color with zero original edge mass means a finite decision already succeeds. Omitting that color could invent residual ambiguity. Return the explicit degenerate signal and fall back to multi-cost, without any continuous certificate change.",
+          "run_status": "Original384x3 all complete and retained; corrected full384x3 will rerun same development cases. They are not fresh or independent replication.",
+          "data_boundary": "This correction was prompted by source/logic review, not selection of exposed performance. No R5 exposed run exists."
+        },
+        "cache_correction": {
+          "utc": "2026-09-11T03:43:52.250483+00:00",
+          "old_snapshot": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/snapshots/r5_graph_corrected.py",
+          "old_sha256": "616dd26e6599142a2d6a25e44172a32f717131532fce5178380bc42c9551270d",
+          "new_sha256": "d77c7ac77b698a0c268563493d284561cdc4a361011e26ef2ad62dcf5c1e3e59",
+          "original_results": "results/r5_corrected_development",
+          "reason": "Identical retained polygons can have different positive-observation histories. Those histories condition the hypothetical receive-radius interval, so they must be part of its cache key.",
+          "run_status": "Two completed384x3 builds retained; final corrected384x3 reruns the same development cases. No new statistical sample, no exposed evaluation.",
+          "not_a_new_method": "One-line state-cache correctness fix; same selection criterion and hypotheses."
+        },
+        "graph_invariant_checks": 111,
+        "candidate_for_exposed": null,
+        "reason": "Both multi-position cost and corrected graph-progress gate increase complete Q3 development mean; no structural breakthrough. Preserve R4 and stop per user near-convergence instruction.",
+        "boundary": "This rejects these concrete planning surrogates and finite hypotheses, not the DIRECt theorem or all future decision-aware planning."
+      },
+      "decision": "Retain R4 and freeze study after user permits near-convergence closure.",
+      "next": "Root-only fresh holdout; no parameter updates after seeing it.",
+      "cache_correction": {
+        "utc": "2026-09-11T03:43:52.250483+00:00",
+        "old_snapshot": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/snapshots/r5_graph_corrected.py",
+        "old_sha256": "616dd26e6599142a2d6a25e44172a32f717131532fce5178380bc42c9551270d",
+        "new_sha256": "d77c7ac77b698a0c268563493d284561cdc4a361011e26ef2ad62dcf5c1e3e59",
+        "original_results": "results/r5_corrected_development",
+        "reason": "Identical retained polygons can have different positive-observation histories. Those histories condition the hypothetical receive-radius interval, so they must be part of its cache key.",
+        "run_status": "Two completed384x3 builds retained; final corrected384x3 reruns the same development cases. No new statistical sample, no exposed evaluation.",
+        "not_a_new_method": "One-line state-cache correctness fix; same selection criterion and hypotheses."
+      }
     }
-  ]
+  ],
+  "status": "closed_for_final_validation"
 }

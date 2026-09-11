@@ -1,11 +1,11 @@
-# 迭代记录
+# 完整迭代索引
 
-R1已完成实验前记录，尚未执行。没有把读取旧结果计作新运行。
+R1–R4保留并各完成quick120、full2400、previous_final2400；R5开发否证后保留R4，没有重复旧冻结回归。
 
-R1已保留：6264次完整执行，4800暴露局全清，Q3降低0.796650%，Q4相同。所有48场景、841条退步及每批最差局见[完整回归](research/r1_results.md)、[原始4800行](results/r1_exposed/case_metrics.json)；源数每题30970。
+- R1：源码`snapshots/r1_solver.py`，完整`research/r1_results.md`，SHA`a820e8a8326fe39b9820e0cab4939524ca712e870ab13962567f6f71f5e9b11c`。
+- R2：源码`snapshots/r2_solver.py`，完整`research/r2_results.md`，SHA`7b2e493a66aa8ebc2608566e50e9488f07934d55cbfbd779269eb327b2b223da`。
+- R3：源码`snapshots/r3_solver.py`，完整`research/r3_results.md`，SHA`da7b0d172f748453cfbd2fed6ae75bdfdc4d576dd160407f0a79ba3c1e656dfd`。
+- R4：源码`snapshots/r4_solver.py`，完整`research/r4_results.md`，SHA`d0bda0a51470eda3bd5f713be1552a004c7a73b8debcb333c323afd06d4c68f3`。
+- R5：初稿/两项修正版各384×3开发，3456次全清执行；有限图退化修复记录完整，未冻结新候选。详research/r5_results.md。
 
-R2已保留：6072次执行，独立开发1152局+quick120+full2400+previous_final2400。主动测点开发退步1.253634秒/源，不入冻结。仅同址认证clear使4800暴露Q3从236.527045338到236.506128826；Q4逐行保持S0。全部场景/840条对S0单局退步见research/r2_results.md。没有新最终数据。
-
-R3完成：6456次实际策略执行，4800全清，Q3=236.052659068683/Q4=524.827143981088。保留DRD启发的补测动作费用代理；开发认证一步门控与关闭补测明显退步，均未采纳。费用代理不是保证或真实先验。 下一步：融合A2全部合法清除位置与B1后续路线，独立比较最近进入位置和进入加离开代理。 全场景与失败保留在research/r3_results.md；预算详execution_budget.json。
-
-R4完成：6072次实际策略执行，4800全清，Q3=235.876945811892/Q4=524.827143981088。保留全顶点合法清除区域内进入加后继路线搜索；A2只优化最近进入点的开发对照略退步。固定状态代理不劣，整体收益由全4800实跑确认。 下一步：DIRECt启发的连续决策价值：固定同一多位置假说，独立对照多位置费用和区域边权进展门控。 全场景与失败保留在research/r4_results.md；预算详execution_budget.json。
+最终best：R4；代码6913faf；冻结FINAL_CANDIDATE.json。累计28320策略执行，不是28320独立案例。

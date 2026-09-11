@@ -1,0 +1,35 @@
+{
+  "seed_range": [
+    42000052,
+    42000067
+  ],
+  "variants": [
+    {
+      "name": "parent",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/snapshots/r5_development.py",
+      "sha256": "616dd26e6599142a2d6a25e44172a32f717131532fce5178380bc42c9551270d",
+      "config": {
+        "belief_gate": "parent"
+      }
+    },
+    {
+      "name": "multi_cost",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/snapshots/r5_development.py",
+      "sha256": "616dd26e6599142a2d6a25e44172a32f717131532fce5178380bc42c9551270d",
+      "config": {
+        "belief_gate": "multi_cost"
+      }
+    },
+    {
+      "name": "direct",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/snapshots/r5_development.py",
+      "sha256": "616dd26e6599142a2d6a25e44172a32f717131532fce5178380bc42c9551270d",
+      "config": {
+        "belief_gate": "direct"
+      }
+    }
+  ],
+  "data_role": "development selection; not holdout",
+  "q4_legal_mixed": true,
+  "selection": "All-complete lowest Q3 mean among S0-derived variants; Q4 must match S0 when intended"
+}
