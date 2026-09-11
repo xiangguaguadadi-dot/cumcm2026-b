@@ -36,7 +36,7 @@
       "original_problem": "Given fixed directional camera sectors, certify every target facing orientation within effective angle theta<pi/2; random sensor density estimation additionally assumes boundary treatment and uniform deployment.",
       "mechanism": "Maximum gap of circularly ordered viewing vectors <=2theta; partition into constant covering-sensor subregions, then validate continuously along segmented boundaries; grid-to-continuum needs explicit radius/angular margins.",
       "task_transfer": "Treat each genuinely measured point for a channel as a receiver location. Certify the 1000m eligible receivers surround each possible source. At theta=pi/2 prove separately using closed halfplanes/convex hull; do not reuse singular safe-arc formulas. Use per-leaf witness masks to test station deletion.",
-      "implementation": "not yet implemented; dynamic-certificate diagnostic proposed after current route study",
+      "implementation": "Completed optimistic full-trajectory 12-case diagnostic. 252 individual station-case checks: 2 exact continuous certificates, 96 exact separation witnesses, 154 undecided. Not deployed; unknown-channel costs/timing remain.",
       "benchmark_results": "Not transferred; evaluation section not read this turn.",
       "limitations": "No theorem here says extra measurements shorten online robot paths. Unknown channels have not been measured at localization stops; they cannot obtain free coverage. Added sensing must be paid and compared. Theta endpoint, finite disk boundary, variable radius and mixed sources need task-specific proof.",
       "lookup_failures": [
