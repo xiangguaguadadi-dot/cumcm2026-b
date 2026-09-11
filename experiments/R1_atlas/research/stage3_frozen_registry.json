@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "note": "Only completed frozen candidates; literature received later is not retroactive inspiration.",
+  "rounds": [
+    {
+      "id": "R2_open_R1",
+      "agent": "R2_open",
+      "round": 1,
+      "commit": "c24ed9c",
+      "candidate": "snapshots/r1_solver.py",
+      "sha256": "a820e8a8326fe39b9820e0cab4939524ca712e870ab13962567f6f71f5e9b11c",
+      "results": "results/r1_exposed",
+      "parents": [
+        "S0",
+        "A2_information_R8"
+      ],
+      "title": "Q3协同与可靠集合几何融合",
+      "changes": "B1机会补测路径加入A2有预算切面、全向无信号与失败clear凸外包；Q4保留B3。",
+      "lesson": "开发组件对照支持组合；Q3两批原点簇仍退步，不能从集合收紧推单局改进。",
+      "selection": "accepted_exposed_best",
+      "retained_best": "R2_open_R1",
+      "next_hypothesis": "A2主动第二测点与同址认证服务的独立组件对照。",
+      "retained_best_before_round": "S0"
+    },
+    {
+      "id": "R2_open_R2",
+      "agent": "R2_open",
+      "round": 2,
+      "commit": "7000ef6",
+      "candidate": "snapshots/r2_solver.py",
+      "sha256": "7b2e493a66aa8ebc2608566e50e9488f07934d55cbfbd779269eb327b2b223da",
+      "results": "results/r2_exposed",
+      "parents": [
+        "R2_open_R1"
+      ],
+      "title": "Q3到达点同址认证清除",
+      "changes": "每次真实到达后，对全部顶点距当前位置不超过20米的其他已发现源执行认证clear；主动第二测点开发组件退步，未保留。",
+      "lesson": "同址认证消除少量末端移动，暴露回归比R1微快0.020917秒/源；主动测点降低距离却多付检测费。",
+      "selection": "accepted_exposed_best",
+      "retained_best": "R2_open_R2",
+      "next_hypothesis": "保留真实到达位置和假说预算，对比半径代理、一步clear门槛与动作费用代理。",
+      "retained_best_before_round": "R2_open_R1"
+    },
+    {
+      "id": "R3_open_R1",
+      "agent": "R3_open",
+      "round": 1,
+      "commit": "8e814c6",
+      "candidate": "snapshots/r1.py",
+      "sha256": "508ffddc556e4df6a192b30e700463956b54f8b6cc8b96778253d72c0ecea9e8",
+      "results": "results/r1_exposed",
+      "parents": [
+        "S0",
+        "B1_R1",
+        "B3_R1"
+      ],
+      "title": "Q4协同补测与21站融合",
+      "changes": "在B3认证21站上加入B1补测，开发选单中心可见性30米门槛。",
+      "lesson": "训练偏好60米而开发偏好30米，排序不稳定已披露；24分批场景改善仍有886单局慢。",
+      "selection": "accepted_exposed_best",
+      "retained_best": "R3_open_R1",
+      "next_hypothesis": "已发现16互异频道后停止额外发现但继续清除。",
+      "retained_best_before_round": "S0"
+    },
+    {
+      "id": "R3_open_R2",
+      "agent": "R3_open",
+      "round": 2,
+      "commit": "0db9b06",
+      "candidate": "snapshots/r2.py",
+      "sha256": "7d8e3b6be1140b0e42db20fc6c73b4830c98f33775250a35366c83b1410764d7",
+      "results": "results/r2_exposed",
+      "parents": [
+        "R3_open_R1"
+      ],
+      "inspired_by": [
+        "A1_space_R8"
+      ],
+      "title": "Q4发现16频道后停止发现扫描",
+      "changes": "向Q4调度定制加入16互异正观测频道计数；保留pending清除及最终16成功退出，不复制A1完整run。",
+      "lesson": "较R1节省12.177390秒/源，仍有7局更慢；发现上界证书不能取代clear成功证书。",
+      "selection": "accepted_exposed_best",
+      "retained_best": "R3_open_R2",
+      "next_hypothesis": "先诊断真实测点替代未来站的连续覆盖潜力。",
+      "retained_best_before_round": "R3_open_R1"
+    }
+  ]
+}
