@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "candidate_sha256": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf",
+  "existing_definitions_changed": [
+    "Solver"
+  ],
+  "definitions_added": [
+    "_LensDirectional",
+    "_lens_arc_intervals",
+    "_lens_route_point"
+  ],
+  "review": "Read full 150-line R4 to R5 difference and reliability increment. The real feasible convex polygon is covered by a 20m clear disk iff all vertices are covered. Disk-boundary and straight-segment search proposes only feasible points, includes original R4 fallback, caps vertex counts and uses bounded refinement. Final containment is checked. Q3 engine unchanged; no new inference-time data access or sensing/clear actions. Finite heuristic optimizes fixed-state path proxy, not guaranteed full online performance.",
+  "uniform_virtual_bound_seconds": 287931,
+  "limits": "All prior observation, fallback and full-coverage conditions remain. Local results do not establish official Windows behavior."
+}

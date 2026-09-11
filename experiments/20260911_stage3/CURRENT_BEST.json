@@ -1,7 +1,7 @@
 {
-  "version": "observed_after_R2_R4_and_R3_R4",
+  "version": "observed_after_R2_R4_and_R3_R5",
   "fixed_anchor": "S0",
-  "selection": "per-question best components from independently executed candidates; combined deployment not yet constructed",
+  "selection": "Per-question best components; actual 4800-case dispatch equivalence verified with 72000 task scalars",
   "modes": {
     "3": {
       "name": "R2_open R4",
@@ -13,16 +13,17 @@
       "audited_4800": true
     },
     "4": {
-      "name": "R3_open R4",
-      "candidate_absolute": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/snapshots/r4.py",
-      "candidate_sha256": "56c5df3394bdea0ce2691f269695f07e02034bc195acc215bdfe6d7fc14b9ceb",
-      "code_commit": "10bae05",
-      "results_absolute": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/results/r4_exposed",
-      "mean_s_per_source": 474.2079310968789,
+      "name": "R3_open R5",
+      "candidate_absolute": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/snapshots/r5.py",
+      "candidate_sha256": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf",
+      "code_commit": "cd78a80",
+      "results_absolute": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/results/r5_exposed",
+      "mean_s_per_source": 473.8974929996439,
       "audited_4800": true
     }
   },
   "baseline_rows": "baseline/equivalence/case_metrics.json",
-  "actual_dispatch_verified": false,
-  "notes": "S0 remains fixed anchor. Track own best and known per-question common best separately; new advances in another question do not erase an independently improving component. Further method fusion requires actual implementation and evaluation."
+  "actual_dispatch_verified": true,
+  "notes": "S0 remains fixed anchor. Track own best and known per-question common best separately; new advances in another question do not erase an independently improving component. Further method fusion requires actual implementation and evaluation.",
+  "dispatch": "final_candidates/combined.py"
 }
