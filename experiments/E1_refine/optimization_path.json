@@ -3,21 +3,320 @@
   "nodes": [
     {
       "id": "E1_R1",
-      "parent": "S1",
-      "mechanism": "conditional discovery route expected length",
-      "development": "development/r1_screen/summary.json",
-      "variants": [
-        "posterior",
-        "optimistic"
-      ],
-      "status": "development_regression",
-      "mean_s_per_source": {
-        "parent": 490.71101710292237,
-        "posterior": 492.60676748439386,
-        "optimistic": 493.5780000104626
-      },
-      "lesson": "Reduced scans were outweighed by added movement; future newly-discovered source service is missing from proxy.",
-      "next": "Restrict conditional cancellation objective to 15 known channels, when at most one additional source can be discovered."
+      "parent": "CONDITIONAL_DISCOVERY_ROUTE_PROPOSED",
+      "mechanism": "条件发现路线",
+      "implementation": "真正发现16频道会取消剩余站点，规划却先把站点视为全部必达；用离散几何与源数先验估计取消收益，仅改路线排序。",
+      "results": "r1_exposed",
+      "status": "保留单独组件；开发排序波动，4800两批均有收益。"
+    },
+    {
+      "id": "E1_R2",
+      "parent": "R1",
+      "mechanism": "仅最后未知源的条件路线",
+      "implementation": "只在15频道已实际发现时启用代理，以减少后续未知服务的影响。",
+      "results": null,
+      "status": "288开发改善仅0.152853秒/源；未追加full，保留完整负/弱证据。"
+    },
+    {
+      "id": "E1_R3",
+      "parent": "JOINT_CLEAR_ROUTE_PROPOSED",
+      "mechanism": "多个认证清除区域联合落点",
+      "implementation": "固定顺序交替优化各20m可清圆交集中的服务点；另比较6条原顺序分别优化后择优。",
+      "results": null,
+      "status": "固定序两题开发仅快0.040621/0.162824；择序反而慢0.020430/0.142569。24重放显示平均每次路由认证区仅0.79/0.29个，未追加full。"
+    },
+    {
+      "id": "E1_R4",
+      "parent": "R3 diagnosis",
+      "mechanism": "完整有向服务块",
+      "implementation": "把一次bearing未收敛源建模为预计入口→中心出口的服务块，完整计有向反转代价。",
+      "results": null,
+      "status": "384开发全清但Q3/Q4慢1.185969/5.180035；请求下降仍被增加的移动抵消。"
+    },
+    {
+      "id": "E1_R5",
+      "parent": "R4",
+      "mechanism": "仅当前第一任务的入口成本",
+      "implementation": "只给立即任务计父second_point的入口与到中心费用；未来任务仍用中心，避免提前固定还将被共享信息改变的入口。",
+      "results": "r5_exposed",
+      "status": "4800全清，Q4比S1快1.839169但不及R1；Q3均值仅快0.069140且两批反向。保留组件，不夸大小收益。"
+    }
+  ],
+  "development": [
+    {
+      "batch": "r1_screen",
+      "candidate": "r1_parent",
+      "mode": 4,
+      "cases": 144,
+      "all_complete": true,
+      "mean_s_per_source": 490.71101710292237,
+      "delta_to_batch_S1": 0.0,
+      "distance_delta": 0.0,
+      "requests_delta": 0.0
+    },
+    {
+      "batch": "r1_screen",
+      "candidate": "r1_posterior",
+      "mode": 4,
+      "cases": 144,
+      "all_complete": true,
+      "mean_s_per_source": 492.60676748439386,
+      "delta_to_batch_S1": 1.895750381471487,
+      "distance_delta": 189.1657518564498,
+      "requests_delta": -3.0208333333333144
+    },
+    {
+      "batch": "r1_screen",
+      "candidate": "r1_optimistic",
+      "mode": 4,
+      "cases": 144,
+      "all_complete": true,
+      "mean_s_per_source": 493.5780000104626,
+      "delta_to_batch_S1": 2.866982907540205,
+      "distance_delta": 518.8348817326441,
+      "requests_delta": -13.638888888888857
+    },
+    {
+      "batch": "r2_closure",
+      "candidate": "r1_parent",
+      "mode": 4,
+      "cases": 288,
+      "all_complete": true,
+      "mean_s_per_source": 465.69159319788105,
+      "delta_to_batch_S1": 0.0,
+      "distance_delta": 0.0,
+      "requests_delta": 0.0
+    },
+    {
+      "batch": "r2_closure",
+      "candidate": "r1_posterior",
+      "mode": 4,
+      "cases": 288,
+      "all_complete": true,
+      "mean_s_per_source": 464.5920321933224,
+      "delta_to_batch_S1": -1.099561004558666,
+      "distance_delta": 45.33653841803971,
+      "requests_delta": -3.6041666666666856
+    },
+    {
+      "batch": "r2_closure",
+      "candidate": "r2_lastsource",
+      "mode": 4,
+      "cases": 288,
+      "all_complete": true,
+      "mean_s_per_source": 465.5387400678029,
+      "delta_to_batch_S1": -0.15285313007814239,
+      "distance_delta": -15.06154514057198,
+      "requests_delta": 0.125
+    },
+    {
+      "batch": "r2_closure",
+      "candidate": "r2_lastsource_optimistic",
+      "mode": 4,
+      "cases": 288,
+      "all_complete": true,
+      "mean_s_per_source": 466.17284841273926,
+      "delta_to_batch_S1": 0.48125521485820855,
+      "distance_delta": 33.840796697691985,
+      "requests_delta": 0.1701388888888573
+    },
+    {
+      "batch": "r3_joint",
+      "candidate": "r3_parent",
+      "mode": 3,
+      "cases": 144,
+      "all_complete": true,
+      "mean_s_per_source": 236.1877597967124,
+      "delta_to_batch_S1": 0.0,
+      "distance_delta": 0.0,
+      "requests_delta": 0.0
+    },
+    {
+      "batch": "r3_joint",
+      "candidate": "r3_parent",
+      "mode": 4,
+      "cases": 144,
+      "all_complete": true,
+      "mean_s_per_source": 475.51018360938434,
+      "delta_to_batch_S1": 0.0,
+      "distance_delta": 0.0,
+      "requests_delta": 0.0
+    },
+    {
+      "batch": "r3_joint",
+      "candidate": "r3_fixed",
+      "mode": 3,
+      "cases": 144,
+      "all_complete": true,
+      "mean_s_per_source": 236.14713863833921,
+      "delta_to_batch_S1": -0.040621158373198796,
+      "distance_delta": -2.9270470210412896,
+      "requests_delta": -0.020833333333342807
+    },
+    {
+      "batch": "r3_joint",
+      "candidate": "r3_fixed",
+      "mode": 4,
+      "cases": 144,
+      "all_complete": true,
+      "mean_s_per_source": 475.3473596787098,
+      "delta_to_batch_S1": -0.1628239306745627,
+      "distance_delta": -10.882427604316035,
+      "requests_delta": -0.07638888888891415
+    },
+    {
+      "batch": "r3_joint",
+      "candidate": "r3_reorder",
+      "mode": 3,
+      "cases": 144,
+      "all_complete": true,
+      "mean_s_per_source": 236.20818958223387,
+      "delta_to_batch_S1": 0.02042978552145769,
+      "distance_delta": 0.6965886285197485,
+      "requests_delta": -0.03472222222222854
+    },
+    {
+      "batch": "r3_joint",
+      "candidate": "r3_reorder",
+      "mode": 4,
+      "cases": 144,
+      "all_complete": true,
+      "mean_s_per_source": 475.65275292990026,
+      "delta_to_batch_S1": 0.14256932051591775,
+      "distance_delta": -3.257878863489168,
+      "requests_delta": 0.36111111111108585
+    },
+    {
+      "batch": "r4_service_blocks",
+      "candidate": "r3_parent",
+      "mode": 3,
+      "cases": 192,
+      "all_complete": true,
+      "mean_s_per_source": 240.57361178239748,
+      "delta_to_batch_S1": 0.0,
+      "distance_delta": 0.0,
+      "requests_delta": 0.0
+    },
+    {
+      "batch": "r4_service_blocks",
+      "candidate": "r3_parent",
+      "mode": 4,
+      "cases": 192,
+      "all_complete": true,
+      "mean_s_per_source": 474.3741131505523,
+      "delta_to_batch_S1": 0.0,
+      "distance_delta": 0.0,
+      "requests_delta": 0.0
+    },
+    {
+      "batch": "r4_service_blocks",
+      "candidate": "r1_posterior",
+      "mode": 3,
+      "cases": 192,
+      "all_complete": true,
+      "mean_s_per_source": 240.57361178239748,
+      "delta_to_batch_S1": 0.0,
+      "distance_delta": 0.0,
+      "requests_delta": 0.0
+    },
+    {
+      "batch": "r4_service_blocks",
+      "candidate": "r1_posterior",
+      "mode": 4,
+      "cases": 192,
+      "all_complete": true,
+      "mean_s_per_source": 474.7767408927899,
+      "delta_to_batch_S1": 0.40262774223759834,
+      "distance_delta": 83.18876305781305,
+      "requests_delta": -1.671875
+    },
+    {
+      "batch": "r4_service_blocks",
+      "candidate": "r4_blocks",
+      "mode": 3,
+      "cases": 192,
+      "all_complete": true,
+      "mean_s_per_source": 241.7595809190171,
+      "delta_to_batch_S1": 1.185969136619633,
+      "distance_delta": 145.60026574263247,
+      "requests_delta": -2.666666666666657
+    },
+    {
+      "batch": "r4_service_blocks",
+      "candidate": "r4_blocks",
+      "mode": 4,
+      "cases": 192,
+      "all_complete": true,
+      "mean_s_per_source": 479.55414844975144,
+      "delta_to_batch_S1": 5.180035299199119,
+      "distance_delta": 562.2960906860135,
+      "requests_delta": -6.541666666666686
+    },
+    {
+      "batch": "r5_immediate_block",
+      "candidate": "r3_parent",
+      "mode": 3,
+      "cases": 192,
+      "all_complete": true,
+      "mean_s_per_source": 235.20955755839435,
+      "delta_to_batch_S1": 0.0,
+      "distance_delta": 0.0,
+      "requests_delta": 0.0
+    },
+    {
+      "batch": "r5_immediate_block",
+      "candidate": "r3_parent",
+      "mode": 4,
+      "cases": 192,
+      "all_complete": true,
+      "mean_s_per_source": 474.16732523931955,
+      "delta_to_batch_S1": 0.0,
+      "distance_delta": 0.0,
+      "requests_delta": 0.0
+    },
+    {
+      "batch": "r5_immediate_block",
+      "candidate": "r1_posterior",
+      "mode": 3,
+      "cases": 192,
+      "all_complete": true,
+      "mean_s_per_source": 235.20955755839435,
+      "delta_to_batch_S1": 0.0,
+      "distance_delta": 0.0,
+      "requests_delta": 0.0
+    },
+    {
+      "batch": "r5_immediate_block",
+      "candidate": "r1_posterior",
+      "mode": 4,
+      "cases": 192,
+      "all_complete": true,
+      "mean_s_per_source": 471.5275719612658,
+      "delta_to_batch_S1": -2.6397532780537745,
+      "distance_delta": -40.590248437132686,
+      "requests_delta": -4.90625
+    },
+    {
+      "batch": "r5_immediate_block",
+      "candidate": "r5_immediate_block",
+      "mode": 3,
+      "cases": 192,
+      "all_complete": true,
+      "mean_s_per_source": 235.01099170173376,
+      "delta_to_batch_S1": -0.19856585666059345,
+      "distance_delta": -16.202813714360673,
+      "requests_delta": 0.03645833333334281
+    },
+    {
+      "batch": "r5_immediate_block",
+      "candidate": "r5_immediate_block",
+      "mode": 4,
+      "cases": 192,
+      "all_complete": true,
+      "mean_s_per_source": 468.6981767666752,
+      "delta_to_batch_S1": -5.469148472644349,
+      "distance_delta": -409.20411119494383,
+      "requests_delta": 1.9166666666666288
     }
   ]
 }

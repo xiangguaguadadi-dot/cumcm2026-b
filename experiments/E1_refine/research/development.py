@@ -31,7 +31,10 @@ def main():
     ledger=read(OWN/'used_seeds.json')if(OWN/'used_seeds.json').exists()else{'range':[44000000,45000000],'rounds':[]}
     old={v for x in ledger['rounds']for v in x['seeds']};assert not old.intersection(seeds)
     candidates=read(OWN/args.candidates)
-    registration={'label':args.label,'observation':'Conditional completion of discovery after 16 distinct channels can cancel future stations; route proxy previously charged all stations.','selection_rule':'All cases complete, then minimum mode-wise mean seconds/source; retain parent if no improvement.','cases':len(cases),'seeds':seeds,'candidate_identity':candidates,'source_generator_sha256':sha(ROOT/'evaluation/generate_cases.py'),'role':'new development, not holdout'}
+    observation='Joint certified-clear locations can reduce real movement across multiple service neighborhoods; compare fixed order and refined-order selection.' if args.label.startswith('r3') else 'Conditional completion of discovery after 16 distinct channels can cancel future stations; route proxy previously charged all stations.'
+    if args.label.startswith('r4'):observation='Replace each uncertain source center by directed predicted entry/service/exit block while retaining the unchanged parent localization actions. Exact asymmetric reversal costs include internal reversed edges.'
+    if args.label.startswith('r5'):observation='After full service-block prediction increased travel, only charge the immediate first task entry; retain center forecasts for all later tasks that may receive new shared observations.'
+    registration={'label':args.label,'observation':observation,'selection_rule':'All cases complete, then minimum mode-wise mean seconds/source; retain parent if no improvement.','cases':len(cases),'seeds':seeds,'candidate_identity':candidates,'source_generator_sha256':sha(ROOT/'evaluation/generate_cases.py'),'role':'new development, not holdout'}
     save(folder/'registration.json',registration);save(folder/'cases.json',cases)
     ledger['rounds'].append({'label':args.label,'seeds':seeds,'modes':args.modes,'case_count':len(cases),'cases_file':str((folder/'cases.json').relative_to(ROOT))});save(OWN/'used_seeds.json',ledger)
     results=[]

@@ -1,0 +1,55 @@
+{
+  "label": "r4_service_blocks",
+  "observation": "Replace each uncertain source center by directed predicted entry/service/exit block while retaining the unchanged parent localization actions. Exact asymmetric reversal costs include internal reversed edges.",
+  "selection_rule": "All cases complete, then minimum mode-wise mean seconds/source; retain parent if no improvement.",
+  "cases": 384,
+  "seeds": [
+    44000048,
+    44000049,
+    44000050,
+    44000051,
+    44000052,
+    44000053,
+    44000054,
+    44000055,
+    44000056,
+    44000057,
+    44000058,
+    44000059,
+    44000060,
+    44000061,
+    44000062,
+    44000063
+  ],
+  "candidate_identity": [
+    {
+      "name": "r3_parent",
+      "file": "experiments/E1_refine/snapshots/r3_parent.py",
+      "sha256": "44a2b607272e8d372521c1e210bc80951d12c183083dd9d79ca9a4db4d9a5b76",
+      "config": {
+        "joint_clear_style": "off"
+      }
+    },
+    {
+      "name": "r1_posterior",
+      "file": "experiments/E1_refine/snapshots/r1_posterior.py",
+      "sha256": "d3112c89a555c13b589d01f4de9aa952dc3c5d89299845e4f0e2aff21d5fbe82",
+      "config": {
+        "conditional_discovery": "posterior"
+      },
+      "parents": {
+        "experiments/E1_refine/parents/S1_Q3.py": "d0bda0a51470eda3bd5f713be1552a004c7a73b8debcb333c323afd06d4c68f3",
+        "experiments/E1_refine/parents/S1_Q4.py": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf"
+      },
+      "component_sha256": "a87b82e9c19cba390d10d02e3ee31e81292445e1432baea4a348e3234cba6f79"
+    },
+    {
+      "name": "r4_blocks",
+      "file": "experiments/E1_refine/snapshots/r4_blocks.py",
+      "sha256": "d8f3a5034586e9ca7e25a2657295c46a991c652d0a441d531f6cee0e7a2055d7",
+      "config": {}
+    }
+  ],
+  "source_generator_sha256": "6da3aa3f61eae748204366129761dea4a1e131a9d2b464a6651ac5901404cfea",
+  "role": "new development, not holdout"
+}
