@@ -1,0 +1,55 @@
+--- baseline
++++ A3_coordination_R2
+@@ -179,4 +179,8 @@
+         else:
+             raise RuntimeError('Unknown measurement result: '+str(kind))
++        if (getattr(self, '_active_target', None) is not None and
++                not getattr(self, '_sharing', False) and
++                self.virtual_time < VIRTUAL_SAFE_SWITCH_S):
++            self.share_observations(exclude=self._active_target)
+         return kind
+ 
+@@ -228,5 +232,42 @@
+         return min(candidates,key=lambda q: (dist(q,self.position) + 0.12*min(dist(q,w) for w in self.points),q))
+ 
+-    def localize(self,ch):
++    def share_observations(self, exclude=None):
++        """Reuse a paid-for arrival across pending channels, without new motion.
++
++        The predicted gain only schedules measurements; it is never retained as
++        evidence. Actual returned bearings alone update the feasible polygons.
++        """
++        self._sharing = True
++        try:
++            p = self.position
++            for ch in range(1, 21):
++                if ch == exclude or ch in self.cleared or not self.observations[ch]:
++                    continue
++                if min(dist(p, old) for old, deg in self.observations[ch]) < 60:
++                    continue
++                center, radius = enclosing_circle(self.polygons[ch])
++                if radius <= 20 or dist(center, p) > 1500 + radius:
++                    continue
++                bearing = math.degrees(math.atan2(center[1]-p[1], center[0]-p[0]))
++                predicted = add_bearing(self.polygons[ch], p, bearing)
++                if not predicted:
++                    continue
++                _, next_radius = enclosing_circle(predicted)
++                if radius - next_radius < self.config.get('sharing_gain_m', 30.0):
++                    continue
++                self.measure(p, ch)
++        finally:
++            self._sharing = False
++
++    def localize(self, ch):
++        self._active_target = ch
++        try:
++            self._localize_one(ch)
++        finally:
++            self._active_target = None
++        if self.virtual_time < VIRTUAL_SAFE_SWITCH_S:
++            self.share_observations(exclude=ch)
++
++    def _localize_one(self,ch):
+         if ch in self.cleared:
+             return

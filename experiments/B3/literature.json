@@ -1,0 +1,28 @@
+{
+  "research_cutoff":"2026-09-11",
+  "scope":"Q3/Q4持续覆盖与任务路线；完整接收六路线既有文献记录，B3只对本轮采用的来源另读正文",
+  "prior_complete_manifests":"research/previous_literature_complete.json",
+  "prior_records_note":"六份记录共58条活动/49个去重来源的既有统计；B3不将这些条目改称自己重读了49篇PDF。",
+  "queries":[],
+  "retrieval":"使用已下载的一手作者PDF，未重复联网下载；其余来源来自原路线完整文献记录与报告",
+  "core":[{
+    "id":"2211.05891",
+    "title":"A Closer Cut: Computing Near-Optimal Lawn Mowing Tours",
+    "authors":["Sándor P. Fekete","Dominik Krupke","Michael Perk","Christian Rieck","Christian Scheffer"],
+    "year":2022,
+    "version":"arXiv v1",
+    "publication_status":"作者公开PDF，未在B3额外核验正式会议身份",
+    "url":"https://arxiv.org/pdf/2211.05891",
+    "read_pages_by_B3":[3,4,5,7,8],
+    "read_scope":"相关覆盖与见证集背景、直线最优路线证明段落、§4.1稳健见证网格、§4.2覆盖间隙、§4.3 CETSP优化；未通读全部实验与附录",
+    "problem":"连续区域覆盖路线与有限见证点之间存在间隙",
+    "mechanism":"从有限见证CETSP给下界，再补连续覆盖给上界；以稳健余量将有限网格推广到连续覆盖",
+    "paper_evidence":"所读p7 Theorem4.2通过单元直径与稳健余量保证连续覆盖；p8说明消失漏区面积不同于直接完成全覆盖",
+    "B3_inference":"离散位置无反例不足以认证；用完整方格而非仅格心作连续证书",
+    "implementation":"research/certify_geometry.py，21站点凸包共同近邻证书；不同于论文CETSP/SOCP/割草路线算法",
+    "experiment":"G1产生11200叶方格整数证书；R1任务实验另记录，不能由论文直接推出提速",
+    "limitations":"论文可在移动中割草且闭合路线，本题只有停点检测；未计算路径最优下界，未继承论文近似比",
+    "classification":["连续覆盖","有限证书","带裕量的区域单元验证"]
+  }],
+  "extended":"完整旧来源的机制/本题实测/未采用理由保留在research/previous_literature_complete.json；本轮未新增论文数量目标。"
+}
