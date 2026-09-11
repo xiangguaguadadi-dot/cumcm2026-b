@@ -1,7 +1,7 @@
 {
-  "actual_strategy_executions": 10776,
-  "distinct_new_development_cases": 96,
-  "reused_case_executions": 10680,
+  "actual_strategy_executions": 16200,
+  "distinct_new_development_cases": 192,
+  "reused_case_executions": 16008,
   "rounds": [
     {
       "path": "results/r1_cost_all_exposed/summary.json",
@@ -49,6 +49,26 @@
       "role": "quick exposed regression"
     },
     {
+      "path": "results/r2_here_quick/summary.json",
+      "actual_runs": 120,
+      "role": "quick exposed regression"
+    },
+    {
+      "path": "results/r2_one_round_exposed/summary.json",
+      "actual_runs": 2400,
+      "role": "exposed previous_final after exact-hash v1 reuse"
+    },
+    {
+      "path": "results/r2_one_round_full/summary.json",
+      "actual_runs": 2400,
+      "role": "full exposed regression"
+    },
+    {
+      "path": "results/r2_one_round_quick/summary.json",
+      "actual_runs": 120,
+      "role": "quick exposed regression"
+    },
+    {
       "path": "results/r1_ablation/budget.json",
       "actual_runs": 192,
       "role": "legal development, not holdout"
@@ -57,7 +77,12 @@
       "path": "results/r1_development/budget.json",
       "actual_runs": 384,
       "role": "legal development, not holdout"
+    },
+    {
+      "path": "results/r2_development/budget.json",
+      "actual_runs": 384,
+      "role": "legal development, not holdout"
     }
   ],
-  "note": "Quick is a full subset; v1 reuse and historical S1 caches are not new strategy executions. No final holdout."
+  "note": "Quick is a full subset; v1 reuse and historical caches are not execution. No fresh final holdout."
 }
