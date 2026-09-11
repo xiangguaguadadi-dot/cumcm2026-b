@@ -1,9 +1,5 @@
-# E2 resume after R1
+# E2 continuation after R2
 
-Worktree /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/E2_refine; branch experiments/20260911-stage4/e2_refine. Only write experiments/E2_refine. Mandatory Python3.12 runtime from protocol.
+Only write experiments/E2_refine in /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage4/E2_refine; branch experiments/20260911-stage4/e2_refine. Use bundledPython3.12. Current frozen bestr2_one_round, SHA7f486891b0255054cb05dcf749ecd7b1ecbfec49b1834670a0c3b466c18d8fd6; full+oldfinal4800 allcomplete, Q3=235.87694581189243, Q4=457.7214998657269. Candidate is a self-contained file. Need commit/push this R2 batch now, then continueR3 failedclear geometry/cell pruning. Old R1de3d660 already rootpushed/merged. R2 full/exposed execution finished; do not rerun. Next seed45000192; currentbudget16200 executions/192 distinct new cases.
 
-R1 complete: current best r1_station_only, SHA256 c459591b21c192fce79d6d93a9d753f21c0ef09ba8b46d8821803d1f929d904c; Q3 235.87694581189243, Q4 466.8426814648249; 4800 all complete. Detailed report/path/budget updated. Source frozen, do not modify its snapshot. New seed next 45000096, exclusive range ends46000000. Real executions 10776, unique new cases 96.
-
-Commit/push R1 next; then continue useful R2/R3 mechanisms rather than ending. Planned isolated next tests: same-location certified multi-source clear, and one persistent source-service round then return to global planning. E1 handles conditional discovery/continuous multi-clear route; E3 cross-target second-point or multistep sensing. Root may separately test a fusion of mature E1 and E2 R1.
-
-Useful files: cost_component.py/build_candidate.py; develop.py; results/r1_development and r1_ablation retain96 concrete mixed Q4 cases and all variants; results/r1_station_only_exposed is current4800 result. No official or extra final holdout executed.
+Root commonC1 priorR2=464.925920209869Q4, root now knowsR2 and will empirically combine with E1 route. E1 studies service-block route entry cost/joint clearing, E3 broader literature/methods. R2 one-round ServiceDirectional(CostDirectional) localize override retains9-round per-channel persistent progress; service_component.py contains exact original loop body extraction. same_hereFalse for winner, separate here variant failed development. Continue until explored hypotheses saturate; no fixed first-round stop/no extra holdout.

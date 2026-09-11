@@ -1,6 +1,6 @@
 {
   "fixed_parent": "S1",
-  "current": "r1_station_only",
+  "current": "r2_one_round",
   "nodes": [
     {
       "id": "r1_off",
@@ -86,6 +86,40 @@
       "evidence": [
         "experiments/E2_refine/results/r1_station_uncertified_quick"
       ]
+    },
+    {
+      "id": "r2_here",
+      "status": "rejected_development_quick",
+      "candidate": "experiments/E2_refine/snapshots/r2_here.py",
+      "sha256": "106b6ef2c9bb9b5ee8ebae3475a00e836900e097f273d943acc19a012cf90940",
+      "q4_config": {
+        "e2_same_here": true,
+        "e2_one_round": false
+      },
+      "parents": [
+        "r1_station_only"
+      ],
+      "evidence": [
+        "experiments/E2_refine/results/r2_here_quick"
+      ]
+    },
+    {
+      "id": "r2_one_round",
+      "status": "accepted_exposed_best",
+      "candidate": "experiments/E2_refine/snapshots/r2_one_round.py",
+      "sha256": "7f486891b0255054cb05dcf749ecd7b1ecbfec49b1834670a0c3b466c18d8fd6",
+      "q4_config": {
+        "e2_same_here": false,
+        "e2_one_round": true
+      },
+      "parents": [
+        "r1_station_only"
+      ],
+      "evidence": [
+        "experiments/E2_refine/results/r2_one_round_exposed",
+        "experiments/E2_refine/results/r2_one_round_full",
+        "experiments/E2_refine/results/r2_one_round_quick"
+      ]
     }
   ],
   "edges": [
@@ -113,6 +147,16 @@
       "from": "S1",
       "to": "r1_station_uncertified",
       "relation": "controlled_component_contrast"
+    },
+    {
+      "from_node": "r1_station_only",
+      "to": "r2_here",
+      "relation": "source_service_unit_contrast"
+    },
+    {
+      "from_node": "r1_station_only",
+      "to": "r2_one_round",
+      "relation": "source_service_unit_contrast"
     }
   ]
 }
