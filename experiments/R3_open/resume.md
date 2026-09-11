@@ -1,4 +1,3 @@
-# R3_open 接续
+# R3_open 已冻结
 
-当前best R4；本轮结果与所有退步已保存。下一步：与R2_open全顶点20米可清区域的后继圆弧路线组件作Q4独立融合开发；保留当前安全圆盘路线作父及最近进入点作消融。
-不设迭代轮数/连续失败停机数。
+用户允许近收敛收尾。5轮全部完成，最终best R5，SHA256 4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf。不再新建开发或调参，等待root新留出；原始新种子清单used_seeds.json，最终研究报告FINAL_RESEARCH_REPORT.md，交付入口stage_final.json。

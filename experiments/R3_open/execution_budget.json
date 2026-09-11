@@ -1,8 +1,8 @@
 {
   "runtime": "Python 3.12.14",
   "unbounded_iterations": true,
-  "actual_runs": 28548,
-  "unique_training_development_cases": 2304,
+  "actual_runs": 35244,
+  "unique_training_development_cases": 2880,
   "unique_exposed_cases": 4800,
   "entries": [
     {
@@ -240,6 +240,59 @@
       "unique_cases": 2400,
       "wall_seconds": 21.118900208966807,
       "v1_reuse": true
+    },
+    {
+      "round": 5,
+      "kind": "train",
+      "actual_runs": 864,
+      "unique_cases": 288,
+      "wall_seconds": 8.255668833036907,
+      "seed_range": [
+        43008000,
+        43008011
+      ]
+    },
+    {
+      "round": 5,
+      "kind": "development",
+      "actual_runs": 864,
+      "unique_cases": 288,
+      "wall_seconds": 7.109847249928862,
+      "seed_range": [
+        43009000,
+        43009011
+      ]
+    },
+    {
+      "round": 5,
+      "kind": "finite_parent_equivalence",
+      "actual_runs": 48,
+      "unique_cases": 24,
+      "reuses": "development"
+    },
+    {
+      "round": 5,
+      "kind": "quick",
+      "actual_runs": 120,
+      "unique_cases": 120,
+      "wall_seconds": 1.0997306669596583,
+      "baseline_cached": true
+    },
+    {
+      "round": 5,
+      "kind": "full",
+      "actual_runs": 2400,
+      "unique_cases": 2400,
+      "wall_seconds": 21.958630915964022,
+      "baseline_cached": true
+    },
+    {
+      "round": 5,
+      "kind": "previous_final",
+      "actual_runs": 2400,
+      "unique_cases": 2400,
+      "wall_seconds": 24.281219833064824,
+      "v1_reuse": true
     }
   ],
   "checks": {
@@ -252,5 +305,8 @@
       "kind": "seed regex matched prose recommendation",
       "actual_runs": 0
     }
-  ]
+  ],
+  "research_status": "closed_after_user_near_convergence_guidance",
+  "completed_rounds": 5,
+  "fixed_round_limit": null
 }

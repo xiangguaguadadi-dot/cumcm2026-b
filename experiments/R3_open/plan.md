@@ -11,3 +11,5 @@
 只修改experiments/R3_open。求解器只读四接口；不读真值、ID、场景或成绩缓存。训练评估可读真值核算分母。既有HTTP和官方Windows模拟器不在本次修改范围。
 
 运行使用固定Python 3.12.14：/Users/t/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3。
+
+最终状态：用户允许近收敛收尾，R5完整验证后冻结；未启动的DRD/联合连续路径/条件终止路线单列后续，不继续研发。
