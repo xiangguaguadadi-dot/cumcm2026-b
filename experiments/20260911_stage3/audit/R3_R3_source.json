@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "candidate_sha256": "9e9b35972bee009f37ad97cd068ff72b03be4a6448cbb8c99c4dada72865c149",
+  "changed_definitions_vs_R2": [
+    "_di_Solver.spatial_next_task",
+    "_di_Solver.run",
+    "OPTIMIZED_CONFIGS[4]"
+  ],
+  "review": "Read complete added spatial route function, both parent and new run loops, retained localization and stopping paths, and incremental reliability argument. Each task list includes every remaining certified station and every observed uncleared channel. A performed task removes one station or invokes finite single-source completion. Node centers only rank task order; no authoritative polygon/certificate or optical service point changes. Multi-start 2-opt (60 steps) and reinsertion (30 steps) are finite; all compared routes retain the same task permutation. First chosen task is actually executed then route is rebuilt. Existing count-complete checks prevent empty-task call after clearing the last of 16 sources. Max 21 stations and 16 distinct sources maintain the parent action-point and virtual-time bound regardless of ordering. Unchanged independent Q3 definitions and configuration, standard-library-only imports, no external runtime dependencies.",
+  "uniform_virtual_bound_seconds": 287931,
+  "limits": "Distance-proxy search does not imply realized online path dominance. Full paired regressions include 533 slower Q4 cases relative to R2. Official environment and real communication remain untested."
+}
