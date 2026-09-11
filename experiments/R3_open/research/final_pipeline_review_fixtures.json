@@ -1,0 +1,501 @@
+{
+  "status": "pass",
+  "actual_environment_runs": 0,
+  "new_final_data_access": false,
+  "artificial_rows": 8,
+  "method": "Pure paired/cohort functions and source AST; no policy import or execution",
+  "cohort_failure_suppression": true,
+  "unknown_clearance_preserved": true,
+  "analytical_two_seed_bootstrap_bounds_correct": true,
+  "id_permutation_paired_correctly": true,
+  "shape_fixture_source": "2400 already-exposed v1 cases, read only; modified dictionaries are checker fixtures",
+  "rejected": {
+    "duplicate_ids": true,
+    "metadata_mismatch": true,
+    "truncated_cases": true,
+    "duplicate_case_id": true,
+    "wrong_cluster": true,
+    "q4_all_omnidirectional": true
+  },
+  "fixture_cohort": [
+    [
+      {
+        "mode": 3,
+        "group": "ALL",
+        "cases": 4,
+        "valid_comparison": true,
+        "candidate_valid": 4,
+        "baseline_valid": 4,
+        "source_count": 40,
+        "candidate_cleared": 40,
+        "observed_cleared_lower_bound": 40,
+        "unknown_clearance_rows": 0,
+        "failed_case_ids": [],
+        "baseline_mean_s_per_source": 150.0,
+        "candidate_mean_s_per_source": 150.0,
+        "delta_s_per_source": 0.0,
+        "reduction_fraction": 0.0,
+        "faster": 0,
+        "equal": 4,
+        "slower": 0,
+        "worst_s_per_source": 200.0,
+        "max_regression_s_per_source": 0.0,
+        "max_regression_case_id": null,
+        "candidate_max_virtual_s": 2000.0,
+        "candidate_mean_runtime_s": 0.01,
+        "distance_m": {
+          "baseline_mean_per_case": 500.0,
+          "candidate_mean_per_case": 500.0
+        },
+        "requests": {
+          "baseline_mean_per_case": 20.0,
+          "candidate_mean_per_case": 20.0
+        },
+        "clear_failures": {
+          "baseline_mean_per_case": 0.0,
+          "candidate_mean_per_case": 0.0
+        },
+        "seed_clusters": 2,
+        "bootstrap_replicates": 5000,
+        "saved_s_per_source_seed_cluster_95ci": [
+          0.0,
+          0.0
+        ],
+        "reduction_fraction_seed_cluster_95ci": [
+          0.0,
+          0.0
+        ],
+        "time_decomposition": {
+          "baseline_movement_s_per_source": 10.0,
+          "candidate_movement_s_per_source": 10.0,
+          "baseline_other_s_per_source": 140.0,
+          "candidate_other_s_per_source": 140.0,
+          "note": "Accounting identity, not a component ablation"
+        }
+      },
+      {
+        "mode": 3,
+        "group": "g1",
+        "cases": 2,
+        "valid_comparison": true,
+        "candidate_valid": 2,
+        "baseline_valid": 2,
+        "source_count": 20,
+        "candidate_cleared": 20,
+        "observed_cleared_lower_bound": 20,
+        "unknown_clearance_rows": 0,
+        "failed_case_ids": [],
+        "baseline_mean_s_per_source": 150.0,
+        "candidate_mean_s_per_source": 150.0,
+        "delta_s_per_source": 0.0,
+        "reduction_fraction": 0.0,
+        "faster": 0,
+        "equal": 2,
+        "slower": 0,
+        "worst_s_per_source": 200.0,
+        "max_regression_s_per_source": 0.0,
+        "max_regression_case_id": null,
+        "candidate_max_virtual_s": 2000.0,
+        "candidate_mean_runtime_s": 0.01,
+        "distance_m": {
+          "baseline_mean_per_case": 500.0,
+          "candidate_mean_per_case": 500.0
+        },
+        "requests": {
+          "baseline_mean_per_case": 20.0,
+          "candidate_mean_per_case": 20.0
+        },
+        "clear_failures": {
+          "baseline_mean_per_case": 0.0,
+          "candidate_mean_per_case": 0.0
+        }
+      },
+      {
+        "mode": 3,
+        "group": "g2",
+        "cases": 2,
+        "valid_comparison": true,
+        "candidate_valid": 2,
+        "baseline_valid": 2,
+        "source_count": 20,
+        "candidate_cleared": 20,
+        "observed_cleared_lower_bound": 20,
+        "unknown_clearance_rows": 0,
+        "failed_case_ids": [],
+        "baseline_mean_s_per_source": 150.0,
+        "candidate_mean_s_per_source": 150.0,
+        "delta_s_per_source": 0.0,
+        "reduction_fraction": 0.0,
+        "faster": 0,
+        "equal": 2,
+        "slower": 0,
+        "worst_s_per_source": 200.0,
+        "max_regression_s_per_source": 0.0,
+        "max_regression_case_id": null,
+        "candidate_max_virtual_s": 2000.0,
+        "candidate_mean_runtime_s": 0.01,
+        "distance_m": {
+          "baseline_mean_per_case": 500.0,
+          "candidate_mean_per_case": 500.0
+        },
+        "requests": {
+          "baseline_mean_per_case": 20.0,
+          "candidate_mean_per_case": 20.0
+        },
+        "clear_failures": {
+          "baseline_mean_per_case": 0.0,
+          "candidate_mean_per_case": 0.0
+        }
+      },
+      {
+        "mode": 4,
+        "group": "ALL",
+        "cases": 4,
+        "candidate_valid": 4,
+        "baseline_valid": 4,
+        "source_count": 40,
+        "candidate_cleared": 40,
+        "observed_cleared_lower_bound": 40,
+        "unknown_clearance_rows": 0,
+        "failed_case_ids": [],
+        "valid_comparison": false,
+        "cohort_failure_cases": [
+          {
+            "cohort_index": 2,
+            "case_id": "artificial-4-g1-1"
+          }
+        ],
+        "suppression_reason": "At least one registered deployment failed this scenario; no cohort ranking"
+      },
+      {
+        "mode": 4,
+        "group": "g1",
+        "cases": 2,
+        "candidate_valid": 2,
+        "baseline_valid": 2,
+        "source_count": 20,
+        "candidate_cleared": 20,
+        "observed_cleared_lower_bound": 20,
+        "unknown_clearance_rows": 0,
+        "failed_case_ids": [],
+        "valid_comparison": false,
+        "cohort_failure_cases": [
+          {
+            "cohort_index": 2,
+            "case_id": "artificial-4-g1-1"
+          }
+        ],
+        "suppression_reason": "At least one registered deployment failed this scenario; no cohort ranking"
+      },
+      {
+        "mode": 4,
+        "group": "g2",
+        "cases": 2,
+        "valid_comparison": true,
+        "candidate_valid": 2,
+        "baseline_valid": 2,
+        "source_count": 20,
+        "candidate_cleared": 20,
+        "observed_cleared_lower_bound": 20,
+        "unknown_clearance_rows": 0,
+        "failed_case_ids": [],
+        "baseline_mean_s_per_source": 150.0,
+        "candidate_mean_s_per_source": 150.0,
+        "delta_s_per_source": 0.0,
+        "reduction_fraction": 0.0,
+        "faster": 0,
+        "equal": 2,
+        "slower": 0,
+        "worst_s_per_source": 200.0,
+        "max_regression_s_per_source": 0.0,
+        "max_regression_case_id": null,
+        "candidate_max_virtual_s": 2000.0,
+        "candidate_mean_runtime_s": 0.01,
+        "distance_m": {
+          "baseline_mean_per_case": 500.0,
+          "candidate_mean_per_case": 500.0
+        },
+        "requests": {
+          "baseline_mean_per_case": 20.0,
+          "candidate_mean_per_case": 20.0
+        },
+        "clear_failures": {
+          "baseline_mean_per_case": 0.0,
+          "candidate_mean_per_case": 0.0
+        }
+      }
+    ],
+    [
+      {
+        "mode": 3,
+        "group": "ALL",
+        "cases": 4,
+        "valid_comparison": true,
+        "candidate_valid": 4,
+        "baseline_valid": 4,
+        "source_count": 40,
+        "candidate_cleared": 40,
+        "observed_cleared_lower_bound": 40,
+        "unknown_clearance_rows": 0,
+        "failed_case_ids": [],
+        "baseline_mean_s_per_source": 150.0,
+        "candidate_mean_s_per_source": 150.0,
+        "delta_s_per_source": 0.0,
+        "reduction_fraction": 0.0,
+        "faster": 0,
+        "equal": 4,
+        "slower": 0,
+        "worst_s_per_source": 200.0,
+        "max_regression_s_per_source": 0.0,
+        "max_regression_case_id": null,
+        "candidate_max_virtual_s": 2000.0,
+        "candidate_mean_runtime_s": 0.01,
+        "distance_m": {
+          "baseline_mean_per_case": 500.0,
+          "candidate_mean_per_case": 500.0
+        },
+        "requests": {
+          "baseline_mean_per_case": 20.0,
+          "candidate_mean_per_case": 20.0
+        },
+        "clear_failures": {
+          "baseline_mean_per_case": 0.0,
+          "candidate_mean_per_case": 0.0
+        },
+        "seed_clusters": 2,
+        "bootstrap_replicates": 5000,
+        "saved_s_per_source_seed_cluster_95ci": [
+          0.0,
+          0.0
+        ],
+        "reduction_fraction_seed_cluster_95ci": [
+          0.0,
+          0.0
+        ],
+        "time_decomposition": {
+          "baseline_movement_s_per_source": 10.0,
+          "candidate_movement_s_per_source": 10.0,
+          "baseline_other_s_per_source": 140.0,
+          "candidate_other_s_per_source": 140.0,
+          "note": "Accounting identity, not a component ablation"
+        }
+      },
+      {
+        "mode": 3,
+        "group": "g1",
+        "cases": 2,
+        "valid_comparison": true,
+        "candidate_valid": 2,
+        "baseline_valid": 2,
+        "source_count": 20,
+        "candidate_cleared": 20,
+        "observed_cleared_lower_bound": 20,
+        "unknown_clearance_rows": 0,
+        "failed_case_ids": [],
+        "baseline_mean_s_per_source": 150.0,
+        "candidate_mean_s_per_source": 150.0,
+        "delta_s_per_source": 0.0,
+        "reduction_fraction": 0.0,
+        "faster": 0,
+        "equal": 2,
+        "slower": 0,
+        "worst_s_per_source": 200.0,
+        "max_regression_s_per_source": 0.0,
+        "max_regression_case_id": null,
+        "candidate_max_virtual_s": 2000.0,
+        "candidate_mean_runtime_s": 0.01,
+        "distance_m": {
+          "baseline_mean_per_case": 500.0,
+          "candidate_mean_per_case": 500.0
+        },
+        "requests": {
+          "baseline_mean_per_case": 20.0,
+          "candidate_mean_per_case": 20.0
+        },
+        "clear_failures": {
+          "baseline_mean_per_case": 0.0,
+          "candidate_mean_per_case": 0.0
+        }
+      },
+      {
+        "mode": 3,
+        "group": "g2",
+        "cases": 2,
+        "valid_comparison": true,
+        "candidate_valid": 2,
+        "baseline_valid": 2,
+        "source_count": 20,
+        "candidate_cleared": 20,
+        "observed_cleared_lower_bound": 20,
+        "unknown_clearance_rows": 0,
+        "failed_case_ids": [],
+        "baseline_mean_s_per_source": 150.0,
+        "candidate_mean_s_per_source": 150.0,
+        "delta_s_per_source": 0.0,
+        "reduction_fraction": 0.0,
+        "faster": 0,
+        "equal": 2,
+        "slower": 0,
+        "worst_s_per_source": 200.0,
+        "max_regression_s_per_source": 0.0,
+        "max_regression_case_id": null,
+        "candidate_max_virtual_s": 2000.0,
+        "candidate_mean_runtime_s": 0.01,
+        "distance_m": {
+          "baseline_mean_per_case": 500.0,
+          "candidate_mean_per_case": 500.0
+        },
+        "requests": {
+          "baseline_mean_per_case": 20.0,
+          "candidate_mean_per_case": 20.0
+        },
+        "clear_failures": {
+          "baseline_mean_per_case": 0.0,
+          "candidate_mean_per_case": 0.0
+        }
+      },
+      {
+        "mode": 4,
+        "group": "ALL",
+        "cases": 4,
+        "candidate_valid": 3,
+        "baseline_valid": 4,
+        "source_count": 40,
+        "candidate_cleared": null,
+        "observed_cleared_lower_bound": 30,
+        "unknown_clearance_rows": 1,
+        "failed_case_ids": [
+          "artificial-4-g1-1"
+        ],
+        "valid_comparison": false,
+        "cohort_failure_cases": [
+          {
+            "cohort_index": 2,
+            "case_id": "artificial-4-g1-1"
+          }
+        ],
+        "suppression_reason": "At least one registered deployment failed this scenario; no cohort ranking"
+      },
+      {
+        "mode": 4,
+        "group": "g1",
+        "cases": 2,
+        "candidate_valid": 1,
+        "baseline_valid": 2,
+        "source_count": 20,
+        "candidate_cleared": null,
+        "observed_cleared_lower_bound": 10,
+        "unknown_clearance_rows": 1,
+        "failed_case_ids": [
+          "artificial-4-g1-1"
+        ],
+        "valid_comparison": false,
+        "cohort_failure_cases": [
+          {
+            "cohort_index": 2,
+            "case_id": "artificial-4-g1-1"
+          }
+        ],
+        "suppression_reason": "At least one registered deployment failed this scenario; no cohort ranking"
+      },
+      {
+        "mode": 4,
+        "group": "g2",
+        "cases": 2,
+        "valid_comparison": true,
+        "candidate_valid": 2,
+        "baseline_valid": 2,
+        "source_count": 20,
+        "candidate_cleared": 20,
+        "observed_cleared_lower_bound": 20,
+        "unknown_clearance_rows": 0,
+        "failed_case_ids": [],
+        "baseline_mean_s_per_source": 150.0,
+        "candidate_mean_s_per_source": 150.0,
+        "delta_s_per_source": 0.0,
+        "reduction_fraction": 0.0,
+        "faster": 0,
+        "equal": 2,
+        "slower": 0,
+        "worst_s_per_source": 200.0,
+        "max_regression_s_per_source": 0.0,
+        "max_regression_case_id": null,
+        "candidate_max_virtual_s": 2000.0,
+        "candidate_mean_runtime_s": 0.01,
+        "distance_m": {
+          "baseline_mean_per_case": 500.0,
+          "candidate_mean_per_case": 500.0
+        },
+        "requests": {
+          "baseline_mean_per_case": 20.0,
+          "candidate_mean_per_case": 20.0
+        },
+        "clear_failures": {
+          "baseline_mean_per_case": 0.0,
+          "candidate_mean_per_case": 0.0
+        }
+      }
+    ]
+  ],
+  "reviewed_sources": [
+    {
+      "path": "experiments/20260911_stage3/FINAL_VALIDATION_PLAN.md",
+      "sha256": "94943a37902538c3033db0a523e66f32f3603986487a1484aefc11c7765feb8f",
+      "lines": 39
+    },
+    {
+      "path": "experiments/20260911_stage3/generate_final.py",
+      "sha256": "74ab1d2774e99114fa172d5e427d56b6d11897fc1408be68a93cc7c3b2206f94",
+      "lines": 83
+    },
+    {
+      "path": "experiments/20260911_stage3/final_review.py",
+      "sha256": "bfebd9e98372b4aaaf717933a3a11fcad52b97ebe42422a7b050a416e41619f4",
+      "lines": 307
+    },
+    {
+      "path": "experiments/20260911_stage3/audit/collect_seed_inventory.py",
+      "sha256": "eb757a999ae8ee3bcfcf319299717c0da38b8e760be3cf4a388149699de27c9a",
+      "lines": 157
+    },
+    {
+      "path": "experiments/20260911_stage3/audit/check_final_review.py",
+      "sha256": "8318bb8d714ccd9b5a28787a5937a2b6aa1304a300a62c588373af522892fda4",
+      "lines": 76
+    },
+    {
+      "path": "experiments/20260911_stage3/final_candidates/combined.py",
+      "sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+      "lines": 25
+    },
+    {
+      "path": "experiments/20260911_stage3/final_candidates/R2_open_R4.py",
+      "sha256": "d0bda0a51470eda3bd5f713be1552a004c7a73b8debcb333c323afd06d4c68f3",
+      "lines": 1819
+    },
+    {
+      "path": "experiments/20260911_stage3/final_candidates/R3_open_R5.py",
+      "sha256": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf",
+      "lines": 1619
+    },
+    {
+      "path": "evaluate.py",
+      "sha256": "61088a2c9cd45b7026e4caaf9f7d55282a55d1114dfe74d179b086dafb0dc498",
+      "lines": 113
+    }
+  ],
+  "ast_self_env_accesses": {
+    "R2_open_R4.py": [
+      "clear",
+      "enter",
+      "exit",
+      "measure"
+    ],
+    "R3_open_R5.py": [
+      "clear",
+      "enter",
+      "exit",
+      "measure"
+    ]
+  }
+}

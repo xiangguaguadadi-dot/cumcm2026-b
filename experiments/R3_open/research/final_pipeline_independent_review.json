@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "reviewer": "R3_open",
+  "reviewed_utc": "2026-09-11T03:55:10Z",
+  "status": "no_open_findings_in_reviewed_pipeline_after_root_fixes",
+  "reviewed_runner": {
+    "path": "experiments/20260911_stage3/final_review.py",
+    "sha256": "bfebd9e98372b4aaaf717933a3a11fcad52b97ebe42422a7b050a416e41619f4",
+    "lines": 307
+  },
+  "findings": [
+    {
+      "id": "FP1",
+      "priority": "P2",
+      "title": "单候选完整性不能承担全队场景排名门禁",
+      "original_lines": "final_review.py:155-165,219-224 (initial 242-line revision)",
+      "trigger": "第三个部署在Q4某场景超时，而当前候选与S0该场景全清。",
+      "impact": "初版逐候选paired仍给其他候选同场景valid_comparison及耗时差，违反预登记的任一候选失败则该场景不排名。",
+      "status": "closed_by_root_before_final_generation",
+      "fix_lines": "final_review.py:238-257,275-289",
+      "fix": "compare_cohort扫描S0与全部登记候选的失败；同mode/group以及ALL统一移除耗时、降幅、CI字段；compare要求全部登记标签恰好一次。",
+      "independent_check": "8行纯人工fixture注入一个Q4 g1超时；两候选Q4 g1及ALL均不排名，Q3与Q4 g2仍有效。"
+    },
+    {
+      "id": "FP2",
+      "priority": "P2",
+      "title": "崩溃未知清除数曾被汇总为确定数字",
+      "original_lines": "final_review.py:121,162 (initial 242-line revision)",
+      "trigger": "worker_timeout/crash返回cleared_count=None。",
+      "impact": "初版or 0令未知计数汇总成未标注下界，容易被当成确切清除数；原始行自身未被改写。",
+      "status": "closed_by_root_before_final_generation",
+      "fix_lines": "final_review.py:145-149,187-192",
+      "fix": "任一清除数未知则聚合确切计数为null，另报observed_cleared_lower_bound及unknown_clearance_rows。",
+      "independent_check": "人工失败场景确切清除数null，已知下界10，未知行数1；失败error和缺少exit_reason均保持。"
+    },
+    {
+      "id": "FP3",
+      "priority": "P2",
+      "title": "最终运行和比较曾只信任样本数量声明",
+      "original_lines": "final_review.py:230-234 and compare CLI (initial 242-line revision)",
+      "trigger": "相同截断案例/结果对或缺漏登记候选被送入旧run/compare。",
+      "impact": "manifest声明2400/100不足以验证实际形状，旧compare只有配对集合一致性，可能将共同缺行子集当有效比较。",
+      "status": "closed_by_root_before_final_generation",
+      "fix_lines": "final_review.py:85-108,263-289",
+      "fix": "validate_cases核对2400唯一ID、100整数种子、2题×12组完整笛卡尔积及Q4混合；run和compare共同要求registry/cases；compare绑定所有登记标签和summary身份并normalize到完整案例清单。",
+      "independent_check": "读取旧v1的2400字典作为形状fixture；原样通过，截断、重复ID、错簇、Q4全全向四种变体全部拒绝。"
+    }
+  ],
+  "open_findings": [],
+  "actual_environment_runs": 0,
+  "new_final_data_access": false,
+  "policy_changes": false,
+  "root_code_modified_by_reviewer": false,
+  "pure_fixture_result_sha256": "455d0e9446f5492d5b36abb999be4b5af7e45f34736d67dcaf53c67b534c9c39",
+  "reviewed_sources": [
+    {
+      "path": "experiments/20260911_stage3/FINAL_VALIDATION_PLAN.md",
+      "sha256": "94943a37902538c3033db0a523e66f32f3603986487a1484aefc11c7765feb8f",
+      "lines": 39
+    },
+    {
+      "path": "experiments/20260911_stage3/generate_final.py",
+      "sha256": "74ab1d2774e99114fa172d5e427d56b6d11897fc1408be68a93cc7c3b2206f94",
+      "lines": 83
+    },
+    {
+      "path": "experiments/20260911_stage3/final_review.py",
+      "sha256": "bfebd9e98372b4aaaf717933a3a11fcad52b97ebe42422a7b050a416e41619f4",
+      "lines": 307
+    },
+    {
+      "path": "experiments/20260911_stage3/audit/collect_seed_inventory.py",
+      "sha256": "eb757a999ae8ee3bcfcf319299717c0da38b8e760be3cf4a388149699de27c9a",
+      "lines": 157
+    },
+    {
+      "path": "experiments/20260911_stage3/audit/check_final_review.py",
+      "sha256": "8318bb8d714ccd9b5a28787a5937a2b6aa1304a300a62c588373af522892fda4",
+      "lines": 76
+    },
+    {
+      "path": "experiments/20260911_stage3/final_candidates/combined.py",
+      "sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+      "lines": 25
+    },
+    {
+      "path": "experiments/20260911_stage3/final_candidates/R2_open_R4.py",
+      "sha256": "d0bda0a51470eda3bd5f713be1552a004c7a73b8debcb333c323afd06d4c68f3",
+      "lines": 1819
+    },
+    {
+      "path": "experiments/20260911_stage3/final_candidates/R3_open_R5.py",
+      "sha256": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf",
+      "lines": 1619
+    },
+    {
+      "path": "evaluate.py",
+      "sha256": "61088a2c9cd45b7026e4caaf9f7d55282a55d1114dfe74d179b086dafb0dc498",
+      "lines": 113
+    }
+  ],
+  "passed_checks": {
+    "generation_commit_and_hash_gates": "static code read; actual final registry not yet committed/validated in this audit",
+    "generation_distribution": "100 SystemRandom seeds excluded against exact set and ranges; frozen 12 groups and mixed Q4 assertions",
+    "failure_preservation": "known input ID/mode/group/source count/seed restored; error/completion/exit status retained",
+    "id_pairing": "exact IDs, metadata and duplicate checks; full case shape and registered cohort required by final CLI",
+    "cluster_bootstrap": "same seed-cluster indices for candidate and S0; 5000 replicates seed110926; per-row T/n arithmetic mean; nearest-rank 95% limits",
+    "combined_dispatch": "mode3 R2_open_R4; mode4 R3_open_R5; selected configs copied; env passed unchanged; invalid mode rejected",
+    "inference_access": "AST self.env accesses exactly enter/measure/clear/exit in both selected parents; no case/group/seed/true-source input in wrapper",
+    "optional_dependency": "coverage_points.json absent from wrapper/parent directory; execute rejects undeclared optional file"
+  },
+  "limits": [
+    "No final cases, final results, or policy executions were accessed/run.",
+    "Seed-source/script exhaustiveness is separately assigned to R2_open; this audit reviewed collector behavior, not every historical source.",
+    "No claim that actual committed registry or future result files have passed; root must execute the gates after commit.",
+    "Candidate parents had AST/file-access and wrapper-identity review here, not a renewed full algorithm or geometry audit."
+  ]
+}
