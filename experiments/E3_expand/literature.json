@@ -1,0 +1,317 @@
+{
+  "as_of": "2026-09-11",
+  "status": "live working source ledger",
+  "user_supplied_leads": 8,
+  "record_count": 10,
+  "deduplication": "Conference and journal development within one mechanism family are cross-linked; ISRR2015/IJRR2017/2018 grouped in one record. ICRA2012/JFR2014 separate requested texts but not separate mechanism.",
+  "records": [
+    {
+      "id": "IROS2011",
+      "title": "Active Target Localization for Bearing Based Robotic Telemetry",
+      "authors": [
+        "Pratap Tokekar",
+        "Joshua Vander Hook",
+        "Volkan Isler"
+      ],
+      "year": 2011,
+      "venue": "IROS 2011",
+      "primary_url": "https://josh.vanderhook.info/media/pdf/iros2011localization.pdf",
+      "source_level": "primary author-hosted text and/or publisher metadata",
+      "identity_verification": "verified",
+      "reading_scope": "PDF pp.1–4: context, initialization, open-loop/greedy/min-max tree; experiments not yet fully read",
+      "main_classification": "online planning / measurement-outcome tree",
+      "problem": "Active localization/search from uncertain sensor observations",
+      "transfer_to_task": "Adaptive observation branches; charge motion plus each measurement.",
+      "limitations": "Gaussian/EKF and 180-degree ambiguity; fixed grid/action discretization and hypothetical future bearings differ from this task.",
+      "versions": [
+        {
+          "doi": "10.1109/IROS.2011.6048778",
+          "date": "2011-09"
+        }
+      ],
+      "implementation": "Existing sampled active-measurement planners overlap; bounded two-step planning remains under study.",
+      "tier": "core",
+      "awards": "not investigated; no award claim",
+      "code_url": null,
+      "data_url": null
+    },
+    {
+      "id": "ICRA2012",
+      "title": "Cautious Greedy Strategy for Bearing-based Active Localization: Experiments and Theoretical Analysis",
+      "authors": [
+        "Joshua Vander Hook",
+        "Pratap Tokekar",
+        "Volkan Isler"
+      ],
+      "year": 2012,
+      "venue": "ICRA 2012",
+      "primary_url": "https://josh.vanderhook.info/media/pdf/icra2012bot.pdf",
+      "source_level": "primary author-hosted text and/or publisher metadata",
+      "identity_verification": "verified",
+      "reading_scope": "PDF pp.1–4: problem, EKF, beta-caution constraint, algorithm; detailed proof deferred by paper to technical report",
+      "main_classification": "local geometry / cautious approach",
+      "problem": "Active localization/search from uncertain sensor observations",
+      "transfer_to_task": "Choose perpendicular-to-major-uncertainty views and account for measurement cost.",
+      "limitations": "Probabilistic backward ambiguity/EKF bound is not a deterministic source-containment theorem; no direct 20 m clearing guarantee.",
+      "versions": [
+        {
+          "doi": "10.1109/ICRA.2012.6225244",
+          "date": "2012-05"
+        }
+      ],
+      "implementation": "Not transplanted: task already has oriented bearings with bounded error; local geometry family existed before this stage.",
+      "tier": "core",
+      "awards": "not investigated; no award claim",
+      "code_url": null,
+      "data_url": null
+    },
+    {
+      "id": "ICRA2013",
+      "title": "Sensor Placement and Selection for Bearing Sensors with Bounded Uncertainty",
+      "authors": [
+        "Pratap Tokekar",
+        "Volkan Isler"
+      ],
+      "year": 2013,
+      "venue": "ICRA 2013",
+      "primary_url": "https://doi.org/10.1109/ICRA.2013.6630920",
+      "source_level": "primary author-hosted text and/or publisher metadata",
+      "identity_verification": "verified",
+      "reading_scope": "Identity verified from publisher-deposited metadata and author publication list. Author PDF link returns 404; university repository copy encountered HTML challenge; full text still being recovered.",
+      "main_classification": "set geometry / bounded-error sensor selection",
+      "problem": "Active localization/search from uncertain sensor observations",
+      "transfer_to_task": "Relevant to worst-case region width and observation-set selection; detailed theorem not attributed without full text.",
+      "limitations": "No paper-specific guarantee or algorithm adopted while source text remains inaccessible.",
+      "versions": [],
+      "implementation": "R3 convex no-signal exclusion is our own derivation, not claimed as this paper algorithm.",
+      "tier": "identity_only",
+      "awards": "not investigated; no award claim",
+      "code_url": null,
+      "data_url": null
+    },
+    {
+      "id": "ISER2013",
+      "title": "Local-Search Strategy for Active Localization of Multiple Invasive Fish",
+      "authors": [
+        "Joshua Vander Hook",
+        "Pratap Tokekar",
+        "Elliot Branson",
+        "Przemyslaw G. Bajer",
+        "Peter W. Sorensen",
+        "Volkan Isler"
+      ],
+      "year": 2013,
+      "venue": "Experimental Robotics, STAR 88, pp.859–873",
+      "primary_url": "https://josh.vanderhook.info/media/pdf/iser2013init.pdf",
+      "source_level": "primary author-hosted text and/or publisher metadata",
+      "identity_verification": "verified",
+      "reading_scope": "PDF pp.1–15 read: problem, failed initialization alternatives, four-ray/single/multi-target search, cost analysis, simulations, field deployment, limitations, references.",
+      "main_classification": "discovery and initialization / shared local-search cost",
+      "problem": "Active localization/search from uncertain sensor observations",
+      "transfer_to_task": "Reuse already visited target neighborhoods to initialize other undetected channels; all extra measurements charged.",
+      "limitations": "Four-ray circle fitting needs isotropic receive circles/aggregation and cheap detection; Q4 is directional and measures cost 5–6 seconds.",
+      "versions": [
+        {
+          "doi": "10.1007/978-3-319-00065-7_57",
+          "publication_year": 2013,
+          "note": "2013 is book publication year; conference-event year not independently established here."
+        }
+      ],
+      "implementation": "E3 R1 paid unknown-channel initialization implemented: small development gain, full4800 Q4 +0.2605% slower, rejected.",
+      "tier": "core",
+      "awards": "not investigated; no award claim",
+      "code_url": null,
+      "data_url": null
+    },
+    {
+      "id": "JFR2014",
+      "title": "Cautious Greedy Strategy for Bearing-only Active Localization: Analysis and Field Experiments",
+      "authors": [
+        "Joshua Vander Hook",
+        "Pratap Tokekar",
+        "Volkan Isler"
+      ],
+      "year": 2014,
+      "venue": "Journal of Field Robotics 31(2), 296–318",
+      "primary_url": "https://josh.vanderhook.info/media/pdf/JoshV_JFR_2013_Localization.pdf",
+      "source_level": "primary author-hosted text and/or publisher metadata",
+      "identity_verification": "verified",
+      "reading_scope": "PDF pp.1–3 and 6–8 read: identity/version, assumptions, closest-approach ellipse, Algorithm 1, initialization and guarantee statement; full appendices not read.",
+      "main_classification": "local geometry / cautious approach",
+      "problem": "Active localization/search from uncertain sensor observations",
+      "transfer_to_task": "Uncertainty-adaptive approach distance; decouple initialization, active sensing and complete coverage.",
+      "limitations": "Expected constant-factor claims depend on paper assumptions, not inherited by ±1-degree hulls or deterministic local noise fields.",
+      "versions": [
+        {
+          "doi": "10.1002/rob.21499",
+          "online_date": "2014-01-28",
+          "print_date": "2014-03",
+          "note": "Received/accepted in 2013 and filename says 2013, but published in 2014; extends ICRA2012 and local-search work."
+        }
+      ],
+      "implementation": "Source clarification and mechanism family; no separate algorithm counted from conference predecessor.",
+      "tier": "core",
+      "awards": "not investigated; no award claim",
+      "code_url": null,
+      "data_url": null
+    },
+    {
+      "id": "TRO2015",
+      "title": "Algorithms for Cooperative Active Localization of Static Targets With Mobile Bearing Sensors Under Communication Constraints",
+      "authors": [
+        "Joshua Vander Hook",
+        "Pratap Tokekar",
+        "Volkan Isler"
+      ],
+      "year": 2015,
+      "venue": "IEEE Transactions on Robotics 31(4), 864–876",
+      "primary_url": "https://josh.vanderhook.info/media/pdf/tro2015cooploc.pdf",
+      "source_level": "primary author-hosted text and/or publisher metadata",
+      "identity_verification": "verified",
+      "reading_scope": "PDF pp.1–2 and 8–9 read: cost/CRLB model and MULTI-STEP online conversion. Offline algorithms and full proof not independently rederived.",
+      "main_classification": "online planning / conservative-region multi-step conversion",
+      "problem": "Active localization/search from uncertain sensor observations",
+      "transfer_to_task": "Plan from a conservative region and revisit belief after observations; closest feasible location prevents committing to an unreliable distant centroid.",
+      "limitations": "Communication/rendezvous and parallel robots do not exist here; CRLB, independent Gaussian updates and log-factor result are not task guarantees.",
+      "versions": [
+        {
+          "doi": "10.1109/TRO.2015.2432612",
+          "date": "2015-08"
+        }
+      ],
+      "implementation": "R3 uses reliable set geometry but convex negative rule is independently derived; full MULTI-STEP not yet reproduced.",
+      "tier": "core",
+      "awards": "not investigated; no award claim",
+      "code_url": null,
+      "data_url": null
+    },
+    {
+      "id": "ISRR2015_family",
+      "title": "Detecting, Localizing, and Tracking an Unknown Number of Moving Targets Using a Team of Mobile Robots",
+      "authors": [
+        "Philip Dames",
+        "Pratap Tokekar",
+        "Vijay Kumar"
+      ],
+      "year": 2015,
+      "venue": "ISRR 2015; book chapter 2017; extended IJRR 2017/2018",
+      "primary_url": "https://raaslab.org/pubs/dames2017detecting.pdf",
+      "source_level": "primary author-hosted text and/or publisher metadata",
+      "identity_verification": "verified",
+      "reading_scope": "Author 2015 conference listing verified. Downloaded file is IJRR 2017 manuscript, pp.1–2 read; full conference version link 404. Also downloaded 2018 journal version, not counted as a new method.",
+      "main_classification": "discovery and tracking / random-finite-set intensity",
+      "problem": "Active localization/search from uncertain sensor observations",
+      "transfer_to_task": "Separate expected detection count from conditional localization accuracy; explore undetected mass without declaring source absence.",
+      "limitations": "Unknown data association, target births/deaths, mobile targets and false positives are absent in task; a low posterior existence weight cannot certify channel absence.",
+      "versions": [
+        {
+          "venue": "ISRR",
+          "event_year": 2015,
+          "identity_source": "https://raaslab.org/publications.html"
+        },
+        {
+          "doi": "10.1007/978-3-319-51532-8_31",
+          "publication_date": "2017-07-27"
+        },
+        {
+          "doi": "10.1177/0278364917709507",
+          "online_date": "2017-06-05",
+          "note": "Journal extension; 2018 issue version exists."
+        }
+      ],
+      "implementation": "Unknown-channel R1 probes expected discovery benefit directly; no PHD filter implemented.",
+      "tier": "core",
+      "awards": "not investigated; no award claim",
+      "code_url": null,
+      "data_url": null
+    },
+    {
+      "id": "ATL2020",
+      "title": "Active Localization of Multiple Targets from Noisy Relative Measurements",
+      "authors": [
+        "Selim Engin",
+        "Volkan Isler"
+      ],
+      "year": 2020,
+      "venue": "WAFR 2020; Algorithmic Foundations of Robotics XIV book 2021",
+      "primary_url": "https://ksengin.github.io/papers/wafr2020active.pdf",
+      "source_level": "primary author-hosted text and/or publisher metadata",
+      "identity_verification": "verified",
+      "reading_scope": "PDF pp.1–16 read: assumptions, histogram, TD3, image and multimodal states/rewards, offline-Fisher comparison, static/dynamic/generalization experiments and references.",
+      "main_classification": "online planning / learned multi-target belief policy",
+      "problem": "Active localization/search from uncertain sensor observations",
+      "transfer_to_task": "Joint belief representation can value a route beyond immediate single-target shrinkage.",
+      "limitations": "All targets initially observable; per-step observations from all targets; Gaussian noise; finite horizon and estimation error rather than paid-channel complete clearing. Multimodal reward uses true positions in training; only image reward avoids them.",
+      "versions": [
+        {
+          "doi": "10.1007/978-3-030-66723-8_24",
+          "publication_date": "2021-02-09",
+          "title_correction": "from, not using"
+        }
+      ],
+      "implementation": "E3 R2 finite cross-target side-score is an existing mechanism re-evaluated on S1, not ATL/TD3 replication; all three weights negative on development.",
+      "tier": "core",
+      "awards": "not investigated; no award claim",
+      "code_url": null,
+      "data_url": null
+    },
+    {
+      "id": "CDC2016",
+      "title": "Non-Myopic Target Tracking Strategies for Non-Linear Systems",
+      "authors": [
+        "Zhongshun Zhang",
+        "Pratap Tokekar"
+      ],
+      "year": 2016,
+      "venue": "IEEE Conference on Decision and Control, 5591–5596",
+      "primary_url": "https://raaslab.org/pubs/zhang2016nonmyopic.pdf",
+      "source_level": "primary author-hosted text and/or publisher metadata",
+      "identity_verification": "verified",
+      "reading_scope": "PDF pp.1–3 read: nonlinear observation dependence, finite outcome/action minimax tree, alpha pruning, algebraic redundancy statement.",
+      "main_classification": "online planning / robust outcome tree and pruning",
+      "problem": "Active localization/search from uncertain sensor observations",
+      "transfer_to_task": "Use observed-outcome branches rather than a single imagined bearing; bound computation with fixed small branch set.",
+      "limitations": "Gaussian EKF and covariance monotonicity/pruning assumptions differ from bounded polygon loss of signal; cannot reuse pruning guarantees without proof.",
+      "versions": [
+        {
+          "doi": "10.1109/CDC.2016.7799128",
+          "year": 2016
+        }
+      ],
+      "implementation": "Candidate finite robust lookahead still under study; not claimed implemented.",
+      "tier": "extension",
+      "awards": "not investigated; no award claim",
+      "code_url": null,
+      "data_url": null
+    },
+    {
+      "id": "ICRA2017_FOV",
+      "title": "Algorithm for Searching and Tracking an Unknown and Varying Number of Mobile Targets using a Limited FoV Sensor",
+      "authors": [
+        "Yoonchang Sung",
+        "Pratap Tokekar"
+      ],
+      "year": 2017,
+      "venue": "ICRA 2017, 6246–6252",
+      "primary_url": "https://raaslab.org/pubs/sung2017algorithm.pdf",
+      "source_level": "primary author-hosted text and/or publisher metadata",
+      "identity_verification": "verified",
+      "reading_scope": "PDF pp.1–2 read: assumptions, search/tracking split and GM-PHD equations.",
+      "main_classification": "discovery and tracking / limited-FoV birth and track management",
+      "problem": "Active localization/search from uncertain sensor observations",
+      "transfer_to_task": "Maintain discovered and not-yet-observed hypotheses separately; missed observations are not nonexistence.",
+      "limitations": "Requires mobile anonymous targets, Gaussian position observations, false-positive process and survival/birth models. Static known-channel task has no birth/death or data association.",
+      "versions": [
+        {
+          "doi": "10.1109/ICRA.2017.7989740",
+          "date": "2017-05"
+        }
+      ],
+      "implementation": "Not implemented; central machinery has no task counterpart.",
+      "tier": "extension",
+      "awards": "not investigated; no award claim",
+      "code_url": null,
+      "data_url": null
+    }
+  ]
+}
