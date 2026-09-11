@@ -1,0 +1,69 @@
+{
+  "registration": {
+    "time_utc": "2026-09-11T02:07:18.716229+00:00",
+    "candidate": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/breakthrough/B2/experiments/B2/snapshots/r2_development.py",
+    "sha256": "9797d0681973db1652886cb4b3e847dbf7ada8bd94206b68b09f7dcb8a14d0da",
+    "variants": {
+      "R1": {
+        "residual_variant": "R1",
+        "optical_partition": "adaptive"
+      },
+      "safe_prune": {
+        "residual_variant": "safe_prune",
+        "optical_partition": "adaptive"
+      },
+      "residual12": {
+        "residual_variant": "residual12",
+        "optical_partition": "adaptive"
+      }
+    },
+    "cases": 336,
+    "planned_runs": 1008,
+    "cases_sha256": "0f60821cfcee84f0bb51ef48cc933ac97da56996ca2d35eec168ef1b8dbd0d9d",
+    "training_runs": 0,
+    "purpose": "independent development selection; not holdout"
+  },
+  "actual_runs": 1008,
+  "wall_seconds": 22.028939667041413,
+  "summaries": [
+    {
+      "variant": "R1",
+      "mode": 4,
+      "cases": 336,
+      "complete": 336,
+      "mean": 527.0077575729716,
+      "max_runtime": 0.033634374965913594,
+      "partition_calls": 308,
+      "parent_points": 4607,
+      "new_points": 2352,
+      "mean_failures": 4.380952380952381,
+      "mean_distance": 24676.909746063466
+    },
+    {
+      "variant": "safe_prune",
+      "mode": 4,
+      "cases": 336,
+      "complete": 336,
+      "mean": 527.0077575729716,
+      "max_runtime": 0.034693915979005396,
+      "partition_calls": 308,
+      "parent_points": 4607,
+      "new_points": 2352,
+      "mean_failures": 4.380952380952381,
+      "mean_distance": 24676.909746063466
+    },
+    {
+      "variant": "residual12",
+      "mode": 4,
+      "cases": 336,
+      "complete": 336,
+      "mean": 527.4553260817755,
+      "max_runtime": 0.03978329198434949,
+      "partition_calls": 308,
+      "parent_points": 4605,
+      "new_points": 2352,
+      "mean_failures": 5.4375,
+      "mean_distance": 24689.072449679505
+    }
+  ]
+}

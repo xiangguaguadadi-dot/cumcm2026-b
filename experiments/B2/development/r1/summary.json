@@ -1,0 +1,66 @@
+{
+  "registration": {
+    "time_utc": "2026-09-11T01:56:18.439533+00:00",
+    "candidate": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/breakthrough/B2/experiments/B2/snapshots/r1_architecture.py",
+    "sha256": "0907ecbf2d37d8f6ba429b24edcd42b2284f443fb1fafd538065522be42639fc",
+    "variants": {
+      "parent25": {
+        "optical_partition": "parent25"
+      },
+      "naive28": {
+        "optical_partition": "naive28"
+      },
+      "adaptive": {
+        "optical_partition": "adaptive"
+      }
+    },
+    "cases": 336,
+    "planned_runs": 1008,
+    "cases_sha256": "bb52d9e52fb6b282fc51503d6f428a18cd79a382e346f0d47d1e5509f1e569a4",
+    "training_runs": 0,
+    "purpose": "independent development selection; not holdout"
+  },
+  "actual_runs": 1008,
+  "wall_seconds": 21.694871291983873,
+  "summaries": [
+    {
+      "variant": "parent25",
+      "mode": 4,
+      "cases": 336,
+      "complete": 336,
+      "mean": 522.2361781652451,
+      "max_runtime": 0.0458910419838503,
+      "partition_calls": 0,
+      "parent_points": 0,
+      "new_points": 0,
+      "mean_failures": 5.163690476190476,
+      "mean_distance": 24497.751965807227
+    },
+    {
+      "variant": "naive28",
+      "mode": 4,
+      "cases": 336,
+      "complete": 336,
+      "mean": 522.0526666451485,
+      "max_runtime": 0.046236708061769605,
+      "partition_calls": 302,
+      "parent_points": 4184,
+      "new_points": 3639,
+      "mean_failures": 4.925595238095238,
+      "mean_distance": 24489.667016493982
+    },
+    {
+      "variant": "adaptive",
+      "mode": 4,
+      "cases": 336,
+      "complete": 336,
+      "mean": 521.6854312442838,
+      "max_runtime": 0.03859262494370341,
+      "partition_calls": 301,
+      "parent_points": 4184,
+      "new_points": 2122,
+      "mean_failures": 4.229166666666667,
+      "mean_distance": 24483.087470524602
+    }
+  ]
+}

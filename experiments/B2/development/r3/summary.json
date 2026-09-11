@@ -1,0 +1,86 @@
+{
+  "registration": {
+    "time_utc": "2026-09-11T02:10:22.841840+00:00",
+    "candidate": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/breakthrough/B2/experiments/B2/snapshots/r3_development.py",
+    "sha256": "d32722be8143b5a048d1ab7b4d130721ce478bc065f782aa88b940bbe496bb62",
+    "variants": {
+      "R1": {
+        "cover_choice": "R1",
+        "optical_partition": "adaptive"
+      },
+      "shortest_full": {
+        "cover_choice": "shortest_full",
+        "optical_partition": "adaptive"
+      },
+      "expected": {
+        "cover_choice": "expected",
+        "optical_partition": "adaptive"
+      },
+      "expected_failures": {
+        "cover_choice": "expected_failures",
+        "optical_partition": "adaptive"
+      }
+    },
+    "cases": 336,
+    "planned_runs": 1344,
+    "cases_sha256": "f0e3ca41da56475dea5f0f3908a365c9b36aec9f7a27c1edba59d0ab88559b71",
+    "training_runs": 0,
+    "purpose": "independent development selection; not holdout"
+  },
+  "actual_runs": 1344,
+  "wall_seconds": 28.696703083929606,
+  "summaries": [
+    {
+      "variant": "R1",
+      "mode": 4,
+      "cases": 336,
+      "complete": 336,
+      "mean": 529.1211062971261,
+      "max_runtime": 0.039149791933596134,
+      "partition_calls": 286,
+      "parent_points": 4037,
+      "new_points": 2056,
+      "mean_failures": 4.232142857142857,
+      "mean_distance": 24484.693025936063
+    },
+    {
+      "variant": "shortest_full",
+      "mode": 4,
+      "cases": 336,
+      "complete": 336,
+      "mean": 528.9727866855092,
+      "max_runtime": 0.03330066706985235,
+      "partition_calls": 284,
+      "parent_points": 3998,
+      "new_points": 2036,
+      "mean_failures": 4.175595238095238,
+      "mean_distance": 24480.231562990033
+    },
+    {
+      "variant": "expected",
+      "mode": 4,
+      "cases": 336,
+      "complete": 336,
+      "mean": 528.9320094664241,
+      "max_runtime": 0.033672334044240415,
+      "partition_calls": 283,
+      "parent_points": 3969,
+      "new_points": 2022,
+      "mean_failures": 4.1726190476190474,
+      "mean_distance": 24471.63462215705
+    },
+    {
+      "variant": "expected_failures",
+      "mode": 4,
+      "cases": 336,
+      "complete": 336,
+      "mean": 528.8571041441661,
+      "max_runtime": 0.03426583297550678,
+      "partition_calls": 283,
+      "parent_points": 3969,
+      "new_points": 2022,
+      "mean_failures": 4.163690476190476,
+      "mean_distance": 24471.39985747757
+    }
+  ]
+}

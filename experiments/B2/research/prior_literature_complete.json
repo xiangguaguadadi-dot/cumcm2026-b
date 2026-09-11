@@ -1,0 +1,3171 @@
+[
+  {
+    "agent": "A1_space",
+    "source_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A1_space/experiments/A1_space/literature.json",
+    "records": {
+      "title": "A1 全局空间搜索与移动成本",
+      "date": "2026-09-11",
+      "counts": {
+        "total": 9,
+        "core_section_read": 6,
+        "discovery": 3
+      },
+      "search_sources": [
+        "arXiv author records and full-text PDF",
+        "References in the core full-text papers"
+      ],
+      "queries": [
+        "boustrophedon coverage path planning",
+        "coverage path planning survey autonomous robots",
+        "traveling salesman neighborhoods disks",
+        "next best view exploration gain distance",
+        "coverage planning sweeping sensor discrete stops"
+      ],
+      "failures": [
+        {
+          "tool": "web.search",
+          "attempts": 2,
+          "outcome": "connection failed"
+        },
+        {
+          "url": "https://www.google.com/search?q=Choset+boustrophedon+coverage+path+planning+pdf",
+          "outcome": "25s timeout"
+        },
+        {
+          "tool": "default curl via inherited proxy",
+          "outcome": "SSL_ERROR_SYSCALL; direct --noproxy succeeded"
+        }
+      ],
+      "scope_limit": "Focused method-family search, not exhaustive. 6 papers read in specified substantive sections, 3 at discovery level; zero claimed full-paper reads.",
+      "papers": [
+        {
+          "id": "2207.06209",
+          "title": "Environmental Sampling with the Boustrophedon Decomposition Algorithm",
+          "authors": [
+            "He, Hannah",
+            "Norby, Joe",
+            "Wang, Sean",
+            "Sihota, Natasha",
+            "Hoelen, Thomas P.",
+            "Lowry, Gregory V.",
+            "Johnson, Aaron M."
+          ],
+          "first_submission": "2022/07/13",
+          "last_submission": "2022/07/13",
+          "version": "v1",
+          "url": "https://arxiv.org/abs/2207.06209",
+          "pdf_url": "https://arxiv.org/pdf/2207.06209",
+          "publication_status": "arXiv author manuscript; no conference award claims",
+          "retrieved_date": "2026-09-11",
+          "source_level": "primary_author_fulltext_downloaded",
+          "pdf_sha256": "76bad286ec5cae82662b3abe8c2f3f6f70cbd26fc766b516762f12e8d27d13d1",
+          "tier": "core_sections",
+          "path": [
+            "覆盖约束",
+            "离散停点与采样密度",
+            "Boustrophedon 采样"
+          ],
+          "read": "PDF 第 2–5、7–8 页：§II–IV、图6–9及§V结果、§VI开头；摘要。未通读参考文献与全部附图。",
+          "mechanism": "先分解无障碍单元，再按采样间距栅扫，并量化采样精度与路径长度的冲突。",
+          "inspiration": "应先保证检测覆盖，再优化停点和真实行程；不能只比较扫描节点数量。",
+          "implementation": "R1/R3 certified_points、default_points；采用原则，未实现论文分解算法。",
+          "adopted": "concept_only",
+          "reason": "本题是无障碍圆域、离散信号探测、有最小接收半径；没有必要栅扫每个小像素。",
+          "evidence": "正文用 Monte Carlo 随机环境比较 RMSE、热点漏检、路径和样本数，增加间距虽然缩短路径但可能漏热点。",
+          "limitations": "其连续环境插值和热点分布不等价于本题互异频道点源；论文精度曲线不能当成本题全清证书。",
+          "experiment_support": "R1 Q3均值降低4.4355%但边缘和原点簇退步；R3自创观测分支后Q3降低11.1455%。支持本题覆盖/行程分离设计，不检验论文采样插值算法。"
+        },
+        {
+          "id": "2211.05891",
+          "title": "A Closer Cut: Computing Near-Optimal Lawn Mowing Tours",
+          "authors": [
+            "Fekete, Sándor P.",
+            "Krupke, Dominik",
+            "Perk, Michael",
+            "Rieck, Christian",
+            "Scheffer, Christian"
+          ],
+          "first_submission": "2022/11/10",
+          "last_submission": "2022/11/10",
+          "version": "v1",
+          "url": "https://arxiv.org/abs/2211.05891",
+          "pdf_url": "https://arxiv.org/pdf/2211.05891",
+          "publication_status": "arXiv author manuscript; no conference award claims",
+          "retrieved_date": "2026-09-11",
+          "source_level": "primary_author_fulltext_downloaded",
+          "pdf_sha256": "af23205b028c015b60532c136a18c96f673cd1cdb97ab07f0111319b237285a7",
+          "tier": "core_sections",
+          "path": [
+            "覆盖约束",
+            "连续覆盖与见证点",
+            "LMP/CETSP 原始对偶"
+          ],
+          "read": "PDF 第 3–5 页（§1.3、§2证明）；第 7 页 §4–4.1、第 8 页 §4.3；第12页图15。未通读所有几何证明和全部实验。",
+          "mechanism": "以未覆盖区域见证点构造 CETSP 下界，再补齐覆盖形成上界，迭代收紧最优差距。",
+          "inspiration": "看似覆盖的有限样本不足以保证连续区域覆盖；本题每个新点集需要解析证明。",
+          "implementation": "R1/R3 六环站凸函数端点证明；不是该论文的原始对偶或 SOCP 求解器。",
+          "adopted": "concept_only",
+          "reason": "论文移动中持续割草，本题移动中不可检测；见证网格解还需要覆盖认证，且这里圆域对称性允许直接解析设计。",
+          "evidence": "§4.1 给见证集扩大时下界单调；§4.3 用分支定界和二阶锥优化，图15展示上下界不同，覆盖率不是最优性证据。",
+          "limitations": "本实验没有计算可证明最优的路径下界，不得声称当前路线近似比或全局最优。",
+          "experiment_support": "R1/R3两套环均有连续覆盖证明且full全清；没有路径下界或最优差距，实验不支持近似比声明。"
+        },
+        {
+          "id": "1506.07903",
+          "title": "Constant-Factor Approximation for TSP with Disks",
+          "authors": [
+            "Dumitrescu, Adrian",
+            "Tóth, Csaba D."
+          ],
+          "first_submission": "2015/06/25",
+          "last_submission": "2016/08/09",
+          "version": "v4",
+          "url": "https://arxiv.org/abs/1506.07903",
+          "pdf_url": "https://arxiv.org/pdf/1506.07903",
+          "publication_status": "arXiv author manuscript; no conference award claims",
+          "retrieved_date": "2026-09-11",
+          "source_level": "primary_author_fulltext_downloaded",
+          "pdf_sha256": "6ee0481f6b3a851a179b869bd5b9c79dba0df3940d67faf5e28760d0a7a13646",
+          "tier": "core_sections",
+          "path": [
+            "服务路径",
+            "访问邻域",
+            "几何 hitting set"
+          ],
+          "read": "PDF 第2–4页：相关工作、定理1、§2几何命中集、算法总览和§3预处理开头；摘要。未逐行验证后续近似证明。",
+          "mechanism": "构造穿过全部圆盘的连通几何图，将任意圆盘 TSPN 与最小权命中集连接，再倍边得到游回。",
+          "inspiration": "访问一个区域与访问其中心不同；必须区分路由的估计中心和真正清除位置。",
+          "implementation": "R2/R3 spatial_next_task 的中心代理；R5 route_clear_point 在20-r的认证可清除圆盘内优化预测的进入+离开距离。未实现原论文几何命中集算法。",
+          "adopted": "neighborhood_model_adaptation",
+          "reason": "当前源只由有界误差楔形限制，不是已知圆盘；本文的任意圆盘近似与本题在线未知目标不同。",
+          "evidence": "正文把图分为独立圆盘骨架、近处连接和余下命中集连接，说明邻域结构会改变路线代价。",
+          "limitations": "中心代理误差可以使重规划变差；R2 Q4 回归就是本实验事实，不能从原论文近似保证推导本题性能。",
+          "experiment_support": "R2 Q4退步0.6574%，暴露中心代理限制；R5比R4两题分别减少0.0711/0.2762秒每源，进入最佳；不归功于未实现的命中集算法。"
+        },
+        {
+          "id": "2111.10462",
+          "title": "Online Coverage Planning for an Autonomous Weed Mowing Robot with Curvature Constraints",
+          "authors": [
+            "Maini, Parikshit",
+            "Gonultas, Burak M.",
+            "Isler, Volkan"
+          ],
+          "first_submission": "2021/11/19",
+          "last_submission": "2021/11/19",
+          "version": "v1",
+          "url": "https://arxiv.org/abs/2111.10462",
+          "pdf_url": "https://arxiv.org/pdf/2111.10462",
+          "publication_status": "arXiv author manuscript; no conference award claims",
+          "retrieved_date": "2026-09-11",
+          "source_level": "primary_author_fulltext_downloaded",
+          "pdf_sha256": "67651c0f9f355d41a043b5cb2856095dee22535cb32f5f234d422c8fe371907b",
+          "tier": "core_sections",
+          "path": [
+            "在线决策",
+            "发现后绕行",
+            "JUMP/SNAKE"
+          ],
+          "read": "PDF 第2–7页：任务定义、§V界、§VI两算法和伪代码、§VII模拟、§VIII田野实验与§IX。另读摘要。未通读末页参考文献。",
+          "mechanism": "在覆盖推进中利用新发现的目标改变局部路径；JUMP 绕行再回主线，SNAKE 绕行后续进，R-SNAKE 允许漏服务换距离。",
+          "inspiration": "同时规划搜索站与已发现目标，避免完成所有搜索后再整圈返回清除；但本题必须保留所有待完成任务。",
+          "implementation": "R2/R3 spatial_next_task 和 run：全局开放路径逐动作重规划，为自创简化，并非复现 JUMP/SNAKE。 R7检验按既定清除段执行、到新扫描站才重规划的稳定性；与论文“执行子路径时不再搜索下一子路径”的描述相关，但为本题自创事件边界。",
+          "adopted": "concept_only",
+          "reason": "机器狗无 Dubins 转弯半径约束，信号不能边走边测且不直接给准确目标位置；禁止采用 R-SNAKE 的漏清取舍。",
+          "evidence": "正文分别记录路径和清除比例；JUMP、SNAKE、R-SNAKE 的完整性不一致。田野演示的14个目标位置为预先地理标记并按视野揭示，而非完整视觉检测闭环。",
+          "limitations": "论文报告的距离降幅不能迁移成本题成绩；我们的 Q4 负结果保留，实验证明只属于 LOCAL-v1。",
+          "experiment_support": "R2比R1 Q3变好而Q4变坏；R3回退Q4。R7固定执行段比R6两题均变慢，未采用；只支持本实验中逐动作重规划的相对取舍。"
+        },
+        {
+          "id": "2602.05198",
+          "title": "Informative Path Planning with Guaranteed Estimation Uncertainty",
+          "authors": [
+            "Jakkala, Kalvik",
+            "Agarwal, Saurav",
+            "O'Kane, Jason",
+            "Akella, Srinivas"
+          ],
+          "first_submission": "2026/02/05",
+          "last_submission": "2026/05/26",
+          "version": "v3",
+          "url": "https://arxiv.org/abs/2602.05198",
+          "pdf_url": "https://arxiv.org/pdf/2602.05198",
+          "publication_status": "arXiv author manuscript; no conference award claims",
+          "retrieved_date": "2026-09-11",
+          "source_level": "primary_author_fulltext_downloaded",
+          "pdf_sha256": "16af61192cc6b343b5ed72ab27fb93dcfcc5483447f3042430b685a13f6ed647",
+          "tier": "core_sections",
+          "path": [
+            "信息与覆盖",
+            "显式全局约束",
+            "GP coverage map / GCB"
+          ],
+          "read": "PDF 第3–5页：§III–V、单点方差条件、单调性、二值覆盖矩阵、GreedyCover 和 GCB；第7页 SRTM 实验及ASV段落开头。未读全部附录证明。",
+          "mechanism": "把 GP 后验方差目标转成保守覆盖矩阵；对比先选点再路由与把覆盖增益/路径增量联合决策。",
+          "inspiration": "点集选择与访问顺序不能割裂；覆盖是硬约束，距离是优化量。",
+          "implementation": "R1 点集与 R2/R3 路由分轮检验；未实现 GP、矩阵覆盖或 GCB 比值规则。",
+          "adopted": "concept_only",
+          "reason": "本题只给误差有界且同址固定，不能把未知跨位置误差强行当作可信 GP；先验方差达标也不等于未知源全部检测。",
+          "evidence": "§V-C4 明确两阶段的选点近似不提供联合路径保证；实验把预算受限解与满足方差目标的解分开。",
+          "limitations": "其模型内后验不确定性与真实 MSE、以及本题确定性全清，不是同一指标；本报告不照搬近似保证。",
+          "experiment_support": "R1/R2分别测试覆盖点和路径，存在场景取舍；因未实现GP/GCB，无关于原论文算法效果的本题实验证据。"
+        },
+        {
+          "id": "1809.07159",
+          "title": "Improved Bounds for the Traveling Salesman Problem with Neighborhoods on Uniform Disks",
+          "authors": [
+            "Bercea, Ioana O."
+          ],
+          "first_submission": "2018/09/19",
+          "last_submission": "2018/09/19",
+          "version": "v1",
+          "url": "https://arxiv.org/abs/1809.07159",
+          "pdf_url": "https://arxiv.org/pdf/1809.07159",
+          "publication_status": "arXiv author manuscript; no conference award claims",
+          "retrieved_date": "2026-09-11",
+          "source_level": "primary_author_fulltext_downloaded",
+          "pdf_sha256": "f3c8a5ac378894cf1e6b87241a3981e81ecc98fed3553418cf595086ad3f7024",
+          "tier": "discovery",
+          "path": [
+            "服务路径",
+            "访问邻域",
+            "均匀圆盘近似界"
+          ],
+          "read": "arXiv 摘要及作者元数据；下载PDF并核对首页题名作者，未深读正文。",
+          "mechanism": "研究等半径圆盘 TSPN 与访问圆心的附加绕行界。",
+          "inspiration": "提醒中心近似有额外路程，不能把中心 TSP 看成真实服务路径。",
+          "implementation": "未直接进入代码；对 R2 中心代理风险的背景核对。",
+          "adopted": "not_implemented",
+          "reason": "不直接解决未知目标、方向丢信号与在线定位，先读更一般的命中集路线。",
+          "evidence": "仅摘要层机制识别；不引用数值近似常数作本题论据。",
+          "limitations": "扩展发现级，不能称正文深读或已复现。",
+          "experiment_support": "未直接进入实现；没有本题因果/复现实验，只有中心代理风险背景。"
+        },
+        {
+          "id": "2408.08001",
+          "title": "Path Planning for Spot Spraying with UAVs Combining TSP and Area Coverages",
+          "authors": [
+            "Plessen, Mogens"
+          ],
+          "first_submission": "2024/08/15",
+          "last_submission": "2025/02/19",
+          "version": "v2",
+          "url": "https://arxiv.org/abs/2408.08001",
+          "pdf_url": "https://arxiv.org/pdf/2408.08001",
+          "publication_status": "arXiv author manuscript; no conference award claims",
+          "retrieved_date": "2026-09-11",
+          "source_level": "primary_author_fulltext_downloaded",
+          "pdf_sha256": "55bc1790f5c4fe24b762aaa7bba19bbcd98b92a62a00cd5ce05d51cf0ee59413",
+          "tier": "core_sections",
+          "path": [
+            "服务路径",
+            "区域间与区域内联合成本",
+            "TSP + area coverage"
+          ],
+          "read": "追加深读 PDF 第3–5页 §3.1–3.3 开头：成本分解条件、NN/DENN与H1–H4；第6页 §4实验设置和结果讨论。此前仅摘要，扩展授权后补读正文。",
+          "mechanism": "固定片区入/出点时分离跨区路由与区内覆盖；TSP比较随机插入与消交叉，并实验组合H2+H4。",
+          "inspiration": "改进开放路径时，可以把节点移除-重插与2-opt结合；同时不能把只优化代理路径长度当真实任务耗时最优。",
+          "implementation": "R6：spatial_next_task 内 reinsert 对当前路线穷举单节点重插，再2-opt，并保留原2-opt路线。属于H2思想的确定性改编，非论文10秒随机采样复现。R6 full Q3/Q4均改善；进入当前最佳。",
+          "adopted": "deterministic_reinsertion_adaptation",
+          "reason": "本题是点源定位，不是边界已知的喷洒区域；现有无障碍定位器无需其障碍连接算法。",
+          "evidence": "§4比较15/19/197片区，H2+H4在其中两例给更短TSP路线但耗时更大；研究使用真实地理区域实例而非把完整探測任务部署在未知源上。",
+          "limitations": "论文闭合路线、片区真值已知、固定入出点假设不同；本题为开放在线路线，提升只能由本题实测决定。",
+          "experiment_support": "R6比R5 Q3减少0.4896、Q4减少0.1251秒每源，full全清并进入最佳；开发Q3曾退步，不能据固定状态代理非增推出全过程非增。"
+        },
+        {
+          "id": "2402.10529",
+          "title": "Energy-aware Multi-UAV Coverage Mission Planning with Optimal Speed of Flight",
+          "authors": [
+            "Datsko, Denys",
+            "Nekovar, Frantisek",
+            "Penicka, Robert",
+            "Saska, Martin"
+          ],
+          "first_submission": "2024/02/16",
+          "last_submission": "2024/02/16",
+          "version": "v1",
+          "url": "https://arxiv.org/abs/2402.10529",
+          "pdf_url": "https://arxiv.org/pdf/2402.10529",
+          "publication_status": "PDF header: IEEE RA-L accepted January 2024; DOI 10.1109/LRA.2024.3358581",
+          "retrieved_date": "2026-09-11",
+          "source_level": "primary_author_fulltext_downloaded",
+          "pdf_sha256": "145398d65c032e5892bf50afdfb7f986915e8a2292025e48cf26849f635655a8",
+          "tier": "discovery",
+          "path": [
+            "任务成本",
+            "能量与路径分离",
+            "速度优化/多机分配"
+          ],
+          "read": "arXiv 摘要、元数据与PDF首页（RA-L accepted 标注）；未深读正文。",
+          "mechanism": "用速度与能耗模型优化多 UAV 覆盖，避免把路径长度等同于能量。",
+          "inspiration": "本题目标也应直接使用官方虚拟时间；移动、换频、检测、清除都要计入。",
+          "implementation": "未直接进入代码；保留冻结官方口径统计。",
+          "adopted": "not_implemented",
+          "reason": "机器人速度固定5m/s、只有一只且题面未给电量目标，能量控制不适用。",
+          "evidence": "仅验证论文身份与研究对象，不迁移其能耗精度数值。",
+          "limitations": "扩展发现级，不把多机器人效果作为单机本题性能证据。",
+          "experiment_support": "未实现能耗和速度控制，无算法效果实验；官方计时分项只是评测口径。"
+        },
+        {
+          "id": "2507.06960",
+          "title": "Bounomodes: the grazing ox algorithm for exploration of clustered anomalies",
+          "authors": [
+            "Matloob, Samuel",
+            "Dutta, Ayan",
+            "Kreidl, O. Patrick",
+            "Roy, Swapnonel",
+            "Bölöni, Ladislau"
+          ],
+          "first_submission": "2025/07/09",
+          "last_submission": "2025/07/09",
+          "version": "v1",
+          "url": "https://arxiv.org/abs/2507.06960",
+          "pdf_url": "https://arxiv.org/pdf/2507.06960",
+          "publication_status": "arXiv author manuscript; no conference award claims",
+          "retrieved_date": "2026-09-11",
+          "source_level": "primary_author_fulltext_downloaded",
+          "pdf_sha256": "646ec9f053ad8c3808a66aab1f30c1497f99b41c17fccc81ad9e0e5d8c05ba3f",
+          "tier": "discovery",
+          "path": [
+            "在线决策",
+            "局部集中探索",
+            "规则覆盖+强化学习"
+          ],
+          "read": "arXiv 摘要与元数据、PDF首页；未深读强化学习设置。",
+          "mechanism": "交替均匀覆盖和对异常簇的局部集中搜索，以学习策略决定细查。",
+          "inspiration": "观测可以触发不同空间策略，但推断分布不能替代未观测区域的覆盖证书。",
+          "implementation": "R3 仅受原则启发：无信号触发两个已证明覆盖点集的切换；没有强化学习。",
+          "adopted": "concept_only_no_learning",
+          "reason": "A1 专注空间几何；在三轮预算下用明确可审计的观测分支更合适，没有训练模型或借用其他 Agent 的学习策略。",
+          "evidence": "摘要级发现；不声称完成其RL复现。",
+          "limitations": "R3 的单一观测分支是本实验自创启发式，不是该论文学习算法或性能转移。",
+          "experiment_support": "R3保留解析覆盖分支且Q3改善，偏心簇仍退步；未训练RL，不能视为Bounomodes复现。"
+        }
+      ],
+      "original_designs": [
+        {
+          "round": 1,
+          "name": "解析压缩六环站",
+          "basis": "题目半径1800、全向最小接收半径1000；凸函数端点证明",
+          "functions": [
+            "certified_points",
+            "default_points"
+          ]
+        },
+        {
+          "round": 3,
+          "name": "原点全无信号选择认证外环",
+          "basis": "正/负观测触发两种独立完备几何布局；不是RL学习",
+          "functions": [
+            "scan_station"
+          ]
+        },
+        {
+          "round": 4,
+          "name": "精确区域就绪后空间路由",
+          "basis": "避免把粗糙多边形中心误当真实服务终点",
+          "functions": [
+            "run"
+          ]
+        },
+        {
+          "round": 5,
+          "name": "认证清除盘内的进入和离开距离",
+          "basis": "TSPN邻域视角+本题20米清除半径的三角不等式推导；非论文原算法复现",
+          "functions": [
+            "route_clear_point"
+          ]
+        },
+        {
+          "round": 8,
+          "name": "已发现16源后裁剪剩余必访站",
+          "basis": "题面问题3/4最多16源，附录1频道互异；发现不等于清除，仍要求16成功才退出。自创约束推导，不归因给未实现论文。",
+          "functions": [
+            "all_sources_discovered",
+            "run"
+          ]
+        },
+        {
+          "round": 9,
+          "name": "定位区域就绪后才裁剪搜索站",
+          "basis": "从R8出发保留额外方位信息，100米为既有试清尺度；full双题均退步，未采用。",
+          "functions": [
+            "run"
+          ]
+        },
+        {
+          "round": 10,
+          "name": "认证清除尺度后才做Q4全局路线",
+          "basis": "从R8出发把Q4路由就绪门槛由100改20米，测试中心代理更保守的选择；非论文现成规则。",
+          "functions": [
+            "run"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "agent": "A2_information",
+    "source_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A2_information/experiments/A2_information/literature.json",
+    "records": {
+      "research_cutoff": "2026-09-11",
+      "scope": "低维有界方位定位中的主动观测、信息价值和任务时间；广泛机制覆盖但不是穷尽系统综述",
+      "core_count": 4,
+      "extended_count": 5,
+      "deduplication": "按 arXiv ID 去重，版本/标题变化保留在 version；只把实际阅读的方法与实验称作深读",
+      "queries": [
+        {
+          "query": "bearing only target localization optimal observer motion Fisher information determinant bounded error localization mobile sensor",
+          "provider": "web search",
+          "status": "connection failed twice; no usable response"
+        },
+        {
+          "query": "set membership bearing only localization active sensing bounded error sensor placement",
+          "provider": "web search",
+          "status": "connection failed"
+        },
+        {
+          "query": "all:bearings-only AND all:localization",
+          "url": "https://export.arxiv.org/api/query?search_query=all:bearings-only+AND+all:localization&start=0&max_results=8",
+          "status": "no usable response body"
+        },
+        {
+          "query": "\"bearing-only\" title",
+          "url": "https://arxiv.org/search/?query=%22bearing-only%22&searchtype=title&abstracts=show&order=-announced_date_first&size=50",
+          "status": "read original search results, 50-result page"
+        },
+        {
+          "query": "\"information gathering\" title",
+          "url": "https://arxiv.org/search/?query=%22information+gathering%22&searchtype=title&abstracts=show&order=&size=50",
+          "status": "read original search results, 50-result page"
+        },
+        {
+          "query": "\"set-membership\" AND \"localization\" all",
+          "url": "https://arxiv.org/search/?query=%22set-membership%22+AND+%22localization%22&searchtype=all&abstracts=show&order=-announced_date_first&size=50",
+          "status": "read original search results; relevance screening needed"
+        }
+      ],
+      "access": "direct curl --noproxy * to arXiv author manuscripts; nine successful PDF downloads, SHA256 retained",
+      "coverage_limits": [
+        "没有声称覆盖全部文献",
+        "没有复现论文原始基准",
+        "五篇扩展来源阅读深度有限并显式标明",
+        "未统一核对出版会刊与奖项",
+        "当前决定来自题面与本地实验，不能套用论文性能数字"
+      ],
+      "papers": [
+        {
+          "id": "L1",
+          "arxiv": "1908.00380",
+          "title": "Optimization-based Control for Bearing-only Target Search with a Mobile Vehicle",
+          "authors": [
+            "Zhuo Li",
+            "Keyou You",
+            "Shiji Song",
+            "Anke Xue"
+          ],
+          "year": 2019,
+          "version": "v1, 2019-08-01",
+          "tier": "core",
+          "path": [
+            "信息驱动运动",
+            "估计与任务联合控制",
+            "D-optimal信息与接近目标双目标"
+          ],
+          "read": "正文 p.1–4 的 I–III；p.5 的 IV-A 估计器；p.7–9 的 VI–VII 仿真与结论。不是全文深读，附录证明未完整阅读。",
+          "problem": "单 Dubins 移动体仅用测向，尽快接近未知静止目标。",
+          "mechanism": "把 FIM 行列式与距离平方下降联合优化，归一化后用权重控制估计与靠近目标的取舍，以递归最小二乘估计目标。",
+          "evidence": "正文 VI 比较 β=0/1/2/3：纯估计倾向绕行，过大的接近目标权重可能收敛到错误估计位置；其仿真使用 vc=4m/s、h=0.25s、单个二维目标。",
+          "limitations": "以高斯独立噪声的CRLB、已知动力学和点估计为基础；不保证本题有界固定误差、未知可见性和多源全清。论文数值与本题不可直接比较。",
+          "inspiration": "按任务完成时间评价观测，不把交会角或估计方差当最终目标。",
+          "adoption": "部分原则进入 r1/r2/r3 的 second_point；不是该论文控制器复现。用虚拟秒而不是论文无量纲加权目标。",
+          "functions": [
+            "Solver.second_point"
+          ],
+          "not_used": "未用 Dubins 模型、递归最小二乘、CRLB权重或GPS-free控制器；本题动作和可靠性要求不同。",
+          "url": "https://arxiv.org/abs/1908.00380",
+          "pdf_url": "https://arxiv.org/pdf/1908.00380",
+          "pdf_sha256": "5ffa5b6f7abbd0f71cd893a287c627a2d9002d8805c0317fc5ee79dfa12c551a",
+          "pages": 12,
+          "source_level": "primary_author_paper",
+          "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+          "read_date": "2026-09-11",
+          "project_url": null,
+          "code_url": null,
+          "dataset_url": null,
+          "awards": "not_checked",
+          "classification_confidence": "high",
+          "local_evidence": "research/1908.00380.txt (本地下载缓存，不入Git)",
+          "round_links": [
+            {
+              "round": 1,
+              "candidate": "candidates/r1_solver.py",
+              "results": "../../results/A2_information_r1_full"
+            },
+            {
+              "round": 2,
+              "candidate": "candidates/r2_solver.py",
+              "results": "../../results/A2_information_r2_full"
+            },
+            {
+              "round": 3,
+              "candidate": "candidates/r3_solver.py",
+              "results": "../../results/A2_information_r3_full"
+            }
+          ],
+          "empirical_support": "R1 Q3改善2.1289%但Q4退步1.4152%；R2缓和Q4退步而未优于基准；R3关闭Q4主动测点。它支持任务模型需要观测失效分支的局部经验，不是原论文算法复现或单篇论文的因果归因。"
+        },
+        {
+          "id": "L2",
+          "arxiv": "2603.04867",
+          "title": "Set-Membership Localization via Range Measurements",
+          "authors": [
+            "Giuseppe C. Calafiore"
+          ],
+          "year": 2026,
+          "version": "下载正文含期刊接受声明；本次仅核验 arXiv 原文，未独立核验期刊出版状态",
+          "tier": "core",
+          "path": [
+            "不确定性表示",
+            "未知但有界误差",
+            "凸外包集合与包含证书"
+          ],
+          "read": "正文 p.1–4 问题/相关工作；p.7–10 的第3节；p.13–17 的第5节；p.19–20实验设置；p.23–24外点讨论/结论。第4节SDP推导和全部数值表未完整深读。",
+          "problem": "已知锚点，带区间误差的距离测量下返回保证包含真实位置的区域。",
+          "mechanism": "差分距离方程得到多面体，与接收球相交形成凸外包，再用SOCP/SDP计算外包盒/椭球。",
+          "evidence": "第3节给出真集合包含于外包集合的证明；第5节给出外包盒与椭球程序；第7节在2D/3D、随机锚点、100次重复上评估集合尺寸和包含率。第8节承认几何保守度仍缺正式刻画。",
+          "limitations": "距离测量而非方位；其凸外包保守性依几何而变，外包中心不一定属于原始非凸可行集。误差越界时扩大到非空不能重新保证包含实际真值。",
+          "inspiration": "保留“用于决策的点/分布”和“用于全清证明的外包集合”两层；研究整个可行域允许的最近清除点。",
+          "adoption": "r1–r10保留外包证书；r3全顶点清除动作、r4/r5有效切面、r6全向无信号排除、r7假想点筛选、r8光学失败排除、r9两次约束传播、r10预测后验接收上界，均是本题自创几何或规划步骤，不是论文SOCP复现。R9和R10均未替换最终R8。",
+          "functions": [
+            "Solver.belief_quadrature",
+            "Solver.predicted_polygon",
+            "Solver.localize",
+            "Solver.nearest_certified_clear",
+            "add_bearing",
+            "outside_disk_hull",
+            "Solver.apply_no_signal_constraints",
+            "Solver.planning_hypotheses",
+            "Solver.apply_failed_clear_constraints",
+            "Solver.apply_observed_exclusions"
+          ],
+          "not_used": "不新增距离传感器，不实现差分距离方程或SOCP/SDP；现有方位半平面交已更直接。",
+          "url": "https://arxiv.org/abs/2603.04867",
+          "pdf_url": "https://arxiv.org/pdf/2603.04867",
+          "pdf_sha256": "3dcecfb6c0d048c0f14e36e19b4de1a95efda4649d505f7841978e0932a3a284",
+          "pages": 26,
+          "source_level": "primary_author_paper",
+          "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+          "read_date": "2026-09-11",
+          "project_url": null,
+          "code_url": null,
+          "dataset_url": null,
+          "awards": "not_checked",
+          "classification_confidence": "high",
+          "local_evidence": "research/2603.04867.txt (本地下载缓存，不入Git)",
+          "round_links": [
+            {
+              "round": 1,
+              "candidate": "candidates/r1_solver.py",
+              "results": "../../results/A2_information_r1_full"
+            },
+            {
+              "round": 3,
+              "candidate": "candidates/r3_solver.py",
+              "results": "../../results/A2_information_r3_full"
+            },
+            {
+              "round": 4,
+              "candidate": "candidates/r4_solver.py",
+              "results": "../../results/A2_information_r4_full"
+            },
+            {
+              "round": 5,
+              "candidate": "candidates/r5_solver.py",
+              "results": "../../results/A2_information_r5_full"
+            },
+            {
+              "round": 6,
+              "candidate": "candidates/r6_solver.py",
+              "results": "../../results/A2_information_r6_full"
+            },
+            {
+              "round": 7,
+              "candidate": "candidates/r7_solver.py",
+              "results": "../../results/A2_information_r7_full"
+            },
+            {
+              "round": 8,
+              "candidate": "candidates/r8_solver.py",
+              "results": "../../results/A2_information_r8_full"
+            },
+            {
+              "round": 9,
+              "candidate": "candidates/r9_solver.py",
+              "results": "../../results/A2_information_r9_full"
+            },
+            {
+              "round": 10,
+              "candidate": "candidates/r10_solver.py",
+              "results": "../../results/A2_information_r10_full"
+            }
+          ],
+          "empirical_support": "R3首次两题均值优于基准；R4改善Q3但Q4小幅退步，压力开发暴露计算退化；R5控制复杂度；R6与R7继续刷新Q3，R7增益极小；R8两题均值改善到285.86670335/568.44941153。R9为285.95192367/568.40397853，两题取舍，严格最佳仍R8。多步骤相继迭代而非单因素独立消融，不把累计改进归因于论文。 R10的1000个合成几何组合中52个预测被收紧且全部保留合法目标；独立开发120局及full2400局的任务指标均与R8逐局一致。更紧的预测集合没有带来本轮任务收益，因此回退R8；没有用更多参数试跑弥补无收益。"
+        },
+        {
+          "id": "L3",
+          "arxiv": "2405.02605",
+          "title": "MEXGEN: An Effective and Efficient Information Gain Approximation for Information Gathering Path Planning",
+          "authors": [
+            "Joshua Chesser",
+            "Thuraiappah Sathyan",
+            "Damith C. Ranasinghe"
+          ],
+          "year": 2024,
+          "version": "v1, 2024-05-04",
+          "tier": "core",
+          "path": [
+            "预测观测",
+            "非线性观测分布",
+            "测量期望与理想点测量的区别"
+          ],
+          "read": "正文 p.1–5 的 I–III 及 IV 实验设置；p.6–8 的实验结果、运行时间、场地试验与结论。不是完整复现；尾页参考文献只用于定位。",
+          "problem": "信息采集规划要预测未来可能观测；完整Monte Carlo开销高，平均状态上的无噪声测量可能误导。",
+          "mechanism": "从belief抽样，先通过观测模型，再平均观测，只执行一次belief更新；理论比较测量预测MSE与PIM。",
+          "evidence": "§III公式(14)–(18)比较有限样本测量预测MSE；§IV使用粒子Bernoulli滤波、RSS路径损耗、动态/静态目标；场地试验每法10次，表II平均任务时间MEXGEN 290s、MC-8 326s、PIM333s。",
+          "limitations": "测量预测MSE保证并非任意信息增益或闭环任务代价的保证；测向是周期量，方向翻转/无信号使本题观测分布不适合直接取算术平均。原论文失败超过1000秒的耗时结果被丢弃，本题仍保存全部失败。",
+          "inspiration": "不能把多边形中心当唯一未来真值；有限求积考虑多个假想目标，并逐一推演后验。",
+          "adoption": "r1/r2/r3 的 belief_quadrature 和 predicted_polygon 受该区分启发；采用多假设显式推演，不是MEXGEN平均观测，也未声称继承其理论界或加速比。 R7对规划假想点做观测一致性筛选，R10使预测方向后验纳入接收上界，仍不代表精确后验；R10未进入最终R8。",
+          "functions": [
+            "Solver.belief_quadrature",
+            "Solver.predicted_polygon",
+            "Solver.second_point",
+            "Solver.planning_hypotheses"
+          ],
+          "not_used": "不直接平均方位、不引入Bernoulli粒子滤波或RSS模型；其观测/动力学与本题不同。",
+          "url": "https://arxiv.org/abs/2405.02605",
+          "pdf_url": "https://arxiv.org/pdf/2405.02605",
+          "pdf_sha256": "efc365bc83489034b7140a85ca74e9ba26925b6c093a2de112b661dfc43cc04f",
+          "pages": 9,
+          "source_level": "primary_author_paper",
+          "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+          "read_date": "2026-09-11",
+          "project_url": null,
+          "code_url": null,
+          "dataset_url": null,
+          "awards": "not_checked",
+          "classification_confidence": "high",
+          "local_evidence": "research/2405.02605.txt (本地下载缓存，不入Git)",
+          "round_links": [
+            {
+              "round": 1,
+              "candidate": "candidates/r1_solver.py",
+              "results": "../../results/A2_information_r1_full"
+            },
+            {
+              "round": 2,
+              "candidate": "candidates/r2_solver.py",
+              "results": "../../results/A2_information_r2_full"
+            },
+            {
+              "round": 3,
+              "candidate": "candidates/r3_solver.py",
+              "results": "../../results/A2_information_r3_full"
+            },
+            {
+              "round": 7,
+              "candidate": "candidates/r7_solver.py",
+              "results": "../../results/A2_information_r7_full"
+            },
+            {
+              "round": 10,
+              "candidate": "candidates/r10_solver.py",
+              "results": "../../results/A2_information_r10_full"
+            }
+          ],
+          "empirical_support": "R1 Q3改善2.1289%但Q4退步1.4152%；R2缓和Q4退步而未优于基准；R3关闭Q4主动测点。它支持任务模型需要观测失效分支的局部经验，不是原论文算法复现或单篇论文的因果归因。 R7只比R6快0.0057839893秒/源，Q4相同，这一极小差异不足以称稳健改进。 R10的1000个合成几何组合中52个预测被收紧且全部保留合法目标；独立开发120局及full2400局的任务指标均与R8逐局一致。更紧的预测集合没有带来本轮任务收益，因此回退R8；没有用更多参数试跑弥补无收益。"
+        },
+        {
+          "id": "L4",
+          "arxiv": "1804.02573",
+          "title": "Hindsight is Only 50/50: Unsuitability of MDP based Approximate POMDP Solvers for Multi-resolution Information Gathering",
+          "authors": [
+            "Sankalp Arora",
+            "Sanjiban Choudhury",
+            "Sebastian Scherer"
+          ],
+          "year": 2018,
+          "version": "v1, 2018-04-07",
+          "tier": "core",
+          "path": [
+            "信息价值",
+            "近似POMDP失效边界",
+            "信息动作与完全可观察假设"
+          ],
+          "read": "正文 p.1–5 的 I–V，尤其p.3–4信息价值定义/定理与tiger反例；最后结论/参考文献未深读。",
+          "problem": "为什么部分以完全可观察MDP求解器近似POMDP的方法不愿主动获取信息。",
+          "mechanism": "定义不属于任何状态最优MDP策略却产生观测的信息动作；给出信息价值超过成本时的次优条件，并构造tiger和多分辨率搜索反例。",
+          "evidence": "§IV定理2与§V tiger：免费全信息假设下开门，实际50/50；付一次听觉成本可以改变后验从而改变最优动作。",
+          "limitations": "不是声称所有QMDP、所有模仿学习、所有信息采集任务都失败；需要其信息动作及收益条件。本题没有直接使用其完整POMDP求解器。",
+          "inspiration": "局部代理必须评估观测后的多边形变化，不能把假想真位置直接当观测后已知状态；也不能只计算几何靠近。",
+          "adoption": "进入r1–r3设计审查与 second_point 的 posterior 分支；未实现作者MDP/POMDP算法。",
+          "functions": [
+            "Solver.predicted_polygon",
+            "Solver.second_point"
+          ],
+          "not_used": "不构建连续多源全状态POMDP树，计算和建模成本不适合本轮小范围改动。",
+          "url": "https://arxiv.org/abs/1804.02573",
+          "pdf_url": "https://arxiv.org/pdf/1804.02573",
+          "pdf_sha256": "2e9c5f3c0567b1b83274dd140b684d345523441bc06ff1b14cd46c3e6779f0ba",
+          "pages": 6,
+          "source_level": "primary_author_paper",
+          "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+          "read_date": "2026-09-11",
+          "project_url": null,
+          "code_url": null,
+          "dataset_url": null,
+          "awards": "not_checked",
+          "classification_confidence": "high",
+          "local_evidence": "research/1804.02573.txt (本地下载缓存，不入Git)",
+          "round_links": [
+            {
+              "round": 1,
+              "candidate": "candidates/r1_solver.py",
+              "results": "../../results/A2_information_r1_full"
+            },
+            {
+              "round": 2,
+              "candidate": "candidates/r2_solver.py",
+              "results": "../../results/A2_information_r2_full"
+            },
+            {
+              "round": 3,
+              "candidate": "candidates/r3_solver.py",
+              "results": "../../results/A2_information_r3_full"
+            }
+          ],
+          "empirical_support": "R1 Q3改善2.1289%但Q4退步1.4152%；R2缓和Q4退步而未优于基准；R3关闭Q4主动测点。它支持任务模型需要观测失效分支的局部经验，不是原论文算法复现或单篇论文的因果归因。"
+        },
+        {
+          "id": "L5",
+          "arxiv": "2605.11116",
+          "title": "Improving D-Optimal Sensor Placement for Bearing-Only Localization via Maximum-Entropy Reweighting",
+          "authors": [
+            "Raktim Bhattacharya"
+          ],
+          "year": 2026,
+          "version": "v1, 2026-05-11",
+          "tier": "extended",
+          "path": [
+            "信息驱动运动",
+            "分布重加权",
+            "MaxEnt倾斜与FIM优化"
+          ],
+          "read": "正文 p.1–4 摘要、I、II 问题/FIM/Dirac-at-mean重加权推导和求解器；未深读后续实验与全部结论。",
+          "problem": "改进对粒子后验均匀加权的多传感器D-optimal布置。",
+          "mechanism": "在切片Wasserstein精度约束下最小KL，得到按到后验均值距离指数倾斜的权重，再多起点L-BFGS-B优化FIM。",
+          "evidence": "正文§II C清楚说明精度目标是当前后验加权均值处Dirac，而非已知真值。引言报告传感器少于源时可能牺牲角度多样性；本次未独立复核数值结果。",
+          "limitations": "高斯误差/多个同步传感器且优化定位误差，均值集中可能压低真实极端位置权重；本题不能以该权重替代全清证书。",
+          "inspiration": "FIM依赖选用的分布；“更尖的belief”不是免费新信息。",
+          "adoption": "未进入最终代码，仅作为竞争与不采用证据。",
+          "functions": [],
+          "not_used": "不希望在首个方位的长楔形上人为强化中心假设；纯FIM与20m清除任务不直接对齐。",
+          "url": "https://arxiv.org/abs/2605.11116",
+          "pdf_url": "https://arxiv.org/pdf/2605.11116",
+          "pdf_sha256": "6c7fb8873af86c8d05263c2b8a8ab4aef95e25e39346a9b873c8ccd7a69f3a7a",
+          "pages": 8,
+          "source_level": "primary_author_paper",
+          "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+          "read_date": "2026-09-11",
+          "project_url": null,
+          "code_url": null,
+          "dataset_url": null,
+          "awards": "not_checked",
+          "classification_confidence": "medium",
+          "local_evidence": "research/2605.11116.txt (本地下载缓存，不入Git)",
+          "round_links": [],
+          "empirical_support": "没有实现或实验，不对本题改进作效果归因；仅承担竞争方案和未采用理由。"
+        },
+        {
+          "id": "L6",
+          "arxiv": "2310.15846",
+          "title": "Optimal Spatial-Temporal Triangulation for Bearing-Only Cooperative Motion Estimation",
+          "authors": [
+            "Canlun Zheng",
+            "Yize Mi",
+            "Hanqing Guo",
+            "Huaben Chen",
+            "Zhiyun Lin",
+            "Shiyu Zhao"
+          ],
+          "year": 2023,
+          "version": "v5, 2025-02-12；正文标示2025-02-13投稿Automatica",
+          "tier": "extended",
+          "path": [
+            "不确定性表示",
+            "点估计",
+            "分布式递归最小二乘与时空三角化"
+          ],
+          "read": "正文 p.1–2 摘要与引言；没有把后续算法或收敛证明当作已深读。",
+          "problem": "多飞行器只凭方位协同估计运动目标位置/速度。",
+          "mechanism": "设计融合几何三角化和动力学的分布式递归最小二乘目标。",
+          "evidence": "只核验正文引言中的方法结构和作者所述验证目标；本次没有提取可比较结果数字。",
+          "limitations": "分布式多传感器、运动目标与通信限制不同；引言声称的收敛和实机性能本轮未独立复核。",
+          "inspiration": "几何约束应显式进入估计，单方位秩缺失不能靠重复同址测量消除。",
+          "adoption": "未新增实现。现有多边形交已经显式保留几何。",
+          "functions": [],
+          "not_used": "静态单机器狗不存在多机一致性和动态速度估计需求。",
+          "url": "https://arxiv.org/abs/2310.15846",
+          "pdf_url": "https://arxiv.org/pdf/2310.15846",
+          "pdf_sha256": "436eb4fa328e622bc890e15c7b9096e501a0043d2ed7975af6bd149285bd18af",
+          "pages": 17,
+          "source_level": "primary_author_paper",
+          "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+          "read_date": "2026-09-11",
+          "project_url": null,
+          "code_url": null,
+          "dataset_url": null,
+          "awards": "not_checked",
+          "classification_confidence": "medium",
+          "local_evidence": "research/2310.15846.txt (本地下载缓存，不入Git)",
+          "round_links": [],
+          "empirical_support": "没有实现或实验，不对本题改进作效果归因；仅承担竞争方案和未采用理由。"
+        },
+        {
+          "id": "L7",
+          "arxiv": "1705.07834",
+          "title": "Adaptive Information Gathering via Imitation Learning",
+          "authors": [
+            "Sanjiban Choudhury",
+            "Ashish Kapoor",
+            "Gireeja Ranade",
+            "Sebastian Scherer",
+            "Debadeepta Dey"
+          ],
+          "year": 2017,
+          "version": "下载 arXiv 正文，正文页首标识未用于正式会议身份判断",
+          "tier": "extended",
+          "path": [
+            "经验策略",
+            "模仿学习",
+            "全知训练教师与部分观测策略"
+          ],
+          "read": "正文 p.1 摘要与引言；算法、理论界、实验未深读。",
+          "problem": "从地图分布训练在线低成本的信息采集策略。",
+          "mechanism": "训练时全知地图的clairvoyant oracle给动作，学习策略仅根据观测历史模仿；作者讨论自适应次模性条件。",
+          "evidence": "仅核验问题定义和训练/在线信息边界；不引入或引用其定量优势。",
+          "limitations": "训练分布迁移和全知教师忽略信息动作问题需要核查；本轮未阅读证明细节。",
+          "inspiration": "若离线训练应严格分离教师真值和在线可用特征。",
+          "adoption": "没有训练模型，没有进入代码。",
+          "functions": [],
+          "not_used": "A2先检验可审查的低维主动观测机制；未训练全知教师或额外策略模型，避免引入本轮未核查的教师信息动作与分布迁移问题。",
+          "url": "https://arxiv.org/abs/1705.07834",
+          "pdf_url": "https://arxiv.org/pdf/1705.07834",
+          "pdf_sha256": "be35cf18663553f91f6c56b53586b464ad5cba01b378853b6ce24ef06b0b24e0",
+          "pages": 14,
+          "source_level": "primary_author_paper",
+          "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+          "read_date": "2026-09-11",
+          "project_url": null,
+          "code_url": null,
+          "dataset_url": null,
+          "awards": "not_checked",
+          "classification_confidence": "medium",
+          "local_evidence": "research/1705.07834.txt (本地下载缓存，不入Git)",
+          "round_links": [],
+          "empirical_support": "没有实现或实验，不对本题改进作效果归因；仅承担竞争方案和未采用理由。"
+        },
+        {
+          "id": "L8",
+          "arxiv": "1703.09924",
+          "title": "Quantization and Stochastic Control of Trajectories of Underwater Vehicle in Bearings-only Tracking",
+          "authors": [
+            "Huilong Zhang",
+            "Dann Laneuville",
+            "Benoîte de Saporta",
+            "Adrien Nègre",
+            "François Dufour"
+          ],
+          "year": 2017,
+          "version": "v2, 2017-05-03；检索页标题与v2标题不同，按下载正文去重",
+          "tier": "extended",
+          "path": [
+            "多步规划",
+            "动态规划",
+            "状态量化与随机控制"
+          ],
+          "read": "正文 p.1 摘要与引言；后续量化算法/实验未深读。",
+          "problem": "水下被动声学跟踪中在检测目标和降低自身暴露之间规划路线。",
+          "mechanism": "有限时域MDP和量化离散化；未知目标状态通过Kalman型估计处理。",
+          "evidence": "仅核验摘要/引言的建模和计算维度问题，不作精度或速度比较。",
+          "limitations": "声传播、运动目标、自身暴露和Kalman假设与本题不同；状态量化会增加近似复杂性。",
+          "inspiration": "后验与可见性使完整随机规划维度迅速增加，局部短视预测需明确边界。",
+          "adoption": "未进入代码。",
+          "functions": [],
+          "not_used": "不为了框架完整性增加高维MDP；本轮需要清楚因果的局部策略比较。",
+          "url": "https://arxiv.org/abs/1703.09924",
+          "pdf_url": "https://arxiv.org/pdf/1703.09924",
+          "pdf_sha256": "2921cd3bab2f4c66d5615f739e66a27773ef53412747126d9f8df2b01c6de379",
+          "pages": 11,
+          "source_level": "primary_author_paper",
+          "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+          "read_date": "2026-09-11",
+          "project_url": null,
+          "code_url": null,
+          "dataset_url": null,
+          "awards": "not_checked",
+          "classification_confidence": "medium",
+          "local_evidence": "research/1703.09924.txt (本地下载缓存，不入Git)",
+          "round_links": [],
+          "empirical_support": "没有实现或实验，不对本题改进作效果归因；仅承担竞争方案和未采用理由。"
+        },
+        {
+          "id": "L9",
+          "arxiv": "2009.07308",
+          "title": "Bearing-Only Navigation with Field of View Constraints",
+          "authors": [
+            "Arman Karimian",
+            "Roberto Tron"
+          ],
+          "year": 2020,
+          "version": "v2, 2020-12-30",
+          "tier": "extended",
+          "path": [
+            "可见性约束",
+            "几何控制",
+            "保持地标FOV的向量场"
+          ],
+          "read": "正文 p.1 摘要与引言；稳定性证明/控制器公式未深读。",
+          "problem": "只凭地标方位并受相机视野限制的视觉归航。",
+          "mechanism": "沿以地标为焦点椭球的切/法向向量场，用方位均值与夹角调节距离并保持FOV。",
+          "evidence": "只核验问题与机制摘要，不声称已验证其稳定性界。",
+          "limitations": "已知归航目标方位、多地标观测的FOV约束，与未知源朝向的半圆发射区域不是同一种观测约束。",
+          "inspiration": "高信息的测点若观测不可见，预期价值就不存在。",
+          "adoption": "概念提醒进入r2的不可见分支；未实现论文向量场。",
+          "functions": [
+            "Solver.second_point"
+          ],
+          "not_used": "不能把相机视场约束公式直接套到发射半平面。",
+          "url": "https://arxiv.org/abs/2009.07308",
+          "pdf_url": "https://arxiv.org/pdf/2009.07308",
+          "pdf_sha256": "9006a024025a9cf0d6109811641518f618958d6b53d9d9f1ae0ccc3b36998563",
+          "pages": 7,
+          "source_level": "primary_author_paper",
+          "identity_verified": "题名/作者/版本核验下载正文；未独立核验正式录用身份",
+          "read_date": "2026-09-11",
+          "project_url": null,
+          "code_url": null,
+          "dataset_url": null,
+          "awards": "not_checked",
+          "classification_confidence": "medium",
+          "local_evidence": "research/2009.07308.txt (本地下载缓存，不入Git)",
+          "round_links": [
+            {
+              "round": 2,
+              "candidate": "candidates/r2_solver.py",
+              "results": "../../results/A2_information_r2_full"
+            }
+          ],
+          "empirical_support": "仅概念提醒进入R2；Q4从578.96236624降为574.81712193，但仍慢于570.88337144基准，因此R3禁用Q4该规划器。没有复现论文控制器。"
+        }
+      ],
+      "clean_continuation_note": "R10由干净上下文只读取A2自身代码与已有研究记录后设计；没有新增论文下载或新增全文阅读声明。下列范围是A2路线累计真实阅读范围。"
+    }
+  },
+  {
+    "agent": "A3_coordination",
+    "source_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A3_coordination/experiments/A3_coordination/literature.json",
+    "records": {
+      "cutoff": "2026-09-11",
+      "scope": "多源多频道搜索定位清除；经典至2026-09-11；非完整领域收录",
+      "core_count": 5,
+      "extended_count": 5,
+      "search_channels": [
+        "web搜索（两次连接失败）",
+        "arXiv API关键词检索与ID核验",
+        "Crossref API发现（未作为核心方法证据）"
+      ],
+      "queries": [
+        "informative path planning multiple target localization bearing only robot routing submodular paper",
+        "robotic search multiple targets routing sensor scheduling bearing only multitarget localization paper",
+        "adaptive submodularity active learning stochastic optimization Golovin Krause paper",
+        "all:informative AND all:path AND all:planning",
+        "all:adaptive AND all:submodularity",
+        "all:bearing AND all:localization AND all:multiple",
+        "all:traveling AND all:salesman AND all:neighborhoods",
+        "all:informative AND all:path AND au:Hollinger",
+        "all:informative AND all:planning AND au:Binney"
+      ],
+      "access_failures": [
+        "web search连接失败；改用curl --noproxy直连arXiv API/PDF",
+        "Hollinger/Binney作者关键词查询返回0条，不代表无此类工作"
+      ],
+      "dedup": "arXiv稳定编号去重，保留读取版本",
+      "items": [
+        {
+          "id": "1003.3967",
+          "title": "Adaptive Submodularity: Theory and Applications in Active Learning and Stochastic Optimization",
+          "authors": [
+            "Daniel Golovin",
+            "Andreas Krause"
+          ],
+          "year": 2010,
+          "version": "1003.3967v5",
+          "url": "https://arxiv.org/abs/1003.3967v5",
+          "pdf_url": "https://arxiv.org/pdf/1003.3967v5",
+          "status": "arXiv作者原文；本报告不据此宣称会议录用",
+          "award": "未核验/不主张",
+          "tier": "core",
+          "read_range": "4–7、10–11页；§2、§3定义，Algorithm 1/2，Theorem 5；未阅读全部60页附录",
+          "classification": "自适应决策/期望边际收益/自适应贪心",
+          "mechanism": "以观测历史为条件重新计算动作边际收益，满足自适应单调和自适应次模时才有贪心近似保证。",
+          "inspiration": "每得到一个频道的新方位后，重新判断其他频道是否还值得测，而不预先固定重复次数。",
+          "code_mapping": "share_observations：预测半径改善筛选，仅借鉴思想，未实现贝叶斯期望或论文算法。",
+          "not_adopted_reason": "本题方位观测可能互补，移动成本依赖历史，未证明自适应次模；绝不宣称1−1/e保证。",
+          "evidence_and_limits": "正文证明在明确概率与次模假设下的保证；非本题实验。",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "classification_confidence": "high",
+          "adopted_rounds": [
+            1,
+            2
+          ],
+          "final_code_functions": [
+            "Solver.share_observations",
+            "Solver.measure",
+            "Solver.localize"
+          ],
+          "implementation_level": "思想迁移+自创启发式；非完整论文算法"
+        },
+        {
+          "id": "2003.09746",
+          "title": "Adaptive Informative Path Planning with Multimodal Sensing",
+          "authors": [
+            "Shushman Choudhury",
+            "Nate Gruver",
+            "Mykel J. Kochenderfer"
+          ],
+          "year": 2020,
+          "version": "2003.09746v1",
+          "url": "https://arxiv.org/abs/2003.09746v1",
+          "pdf_url": "https://arxiv.org/pdf/2003.09746v1",
+          "status": "arXiv作者原文；本报告不据此宣称会议录用",
+          "award": "未核验/不主张",
+          "tier": "core",
+          "read_range": "1、3–8页；§4.1/4.2，Algorithm 1，§5两实验域与表1/2，§6",
+          "classification": "联合决策/POMDP/成本收益rollout",
+          "mechanism": "将移动与选择传感器放入同一动作空间，用可行性剪枝与GCB rollout改进POMCP。",
+          "inspiration": "本题换频道检测有6秒成本，已付的移动费应被多个频道共同利用；观测并非天然免费。",
+          "code_mapping": "share_observations：无新增移动的跨频道检测；用半径减少代理信息价值，未实现POMCP。",
+          "not_adopted_reason": "隐藏状态与噪声先验在官方环境未知；完整POMCP开销及模型偏差不合适本轮。",
+          "evidence_and_limits": "搜索救援与ISRS两模拟域支持联合决策；计算约6秒/步，论文表2与正文试验数描述有30/50差异，不将其数值迁移到本题。",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "classification_confidence": "high",
+          "adopted_rounds": [
+            1,
+            2
+          ],
+          "final_code_functions": [
+            "Solver.share_observations",
+            "Solver.measure",
+            "Solver.localize"
+          ],
+          "implementation_level": "思想迁移+自创启发式；非完整论文算法"
+        },
+        {
+          "id": "2410.13081",
+          "title": "GyroCopter: Differential Bearing Measuring Trajectory Planner for Tracking and Localizing Radio Frequency Sources",
+          "authors": [
+            "Fei Chen",
+            "S. Hamid Rezatofighi",
+            "Damith C. Ranasinghe"
+          ],
+          "year": 2024,
+          "version": "2410.13081v1",
+          "url": "https://arxiv.org/abs/2410.13081v1",
+          "pdf_url": "https://arxiv.org/pdf/2410.13081v1",
+          "status": "arXiv作者原文；本报告不据此宣称会议录用",
+          "award": "未核验/不主张",
+          "tier": "core",
+          "read_range": "1、3–8页；§III观测/滤波/FIM/路径规划Algorithm 1，§IV模拟与外场，表I/II",
+          "classification": "多源RF/任务驱动/最近目标与持续更新",
+          "mechanism": "差分RSSI获得伪方位，粒子滤波并行跟踪多个源；最近源任务规划配合移动中持续获得信息。",
+          "inspiration": "即使移动只为一个目标服务，其他源的状态仍可同时更新；但本题单频道需逐个付费。",
+          "code_mapping": "share_observations与后续每次定位停靠点补测；不改信号模型、无硬件旋转。",
+          "not_adopted_reason": "本题接口不提供RSSI或天线旋转；源静态且误差有界，因此不复制伪方位/粒子滤波。",
+          "evidence_and_limits": "模拟与外场证据；正文15次飞行拆分11+5，表II为10+5，存在计数不一致，故不使用其试验量作强证据。",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "classification_confidence": "high",
+          "adopted_rounds": [
+            1,
+            2
+          ],
+          "final_code_functions": [
+            "Solver.share_observations",
+            "Solver.measure",
+            "Solver.localize"
+          ],
+          "implementation_level": "思想迁移+自创启发式；非完整论文算法"
+        },
+        {
+          "id": "2402.08841",
+          "title": "Approximate Sequential Optimization for Informative Path Planning",
+          "authors": [
+            "Joshua Ott",
+            "Mykel J. Kochenderfer",
+            "Stephen Boyd"
+          ],
+          "year": 2024,
+          "version": "2402.08841v2",
+          "url": "https://arxiv.org/abs/2402.08841v2",
+          "pdf_url": "https://arxiv.org/pdf/2402.08841v2",
+          "status": "arXiv作者原文；本报告不据此宣称会议录用",
+          "award": "未核验/不主张",
+          "tier": "core",
+          "read_range": "1、5–8、11–12、16页；顺序重规划说明，§5.1–5.4，§6.1/6.5–6.8，附录B开头",
+          "classification": "路径与观测/顺序近似/重规划",
+          "mechanism": "用节点代理收益把信息路径分段解为orienteering；执行首段后更新；扩展包含多传感器分配和多Agent共享测量。",
+          "inspiration": "观测改变后续价值；先固定已付移动产生的停靠点，再在这些点分配频道检测预算。",
+          "code_mapping": "share_observations：每次调用基于当前多边形重估；只是设计启发。",
+          "not_adopted_reason": "论文核心是线性高斯与图路径，本题为有界方位误差、定向截断；未实现凸松弛或DP。",
+          "evidence_and_limits": "网格与GP设置，有120秒算法预算，多种目标分别比较；与本地秒/源不能直接比。",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "classification_confidence": "high",
+          "adopted_rounds": [
+            1,
+            2
+          ],
+          "experimental_not_selected_rounds": [
+            3
+          ],
+          "final_code_functions": [
+            "Solver.share_observations"
+          ],
+          "implementation_level": "R1/R2复用访问点的结构启发；R3左右测点共享价值方案未改善并未采用"
+        },
+        {
+          "id": "1305.6129",
+          "title": "Information-Theoretic Approach to Efficient Adaptive Path Planning for Mobile Robotic Environmental Sensing",
+          "authors": [
+            "Kian Hsiang Low",
+            "John M. Dolan",
+            "Pradeep Khosla"
+          ],
+          "year": 2013,
+          "version": "1305.6129v1",
+          "url": "https://arxiv.org/abs/1305.6129v1",
+          "pdf_url": "https://arxiv.org/pdf/1305.6129v1",
+          "status": "arXiv作者原文；本报告不据此宣称会议录用",
+          "award": "未核验/不主张",
+          "tier": "extended",
+          "read_range": "arXiv作者摘要与元数据",
+          "classification": "联合决策/环境场/自适应熵",
+          "mechanism": "以信息论改写多机器人自适应采样，研究适应性何时有益。",
+          "inspiration": "不要想当然把任意跨目标观测称为有收益。",
+          "code_mapping": "未实现",
+          "not_adopted_reason": "本题源频道独立身份且无已知GP场，不拟合连续环境场。",
+          "evidence_and_limits": "仅摘要发现。",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "classification_confidence": "medium",
+          "adopted_rounds": [],
+          "final_code_functions": [],
+          "implementation_level": "未实现，作为竞争方向和边界分析"
+        },
+        {
+          "id": "1809.07159",
+          "title": "Improved Bounds for the Traveling Salesman Problem with Neighborhoods on Uniform Disks",
+          "authors": [
+            "Ioana O. Bercea"
+          ],
+          "year": 2018,
+          "version": "1809.07159v1",
+          "url": "https://arxiv.org/abs/1809.07159v1",
+          "pdf_url": "https://arxiv.org/pdf/1809.07159v1",
+          "status": "arXiv作者原文；本报告不据此宣称会议录用",
+          "award": "未核验/不主张",
+          "tier": "extended",
+          "read_range": "arXiv作者摘要与元数据",
+          "classification": "多目标路径/区域服务/均匀圆近似界",
+          "mechanism": "分析访问圆邻域与访问圆心的绕行差别。",
+          "inspiration": "服务区域比服务中心更适合清除半径，但未知源难直接用。",
+          "code_mapping": "未实现",
+          "not_adopted_reason": "均匀圆假设与真实接收半径未知不同。",
+          "evidence_and_limits": "仅摘要发现，不将近似界用于本题。",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "classification_confidence": "medium",
+          "adopted_rounds": [],
+          "final_code_functions": [],
+          "implementation_level": "未实现，作为竞争方向和边界分析"
+        },
+        {
+          "id": "1904.10748",
+          "title": "Beyond Adaptive Submodularity: Approximation Guarantees of Greedy Policy with Adaptive Submodularity Ratio",
+          "authors": [
+            "Kaito Fujii",
+            "Shinsaku Sakaue"
+          ],
+          "year": 2019,
+          "version": "1904.10748v1",
+          "url": "https://arxiv.org/abs/1904.10748v1",
+          "pdf_url": "https://arxiv.org/pdf/1904.10748v1",
+          "status": "arXiv作者原文；本报告不据此宣称会议录用",
+          "award": "未核验/不主张",
+          "tier": "extended",
+          "read_range": "arXiv作者摘要与元数据",
+          "classification": "自适应决策/非次模/次模比",
+          "mechanism": "通过自适应次模比拓展贪心保证范围。",
+          "inspiration": "提醒不应仅凭经验效果宣称有次模保证。",
+          "code_mapping": "未实现",
+          "not_adopted_reason": "尚未推导本题次模比，不据摘要作理论迁移。",
+          "evidence_and_limits": "仅摘要发现，不将作者结果作为深读结论。",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "classification_confidence": "medium",
+          "adopted_rounds": [],
+          "final_code_functions": [],
+          "implementation_level": "未实现，作为竞争方向和边界分析"
+        },
+        {
+          "id": "2003.06712",
+          "title": "Robot Path Planning by Traveling Salesman Problem with Circle Neighborhood: modeling, algorithm, and applications",
+          "authors": [
+            "Arman Nedjati",
+            "Béla Vizvári"
+          ],
+          "year": 2020,
+          "version": "2003.06712v1",
+          "url": "https://arxiv.org/abs/2003.06712v1",
+          "pdf_url": "https://arxiv.org/pdf/2003.06712v1",
+          "status": "arXiv作者原文；本报告不据此宣称会议录用",
+          "award": "未核验/不主张",
+          "tier": "core",
+          "read_range": "1–3、6–8、10–11页；§2.1、两阶段T1/T2、§3、§4",
+          "classification": "多目标路径/区域服务/TSP圆邻域",
+          "mechanism": "先离散区域访问顺序，再优化区域内部访问点。",
+          "inspiration": "同一坐标可能服务多个目标；要从到源中心转向满足服务条件的区域。",
+          "code_mapping": "第一轮不引入新路由；现有clear_standoff已覆盖部分思想，保留为竞争路线。",
+          "not_adopted_reason": "论文已知所有圆的位置且求解器耗时高；本题未知位置、区域逐步变化，直接静态TSP不合适。",
+          "evidence_and_limits": "论文12/20圆实例分别报告500/2400秒，非同平台比较；不能据此宣称算法优劣。",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "classification_confidence": "high",
+          "adopted_rounds": [],
+          "final_code_functions": [],
+          "implementation_level": "未实现，作为竞争方向和边界分析"
+        },
+        {
+          "id": "2203.12830",
+          "title": "TIGRIS: An Informed Sampling-based Algorithm for Informative Path Planning",
+          "authors": [
+            "Brady Moon",
+            "Satrajit Chatterjee",
+            "Sebastian Scherer"
+          ],
+          "year": 2022,
+          "version": "2203.12830v2",
+          "url": "https://arxiv.org/abs/2203.12830v2",
+          "pdf_url": "https://arxiv.org/pdf/2203.12830v2",
+          "status": "arXiv作者原文；本报告不据此宣称会议录用",
+          "award": "未核验/不主张",
+          "tier": "extended",
+          "read_range": "arXiv作者摘要与元数据",
+          "classification": "路径与观测/连续空间/边信息采样",
+          "mechanism": "采样规划将边上的信息收益纳入评估。",
+          "inspiration": "信息可能在移动途中产生；本题需要显式停靠检测，不能免费读取整条边。",
+          "code_mapping": "未实现",
+          "not_adopted_reason": "当前无车辆转弯与障碍约束，不引入高维采样框架。",
+          "evidence_and_limits": "仅摘要发现，不采用摘要中的提升数字。",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "classification_confidence": "medium",
+          "adopted_rounds": [],
+          "final_code_functions": [],
+          "implementation_level": "未实现，作为竞争方向和边界分析"
+        },
+        {
+          "id": "2410.17166",
+          "title": "Towards Map-Agnostic Policies for Adaptive Informative Path Planning",
+          "authors": [
+            "Julius Rückin",
+            "David Morilla-Cabello",
+            "Cyrill Stachniss",
+            "Eduardo Montijano",
+            "Marija Popović"
+          ],
+          "year": 2024,
+          "version": "2410.17166v2",
+          "url": "https://arxiv.org/abs/2410.17166v2",
+          "pdf_url": "https://arxiv.org/pdf/2410.17166v2",
+          "status": "arXiv作者原文；本报告不据此宣称会议录用",
+          "award": "未核验/不主张",
+          "tier": "extended",
+          "read_range": "arXiv作者摘要与元数据",
+          "classification": "学习策略/表示泛化/跨地图策略",
+          "mechanism": "统一不同地图表示以训练可迁移的信息采集策略。",
+          "inspiration": "策略若依赖开发集空间分布，官方转移可能失效。",
+          "code_mapping": "未实现",
+          "not_adopted_reason": "本路线聚焦跨频道协同，学习路线由其他独立Agent负责；未共享策略。",
+          "evidence_and_limits": "仅摘要发现。",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "classification_confidence": "medium",
+          "adopted_rounds": [],
+          "final_code_functions": [],
+          "implementation_level": "未实现，作为竞争方向和边界分析"
+        }
+      ]
+    }
+  },
+  {
+    "agent": "A4_directional",
+    "source_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A4_directional/experiments/A4_directional/literature.json",
+    "records": {
+      "research_cutoff": "2026-09-11",
+      "primary_sources": 10,
+      "core_count": 4,
+      "extended_count": 6,
+      "search_queries": [
+        "all:directional AND all:coverage",
+        "robot target search negative information visibility detection probability active perception",
+        "bearing only target localization bounded error set membership active sensing directional sensor negative information",
+        "directional sensor coverage half disk target search sensor placement unknown orientation",
+        "all:\"bearing-only\" AND all:\"localization\"",
+        "all:\"negative information\" AND all:robot",
+        "all:\"set membership\" AND all:\"localization\"",
+        "all:\"visibility\" AND all:\"active perception\"",
+        "all:\"informative path planning\"",
+        "ti:search AND all:\"negative\"",
+        "ti:\"bearing\" AND all:\"sensor placement\"",
+        "ti:\"coverage\" AND all:\"directional sensors\"",
+        "ti:\"active\" AND ti:\"search\" AND all:\"Bayesian\""
+      ],
+      "retrieval_notes": [
+        "web__run连接失败一次，未返回搜索结果；改用arXiv API与PDF直连。",
+        "保留逐查询XML和结构化元数据在本地research缓存；下载本身不算阅读。",
+        "未检索全部数据库，未宣称覆盖全部文献或SOTA；同论文arXiv版本去重。",
+        "前三条自然语言查询属于失败的web搜索，all:directional AND all:coverage为最初成功的arXiv API连通性/宽检索查询；其余为保存XML的正式查询。"
+      ],
+      "sources": [
+        {
+          "id": "2011.10474v2",
+          "title": "Probabilistic Radio-Visual Active Sensing for Search and Tracking",
+          "authors": [
+            "L. Varotto",
+            "A. Cenedese",
+            "A. Cavallaro"
+          ],
+          "year": 2020,
+          "published": "2020-11-20T16:09:51Z",
+          "version": "2",
+          "status": "arXiv原文核验；正式出版状态除特别注明者外未独立核验",
+          "url": "https://arxiv.org/abs/2011.10474v2",
+          "pdf_url": "https://arxiv.org/pdf/2011.10474v2",
+          "source_level": "primary",
+          "collection": "core",
+          "actual_reading_scope": "正文PDF第1–3页；第5–6页数值实验、表I与结论；第4页只读部分定理，不声称完整校验全部证明。",
+          "primary_classification": "状态建模/可见性与无检测似然/多模态粒子贝叶斯",
+          "secondary_tags": [],
+          "problem": "带无线电接收机和云台相机的UAV搜寻并跟踪发射目标；方向性相机和低精度RSSI互补。",
+          "method": "用粒子滤波递归贝叶斯更新位置分布；公式15区分FoV内外、检测/未检测。未检测在FoV内的似然为1−检测概率，FoV外为1；RF与视觉似然相乘。控制平台位置和云台姿态。",
+          "evidence": "作者Python合成环境150次、每次100迭代；表I给出RF+V 77%、RF 55%、V 26%、2RF 64%检测成功率。位置/云台固定消融39%和29%。这是移动目标检测比例，不是本题全清时间。",
+          "limitations": "RF假设目标总在接收范围，使用可得RSSI、高斯噪声和移动目标模型；本题只给有界示向度，方向性在发射端，不能照搬似然数值。控制代价自己承认纯利用、不显式节能。",
+          "inspiration": "有/无信号都更新位置、发射方向、接收半径联合假设；不能把无信号直接改成位置排除。RF与光学各有边界，应成本敏感切换。",
+          "implementation": [
+            {
+              "round": "R1",
+              "functions": [
+                "visibility_hypotheses",
+                "predicted_visibility",
+                "second_point",
+                "rescue_bearing"
+              ],
+              "role": "原创简化迁移：离散位置/方向与解析半径积分，仅排序，不复现论文运动粒子模型"
+            },
+            {
+              "round": "R2–R3",
+              "functions": [
+                "rescue_bearing",
+                "optical_points",
+                "optical_route"
+              ],
+              "role": "RF/光学互补启发；R2提前有限光学覆盖，R3由位置假设选择完整路线，均已完成开发与full"
+            },
+            {
+              "round": "R4",
+              "functions": [
+                "visibility_hypotheses",
+                "clear"
+              ],
+              "role": "失败clear只更新离散位置权重的自拟消融；full退步，最终未采用"
+            },
+            {
+              "round": "R6",
+              "functions": [
+                "rescue_bearing"
+              ],
+              "role": "用同一可见性估计门控自拟镜像点；小幅full改善但三个场景退步"
+            },
+            {
+              "round": "R7",
+              "functions": [
+                "expected_optical_time",
+                "rescue_bearing"
+              ],
+              "role": "近似RF/光学成本切换；full退步，最终未采用"
+            }
+          ],
+          "code_url": null,
+          "query": "ti:\"active\" AND ti:\"search\" AND all:\"Bayesian\"",
+          "access_date": "2026-09-11",
+          "classification_confidence": "high",
+          "experimental_support": "R1 Q4较原版改善0.32064%，但5/12场景退步；R2、R3改善，R4、R7失败，R6仅小幅均值改善。支持本地排序/模态互补的用途，不证明论文似然在本题校准，也不把逐轮组合差异归因于单一论文。"
+        },
+        {
+          "id": "2209.07660v1",
+          "title": "Sequential Bayesian Optimization for Adaptive Informative Path Planning with Multimodal Sensing",
+          "authors": [
+            "Joshua Ott",
+            "Edward Balaban",
+            "Mykel J. Kochenderfer"
+          ],
+          "year": 2022,
+          "published": "2022-09-16T00:50:36Z",
+          "version": "1",
+          "status": "arXiv原文核验；正式出版状态除特别注明者外未独立核验",
+          "url": "https://arxiv.org/abs/2209.07660v1",
+          "pdf_url": "https://arxiv.org/pdf/2209.07660v1",
+          "source_level": "primary",
+          "collection": "core",
+          "actual_reading_scope": "PDF第1–5页，§III–IV、算法1、ISRS表I与p=1退步说明；第5页Rover设置；未完整阅读第6–8页。",
+          "primary_classification": "决策规划/多模态动作成本/信念MDP与在线树搜索",
+          "secondary_tags": [],
+          "problem": "未知环境中有不同成本/精度传感器，移动和检测共同消耗预算；仅规划移动不够。",
+          "method": "GP表示环境信念；belief MDP奖励组合任务奖励与近似互信息（协方差迹下降），MCTS-DPW处理连续信念并剪除预算不可行动作。",
+          "evidence": "ISRS每格报告50次模拟，比较POMCP、POMCP-GCB、POMCPOW-GCB。原文明确p=1全部好岩石时额外感知反而不如贪心；坏岩石惩罚−10，与前作协议不同。",
+          "limitations": "知道岩石坐标、GP空间相关与高斯噪声；互信息不是清除时间。原文负结果说明更多信息可能浪费行动成本，不能照搬总奖励。",
+          "inspiration": "选择一次RF恢复或一段有限光学覆盖，比较真实移动/5+动作耗时；不无限追求定位信息。",
+          "implementation": [
+            {
+              "round": "R1",
+              "functions": [
+                "rescue_bearing"
+              ],
+              "role": "移动/检测成本除以预测可见概率的自拟近似排序；未复现MCTS"
+            },
+            {
+              "round": "R2–R3",
+              "functions": [
+                "rescue_bearing",
+                "optical_route"
+              ],
+              "role": "以任务成本选择光学搜索及两条完整路线；成本模型为自己的实现"
+            },
+            {
+              "round": "R6",
+              "functions": [
+                "rescue_bearing"
+              ],
+              "role": "以预测成本门控镜像一次恢复；自拟有限动作选择"
+            },
+            {
+              "round": "R7",
+              "functions": [
+                "expected_optical_time",
+                "rescue_bearing"
+              ],
+              "role": "显式RF/光学预计成本比较消融；full退步，不纳入R6"
+            },
+            {
+              "round": "R8",
+              "functions": [
+                "rescue_bearing"
+              ],
+              "role": "用移动/检测成本决定是否进入已可见点连线；凸性方案自己的推导，full退步"
+            }
+          ],
+          "code_url": "https://github.com/sisl/SBO_AIPPMS",
+          "query": "all:\"informative path planning\"",
+          "access_date": "2026-09-11",
+          "classification_confidence": "high",
+          "experimental_support": "成本要与信息共同考虑的原则得到实现，但复杂成本近似R7和保证可见的R8均失败；不能声称更复杂规划必然更快。R2对照含snake端点变化，非单变量因果消融。"
+        },
+        {
+          "id": "2603.04867v1",
+          "title": "Set-Membership Localization via Range Measurements",
+          "authors": [
+            "Giuseppe C. Calafiore"
+          ],
+          "year": 2026,
+          "published": "2026-03-05T06:43:43Z",
+          "version": "1",
+          "status": "arXiv原文核验；正式出版状态除特别注明者外未独立核验",
+          "url": "https://arxiv.org/abs/2603.04867v1",
+          "pdf_url": "https://arxiv.org/pdf/2603.04867v1",
+          "source_level": "primary",
+          "collection": "core",
+          "actual_reading_scope": "PDF第1–3页；§3.1–3.3第7–10页；§5.1及5.1.1第14–15页；§7第19–20页实验设置。抽取含OCR错字，未完整核验SDP公式及全部证明。",
+          "primary_classification": "可靠性保证/集合成员/保守外包区域",
+          "secondary_tags": [],
+          "problem": "从未知但有界误差的距离测量，求保证包含目标的位置集合，而非仅点估计。",
+          "method": "平方距离方程两两相减消去二次项，构造差分多面体，再与距离球相交形成凸外包；SOCP求方向极值/包围盒，SDP求包围椭球。",
+          "evidence": "论文正文自述已被SIAM Journal on Optimization接受，未独立确认最终卷期；二维/三维、3–10锚点、每配置100随机实验、三档相对误差，CVX/Mosek；正文明确未给外包紧度形式保证。",
+          "limitations": "观测为距离非示向度，直接移植差分方程不合法；概率近似和内接椭球不保证包住真值。",
+          "inspiration": "保留全部有界测向多边形作为确定性证据；离散可见性模型永不裁掉这个多边形；小多边形可用保守光学格点覆盖。",
+          "implementation": [
+            {
+              "round": "R1–R8",
+              "functions": [
+                "add_bearing",
+                "cover_polygon",
+                "run"
+              ],
+              "role": "基准已有有界误差外包/覆盖/停止证据，全部保留；未移植论文距离差分或SDP"
+            },
+            {
+              "round": "R2–R3",
+              "functions": [
+                "optical_points",
+                "optical_route"
+              ],
+              "role": "在小集合内提前覆盖并重排；完整性由本题网格距离证明"
+            },
+            {
+              "round": "R5、R8",
+              "functions": [
+                "rescue_bearing"
+              ],
+              "role": "接收圆盘/半圆的凸性是本题直接数学推导；受集合思维启发，不是这篇论文提出的恢复算法"
+            }
+          ],
+          "code_url": null,
+          "query": "all:\"set membership\" AND all:\"localization\"",
+          "access_date": "2026-09-11",
+          "classification_confidence": "high",
+          "experimental_support": "八轮所有本地回归全清且原几何证书保留；R5改善、R8退步，说明正确几何性质不必然带来效率提升。有限样本不替代可靠性证明。"
+        },
+        {
+          "id": "2606.09188v1",
+          "title": "Trajectory Optimization in Single and Dual-UAV Bearing-Only Target Localization",
+          "authors": [
+            "Zhijian Xiao",
+            "Huayu Huang",
+            "Bin Li",
+            "Yang Shang",
+            "Banglei Guan"
+          ],
+          "year": 2026,
+          "published": "2026-06-08T08:23:32Z",
+          "version": "1",
+          "status": "arXiv原文核验；正式出版状态除特别注明者外未独立核验",
+          "url": "https://arxiv.org/abs/2606.09188v1",
+          "pdf_url": "https://arxiv.org/pdf/2606.09188v1",
+          "source_level": "primary",
+          "collection": "core",
+          "actual_reading_scope": "PDF第1–5页内导言、§3.1–3.2 FIM/logdet机制段落；§4.1第9–10页与表2；§5第13–15页。未逐页通读整篇，未深读§3.3–3.4优化器细节与双机全部图表。",
+          "primary_classification": "观测几何/主动测向/信息矩阵与轨迹优化",
+          "secondary_tags": [],
+          "problem": "单/双UAV对移动目标bearing-only定位，退化交会导致误差大。",
+          "method": "以FIM评价几何，把det改成logdet，另加双机交会角正弦；改进PSO加入运动约束和粒子归一化。原文承认log是单调变换，不改变正定域内最优点。",
+          "evidence": "单UAV100次Monte Carlo；表2中D+PSO中位误差587.97m，S+PSO587.82m，D+IPSO4.94m，S+IPSO4.63m。大部分增益来自改进优化器，不能把99.21%归因于FIM换式。",
+          "limitations": "三维移动目标、高斯观测/姿态噪声、10Hz连贯观测；本题二维固定源、行动间不能测、同址误差固定。初始观测不足与突变运动均可能不收敛。",
+          "inspiration": "候选应保持交会几何；只移动到更可见的同侧并不必然缩小范围，因此不取消横向baseline。消融必须分开，不能只报组合最好。",
+          "implementation": [
+            {
+              "round": "R1",
+              "functions": [
+                "second_point"
+              ],
+              "role": "保留原±横向点，只用可见性改变左右选择；未复现FIM/PSO"
+            },
+            {
+              "round": "R5–R8",
+              "functions": [
+                "rescue_bearing"
+              ],
+              "role": "交会几何只作设计警示；折返/镜像/凸包点均是自己的启发式，未复现其FIM或PSO"
+            }
+          ],
+          "code_url": null,
+          "query": "all:\"bearing-only\" AND all:\"localization\"",
+          "access_date": "2026-09-11",
+          "classification_confidence": "high",
+          "experimental_support": "R1改变第二点左右选择但保留横向基线；R8保证可见而full退步，符合信息几何不能只看可见性的警示。未做本题FIM/PSO对照，不把该现象当作论文机制的因果验证。"
+        },
+        {
+          "id": "2203.12830v2",
+          "title": "TIGRIS: An Informed Sampling-based Algorithm for Informative Path Planning",
+          "authors": [
+            "Brady Moon",
+            "Satrajit Chatterjee",
+            "Sebastian Scherer"
+          ],
+          "year": 2022,
+          "published": "2022-03-24T03:29:15Z",
+          "version": "2",
+          "status": "arXiv原文核验；正式出版状态除特别注明者外未独立核验",
+          "url": "https://arxiv.org/abs/2203.12830v2",
+          "pdf_url": "https://arxiv.org/pdf/2203.12830v2",
+          "source_level": "primary",
+          "collection": "extended",
+          "actual_reading_scope": "PDF第1–2页导言、贡献和相关工作；未深读算法与实验。",
+          "primary_classification": "决策规划/连续空间规划/信息引导采样树",
+          "secondary_tags": [],
+          "problem": "大空间、高维运动约束下预算有限的信息路径规划。",
+          "method": "TIGRIS优先采样高信息子空间，奖励计入边的信息；固定翼前向相机案例。",
+          "evidence": "摘要声称较采样基线18.0%，本报告未核验该数值完整实验，不用于本题改善推断。",
+          "limitations": "连续飞行边上可获得信息，本题移动中不能检测；树复杂度与已有22点覆盖相比收益不明。",
+          "inspiration": "将回程/后续访问成本考虑入动作，但停止检测点才有观测。",
+          "implementation": [
+            {
+              "round": null,
+              "functions": [],
+              "role": "未采用全局采样树；本路线可见性问题更直接，且边观测假设不符"
+            }
+          ],
+          "code_url": "https://github.com/castacks/tigris",
+          "query": "all:\"informative path planning\"",
+          "access_date": "2026-09-11",
+          "classification_confidence": "high",
+          "experimental_support": "未实现对应论文算法，因此没有本题实验支持；未采用理由见implementation与limitations。"
+        },
+        {
+          "id": "1206.6406v1",
+          "title": "Bayesian Optimal Active Search and Surveying",
+          "authors": [
+            "Roman Garnett",
+            "Yamuna Krishnamurthy",
+            "Xuehan Xiong",
+            "Jeff Schneider",
+            "Richard Mann"
+          ],
+          "year": 2012,
+          "published": "2012-06-27T19:59:59Z",
+          "version": "1",
+          "status": "arXiv原文核验；正式出版状态除特别注明者外未独立核验",
+          "url": "https://arxiv.org/abs/1206.6406v1",
+          "pdf_url": "https://arxiv.org/pdf/1206.6406v1",
+          "source_level": "primary",
+          "collection": "extended",
+          "actual_reading_scope": "PDF第1–2页任务定义与导言；仅浏览部分后续段落，不标为深读。",
+          "primary_classification": "目标定义/主动搜索/任务效用与非短视策略",
+          "secondary_tags": [],
+          "problem": "主动搜寻尽量多的正类对象，以及估计正类比例的surveying，区别于模型泛化误差。",
+          "method": "贝叶斯决策论定义任务效用；分析多步lookahead与针对特定分类器的精确剪枝。",
+          "evidence": "正文首页标注ICML2012；摘要/导言提出较少短视可以任意优于更短视策略，未完整审计证明。",
+          "limitations": "分类池数据非几何黑盒机器人，查询无本题移动时间，不能直接成为保证或运行成绩。",
+          "inspiration": "优化清除任务耗时而非定位均方误差或模型熵。",
+          "implementation": [
+            {
+              "round": "R1–R3",
+              "functions": [],
+              "role": "决策/评价原则采用；不复现分类器规划器"
+            }
+          ],
+          "code_url": null,
+          "query": "ti:\"active\" AND ti:\"search\" AND all:\"Bayesian\"",
+          "access_date": "2026-09-11",
+          "classification_confidence": "high",
+          "experimental_support": "只采用任务目标的概念性区分，没有单独算法消融，不能分配本题提升归因。"
+        },
+        {
+          "id": "2307.00696v1",
+          "title": "Discrete Army Ant Search Optimizer-Based Target Coverage Enhancement in Directional Sensor Networks",
+          "authors": [
+            "Yindi Yao",
+            "Qin Wen",
+            "Yanpeng Cui",
+            "Bozhan Zhao"
+          ],
+          "year": 2023,
+          "published": "2023-07-03T01:02:04Z",
+          "version": "1",
+          "status": "arXiv原文核验；正式出版状态除特别注明者外未独立核验",
+          "url": "https://arxiv.org/abs/2307.00696v1",
+          "pdf_url": "https://arxiv.org/pdf/2307.00696v1",
+          "source_level": "primary",
+          "collection": "extended",
+          "actual_reading_scope": "PDF第1页及第2页开头的系统模型；未深读后半优化器和实验。",
+          "primary_classification": "覆盖规划/方向调节/群智能离散优化",
+          "secondary_tags": [],
+          "problem": "给定目标和定向传感器位置，调整传感器方向提高覆盖率。",
+          "method": "离散army-ant群智能算法在有限可选扇区中调整方向。",
+          "evidence": "正文及arXiv元数据可核验IEEE Sensors Letters 6(4), 2022, DOI10.1109/LSENS.2022.3158274；2023上传arXiv。",
+          "limitations": "原文明确不讨论定位与路径；知道目标位置且可控制传感器方向，本题源方向不可控制且位置未知。",
+          "inspiration": "扇区几何要显式建模，但不能把本題发射方向当成可调决策变量。",
+          "implementation": [
+            {
+              "round": null,
+              "functions": [],
+              "role": "未采用：信息和控制权限不同"
+            }
+          ],
+          "code_url": null,
+          "query": "ti:\"coverage\" AND all:\"directional sensors\"",
+          "access_date": "2026-09-11",
+          "classification_confidence": "high",
+          "experimental_support": "未实现对应论文算法，因此没有本题实验支持；未采用理由见implementation与limitations。"
+        },
+        {
+          "id": "2605.11116v1",
+          "title": "Improving D-Optimal Sensor Placement for Bearing-Only Localization via Maximum-Entropy Reweighting",
+          "authors": [
+            "Raktim Bhattacharya"
+          ],
+          "year": 2026,
+          "published": "2026-05-11T18:26:12Z",
+          "version": "1",
+          "status": "arXiv原文核验；正式出版状态除特别注明者外未独立核验",
+          "url": "https://arxiv.org/abs/2605.11116v1",
+          "pdf_url": "https://arxiv.org/pdf/2605.11116v1",
+          "source_level": "primary",
+          "collection": "extended",
+          "actual_reading_scope": "PDF第1页摘要/导言；下载了全文但未读后续方法和实验证明。",
+          "primary_classification": "状态建模/分布重加权/最大熵与D最优设计",
+          "secondary_tags": [],
+          "problem": "多源bearing-only传感器放置前，粒子等权可能关注错误区域。",
+          "method": "KL最小重加权满足分布准确性约束，再按重加权FIM选传感器位置。",
+          "evidence": "摘要称两个噪声水平、多源模拟；本次没有核验完整表格，不引用提升数。",
+          "limitations": "准确性目标来源与本题未知源是否兼容未核验；不应以主观重加权删除真值可能性。",
+          "inspiration": "概率权重仅作调度参考，和确定性支持集合分离。",
+          "implementation": [
+            {
+              "round": null,
+              "functions": [],
+              "role": "未采用该重加权方法：所需准确性约束未建立"
+            }
+          ],
+          "code_url": null,
+          "query": "ti:\"bearing\" AND all:\"sensor placement\"",
+          "access_date": "2026-09-11",
+          "classification_confidence": "high",
+          "experimental_support": "未实现对应论文算法，因此没有本题实验支持；未采用理由见implementation与limitations。"
+        },
+        {
+          "id": "2010.13110v1",
+          "title": "Learning Multi-Agent Coordination for Enhancing Target Coverage in Directional Sensor Networks",
+          "authors": [
+            "Jing Xu",
+            "Fangwei Zhong",
+            "Yizhou Wang"
+          ],
+          "year": 2020,
+          "published": "2020-10-25T13:07:03Z",
+          "version": "1",
+          "status": "arXiv原文核验；正式出版状态除特别注明者外未独立核验",
+          "url": "https://arxiv.org/abs/2010.13110v1",
+          "pdf_url": "https://arxiv.org/pdf/2010.13110v1",
+          "source_level": "primary",
+          "collection": "extended",
+          "actual_reading_scope": "仅arXiv API元数据及作者摘要；未下载/阅读正文。",
+          "primary_classification": "覆盖规划/方向调节/多智能体强化学习",
+          "secondary_tags": [],
+          "problem": "定向传感器网络中学习协调以改善覆盖。",
+          "method": "摘要层面发现多智能体学习路线；不声称掌握全部机制。",
+          "evidence": "仅作者摘要，未验证实验。",
+          "limitations": "本题单机器人，训练与控制对象不同；本路线无训练模型。",
+          "inspiration": "学习可作后续竞争路线，但本次以可解释几何模型为主。",
+          "implementation": [
+            {
+              "round": null,
+              "functions": [],
+              "role": "未采用：需额外训练分布与保证设计，保留扩展入口"
+            }
+          ],
+          "code_url": null,
+          "query": "ti:\"coverage\" AND all:\"directional sensors\"",
+          "access_date": "2026-09-11",
+          "classification_confidence": "high",
+          "experimental_support": "未实现对应论文算法，因此没有本题实验支持；未采用理由见implementation与limitations。"
+        },
+        {
+          "id": "1512.07332v1",
+          "title": "On Balanced k-coverage in Visual Sensor Network",
+          "authors": [
+            "Md. Muntakim Sadik",
+            "Sakib Md. Bin Malek",
+            "Ashikur Rahman"
+          ],
+          "year": 2015,
+          "published": "2015-12-23T02:08:45Z",
+          "version": "1",
+          "status": "arXiv原文核验；正式出版状态除特别注明者外未独立核验",
+          "url": "https://arxiv.org/abs/1512.07332v1",
+          "pdf_url": "https://arxiv.org/pdf/1512.07332v1",
+          "source_level": "primary",
+          "collection": "extended",
+          "actual_reading_scope": "仅arXiv API元数据及作者摘要；未下载/阅读正文。",
+          "primary_classification": "覆盖规划/重复可见性/平衡k覆盖",
+          "secondary_tags": [],
+          "problem": "视觉传感器网络中的平衡重复覆盖。",
+          "method": "在方向受限条件下分配覆盖次数，详机制未核验。",
+          "evidence": "摘要发现，未引用论文实验数。",
+          "limitations": "多次覆盖不等于本题发现所有未知定向源的几何证书。",
+          "inspiration": "必须区别有限方向采样的覆盖率与对任意源方向的覆盖保证。",
+          "implementation": [
+            {
+              "round": null,
+              "functions": [],
+              "role": "未采用：原覆盖证书已可用，改站点需另证"
+            }
+          ],
+          "code_url": null,
+          "query": "ti:\"coverage\" AND all:\"directional sensors\"",
+          "access_date": "2026-09-11",
+          "classification_confidence": "high",
+          "experimental_support": "未实现对应论文算法，因此没有本题实验支持；未采用理由见implementation与limitations。"
+        }
+      ],
+      "original_design_extensions": [
+        {
+          "round": "R3",
+          "mechanism": "从最近格点向两侧展开的两条完整snake，以假设位置首次覆盖成本选序",
+          "provenance": "自己的路线构造与三角不等式证明；多模态成本文献为概念启发",
+          "outcome": "相对R2 full Q4减少3.29758424秒/源，12组不退步"
+        },
+        {
+          "round": "R5",
+          "mechanism": "可见点到失联点的线段二分，最多两次",
+          "provenance": "直接利用本题接收圆盘与半平面交集的凸性；非任何所列论文现成算法",
+          "outcome": "相对R3 full减少7.38184018秒/源，12组不退步"
+        },
+        {
+          "round": "R6",
+          "mechanism": "关于最后测向中心线镜像失联点，按预测可见成本门控一次",
+          "provenance": "自己的镜像启发式；概率成本建模沿用R1，镜像不保证可见",
+          "outcome": "相对R5减少0.32382947秒/源，3组退步"
+        },
+        {
+          "round": "R7",
+          "mechanism": "近似预计清除时间选择RF或光学",
+          "provenance": "多模态规划启发下自拟单步成本模型，非MCTS复现",
+          "outcome": "相对R6增加0.74836566秒/源，10组退步，淘汰"
+        },
+        {
+          "round": "R8",
+          "mechanism": "已可见点连线内部提供确定可见点，按成本门控",
+          "provenance": "自己的凸性推导；确定可见不保证测向信息增益",
+          "outcome": "相对R6增加0.78533692秒/源，8组退步，淘汰"
+        }
+      ],
+      "final_status": "completed; 8 rounds; best R6; two consecutive non-improving extensions"
+    }
+  },
+  {
+    "agent": "A5_learning",
+    "source_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A5_learning/experiments/A5_learning/literature.json",
+    "records": {
+      "scope": "B题Q3/Q4可靠全清下的数据驱动策略效率",
+      "cutoff": "2026-09-11",
+      "search_window": "不限年份；机制为主，非近期SOTA扫描",
+      "queries": [
+        "cross entropy method learning combinatorial optimization Rubinstein",
+        "DAgger reduction imitation learning no regret",
+        "learning to route attention model",
+        "active perception bearing-only informative path planning",
+        "derivative-free policy search",
+        "safe reinforcement learning shielding",
+        "Bayesian optimization tutorial",
+        "proximal policy optimization",
+        "arXiv title: \"bearing-only\" (2026-09-11)"
+      ],
+      "access_notes": [
+        "Web批量搜索工具连接失败，改为原始论文/作者站直连curl。",
+        "先检查题名作者再纳入；并非下载即深读。",
+        "arXiv:cs/0607120和1307.0006的记忆ID对应无关论文；读首页发现不符，排除，不算文献数。",
+        "核心5篇，扩展5篇；核心是指定范围机制精读，不表示所有论文逐页精读。",
+        "R2完成后、R3设计前经arXiv标题检索新增2026主动测向和2025协同追踪论文；原Web搜索工具仍不可达。",
+        "没有声称完整覆盖文献或2026最新SOTA；未系统覆盖贝叶斯部分可观测搜索及现代世界模型。"
+      ],
+      "counts": {
+        "core": 5,
+        "extended": 5,
+        "total_unique": 10,
+        "excluded_wrong_ids": 2
+      },
+      "papers": [
+        {
+          "access_date": "2026-09-11",
+          "source_grade": "primary",
+          "status": "原文身份及所列阅读内容已核验",
+          "award_status": "未核验，不作奖项宣称",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "class_confidence": "high",
+          "id": "ce",
+          "title": "The Cross-Entropy Method for Optimization",
+          "authors": [
+            "Zdravko I. Botev",
+            "Dirk P. Kroese",
+            "Reuven Y. Rubinstein",
+            "Pierre L’Ecuyer"
+          ],
+          "year": 2013,
+          "publication": "Handbook of Statistics 31, pp.35–59",
+          "publication_date": "2013",
+          "version": "作者公开章节稿；年份由作者发表清单核验",
+          "url": "https://people.smp.uq.edu.au/DirkKroese/ps/CEopt.pdf",
+          "identity_url": "https://people.smp.uq.edu.au/DirkKroese/publications.html",
+          "layer": "core",
+          "read_scope": "PDF p.1–8、p.9前半、p.14–19；重点逐式读 §2 的 KL/精英分位数、Algorithm 2.2，以及 §4 Algorithm 4.1 的高斯均值/方差和平滑；其余章节未全文精读",
+          "problem": "含噪、不可微、离散或连续黑箱目标的优化",
+          "mechanism": "将优解视作稀有事件；按性能挑精英样本，用极大似然拟合下一代采样分布。连续高斯版本更新精英均值与标准差，并平滑以防过早塌缩。",
+          "novelty": "将重要性抽样的分布逼近化为通用随机优化机制；本章是机制总结而非本题新算法",
+          "benchmark": "章节中背包、布尔可满足、网络可靠性和连续控制示例",
+          "experimental_protocol": "连续控制将控制函数离散为参数，采样截断高斯，ODE求解后按代挑精英；示例预算与本题无可比性",
+          "result": "原文演示多种黑箱任务；本报告不转述为本题收益，也不引用其全局收敛结论适用于有限预算",
+          "limits": "小精英集可能早熟；高斯族和参数化策略限制可表达性；固定有限轮不证明最优",
+          "primary_path": "策略参数学习/无梯度分布搜索/精英高斯交叉熵",
+          "tags": [
+            "direct policy search",
+            "noise",
+            "smoothing"
+          ],
+          "inspiration": "完整任务秒/源作为黑箱反馈；分别优化两题；冻结可靠性逻辑；训练所有尝试完整公开",
+          "adopted": true,
+          "implementation": "R1及后续：train_policy.search，平滑0.65、每代12个向量、前三精英、归一化边界、标准差下限0.035",
+          "not_adopted_reason": "未采用重要性抽样概率估计、网络可靠性任务和其特殊参数；它们不是本题目标",
+          "experiment_link": "training/r1及各轮selected.json；full结果由iteration_log.md对应，不能由原文推断",
+          "download_sha256": "c4968e691a1d20a0f6f4bc4fb345675a1ba941dbb6c0b458a7269d861f76599f"
+        },
+        {
+          "access_date": "2026-09-11",
+          "source_grade": "primary",
+          "status": "原文身份及所列阅读内容已核验",
+          "award_status": "未核验，不作奖项宣称",
+          "project_url": null,
+          "code_url": "https://github.com/modestyachts/ARS",
+          "data_url": null,
+          "class_confidence": "high",
+          "id": "ars",
+          "title": "Simple random search provides a competitive approach to reinforcement learning",
+          "authors": [
+            "Horia Mania",
+            "Aurelia Guy",
+            "Benjamin Recht"
+          ],
+          "year": 2018,
+          "publication": "arXiv preprint，本文读取v1",
+          "publication_date": "2018-03-19",
+          "version": "arXiv:1803.07055v1",
+          "url": "https://arxiv.org/pdf/1803.07055",
+          "layer": "core",
+          "read_scope": "PDF p.1–9、p.13；逐式读BRS/ARS两份算法、状态归一化、回报标准差归一化、优先方向及多种子失败讨论；未逐页阅读全部22页",
+          "problem": "复杂策略梯度系统的样本效率、实现复杂度与评测方差",
+          "mechanism": "在策略参数空间做正负高斯扰动，用回报差更新线性策略；以回报标准差缩放更新，在线归一化状态，并可筛选优秀方向",
+          "novelty": "把多个简单修正组合为可复现的线性策略学习基线并扩大随机种子审计",
+          "benchmark": "MuJoCo locomotion六任务与LQR",
+          "experimental_protocol": "论文部分主比较用少量种子，同时另做100种子分布审计；独立评估轨迹不进入训练",
+          "result": "p.13明确报告任务和种子间高方差及局部行为，Walker2d在该设定成功率较低；不把MuJoCo结论外推为本题收益",
+          "limits": "线性策略空间有限；非凸任务和随机种子仍会失败；增广筛选方向不提供本题完备性证明",
+          "primary_path": "策略参数学习/无梯度方向搜索/对称扰动ARS",
+          "tags": [
+            "linear policies",
+            "reproducibility",
+            "seed variance"
+          ],
+          "inspiration": "简单低维策略也值得实测；优化预算应计入每个完整rollout；保留失败和不同误差场",
+          "adopted": "启发采用，未复现ARS算法",
+          "implementation": "R1：有界归一化参数；所有轮：训练/开发分离及全轨迹评估；R2：有限观测特征",
+          "not_adopted_reason": "本题阈值使目标局部不光滑，预算内选择按排名更新的CEM，不使用有限差分梯度或在线状态标准化",
+          "experiment_link": "所有训练attempts_m*.jsonl记录逐个任务与失败；不声称复现ARS成绩",
+          "download_sha256": "de4aac6f93ac392ca601674949041c46a41ef5cc6557560e72e96b9d3e44ac36"
+        },
+        {
+          "access_date": "2026-09-11",
+          "source_grade": "primary",
+          "status": "原文身份及所列阅读内容已核验",
+          "award_status": "未核验，不作奖项宣称",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "class_confidence": "high",
+          "id": "dagger",
+          "title": "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning",
+          "authors": [
+            "Stéphane Ross",
+            "Geoffrey J. Gordon",
+            "J. Andrew Bagnell"
+          ],
+          "year": 2011,
+          "publication": "AISTATS 2011 / PMLR 15:627–635",
+          "publication_date": "2011",
+          "version": "PMLR正式论文",
+          "url": "https://proceedings.mlr.press/v15/ross11a/ross11a.pdf",
+          "layer": "core",
+          "read_scope": "PDF p.1–4、p.5前半、p.6实验段、p.8；读Algorithm 3.1、Theorem 2.1/2.2/3.1–3.4和前提，未完整复核有限样本证明，未精读Mario实验p.7",
+          "problem": "行为克隆训练分布与部署策略诱导分布不同，错误会累积",
+          "mechanism": "执行当前策略，向专家询问它实际访问状态的动作，将新标注聚合到旧数据，再训练下一策略；最后按验证表现选择",
+          "novelty": "把模仿学习化约为无遗憾在线学习并获得与时间步线性相关的条件性界",
+          "benchmark": "Super Tux Kart、Super Mario、OCR",
+          "experimental_protocol": "赛车每轮一圈约1000例、20轮；OCR九折训练一折测试轮换。理论需要损失/遗憾/专家恢复能力等假设",
+          "result": "赛车例中DAgger比只用专家轨迹更能恢复，OCR p.8报告字符准确率改善；它不意味着本题未知真值专家可合法用于部署",
+          "limits": "必须能对学习者访问状态提供专家动作；surrogate loss与真实任务成本的联系是额外前提；部分可观测问题的状态表征仍需设计",
+          "primary_path": "策略动作学习/模仿学习/学习者分布上的数据聚合",
+          "tags": [
+            "distribution shift",
+            "privileged teacher boundary"
+          ],
+          "inspiration": "每个候选必须重新运行完整任务以获得它自己诱导的状态；不能只报告基线日志上的离线预测误差",
+          "adopted": "审计启发，未实现DAgger",
+          "implementation": "所有轮：train_policy.run_config重新执行候选完整轨迹",
+          "not_adopted_reason": "没有优于基线且仅依赖合法观测的可靠专家；使用真值路径专家还会制造部署不可达标签，因此本次选择无专家任务回报搜索",
+          "experiment_link": "训练/开发逐任务日志与full；没有模仿损失或特权标签",
+          "download_sha256": "17bdd6e049e64f09010b322f9e2d4fb5c744c33ff7ac99b4c4561e39bd9082a7"
+        },
+        {
+          "access_date": "2026-09-11",
+          "source_grade": "primary",
+          "status": "原文身份及所列阅读内容已核验",
+          "award_status": "未核验，不作奖项宣称",
+          "project_url": null,
+          "code_url": "https://github.com/safe-rl/safe-rl-shielding",
+          "data_url": null,
+          "class_confidence": "high",
+          "id": "shield",
+          "title": "Safe Reinforcement Learning via Shielding",
+          "authors": [
+            "Mohammed Alshiekh",
+            "Roderick Bloem",
+            "Rüdiger Ehlers",
+            "Bettina Könighofer",
+            "Scott Niekum",
+            "Ufuk Topcu"
+          ],
+          "year": 2017,
+          "publication": "arXiv公开稿；未核验正式会议身份",
+          "publication_date": "2017-09-03",
+          "version": "arXiv:1708.08611v2",
+          "url": "https://arxiv.org/pdf/1708.08611",
+          "layer": "core",
+          "read_scope": "PDF p.1–9、p.11、p.17–19；重点读安全自动机、保守抽象、前置/后置屏蔽、以及网格/驾驶实验；未复核§6全部合成算法和§7证明",
+          "problem": "奖励优化不自动保证部署和探索的安全性质",
+          "mechanism": "由安全规范和保守环境抽象合成屏蔽器；前置模式只提供安全动作，后置模式替换不安全动作；屏蔽在部署期继续存在",
+          "novelty": "把学习收益与安全游戏求得的可行动作约束分开",
+          "benchmark": "网格、水箱、模拟驾驶、Seaquest",
+          "experimental_protocol": "论文比较有无屏蔽和不同惩罚/安全动作排序；网格和驾驶的具体环境抽象另建",
+          "result": "p.19显示无屏蔽末期仍可能碰撞，屏蔽版本可避免并改善学习；这些是原文设定的事实，不替代本题覆盖证明",
+          "limits": "保守抽象正确性必需；安全性质不自动等于本题有限时间清除全部源的活性；复杂屏蔽有状态规模成本",
+          "primary_path": "可靠性约束/学习与证书分离/运行时安全屏蔽",
+          "tags": [
+            "formal guarantee",
+            "liveness boundary"
+          ],
+          "inspiration": "将已有几何覆盖、有限光学兜底、退出证书留在部署外壳内；模型只改变效率决策",
+          "adopted": "结构启发；不声称实现其LTL屏蔽合成器",
+          "implementation": "所有轮：solver.certified_points、cover_polygon、run退出证书原样保留；学习参数有界",
+          "not_adopted_reason": "本题已存在解析证明，新增自动机合成成本无必要；全清活性另由有限站点/目标递减及有限兜底论证",
+          "experiment_link": "各轮rules/nominal/quick/full与报告可靠性论证",
+          "download_sha256": "f8b87dcbd1932ffce5c2d6d2e84f788cc1d44dae3b1a4d001dbbee3c28567282"
+        },
+        {
+          "access_date": "2026-09-11",
+          "source_grade": "primary",
+          "status": "原文身份及所列阅读内容已核验",
+          "award_status": "未核验，不作奖项宣称",
+          "project_url": null,
+          "code_url": "https://github.com/wouterkool/attention-learn-to-route",
+          "data_url": null,
+          "class_confidence": "high",
+          "id": "attention",
+          "title": "Attention, Learn to Solve Routing Problems!",
+          "authors": [
+            "Wouter Kool",
+            "Herke van Hoof",
+            "Max Welling"
+          ],
+          "year": 2019,
+          "publication": "ICLR 2019，PDF首页核验",
+          "publication_date": "2019-02-07",
+          "version": "arXiv:1803.08475v3",
+          "url": "https://arxiv.org/pdf/1803.08475",
+          "layer": "extended",
+          "read_scope": "PDF p.1、p.2部分、p.5–6；重点REINFORCE与greedy rollout baseline及训练预算；未完整精读编码器/解码器附录",
+          "problem": "学习组合路径问题的启发式决策",
+          "mechanism": "注意力编码候选节点，自回归解码路径，按任务屏蔽非法选择；用当前最佳策略的确定性rollout作REINFORCE基线",
+          "novelty": "注意力路径结构与可更新的贪心rollout基线",
+          "benchmark": "TSP、VRP、OP、随机PCTSP，20/50/100节点",
+          "experimental_protocol": "每epoch 2500批×512例（部分256），100epochs；10000测试例；采样多路线另计预算",
+          "result": "原文报告接近专用求解器，且强调不同硬件/采样预算不可直接比较；本次不复现",
+          "limits": "典型输入知道所有节点位置；本题隐藏源位置和方向不可直接套用；训练预算大",
+          "primary_path": "策略动作学习/神经组合优化/注意力路径与rollout基线",
+          "tags": [
+            "routing",
+            "paired baseline"
+          ],
+          "inspiration": "训练/开发用同一任务对当前与候选配对；学习须围绕任务级路线成本",
+          "adopted": "仅比较启发",
+          "implementation": "train_policy对同组生成案例评价多个候选；并非REINFORCE实现",
+          "not_adopted_reason": "不能把未知源坐标当输入；小规模已有2-opt及有限参数更适合本次可复查预算",
+          "experiment_link": "训练/开发配对与full；未做注意力网络对照",
+          "download_sha256": "fa783d096ff3986d5e9745acf75152cecb4ec7b3d1d0798ba765449e9eace4fd"
+        },
+        {
+          "access_date": "2026-09-11",
+          "source_grade": "primary",
+          "status": "原文身份及所列阅读内容已核验",
+          "award_status": "未核验，不作奖项宣称",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "class_confidence": "high",
+          "id": "cma",
+          "title": "The CMA Evolution Strategy: A Tutorial",
+          "authors": [
+            "Nikolaus Hansen"
+          ],
+          "year": 2016,
+          "publication": "arXiv教程；读取2023更新",
+          "publication_date": "2016; v2 2023-03-10",
+          "version": "arXiv:1604.00772v2，PDF编译2023-03-13",
+          "url": "https://arxiv.org/pdf/1604.00772",
+          "layer": "extended",
+          "read_scope": "PDF p.1–4部分、p.6末–8；读搜索框架、Hessian/协方差直觉及采样式，未深读完整协方差和步长更新",
+          "problem": "非凸、病态、变量耦合的连续黑箱优化",
+          "mechanism": "以多元高斯采样参数，优秀样本引导均值、协方差和步长适应",
+          "novelty": "协方差学习用于适应参数耦合与目标地形",
+          "benchmark": "教程机制为主，本次未读取其全部benchmark讨论",
+          "experimental_protocol": "扩展发现级，未复现",
+          "result": "不据本文做本题数值结论",
+          "limits": "完整协方差增加估计负担；需要更多样本稳定识别相关结构",
+          "primary_path": "策略参数学习/无梯度分布搜索/协方差适应",
+          "tags": [
+            "coupled parameters",
+            "black box"
+          ],
+          "inspiration": "参数单位需归一；后续若强耦合可考虑更丰富采样分布",
+          "adopted": false,
+          "implementation": "无CMA-ES代码",
+          "not_adopted_reason": "本轮只有少量参数和每代12个样本，先使用易审计对角CEM，不能把它冒称CMA-ES",
+          "experiment_link": "无直接对照，保留未采用理由",
+          "download_sha256": "96645df3058f229084eb70fd9531c601665c1c118a49929aa3b6ceadbf36a223"
+        },
+        {
+          "access_date": "2026-09-11",
+          "source_grade": "primary",
+          "status": "原文身份及所列阅读内容已核验",
+          "award_status": "未核验，不作奖项宣称",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "class_confidence": "high",
+          "id": "bo",
+          "title": "A Tutorial on Bayesian Optimization",
+          "authors": [
+            "Peter I. Frazier"
+          ],
+          "year": 2018,
+          "publication": "arXiv教程",
+          "publication_date": "2018-07-08",
+          "version": "arXiv:1807.02811v1",
+          "url": "https://arxiv.org/pdf/1807.02811",
+          "layer": "extended",
+          "read_scope": "PDF p.1–3，重点适用前提、Algorithm 1、surrogate/acquisition分工；未精读后续EI/KG推导",
+          "problem": "昂贵低维黑箱函数的有限预算优化",
+          "mechanism": "高斯过程等模型估计目标及不确定性，用采集函数决定下个评价点",
+          "novelty": "教程梳理带噪声、多保真、约束及多任务BayesOpt",
+          "benchmark": "教程例子和文献，未做本题适配",
+          "experimental_protocol": "强调函数评价昂贵、维度较小，常见连续性及噪声假设",
+          "result": "未读取可比较本题收益的实验证据",
+          "limits": "本题动作阈值造成任务成本跳变，且每次模拟并不昂贵；GP核和采集函数引入额外选择",
+          "primary_path": "策略参数学习/代理模型搜索/贝叶斯采集函数",
+          "tags": [
+            "sample efficiency",
+            "surrogate"
+          ],
+          "inspiration": "预算应针对真实评价开销决定，而非默认最复杂优化器",
+          "adopted": false,
+          "implementation": "无GP模型",
+          "not_adopted_reason": "时间测量显示本地整局评价足够便宜，使用CEM便于公开全部尝试且不需要拟合平滑代理",
+          "experiment_link": "pilot_timing记录12局计时；没有BayesOpt性能对照",
+          "download_sha256": "1393ca348578b8203f8d2eb65d1c50da685e5677d7e0b350294c6f83f9689f22"
+        },
+        {
+          "access_date": "2026-09-11",
+          "source_grade": "primary",
+          "status": "原文身份及所列阅读内容已核验",
+          "award_status": "未核验，不作奖项宣称",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "class_confidence": "high",
+          "id": "ppo",
+          "title": "Proximal Policy Optimization Algorithms",
+          "authors": [
+            "John Schulman",
+            "Filip Wolski",
+            "Prafulla Dhariwal",
+            "Alec Radford",
+            "Oleg Klimov"
+          ],
+          "year": 2017,
+          "publication": "arXiv公开论文",
+          "publication_date": "2017-08-28",
+          "version": "arXiv:1707.06347v2",
+          "url": "https://arxiv.org/pdf/1707.06347",
+          "layer": "extended",
+          "read_scope": "PDF p.1–4以及p.5开头；逐式读策略梯度、概率比裁剪目标和KL惩罚比较，未深读所有实验",
+          "problem": "策略梯度的训练稳定性和重复小批更新",
+          "mechanism": "用新旧动作概率比和优势函数构造裁剪代理目标，在采样轨迹上做多轮优化",
+          "novelty": "以简单一阶裁剪目标近似限制过大的策略更新",
+          "benchmark": "MuJoCo和Atari等，本文未复现",
+          "experimental_protocol": "论文比较不同代理目标；本题没有直接对照",
+          "result": "不把裁剪代理目标解释成本题全清或单调改善保证",
+          "limits": "需要随机策略、优势/价值估计和较多轨迹；优化收益不自动满足覆盖活性",
+          "primary_path": "策略动作学习/强化学习/裁剪策略梯度",
+          "tags": [
+            "on-policy",
+            "stability"
+          ],
+          "inspiration": "若未来增加高维动作，可把覆盖证书作为外壳；当前没必要引入actor/critic",
+          "adopted": false,
+          "implementation": "无PPO训练",
+          "not_adopted_reason": "有限参数CEM能直接利用真实任务成本；本轮资源用于多分布完整验证",
+          "experiment_link": "无直接实测，不宣称CEM优于PPO",
+          "download_sha256": "e78feadadbdbb0b601b3c2bcc81404722cd431a489b307545f9b7bea1e8c4f5b"
+        },
+        {
+          "access_date": "2026-09-11",
+          "source_grade": "primary",
+          "status": "原文身份及所列阅读内容已核验",
+          "award_status": "未核验，不作奖项宣称",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "class_confidence": "high",
+          "id": "rl_bearing",
+          "title": "Reinforcement Learning Trained Observer Control for Bearings-Only Tracking",
+          "authors": [
+            "Branko Ristic",
+            "Sanjeev Arulampalam"
+          ],
+          "year": 2026,
+          "publication": "arXiv公开稿；PDF期刊页眉为占位格式，不能据此声称已录用IEEE TAES",
+          "publication_date": "2026-05-04",
+          "version": "arXiv:2605.02120v1",
+          "url": "https://arxiv.org/pdf/2605.02120",
+          "layer": "core",
+          "read_scope": "PDF p.1–7全部正文、算法式及Table I–III；参考文献仅追踪题名，未全部读取被引原文；图的空间布局未独立复刻",
+          "problem": "带噪示向度下为移动目标选择机动方向，兼顾位置误差与估计器一致性",
+          "mechanism": "CKF把历史测向压缩为近似高斯均值/协方差；12维可观测估计特征进入DQN，选16个第二段航向之一。每局实际只有一次学习动作，随后12步测量；训练奖励利用真值计算Euclidean与Mahalanobis误差的几何加权。",
+          "novelty": "把目标估计与估计器一致性同时纳入机动学习，减少激进机动导致的CKF发散",
+          "benchmark": "随机移动目标与观测者的两段轨迹，Gaussian约1度噪声；不是本题静态有界误差",
+          "experimental_protocol": "50000训练episodes、5000配对Monte Carlo评估；多种beta、垂直示向度heuristic与D-optimal FIM对照。DQN为256/128/64隐层；本题不复现。",
+          "result": "原文Table III中DQN beta0.7均值误差略高于ITO，但最坏误差显著更低；不同beta的reward不能横向排名。正文有a.u./m单位混用，不向本题转移数值。",
+          "limits": "CKF高斯仅近似后验，不能自动证明其为原POMDP精确充分统计量；单决策任务不能证明长时自主清除，训练奖励读真值需明确部署边界；均值/最坏值存在取舍",
+          "primary_path": "策略动作学习/基于估计的主动测向/DQN机动与一致性反馈",
+          "tags": [
+            "bearings-only",
+            "approximate belief",
+            "reward tradeoff",
+            "2026"
+          ],
+          "inspiration": "用合法估计几何而非真实坐标产生机动；不要把低均值误差替代可靠清除；可从小型上下文动作开始学习",
+          "adopted": "R3的局部动作上下文启发；未采用DQN/CKF/加权误差奖励",
+          "implementation": "R3：Solver.second_point 中 length/750-1 的有界特征控制推进/横移比例；训练仍是任务级CEM，约束仍是外包多边形",
+          "not_adopted_reason": "本题静态源、固定误差、计时目标和强制全清与论文不同，照搬高斯CKF会丢失有界保证；不借论文加权误差伪造官方综合分数",
+          "experiment_link": "R3才新增；不作为R1/R2事后动机。训练/r3与对应quick/full可验证迁移是否奏效",
+          "download_sha256": "296a5232e08da35e6f4e791265029af17935ef5b24edc7c18842afd8b7a926d6"
+        },
+        {
+          "access_date": "2026-09-11",
+          "source_grade": "primary",
+          "status": "原文身份及所列阅读内容已核验",
+          "award_status": "未核验，不作奖项宣称",
+          "project_url": null,
+          "code_url": null,
+          "data_url": null,
+          "class_confidence": "high",
+          "id": "coop_bearing",
+          "title": "Cooperative Bearing-Only Target Pursuit via Multiagent Reinforcement Learning: Design and Experiment",
+          "authors": [
+            "Jianan Li",
+            "Zhikun Wang",
+            "Susheng Ding",
+            "Shiliang Guo",
+            "Shiyu Zhao"
+          ],
+          "year": 2025,
+          "publication": "作者稿首页称To appear in IROS 2025；未另核对会议论文清单",
+          "publication_date": "2025-06-27",
+          "version": "arXiv:2503.08740v2",
+          "url": "https://arxiv.org/pdf/2503.08740",
+          "layer": "extended",
+          "read_scope": "PDF p.1–4至光谱归一化开头；重点u-PLIF、外层RL/内层PID架构、观测掩码及reward分解；未深入末尾全部实车结果",
+          "problem": "异构多机器人仅用视觉示向度追踪未知运动目标，处理FoV和运动约束",
+          "mechanism": "投影矩阵把3D示向度测量化为伪线性信息滤波；多智能体策略基于自身、伙伴和可见目标估计控制追踪，配低层控制增益和光谱归一化缩小sim-to-real差异",
+          "novelty": "估计、带FoV约束协同控制、动力学迁移组成完整系统",
+          "benchmark": "多AGV追踪模拟与作者实车演示",
+          "experimental_protocol": "本文仅阅读系统与方法；未独立检验视频/实车统计，保持扩展证据等级",
+          "result": "原文声称zero-shot实车转移；此次未深读结果，不能作本题效果或可靠性证据",
+          "limits": "多机器人共享信息和运动目标与本题单机器狗静态源不同；可见性掩码不是不存在证书；加权reward不保证全清",
+          "primary_path": "策略动作学习/多智能体追踪/信息滤波与受限可见策略",
+          "tags": [
+            "visibility mask",
+            "sim-to-real",
+            "multiagent"
+          ],
+          "inspiration": "无信号/不可见必须作为独立观测解释，不能从模型的零掩码推断不存在；分清估计层和执行层",
+          "adopted": false,
+          "implementation": "无MARL、信息滤波或光谱归一化代码；仅R3前竞争路线比较",
+          "not_adopted_reason": "本题一只机器狗且接口串行，已知动作时间明确，不需要实车动力学和同伴通信模型",
+          "experiment_link": "无本题对照，不声称采用其算法或验证其转移效果",
+          "download_sha256": "06c39ceaed0b8d2c2edad64758bbb78fd0b74ed51becaa5acb154cd50e3d3eec"
+        }
+      ]
+    }
+  },
+  {
+    "agent": "A6_learning",
+    "source_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260911/A6_learning/experiments/A6_learning/literature.json",
+    "records": {
+      "cutoff": "2026-09-11",
+      "scope": "以可迁移机制为主的目的性广泛检索，不声称系统覆盖2026全部新文献",
+      "core_count": 4,
+      "extended_count": 6,
+      "queries": [
+        "learning active sensing bearing only target localization policy optimization",
+        "learning to optimize cross entropy method direct policy search algorithm configuration",
+        "safe reinforcement learning model predictive control shielding safety layer",
+        "ARS references -> ES/PPO",
+        "attention routing references -> neural combinatorial optimization",
+        "GP active sensing vs motion cost"
+      ],
+      "access_log": [
+        "web search tool: connection failed, no snippets used",
+        "arXiv PDF direct curl --noproxy: successful; original papers actually read as recorded",
+        "PMLR guessed PILCO URL returned 404, replaced with author academic Cambridge PDF",
+        "raw PDFs/extracted text excluded from git; URLs, hashes, ranges retained"
+      ],
+      "papers": [
+        {
+          "id": "ars",
+          "title": "Simple random search provides a competitive approach to reinforcement learning",
+          "authors": [
+            "Horia Mania",
+            "Aurelia Guy",
+            "Benjamin Recht"
+          ],
+          "year": 2018,
+          "version": "arXiv:1803.07055v1",
+          "original_url": "https://arxiv.org/pdf/1803.07055",
+          "retrieved_date": "2026-09-11",
+          "tier": "core",
+          "read_pages": "1-12",
+          "actual_reading": "正文1-3；4.1-4.2方法及比较表；未读完附录与其余统计图",
+          "identity_verified": "original PDF title/authors/version header",
+          "source_level": "primary",
+          "pdf_sha256": "de4aac6f93ac392ca601674949041c46a41ef5cc6557560e72e96b9d3e44ac36",
+          "main_path": "策略学习/参数空间/低维随机方向",
+          "problem": "策略学习",
+          "mechanism": "将完整轨迹回报看作策略参数的黑箱函数；成对扰动估计改进方向，ARS再以回报标准差缩放、归一化状态，并可筛掉弱方向。",
+          "paper_evidence_and_limits": "MuJoCo及LQR实验；正文也强调小样本随机种子评估和超参数造成高方差，静态线性策略并非在所有环境均压倒其他方法。",
+          "inspiration": "任务时间可作为整局反馈，先训练小而可解释的策略，不必先假定深网必要。",
+          "implementation_mapping": "进入各轮训练器的参数空间采样及物理特征归一化；本实现采用精英保留搜索，不是ARS梯度更新复刻。",
+          "empirical_support": "参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。 停止后的开发诊断2592/2592全清；移除station_gain、workload、boundary在该已暴露开发集反而更快，不能给每个学得特征都分配正收益；未据此再调参。",
+          "round_links": [
+            {
+              "round": 1,
+              "training_path": "experiments/A6_learning/training/r1",
+              "full_path": "results/A6_learning_r1_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 2,
+              "training_path": "experiments/A6_learning/training/r2",
+              "full_path": "results/A6_learning_r2_full",
+              "decision": "tradeoff",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 3,
+              "training_path": "experiments/A6_learning/training/r3",
+              "full_path": "results/A6_learning_r3_full",
+              "decision": "improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 4,
+              "training_path": "experiments/A6_learning/training/r4",
+              "full_path": "results/A6_learning_r4_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 5,
+              "training_path": "experiments/A6_learning/training/r5",
+              "full_path": "results/A6_learning_r5_full",
+              "decision": "improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 6,
+              "training_path": "experiments/A6_learning/training/r6",
+              "full_path": "results/A6_learning_r6_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 7,
+              "training_path": "experiments/A6_learning/training/r7",
+              "full_path": "results/A6_learning_r7_full",
+              "decision": "improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 8,
+              "training_path": "experiments/A6_learning/training/r8",
+              "full_path": "results/A6_learning_r8_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 9,
+              "training_path": "experiments/A6_learning/training/r9",
+              "full_path": "results/A6_learning_r9_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            }
+          ],
+          "classification_confidence": "high",
+          "implementation_functions": [
+            "scripts/train_policy.py:main",
+            "scripts/train_policy.py:evaluate",
+            "solver.py:Solver.learned_source_cost"
+          ],
+          "implemented_as_paper_algorithm": false,
+          "principle_or_mechanism_adopted": true,
+          "diagnostic_links": [
+            {
+              "path": "experiments/A6_learning/development_ablation/summary.json",
+              "scope": "post-selection exposed R7 development; 9 variants x 288 cases; no tuning",
+              "purpose": "conditional single-feature removal diagnostic, not a new holdout"
+            }
+          ]
+        },
+        {
+          "id": "dagger",
+          "title": "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning",
+          "authors": [
+            "Stéphane Ross",
+            "Geoffrey J. Gordon",
+            "J. Andrew Bagnell"
+          ],
+          "year": 2011,
+          "version": "AISTATS 2011; arXiv:1011.0686v3",
+          "original_url": "https://arxiv.org/pdf/1011.0686",
+          "retrieved_date": "2026-09-11",
+          "tier": "core",
+          "read_pages": "1-7（部分第4节）",
+          "actual_reading": "细读1-3、算法3.1、定理条件和第5节两项游戏实验；第4节证明只读部分，不宣称证明全复核",
+          "identity_verified": "original PDF title/authors/version header",
+          "source_level": "primary",
+          "pdf_sha256": "12b032cfd451b8ace4b18145dbe24382d2cbe2eda6b562331bc86799bbaafd5e",
+          "main_path": "策略学习/模仿学习/数据聚合",
+          "problem": "策略学习",
+          "mechanism": "在学习者诱导的状态分布上查询专家标签，将新数据聚合后重新训练；缓解行为克隆只见专家轨迹导致的错误累积。",
+          "paper_evidence_and_limits": "赛车、Mario和OCR；无遗憾界要求损失、专家额外代价等条件，不等价于任务必胜。Mario专家能访问游戏内部状态。",
+          "inspiration": "必须在每个候选自己的轨迹上计算整局代价，不能只回归基线动作后便宣称提升。",
+          "implementation_mapping": "作为训练协议启发，未实现DAgger：没有可靠优于基线且不泄漏特权信息的教师；整局直接搜索避开专家标签需求。",
+          "empirical_support": "未训练DAgger或行为克隆，无教师对照。实际执行的是每个参数候选自己的整局轨迹，避免只在原专家轨迹评价；这是协议启发，不检验DAgger定理。",
+          "round_links": [
+            {
+              "round": 1,
+              "training_path": "experiments/A6_learning/training/r1",
+              "full_path": "results/A6_learning_r1_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 2,
+              "training_path": "experiments/A6_learning/training/r2",
+              "full_path": "results/A6_learning_r2_full",
+              "decision": "tradeoff",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 3,
+              "training_path": "experiments/A6_learning/training/r3",
+              "full_path": "results/A6_learning_r3_full",
+              "decision": "improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 4,
+              "training_path": "experiments/A6_learning/training/r4",
+              "full_path": "results/A6_learning_r4_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 5,
+              "training_path": "experiments/A6_learning/training/r5",
+              "full_path": "results/A6_learning_r5_full",
+              "decision": "improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 6,
+              "training_path": "experiments/A6_learning/training/r6",
+              "full_path": "results/A6_learning_r6_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 7,
+              "training_path": "experiments/A6_learning/training/r7",
+              "full_path": "results/A6_learning_r7_full",
+              "decision": "improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 8,
+              "training_path": "experiments/A6_learning/training/r8",
+              "full_path": "results/A6_learning_r8_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 9,
+              "training_path": "experiments/A6_learning/training/r9",
+              "full_path": "results/A6_learning_r9_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            }
+          ],
+          "classification_confidence": "high",
+          "implementation_functions": [
+            "scripts/train_policy.py:episode (induced-policy trajectories; NOT DAgger)"
+          ],
+          "implemented_as_paper_algorithm": false,
+          "principle_or_mechanism_adopted": true,
+          "diagnostic_links": []
+        },
+        {
+          "id": "attention",
+          "title": "Attention, Learn to Solve Routing Problems!",
+          "authors": [
+            "Wouter Kool",
+            "Herke van Hoof",
+            "Max Welling"
+          ],
+          "year": 2019,
+          "version": "ICLR 2019; arXiv:1803.08475v3",
+          "original_url": "https://arxiv.org/pdf/1803.08475",
+          "retrieved_date": "2026-09-11",
+          "tier": "core",
+          "read_pages": "1-7",
+          "actual_reading": "细读模型、掩码和上下文、REINFORCE rollout baseline算法及第5节评测协议/表1；不声称已读25页附录全部",
+          "identity_verified": "original PDF title/authors/version header",
+          "source_level": "primary",
+          "pdf_sha256": "fa783d096ff3986d5e9745acf75152cecb4ec7b3d1d0798ba765449e9eace4fd",
+          "main_path": "策略学习/组合决策/集合上下文",
+          "problem": "策略学习",
+          "mechanism": "注意力编码点集合，解码器结合当前路线上下文和合法节点mask逐点选择；用冻结的贪心rollout降低REINFORCE方差，并以独立实例更新基线。",
+          "paper_evidence_and_limits": "TSP、VRP、OP、PCTSP，生成20/50/100节点；训练与测试采样/贪心的预算不同，论文也区分精确求解器与学得启发式。",
+          "inspiration": "同一候选集合的相对关系比只看最近目标更有价值；和当前最佳在同一自建实例配对比较。",
+          "implementation_mapping": "第2轮观测集合的密度与后续站距离特征、每轮配对开发选择；未移植注意力模型，因为本题源位置未知且节点动态出现，预训练TSP坐标输入越界。",
+          "empirical_support": "第2轮上下文调度：Q3 306.814064472退步、Q4 552.956003578改善；第3轮恢复Q3后取得联合改进。整体候选比较支持Q4调度有效，但不等于attention网络复现或单一特征因果证明。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。 停止后的开发诊断2592/2592全清；移除station_gain、workload、boundary在该已暴露开发集反而更快，不能给每个学得特征都分配正收益；未据此再调参。",
+          "round_links": [
+            {
+              "round": 2,
+              "function": "Solver.learned_source_cost",
+              "full_path": "results/A6_learning_r2_full",
+              "decision": "tradeoff",
+              "role": "observation-set context, no attention network"
+            },
+            {
+              "round": 3,
+              "function": "Solver.learned_source_cost",
+              "full_path": "results/A6_learning_r3_full",
+              "decision": "improved",
+              "role": "observation-set context, no attention network"
+            },
+            {
+              "round": 4,
+              "function": "Solver.learned_source_cost",
+              "full_path": "results/A6_learning_r4_full",
+              "decision": "not_improved",
+              "role": "observation-set context, no attention network"
+            },
+            {
+              "round": 5,
+              "function": "Solver.learned_source_cost",
+              "full_path": "results/A6_learning_r5_full",
+              "decision": "improved",
+              "role": "observation-set context, no attention network"
+            },
+            {
+              "round": 6,
+              "function": "Solver.learned_source_cost",
+              "full_path": "results/A6_learning_r6_full",
+              "decision": "not_improved",
+              "role": "observation-set context, no attention network"
+            },
+            {
+              "round": 7,
+              "function": "Solver.learned_source_cost",
+              "full_path": "results/A6_learning_r7_full",
+              "decision": "improved",
+              "role": "observation-set context, no attention network"
+            },
+            {
+              "round": 8,
+              "function": "Solver.learned_source_cost",
+              "full_path": "results/A6_learning_r8_full",
+              "decision": "not_improved",
+              "role": "observation-set context, no attention network"
+            },
+            {
+              "round": 9,
+              "function": "Solver.learned_source_cost",
+              "full_path": "results/A6_learning_r9_full",
+              "decision": "not_improved",
+              "role": "observation-set context, no attention network"
+            }
+          ],
+          "classification_confidence": "high",
+          "implementation_functions": [
+            "solver.py:Solver.learned_source_cost",
+            "solver.py:Solver.run",
+            "scripts/train_policy.py:main (paired development)"
+          ],
+          "implemented_as_paper_algorithm": false,
+          "principle_or_mechanism_adopted": true,
+          "diagnostic_links": [
+            {
+              "path": "experiments/A6_learning/development_ablation/summary.json",
+              "scope": "post-selection exposed R7 development; 9 variants x 288 cases; no tuning",
+              "purpose": "conditional single-feature removal diagnostic, not a new holdout"
+            }
+          ]
+        },
+        {
+          "id": "shield",
+          "title": "Safe Reinforcement Learning via Shielding",
+          "authors": [
+            "Mohammed Alshiekh",
+            "Roderick Bloem",
+            "Rüdiger Ehlers",
+            "Bettina Könighofer",
+            "Scott Niekum",
+            "Ufuk Topcu"
+          ],
+          "year": 2017,
+          "version": "arXiv:1708.08611v2（读取此2017版本；不额外声称正式录用身份）",
+          "original_url": "https://arxiv.org/pdf/1708.08611",
+          "retrieved_date": "2026-09-11",
+          "tier": "core",
+          "read_pages": "1-9,17-18",
+          "actual_reading": "细读问题、抽象与安全规范、前置/后置shield框架、网格实验；未完整重演合成算法证明",
+          "identity_verified": "original PDF title/authors/version header",
+          "source_level": "primary",
+          "pdf_sha256": "f8b87dcbd1932ffce5c2d6d2e84f788cc1d44dae3b1a4d001dbbee3c28567282",
+          "main_path": "可靠性/符号约束/学习与正确性分离",
+          "problem": "可靠性",
+          "mechanism": "从保守环境抽象和安全自动机构造shield，前置过滤不安全动作或后置纠正动作；安全依赖抽象对真实动力学的保守性。",
+          "paper_evidence_and_limits": "网格、驾驶、Seaquest、水箱；节选网格实验展示合成和学习。不能由奖励惩罚推导绝对安全，规范复杂度会放大shield。",
+          "inspiration": "学习负责效率，独立解析覆盖负责完整性；不让学得概率提前判定频道不存在。",
+          "implementation_mapping": "所有轮保留certified_points、run退出证书、cover_polygon和预算切换。没有实现LTL合成，属于设计原则迁移。",
+          "empirical_support": "全部9轮full分别2400/2400完整清除；核心覆盖/清除/终止函数保留并做AST审查。可靠性解析依据写于report第6节；没有LTL自动合成实验。 停止后的开发诊断2592/2592全清；移除station_gain、workload、boundary在该已暴露开发集反而更快，不能给每个学得特征都分配正收益；未据此再调参。",
+          "round_links": [
+            {
+              "round": 1,
+              "function": "certified_points / cover_polygon / run exit certificate",
+              "full_path": "results/A6_learning_r1_full",
+              "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
+            },
+            {
+              "round": 2,
+              "function": "certified_points / cover_polygon / run exit certificate",
+              "full_path": "results/A6_learning_r2_full",
+              "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
+            },
+            {
+              "round": 3,
+              "function": "certified_points / cover_polygon / run exit certificate",
+              "full_path": "results/A6_learning_r3_full",
+              "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
+            },
+            {
+              "round": 4,
+              "function": "certified_points / cover_polygon / run exit certificate",
+              "full_path": "results/A6_learning_r4_full",
+              "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
+            },
+            {
+              "round": 5,
+              "function": "certified_points / cover_polygon / run exit certificate",
+              "full_path": "results/A6_learning_r5_full",
+              "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
+            },
+            {
+              "round": 6,
+              "function": "certified_points / cover_polygon / run exit certificate",
+              "full_path": "results/A6_learning_r6_full",
+              "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
+            },
+            {
+              "round": 7,
+              "function": "certified_points / cover_polygon / run exit certificate",
+              "full_path": "results/A6_learning_r7_full",
+              "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
+            },
+            {
+              "round": 8,
+              "function": "certified_points / cover_polygon / run exit certificate",
+              "full_path": "results/A6_learning_r8_full",
+              "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
+            },
+            {
+              "round": 9,
+              "function": "certified_points / cover_polygon / run exit certificate",
+              "full_path": "results/A6_learning_r9_full",
+              "role": "all full runs complete; geometric argument and preserved-code audit, not synthesized LTL shield"
+            }
+          ],
+          "classification_confidence": "high",
+          "implementation_functions": [
+            "solver.py:certified_points",
+            "solver.py:Solver.cover_polygon",
+            "solver.py:Solver.run (unchanged exit certificate)",
+            "scripts/audit_policy.py"
+          ],
+          "implemented_as_paper_algorithm": false,
+          "principle_or_mechanism_adopted": true,
+          "diagnostic_links": [
+            {
+              "path": "experiments/A6_learning/development_ablation/summary.json",
+              "scope": "post-selection exposed R7 development; 9 variants x 288 cases; no tuning",
+              "purpose": "conditional single-feature removal diagnostic, not a new holdout"
+            }
+          ]
+        },
+        {
+          "id": "es",
+          "title": "Evolution Strategies as a Scalable Alternative to Reinforcement Learning",
+          "authors": [
+            "Tim Salimans",
+            "Jonathan Ho",
+            "Xi Chen",
+            "Szymon Sidor",
+            "Ilya Sutskever"
+          ],
+          "year": 2017,
+          "version": "arXiv:1703.03864v2",
+          "original_url": "https://arxiv.org/pdf/1703.03864",
+          "retrieved_date": "2026-09-11",
+          "tier": "extended",
+          "read_pages": "1,3-4",
+          "actual_reading": "身份、引言、ES算法1/2、镜像扰动/秩变换、策略参数化；未深读全部实验",
+          "identity_verified": "original PDF title/authors/version header",
+          "source_level": "primary",
+          "pdf_sha256": "16ed1ee42f14c9d79be64f23c95a87ac6056962570833d75209ce455c813c77f",
+          "main_path": "策略学习/参数空间/演化策略",
+          "problem": "策略学习",
+          "mechanism": "用高斯参数扰动的整局回报估计平滑目标梯度，镜像采样和共享随机数支持并行，排名变换抑制离群回报。",
+          "paper_evidence_and_limits": "MuJoCo与Atari；大量CPU并行的现实加速不等于低样本数，也不提供本题可靠性。",
+          "inspiration": "动作频率和长时延回报不会阻止参数空间学习；适合既有确定求解器。",
+          "implementation_mapping": "训练器采用候选参数扰动和整局反馈；未复刻通信噪声表、Adam或大型网络。",
+          "empirical_support": "参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。 停止后的开发诊断2592/2592全清；移除station_gain、workload、boundary在该已暴露开发集反而更快，不能给每个学得特征都分配正收益；未据此再调参。",
+          "round_links": [
+            {
+              "round": 1,
+              "training_path": "experiments/A6_learning/training/r1",
+              "full_path": "results/A6_learning_r1_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 2,
+              "training_path": "experiments/A6_learning/training/r2",
+              "full_path": "results/A6_learning_r2_full",
+              "decision": "tradeoff",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 3,
+              "training_path": "experiments/A6_learning/training/r3",
+              "full_path": "results/A6_learning_r3_full",
+              "decision": "improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 4,
+              "training_path": "experiments/A6_learning/training/r4",
+              "full_path": "results/A6_learning_r4_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 5,
+              "training_path": "experiments/A6_learning/training/r5",
+              "full_path": "results/A6_learning_r5_full",
+              "decision": "improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 6,
+              "training_path": "experiments/A6_learning/training/r6",
+              "full_path": "results/A6_learning_r6_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 7,
+              "training_path": "experiments/A6_learning/training/r7",
+              "full_path": "results/A6_learning_r7_full",
+              "decision": "improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 8,
+              "training_path": "experiments/A6_learning/training/r8",
+              "full_path": "results/A6_learning_r8_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 9,
+              "training_path": "experiments/A6_learning/training/r9",
+              "full_path": "results/A6_learning_r9_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            }
+          ],
+          "classification_confidence": "high",
+          "implementation_functions": [
+            "scripts/train_policy.py:main (parameter-space search inspiration only)"
+          ],
+          "implemented_as_paper_algorithm": false,
+          "principle_or_mechanism_adopted": true,
+          "diagnostic_links": [
+            {
+              "path": "experiments/A6_learning/development_ablation/summary.json",
+              "scope": "post-selection exposed R7 development; 9 variants x 288 cases; no tuning",
+              "purpose": "conditional single-feature removal diagnostic, not a new holdout"
+            }
+          ]
+        },
+        {
+          "id": "ppo",
+          "title": "Proximal Policy Optimization Algorithms",
+          "authors": [
+            "John Schulman",
+            "Filip Wolski",
+            "Prafulla Dhariwal",
+            "Alec Radford",
+            "Oleg Klimov"
+          ],
+          "year": 2017,
+          "version": "arXiv:1707.06347v2",
+          "original_url": "https://arxiv.org/pdf/1707.06347",
+          "retrieved_date": "2026-09-11",
+          "tier": "extended",
+          "read_pages": "1,3",
+          "actual_reading": "身份、引言及第3节裁剪目标公式/解释；未完整阅读实验",
+          "identity_verified": "original PDF title/authors/version header",
+          "source_level": "primary",
+          "pdf_sha256": "e78feadadbdbb0b601b3c2bcc81404722cd431a489b307545f9b7bea1e8c4f5b",
+          "main_path": "策略学习/动作空间/策略梯度",
+          "problem": "策略学习",
+          "mechanism": "以新旧动作概率比与优势函数构造裁剪代理目标，用同批轨迹多轮更新抑制过大策略变化。",
+          "paper_evidence_and_limits": "论文评测机器人控制与Atari；裁剪改善优化稳定性不等于硬约束保证。",
+          "inspiration": "端到端学习可行但需处理动作混合、信用分配及有效状态表达。",
+          "implementation_mapping": "未采用：当前低维参数可直接整局搜索，增加actor-critic和动作分布训练的工程预算未获必要性证据。",
+          "empirical_support": "未实现原论文算法，没有同预算本题对照；仅做机制适配分析，不能声称本方案实测优于它。",
+          "round_links": [],
+          "classification_confidence": "high",
+          "implementation_functions": [],
+          "implemented_as_paper_algorithm": false,
+          "principle_or_mechanism_adopted": false,
+          "diagnostic_links": []
+        },
+        {
+          "id": "bo",
+          "title": "Practical Bayesian Optimization of Machine Learning Algorithms",
+          "authors": [
+            "Jasper Snoek",
+            "Hugo Larochelle",
+            "Ryan P. Adams"
+          ],
+          "year": 2012,
+          "version": "arXiv:1206.2944v2",
+          "original_url": "https://arxiv.org/pdf/1206.2944",
+          "retrieved_date": "2026-09-11",
+          "tier": "extended",
+          "read_pages": "1,3",
+          "actual_reading": "身份、问题及2.1-2.2 GP/PI/EI/UCB机制；不冒充全文深读",
+          "identity_verified": "original PDF title/authors/version header",
+          "source_level": "primary",
+          "pdf_sha256": "9863ea49c983f3fce20baba203f798431e6808f231353a694b7d57c8caa59d68",
+          "main_path": "自动搜索/代理模型/高斯过程",
+          "problem": "自动搜索",
+          "mechanism": "以GP后验拟合昂贵未知评价函数，EI等采集函数平衡低预测均值和不确定性，决定下一组参数。",
+          "paper_evidence_and_limits": "机器学习超参数调优；平稳核和噪声模型要匹配任务，非光滑策略切换可能不符合易建模假设。",
+          "inspiration": "搜索本身可自适应集中预算，而非手调看v1结果。",
+          "implementation_mapping": "未实现GP BO：单局模拟便宜，额外核拟合/采集优化开销与非平滑目标下的必要性不明确。用更简单精英搜索。",
+          "empirical_support": "未实现原论文算法，没有同预算本题对照；仅做机制适配分析，不能声称本方案实测优于它。",
+          "round_links": [],
+          "classification_confidence": "high",
+          "implementation_functions": [],
+          "implemented_as_paper_algorithm": false,
+          "principle_or_mechanism_adopted": false,
+          "diagnostic_links": []
+        },
+        {
+          "id": "pilco",
+          "title": "PILCO: A Model-Based and Data-Efficient Approach to Policy Search",
+          "authors": [
+            "Marc Peter Deisenroth",
+            "Carl Edward Rasmussen"
+          ],
+          "year": 2011,
+          "version": "ICML 2011（PDF首页）",
+          "original_url": "https://mlg.eng.cam.ac.uk/pub/pdf/DeiRas11.pdf",
+          "retrieved_date": "2026-09-11",
+          "tier": "extended",
+          "read_pages": "1-3",
+          "actual_reading": "身份、GP动力学、不确定输入矩匹配和长期策略评价；未读全部实验",
+          "identity_verified": "original PDF title/authors/version header",
+          "source_level": "primary",
+          "pdf_sha256": "6f34abaa935fe326120d5f4206c9cf0df97369986fc6f31c7456ea7ee93a9bfc",
+          "main_path": "策略学习/模型学习/概率动力学",
+          "problem": "策略学习",
+          "mechanism": "学习GP动力学后传播模型及状态不确定性，以近似矩匹配和解析梯度优化长期策略代价。",
+          "paper_evidence_and_limits": "面向连续控制且数据昂贵；概率传播仍受高斯近似与模型偏差约束。",
+          "inspiration": "本题运动是已知直线和固定速度，未知部分主要是源和固定误差场；不应重复学习已知运动规则。",
+          "implementation_mapping": "未采用：动力学模型学习解决的核心困难在本题不突出，定向失信号是非连续观测，模型风险需额外校准。",
+          "empirical_support": "未实现原论文算法，没有同预算本题对照；仅做机制适配分析，不能声称本方案实测优于它。",
+          "round_links": [],
+          "classification_confidence": "high",
+          "implementation_functions": [],
+          "implemented_as_paper_algorithm": false,
+          "principle_or_mechanism_adopted": false,
+          "diagnostic_links": []
+        },
+        {
+          "id": "neural_co",
+          "title": "Neural Combinatorial Optimization with Reinforcement Learning",
+          "authors": [
+            "Irwan Bello",
+            "Hieu Pham",
+            "Quoc V. Le",
+            "Mohammad Norouzi",
+            "Samy Bengio"
+          ],
+          "year": 2017,
+          "version": "arXiv:1611.09940v3; 首页为ICLR 2017 under review，不声称正式主会录用",
+          "original_url": "https://arxiv.org/pdf/1611.09940",
+          "retrieved_date": "2026-09-11",
+          "tier": "extended",
+          "read_pages": "1,3-4",
+          "actual_reading": "引言、Pointer Network与REINFORCE目标；未读全部实验与附录",
+          "identity_verified": "original PDF title/authors/version header",
+          "source_level": "primary",
+          "pdf_sha256": "edb7ba67b9f332c7d2116b9bca64a52deb56c414e9e7dfe6e21d4d45287475d2",
+          "main_path": "策略学习/组合决策/指针网络",
+          "problem": "策略学习",
+          "mechanism": "把路线表示为点序列，指针网络给出节点分布，用路线长度直接训练；区分跨实例预训练与单实例active search。",
+          "paper_evidence_and_limits": "TSP/背包的图实例有已知坐标或物品值；本题不能在部署时访问真实目标坐标。",
+          "inspiration": "直接用任务代价训练，比模仿一份并非最优的路线标签更贴合目标。",
+          "implementation_mapping": "整局直接目标进入训练器；未实现指针网络，亦不在v1上做单实例active search。",
+          "empirical_support": "参数空间整局搜索实际完成；第1轮静态参数失败，第2轮形成Q3/Q4取舍，第3轮组合成为联合改进。每轮的全部尝试数、开发与full数据可追溯；不把原论文跨任务成绩移植到本题。 全轮full轨迹（秒/源）：R1: Q3=307.779342, Q4=570.883371, not_improved；R2: Q3=306.814064, Q4=552.956004, tradeoff；R3: Q3=306.300434, Q4=552.956004, improved；R4: Q3=306.300434, Q4=552.956004, not_improved；R5: Q3=306.300434, Q4=548.829652, improved；R6: Q3=306.300434, Q4=548.829652, not_improved；R7: Q3=306.300434, Q4=548.515689, improved；R8: Q3=306.300434, Q4=548.515689, not_improved；R9: Q3=306.300434, Q4=548.515689, not_improved。交互特征等后续扩展仍是原创特征搜索，不能归因于论文原算法。 停止后的开发诊断2592/2592全清；移除station_gain、workload、boundary在该已暴露开发集反而更快，不能给每个学得特征都分配正收益；未据此再调参。",
+          "round_links": [
+            {
+              "round": 1,
+              "training_path": "experiments/A6_learning/training/r1",
+              "full_path": "results/A6_learning_r1_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 2,
+              "training_path": "experiments/A6_learning/training/r2",
+              "full_path": "results/A6_learning_r2_full",
+              "decision": "tradeoff",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 3,
+              "training_path": "experiments/A6_learning/training/r3",
+              "full_path": "results/A6_learning_r3_full",
+              "decision": "improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 4,
+              "training_path": "experiments/A6_learning/training/r4",
+              "full_path": "results/A6_learning_r4_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 5,
+              "training_path": "experiments/A6_learning/training/r5",
+              "full_path": "results/A6_learning_r5_full",
+              "decision": "improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 6,
+              "training_path": "experiments/A6_learning/training/r6",
+              "full_path": "results/A6_learning_r6_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 7,
+              "training_path": "experiments/A6_learning/training/r7",
+              "full_path": "results/A6_learning_r7_full",
+              "decision": "improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 8,
+              "training_path": "experiments/A6_learning/training/r8",
+              "full_path": "results/A6_learning_r8_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 9,
+              "training_path": "experiments/A6_learning/training/r9",
+              "full_path": "results/A6_learning_r9_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            }
+          ],
+          "classification_confidence": "high",
+          "implementation_functions": [
+            "scripts/train_policy.py:episode",
+            "scripts/train_policy.py:evaluate (whole-episode objective only)"
+          ],
+          "implemented_as_paper_algorithm": false,
+          "principle_or_mechanism_adopted": true,
+          "diagnostic_links": [
+            {
+              "path": "experiments/A6_learning/development_ablation/summary.json",
+              "scope": "post-selection exposed R7 development; 9 variants x 288 cases; no tuning",
+              "purpose": "conditional single-feature removal diagnostic, not a new holdout"
+            }
+          ]
+        },
+        {
+          "id": "gp_sensor",
+          "title": "Near-Optimal Sensor Placements in Gaussian Processes: Theory, Efficient Algorithms and Empirical Studies",
+          "authors": [
+            "Andreas Krause",
+            "Ajit Singh",
+            "Carlos Guestrin"
+          ],
+          "year": 2008,
+          "version": "JMLR 9:235-284, 2008",
+          "original_url": "https://www.jmlr.org/papers/volume9/krause08a/krause08a.pdf",
+          "retrieved_date": "2026-09-11",
+          "tier": "extended",
+          "read_pages": "1,3-4,6-7",
+          "actual_reading": "身份、贡献、GP条件方差、非平稳核与熵准则；未完整阅读50页，未核验全部近似定理",
+          "identity_verified": "original PDF title/authors/version header",
+          "source_level": "primary",
+          "pdf_sha256": "0274838d66829c2cc446d5f861c80660d2ae1bf343a3f1e77fc4ee29ad6309dd",
+          "main_path": "主动观测/信息准则/GP传感器选择",
+          "problem": "主动观测",
+          "mechanism": "在候选传感器集合间优化信息指标，利用GP条件方差和互信息结构；强调非平稳相关场对布点的影响。",
+          "paper_evidence_and_limits": "真实温度与降雨数据；子模近似保证依赖其集合目标条件，不自动适用于机器人移动加清除成本。",
+          "inspiration": "误差相关性和测点几何需纳入开发分布，减少重复同址测量；信息量不是唯一任务目标。",
+          "implementation_mapping": "训练生成混合有界误差场并保留固定同址误差；未实现GP地图或互信息优化，避免把协方差假设硬套为覆盖证书。",
+          "empirical_support": "所有训练轮包含自行生成的不同相关误差场；没有训练GP地图、信息增益控制器或验证其子模近似界。源场景退步在report逐项列出。",
+          "round_links": [
+            {
+              "round": 1,
+              "training_path": "experiments/A6_learning/training/r1",
+              "full_path": "results/A6_learning_r1_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 2,
+              "training_path": "experiments/A6_learning/training/r2",
+              "full_path": "results/A6_learning_r2_full",
+              "decision": "tradeoff",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 3,
+              "training_path": "experiments/A6_learning/training/r3",
+              "full_path": "results/A6_learning_r3_full",
+              "decision": "improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 4,
+              "training_path": "experiments/A6_learning/training/r4",
+              "full_path": "results/A6_learning_r4_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 5,
+              "training_path": "experiments/A6_learning/training/r5",
+              "full_path": "results/A6_learning_r5_full",
+              "decision": "improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 6,
+              "training_path": "experiments/A6_learning/training/r6",
+              "full_path": "results/A6_learning_r6_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 7,
+              "training_path": "experiments/A6_learning/training/r7",
+              "full_path": "results/A6_learning_r7_full",
+              "decision": "improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 8,
+              "training_path": "experiments/A6_learning/training/r8",
+              "full_path": "results/A6_learning_r8_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            },
+            {
+              "round": 9,
+              "training_path": "experiments/A6_learning/training/r9",
+              "full_path": "results/A6_learning_r9_full",
+              "decision": "not_improved",
+              "role": "training/search/evaluation principle, not original algorithm replication"
+            }
+          ],
+          "classification_confidence": "high",
+          "implementation_functions": [
+            "scripts/train_policy.py:make_training_case (correlated noise coverage)"
+          ],
+          "implemented_as_paper_algorithm": false,
+          "principle_or_mechanism_adopted": true,
+          "diagnostic_links": []
+        }
+      ],
+      "coverage_limits": "核心4篇为实际正文深读，扩展6篇为明确范围的正文节选；并未完整阅读所有附录，亦未做这些论文算法的同预算实现对照。"
+    }
+  }
+]
