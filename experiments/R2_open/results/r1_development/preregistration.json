@@ -1,0 +1,73 @@
+{
+  "seed_range": [
+    42000000,
+    42000007
+  ],
+  "variants": [
+    {
+      "name": "S0",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/20260911_stage3/baseline/S0.py",
+      "sha256": "c0a07012d92f63ef0e3f2985b4390a50476de1e0662410f975ffbd3c8f43db06",
+      "config": {}
+    },
+    {
+      "name": "embedded_control",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/snapshots/r1_development.py",
+      "sha256": "a820e8a8326fe39b9820e0cab4939524ca712e870ab13962567f6f71f5e9b11c",
+      "config": {
+        "geom_tangent": false,
+        "geom_no_signal": false,
+        "geom_failure": false
+      }
+    },
+    {
+      "name": "tangent",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/snapshots/r1_development.py",
+      "sha256": "a820e8a8326fe39b9820e0cab4939524ca712e870ab13962567f6f71f5e9b11c",
+      "config": {
+        "geom_tangent": true,
+        "geom_no_signal": false,
+        "geom_failure": false
+      }
+    },
+    {
+      "name": "no_signal",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/snapshots/r1_development.py",
+      "sha256": "a820e8a8326fe39b9820e0cab4939524ca712e870ab13962567f6f71f5e9b11c",
+      "config": {
+        "geom_tangent": false,
+        "geom_no_signal": true,
+        "geom_failure": false
+      }
+    },
+    {
+      "name": "failure",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/snapshots/r1_development.py",
+      "sha256": "a820e8a8326fe39b9820e0cab4939524ca712e870ab13962567f6f71f5e9b11c",
+      "config": {
+        "geom_tangent": false,
+        "geom_no_signal": false,
+        "geom_failure": true
+      }
+    },
+    {
+      "name": "all_geometry",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/snapshots/r1_development.py",
+      "sha256": "a820e8a8326fe39b9820e0cab4939524ca712e870ab13962567f6f71f5e9b11c",
+      "config": {
+        "geom_tangent": true,
+        "geom_no_signal": true,
+        "geom_failure": true
+      }
+    },
+    {
+      "name": "A2_R8",
+      "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/20260911_agent_campaign/final_candidates/A2_information_R8.py",
+      "sha256": "bd0ed7b8d322d6502c04c1bf100857001617cca235038a2d78bcacf4d97b82bc",
+      "config": {}
+    }
+  ],
+  "data_role": "development selection; not holdout",
+  "q4_legal_mixed": true,
+  "selection": "All-complete lowest Q3 mean among S0-derived variants; Q4 must match S0 when intended"
+}
