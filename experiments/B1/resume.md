@@ -1,0 +1,15 @@
+# B1 阶段接续
+
+状态：R1真实完成并刷新C0，当前最佳R1；按root要求暂时释放以启动B4。没有达到经验停止，恢复必须继续R2/R3；R2到R3刷新时延长，其后连续两轮不刷新才停。
+
+工作树 `/Users/t/Documents/Codex/2026-09-10/new-chat/work/breakthrough/B1`；分支experiments/20260911-breakthrough/b1。候选snapshots/r1_solver.py，SHA `ba417e4ac97d9d7ce04f7b6c0831f3c38bc70f81e4c0f313f1ebb60663dfab98`，代码commit `779cadbf85f02723f05f797dce3d8f9e89729f8e`。不要编辑冻结R1。
+
+4800全清，v1 Q3/Q4=237.93205282488378/523.5579667412422；previous_final=238.92088840741698/530.4157343506332；combined=238.42647061615037/526.9868505459377。各48场景均改善，单局Q3 414/Q4 873慢，全部负例已保存。
+
+首轮思路：A1 Q3路径父+A4 Q4定位父；A3停靠点补测结构；新组件可见性乘预测收缩、多位置假说、6000秒补测上限。开发7配置2016任务含C0和A3父对照。选Q3中心门槛60、Q4三位置×可见概率门槛60；开发完整负结果保留。
+
+阅读：六份报告、58条继承文献记录、源码AST全部、旧原始行全量解析；735文件5661438行243120指标行，细节reading_coverage。AIPPMS /tmp/B1_AIPPMS.pdf p1,3–5本轮直接重读，未新增论文/SOTA声称。
+
+下一阶段建议但未预定：复查固定60米补测门槛在窄区/宽区效果，或不移动地顺便清掉已有严格20米证书的其他频道；仍先写优化路径实验前记录，再独立训练开发组件对照。可否融合A2负观测须另外检查缓存和时间。不得按暴露case ID写策略。新的最终样本不得调参。
+
+原始结果和运行脚本均在research和results，执行预算6960完整任务、14/79规则另计。Python=/Users/t/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3。共同脚本已由root更新SHA 3bd1c831a0390359838df2fa22f0fa353fdf76160e95da129ec9b006f65c060b，保留该修改，随报告提交。
