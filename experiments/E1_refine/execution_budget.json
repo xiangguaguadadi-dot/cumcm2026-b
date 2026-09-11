@@ -1,0 +1,52 @@
+{
+  "policy_task_runs": 6624,
+  "new_unique_development_cases": 432,
+  "runs": [
+    {
+      "label": "r1_screen",
+      "type": "development",
+      "actual_runs": 432,
+      "unique_cases": 144,
+      "wall_seconds": 8.168918040813878
+    },
+    {
+      "label": "r1_quick",
+      "type": "fixed_quick_subset",
+      "actual_runs": 120,
+      "unique_new_cases": 0,
+      "wall_seconds": 1.895387666998431
+    },
+    {
+      "label": "r2_closure",
+      "type": "development",
+      "actual_runs": 1152,
+      "unique_cases": 288,
+      "wall_seconds": 19.749881124938838
+    },
+    {
+      "label": "r1_full",
+      "type": "exposed_regression",
+      "actual_runs": 2400,
+      "unique_new_cases": 0,
+      "wall_seconds": 36.45417062507477
+    },
+    {
+      "label": "r2_quick",
+      "type": "exposed_regression",
+      "actual_runs": 120,
+      "unique_new_cases": 0,
+      "wall_seconds": 1.3843377500306815
+    },
+    {
+      "label": "r1_exposed",
+      "type": "exposed_regression",
+      "actual_runs": 2400,
+      "unique_new_cases": 0,
+      "wall_seconds": 35.77235995803494
+    }
+  ],
+  "rules": {
+    "test_rules": "12 passed",
+    "changes_to_frozen_environment": false
+  }
+}
