@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "candidate_sha256": "a820e8a8326fe39b9820e0cab4939524ca712e870ab13962567f6f71f5e9b11c",
+  "changed_inherited_definitions": [
+    "Solver",
+    "_di_certified_points"
+  ],
+  "added_definitions": [
+    "_GeometrySpatial",
+    "_geo_add_bearing",
+    "_geo_convex_hull",
+    "_geo_outside_disk_hull"
+  ],
+  "environment_attributes": [
+    "clear",
+    "enter",
+    "exit",
+    "measure"
+  ],
+  "review": "Read complete geometry wrappers and three extracted A2 functions. New positive cuts are external tangent half-planes; Q3 no-signal and failed-clear disks are conservatively shrunken before taking the hull of remaining polygon pieces. Size caps discard refinement, not feasible locations. Real geometry updated before opportunity scoring, no hypothetical bearing state mutation. Q4 public dispatch uses the unchanged nonsharing directional engine with B3 point function. Read r1_reliability.md; bounds preserve source-containing subsets and bounded parent actions. This review and AST checks supplement finite containment tests and row audit; not a machine-checked all-input proof."
+}

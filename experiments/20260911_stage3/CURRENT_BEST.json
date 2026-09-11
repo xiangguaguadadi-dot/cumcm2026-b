@@ -1,22 +1,28 @@
 {
-  "version": "S0_verified",
+  "version": "observed_after_R2_R1_and_R3_R1",
   "fixed_anchor": "S0",
-  "selection": "per-known-question dispatch; not a new algorithmic gain",
+  "selection": "per-question best components from independently executed candidates; combined deployment not yet constructed",
   "modes": {
     "3": {
-      "name": "B1_R1",
-      "candidate": "experiments/20260911_stage3/baseline/B1_R1.py",
-      "sha256": "ba417e4ac97d9d7ce04f7b6c0831f3c38bc70f81e4c0f313f1ebb60663dfab98",
-      "mean_s_per_source": 238.42647061615037
+      "name": "R2_open R1",
+      "candidate_absolute": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/snapshots/r1_solver.py",
+      "candidate_sha256": "a820e8a8326fe39b9820e0cab4939524ca712e870ab13962567f6f71f5e9b11c",
+      "code_commit": "c24ed9c",
+      "results_absolute": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/results/r1_exposed",
+      "mean_s_per_source": 236.52704533769233,
+      "audited_4800": true
     },
     "4": {
-      "name": "B3_R1",
-      "candidate": "experiments/20260911_stage3/baseline/B3_R1.py",
-      "sha256": "02e845c7638236bd2834c9d2bf5a38a2aedb24515dc4e4e5d361bbc471b4db96",
-      "mean_s_per_source": 524.8271439810878
+      "name": "R3_open R1",
+      "candidate_absolute": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/snapshots/r1.py",
+      "candidate_sha256": "508ffddc556e4df6a192b30e700463956b54f8b6cc8b96778253d72c0ecea9e8",
+      "code_commit": "8e814c6",
+      "results_absolute": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/results/r1_exposed",
+      "mean_s_per_source": 514.8768362770995,
+      "audited_4800": true
     }
   },
   "baseline_rows": "baseline/equivalence/case_metrics.json",
-  "actual_dispatch_verified": true,
+  "actual_dispatch_verified": false,
   "notes": "S0 remains fixed anchor. Track own best and known per-question common best separately; new advances in another question do not erase an independently improving component. Further method fusion requires actual implementation and evaluation."
 }
