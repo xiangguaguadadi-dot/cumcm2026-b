@@ -1,0 +1,63 @@
+{
+  "actual_strategy_executions": 10776,
+  "distinct_new_development_cases": 96,
+  "reused_case_executions": 10680,
+  "rounds": [
+    {
+      "path": "results/r1_cost_all_exposed/summary.json",
+      "actual_runs": 2400,
+      "role": "exposed previous_final after exact-hash v1 reuse"
+    },
+    {
+      "path": "results/r1_cost_all_full/summary.json",
+      "actual_runs": 2400,
+      "role": "full exposed regression"
+    },
+    {
+      "path": "results/r1_cost_all_quick/summary.json",
+      "actual_runs": 120,
+      "role": "quick exposed regression"
+    },
+    {
+      "path": "results/r1_cost_opportunity_quick/summary.json",
+      "actual_runs": 120,
+      "role": "quick exposed regression"
+    },
+    {
+      "path": "results/r1_off_quick/summary.json",
+      "actual_runs": 120,
+      "role": "quick exposed regression"
+    },
+    {
+      "path": "results/r1_station_only_exposed/summary.json",
+      "actual_runs": 2400,
+      "role": "exposed previous_final after exact-hash v1 reuse"
+    },
+    {
+      "path": "results/r1_station_only_full/summary.json",
+      "actual_runs": 2400,
+      "role": "full exposed regression"
+    },
+    {
+      "path": "results/r1_station_only_quick/summary.json",
+      "actual_runs": 120,
+      "role": "quick exposed regression"
+    },
+    {
+      "path": "results/r1_station_uncertified_quick/summary.json",
+      "actual_runs": 120,
+      "role": "quick exposed regression"
+    },
+    {
+      "path": "results/r1_ablation/budget.json",
+      "actual_runs": 192,
+      "role": "legal development, not holdout"
+    },
+    {
+      "path": "results/r1_development/budget.json",
+      "actual_runs": 384,
+      "role": "legal development, not holdout"
+    }
+  ],
+  "note": "Quick is a full subset; v1 reuse and historical S1 caches are not new strategy executions. No final holdout."
+}
