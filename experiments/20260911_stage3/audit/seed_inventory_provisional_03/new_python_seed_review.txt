@@ -1,0 +1,239 @@
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/coordinator/experiments/20260911_stage3/audit/check_final_review.py
+1: """Review-pipeline checks using existing cases; never draws final seeds."""
+22: assert all(c["saved_s_per_source_seed_cluster_95ci"] == [0, 0] and c["reduction_fraction_seed_cluster_95ci"] == [0, 0]
+30: assert all(abs(x - 0.1) < 1e-12 for c in synthetic if c["group"] == "ALL" for x in c["reduction_fraction_seed_cluster_95ci"])
+50: first_seed = v1cases[0]["seed"]
+51: smoke_cases = [c for c in v1cases if c["seed"] == first_seed]
+67: actual_existing_case_smoke_runs=24, source_seed=first_seed, checked_task_fields=15,
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/coordinator/experiments/20260911_stage3/audit/collect_seed_inventory.py
+1: """Inventory case seeds without generating cases or executing policy code.
+4: Python seed statements remain explicit review items; they are not executed.
+25: seeds, formats = set(), set()
+31: seeds.add(v)
+33: seeds.add(int(v))
+41: if "seed" in k.lower():
+47: seeds.add(int(m[1]))
+55: return sorted(seeds), sorted(formats)
+63: # Every seed mention is retained with source line; formulas are manually
+66: if re.search(r"seed|make_case|make_training_case|SystemRandom", s, re.I)]
+67: # Literal RNG seeds are an additional conservative exclusion, even when
+73: if name in ("Random", "seed") and node.args:
+77: return dict(seeds=sorted(literals), formats=["python_rng_literal"] if literals else [],
+78: python_seed_lines=items)
+85: seeds, formats = extract(obj)
+86: return dict(seeds=seeds, formats=formats, python_seed_lines=[])
+103: files, errors, seeds = [], [], set()
+118: # evidence. They only reproduce seeds from the scanned sources.
+119: if any(x.startswith("seed_inventory_") for x in rel.parts):
+133: seeds.update(result["seeds"])
+134: entry.update(seed_count=len(result["seeds"]), formats=result["formats"])
+137: (v["seeds"] or v["python_seed_lines"])}
+142: unique_parsed_contents=len(seen), extracted_seed_count=len(seeds),
+145: scope_note="All saved JSON, JSONL, CSV, and Python under listed experiment roots, including original pre-freeze work. Stage3 and breakthrough trees are scanned individually, not recursively twice through work. Numeric case-id suffixes, numeric seed-related metadata (including counts/range endpoints), and optimizer RNG seeds over-exclude conservatively. Script formulas require explicit review before final registration. No case generation or policy execution.")
+147: (out / "seeds.json").write_text(json.dumps(sorted(seeds), indent=2) + "\n")
+148: print(json.dumps(dict(files=len(files), unique_contents=len(seen), seeds=len(seeds),
+149: errors=len(errors), python_sources_to_review=sum(bool(v.get("python_seed_lines")) for v in seen.values()), out=str(out))))
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/coordinator/experiments/20260911_stage3/final_review.py
+1: """Frozen-candidate new-seed runner and paired analysis for stage three.
+6: paired seed clusters and never count as new environment executions.
+57: assert registry["candidates"] and registry["seed_exclusion_review_complete"] is True
+63: exclusion = ROOT / registry["seed_exclusion_path"]
+64: assert sha(exclusion) == registry["seed_exclusion_sha256"]
+81: output.append(dict(r, group=c["group"], seed_cluster=c["seed"]))
+89: def execute(candidate, dependencies, cases_file, out, label, role, extra_identity=None, data_role="stage3_final_new_seed_local"):
+131: fields = ["case_id", "mode", "group", "seed_cluster", "cleared_count", "source_count", "complete", "error",
+146: assert all(r[k] == bi[r["case_id"]][k] for k in ("mode", "group", "seed_cluster", "source_count"))
+182: seeds = sorted({r["seed_cluster"] for r in part})
+183: clusters = [[r for r in part if r["seed_cluster"] == s] for s in seeds]
+190: ix = rng.choices(range(len(seeds)), k=len(seeds))
+196: cell.update(seed_clusters=len(seeds), bootstrap_replicates=5000,
+197: saved_s_per_source_seed_cluster_95ci=[saved[124], saved[4874]],
+198: reduction_fraction_seed_cluster_95ci=[relative[124], relative[4874]])
+222: ci_note="5000 paired seed-cluster bootstrap replicates, seed 110926; exploratory, no multiplicity correction or causal claim.",
+233: assert manifest["cases"] == 2400 and manifest["seed_clusters"] == 100
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/coordinator/experiments/20260911_stage3/generate_final.py
+4: All source and exclusion identities are checked before drawing any new seeds.
+23: exclusions = read(ROOT / registry["seed_exclusion_path"])
+25: excluded = set(exclusions["seeds"])
+29: assert {c["seed"] for c in known} <= excluded
+45: seeds = []
+46: rng = random.SystemRandom()
+47: while len(seeds) < 100:
+48: seed = rng.randrange(10**8, 2**31)
+49: if seed not in excluded and seed not in seeds and not any(lo <= seed < hi for lo, hi in ranges):
+50: seeds.append(seed)
+54: for seed in seeds:
+55: sources = [vars(s) for s in namespace["sources"](seed, mode, scenario)]
+60: cases.append(dict(case_id=f"LOCAL-stage3-final-q{mode}-{group}-{seed}", mode=mode,
+61: group=group, noise=noise, seed=seed, quick=False, sources=sources))
+67: manifest = dict(role="stage3_final_new_seed_local", cases=2400, seed_clusters=100, seeds=seeds,
+69: registry_sha256=sha(registry_path), seed_exclusion_sha256=registry["seed_exclusion_sha256"],
+73: distribution_note="New seed clusters under the same 12 local assumptions; Q4 mixed directional and omnidirectional sources. Not official or out-of-distribution testing.")
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/coordinator/experiments/R1_atlas/scripts/build_graph.py
+144: n=node_by_id[c['label']];n['later_validation']={'historical_role':'new_seed_final_at_stage1_freeze','current_role':'exposed_regression_since_stage2','selection_not_retroactively_changed':True,'registration_reason':c['selection_reason'],'aggregates':ag,'row_source':source(p),'code_identity_verified':sha((ROOT/c['candidate_path']).read_bytes())==n['candidate']['sha256']}
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/coordinator/experiments/R2_open/research/finish_round.py
+10: budget=read(OUT/'execution_budget.json');assert f'R{r}' not in budget['rounds'];entry=dict(training_runs=0,development_runs=dev['actual_runs'],development_unique_cases=dev['unique_cases'],development_seed_range=dev['seed_range'],quick_runs=120,full_runs=2400,previous_final_runs=summary['new_runs'],total_policy_executions=dev['actual_runs']+4920,geometry_assertions=sel['geometry_checks'],rule_tests=14,nominal_rule_checks=79,development_wall_s=dev['wall_s'],quick_wall_s=read(OUT/f'results/r{r}_quick/summary.json')['wall_seconds'],full_wall_s=read(OUT/f'results/r{r}_full/summary.json')['wall_seconds'],previous_final_wall_s=summary['wall_seconds_new_runs']);budget['rounds'][f'R{r}']=entry
+16: (OUT/'resume.md').write_text(f'# 接续状态\n\n已完成R1–R{r}；当前best为R{best["round"]}，Q3={best["q3"]:.12f}/Q4={best["q4"]:.12f}。snapshot {best["candidate"]}，SHA{best["sha256"]}。最近R{r}：{a.decision} 下一：{a.next}。新开发已用42000000–{dev["seed_range"][1]}，42000999仅性质检查。无固定轮数停止规则。所有旧v1/previous_final均暴露；root尚未生成第三阶段新final。\n')
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/research/check_r4_geometry.py
+5: seed=42001999;assert seed not in json.loads((OUT/'research/known_seed_audit.json').read_text())['known_seeds'];rng=random.Random(seed)
+22: output=dict(seed=seed,synthetic_regions=1000,convex_combination_containment_checks=5000,candidate_sha256=hashlib.sha256(p.read_bytes()).hexdigest(),max_vertices=max(x['vertices'] for x in results),minimum_safety_margin=min(x['margin'] for x in results),mean_proxy_gain_m=sum(x['proxy_gain_m'] for x in results)/len(results),all_contained=True,all_fixed_state_proxy_nonworse=True,boundary='Finite geometry probes support implementation; convexity argument certifies continuous containment. No task episodes or source-placement prior claim.',rows=results)
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/research/setup_r4.py
+7: path['rounds'].append(dict(id='R2_open_R4',parents=['R2_open_R3','A2_information_R8'],status='preregistered',before=dict(utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),problem='B1 restricts certified clear to disk(center,20-r), which is a sufficient subset of the full all-vertex action region. A2 nearest projection ignores the route successor.',plan='Three variants: parent safe-disk route point; A2 exact nearest entry into full disk intersection; full-region entry+successor arc search including original action.',selection='All complete, Q4 exact; lowest Q3 mean on 16 fresh seeds x12x2. Keep original candidate in full-region search to avoid worsening fixed-state proxy, but full online task may differ.',seed_range=[42000036,42000051],guarantee='Each accepted q satisfies max_v dist(q,v)<=20; norms convex. Straight segment intersection is globally shortest fixed-state route; bounded arc search is only heuristic; original safe fallback always available.',cross_agent='Q3 idea sent to R3_open after root noted related Q4 safe-disk route study; they independently test disk first. No R3_open implementation has been copied.')))
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R2_open/experiments/R2_open/research/setup_r5.py
+7: p['rounds'].append(dict(id='R2_open_R5',parents=['R2_open_R4','A2_information_R8'],inspired_by=['Chen et al. 2015 Submodular Surrogates for Value of Information'],status='preregistered',before=dict(utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),problem='R3 one-center cost gate cannot represent ambiguity between different service locations; hard one-step certification has already failed.',plan='Compare original single-center cost; fixed 9-point A2 planning quadrature averaged cost; same quadrature with colored decision-region EC2 remaining edge mass and Noisy-OR progress. Same arrival points/real geometry/budget.',selection='All complete and Q4 exact; lowest Q3 on fresh42000052-67x12x2. Include unchanged parent. No tuning on exposed rows.',seed_range=[42000052,42000067],graph='Actions at each hypothesis plus pair midpoints where pair distance<=40. Unique optical coverage masks cover H. Greedy color disjoint regions. Each color induces selected decision classes + remaining membership-pattern classes. EC2 ratio=(k^2-sum(class_survivor_count^2))/(n^2-sum(class_count^2)), with original unnormalized weights. F=1-product ratios.',model_boundary='Finite hypotheses are state-local planning proposals, not true known prior; bounded-error geometric consistency sets for hypothetical outcomes can overlap. Thus expected F is a heuristic surrogate, not exact deterministic DRD expected value. No approximation theorem transfers. Gate uses F*(8+(r-20)+/5+6*[r>100])-6 seconds proxy.',degenerate='Fewer than2 valid positions fall back to parent; zero-edge graph/unmodeled empty outcome fall back to same multi-cost.')))
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/research/audit_r4.py
+25: forbidden={'case_id','seed','scenario','LocalEnv','Source','expected_rows','exposed_cases'}
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/research/audit_r5.py
+26: forbidden={'case_id','seed','scenario','LocalEnv','Source','expected_rows','exposed_cases'}
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/research/build_r4.py
+13: p=json.loads((OUT/'optimization_path.json').read_text());assert not any(n['id']=='R3_R4' for n in p['nodes']);node=dict(id='R3_R4',status='registered_before_execution',parents=['R3_R3','A1_space_R8'],hypothesis='Use now-available joint-route successor to select a shorter certified clear location; altered arrivals may change future supplemental observations.',changes=['Transfer A1 route_clear_point into Q4; optimize only inside radius 20-r certified disk, keep old candidate as comparison.'],variants=['R3','route_clear'],train_seeds=[43006000,43006011],development_seeds=[43007000,43007011],candidate_development='experiments/R3_open/snapshots/r4_development.py',sha256=hashlib.sha256(s.encode()).hexdigest(),selection_rule='All complete; lower Q4 development mean than R3, then freeze for full regression; record training ranking',registered_utc=datetime.datetime.now(datetime.timezone.utc).isoformat());p['nodes'].append(node);(OUT/'optimization_path.json').write_text(json.dumps(p,ensure_ascii=False,indent=2))
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/research/build_r5.py
+12: p=json.loads((OUT/'optimization_path.json').read_text());assert not any(n['id']=='R3_R5' for n in p['nodes']);node=dict(id='R3_R5',status='registered_before_execution',parents=['R3_R4','R2_open_R4_component','A2_information_R8'],hypothesis='The full all-vertex clear-action intersection can improve Q4 continuation travel beyond its conservative inscribed disk; nearest-only may regress because it ignores successor.',changes=['Q4 route clear now exposes parent disk, exact finite nearest projection, and bounded arc route optimization over the full action intersection.'],variants=['R4','nearest','lens_route'],train_seeds=[43008000,43008011],development_seeds=[43009000,43009011],candidate_development='experiments/R3_open/snapshots/r5_development.py',sha256=hashlib.sha256(s.encode()).hexdigest(),selection_rule='All complete; select lowest changed Q4 development mean only if better than parent; preserve all variants and training ranks before full regression',registered_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),adoption_provenance='experiments/R3_open/research/r5_build_provenance.json');p['nodes'].append(node);(OUT/'optimization_path.json').write_text(json.dumps(p,ensure_ascii=False,indent=2))
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/research/check_lens_transfer.py
+28: result=dict(candidate_sha256=hashlib.sha256(candidate.read_bytes()).hexdigest(),parent_component_sha256=hashlib.sha256(parent.read_bytes()).hexdigest(),mapped_helpers_ast_equal=equal,random_geometry_cases=1000,all_vertices_safe=True,parent_proxy_nonincrease=True,geometry_case_seed=9531,actual_mission_runs=0,wall_s=time.perf_counter()-start,max_proxy_gain_m=max(x['proxy_gain_m'] for x in stats),boundary='Geometric action and fixed-state surrogate checks, not a full online task guarantee.')
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/research/develop_r4.py
+12: def make_case(seed,mode,group,scenario,noise):
+13: r=random.Random(seed);n=10 if scenario=='count10' else 16 if scenario=='count16' else r.randint(10,16)
+30: return dict(case_id=f'B1-dev-q{mode}-{group}-{seed}',mode=mode,group=group,noise=noise,seed=seed,sources=sources)
+32: env=LocalEnv([Source(**s) for s in case['sources']],case['seed'],case['noise'],keep_log=False)
+40: return dict(case_id=case['case_id'],mode=case['mode'],group=case['group'],seed=case['seed'],cleared_count=s['cleared'],source_count=s['n'],complete=s['cleared']==s['n'] and env.exit_reason=='user_exit' and error is None,exit_reason=env.exit_reason,error=error,average_clear_time_s=s['average_s'],total_virtual_time_s=s['time_s'],distance_m=s['distance_m'],requests=s['measures']+s['clear_attempts']+2,clear_failures=s['clear_failures'],runtime_s=elapsed,counters=result.get('counters',{}),sharing_spent_s=getattr(solver,'_sharing_spent_s',0))
+50: seeds=set(range(start,start+12));conflicts=[]
+52: pattern=re.compile(r'(?<![0-9])(?:'+ '|'.join(map(str,sorted(seeds)))+r')(?![0-9])')
+60: if old['seed'] in seeds:conflicts.append(str(oldcase))
+62: (folder/'seed_exclusion.json').write_text(json.dumps(dict(seeds=sorted(seeds),searched_files=len(prior['files']),reading_manifest_sha256=sha(OUT/'reading_coverage.json'),conflicts=conflicts),indent=2))
+63: cases=[make_case(seed,m,g,s,n) for m in (3,4) for g,s,n in GROUPS for seed in sorted(seeds)]
+77: (folder/'budget.json').write_text(json.dumps(dict(split=a.split,seed_range=[start,start+11],variants=len(VARIANTS),actual_runs=len(cases)*len(VARIANTS),unique_cases=len(cases),wall_s=time.perf_counter()-t,failures=sum(r['cases']-r['complete'] for v in summary.values() for r in v['groups'] if r['group']=='ALL')),indent=2))
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/research/develop_r5.py
+12: def make_case(seed,mode,group,scenario,noise):
+13: r=random.Random(seed);n=10 if scenario=='count10' else 16 if scenario=='count16' else r.randint(10,16)
+30: return dict(case_id=f'B1-dev-q{mode}-{group}-{seed}',mode=mode,group=group,noise=noise,seed=seed,sources=sources)
+32: env=LocalEnv([Source(**s) for s in case['sources']],case['seed'],case['noise'],keep_log=False)
+40: return dict(case_id=case['case_id'],mode=case['mode'],group=case['group'],seed=case['seed'],cleared_count=s['cleared'],source_count=s['n'],complete=s['cleared']==s['n'] and env.exit_reason=='user_exit' and error is None,exit_reason=env.exit_reason,error=error,average_clear_time_s=s['average_s'],total_virtual_time_s=s['time_s'],distance_m=s['distance_m'],requests=s['measures']+s['clear_attempts']+2,clear_failures=s['clear_failures'],runtime_s=elapsed,counters=result.get('counters',{}),sharing_spent_s=getattr(solver,'_sharing_spent_s',0))
+50: seeds=set(range(start,start+12));conflicts=[]
+52: pattern=re.compile(r'(?<![0-9])(?:'+ '|'.join(map(str,sorted(seeds)))+r')(?![0-9])')
+60: if old['seed'] in seeds:conflicts.append(str(oldcase))
+62: (folder/'seed_exclusion.json').write_text(json.dumps(dict(seeds=sorted(seeds),searched_files=len(prior['files']),reading_manifest_sha256=sha(OUT/'reading_coverage.json'),conflicts=conflicts),indent=2))
+63: cases=[make_case(seed,m,g,s,n) for m in (3,4) for g,s,n in GROUPS for seed in sorted(seeds)]
+77: (folder/'budget.json').write_text(json.dumps(dict(split=a.split,seed_range=[start,start+11],variants=len(VARIANTS),actual_runs=len(cases)*len(VARIANTS),unique_cases=len(cases),wall_s=time.perf_counter()-t,failures=sum(r['cases']-r['complete'] for v in summary.values() for r in v['groups'] if r['group']=='ALL')),indent=2))
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/research/dynamic_coverage_probe_v3.py
+54: env=LocalEnv([Source(**s) for s in case['sources']],case['seed'],case['noise'],keep_log=False); solver=module.Solver(InterfaceOnly(env),mode=4);result=solver.run()
+60: rows.append(dict(case_id=case['case_id'],mode=4,group=case['group'],seed=case['seed'],actual_complete=True,extra_arrivals=len(extra),extra_arrival_coordinates=extra,individual_removals_certified=[x['station'] for x in checks if x['certified']],checks=checks))
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/benchmark.py
+11: from local_env import LocalEnv, InterfaceOnly, make_case
+45: def run_one(mode,seed,config,scenario="random",noise="uniform",keep=False):
+46: sources=make_case(seed,mode,scenario)
+47: env=LocalEnv(sources,seed=seed,noise=noise,keep_log=keep)
+51: stats.update(mode=mode,seed=seed,scenario=scenario,noise=noise,
+75: for seed in range(1000,1000+args.count):
+76: stats,log=run_one(mode,seed,conf,keep=variant=='optimized' and seed<1003)
+78: if variant=='optimized' and seed<1003:
+79: (out/f'LOCAL_q{mode}_seed{seed}.json').write_text(json.dumps(log,ensure_ascii=False,indent=2))
+94: for seed in range(2000,2000+args.stress_count):
+95: stats,log=run_one(mode,seed,config,scenario,noise)
+102: evaluation_seeds=[1000,999+args.count],stress_seeds=[2000,1999+args.stress_count],
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/build_frozen.py
+4: s=p.read_text().replace('def __init__(self, sources, seed=0, noise="uniform", keep_log=True):','def __init__(self, sources, seed=0, noise="uniform", keep_log=True,\n                 clock=time.monotonic, window_elapsed_s=0):')
+66: key = f"{self.seed}|{math.floor(x/size)}|{math.floor(y/size)}".encode()
+70: return math.sin(x/400+y/350+self.seed*.017)''')
+104: for index,seed in enumerate(range(5000,5100)):
+105: cases.append(dict(case_id=f"LOCAL-v1-q{mode}-{group}-{seed}",mode=mode,group=group,noise=noise,seed=seed,quick=index<5,sources=[vars(s) for s in sources(seed,mode,scenario)]))
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/coverage_audit/final_implementation_checks.py
+5: from local_env import Source,LocalEnv,InterfaceOnly,make_case
+22: for seed in range(100):
+23: rng=random.Random(seed)
+25: if seed%3==0:
+29: if abs(gap)>1e-6:mec_fail.append(dict(seed=seed,got=ar,reference=br))
+33: for seed in range(100):
+34: rng=random.Random(seed);theta=rng.uniform(-math.pi,math.pi);rr=1800 if seed%2 else rng.uniform(0,1800)
+42: if not poly or not inside(poly,source):truth_fail.append({'seed':seed,'step':k,'source':source,'polygon_vertices':len(poly)});break
+46: for seed in range(16):
+47: rng=random.Random(seed);a=rng.uniform(-math.pi,math.pi);rr=1800 if seed%2 else rng.uniform(0,1800)
+48: source=Source(1,rr*math.cos(a),rr*math.sin(a),1000,a if seed%2 else None)
+49: env=LocalEnv([source],seed=seed,noise='positive' if seed%2 else 'negative',keep_log=False)
+55: fallback.append({'seed':seed,'cleared':1 in solver.cleared,'clear_attempts':solver.counters['clear_attempts']})
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/coverage_audit/final_transport_and_adversarial.py
+6: from local_env import Source,LocalEnv,InterfaceOnly,make_case
+36: seed={'positive':0,'negative':1,'smooth':2,'uniform':3}[noise]
+37: sources=make_case(seed,mode=4,scenario=scenario)
+38: env=LocalEnv(sources,seed=seed,noise=noise,keep_log=False)
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/coverage_audit/implementation_checks.py
+5: from local_env import Source,LocalEnv,InterfaceOnly,make_case
+22: for seed in range(100):
+23: rng=random.Random(seed)
+25: if seed%3==0:
+29: if abs(gap)>1e-6:mec_fail.append(dict(seed=seed,got=ar,reference=br))
+33: for seed in range(100):
+34: rng=random.Random(seed);theta=rng.uniform(-math.pi,math.pi);rr=1800 if seed%2 else rng.uniform(0,1800)
+42: if not poly or not inside(poly,source):truth_fail.append({'seed':seed,'step':k,'source':source,'polygon_vertices':len(poly)});break
+46: for seed in range(16):
+47: rng=random.Random(seed);a=rng.uniform(-math.pi,math.pi);rr=1800 if seed%2 else rng.uniform(0,1800)
+48: source=Source(1,rr*math.cos(a),rr*math.sin(a),1000,a if seed%2 else None)
+49: env=LocalEnv([source],seed=seed,noise='positive' if seed%2 else 'negative',keep_log=False)
+55: fallback.append({'seed':seed,'cleared':1 in solver.cleared,'clear_attempts':solver.counters['clear_attempts']})
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/coverage_audit/transport_and_adversarial.py
+6: from local_env import Source,LocalEnv,InterfaceOnly,make_case
+36: seed={'positive':0,'negative':1,'smooth':2,'uniform':3}[noise]
+37: sources=make_case(seed,mode=4,scenario=scenario)
+38: env=LocalEnv(sources,seed=seed,noise=noise,keep_log=False)
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/local_env.py
+3: Seeds define an assumed experimental distribution, not official hidden cases.
+23: def make_case(seed, mode=3, scenario="random"):
+24: r = random.Random(seed)
+50: def __init__(self, sources, seed=0, noise="uniform", keep_log=True):
+52: self.seed, self.noise = seed, noise
+95: return math.sin(x/173+y/211+self.seed*.007+channel)
+96: b = f"{self.seed}|{channel}|{float(x).hex()}|{float(y).hex()}".encode()
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/simulator_review/audit_conformance.py
+79: e = LocalEnv([Source(1, 1000, 0, 1000)], seed=719, keep_log=False)
+131: e = LocalEnv([Source(1, 1000, 0, 1500)], seed=719, keep_log=False)
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/simulator_review/bundle/sensitivity.py
+23: def sources(seed, mode, scenario):
+24: r = random.Random(seed)
+63: key = f'{self.seed}|{math.floor(x/size)}|{math.floor(y/size)}'.encode()
+67: return math.sin(x/400+y/350+self.seed*.017)
+89: for seed in range(5000, 5000+args.count):
+90: case = sources(seed, mode, scenario)
+91: pair = dict(mode=mode, group=group, scenario=scenario, noise=noise, seed=seed)
+93: env = FieldEnv(case, seed=seed, noise=noise, keep_log=False)
+119: seeds=[5000, 4999+args.count], parameter_tuning_performed=False,
+
+FILE /Users/t/Documents/Codex/2026-09-10/new-chat/work/support_package/audit/implementation_checks.py
+5: from local_env import Source,LocalEnv,InterfaceOnly,make_case
+22: for seed in range(100):
+23: rng=random.Random(seed)
+25: if seed%3==0:
+29: if abs(gap)>1e-6:mec_fail.append(dict(seed=seed,got=ar,reference=br))
+33: for seed in range(100):
+34: rng=random.Random(seed);theta=rng.uniform(-math.pi,math.pi);rr=1800 if seed%2 else rng.uniform(0,1800)
+42: if not poly or not inside(poly,source):truth_fail.append({'seed':seed,'step':k,'source':source,'polygon_vertices':len(poly)});break
+46: for seed in range(16):
+47: rng=random.Random(seed);a=rng.uniform(-math.pi,math.pi);rr=1800 if seed%2 else rng.uniform(0,1800)
+48: source=Source(1,rr*math.cos(a),rr*math.sin(a),1000,a if seed%2 else None)
+49: env=LocalEnv([source],seed=seed,noise='positive' if seed%2 else 'negative',keep_log=False)
+55: fallback.append({'seed':seed,'cleared':1 in solver.cleared,'clear_attempts':solver.counters['clear_attempts']})

@@ -1,5 +1,7 @@
 # 数学建模2026 B题代码
 
+2026-09-11 第三阶段已收束：[研究汇总与最终效果](experiments/20260911_stage3/REPORT.md)、[全历程方向图](experiments/R1_atlas/DIRECTION_MAP.md)、[AI读取入口](experiments/R1_atlas/AI_README.md)。第三问与第四问相对本阶段起点分别改善1.0693%和9.7041%，4800已暴露案例全部清除。按用户最新要求直接交付，不再执行额外新留出；Windows官方测试尚未运行。
+
 2026-09-11 第二阶段按用户要求暂停。B4已取消，B1/B2/B3完成5轮候选并生成[前三位成果报告](experiments/20260911_breakthrough/STAGE_REPORT.md)与[优化路径总图](experiments/20260911_breakthrough/OPTIMIZATION_JOURNEYS.md)。本轮所有4800局结果均为已暴露研发回归，未生成新的最终验证样本。
 
 2026-09-11 六路线研究已完成43轮迭代，并对原基准及10个冻结候选统一复核2400个新案例。入口为[完整研究与新样本报告](experiments/20260911_agent_campaign/REPORT.md)、[逐篇文献阅读与实现索引](experiments/20260911_agent_campaign/LITERATURE_MAP.md)及[可独立运行的候选快照](experiments/20260911_agent_campaign/final_candidates)。主目录solver.py仍为原冻结基准；候选分别保存在快照和各自实验分支。全部结果是本地模型验证，官方Windows测试尚未执行。

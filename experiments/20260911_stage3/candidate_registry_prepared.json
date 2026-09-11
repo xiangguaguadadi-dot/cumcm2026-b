@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "status": "prepared_not_authorized_to_generate",
+  "candidates": [
+    {
+      "label": "S0",
+      "candidate_path": "experiments/20260911_stage3/baseline/S0.py",
+      "candidate_sha256": "c0a07012d92f63ef0e3f2985b4390a50476de1e0662410f975ffbd3c8f43db06",
+      "source_path": "experiments/20260911_stage3/baseline/S0.py",
+      "code_commit": "1a82e77",
+      "role": "fixed_stage3_anchor",
+      "selection_reason": "Pre-stage3 per-question best B1 R1 Q3 and B3 R1 Q4",
+      "deployment_dependencies": {
+        "experiments/20260911_stage3/baseline/B1_R1.py": "ba417e4ac97d9d7ce04f7b6c0831f3c38bc70f81e4c0f313f1ebb60663dfab98",
+        "experiments/20260911_stage3/baseline/B3_R1.py": "02e845c7638236bd2834c9d2bf5a38a2aedb24515dc4e4e5d361bbc471b4db96"
+      },
+      "runtime": "Python 3.12, standard library",
+      "uniform_virtual_time_bound_s": 287931,
+      "unresolved_risks": [
+        "Same local distribution assumptions only",
+        "Official Windows and transport timing not verified",
+        "Per-case regressions possible"
+      ],
+      "exposed_evidence": {
+        "experiments/20260911_stage3/baseline/equivalence/case_metrics.json": "50494fec112dbc2145e424eb1a9f065072d29b7456504a6401a09e24b5cd8be7",
+        "experiments/20260911_stage3/baseline/equivalence/summary.json": "4d72c6465ffc9847e7dbfc9ec8cf1996825e91b3681a29c6625b5fd31c0748e3"
+      }
+    },
+    {
+      "label": "R2_open_R4",
+      "candidate_path": "experiments/20260911_stage3/final_candidates/R2_open_R4.py",
+      "candidate_sha256": "d0bda0a51470eda3bd5f713be1552a004c7a73b8debcb333c323afd06d4c68f3",
+      "source_path": "experiments/R2_open/snapshots/r4_solver.py",
+      "code_commit": "6913faf",
+      "role": "frozen_Q3_best",
+      "selection_reason": "All 4800 exposed cases complete; Q3 235.876945812; Q4 S0. R5 development did not improve.",
+      "deployment_dependencies": {},
+      "runtime": "Python 3.12, standard library",
+      "uniform_virtual_time_bound_s": 283091,
+      "unresolved_risks": [
+        "Same local distribution assumptions only",
+        "Official Windows and transport timing not verified",
+        "Per-case regressions possible"
+      ],
+      "exposed_evidence": {
+        "experiments/R2_open/results/r4_exposed/case_metrics.json": "e569a7a91c28b60999f6f9e16a04432225b1e8c6354ad6cc0e8219f70b6f4a85",
+        "experiments/R2_open/results/r4_exposed/summary.json": "c94face9f16dfbae80d155e5e675d21a49e84ee4ee346fbef05a7b4ce15286ae"
+      }
+    },
+    {
+      "label": "R3_open_R5",
+      "candidate_path": "experiments/20260911_stage3/final_candidates/R3_open_R5.py",
+      "candidate_sha256": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf",
+      "source_path": "experiments/R3_open/snapshots/r5.py",
+      "code_commit": "cd78a80",
+      "role": "frozen_Q4_best",
+      "selection_reason": "All 4800 exposed cases complete; Q4 473.897493; Q3 S0.",
+      "deployment_dependencies": {},
+      "runtime": "Python 3.12, standard library",
+      "uniform_virtual_time_bound_s": 287931,
+      "unresolved_risks": [
+        "Same local distribution assumptions only",
+        "Official Windows and transport timing not verified",
+        "Per-case regressions possible"
+      ],
+      "exposed_evidence": {
+        "experiments/R3_open/results/r5_exposed/case_metrics.json": "1f3b0353c57396d67feadefafb1ccc6795710a1c7e078ac9875a590a27209221",
+        "experiments/R3_open/results/r5_exposed/summary.json": "57dae0827b66404220cf7641fec1d779d8e9d93547eb6c8f913f60344c80f15d"
+      }
+    },
+    {
+      "label": "R3_open_R3",
+      "candidate_path": "experiments/20260911_stage3/final_candidates/R3_open_R3.py",
+      "candidate_sha256": "9e9b35972bee009f37ad97cd068ff72b03be4a6448cbb8c99c4dada72865c149",
+      "source_path": "experiments/R3_open/snapshots/r3.py",
+      "code_commit": "b662fd8",
+      "role": "preregistered_simplicity_tradeoff",
+      "selection_reason": "R3 captures main global-task-route improvement, Q4 474.329486; retained before new cases as simpler comparison without R4/R5 clear-point searches.",
+      "deployment_dependencies": {},
+      "runtime": "Python 3.12, standard library",
+      "uniform_virtual_time_bound_s": 287931,
+      "unresolved_risks": [
+        "Same local distribution assumptions only",
+        "Official Windows and transport timing not verified",
+        "Per-case regressions possible"
+      ],
+      "exposed_evidence": {
+        "experiments/R3_open/results/r3_exposed/case_metrics.json": "aa5434fe4e65182d22f8b49db050f8413128aa83cbb154ce59762546d90c6812",
+        "experiments/R3_open/results/r3_exposed/summary.json": "24b60731be133caae36979429e35c510157df87fb5f57ff7009cf0d06c8a7ad7"
+      }
+    },
+    {
+      "label": "Combined",
+      "candidate_path": "experiments/20260911_stage3/final_candidates/combined.py",
+      "candidate_sha256": "c37be04e2e51596f3863ec9e07e768c2e4e04462621cdfe469f98e565dbe6c8e",
+      "code_commit": "this_registration_commit",
+      "role": "preselected_per_question_delivery",
+      "selection_reason": "Use R2 R4 for known mode3 and R3 R5 for known mode4; 4800 actual deployment executions exactly match 72000 component task scalars. Not a new algorithmic round.",
+      "deployment_dependencies": {
+        "experiments/20260911_stage3/final_candidates/R2_open_R4.py": "d0bda0a51470eda3bd5f713be1552a004c7a73b8debcb333c323afd06d4c68f3",
+        "experiments/20260911_stage3/final_candidates/R3_open_R5.py": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf"
+      },
+      "runtime": "Python 3.12, standard library",
+      "uniform_virtual_time_bound_s": {
+        "3": 283091,
+        "4": 287931
+      },
+      "unresolved_risks": [
+        "Per-question dispatch does not create extra algorithmic gain",
+        "Official Windows and transport not tested"
+      ],
+      "exposed_evidence": {
+        "experiments/20260911_stage3/dispatch_equivalence/case_metrics.json": "753e2d0da5250020b8316ec28c6bb35e42868e6c7c10d95d075151407d07e3bb",
+        "experiments/20260911_stage3/dispatch_equivalence/summary.json": "a10d84b8ee9c2bc257d36b6a1983f24559fc59194a07eb42a6dcca6f4431f34c"
+      }
+    }
+  ]
+}

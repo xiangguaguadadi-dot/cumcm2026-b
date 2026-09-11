@@ -1,0 +1,56 @@
+{
+  "status": "pass",
+  "old_inventory_sha256": "1c0c03bdad7cb9167147d9564932150e976dd6198d6def441795263d66545c05",
+  "new_inventory_sha256": "478749081334a2b1af9806575ffb982918ea01d80722f2c2b239796a8c2a18ee",
+  "old_exact_count": 10466,
+  "new_exact_count": 10472,
+  "added_metadata_values": [
+    169,
+    336,
+    773,
+    10466,
+    100000000,
+    2147483648
+  ],
+  "old_values_missing": [],
+  "added_values_meaning": "Review counts and potential-domain endpoints, conservatively excluded; zero new mission seeds",
+  "changed_python_seed_sources": [
+    {
+      "path": "experiments/20260911_stage3/audit/audit_final_results.py",
+      "sha256": "48670a1b3e933d41c6ed874b705c515fe6baf962df0eaa279828062c5b287221",
+      "calls": [],
+      "assessment": "Read-only audit/report or already-reviewed final runner; no new source seed was drawn or mission executed during this revision"
+    },
+    {
+      "path": "experiments/20260911_stage3/final_review.py",
+      "sha256": "bfebd9e98372b4aaaf717933a3a11fcad52b97ebe42422a7b050a416e41619f4",
+      "calls": [
+        "evaluate.run_cases(cases, Path(candidate), False)",
+        "random.Random(110926)",
+        "rng.choices(range(len(seeds)), k=len(seeds))"
+      ],
+      "assessment": "Read-only audit/report or already-reviewed final runner; no new source seed was drawn or mission executed during this revision"
+    },
+    {
+      "path": "experiments/R1_atlas/scripts/build_graph.py",
+      "sha256": "39be603f8d229d8d42b986ff597fc0adb3247b2d85afb3ea7bfa7d7c51129f93",
+      "calls": [],
+      "assessment": "Read-only audit/report or already-reviewed final runner; no new source seed was drawn or mission executed during this revision"
+    },
+    {
+      "path": "experiments/R2_open/research/build_final_seed_script_review.py",
+      "sha256": "e79f493997a80b81170bdcb69ddb0fbbdbea02beb87ca350188f76903ed92eee",
+      "calls": [],
+      "assessment": "Read-only audit/report or already-reviewed final runner; no new source seed was drawn or mission executed during this revision"
+    },
+    {
+      "path": "experiments/R3_open/research/review_final_pipeline.py",
+      "sha256": "b244280a037177f40de4513e7e738d8f4b24c0e268a1f750f363aca64abd48b6",
+      "calls": [],
+      "assessment": "Read-only audit/report or already-reviewed final runner; no new source seed was drawn or mission executed during this revision"
+    }
+  ],
+  "unresolved_sources": [],
+  "actual_policy_executions": 0,
+  "final_cases_generated": 0
+}
