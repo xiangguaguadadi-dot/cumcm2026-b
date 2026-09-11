@@ -576,6 +576,16 @@
         "previous_final_new_runs": 2400,
         "development": "development/r3/summary.json"
       }
+    },
+    {
+      "id": "user_stage_pause",
+      "time": "2026-09-11T02:20:51.019397+00:00",
+      "trigger": "用户要求B4不用做，先看此前成果和报告",
+      "decision": "停止新研究/调参；交付已启动R3完成验证后的阶段结果",
+      "status": "paused_by_user",
+      "best": "R3",
+      "not_an_empirical_stop": true,
+      "next_if_resumed": "按原协议R3刷新后仍可延长；本轮未开始R4，未生成新final样本"
     }
   ],
   "best": "R3"

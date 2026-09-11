@@ -1,3 +1,3 @@
-# B2接续
+# B2阶段暂停
 
-R1和R3刷新，R2非凸碎片方案失败。当前最佳R3 snapshots/r3.py，依赖parent_a1/parent_a4保持SHA冻结。R3全部4800结果在results/r3_exposed，Q3=271.0549810869074，Q4=536.8726762375112。初三轮完成，R3刷新所以必须延长至连续两轮不刷新后停止。下一自主候选R4拟融合A2合法失败clear/no_signal凸包排除到强Q3 A1，不限制方向。还需完成延长、完整报告/成本/预算/图谱/读取范围、commitpush及交给root新样本验证。原final已暴露，禁止称盲测。
+用户要求先查看已有成果，已经完成启动的R3规则/quick/full/exposed后停止，不开始R4。当前最佳R3；代码253922d，候选SHA d32722be8143b5a048d1ab7b4d130721ce478bc065f782aa88b940bbe496bb62。依赖SHA见dependencies.json。4800局全清；combined Q3=271.0549810869074，Q4=536.8726762375112。R1保留、R2负结果、R3刷新，因用户暂停未执行原协议延长；不是连续两轮未改善的经验停止。报告report.md、优化路径optimization_path.md/json、预算execution_budget.json、身份复核results/stage_identity_audit.json均已生成。暂无本轮新final样本或官方演练。推送是否成功须看主协调最终记录；子任务推送曾被自动审核拒绝具体仓库授权证据。
