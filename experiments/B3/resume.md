@@ -1,6 +1,6 @@
 # B3 恢复入口
 
-当前R1已完成全部测试，需先完成提交推送/登记代码commit；路线还需R2/R3，不能把调度暂停当收敛。
+当前R1已完成全部测试和代码提交，代码commit 4aab7c27c791877ac220e3fe78ba7028764d935e；路线还需R2/R3，不能把调度暂停当收敛。
 
 工作树B3、分支experiments/20260911-breakthrough/b3。读本目录report.md、optimization_path.json、best.json和research/coverage_proof.md。R1自包含快照snapshots/r1_solver.py，SHA256 02e845c7638236bd2834c9d2bf5a38a2aedb24515dc4e4e5d361bbc471b4db96。v1与exposed结果在根results/B3_r1_*。R1只改Q4点集，Q3与C0逐局相同，Q4合并524.827144秒/源，相对C0 -2.3491%；边缘场景退步。
 

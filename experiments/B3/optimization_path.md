@@ -15,13 +15,15 @@ graph LR
 
 ```mermaid
 graph LR
- C0[C0 当前完整最佳] --> R1[R1 21点认证覆盖]
+ C0[C0 初始对照] --> R1[R1 21点认证覆盖]
  G1[G1 连续凸包证书] --> R1
  G20[G1 20点构型 漏区失败] -.保留负结果.-> G1
  R1 --> DEV[R1 独立开发 Q4减少9.5603秒每源]
- R1 --> REG[R1 quick通过 full运行中]
+ R1 --> REG[R1 当前最佳 4800全清 Q4减少2.3491%]
  click R1 "snapshots/r1_solver.py"
  click G1 "research/certificate_21_999_1864.json"
  click G20 "research/geometry_probe.json"
  click DEV "development/r1/summary.json"
 ```
+
+2026-09-11：R1完整4800局通过并成为当前最佳，代码提交 `4aab7c27c791877ac220e3fe78ba7028764d935e`。Q4两批分别减少12.955493/12.294656秒/源，Q3逐局一致。边缘场景退步保留。下一步R2尚未启动。
