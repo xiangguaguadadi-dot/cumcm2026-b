@@ -1,11 +1,32 @@
 {
-  "round": "R1",
-  "candidate": "experiments/E1_refine/snapshots/r1_posterior.py",
-  "candidate_sha256": "d3112c89a555c13b589d01f4de9aa952dc3c5d89299845e4f0e2aff21d5fbe82",
-  "results": "experiments/E1_refine/results/r1_exposed",
-  "all_complete": true,
-  "Q3": 235.87694581189243,
-  "Q4": 471.470944912203,
-  "comparison": "fixed S1; 4800 exposed cases",
-  "status": "current own best; ongoing research"
+  "status": "Current E1 structural search completed; parent coordinator continues cross-component work",
+  "selection_rule": "Minimum per-mode mean across the common 4800 exposed local cases among completed E1 candidates; not a new holdout",
+  "unified_snapshot_created": false,
+  "per_mode_numeric_best": {
+    "3": {
+      "round": "R5",
+      "candidate": "experiments/E1_refine/snapshots/r5_immediate_block.py",
+      "sha256": "f8413f0017d5699e6d1e06b2f8c85d2e86c0f6b69afc32a29377dbda8907d604",
+      "results": "experiments/E1_refine/results/r5_exposed",
+      "mean_s_per_source": 235.80780532211148,
+      "delta_to_S1": -0.06914048978094911,
+      "all_complete": true,
+      "caution": "Only 0.0293 percent mean gain; v1 improves but previous-final regresses. Weak unstable evidence."
+    },
+    "4": {
+      "round": "R1",
+      "candidate": "experiments/E1_refine/snapshots/r1_posterior.py",
+      "sha256": "d3112c89a555c13b589d01f4de9aa952dc3c5d89299845e4f0e2aff21d5fbe82",
+      "results": "experiments/E1_refine/results/r1_exposed",
+      "mean_s_per_source": 471.470944912203,
+      "delta_to_S1": -2.4265480874408922,
+      "all_complete": true,
+      "caution": "External C1 and E2 one_round are already better; this is E1-only best."
+    }
+  },
+  "known_external_references_at_closure": {
+    "C1_Q4": 464.925920209869,
+    "E2_one_round_Q4": 457.721499866,
+    "provenance": "Actual 4800 evaluations reported by coordinator; final shared selection is maintained by coordinator."
+  }
 }
