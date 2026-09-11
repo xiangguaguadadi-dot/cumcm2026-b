@@ -1,0 +1,90 @@
+{
+  "label": "r2_closure",
+  "observation": "Conditional completion of discovery after 16 distinct channels can cancel future stations; route proxy previously charged all stations.",
+  "selection_rule": "All cases complete, then minimum mode-wise mean seconds/source; retain parent if no improvement.",
+  "cases": 288,
+  "seeds": [
+    44000012,
+    44000013,
+    44000014,
+    44000015,
+    44000016,
+    44000017,
+    44000018,
+    44000019,
+    44000020,
+    44000021,
+    44000022,
+    44000023,
+    44000024,
+    44000025,
+    44000026,
+    44000027,
+    44000028,
+    44000029,
+    44000030,
+    44000031,
+    44000032,
+    44000033,
+    44000034,
+    44000035
+  ],
+  "candidate_identity": [
+    {
+      "name": "r1_parent",
+      "file": "experiments/E1_refine/snapshots/r1_parent.py",
+      "sha256": "3c2ca7b0e601c37397184482ab25dc7c1532c166f0bffff3903cc50d22e846d4",
+      "config": {
+        "conditional_discovery": "off"
+      },
+      "parents": {
+        "experiments/E1_refine/parents/S1_Q3.py": "d0bda0a51470eda3bd5f713be1552a004c7a73b8debcb333c323afd06d4c68f3",
+        "experiments/E1_refine/parents/S1_Q4.py": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf"
+      },
+      "component_sha256": "a87b82e9c19cba390d10d02e3ee31e81292445e1432baea4a348e3234cba6f79"
+    },
+    {
+      "name": "r1_posterior",
+      "file": "experiments/E1_refine/snapshots/r1_posterior.py",
+      "sha256": "d3112c89a555c13b589d01f4de9aa952dc3c5d89299845e4f0e2aff21d5fbe82",
+      "config": {
+        "conditional_discovery": "posterior"
+      },
+      "parents": {
+        "experiments/E1_refine/parents/S1_Q3.py": "d0bda0a51470eda3bd5f713be1552a004c7a73b8debcb333c323afd06d4c68f3",
+        "experiments/E1_refine/parents/S1_Q4.py": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf"
+      },
+      "component_sha256": "a87b82e9c19cba390d10d02e3ee31e81292445e1432baea4a348e3234cba6f79"
+    },
+    {
+      "name": "r2_lastsource",
+      "file": "experiments/E1_refine/snapshots/r2_lastsource.py",
+      "sha256": "8760e944475963d3cb245eb5356fb000b5155a47388c24015f22a86aa4d8097e",
+      "config": {
+        "conditional_discovery": "posterior",
+        "conditional_min_discovered": 15
+      },
+      "parents": {
+        "experiments/E1_refine/parents/S1_Q3.py": "d0bda0a51470eda3bd5f713be1552a004c7a73b8debcb333c323afd06d4c68f3",
+        "experiments/E1_refine/parents/S1_Q4.py": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf"
+      },
+      "component_sha256": "f3b26f8ee0f0c336f9fac8c25cb366ff08b93a4558c9c7b40d1685236a8cb20f"
+    },
+    {
+      "name": "r2_lastsource_optimistic",
+      "file": "experiments/E1_refine/snapshots/r2_lastsource_optimistic.py",
+      "sha256": "ae54abb5954306155cfbb5e3e77d58c500efd2e4d2a3e0e6f7ccee94a22a9b21",
+      "config": {
+        "conditional_discovery": "optimistic",
+        "conditional_min_discovered": 15
+      },
+      "parents": {
+        "experiments/E1_refine/parents/S1_Q3.py": "d0bda0a51470eda3bd5f713be1552a004c7a73b8debcb333c323afd06d4c68f3",
+        "experiments/E1_refine/parents/S1_Q4.py": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf"
+      },
+      "component_sha256": "f3b26f8ee0f0c336f9fac8c25cb366ff08b93a4558c9c7b40d1685236a8cb20f"
+    }
+  ],
+  "source_generator_sha256": "6da3aa3f61eae748204366129761dea4a1e131a9d2b464a6651ac5901404cfea",
+  "role": "new development, not holdout"
+}

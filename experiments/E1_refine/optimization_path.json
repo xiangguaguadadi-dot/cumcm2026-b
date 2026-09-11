@@ -1,0 +1,23 @@
+{
+  "fixed_baseline": "S1",
+  "nodes": [
+    {
+      "id": "E1_R1",
+      "parent": "S1",
+      "mechanism": "conditional discovery route expected length",
+      "development": "development/r1_screen/summary.json",
+      "variants": [
+        "posterior",
+        "optimistic"
+      ],
+      "status": "development_regression",
+      "mean_s_per_source": {
+        "parent": 490.71101710292237,
+        "posterior": 492.60676748439386,
+        "optimistic": 493.5780000104626
+      },
+      "lesson": "Reduced scans were outweighed by added movement; future newly-discovered source service is missing from proxy.",
+      "next": "Restrict conditional cancellation objective to 15 known channels, when at most one additional source can be discovered."
+    }
+  ]
+}
