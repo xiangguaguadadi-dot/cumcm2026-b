@@ -1,0 +1,1090 @@
+{
+  "R2": {
+    "source": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/snapshots/r2.py",
+    "sha256": "7d8e3b6be1140b0e42db20fc6c73b4830c98f33775250a35366c83b1410764d7",
+    "config_q4": {},
+    "runs": 288,
+    "wall_s": 1.823908583028242,
+    "groups": [
+      {
+        "mode": 3,
+        "group": "ALL",
+        "cases": 144,
+        "complete": 144,
+        "mean": 258.0127384059473,
+        "mean_distance": 11428.546612036474,
+        "mean_requests": 137.86805555555554,
+        "max_runtime": 0.007054125075228512
+      },
+      {
+        "mode": 3,
+        "group": "reference_assumed",
+        "cases": 12,
+        "complete": 12,
+        "mean": 270.84444157426185,
+        "mean_distance": 11995.613762006096,
+        "mean_requests": 140.16666666666666,
+        "max_runtime": 0.003975291037932038
+      },
+      {
+        "mode": 3,
+        "group": "fixed_positive_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 272.545470976826,
+        "mean_distance": 11992.23019579955,
+        "mean_requests": 145.5,
+        "max_runtime": 0.004500791081227362
+      },
+      {
+        "mode": 3,
+        "group": "fixed_negative_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 272.6054384025544,
+        "mean_distance": 11959.652974067418,
+        "mean_requests": 146.75,
+        "max_runtime": 0.004153541987761855
+      },
+      {
+        "mode": 3,
+        "group": "smooth_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 270.8017653118007,
+        "mean_distance": 12008.69942879186,
+        "mean_requests": 140.25,
+        "max_runtime": 0.004033542005345225
+      },
+      {
+        "mode": 3,
+        "group": "cell50_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 271.87182719825176,
+        "mean_distance": 12052.833553407512,
+        "mean_requests": 141.16666666666666,
+        "max_runtime": 0.0038376249140128493
+      },
+      {
+        "mode": 3,
+        "group": "cell500_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 272.28608049858195,
+        "mean_distance": 12055.41435092112,
+        "mean_requests": 141.08333333333334,
+        "max_runtime": 0.00384808296803385
+      },
+      {
+        "mode": 3,
+        "group": "edge_mixed_min_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 300.8793582341492,
+        "mean_distance": 13368.871289413877,
+        "mean_requests": 151,
+        "max_runtime": 0.002043292042799294
+      },
+      {
+        "mode": 3,
+        "group": "offcenter_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 210.93016550513792,
+        "mean_distance": 8589.932050710322,
+        "mean_requests": 132.5,
+        "max_runtime": 0.005241375067271292
+      },
+      {
+        "mode": 3,
+        "group": "origin_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 182.76370164924242,
+        "mean_distance": 7925.7379115013,
+        "mean_requests": 96.25,
+        "max_runtime": 0.004936292069032788
+      },
+      {
+        "mode": 3,
+        "group": "minimum_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 277.9827320163947,
+        "mean_distance": 12374.505649468452,
+        "mean_requests": 142.16666666666666,
+        "max_runtime": 0.002980708028189838
+      },
+      {
+        "mode": 3,
+        "group": "exactly10_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 288.7427394416667,
+        "mean_distance": 10487.970305139697,
+        "mean_requests": 137,
+        "max_runtime": 0.003231917042285204
+      },
+      {
+        "mode": 3,
+        "group": "exactly16_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 203.8991400625,
+        "mean_distance": 12331.097873210483,
+        "mean_requests": 140.58333333333334,
+        "max_runtime": 0.007054125075228512
+      },
+      {
+        "mode": 4,
+        "group": "ALL",
+        "cases": 144,
+        "complete": 144,
+        "mean": 546.5778698236287,
+        "mean_distance": 23339.813536005415,
+        "mean_requests": 301.6041666666667,
+        "max_runtime": 0.014381624991074204
+      },
+      {
+        "mode": 4,
+        "group": "reference_assumed",
+        "cases": 12,
+        "complete": 12,
+        "mean": 559.3510247289336,
+        "mean_distance": 23653.315431709543,
+        "mean_requests": 309.3333333333333,
+        "max_runtime": 0.0120356670813635
+      },
+      {
+        "mode": 4,
+        "group": "fixed_positive_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 561.377473444561,
+        "mean_distance": 23757.504807200523,
+        "mean_requests": 309.5833333333333,
+        "max_runtime": 0.012647250085137784
+      },
+      {
+        "mode": 4,
+        "group": "fixed_negative_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 555.3934865148212,
+        "mean_distance": 23466.407604829692,
+        "mean_requests": 307.9166666666667,
+        "max_runtime": 0.01240916596725583
+      },
+      {
+        "mode": 4,
+        "group": "smooth_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 559.33283234392,
+        "mean_distance": 23570.064606133536,
+        "mean_requests": 311.5,
+        "max_runtime": 0.012066041002981365
+      },
+      {
+        "mode": 4,
+        "group": "cell50_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 558.686622513549,
+        "mean_distance": 23637.30144965083,
+        "mean_requests": 307.5,
+        "max_runtime": 0.012387000024318695
+      },
+      {
+        "mode": 4,
+        "group": "cell500_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 562.7012993625194,
+        "mean_distance": 23851.961754540233,
+        "mean_requests": 310.25,
+        "max_runtime": 0.012433749972842634
+      },
+      {
+        "mode": 4,
+        "group": "edge_mixed_min_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 640.2355942874708,
+        "mean_distance": 27160.929045629284,
+        "mean_requests": 354.4166666666667,
+        "max_runtime": 0.01070229196920991
+      },
+      {
+        "mode": 4,
+        "group": "offcenter_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 478.0650060989608,
+        "mean_distance": 20229.849112392596,
+        "mean_requests": 265.8333333333333,
+        "max_runtime": 0.014357207925058901
+      },
+      {
+        "mode": 4,
+        "group": "origin_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 490.326795179866,
+        "mean_distance": 21275.283492158633,
+        "mean_requests": 251.08333333333334,
+        "max_runtime": 0.012775084003806114
+      },
+      {
+        "mode": 4,
+        "group": "minimum_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 578.5118909891511,
+        "mean_distance": 24441.950027254967,
+        "mean_requests": 317.75,
+        "max_runtime": 0.010726875043474138
+      },
+      {
+        "mode": 4,
+        "group": "exactly10_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 647.3638183833333,
+        "mean_distance": 22900.274246786394,
+        "mean_requests": 322.9166666666667,
+        "max_runtime": 0.010539584094658494
+      },
+      {
+        "mode": 4,
+        "group": "exactly16_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 367.58859403645835,
+        "mean_distance": 22132.920853778745,
+        "mean_requests": 251.16666666666666,
+        "max_runtime": 0.014381624991074204
+      }
+    ]
+  },
+  "naive_global": {
+    "source": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/snapshots/r3_development.py",
+    "sha256": "fde3d2a3062f54cab5de864a45b7cb72caa66ba76785a6ab2ad13e410a1b3bf5",
+    "config_q4": {
+      "sharing_style": "visibility",
+      "spatial_route": true,
+      "spatial_ready_radius": 1000000000.0
+    },
+    "runs": 288,
+    "wall_s": 2.189395041903481,
+    "groups": [
+      {
+        "mode": 3,
+        "group": "ALL",
+        "cases": 144,
+        "complete": 144,
+        "mean": 258.0127384059473,
+        "mean_distance": 11428.546612036474,
+        "mean_requests": 137.86805555555554,
+        "max_runtime": 0.007091375067830086
+      },
+      {
+        "mode": 3,
+        "group": "reference_assumed",
+        "cases": 12,
+        "complete": 12,
+        "mean": 270.84444157426185,
+        "mean_distance": 11995.613762006096,
+        "mean_requests": 140.16666666666666,
+        "max_runtime": 0.003952958039008081
+      },
+      {
+        "mode": 3,
+        "group": "fixed_positive_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 272.545470976826,
+        "mean_distance": 11992.23019579955,
+        "mean_requests": 145.5,
+        "max_runtime": 0.0045204159105196595
+      },
+      {
+        "mode": 3,
+        "group": "fixed_negative_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 272.6054384025544,
+        "mean_distance": 11959.652974067418,
+        "mean_requests": 146.75,
+        "max_runtime": 0.004173959023319185
+      },
+      {
+        "mode": 3,
+        "group": "smooth_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 270.8017653118007,
+        "mean_distance": 12008.69942879186,
+        "mean_requests": 140.25,
+        "max_runtime": 0.003964624949730933
+      },
+      {
+        "mode": 3,
+        "group": "cell50_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 271.87182719825176,
+        "mean_distance": 12052.833553407512,
+        "mean_requests": 141.16666666666666,
+        "max_runtime": 0.003866708022542298
+      },
+      {
+        "mode": 3,
+        "group": "cell500_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 272.28608049858195,
+        "mean_distance": 12055.41435092112,
+        "mean_requests": 141.08333333333334,
+        "max_runtime": 0.003966832999140024
+      },
+      {
+        "mode": 3,
+        "group": "edge_mixed_min_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 300.8793582341492,
+        "mean_distance": 13368.871289413877,
+        "mean_requests": 151,
+        "max_runtime": 0.0020445840200409293
+      },
+      {
+        "mode": 3,
+        "group": "offcenter_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 210.93016550513792,
+        "mean_distance": 8589.932050710322,
+        "mean_requests": 132.5,
+        "max_runtime": 0.00515149999409914
+      },
+      {
+        "mode": 3,
+        "group": "origin_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 182.76370164924242,
+        "mean_distance": 7925.7379115013,
+        "mean_requests": 96.25,
+        "max_runtime": 0.0049476249841973186
+      },
+      {
+        "mode": 3,
+        "group": "minimum_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 277.9827320163947,
+        "mean_distance": 12374.505649468452,
+        "mean_requests": 142.16666666666666,
+        "max_runtime": 0.0029797909082844853
+      },
+      {
+        "mode": 3,
+        "group": "exactly10_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 288.7427394416667,
+        "mean_distance": 10487.970305139697,
+        "mean_requests": 137,
+        "max_runtime": 0.0032265830086544156
+      },
+      {
+        "mode": 3,
+        "group": "exactly16_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 203.8991400625,
+        "mean_distance": 12331.097873210483,
+        "mean_requests": 140.58333333333334,
+        "max_runtime": 0.007091375067830086
+      },
+      {
+        "mode": 4,
+        "group": "ALL",
+        "cases": 144,
+        "complete": 144,
+        "mean": 512.8702325775487,
+        "mean_distance": 21727.546511794182,
+        "mean_requests": 290.38194444444446,
+        "max_runtime": 0.02216791606042534
+      },
+      {
+        "mode": 4,
+        "group": "reference_assumed",
+        "cases": 12,
+        "complete": 12,
+        "mean": 520.1830397015734,
+        "mean_distance": 21733.08092943456,
+        "mean_requests": 297.6666666666667,
+        "max_runtime": 0.02216791606042534
+      },
+      {
+        "mode": 4,
+        "group": "fixed_positive_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 519.0304556805847,
+        "mean_distance": 21628.527945404487,
+        "mean_requests": 296.5,
+        "max_runtime": 0.02169954194687307
+      },
+      {
+        "mode": 4,
+        "group": "fixed_negative_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 520.1254724608003,
+        "mean_distance": 21759.220823569292,
+        "mean_requests": 296.0833333333333,
+        "max_runtime": 0.021840916946530342
+      },
+      {
+        "mode": 4,
+        "group": "smooth_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 522.6299531715812,
+        "mean_distance": 21852.66485677102,
+        "mean_requests": 297.8333333333333,
+        "max_runtime": 0.01980970799922943
+      },
+      {
+        "mode": 4,
+        "group": "cell50_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 521.2884184489704,
+        "mean_distance": 21768.602709491064,
+        "mean_requests": 300.25,
+        "max_runtime": 0.019855457940138876
+      },
+      {
+        "mode": 4,
+        "group": "cell500_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 517.5308364539724,
+        "mean_distance": 21699.722252968673,
+        "mean_requests": 293.8333333333333,
+        "max_runtime": 0.019413791014812887
+      },
+      {
+        "mode": 4,
+        "group": "edge_mixed_min_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 564.8550610543318,
+        "mean_distance": 23413.865152831277,
+        "mean_requests": 333.3333333333333,
+        "max_runtime": 0.011390583938919008
+      },
+      {
+        "mode": 4,
+        "group": "offcenter_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 473.1557655104118,
+        "mean_distance": 20091.727845145535,
+        "mean_requests": 256,
+        "max_runtime": 0.014157917001284659
+      },
+      {
+        "mode": 4,
+        "group": "origin_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 498.45866935432207,
+        "mean_distance": 22198.266832927668,
+        "mean_requests": 241.66666666666666,
+        "max_runtime": 0.02191670797765255
+      },
+      {
+        "mode": 4,
+        "group": "minimum_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 547.2469109982031,
+        "mean_distance": 22802.37623786008,
+        "mean_requests": 316.0833333333333,
+        "max_runtime": 0.016263208002783358
+      },
+      {
+        "mode": 4,
+        "group": "exactly10_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 602.3073585333333,
+        "mean_distance": 20791.201256337008,
+        "mean_requests": 318.25,
+        "max_runtime": 0.012527999933809042
+      },
+      {
+        "mode": 4,
+        "group": "exactly16_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 347.6308495625,
+        "mean_distance": 20991.30129878951,
+        "mean_requests": 237.08333333333334,
+        "max_runtime": 0.020961041911505163
+      }
+    ]
+  },
+  "gated100": {
+    "source": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/snapshots/r3_development.py",
+    "sha256": "fde3d2a3062f54cab5de864a45b7cb72caa66ba76785a6ab2ad13e410a1b3bf5",
+    "config_q4": {
+      "sharing_style": "visibility",
+      "spatial_route": true,
+      "spatial_ready_radius": 100.0
+    },
+    "runs": 288,
+    "wall_s": 1.8849833749700338,
+    "groups": [
+      {
+        "mode": 3,
+        "group": "ALL",
+        "cases": 144,
+        "complete": 144,
+        "mean": 258.0127384059473,
+        "mean_distance": 11428.546612036474,
+        "mean_requests": 137.86805555555554,
+        "max_runtime": 0.007043875055387616
+      },
+      {
+        "mode": 3,
+        "group": "reference_assumed",
+        "cases": 12,
+        "complete": 12,
+        "mean": 270.84444157426185,
+        "mean_distance": 11995.613762006096,
+        "mean_requests": 140.16666666666666,
+        "max_runtime": 0.00400983402505517
+      },
+      {
+        "mode": 3,
+        "group": "fixed_positive_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 272.545470976826,
+        "mean_distance": 11992.23019579955,
+        "mean_requests": 145.5,
+        "max_runtime": 0.004492249921895564
+      },
+      {
+        "mode": 3,
+        "group": "fixed_negative_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 272.6054384025544,
+        "mean_distance": 11959.652974067418,
+        "mean_requests": 146.75,
+        "max_runtime": 0.004255332984030247
+      },
+      {
+        "mode": 3,
+        "group": "smooth_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 270.8017653118007,
+        "mean_distance": 12008.69942879186,
+        "mean_requests": 140.25,
+        "max_runtime": 0.004071417031809688
+      },
+      {
+        "mode": 3,
+        "group": "cell50_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 271.87182719825176,
+        "mean_distance": 12052.833553407512,
+        "mean_requests": 141.16666666666666,
+        "max_runtime": 0.0038414160953834653
+      },
+      {
+        "mode": 3,
+        "group": "cell500_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 272.28608049858195,
+        "mean_distance": 12055.41435092112,
+        "mean_requests": 141.08333333333334,
+        "max_runtime": 0.003938209032639861
+      },
+      {
+        "mode": 3,
+        "group": "edge_mixed_min_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 300.8793582341492,
+        "mean_distance": 13368.871289413877,
+        "mean_requests": 151,
+        "max_runtime": 0.002044459106400609
+      },
+      {
+        "mode": 3,
+        "group": "offcenter_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 210.93016550513792,
+        "mean_distance": 8589.932050710322,
+        "mean_requests": 132.5,
+        "max_runtime": 0.005130124976858497
+      },
+      {
+        "mode": 3,
+        "group": "origin_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 182.76370164924242,
+        "mean_distance": 7925.7379115013,
+        "mean_requests": 96.25,
+        "max_runtime": 0.00490620790515095
+      },
+      {
+        "mode": 3,
+        "group": "minimum_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 277.9827320163947,
+        "mean_distance": 12374.505649468452,
+        "mean_requests": 142.16666666666666,
+        "max_runtime": 0.0030313750030472875
+      },
+      {
+        "mode": 3,
+        "group": "exactly10_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 288.7427394416667,
+        "mean_distance": 10487.970305139697,
+        "mean_requests": 137,
+        "max_runtime": 0.003220084006898105
+      },
+      {
+        "mode": 3,
+        "group": "exactly16_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 203.8991400625,
+        "mean_distance": 12331.097873210483,
+        "mean_requests": 140.58333333333334,
+        "max_runtime": 0.007043875055387616
+      },
+      {
+        "mode": 4,
+        "group": "ALL",
+        "cases": 144,
+        "complete": 144,
+        "mean": 536.1015500862912,
+        "mean_distance": 22772.659781955343,
+        "mean_requests": 299.5,
+        "max_runtime": 0.016822583973407745
+      },
+      {
+        "mode": 4,
+        "group": "reference_assumed",
+        "cases": 12,
+        "complete": 12,
+        "mean": 545.9067675790599,
+        "mean_distance": 22870.146391378574,
+        "mean_requests": 307.3333333333333,
+        "max_runtime": 0.013551458017900586
+      },
+      {
+        "mode": 4,
+        "group": "fixed_positive_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 546.6116890032051,
+        "mean_distance": 22910.936474015383,
+        "mean_requests": 307.4166666666667,
+        "max_runtime": 0.01487391593400389
+      },
+      {
+        "mode": 4,
+        "group": "fixed_negative_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 541.7398280952311,
+        "mean_distance": 22713.250829709898,
+        "mean_requests": 304.4166666666667,
+        "max_runtime": 0.014383791945874691
+      },
+      {
+        "mode": 4,
+        "group": "smooth_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 545.8842217900252,
+        "mean_distance": 22845.210994136607,
+        "mean_requests": 308.9166666666667,
+        "max_runtime": 0.013662791112437844
+      },
+      {
+        "mode": 4,
+        "group": "cell50_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 544.4088787878302,
+        "mean_distance": 22826.61396946478,
+        "mean_requests": 304.6666666666667,
+        "max_runtime": 0.014281833078712225
+      },
+      {
+        "mode": 4,
+        "group": "cell500_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 548.6699663164433,
+        "mean_distance": 23043.06393099487,
+        "mean_requests": 307.9166666666667,
+        "max_runtime": 0.014663791982457042
+      },
+      {
+        "mode": 4,
+        "group": "edge_mixed_min_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 639.0264471069153,
+        "mean_distance": 27088.38021499881,
+        "mean_requests": 354.4166666666667,
+        "max_runtime": 0.010389417060650885
+      },
+      {
+        "mode": 4,
+        "group": "offcenter_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 472.98761461012043,
+        "mean_distance": 19926.528941342483,
+        "mean_requests": 264.3333333333333,
+        "max_runtime": 0.016822583973407745
+      },
+      {
+        "mode": 4,
+        "group": "origin_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 484.55955165813907,
+        "mean_distance": 20962.716117525677,
+        "mean_requests": 249.75,
+        "max_runtime": 0.014244459103792906
+      },
+      {
+        "mode": 4,
+        "group": "minimum_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 567.4427367489413,
+        "mean_distance": 23845.198384560696,
+        "mean_requests": 315.25,
+        "max_runtime": 0.01234829192981124
+      },
+      {
+        "mode": 4,
+        "group": "exactly10_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 628.2728046,
+        "mean_distance": 22095.723560093465,
+        "mean_requests": 318.3333333333333,
+        "max_runtime": 0.010679291095584631
+      },
+      {
+        "mode": 4,
+        "group": "exactly16_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 367.7080947395833,
+        "mean_distance": 22144.147575242885,
+        "mean_requests": 251.25,
+        "max_runtime": 0.0147677919594571
+      }
+    ]
+  },
+  "gated250": {
+    "source": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R3_open/experiments/R3_open/snapshots/r3_development.py",
+    "sha256": "fde3d2a3062f54cab5de864a45b7cb72caa66ba76785a6ab2ad13e410a1b3bf5",
+    "config_q4": {
+      "sharing_style": "visibility",
+      "spatial_route": true,
+      "spatial_ready_radius": 250.0
+    },
+    "runs": 288,
+    "wall_s": 1.923142125015147,
+    "groups": [
+      {
+        "mode": 3,
+        "group": "ALL",
+        "cases": 144,
+        "complete": 144,
+        "mean": 258.0127384059473,
+        "mean_distance": 11428.546612036474,
+        "mean_requests": 137.86805555555554,
+        "max_runtime": 0.007103499956429005
+      },
+      {
+        "mode": 3,
+        "group": "reference_assumed",
+        "cases": 12,
+        "complete": 12,
+        "mean": 270.84444157426185,
+        "mean_distance": 11995.613762006096,
+        "mean_requests": 140.16666666666666,
+        "max_runtime": 0.003967875032685697
+      },
+      {
+        "mode": 3,
+        "group": "fixed_positive_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 272.545470976826,
+        "mean_distance": 11992.23019579955,
+        "mean_requests": 145.5,
+        "max_runtime": 0.004493292071856558
+      },
+      {
+        "mode": 3,
+        "group": "fixed_negative_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 272.6054384025544,
+        "mean_distance": 11959.652974067418,
+        "mean_requests": 146.75,
+        "max_runtime": 0.0041921669617295265
+      },
+      {
+        "mode": 3,
+        "group": "smooth_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 270.8017653118007,
+        "mean_distance": 12008.69942879186,
+        "mean_requests": 140.25,
+        "max_runtime": 0.004026916925795376
+      },
+      {
+        "mode": 3,
+        "group": "cell50_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 271.87182719825176,
+        "mean_distance": 12052.833553407512,
+        "mean_requests": 141.16666666666666,
+        "max_runtime": 0.0037864999612793326
+      },
+      {
+        "mode": 3,
+        "group": "cell500_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 272.28608049858195,
+        "mean_distance": 12055.41435092112,
+        "mean_requests": 141.08333333333334,
+        "max_runtime": 0.004385082982480526
+      },
+      {
+        "mode": 3,
+        "group": "edge_mixed_min_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 300.8793582341492,
+        "mean_distance": 13368.871289413877,
+        "mean_requests": 151,
+        "max_runtime": 0.0020682080648839474
+      },
+      {
+        "mode": 3,
+        "group": "offcenter_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 210.93016550513792,
+        "mean_distance": 8589.932050710322,
+        "mean_requests": 132.5,
+        "max_runtime": 0.005125583033077419
+      },
+      {
+        "mode": 3,
+        "group": "origin_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 182.76370164924242,
+        "mean_distance": 7925.7379115013,
+        "mean_requests": 96.25,
+        "max_runtime": 0.00495616695843637
+      },
+      {
+        "mode": 3,
+        "group": "minimum_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 277.9827320163947,
+        "mean_distance": 12374.505649468452,
+        "mean_requests": 142.16666666666666,
+        "max_runtime": 0.0029897920321673155
+      },
+      {
+        "mode": 3,
+        "group": "exactly10_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 288.7427394416667,
+        "mean_distance": 10487.970305139697,
+        "mean_requests": 137,
+        "max_runtime": 0.0032118329545482993
+      },
+      {
+        "mode": 3,
+        "group": "exactly16_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 203.8991400625,
+        "mean_distance": 12331.097873210483,
+        "mean_requests": 140.58333333333334,
+        "max_runtime": 0.007103499956429005
+      },
+      {
+        "mode": 4,
+        "group": "ALL",
+        "cases": 144,
+        "complete": 144,
+        "mean": 535.4804414537865,
+        "mean_distance": 22736.924507204298,
+        "mean_requests": 299.80555555555554,
+        "max_runtime": 0.02095745806582272
+      },
+      {
+        "mode": 4,
+        "group": "reference_assumed",
+        "cases": 12,
+        "complete": 12,
+        "mean": 545.0375347401709,
+        "mean_distance": 22802.77065546006,
+        "mean_requests": 308.4166666666667,
+        "max_runtime": 0.013519208994694054
+      },
+      {
+        "mode": 4,
+        "group": "fixed_positive_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 545.3368795087607,
+        "mean_distance": 22814.28862004853,
+        "mean_requests": 307.9166666666667,
+        "max_runtime": 0.014926749980077147
+      },
+      {
+        "mode": 4,
+        "group": "fixed_negative_bias",
+        "cases": 12,
+        "complete": 12,
+        "mean": 541.2989816507867,
+        "mean_distance": 22653.104012294512,
+        "mean_requests": 305.9166666666667,
+        "max_runtime": 0.014393041958101094
+      },
+      {
+        "mode": 4,
+        "group": "smooth_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 543.5086347468434,
+        "mean_distance": 22694.835005567267,
+        "mean_requests": 308.9166666666667,
+        "max_runtime": 0.013651374960318208
+      },
+      {
+        "mode": 4,
+        "group": "cell50_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 543.4773310822746,
+        "mean_distance": 22757.920653641595,
+        "mean_requests": 305.25,
+        "max_runtime": 0.014356458093971014
+      },
+      {
+        "mode": 4,
+        "group": "cell500_shared_field",
+        "cases": 12,
+        "complete": 12,
+        "mean": 547.6381483331099,
+        "mean_distance": 22958.71099697393,
+        "mean_requests": 309.0833333333333,
+        "max_runtime": 0.01510275003965944
+      },
+      {
+        "mode": 4,
+        "group": "edge_mixed_min_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 639.0264471069153,
+        "mean_distance": 27088.38021499881,
+        "mean_requests": 354.4166666666667,
+        "max_runtime": 0.010742582962848246
+      },
+      {
+        "mode": 4,
+        "group": "offcenter_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 472.98761461012043,
+        "mean_distance": 19926.528941342483,
+        "mean_requests": 264.3333333333333,
+        "max_runtime": 0.017053291900083423
+      },
+      {
+        "mode": 4,
+        "group": "origin_cluster",
+        "cases": 12,
+        "complete": 12,
+        "mean": 484.55955165813907,
+        "mean_distance": 20962.716117525677,
+        "mean_requests": 249.75,
+        "max_runtime": 0.014324167044833302
+      },
+      {
+        "mode": 4,
+        "group": "minimum_radius",
+        "cases": 12,
+        "complete": 12,
+        "mean": 566.3797062822747,
+        "mean_distance": 23755.47109964267,
+        "mean_requests": 315.5833333333333,
+        "max_runtime": 0.012369749951176345
+      },
+      {
+        "mode": 4,
+        "group": "exactly10_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 625.3290991583333,
+        "mean_distance": 22033.121621699822,
+        "mean_requests": 315.5,
+        "max_runtime": 0.010773541987873614
+      },
+      {
+        "mode": 4,
+        "group": "exactly16_sources",
+        "cases": 12,
+        "complete": 12,
+        "mean": 371.18536856770834,
+        "mean_distance": 22395.246147256214,
+        "mean_requests": 252.58333333333334,
+        "max_runtime": 0.02095745806582272
+      }
+    ]
+  }
+}

@@ -3,6 +3,50 @@
     "experiments/B1/literature.json",
     "experiments/B3/literature.json"
   ],
-  "new_primary_readings": [],
+  "new_primary_readings": [
+    {
+      "id": "WangCao2013_fullview",
+      "title": "Achieving Full-View Coverage in Camera Sensor Networks",
+      "authors": [
+        "Y. Wang",
+        "G. Cao"
+      ],
+      "year": 2013,
+      "publication": "ACM Transactions on Sensor Networks 10(1), Article 3; November 2013 from PDF page footer",
+      "url": "https://mcn.cse.psu.edu/paper/yiwang/tosn-wang13.pdf",
+      "source_level": "primary author-hosted PDF copied earlier by R1_atlas; original-byte hash checked here",
+      "pdf_path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R1_atlas/experiments/R1_atlas/research/cache/fullview_wang2013.pdf",
+      "pdf_sha256": "8ea7731a3c7957b7f7e57fce78400924c7f8bde27f34d084cbc4a70bc13e03a9",
+      "actual_pages_read": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "reading_scope": "Sections 2, 3.1, 3.2; Lemmas 3.1–3.3, Theorem 3.4; Section4.1 and Lemmas4.1–4.3 proof text. Figures referred by text; no new rendering here. Remaining pages not read.",
+      "classification": [
+        "continuous discovery coverage",
+        "orientation-complete visibility",
+        "angular gap and regional boundary verification"
+      ],
+      "original_problem": "Given fixed directional camera sectors, certify every target facing orientation within effective angle theta<pi/2; random sensor density estimation additionally assumes boundary treatment and uniform deployment.",
+      "mechanism": "Maximum gap of circularly ordered viewing vectors <=2theta; partition into constant covering-sensor subregions, then validate continuously along segmented boundaries; grid-to-continuum needs explicit radius/angular margins.",
+      "task_transfer": "Treat each genuinely measured point for a channel as a receiver location. Certify the 1000m eligible receivers surround each possible source. At theta=pi/2 prove separately using closed halfplanes/convex hull; do not reuse singular safe-arc formulas. Use per-leaf witness masks to test station deletion.",
+      "implementation": "not yet implemented; dynamic-certificate diagnostic proposed after current route study",
+      "benchmark_results": "Not transferred; evaluation section not read this turn.",
+      "limitations": "No theorem here says extra measurements shorten online robot paths. Unknown channels have not been measured at localization stops; they cannot obtain free coverage. Added sensing must be paid and compared. Theta endpoint, finite disk boundary, variable radius and mixed sources need task-specific proof.",
+      "lookup_failures": [
+        {
+          "tool": "web open",
+          "error": "connection failed",
+          "fallback": "Read original author PDF cached by R1_atlas; actual pages text hash available"
+        }
+      ]
+    }
+  ],
   "boundary": "All historical literature ledgers parsed and narrative reviewed; old PDFs not reread wholesale. Mechanism fusion initially supported by original implementation and its raw empirical evidence."
 }
