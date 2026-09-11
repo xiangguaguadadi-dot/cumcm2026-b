@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Read-only historical audit; writes only experiments/R1_atlas. No policy execution."""
 import ast, collections, hashlib, json, math, pathlib, re, subprocess, time
-from node_metadata import DIRECTIONS
+from node_metadata import DIRECTIONS, RETAINED_BEST
 ROOT=pathlib.Path(__file__).resolve().parents[3]
 OUT=ROOT/'experiments/R1_atlas'
 START=time.monotonic()
@@ -116,12 +116,15 @@ for agent,(label,rounds) in DIRECTIONS.items():
    if a['group']=='ALL':
     saved=next(x for x in r['modes'] if x['mode']==a['mode']);assert abs(saved['candidate_mean_s_per_source']-a['mean_s_per_source'])<1e-8
   qraw=read(quickp,'v1_quick_subset');qcr=[x for x in qraw if x['variant']=='candidate'];assert len(qcr)==120;assert set(x['case_id'] for x in qcr).issubset(x['case_id'] for x in cr)
-  n={'id':nodeid,'direction_tags':[agent],'round':rn,'date':'2026-09-11','title':title,'kind':'completed_optimization_round','status':decision,'parents':[{'id':parent,'relationship':'declared_behavior_or_design_parent','certainty':'documented_by_round_log'}],'exploration':change,'changes':change,'effects':ag,'comparison_baseline':'R0','data_roles':['v1_exposed_regression','training_or_development_as_recorded_in_sources'],'negative_examples':[a for a in ag if a['group']!='ALL' and a.get('delta_s_per_source',0)>1e-9],'selection':decision,'lesson':lesson,'candidate':{'path':rel(selected),'absolute_path':str(selected),'sha256':r['candidate_sha256'],'commit':commit,'branch':next(a['branch'] for a in assign if a['id']==agent),'repository_url':f'https://github.com/xiangguaguadadi-dot/cumcm2026-b/blob/{commit}/{selected.relative_to(worktrees[agent])}' if commit else None},'budget':{'full_candidate_runs':2400,'quick_candidate_runs':120,'full_wall_s':r['full_wall_s'],'quick_wall_s':r.get('quick_wall_s'),'additional_development_budget':'See source training/development ledgers; no inferred uniform budget.'},'sources':[source(fullp),source(quickp),source(selected),source(worktrees[agent]/'experiments'/agent/'iteration_log.md'),source(worktrees[agent]/'experiments'/agent/'report.md'),source(worktrees[agent]/'experiments'/agent/'literature.json')],'literature_basis':{'mode':'inherited_prior_reading_not_re_read_in_stage3','ledger':rel(worktrees[agent]/'experiments'/agent/'literature.json'),'adoption_scope':'Use exact round/function mappings in ledger and report; topic resemblance is not evidence.'},'evidence_level':'snapshot_sha_matched_all_raw_rows_recomputed_plus_semantic_round_review','unimplemented':False,'next_hypothesis':lesson,'limitations':['All v1 rows are exposed development regression.','No new policy inference performed by atlas builder.']}
+  n={'id':nodeid,'direction_tags':[agent],'round':rn,'date':'2026-09-11','title':title,'kind':'completed_optimization_round','status':decision,'parents':[{'id':parent,'relationship':'declared_design_parent','certainty':'documented_by_round_log'}],'exploration':change,'changes':change,'effects':ag,'comparison_baseline':'R0','data_roles':['v1_exposed_regression','training_or_development_as_recorded_in_sources'],'negative_examples':[a for a in ag if a['group']!='ALL' and a.get('delta_s_per_source',0)>1e-9],'selection':decision,'lesson':lesson,'candidate':{'path':rel(selected),'absolute_path':str(selected),'sha256':r['candidate_sha256'],'commit':commit,'branch':next(a['branch'] for a in assign if a['id']==agent),'repository_url':f'https://github.com/xiangguaguadadi-dot/cumcm2026-b/blob/{commit}/{selected.relative_to(worktrees[agent])}' if commit else None},'budget':{'full_candidate_runs':2400,'quick_candidate_runs':120,'full_wall_s':r['full_wall_s'],'quick_wall_s':r.get('quick_wall_s'),'additional_development_budget':'See source training/development ledgers; no inferred uniform budget.'},'sources':[source(fullp),source(quickp),source(selected),source(worktrees[agent]/'experiments'/agent/'iteration_log.md'),source(worktrees[agent]/'experiments'/agent/'report.md'),source(worktrees[agent]/'experiments'/agent/'literature.json')],'literature_basis':{'mode':'inherited_prior_reading_not_re_read_in_stage3','ledger':rel(worktrees[agent]/'experiments'/agent/'literature.json'),'adoption_scope':'Use exact round/function mappings in ledger and report; topic resemblance is not evidence.'},'evidence_level':'snapshot_sha_matched_all_raw_rows_recomputed_plus_semantic_round_review','unimplemented':False,'next_hypothesis':None,'next_hypothesis_status':'not_extracted_from_original_prospective_record','limitations':['All v1 rows are exposed development regression.','No new policy inference performed by atlas builder.']}
   ppath=node_by_id[parent]['candidate']['absolute_path'] if parent!='R0' else ROOT/'evaluation/baseline_solver.py'
   n['code_difference_to_parent']=functional_diff(ppath,selected)
+  retained_no=RETAINED_BEST[agent][rn-1]; before_no=RETAINED_BEST[agent][rn-2] if rn>1 else 0
+  retained=f'{agent}_R{retained_no}' if retained_no else 'R0'
+  n['retained_best_evidence']={'source':rel(worktrees[agent]/'experiments'/agent/'iteration_log.md'),'interpretation':'Historical strict joint-best decision; separate from iteration design and non-dominated tradeoff candidates.'};n['design_parent']=parent;n['retained_best_before_round']=f'{agent}_R{before_no}' if before_no else 'R0';n['retained_best_after_round']=retained
   nodes.append(n);node_by_id[nodeid]=n;edge(parent,nodeid,'iteration',[rel(worktrees[agent]/'experiments'/agent/'iteration_log.md')])
-  if decision in ('rejected','not_improved','tradeoff') and parent_no:
-   edge(nodeid,parent,'reverts_to',[rel(worktrees[agent]/'experiments'/agent/'iteration_log.md')],'Decision/reference edge excluded from chronological DAG; tradeoff retained without replacing parent best.')
+  if retained!=nodeid:
+   edge(nodeid,retained,'reverts_to',[rel(worktrees[agent]/'experiments'/agent/'iteration_log.md')],'Historical retained best after this round, independently recorded from design parent; excluded from implementation DAG.')
   ROW_CHECKS.append({'node':nodeid,'snapshot_sha_matched':True,'full_rows_sha_matched':True,'candidate_rows':2400,'baseline_rows':len(br),'quick_rows':120,'id_unique':True,'denominators_match':True,'saved_means_match':True})
 
 # Explicit component restoration also has a real second parent, unlike thematic similarity.
@@ -138,7 +141,7 @@ for c in registry['candidates']:
  p=campaign/'final_validation'/c['label']/'case_metrics.json'
  if not p.exists():continue
  rows=read(p,'previous_final_historically_new_now_exposed');ag=summarize(rows,finalbase,'previous_final')
- n=node_by_id[c['label']];n['later_validation']={'historical_role':'new_seed_final_at_stage1_freeze','current_role':'exposed_regression_since_stage2','selection_not_retroactively_changed':True,'aggregates':ag,'row_source':source(p),'code_identity_verified':sha((ROOT/c['candidate_path']).read_bytes())==n['candidate']['sha256']}
+ n=node_by_id[c['label']];n['later_validation']={'historical_role':'new_seed_final_at_stage1_freeze','current_role':'exposed_regression_since_stage2','selection_not_retroactively_changed':True,'registration_reason':c['selection_reason'],'aggregates':ag,'row_source':source(p),'code_identity_verified':sha((ROOT/c['candidate_path']).read_bytes())==n['candidate']['sha256']}
 
 bg('C0','第二阶段强对照C0','按已知题号采用Q3 A1 R8和Q4 A4 R6，仅模式分派，不是第二阶段新增改善。',['experiments/20260911_breakthrough/baseline/C0.py','experiments/20260911_breakthrough/baseline/equivalence/case_metrics.json'])
 node_by_id['C0']=nodes[-1]
@@ -162,7 +165,7 @@ for label,c in stage_reg['candidates'].items():
  agent=c['agent'];bp=ROOT/f'experiments/{agent}/execution_budget.json'
  budget=read(bp) if bp.exists() else read(ROOT/f'experiments/{agent}/best.json').get('budget',{'reference':'experiments/B3/report.md'})
  if agent=='B2':budget=next(x for x in budget['rounds'] if x['round']==c['round'])
- n={'id':nodeid,'direction_tags':[agent],'round':c['round'],'date':'2026-09-11','title':title,'kind':'completed_optimization_round','status':c['decision'],'parents':[{'id':p,'relationship':'documented_fusion' if len(parents)>1 else 'documented_parent'} for p in parents],'exploration':change,'changes':change,'effects':ag,'comparison_baseline':'C0','data_roles':['v1_exposed_regression','previous_final_exposed_regression','legal_new_training_development_as_recorded'],'negative_examples':[a for a in ag if a['group']!='ALL' and a.get('delta_s_per_source',0)>1e-9],'selection':c['decision'],'lesson':lesson,'next_hypothesis':nxt,'candidate':{'path':c['candidate'],'absolute_path':str(ROOT/c['candidate']),'sha256':c['candidate_sha256'],'commit':c['code_commit'],'dependencies':c['dependencies']},'budget':budget,'sources':[source(ROOT/c['candidate']),source(ROOT/c['result_dir']/'case_metrics.json'),source(ROOT/f'experiments/{agent}/report.md'),source(ROOT/f'experiments/{agent}/optimization_path.json'),source(ROOT/f'experiments/{agent}/literature.json')],'literature_basis':{'mode':'inherited_stage2_explicit_reread_ranges','ledger':f'experiments/{agent}/literature.json'},'evidence_level':'all_4800_raw_rows_recomputed_and_snapshot_matched; inherited_geometry_checks','unimplemented':False}
+ n={'id':nodeid,'direction_tags':[agent],'round':c['round'],'date':'2026-09-11','title':title,'kind':'completed_optimization_round','status':c['decision'],'parents':[{'id':p,'relationship':'documented_fusion' if len(parents)>1 else 'documented_parent'} for p in parents],'design_parent':parents[0],'retained_best_before_round':('C0' if c['round']==1 else 'B2_R1'),'retained_best_after_round':('B2_R1' if nodeid=='B2_R2' else nodeid),'exploration':change,'changes':change,'effects':ag,'comparison_baseline':'C0','data_roles':['v1_exposed_regression','previous_final_exposed_regression','legal_new_training_development_as_recorded'],'negative_examples':[a for a in ag if a['group']!='ALL' and a.get('delta_s_per_source',0)>1e-9],'selection':c['decision'],'lesson':lesson,'next_hypothesis':(read(ROOT/'experiments/B1/optimization_path.json')['steps'][0]['next'] if agent=='B1' else None),'next_hypothesis_status':('explicit_original_record' if agent=='B1' else 'not_extracted_from_original_prospective_record'),'candidate':{'path':c['candidate'],'absolute_path':str(ROOT/c['candidate']),'sha256':c['candidate_sha256'],'commit':c['code_commit'],'dependencies':c['dependencies']},'budget':budget,'sources':[source(ROOT/c['candidate']),source(ROOT/c['result_dir']/'case_metrics.json'),source(ROOT/f'experiments/{agent}/report.md'),source(ROOT/f'experiments/{agent}/optimization_path.json'),source(ROOT/f'experiments/{agent}/literature.json')],'literature_basis':{'mode':'inherited_stage2_explicit_reread_ranges','ledger':f'experiments/{agent}/literature.json'},'evidence_level':'all_4800_raw_rows_recomputed_and_snapshot_matched; inherited_geometry_checks','unimplemented':False}
  nodes.append(n);node_by_id[nodeid]=n
  for p in parents:edge(p,nodeid,'fusion' if len(parents)>1 else 'iteration',[f'experiments/{agent}/optimization_path.json',f'experiments/{agent}/report.md'])
  if nodeid=='B2_R2':edge(nodeid,'B2_R1','reverts_to',['experiments/B2/optimization_path.json'])
@@ -206,9 +209,12 @@ for agent,(label,rounds) in DIRECTIONS.items():
 lines += ['  A1_space_R8 --> C0["C0：Q3 A1 R8 / Q4 A4 R6"]','  A4_directional_R6 --> C0','  C0 --> B1_R1["B1 R1：强父法＋协同门控"]','  A3_coordination_R2 --> B1_R1','  C0 --> B2_R1["B2 R1：凸分区"]','  B2_R1 --> B2_R2["B2 R2：碎片失败"]','  B2_R1 --> B2_R3["B2 R3：双相位微益"]','  B2_R2 -. "失败启发" .-> B2_R3','  C0 --> B3_R1["B3 R1：21点连续证书"]','  B1_R1 --> S0["S0：Q3 B1 / Q4 B3"]','  B3_R1 --> S0','```','', '## 如何读数','', '旧A节点主表是v1每题1200局，对照R0；B节点主表是两批合并每题2400局，对照C0。它们不能跨表直接相减当成同批提升。十个A冻结候选的历史新样本放在JSON的later_validation；不回写原有选择。每节点effects保留全部题/批/场景、分母、快同慢、最大退步、最差局和移动/动作分解。','']
 for direction in directions:
  dn=[n for n in completed if direction['id'] in n['direction_tags']]
- lines += [f"## {direction['id']} · {direction['label']}",'','```mermaid','flowchart LR']
+ lines += [f"## {direction['id']} · {direction['label']}",'','```mermaid','flowchart TB']
  for n in dn:
-  lines.append(f'  {n["id"]}["R{n["round"]} {n["title"]}<br/>{n["status"]}"]')
+  dsuite='combined' if direction['stage']==2 else 'v1'
+  dm=[next(a['mean_s_per_source'] for a in n['effects'] if a['suite']==dsuite and a['mode']==k and a['group']=='ALL') for k in (3,4)]
+  hint=n['lesson'].split('；')[0][:42].replace(chr(34),'')
+  lines.append(f'  {n["id"]}["R{n["round"]} {n["title"]}<br/>Q3 {dm[0]:.3f} / Q4 {dm[1]:.3f}<br/>{n["status"]} · {hint}"]')
   for p in n['parents']:lines.append(f'  {p["id"]} --> {n["id"]}')
   for e in edges:
    if e['source']==n['id'] and e['type']=='reverts_to':lines.append(f'  {n["id"]} -. "回退/保留父最佳" .-> {e["target"]}')
@@ -226,8 +232,8 @@ for n in completed:
 (OUT/'V1_COMPARABLE_TRACK.md').write_text('\n'.join(track)+'\n')
 (OUT/'AI_README.md').write_text('''# Agent读取协议
 
-1. 先读DIRECTION_MAP.md、第三阶段PROTOCOL.md和RESEARCH_BRIEF.md（出现后）。读取exploration_graph.json的coverage_audit确认枚举完整性。
-2. nodes按id访问；kind=completed_optimization_round才计入48轮。background与cancelled节点不能算实验。
+1. 先读exploration_index.json，再按问题选择nodes/<id>.json；无需先载入整张图。DIRECTION_MAP.md供人浏览，第三阶段PROTOCOL.md定义当前研究边界，RESEARCH_BRIEF.md提供新文献。research/graph_validation.json提供枚举与散列检查结论。
+2. kind=completed_optimization_round才计入48个历史轮次；completed_stage3_round另计当前冻结增量。background与cancelled节点不能算实验。需要全量场景矩阵、全部边或所有来源清单时再读exploration_graph.json。
 3. effects包含当前轮原判定口径；comparison_baseline明确R0或C0。later_validation另载旧final，当时是新样本、当前已暴露。S0只是按题分派，第三阶段比较须对S0。
 4. iteration/fusion/derived_from构成DAG。reverts_to只是决策引用，可以逆时，不参与拓扑排序；inspired_by不能冒充代码采纳。parents分清行为父与结构来源，AST差异不是语义等价证明。
 5. candidate给精确SHA、提交和路径。六路线旧文件在只读旧工作树；repository_url可回到同一私有仓库的固定提交。sources给每文件散列/行数/实际处理深度，沿source id追溯。

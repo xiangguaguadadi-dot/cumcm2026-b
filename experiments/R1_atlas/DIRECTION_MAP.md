@@ -35,30 +35,30 @@ flowchart LR
 ## A1_space · 空间覆盖与移动成本
 
 ```mermaid
-flowchart LR
-  A1_space_R1["R1 压缩Q3覆盖环<br/>accepted"]
+flowchart TB
+  A1_space_R1["R1 压缩Q3覆盖环<br/>Q3 292.715 / Q4 570.883<br/>accepted · 外围定位往返会抵消站点路径缩短"]
   R0 --> A1_space_R1
-  A1_space_R2["R2 覆盖站与已知源的开放路径<br/>tradeoff"]
+  A1_space_R2["R2 覆盖站与已知源的开放路径<br/>Q3 276.228 / Q4 574.636<br/>tradeoff · Q3更快而Q4更慢"]
   A1_space_R1 --> A1_space_R2
   A1_space_R2 -. "回退/保留父最佳" .-> A1_space_R1
-  A1_space_R3["R3 原点无信号触发外环<br/>accepted"]
+  A1_space_R3["R3 原点无信号触发外环<br/>Q3 272.162 / Q4 570.883<br/>accepted · 合法观测可以选择两个完整覆盖方案，但不能据此识别真实源分布。"]
   A1_space_R2 --> A1_space_R3
   R0 --> A1_space_R3
-  A1_space_R4["R4 Q4空间路由就绪门控<br/>accepted"]
+  A1_space_R4["R4 Q4空间路由就绪门控<br/>Q3 272.162 / Q4 563.549<br/>accepted · 几何精度可控制代理可靠性"]
   A1_space_R3 --> A1_space_R4
-  A1_space_R5["R5 认证清除邻域的进出优化<br/>accepted"]
+  A1_space_R5["R5 认证清除邻域的进出优化<br/>Q3 272.091 / Q4 563.273<br/>accepted · 局部连接代价单调不增不代表闭环任务单调"]
   A1_space_R4 --> A1_space_R5
-  A1_space_R6["R6 2-opt加单节点重插<br/>accepted"]
+  A1_space_R6["R6 2-opt加单节点重插<br/>Q3 271.601 / Q4 563.148<br/>accepted · 固定任务的路径代理可改善，真实在线顺序仍须整局重跑。"]
   A1_space_R5 --> A1_space_R6
-  A1_space_R7["R7 清除段缓存路线<br/>rejected"]
+  A1_space_R7["R7 清除段缓存路线<br/>Q3 273.239 / Q4 563.150<br/>rejected · 两题都更慢"]
   A1_space_R6 --> A1_space_R7
   A1_space_R7 -. "回退/保留父最佳" .-> A1_space_R6
-  A1_space_R8["R8 发现16个频道后裁剪发现扫描<br/>accepted"]
+  A1_space_R8["R8 发现16个频道后裁剪发现扫描<br/>Q3 270.532 / Q4 556.704<br/>accepted · 源数上界可取消发现动作"]
   A1_space_R6 --> A1_space_R8
-  A1_space_R9["R9 裁剪扫描前增加定位精度门槛<br/>rejected"]
+  A1_space_R9["R9 裁剪扫描前增加定位精度门槛<br/>Q3 271.433 / Q4 560.108<br/>rejected · quick有利未迁移到full，两题更慢"]
   A1_space_R8 --> A1_space_R9
   A1_space_R9 -. "回退/保留父最佳" .-> A1_space_R8
-  A1_space_R10["R10 Q4路由门槛收至20米<br/>tradeoff"]
+  A1_space_R10["R10 Q4路由门槛收至20米<br/>Q3 270.532 / Q4 558.818<br/>rejected · 总体更慢但旧final场景退步消失，可记录取舍"]
   A1_space_R8 --> A1_space_R10
   A1_space_R10 -. "回退/保留父最佳" .-> A1_space_R8
 ```
@@ -74,35 +74,36 @@ flowchart LR
 |A1_space_R7|任务集合相同时保持顺序，到新扫描站才清空缓存。|273.239020 / 563.150239|rejected；两题都更慢；在线新几何需要及时重规划，回退R6。|
 |A1_space_R8|正观测/已清互异频道达到上限16即取消额外发现站，但全部已知源仍需clear成功。|270.531505 / 556.703578|accepted；源数上界可取消发现动作；发现证书和清除/退出证书须区分。|
 |A1_space_R9|只有所有待清半径≤100米才执行16频道裁剪。|271.432619 / 560.108327|rejected；quick有利未迁移到full，两题更慢；回退R8。|
-|A1_space_R10|Q4只在待清区域达到认证清除尺度时开放全局路径，Q3与裁剪保持。|270.531505 / 558.818078|tradeoff；总体更慢但旧final场景退步消失，可记录取舍；最佳仍R8。|
+|A1_space_R10|Q4只在待清区域达到认证清除尺度时开放全局路径，Q3与裁剪保持。|270.531505 / 558.818078|rejected；总体更慢但旧final场景退步消失，可记录取舍；最佳仍R8。|
 
 ## A2_information · 信息获取与定位不确定性
 
 ```mermaid
-flowchart LR
-  A2_information_R1["R1 多假想目标主动测点<br/>tradeoff"]
+flowchart TB
+  A2_information_R1["R1 多假想目标主动测点<br/>Q3 299.780 / Q4 578.962<br/>tradeoff · Q3改善，Q4失联分支使模型偏乐观。"]
   R0 --> A2_information_R1
-  A2_information_R2["R2 加入不可见分支的测点代理<br/>tradeoff"]
+  A2_information_R1 -. "回退/保留父最佳" .-> R0
+  A2_information_R2["R2 加入不可见分支的测点代理<br/>Q3 299.780 / Q4 574.817<br/>tradeoff · Q4退步缓和但仍不胜基准"]
   A2_information_R1 --> A2_information_R2
-  A2_information_R2 -. "回退/保留父最佳" .-> A2_information_R1
-  A2_information_R3["R3 Q4回原测点并最近认证清除<br/>accepted"]
+  A2_information_R2 -. "回退/保留父最佳" .-> R0
+  A2_information_R3["R3 Q4回原测点并最近认证清除<br/>Q3 299.765 / Q4 570.737<br/>accepted · 严格区分动作代理与真值包含证书，Q4收益极小。"]
   A2_information_R2 --> A2_information_R3
   R0 --> A2_information_R3
-  A2_information_R4["R4 圆域和接收上界有效切面<br/>tradeoff"]
+  A2_information_R4["R4 圆域和接收上界有效切面<br/>Q3 290.854 / Q4 570.830<br/>tradeoff · 压力开发出现11787顶点与5次5秒诊断超时"]
   A2_information_R3 --> A2_information_R4
   A2_information_R4 -. "回退/保留父最佳" .-> A2_information_R3
-  A2_information_R5["R5 约束切面计算预算<br/>accepted"]
+  A2_information_R5["R5 约束切面计算预算<br/>Q3 290.854 / Q4 570.737<br/>accepted · 重放120局最高49顶点、诊断超时归零"]
   A2_information_R4 --> A2_information_R5
-  A2_information_R6["R6 Q3无信号排除<br/>accepted"]
+  A2_information_R6["R6 Q3无信号排除<br/>Q3 286.019 / Q4 570.737<br/>accepted · 传感器可见性决定负观测语义，Q4无信号不能推断距离。"]
   A2_information_R5 --> A2_information_R6
-  A2_information_R7["R7 规划假说观测一致筛选<br/>accepted"]
+  A2_information_R7["R7 规划假说观测一致筛选<br/>Q3 286.013 / Q4 570.737<br/>accepted · Q3仅约0.006秒/源增益"]
   A2_information_R6 --> A2_information_R7
-  A2_information_R8["R8 光学失败20米排除<br/>accepted"]
+  A2_information_R8["R8 光学失败20米排除<br/>Q3 285.867 / Q4 568.449<br/>accepted · 失败信息有用但此处为组合迭代，不能全归因一篇论文。"]
   A2_information_R7 --> A2_information_R8
-  A2_information_R9["R9 两次排除约束传播<br/>tradeoff"]
+  A2_information_R9["R9 两次排除约束传播<br/>Q3 285.952 / Q4 568.404<br/>tradeoff · Q3慢而Q4微快"]
   A2_information_R8 --> A2_information_R9
   A2_information_R9 -. "回退/保留父最佳" .-> A2_information_R8
-  A2_information_R10["R10 预测后验加入1500米接收上界<br/>not_improved"]
+  A2_information_R10["R10 预测后验加入1500米接收上界<br/>Q3 285.867 / Q4 568.449<br/>not_improved · 1000几何组有52个变紧，但开发120及full2400任务完全相同"]
   A2_information_R8 --> A2_information_R10
   A2_information_R10 -. "回退/保留父最佳" .-> A2_information_R8
 ```
@@ -123,12 +124,12 @@ flowchart LR
 ## A3_coordination · 多源与多频道协同
 
 ```mermaid
-flowchart LR
-  A3_coordination_R1["R1 清源终点跨频道补测<br/>accepted"]
+flowchart TB
+  A3_coordination_R1["R1 清源终点跨频道补测<br/>Q3 278.772 / Q4 557.046<br/>accepted · 已付移动成本的停靠点可以复用"]
   R0 --> A3_coordination_R1
-  A3_coordination_R2["R2 定位停点交错补测<br/>accepted"]
+  A3_coordination_R2["R2 定位停点交错补测<br/>Q3 274.142 / Q4 556.354<br/>accepted · 聚簇协同收益明显，仍有场景/单局退步"]
   A3_coordination_R1 --> A3_coordination_R2
-  A3_coordination_R3["R3 第二测点跨频道联合收益<br/>rejected"]
+  A3_coordination_R3["R3 第二测点跨频道联合收益<br/>Q3 274.174 / Q4 556.370<br/>rejected · 两题均微慢于R2"]
   A3_coordination_R2 --> A3_coordination_R3
   A3_coordination_R3 -. "回退/保留父最佳" .-> A3_coordination_R2
 ```
@@ -142,24 +143,24 @@ flowchart LR
 ## A4_directional · 定向发射与可见性
 
 ```mermaid
-flowchart LR
-  A4_directional_R1["R1 可见性排序<br/>accepted"]
+flowchart TB
+  A4_directional_R1["R1 可见性排序<br/>Q3 306.300 / Q4 569.053<br/>accepted · 代理概率不能改真实可行域或退出证书。"]
   R0 --> A4_directional_R1
-  A4_directional_R2["R2 失联提前光学覆盖<br/>accepted"]
+  A4_directional_R2["R2 失联提前光学覆盖<br/>Q3 306.300 / Q4 545.430<br/>accepted · 开发参考含近端基础改动，不能把整包收益归单一阈值。"]
   A4_directional_R1 --> A4_directional_R2
-  A4_directional_R3["R3 近点开始的完整光学路线<br/>accepted"]
+  A4_directional_R3["R3 近点开始的完整光学路线<br/>Q3 306.300 / Q4 542.132<br/>accepted · 完整覆盖与访问顺序可分离，阈值后退原snake。"]
   A4_directional_R2 --> A4_directional_R3
-  A4_directional_R4["R4 面积权重与失败clear样本排除<br/>rejected"]
+  A4_directional_R4["R4 面积权重与失败clear样本排除<br/>Q3 306.300 / Q4 544.617<br/>rejected · 开发微益，full比R3慢2.484秒/源"]
   A4_directional_R3 --> A4_directional_R4
   A4_directional_R4 -. "回退/保留父最佳" .-> A4_directional_R3
-  A4_directional_R5["R5 有界线段二分恢复<br/>accepted"]
+  A4_directional_R5["R5 有界线段二分恢复<br/>Q3 306.300 / Q4 534.751<br/>accepted · 接收半圆凸性给初始可见区间"]
   A4_directional_R3 --> A4_directional_R5
-  A4_directional_R6["R6 成本门控镜像恢复<br/>accepted"]
+  A4_directional_R6["R6 成本门控镜像恢复<br/>Q3 306.300 / Q4 534.427<br/>accepted · Q4仅约0.324秒/源改善，局部退步保留。"]
   A4_directional_R5 --> A4_directional_R6
-  A4_directional_R7["R7 预计成本选择射频或光学<br/>rejected"]
+  A4_directional_R7["R7 预计成本选择射频或光学<br/>Q3 306.300 / Q4 535.175<br/>rejected · full慢0.748秒/源"]
   A4_directional_R6 --> A4_directional_R7
   A4_directional_R7 -. "回退/保留父最佳" .-> A4_directional_R6
-  A4_directional_R8["R8 已有可见点凸包内恢复<br/>rejected"]
+  A4_directional_R8["R8 已有可见点凸包内恢复<br/>Q3 306.300 / Q4 535.212<br/>rejected · 可见性可证明，信息几何与任务收益不可"]
   A4_directional_R6 --> A4_directional_R8
   A4_directional_R8 -. "回退/保留父最佳" .-> A4_directional_R6
 ```
@@ -178,12 +179,13 @@ flowchart LR
 ## A5_learning · 学习路线一：CEM上下文策略
 
 ```mermaid
-flowchart LR
-  A5_learning_R1["R1 四参数CEM静态策略<br/>rejected"]
+flowchart TB
+  A5_learning_R1["R1 四参数CEM静态策略<br/>Q3 307.815 / Q4 570.914<br/>rejected · 开发约0.095秒微益未迁移full，两题退步。"]
   R0 --> A5_learning_R1
-  A5_learning_R2["R2 不确定性和负载上下文<br/>accepted"]
+  A5_learning_R1 -. "回退/保留父最佳" .-> R0
+  A5_learning_R2["R2 不确定性和负载上下文<br/>Q3 306.300 / Q4 545.774<br/>accepted · Q4上下文承担开发主要收益，静态参数单独反而更慢。"]
   R0 --> A5_learning_R2
-  A5_learning_R3["R3 局部测点的几何上下文<br/>tradeoff"]
+  A5_learning_R3["R3 局部测点的几何上下文<br/>Q3 309.543 / Q4 544.418<br/>tradeoff · Q4更快、Q3更慢，保留R2与R3取舍"]
   A5_learning_R2 --> A5_learning_R3
   A5_learning_R3 -. "回退/保留父最佳" .-> A5_learning_R2
 ```
@@ -197,30 +199,32 @@ flowchart LR
 ## A6_learning · 学习路线二：参数搜索与历史特征
 
 ```mermaid
-flowchart LR
-  A6_learning_R1["R1 静态策略学习<br/>rejected"]
+flowchart TB
+  A6_learning_R1["R1 静态策略学习<br/>Q3 307.779 / Q4 570.883<br/>rejected · Q3开发微益未迁移full，Q4未变"]
   R0 --> A6_learning_R1
-  A6_learning_R2["R2 观测上下文调度<br/>tradeoff"]
+  A6_learning_R1 -. "回退/保留父最佳" .-> R0
+  A6_learning_R2["R2 观测上下文调度<br/>Q3 306.814 / Q4 552.956<br/>tradeoff · Q3更慢Q4更快"]
   R0 --> A6_learning_R2
-  A6_learning_R3["R3 Q3回原参数，Q4保留R2<br/>accepted"]
+  A6_learning_R2 -. "回退/保留父最佳" .-> R0
+  A6_learning_R3["R3 Q3回原参数，Q4保留R2<br/>Q3 306.300 / Q4 552.956<br/>accepted · 改善来自移除Q3退步，并非新测点特征有效。"]
   A6_learning_R2 --> A6_learning_R3
   R0 --> A6_learning_R3
-  A6_learning_R4["R4 缺信号/重复bearing/工作量特征<br/>not_improved"]
+  A6_learning_R4["R4 缺信号/重复bearing/工作量特征<br/>Q3 306.300 / Q4 552.956<br/>not_improved · 结构改变但权重为零，full与R3同。"]
   A6_learning_R3 --> A6_learning_R4
   A6_learning_R4 -. "回退/保留父最佳" .-> A6_learning_R3
-  A6_learning_R5["R5 历史特征新样本重训<br/>accepted"]
+  A6_learning_R5["R5 历史特征新样本重训<br/>Q3 306.300 / Q4 548.830<br/>accepted · 历史特征首次进入"]
   A6_learning_R4 --> A6_learning_R5
-  A6_learning_R6["R6 历史特征权重再搜索<br/>not_improved"]
+  A6_learning_R6["R6 历史特征权重再搜索<br/>Q3 306.300 / Q4 548.830<br/>not_improved · 与R5字节相同但训练轮真实发生，不能遗漏也不计新算法。"]
   A6_learning_R5 --> A6_learning_R6
   A6_learning_R6 -. "回退/保留父最佳" .-> A6_learning_R5
-  A6_learning_R7["R7 观测区域边界特征<br/>accepted"]
+  A6_learning_R7["R7 观测区域边界特征<br/>Q3 306.300 / Q4 548.516<br/>accepted · full仅微益"]
   A6_learning_R5 --> A6_learning_R7
-  A6_learning_R8["R8 不确定性与缺信号/重复交互<br/>not_improved"]
+  A6_learning_R8["R8 不确定性与缺信号/重复交互<br/>Q3 306.300 / Q4 548.516<br/>not_improved · 两项权重零，full同R7"]
   A6_learning_R7 --> A6_learning_R8
   A6_learning_R8 -. "回退/保留父最佳" .-> A6_learning_R7
-  A6_learning_R9["R9 交互结构独立种子再检验<br/>not_improved"]
+  A6_learning_R9["R9 交互结构独立种子再检验<br/>Q3 306.300 / Q4 548.516<br/>not_improved · R8/R9同SHA"]
   A6_learning_R8 --> A6_learning_R9
-  A6_learning_R9 -. "回退/保留父最佳" .-> A6_learning_R8
+  A6_learning_R9 -. "回退/保留父最佳" .-> A6_learning_R7
 ```
 
 |节点|做了什么|Q3 / Q4 秒/源|选择与启发|
@@ -238,8 +242,8 @@ flowchart LR
 ## B1 · 强父法融合与机会测量
 
 ```mermaid
-flowchart LR
-  B1_R1["R1 协同补测、可见性与三假说门控<br/>保留"]
+flowchart TB
+  B1_R1["R1 协同补测、可见性与三假说门控<br/>Q3 238.426 / Q4 526.987<br/>保留 · 朴素融合有收益"]
   C0 --> B1_R1
   A3_coordination_R2 --> B1_R1
 ```
@@ -251,13 +255,13 @@ flowchart LR
 ## B2 · 局部光学覆盖与相位
 
 ```mermaid
-flowchart LR
-  B2_R1["R1 光学区域自适应凸分块<br/>阶段改善，后被R3替代"]
+flowchart TB
+  B2_R1["R1 光学区域自适应凸分块<br/>Q3 271.055 / Q4 536.981<br/>阶段改善，后被R3替代 · 减少格点不保证闭环更快，平均收益仅约0.088%。"]
   C0 --> B2_R1
-  B2_R2["R2 失败clear之后保留非凸碎片<br/>退回R1；保留负结果"]
+  B2_R2["R2 失败clear之后保留非凸碎片<br/>Q3 271.055 / Q4 537.221<br/>退回R1；保留负结果 · 几何正确但碎片增加停点，开发与回归更慢"]
   B2_R1 --> B2_R2
   B2_R2 -. "回退/保留父最佳" .-> B2_R1
-  B2_R3["R3 左右双向分区与失败假说权重<br/>保留"]
+  B2_R3["R3 左右双向分区与失败假说权重<br/>Q3 271.055 / Q4 536.873<br/>保留 · 相对R1微小收益，失败权重仅此决策上的条件性证据。"]
   B2_R1 --> B2_R3
 ```
 
@@ -270,8 +274,8 @@ flowchart LR
 ## B3 · 连续定向发现覆盖
 
 ```mermaid
-flowchart LR
-  B3_R1["R1 21点连续方向覆盖证书<br/>保留"]
+flowchart TB
+  B3_R1["R1 21点连续方向覆盖证书<br/>Q3 271.055 / Q4 524.827<br/>保留 · 20点和小内环构型失败"]
   C0 --> B3_R1
 ```
 
@@ -292,3 +296,5 @@ flowchart LR
 解析932份文件、8,564,141行文本；完整复算127,200行历史优化候选full记录，以及24,000行旧final候选记录。重复读取、缓存对照和结构对象计数不是独立样本。48轮唯一性、引用、候选SHA和已存均值核对均通过。
 
 实际阅读深度与限制见[reading_coverage.json](reading_coverage.json)，逐行复算审计见[raw_row_audit.json](research/raw_row_audit.json)。没有把程序全字节解析称为逐动作人工复盘，没有重新执行这些策略，没有重新通读所有旧论文。
+
+第三阶段已冻结新节点见[STAGE3_PROGRESS.md](STAGE3_PROGRESS.md)；AI先读[紧凑索引](exploration_index.json)，再打开对应nodes/<id>.json。

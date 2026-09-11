@@ -1,0 +1,363 @@
+{
+  "schema_version": "1.0",
+  "research_cutoff": "2026-09-11",
+  "scope": "Actionable new literature for current best Q3/Q4; no all-literature or SOTA claim",
+  "skill": "automated-research-report",
+  "core_count": 3,
+  "downloaded_version_count": 4,
+  "core": [
+    {
+      "source_strength": "primary_paper_body",
+      "identity_verified": true,
+      "award_status": "not claimed",
+      "code_url": null,
+      "code_checked": false,
+      "classification_confidence": "high",
+      "local_performance_claim": "No R1 policy experiment; migration hypotheses only",
+      "deployment_dependency": "None; full original systems not adopted",
+      "adoption_status": "actionable_memo_shared; researcher decision pending",
+      "id": "L3_DRD2014",
+      "title": "Near Optimal Bayesian Active Learning for Decision Making",
+      "authors": [
+        "Shervin Javdani",
+        "Yuxin Chen",
+        "Amin Karbasi",
+        "Andreas Krause",
+        "J. Andrew Bagnell",
+        "Siddhartha Srinivasa"
+      ],
+      "year": 2014,
+      "date": "2014-04-22",
+      "venue": "AISTATS 2014, PMLR 33:430-438",
+      "publication_status": "conference_proceedings_verified_PMLR",
+      "url": "https://proceedings.mlr.press/v33/javdani14.html",
+      "pdf_url": "https://proceedings.mlr.press/v33/javdani14.pdf",
+      "version": "PMLR proceedings 9-page paper",
+      "actual_reading": {
+        "pdf_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "sections": "1-6 including HEC definition, stated theory, complexity and experiments",
+        "visual_checked_pdf_pages": [
+          4
+        ],
+        "not_read": "PDF p9 references not deep read; supplement not read"
+      },
+      "cache": {
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R1_atlas/experiments/R1_atlas/research/cache/drd_javdani2014.pdf",
+        "sha256": "f7e025e4d3f3ec6cd617d84466a45c2e0352b5cc93866bc4ff749229bac82299",
+        "pages": 9,
+        "bytes": 1652704,
+        "page_text_dir": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R1_atlas/experiments/R1_atlas/research/cache/drd_javdani2014"
+      },
+      "problem": "Select costly tests until all remaining hypotheses are contained in one overlapping action-success region.",
+      "mechanism": "Grouping by region memberships; expected splitting-hyperedge weight cutting; stops at decision readiness, not exact hypothesis identity.",
+      "innovation": "Decision regions can overlap, avoiding forced disjoint equivalence-class assignment.",
+      "benchmarks": [
+        "MovieLens 100k",
+        "simulated touch-based robotic localization"
+      ],
+      "experiment_protocol": "MovieLens ratings embedded by SVD then cluster overlap; robot 10 environments x 100 sampled true hypotheses, 2000 hypotheses, 50 decision regions, 150 guarded moves.",
+      "results": "Paper reports HEC reduces queries against several baselines; robot short-horizon experiment says myopic VoI essentially matches HEC. Not a movement-time benchmark.",
+      "limitations": [
+        "Deterministic noise-free finite hypothesis model and prior.",
+        "Worst-case implementation O(|G|^k).",
+        "Original precise approximation-factor statement depends on earlier framework; ASR2019 reviews later squared-log bounds; no guarantee reused here.",
+        "Robot experiment samples truths from constructed hypothesis pool; not continuous worst-case coverage."
+      ],
+      "primary_path": [
+        "task_time",
+        "paid_information",
+        "overlapping_action_success_regions"
+      ],
+      "tags": [
+        "clear_decision",
+        "bounded_belief_boundary"
+      ],
+      "transfer": "At fixed parent candidate points/hypotheses compare radius gain against predicted reliable-clear feasibility and subsequent paid cost; retain continuous polygon proof.",
+      "validation": "Independent new legal development; parent/radius/decision-probability/decision-cost ablations then frozen quick/full/4800; failures and tail changes retained.",
+      "related_bottleneck_nodes": [
+        "B1_R1",
+        "A2_information_R8",
+        "R2_open_R1",
+        "R3_open_R1"
+      ],
+      "causal_note": "These node links are later analytical context, not claims that earlier designs adopted this newly read paper."
+    },
+    {
+      "source_strength": "primary_paper_body",
+      "identity_verified": true,
+      "award_status": "not claimed",
+      "code_url": null,
+      "code_checked": false,
+      "classification_confidence": "high",
+      "local_performance_claim": "No R1 policy experiment; migration hypotheses only",
+      "deployment_dependency": "None; full original systems not adopted",
+      "adoption_status": "actionable_memo_shared; researcher decision pending",
+      "id": "L3_ASR2019",
+      "title": "Adaptive Submodular Ranking and Routing",
+      "authors": [
+        "Fatemeh Navidi",
+        "Prabhanjan Kambadur",
+        "Viswanath Nagarajan"
+      ],
+      "year": 2020,
+      "date": "2020-05",
+      "venue": "Operations Research 68(3):856-877",
+      "publication_status": "journal_identity_verified_Crossref; body_read_arxiv_v2",
+      "doi": "10.1287/opre.2019.1889",
+      "url": "https://arxiv.org/abs/1606.01530v2",
+      "pdf_url": "https://arxiv.org/pdf/1606.01530v2",
+      "version": "arXiv v2 2019-02-05; v1 2016-06-05; journal2020 metadata, not journal body comparison",
+      "actual_reading": {
+        "pdf_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          12,
+          13,
+          18,
+          19,
+          22,
+          23,
+          24,
+          25
+        ],
+        "sections": "1-2 algorithm, 3 algorithm/proposition, 4.5-4.6, 5 experiments",
+        "visual_checked_pdf_pages": [
+          7
+        ],
+        "not_read": "All proof pages8-11/14-17/20-21 not fully read; references26-28 not deep read"
+      },
+      "cache": {
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R1_atlas/experiments/R1_atlas/research/cache/asr_1606.01530v2.pdf",
+        "sha256": "8524e8afb8d2db96f163e9ae4232bdc9282f0e7f2fe8dff558bc8830d27432bd",
+        "pages": 28,
+        "bytes": 541316,
+        "page_text_dir": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R1_atlas/experiments/R1_atlas/research/cache/asr_1606.01530v2"
+      },
+      "problem": "Adaptively cover a random known-distribution scenario at minimum expected test or metric-route cost.",
+      "mechanism": "Expected scenario-splitting mass plus normalized remaining coverage gain divided by test cost; routing uses submodular orienteering subroutine.",
+      "innovation": "Separates scenario identification and scenario completion, allows correlated scenario feedback; general adaptive metric routing extension.",
+      "benchmarks": [
+        "WISER chemical diagnosis",
+        "SYN-K constructed hard instances"
+      ],
+      "experiment_protocol": "415 chemical hypotheses,79 symptoms,10 datasets fill unknown responses; uniform and three power-law priors; unit test cost, ODT/generalizedODT.",
+      "results": "ASR and greedy often close on WISER, neither uniformly best; synthetic instances show greedy can be poor. No physical robot routing experiment reported in read experimental section.",
+      "limitations": [
+        "Finite explicitly known scenario probabilities.",
+        "Each scenario requires monotone submodular completion and deterministic feedback.",
+        "Metric routing theorem needs budgeted orienteering subroutine and fixed metric model.",
+        "Coverage completion cost can stop before algorithm knows completion in generic formulation; application stopping certificate must be established."
+      ],
+      "primary_path": [
+        "task_time",
+        "paid_information",
+        "identification_plus_relative_completion"
+      ],
+      "tags": [
+        "adaptive_routing",
+        "negative_guarantee_transfer"
+      ],
+      "transfer": "Audit that proposed information value changes downstream completion; distinguish fixed sensing cost from dynamic route cost. Do not transplant approximation factor to B task.",
+      "validation": "Inspect actual paid movement/sensing and complete task outcomes; no weighted cross-question score; theory prerequisite checklist in memo.",
+      "related_bottleneck_nodes": [
+        "B1_R1",
+        "A3_coordination_R3",
+        "A4_directional_R7"
+      ],
+      "causal_note": "These node links are later analytical context, not claims that earlier designs adopted this newly read paper."
+    },
+    {
+      "source_strength": "primary_paper_body",
+      "identity_verified": true,
+      "award_status": "not claimed",
+      "code_url": null,
+      "code_checked": false,
+      "classification_confidence": "high",
+      "local_performance_claim": "No R1 policy experiment; migration hypotheses only",
+      "deployment_dependency": "None; full original systems not adopted",
+      "adoption_status": "actionable_memo_shared; researcher decision pending",
+      "id": "L3_FULLVIEW2013",
+      "title": "Achieving Full-View Coverage in Camera Sensor Networks",
+      "authors": [
+        "Yi Wang",
+        "Guohong Cao"
+      ],
+      "year": 2013,
+      "date": "2013-11",
+      "venue": "ACM Transactions on Sensor Networks 10(1), Article3,31pages",
+      "publication_status": "author_body_and_Crossref_identity_verified",
+      "doi": "10.1145/2529974",
+      "url": "https://doi.org/10.1145/2529974",
+      "pdf_url": "https://mcn.cse.psu.edu/paper/yiwang/tosn-wang13.pdf",
+      "version": "2013 journal paper; consolidates related INFOCOM2011 On Full-View Coverage and MobiHoc2011 work",
+      "related_version": {
+        "title": "On Full-View Coverage in Camera Sensor Networks",
+        "year": 2011,
+        "doi": "10.1109/INFCOM.2011.5934977",
+        "pdf_url": "https://mcn.cse.psu.edu/paper/yiwang/infocom11-camera.pdf",
+        "reading": "identity/version inspected; not separately deep read",
+        "cache": {
+          "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R1_atlas/experiments/R1_atlas/research/cache/fullview_wang2011.pdf",
+          "sha256": "9e3c188aabf207b9ea8da7dc3860165fefb635115cd0b09a734915091d260b46",
+          "pages": 9,
+          "bytes": 713867,
+          "page_text_dir": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R1_atlas/experiments/R1_atlas/research/cache/fullview_wang2011"
+        }
+      },
+      "actual_reading": {
+        "pdf_pages": [
+          1,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          26,
+          27,
+          28
+        ],
+        "sections": "2 full-view definition,3 continuous detection,4.1-4.2 grid margin,8.1-8.2 evaluation and9 opening",
+        "visual_checked_pdf_pages": [
+          7
+        ],
+        "not_read": "Lattice optimality section5 and barrier detailed proofs6-7 not read; p29-31 not deep read"
+      },
+      "cache": {
+        "path": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R1_atlas/experiments/R1_atlas/research/cache/fullview_wang2013.pdf",
+        "sha256": "8ea7731a3c7957b7f7e57fce78400924c7f8bde27f34d084cbc4a70bc13e03a9",
+        "pages": 31,
+        "bytes": 1938833,
+        "page_text_dir": "/Users/t/Documents/Codex/2026-09-10/new-chat/work/stage3/R1_atlas/experiments/R1_atlas/research/cache/fullview_wang2013"
+      },
+      "problem": "Verify that every point and facing direction in a field has a nearby camera with sufficient viewing angle.",
+      "mechanism": "Cyclic adjacent-view angle gaps; partition by common covering sensors, then continuous boundary tests with safe/unsafe geometric regions; grid sufficient conditions require explicit radial/angular margin.",
+      "innovation": "Coverage includes target-facing direction, not just sensor field of view or k-disk coverage.",
+      "benchmarks": [
+        "Random camera deployments in 100m square",
+        "Weak/strong barrier simulation"
+      ],
+      "experiment_protocol": "Full-area tests100 repetitions; camera r5/25m, FoV60deg,effective angles30/45/60deg, enlarged deployment region removes boundary effect. Barrier at least500 repetitions.",
+      "results": "Reports density/probability and covered-area fraction; high fractional coverage requires fewer cameras than guaranteed full-area coverage. Neither task-time nor B3 21-station optimality is tested.",
+      "limitations": [
+        "Effective angle theta<pi/2; B task uses closed theta=pi/2 endpoint.",
+        "Camera FoV/radius and boundary conventions differ.",
+        "Safe-arc construction degenerates at endpoint; must separately prove halfplane/convex-hull condition.",
+        "Barrier coverage for moving intruders is insufficient for every static source in B task.",
+        "Random uniform density assumptions do not establish deterministic B3 full coverage."
+      ],
+      "primary_path": [
+        "task_time",
+        "continuous_discovery",
+        "angular_gap_and_boundary_certificates"
+      ],
+      "tags": [
+        "dynamic_redundancy_hypothesis",
+        "per_channel_observations"
+      ],
+      "transfer": "Channel-specific actual measured no-signal points plus retained future stations must certify every B3 leaf via shared-neighbor convex hull; only then remove a future station.",
+      "validation": "First count useful genuinely measured unknown-channel points and deletion opportunities on new development; then parent/dynamic-prune/paid-opportunistic-scan ablations with saved leaf certificates and full task checks.",
+      "related_bottleneck_nodes": [
+        "B3_R1",
+        "R3_open_R1"
+      ],
+      "causal_note": "These node links are later analytical context, not claims that earlier designs adopted this newly read paper."
+    }
+  ],
+  "extended_discovery": [
+    {
+      "id": "D_SUBMOD_VOI2015",
+      "title": "Submodular Surrogates for Value of Information",
+      "year": 2015,
+      "url": "https://doi.org/10.1609/aaai.v29i1.9694",
+      "status": "discovered_in_ASR_reference14_and_Crossref; body_not_yet_read",
+      "primary_path": [
+        "task_time",
+        "paid_information",
+        "decision_surrogates"
+      ]
+    },
+    {
+      "id": "D_ASO_PATH2015",
+      "title": "Adaptive Stochastic Optimization: From Sets to Paths",
+      "year": 2015,
+      "status": "discovered_in_ASR_reference37; body_not_yet_read",
+      "primary_path": [
+        "task_time",
+        "paid_information",
+        "adaptive_routing"
+      ]
+    },
+    {
+      "id": "D_SENSOR_REDUNDANCY2009",
+      "title": "Coverage-preserving sensor scheduling cited by Wang and Cao as Kasbekar et al. 2009",
+      "status": "incomplete_identity; discovery_only; not core or claimed implementation",
+      "primary_path": [
+        "task_time",
+        "continuous_discovery",
+        "redundancy_scheduling"
+      ]
+    }
+  ],
+  "deduplication": "DOI/title and explicitly documented conference-to-journal relationship; Fullview2011 counted as related version, not separate family. Legacy ledger lookup found no exact titles or ids of these3 core papers.",
+  "search_log": [
+    {
+      "query": "sensor coverage directional detection halfplane convex hull range mobile sensor redundant sensor coverage proof dynamic coverage",
+      "service": "web search tool",
+      "status": "connection_failed"
+    },
+    {
+      "query": "adaptive informative path planning redundant waypoints coverage tour online sensing submodular coverage mobile robot",
+      "service": "web search tool",
+      "status": "connection_failed"
+    },
+    {
+      "query": "Adaptive Submodular Ranking and Routing",
+      "service": "Crossref works API and arXiv primary page/PDF",
+      "status": "success"
+    },
+    {
+      "query": "On full view coverage in camera sensor networks",
+      "service": "Crossref works API; author PSU lab publication index",
+      "status": "success"
+    },
+    {
+      "query": "Near Optimal Bayesian Active Learning for Decision Making",
+      "service": "PMLR canonical proceedings/PDF",
+      "status": "success"
+    },
+    {
+      "query": "adaptive submodular ranking routing",
+      "service": "OpenAlex API",
+      "status": "HTTP429_not_used"
+    },
+    {
+      "query": "full view pdf Google and SemanticScholar API",
+      "service": "direct requests",
+      "status": "no_usable_result_not_evidence"
+    }
+  ],
+  "sharing_memo": "research_updates/001_decision_value_and_dynamic_cover.md",
+  "limitations": [
+    "No new policy run by R1.",
+    "Read ranges are subsets, not full deep reading of all pages.",
+    "No precise original approximation ratio claimed applicable to B task.",
+    "New source discovery continues in response to research feedback."
+  ]
+}
