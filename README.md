@@ -1,5 +1,7 @@
 # 数学建模2026 B题代码
 
+2026-09-12 新 BC-RPI 方案的 G0/G1 已完整执行并独立复核：[执行结论](experiments/20260912_breakthrough/RL_EXECUTION_REPORT.md)、[机器可读结果](experiments/20260912_breakthrough/RL_EXECUTION_RESULT.json)。G0 正确性门通过；24 个 Q4 诊断 world 上，有限单干预事后最优 O1 改善 1.5593%，双干预贪心事后诊断 O2 改善 1.7152%，均未达到预登记 2% 余量门槛，因此停止当前动作空间、不进入网络训练。累计 1696 次真实 full/suffix/夹具执行、197456 次业务调用全部结算；没有训练、新密封最终集或官方测试。O1/O2 是有限特权诊断而非可部署学习策略，不产生新的晋级候选，仍保留下述 Q3 R11 + Q4 R2。
+
 2026-09-12 第六阶段非RL研究已收束：[本轮完整报告](experiments/20260912_breakthrough/REPORT.md)、[冻结推荐与证据](experiments/20260912_breakthrough/CURRENT_BEST.json)、[研究路径增量](experiments/R1_atlas/breakthrough_increment/README.md)。推荐本轮[Q3 R11 + Q4 R2 单文件候选](experiments/20260912_breakthrough/final_candidates/combined.py)：4800已暴露本地案例全部正常全清，Q3为229.870325秒/源、相对C7改善2.5465%；Q4为455.434476秒/源、改善0.1485%（边际增量）。组合与父法4800行任务指标全等，另24例请求轨迹全等。所有负结果、59次已修复运行错误与成本口径保留；主solver、Q1/Q2和冻结v1未改，无新盲测或官方执行。另已完成[新RL方案与审查](experiments/20260912_breakthrough/RL/PROPOSAL.md)，用户批准原Agent执行G0/G1零训练诊断，后续进度单独记录，不将计划或诊断误称已训练改进。
 
 2026-09-11 第五阶段已完成BC、PPO和约束Q的实施及预算内训练：[本轮结果报告](experiments/20260911_rl_execution/REPORT.md)、[代码与复核入口](experiments/20260911_rl_execution/README.md)、[RL方向图增量](experiments/R1_atlas/rl_increment/README.md)。PPO/Q各3次初始化、每次1,024个新训练局；24个检查点和6个对照共5,760次选择评估全部正常全清，但PPO在Q3/Q4比C7慢3.836%/5.569%，Q慢3.488%/6.478%，两路线均未达到预登记晋级门槛，继续保留C7。结果属于本地检查点选择证据，未新增最终密封测试或官方执行；此前[41篇来源的研究审阅稿](experiments/20260911_rl_research/RESEARCH_PROPOSAL.md)与全部负结果一并保留。

@@ -1,0 +1,100 @@
+{
+  "schema": "bc-rpi-g0g1-final-result-v1",
+  "status": "completed_at_registered_stop_gate",
+  "decision": "stop_current_finite_action_space_without_neural_training",
+  "basis": "Both complete 24-world finite privileged diagnostics are below the preregistered 2 percent headroom threshold.",
+  "g0_accepted": true,
+  "g1_complete": true,
+  "g2_started": false,
+  "neural_training_runs": 0,
+  "official_runs": 0,
+  "unique_g1_worlds": 24,
+  "unique_g1_sources": 319,
+  "means_seconds_per_source": {
+    "c7": 430.3747917042208,
+    "o1": 423.6641387881062,
+    "o2": 422.9931024287261
+  },
+  "relative_improvement_pct": {
+    "o1": 1.559257894622823,
+    "o2": 1.7151769615186496
+  },
+  "g1_source_states": {
+    "o1": 96,
+    "o2": 80
+  },
+  "g1_counterfactual_branches": {
+    "o1": 806,
+    "o2": 676
+  },
+  "selected_interventions": {
+    "o1": {
+      "1": 20,
+      "0": 4
+    },
+    "o2": {
+      "2": 18,
+      "0": 4,
+      "1": 2
+    }
+  },
+  "g1_execution_families": {
+    "c7_rollin": 24,
+    "o1_counterfactual": 806,
+    "o1_full_replay": 24,
+    "o2_counterfactual": 676,
+    "o2_full_replay": 24
+  },
+  "g1_calls_by_action": {
+    "enter": 72,
+    "measure": 146025,
+    "clear": 12733,
+    "exit": 1554
+  },
+  "g1_actual_calls": 160384,
+  "g1_actual_executions": 1554,
+  "cumulative_counts": {
+    "accepted_calls": 197454,
+    "business_calls": 197456,
+    "entered": 198,
+    "exception_calls": 1,
+    "executions_completed": 1696,
+    "executions_started": 1696,
+    "failed_runs": 1,
+    "fixture_runs": 6,
+    "full_runs": 194,
+    "rejected_calls": 2,
+    "suffix_runs": 1496,
+    "unfinished_runs": 0,
+    "unique_worlds_actually_started": 73,
+    "unknown_cost_runs": 0,
+    "unresolved_calls": 0
+  },
+  "g1_first_actual_run_utc": "2026-09-12T07:17:23.214978+00:00",
+  "g1_last_settled_run_utc": "2026-09-12T07:51:06.320632+00:00",
+  "g1_elapsed_research_wall_s": 2023.105654,
+  "worker_cpu_s": null,
+  "deployment_sha256": "342fa54ce8d9d9b27d5c715bf398302a44af376e06bc331c96aee15ed9f1b11b",
+  "continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+  "evidence": {
+    "verification/rl_g1_headroom_v1.json": "8c2919f5d31c18b43b13f8d9f3d8ba4b5ab2a91b0cbd45fc5704f4ae83618afb",
+    "verification/rl_g1_records_v1.json": "051b0fec08f993a77b8e47d470ce4ad5d9d4d6c934b0629f522916a246ddee0d",
+    "verification/rl_g0_acceptance_v1.json": "3ecca41c071a83b6860149c4018f7860c78e418ef503c14f24e12d09d7a5ad2e",
+    "verification/rl_g0_final_independent_v3.json": "4d2ca7fb51d790d8d785a06cf5d53839f4204c2142f1c4d38f2da68036eb287d",
+    "verification/rl_g0g1_final_ledger_v1/snapshot_manifest.json": "fbb978ba2457f190596f68f0a300862efeba27836b5b91fd71d55832ba32b5bf",
+    "verification/rl_final_audit_pure_tests_v1.json": "a60a6dba852200d4cce3a6ab4fe54cdc61547a29565f5e8f99954fda9dc33010",
+    "RL/implementation/results/g1_v1/source_freeze.json": "1eb5572ce12e1f0d4da2569e744093fc96578e88eb1046e637226ab41ed344dc",
+    "RL/implementation/results/g1_v1/source_archive.json": "efe46eb53625f61195d823ac9279e84180cba905a0e1e7721aadb738015cc780",
+    "RL/implementation/results/g1_v1/input_archive.json": "b8529671f2e6be04c6ca4ae802aefe53d478b8e65bebd3495f3ea5646283844c",
+    "RL/implementation/results/g1_v1/registration.json": "2bafabf03ba74df5b0a8ec57df96c9cfcd9d20883e83acf8a6183a773bce8d00"
+  },
+  "evidence_limits": [
+    "O1 is hindsight-optimal only for up to four uniformly sampled C7 source-service boundaries and the retained action set.",
+    "O2 is greedy along the actual first-intervention trajectory, not a global two-step optimum; four zero-O1 worlds did not search synergistic pairs.",
+    "No observation-only actor was fitted; oracle decisions are not deployable learned-policy performance.",
+    "The 24 registered probe worlds are local exposed diagnostics, not blind final or official tests.",
+    "Latest non-RL Q4 R2 was not rerun on these G1 worlds; no superiority to that entry is claimed.",
+    "Worker CPU decomposition remains unknown; clone_cpu_wall_s is wall time, not CPU time.",
+    "An independent agent reviewed G1 before execution; final all-record recomputation was performed by the coordinator. A second final manual all-record review was not completed after agent quota exhaustion."
+  ]
+}

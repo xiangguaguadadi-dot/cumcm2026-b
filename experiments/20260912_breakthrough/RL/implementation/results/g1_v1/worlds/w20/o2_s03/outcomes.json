@@ -1,0 +1,507 @@
+{
+  "world_sha256": "759400010b34b251084ace0182b30280434a34b62986593ab32855b7af5bc6c3",
+  "stage": "o2",
+  "state_index": 3,
+  "trajectory_origin_run_id": "g1_v1_w20_o1_replay",
+  "source_index": 21,
+  "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+  "continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+  "candidate_ids": [
+    "10f31876635904a4d93ae587586d682294d9402cb9c4b6b3f3d30e0d213a67a3",
+    "33655f307fbfdee75e9631b832feb7dbf1bf00c5ff0de8fc1a49246fc63a73a2",
+    "3d3f2561793fcf6da0462eed02d318d27b513ab018dfc89177f58d6ed872a52c",
+    "3e099b1a2efb687991ad7676c7d3e9d25e500d22424db2aacc384099eae211c4",
+    "60b92d457eee7c1f708ea16fd716c29887b833ba9f3dfdfe5bf76712a74870d1",
+    "628715a90d8fdfae09e4be6af4187963f66dd9a0162402ea1c232f6c653a6163",
+    "ad0c81b19526c784a13f9b8f52889e9bca5f5f933075a955b0721cdf04f55ae7",
+    "c52dae3c4de4d7195acabcc1829f70c57af086dea2de95027bcf9e74cf7e065b",
+    "cdb8cf14a6ae3f6e5516f29ce94eab90250e5d645ddf818cbb59d9d8a272de13"
+  ],
+  "candidate_count": 9,
+  "teacher_id": "10f31876635904a4d93ae587586d682294d9402cb9c4b6b3f3d30e0d213a67a3",
+  "status": "complete",
+  "outcomes": [
+    {
+      "run_id": "g1_v1_w20_o2_s03_a00",
+      "path": "results/g1_v1/runs/g1_v1_w20_o2_s03_a00.json.gz",
+      "mode": 4,
+      "world_id": "rl-new-world-recipe-v1:bc_rpi_g1_20260912_v1:q4:00020",
+      "world_sha256": "759400010b34b251084ace0182b30280434a34b62986593ab32855b7af5bc6c3",
+      "group": "origin_cluster",
+      "index": 20,
+      "kind": "suffix",
+      "family": "o2_counterfactual",
+      "success": true,
+      "policy": "one_retained_operation_then_frozen_c7",
+      "continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "n": 16,
+      "modeled_full_virtual_us": 2065663285,
+      "seconds_per_source": 129.1039553125,
+      "normalized_cost_with_failure_penalty": 0.1291039553125,
+      "artifact_serialization_wall_s": 0.018158708000555634,
+      "artifact_serialization_main_cpu_s": 0.018144000000120286,
+      "actual_execution_wall_s": 0.056874832953326404,
+      "state_index": 3,
+      "source_index": 21,
+      "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+      "action_id": "10f31876635904a4d93ae587586d682294d9402cb9c4b6b3f3d30e0d213a67a3",
+      "teacher_id": "10f31876635904a4d93ae587586d682294d9402cb9c4b6b3f3d30e0d213a67a3",
+      "labels": [
+        "A0"
+      ],
+      "prefix_virtual_us": 2041314433,
+      "prefix_event_count": 132,
+      "full_continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "paired_gain_to_current_reference": 0.0,
+      "terminal_label_units": "1 normalized unit = 1000 seconds/source; failed branch cost receives +100",
+      "plan": [
+        {
+          "choice_id": "018c47b486dd648c4c58366230f5e7f588294ccf9c98beebd119510164cf835a",
+          "action_id": "19233d3f6a26a4e2d3a2d731271085a731618463782c7d3cd5720b98c745fcfe",
+          "source_index": 0,
+          "kind": "measure_override",
+          "labels": [
+            "A8"
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "g1_v1_w20_o2_s03_a01",
+      "path": "results/g1_v1/runs/g1_v1_w20_o2_s03_a01.json.gz",
+      "mode": 4,
+      "world_id": "rl-new-world-recipe-v1:bc_rpi_g1_20260912_v1:q4:00020",
+      "world_sha256": "759400010b34b251084ace0182b30280434a34b62986593ab32855b7af5bc6c3",
+      "group": "origin_cluster",
+      "index": 20,
+      "kind": "suffix",
+      "family": "o2_counterfactual",
+      "success": true,
+      "policy": "one_retained_operation_then_frozen_c7",
+      "continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "n": 16,
+      "modeled_full_virtual_us": 2078147907,
+      "seconds_per_source": 129.8842441875,
+      "normalized_cost_with_failure_penalty": 0.1298842441875,
+      "artifact_serialization_wall_s": 0.01809633302036673,
+      "artifact_serialization_main_cpu_s": 0.0180960000000141,
+      "actual_execution_wall_s": 0.11476425000000745,
+      "state_index": 3,
+      "source_index": 21,
+      "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+      "action_id": "33655f307fbfdee75e9631b832feb7dbf1bf00c5ff0de8fc1a49246fc63a73a2",
+      "teacher_id": "10f31876635904a4d93ae587586d682294d9402cb9c4b6b3f3d30e0d213a67a3",
+      "labels": [
+        "A8"
+      ],
+      "prefix_virtual_us": 2041314433,
+      "prefix_event_count": 132,
+      "full_continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "paired_gain_to_current_reference": -0.000780288875000007,
+      "terminal_label_units": "1 normalized unit = 1000 seconds/source; failed branch cost receives +100",
+      "plan": [
+        {
+          "choice_id": "018c47b486dd648c4c58366230f5e7f588294ccf9c98beebd119510164cf835a",
+          "action_id": "19233d3f6a26a4e2d3a2d731271085a731618463782c7d3cd5720b98c745fcfe",
+          "source_index": 0,
+          "kind": "measure_override",
+          "labels": [
+            "A8"
+          ]
+        },
+        {
+          "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+          "action_id": "33655f307fbfdee75e9631b832feb7dbf1bf00c5ff0de8fc1a49246fc63a73a2",
+          "source_index": 21,
+          "kind": "measure_override",
+          "labels": [
+            "A8"
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "g1_v1_w20_o2_s03_a02",
+      "path": "results/g1_v1/runs/g1_v1_w20_o2_s03_a02.json.gz",
+      "mode": 4,
+      "world_id": "rl-new-world-recipe-v1:bc_rpi_g1_20260912_v1:q4:00020",
+      "world_sha256": "759400010b34b251084ace0182b30280434a34b62986593ab32855b7af5bc6c3",
+      "group": "origin_cluster",
+      "index": 20,
+      "kind": "suffix",
+      "family": "o2_counterfactual",
+      "success": true,
+      "policy": "one_retained_operation_then_frozen_c7",
+      "continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "n": 16,
+      "modeled_full_virtual_us": 2135963298,
+      "seconds_per_source": 133.497706125,
+      "normalized_cost_with_failure_penalty": 0.133497706125,
+      "artifact_serialization_wall_s": 0.017259374959394336,
+      "artifact_serialization_main_cpu_s": 0.01725199999987126,
+      "actual_execution_wall_s": 0.11470220796763897,
+      "state_index": 3,
+      "source_index": 21,
+      "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+      "action_id": "3d3f2561793fcf6da0462eed02d318d27b513ab018dfc89177f58d6ed872a52c",
+      "teacher_id": "10f31876635904a4d93ae587586d682294d9402cb9c4b6b3f3d30e0d213a67a3",
+      "labels": [
+        "A5"
+      ],
+      "prefix_virtual_us": 2041314433,
+      "prefix_event_count": 132,
+      "full_continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "paired_gain_to_current_reference": -0.0043937508125000135,
+      "terminal_label_units": "1 normalized unit = 1000 seconds/source; failed branch cost receives +100",
+      "plan": [
+        {
+          "choice_id": "018c47b486dd648c4c58366230f5e7f588294ccf9c98beebd119510164cf835a",
+          "action_id": "19233d3f6a26a4e2d3a2d731271085a731618463782c7d3cd5720b98c745fcfe",
+          "source_index": 0,
+          "kind": "measure_override",
+          "labels": [
+            "A8"
+          ]
+        },
+        {
+          "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+          "action_id": "3d3f2561793fcf6da0462eed02d318d27b513ab018dfc89177f58d6ed872a52c",
+          "source_index": 21,
+          "kind": "measure_override",
+          "labels": [
+            "A5"
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "g1_v1_w20_o2_s03_a03",
+      "path": "results/g1_v1/runs/g1_v1_w20_o2_s03_a03.json.gz",
+      "mode": 4,
+      "world_id": "rl-new-world-recipe-v1:bc_rpi_g1_20260912_v1:q4:00020",
+      "world_sha256": "759400010b34b251084ace0182b30280434a34b62986593ab32855b7af5bc6c3",
+      "group": "origin_cluster",
+      "index": 20,
+      "kind": "suffix",
+      "family": "o2_counterfactual",
+      "success": true,
+      "policy": "one_retained_operation_then_frozen_c7",
+      "continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "n": 16,
+      "modeled_full_virtual_us": 2068676508,
+      "seconds_per_source": 129.29228175,
+      "normalized_cost_with_failure_penalty": 0.12929228175,
+      "artifact_serialization_wall_s": 0.01828345807734877,
+      "artifact_serialization_main_cpu_s": 0.01827499999990323,
+      "actual_execution_wall_s": 0.11667570797726512,
+      "state_index": 3,
+      "source_index": 21,
+      "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+      "action_id": "3e099b1a2efb687991ad7676c7d3e9d25e500d22424db2aacc384099eae211c4",
+      "teacher_id": "10f31876635904a4d93ae587586d682294d9402cb9c4b6b3f3d30e0d213a67a3",
+      "labels": [
+        "A2"
+      ],
+      "prefix_virtual_us": 2041314433,
+      "prefix_event_count": 132,
+      "full_continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "paired_gain_to_current_reference": -0.0001883264374999971,
+      "terminal_label_units": "1 normalized unit = 1000 seconds/source; failed branch cost receives +100",
+      "plan": [
+        {
+          "choice_id": "018c47b486dd648c4c58366230f5e7f588294ccf9c98beebd119510164cf835a",
+          "action_id": "19233d3f6a26a4e2d3a2d731271085a731618463782c7d3cd5720b98c745fcfe",
+          "source_index": 0,
+          "kind": "measure_override",
+          "labels": [
+            "A8"
+          ]
+        },
+        {
+          "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+          "action_id": "3e099b1a2efb687991ad7676c7d3e9d25e500d22424db2aacc384099eae211c4",
+          "source_index": 21,
+          "kind": "clear_override",
+          "labels": [
+            "A2"
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "g1_v1_w20_o2_s03_a04",
+      "path": "results/g1_v1/runs/g1_v1_w20_o2_s03_a04.json.gz",
+      "mode": 4,
+      "world_id": "rl-new-world-recipe-v1:bc_rpi_g1_20260912_v1:q4:00020",
+      "world_sha256": "759400010b34b251084ace0182b30280434a34b62986593ab32855b7af5bc6c3",
+      "group": "origin_cluster",
+      "index": 20,
+      "kind": "suffix",
+      "family": "o2_counterfactual",
+      "success": true,
+      "policy": "one_retained_operation_then_frozen_c7",
+      "continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "n": 16,
+      "modeled_full_virtual_us": 2068663285,
+      "seconds_per_source": 129.2914553125,
+      "normalized_cost_with_failure_penalty": 0.1292914553125,
+      "artifact_serialization_wall_s": 0.01816529198549688,
+      "artifact_serialization_main_cpu_s": 0.01815700000020115,
+      "actual_execution_wall_s": 0.11630183400120586,
+      "state_index": 3,
+      "source_index": 21,
+      "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+      "action_id": "60b92d457eee7c1f708ea16fd716c29887b833ba9f3dfdfe5bf76712a74870d1",
+      "teacher_id": "10f31876635904a4d93ae587586d682294d9402cb9c4b6b3f3d30e0d213a67a3",
+      "labels": [
+        "A1"
+      ],
+      "prefix_virtual_us": 2041314433,
+      "prefix_event_count": 132,
+      "full_continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "paired_gain_to_current_reference": -0.0001875000000000071,
+      "terminal_label_units": "1 normalized unit = 1000 seconds/source; failed branch cost receives +100",
+      "plan": [
+        {
+          "choice_id": "018c47b486dd648c4c58366230f5e7f588294ccf9c98beebd119510164cf835a",
+          "action_id": "19233d3f6a26a4e2d3a2d731271085a731618463782c7d3cd5720b98c745fcfe",
+          "source_index": 0,
+          "kind": "measure_override",
+          "labels": [
+            "A8"
+          ]
+        },
+        {
+          "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+          "action_id": "60b92d457eee7c1f708ea16fd716c29887b833ba9f3dfdfe5bf76712a74870d1",
+          "source_index": 21,
+          "kind": "clear_override",
+          "labels": [
+            "A1"
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "g1_v1_w20_o2_s03_a05",
+      "path": "results/g1_v1/runs/g1_v1_w20_o2_s03_a05.json.gz",
+      "mode": 4,
+      "world_id": "rl-new-world-recipe-v1:bc_rpi_g1_20260912_v1:q4:00020",
+      "world_sha256": "759400010b34b251084ace0182b30280434a34b62986593ab32855b7af5bc6c3",
+      "group": "origin_cluster",
+      "index": 20,
+      "kind": "suffix",
+      "family": "o2_counterfactual",
+      "success": true,
+      "policy": "one_retained_operation_then_frozen_c7",
+      "continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "n": 16,
+      "modeled_full_virtual_us": 2070663286,
+      "seconds_per_source": 129.416455375,
+      "normalized_cost_with_failure_penalty": 0.129416455375,
+      "artifact_serialization_wall_s": 0.01801029103808105,
+      "artifact_serialization_main_cpu_s": 0.018000999999912892,
+      "actual_execution_wall_s": 0.12958666600752622,
+      "state_index": 3,
+      "source_index": 21,
+      "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+      "action_id": "628715a90d8fdfae09e4be6af4187963f66dd9a0162402ea1c232f6c653a6163",
+      "teacher_id": "10f31876635904a4d93ae587586d682294d9402cb9c4b6b3f3d30e0d213a67a3",
+      "labels": [
+        "A3"
+      ],
+      "prefix_virtual_us": 2041314433,
+      "prefix_event_count": 132,
+      "full_continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "paired_gain_to_current_reference": -0.0003125000624999985,
+      "terminal_label_units": "1 normalized unit = 1000 seconds/source; failed branch cost receives +100",
+      "plan": [
+        {
+          "choice_id": "018c47b486dd648c4c58366230f5e7f588294ccf9c98beebd119510164cf835a",
+          "action_id": "19233d3f6a26a4e2d3a2d731271085a731618463782c7d3cd5720b98c745fcfe",
+          "source_index": 0,
+          "kind": "measure_override",
+          "labels": [
+            "A8"
+          ]
+        },
+        {
+          "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+          "action_id": "628715a90d8fdfae09e4be6af4187963f66dd9a0162402ea1c232f6c653a6163",
+          "source_index": 21,
+          "kind": "measure_override",
+          "labels": [
+            "A3"
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "g1_v1_w20_o2_s03_a06",
+      "path": "results/g1_v1/runs/g1_v1_w20_o2_s03_a06.json.gz",
+      "mode": 4,
+      "world_id": "rl-new-world-recipe-v1:bc_rpi_g1_20260912_v1:q4:00020",
+      "world_sha256": "759400010b34b251084ace0182b30280434a34b62986593ab32855b7af5bc6c3",
+      "group": "origin_cluster",
+      "index": 20,
+      "kind": "suffix",
+      "family": "o2_counterfactual",
+      "success": true,
+      "policy": "one_retained_operation_then_frozen_c7",
+      "continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "n": 16,
+      "modeled_full_virtual_us": 2078024867,
+      "seconds_per_source": 129.8765541875,
+      "normalized_cost_with_failure_penalty": 0.1298765541875,
+      "artifact_serialization_wall_s": 0.018056874978356063,
+      "artifact_serialization_main_cpu_s": 0.018049000000019078,
+      "actual_execution_wall_s": 0.08311479107942432,
+      "state_index": 3,
+      "source_index": 21,
+      "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+      "action_id": "ad0c81b19526c784a13f9b8f52889e9bca5f5f933075a955b0721cdf04f55ae7",
+      "teacher_id": "10f31876635904a4d93ae587586d682294d9402cb9c4b6b3f3d30e0d213a67a3",
+      "labels": [
+        "A7"
+      ],
+      "prefix_virtual_us": 2041314433,
+      "prefix_event_count": 132,
+      "full_continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "paired_gain_to_current_reference": -0.0007725988750000023,
+      "terminal_label_units": "1 normalized unit = 1000 seconds/source; failed branch cost receives +100",
+      "plan": [
+        {
+          "choice_id": "018c47b486dd648c4c58366230f5e7f588294ccf9c98beebd119510164cf835a",
+          "action_id": "19233d3f6a26a4e2d3a2d731271085a731618463782c7d3cd5720b98c745fcfe",
+          "source_index": 0,
+          "kind": "measure_override",
+          "labels": [
+            "A8"
+          ]
+        },
+        {
+          "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+          "action_id": "ad0c81b19526c784a13f9b8f52889e9bca5f5f933075a955b0721cdf04f55ae7",
+          "source_index": 21,
+          "kind": "measure_override",
+          "labels": [
+            "A7"
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "g1_v1_w20_o2_s03_a07",
+      "path": "results/g1_v1/runs/g1_v1_w20_o2_s03_a07.json.gz",
+      "mode": 4,
+      "world_id": "rl-new-world-recipe-v1:bc_rpi_g1_20260912_v1:q4:00020",
+      "world_sha256": "759400010b34b251084ace0182b30280434a34b62986593ab32855b7af5bc6c3",
+      "group": "origin_cluster",
+      "index": 20,
+      "kind": "suffix",
+      "family": "o2_counterfactual",
+      "success": true,
+      "policy": "one_retained_operation_then_frozen_c7",
+      "continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "n": 16,
+      "modeled_full_virtual_us": 2139890102,
+      "seconds_per_source": 133.743131375,
+      "normalized_cost_with_failure_penalty": 0.133743131375,
+      "artifact_serialization_wall_s": 0.017288709059357643,
+      "artifact_serialization_main_cpu_s": 0.01728000000002794,
+      "actual_execution_wall_s": 0.08202341699507087,
+      "state_index": 3,
+      "source_index": 21,
+      "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+      "action_id": "c52dae3c4de4d7195acabcc1829f70c57af086dea2de95027bcf9e74cf7e065b",
+      "teacher_id": "10f31876635904a4d93ae587586d682294d9402cb9c4b6b3f3d30e0d213a67a3",
+      "labels": [
+        "A4"
+      ],
+      "prefix_virtual_us": 2041314433,
+      "prefix_event_count": 132,
+      "full_continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "paired_gain_to_current_reference": -0.0046391760625,
+      "terminal_label_units": "1 normalized unit = 1000 seconds/source; failed branch cost receives +100",
+      "plan": [
+        {
+          "choice_id": "018c47b486dd648c4c58366230f5e7f588294ccf9c98beebd119510164cf835a",
+          "action_id": "19233d3f6a26a4e2d3a2d731271085a731618463782c7d3cd5720b98c745fcfe",
+          "source_index": 0,
+          "kind": "measure_override",
+          "labels": [
+            "A8"
+          ]
+        },
+        {
+          "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+          "action_id": "c52dae3c4de4d7195acabcc1829f70c57af086dea2de95027bcf9e74cf7e065b",
+          "source_index": 21,
+          "kind": "measure_override",
+          "labels": [
+            "A4"
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "g1_v1_w20_o2_s03_a08",
+      "path": "results/g1_v1/runs/g1_v1_w20_o2_s03_a08.json.gz",
+      "mode": 4,
+      "world_id": "rl-new-world-recipe-v1:bc_rpi_g1_20260912_v1:q4:00020",
+      "world_sha256": "759400010b34b251084ace0182b30280434a34b62986593ab32855b7af5bc6c3",
+      "group": "origin_cluster",
+      "index": 20,
+      "kind": "suffix",
+      "family": "o2_counterfactual",
+      "success": true,
+      "policy": "one_retained_operation_then_frozen_c7",
+      "continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "n": 16,
+      "modeled_full_virtual_us": 2200812627,
+      "seconds_per_source": 137.5507891875,
+      "normalized_cost_with_failure_penalty": 0.1375507891875,
+      "artifact_serialization_wall_s": 0.018128541996702552,
+      "artifact_serialization_main_cpu_s": 0.01812799999993331,
+      "actual_execution_wall_s": 0.11458829196635634,
+      "state_index": 3,
+      "source_index": 21,
+      "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+      "action_id": "cdb8cf14a6ae3f6e5516f29ce94eab90250e5d645ddf818cbb59d9d8a272de13",
+      "teacher_id": "10f31876635904a4d93ae587586d682294d9402cb9c4b6b3f3d30e0d213a67a3",
+      "labels": [
+        "A6"
+      ],
+      "prefix_virtual_us": 2041314433,
+      "prefix_event_count": 132,
+      "full_continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+      "paired_gain_to_current_reference": -0.008446833875000004,
+      "terminal_label_units": "1 normalized unit = 1000 seconds/source; failed branch cost receives +100",
+      "plan": [
+        {
+          "choice_id": "018c47b486dd648c4c58366230f5e7f588294ccf9c98beebd119510164cf835a",
+          "action_id": "19233d3f6a26a4e2d3a2d731271085a731618463782c7d3cd5720b98c745fcfe",
+          "source_index": 0,
+          "kind": "measure_override",
+          "labels": [
+            "A8"
+          ]
+        },
+        {
+          "choice_id": "cd14dce247b7f2332fa7f675ff5c558bfbdfcc018936d21b19e898e8428d2db8",
+          "action_id": "cdb8cf14a6ae3f6e5516f29ce94eab90250e5d645ddf818cbb59d9d8a272de13",
+          "source_index": 21,
+          "kind": "measure_override",
+          "labels": [
+            "A6"
+          ]
+        }
+      ]
+    }
+  ],
+  "feature_generation_wall_s": 0.037910708924755454,
+  "feature_generation_main_cpu_s": 0.03065300000002935,
+  "worker_cpu_s": null,
+  "model_forward_s": 0.0,
+  "fit_s": 0.0
+}

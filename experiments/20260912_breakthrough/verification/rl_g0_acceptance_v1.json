@@ -1,0 +1,60 @@
+{
+  "schema": "bc-rpi-coordinator-g0-acceptance-v1",
+  "g0_accepted": true,
+  "accepted_deploy_implementation_sha256": "342fa54ce8d9d9b27d5c715bf398302a44af376e06bc331c96aee15ed9f1b11b",
+  "accepted_engine_sha256": "aa93af9926963acda3e6d9e01ec5544649316dc001773e92b8c7e1e21241babb",
+  "scope": "G0 local correctness, interface safety, registered teacher/passthrough equivalence and complete cost accounting. Not RL learning, headroom, OOD or official validation.",
+  "independent_record_audit": {
+    "path": "verification/rl_g0_final_independent_v2.json",
+    "sha256": "26b1bf6f79cb60e22c0ee8af74b651a10a406e4337a8eaa7980cc6d5a65d01d6",
+    "c7_world_pairs": 48,
+    "latest_q3_world_pairs": 12,
+    "saved_outcomes_checked": 141,
+    "archived_source_stages_checked": 4
+  },
+  "settled_g0_ledger_snapshot": {
+    "path": "verification/rl_g0_final_ledger_v1/snapshot_manifest.json",
+    "sha256": "dd457338408fb21e7c916582be55c47c7e6c83c71841595cee22869b70bae80d",
+    "attempted": 37072,
+    "accepted": 37070,
+    "known_rejected": 2,
+    "unknown": 0,
+    "started": 142,
+    "completed": 142,
+    "full": 122,
+    "suffix": 14,
+    "fixture": 6,
+    "unresolved": 0
+  },
+  "reviewed_g0_summary_sha256": "6be1cf2f7bdd451d2849e4c1a6335d84cc1097bc78ec797d05153b0088dc576b",
+  "reviewed_source_archives_sha256": "3b44d42cc8b4cb0a7565345fab5cc6d0a7faed5e58bc42eadecd0299308f98bd",
+  "safety_review": {
+    "registered_assertions_passed": 117,
+    "implementation_pure_tests_passed": 21,
+    "extra_real_fixture_executions": 21,
+    "independent_partial_override_review": "A6 accepted exactly once before interruption; slot 2 to 1 without refund, retained history/obligations, one fallback and exact 119000000 + 6000000 + 32013354645 = 32138354645 microsecond partition. All 3371 actual calls settled.",
+    "other_reviewed_boundaries": "Recursive public schema, whole-bundle binding, no double commit, unknown-acceptance stop/no blind fallback, branch independence, deadline preservation, near auto-clear, forced A0 and station partial obligations."
+  },
+  "historical_limits_retained": [
+    "g0_v1 output-path engineering failure occurred after one paid complete C7 run (142 calls), not excluded from cost.",
+    "One expected after-deadline suffix failure and one duplicate-enter rejection remain in raw evidence.",
+    "Latest-Q3-only controller equality excludes counters.a1_cover_cpu_s; raw machine timing and the original comparison failure remain stored.",
+    "G0 v1/v2/resume1 source archives were assembled after execution against pre-execution hashes. The sole v1 g0.py path-only reconstruction matches its original hash; provenance is explicit.",
+    "Latest-Q3 passthrough coverage is 12 registered worlds, not all 24 Q3 probe worlds."
+  ],
+  "next_stage_authority": {
+    "stage": "G1 finite action headroom only",
+    "worlds": 24,
+    "mode": 4,
+    "cumulative_call_limit": 350000,
+    "cumulative_execution_limit": 2000,
+    "per_run_call_reserve": 15846,
+    "campaign_start_utc": "2026-09-12T06:07:41+00:00",
+    "campaign_wall_limit_s": 21600,
+    "network_training_allowed": false,
+    "automatic_G2_allowed": false,
+    "official_execution_allowed": false,
+    "stop_on_complete_negative_or_budget_undecided": true,
+    "instruction": "Freeze new evaluator code and sampling before the first G1 call. Preserve all G0 deployed source bytes; C7 roll-in/continuation, exact full replay, public uniform entry sampling, full action bundles and true post-O1 trajectories for O2. Report incomplete 24-world coverage as undecided, never no-headroom."
+  }
+}

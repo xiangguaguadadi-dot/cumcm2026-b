@@ -19,3 +19,15 @@ experiments/20260911_rl_execution/**/resume.pt
 experiments/20260911_rl_execution/**/mc_resume.pt
 experiments/20260911_rl_execution/**/pending_update.json
 experiments/20260911_rl_execution/**/*.tmp
+
+# BC-RPI G0/G1 preserves the full request journal in immutable gzip snapshots.
+# Keep the redundant, actively appended uncompressed journal local.
+experiments/20260912_breakthrough/RL/implementation/execution_calls.jsonl
+
+# These archives contain only this repository's frozen source and input records.
+!experiments/20260912_breakthrough/RL/implementation/results/g0_v1/sources.zip
+!experiments/20260912_breakthrough/RL/implementation/results/g0_v2/sources.zip
+!experiments/20260912_breakthrough/RL/implementation/results/g0_v2_resume1/sources.zip
+!experiments/20260912_breakthrough/RL/implementation/results/g0_partial_override_v1/sources.zip
+!experiments/20260912_breakthrough/RL/implementation/results/g1_v1/sources.zip
+!experiments/20260912_breakthrough/RL/implementation/results/g1_v1/inputs.zip

@@ -1,0 +1,110 @@
+{
+  "status": "below_2pct_stop_current_action_space",
+  "stop_reason": null,
+  "conclusion": {
+    "status": "below_2pct_stop_current_action_space",
+    "completed_worlds": 24,
+    "registered_worlds": 24,
+    "whole_set_means": {
+      "c7_seconds_per_source": 430.3747917042208,
+      "o1_seconds_per_source": 423.6641387881062,
+      "o2_seconds_per_source": 422.9931024287261
+    },
+    "o1_relative_improvement_pct": 1.559257894622823,
+    "o2_relative_improvement_pct": 1.7151769615186496,
+    "aggregation": "Arithmetic mean of each world total_virtual_seconds / true source count; relative difference of those means",
+    "total_source_count": 319,
+    "groups": {
+      "cell500_shared_field": {
+        "worlds": 2,
+        "c7": 496.68777596923076,
+        "o1": 493.0590752153846,
+        "o2": 492.79116201538466
+      },
+      "cell50_shared_field": {
+        "worlds": 2,
+        "c7": 475.01788881089743,
+        "o1": 463.44330975641026,
+        "o2": 462.8649710705128
+      },
+      "edge_mixed_min_radius": {
+        "worlds": 2,
+        "c7": 497.39346527840905,
+        "o1": 497.0116643721591,
+        "o2": 496.71878064488635
+      },
+      "exactly10_sources": {
+        "worlds": 2,
+        "c7": 573.8521959,
+        "o1": 572.6159488,
+        "o2": 570.1661104499999
+      },
+      "exactly16_sources": {
+        "worlds": 2,
+        "c7": 306.49303656250004,
+        "o1": 304.42767621875,
+        "o2": 304.24017621875
+      },
+      "fixed_negative_bias": {
+        "worlds": 2,
+        "c7": 538.5426105492425,
+        "o1": 523.6080060530303,
+        "o2": 521.3295210795454
+      },
+      "fixed_positive_bias": {
+        "worlds": 2,
+        "c7": 379.29514340833333,
+        "o1": 377.9752911770833,
+        "o2": 377.75315862499997
+      },
+      "minimum_radius": {
+        "worlds": 2,
+        "c7": 363.4703995795455,
+        "o1": 362.95428632670456,
+        "o2": 362.66597830965907
+      },
+      "offcenter_cluster": {
+        "worlds": 2,
+        "c7": 374.3071140384616,
+        "o1": 372.4821718241758,
+        "o2": 372.4821718241758
+      },
+      "origin_cluster": {
+        "worlds": 2,
+        "c7": 320.40767941666667,
+        "o1": 282.73859807291666,
+        "o2": 282.08708865625
+      },
+      "reference_assumed": {
+        "worlds": 2,
+        "c7": 397.2699932142857,
+        "o1": 394.3963445714286,
+        "o2": 393.9443166428572
+      },
+      "smooth_shared_field": {
+        "worlds": 2,
+        "c7": 441.7601977230769,
+        "o1": 439.25729306923074,
+        "o2": 438.8737936076923
+      }
+    },
+    "branch_failures_retained": 0,
+    "interpretation": "O1 is finite hindsight optimum over up to four C7 source boundaries and retained operations; O2 is greedy two-intervention hindsight on the changed trajectory, not a global two-step optimum or observable policy",
+    "next_stage_authorized": false,
+    "neural_training_executed": false
+  },
+  "actual_calls_this_stage": 160384,
+  "actual_executions_this_stage": 1554,
+  "cumulative_actual_business_calls": 197456,
+  "cumulative_accepted_calls": 197454,
+  "cumulative_known_rejected_calls": 2,
+  "cumulative_unknown_cost_calls": 0,
+  "cumulative_executions_started": 1696,
+  "cumulative_executions_completed": 1696,
+  "current_run": null,
+  "source_freeze": "results/g1_v1/source_freeze.json",
+  "continuation_policy_sha256": "b00fd11abe8c9edf4d7dec3f8df9adc682d0a7a7721fef5b05302b8686404fed",
+  "network_training_runs": 0,
+  "official_runs": 0,
+  "full_trace_results": "results/g1_v1/index.json"
+}
