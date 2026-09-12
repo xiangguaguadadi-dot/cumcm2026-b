@@ -1,0 +1,20 @@
+{
+  "registered_at": "2026-09-12T16:44:26.963184+00:00",
+  "candidate": "B2_cost_precisiongate.py",
+  "sha256": "721994d54ec765696857260a3feeb70351e921b99302bb267c7a5ca36c9eabcb",
+  "parent_sha256": "0bda4f711b9e9716739af8aedf456cb1eeefb47d8ba3ed230ca682c8450a96ea",
+  "mechanism": "Task-cost-first ablation of B1: use the same variable-length proposals, continuous future-radius upper bound, no-worse precision/cost and Q4 visibility gates, but minimize predicted total next-measure-plus-clear cost among the surviving candidates.",
+  "motivation": "B1 quick improved both modes weakly; Q4 movement and failed trials declined while request count increased. Compare the explicitly different priority on the same Pareto-admissible candidate set.",
+  "changed_expression": {
+    "from": "kept.append((rad[0],cost,tuple(q)))",
+    "to": "kept.append((cost,rad[0],tuple(q)))"
+  },
+  "planned_evaluation": [
+    "same synthetic checks",
+    "quick",
+    "full if promising",
+    "exposed if retained"
+  ],
+  "versions_used": 2,
+  "no_threshold_tuning": true
+}

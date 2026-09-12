@@ -1,5 +1,7 @@
 # 数学建模2026 B题代码
 
+2026-09-13 已完成“已有第二问方法迁移”和“改进第二问后迁移”两条实验路线：[完整报告](experiments/20260913_q2_transfer/REPORT.md)、[选择与验证记录](experiments/20260913_q2_transfer/SELECTION.json)。5个候选中，两题均推荐[B3自包含候选](experiments/20260913_q2_transfer/B_improved/B3_local_refinement.py)：相对当前工作分支父法fusion_r5，Q3由229.853134降至229.669843秒/源（改善0.079742%），Q4由453.656492降至450.980422秒/源（改善0.589889%）；4800个既有暴露案例全清。Q3收益很小且配对区间跨0，不能称为稳定提升。全部正负结果已归档，主solver及Q1/Q2既有成果保持原状；未新增盲测或官方Windows执行。
+
 2026-09-11 第五阶段已完成BC、PPO和约束Q的实施及预算内训练：[本轮结果报告](experiments/20260911_rl_execution/REPORT.md)、[代码与复核入口](experiments/20260911_rl_execution/README.md)、[RL方向图增量](experiments/R1_atlas/rl_increment/README.md)。PPO/Q各3次初始化、每次1,024个新训练局；24个检查点和6个对照共5,760次选择评估全部正常全清，但PPO在Q3/Q4比C7慢3.836%/5.569%，Q慢3.488%/6.478%，两路线均未达到预登记晋级门槛，继续保留C7。结果属于本地检查点选择证据，未新增最终密封测试或官方执行；此前[41篇来源的研究审阅稿](experiments/20260911_rl_research/RESEARCH_PROPOSAL.md)与全部负结果一并保留。
 
 2026-09-11 第四阶段已完成13轮方法研究和3批融合筛选：[本轮报告](experiments/20260911_stage4/REPORT.md)、[第四阶段方向图](experiments/R1_atlas/STAGE4_PROGRESS.md)、[AI增量索引](experiments/R1_atlas/stage4_increment/index.json)。推荐[C7单文件候选](experiments/20260911_stage4/combination/geometry_fusions/C7_both.py)：Q3保持235.876946秒/源，Q4为456.111821秒/源，比本轮起点降低3.7531%；4800已暴露本地案例全部正常全清。三位的负结果、实际阅读范围和来源版本均保留，无新增最终留出或官方测试。

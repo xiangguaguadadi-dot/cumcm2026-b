@@ -1,0 +1,17 @@
+{
+  "registered_at": "2026-09-12T16:48:29.276810+00:00",
+  "candidate": "B3_local_refinement.py",
+  "sha256": "e6a0666d644ceaa1d7ae69f19042b9ca022379f3e5a57d927e52bcf1a09360bd",
+  "parent_sha256": "0bda4f711b9e9716739af8aedf456cb1eeefb47d8ba3ed230ca682c8450a96ea",
+  "mechanism": "B2 task-cost-first Pareto choice plus eight unique local refinements around the inherited second point using actual advance/lateral scaled by 0.8,1,1.25; variable total movement remains compared by full next-measure-plus-clear proxy. All original precision and Q4 visibility gates retained.",
+  "diagnosis": "B1 full Q3 only 0.00598% faster; synthetic public full-sector point scan showed lower-cost forward candidate at y=60 has worse precision while y=160 is costlier. A mesh tied to the original intermediate y fills this sampling gap without changing bounds, gates or cost coefficients.",
+  "candidate_cap": 22,
+  "planned_evaluation": [
+    "synthetic checks",
+    "quick",
+    "full if promising",
+    "exposed if retained"
+  ],
+  "versions_used": 3,
+  "no_further_candidates": true
+}
