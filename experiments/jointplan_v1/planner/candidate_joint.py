@@ -211,6 +211,12 @@ def _boundary(self, todo, visited):
             if 0 <= rank < len(plans):
                 selected_plan = plans[rank]
                 selected = _M.choose(snapshot, selected_plan["stations"])
+        elif plans and not options.get("jointplan_mixed", True):
+            # Pure A ablation: A's own paid geometry proxy selects the plan;
+            # B's different endpoint model is logged but cannot veto/select it.
+            selected_plan = min(plans, key=lambda p: (-p.get("proxy_gain_s", 0.),
+                                                     _D.public_hash({"stations": p["stations"]})))
+            selected = _M.choose(snapshot, selected_plan["stations"])
         elif plans:
             alternatives = [(_M.choose(snapshot, p["stations"]), p) for p in plans]
             alternatives = [(s, p) for s, p in alternatives if s is not None]
