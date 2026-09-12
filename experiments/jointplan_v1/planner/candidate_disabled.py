@@ -79,25 +79,27 @@ def _embedded_sources(source):
 def _hooked_run(original):
     """Find the exact frozen run AST, then insert a natural-boundary hook."""
     wanted = original.__qualname__.split(".")[0]
+    def run_code(module_code):
+        klass = next(c for c in module_code.co_consts if isinstance(c, types.CodeType) and c.co_name == wanted)
+        return next(c for c in klass.co_consts if isinstance(c, types.CodeType) and c.co_name == "run")
     for source in _embedded_sources(_SOURCE):
-        for klass in ast.parse(source).body:
+        tree = ast.parse(source)
+        for klass in tree.body:
             if not isinstance(klass, ast.ClassDef) or klass.name != wanted:
                 continue
             for method in klass.body:
                 if not isinstance(method, ast.FunctionDef) or method.name != "run":
                     continue
-                node = ast.Module(body=[copy.deepcopy(method)], type_ignores=[])
-                scope = dict(original.__globals__)
-                exec(compile(ast.fix_missing_locations(node), "<jointplan-run-match>", "exec"), scope)
-                if scope["run"].__code__.co_code != original.__code__.co_code:
+                # Compile the full module for its exact symbol context, but
+                # never execute it. Reuse the frozen function globals below.
+                code = run_code(compile(tree, "<jointplan-run-match>", "exec"))
+                if code.co_code != original.__code__.co_code:
                     continue
-                run = node.body[0]
-                outer = next(x for x in run.body if isinstance(x, ast.While))
+                outer = next(x for x in method.body if isinstance(x, ast.While))
                 hook = ast.parse("self._jp_boundary(todo, visited)").body[0]
                 outer.body.insert(0, hook)
-                scope = dict(original.__globals__)
-                exec(compile(ast.fix_missing_locations(node), "<jointplan-natural-boundary>", "exec"), scope)
-                return scope["run"]
+                code = run_code(compile(ast.fix_missing_locations(tree), "<jointplan-natural-boundary>", "exec"))
+                return types.FunctionType(code, original.__globals__, "run", original.__defaults__, original.__closure__)
     raise RuntimeError("Could not match frozen parent run function")
 
 
