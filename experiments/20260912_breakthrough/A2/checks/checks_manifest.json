@@ -1,0 +1,51 @@
+[
+  {
+    "command": [
+      "/opt/homebrew/bin/python3.12",
+      "-S",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 0,
+    "wall_s": 0.07204537501093
+  },
+  {
+    "command": [
+      "/opt/homebrew/bin/python3.12",
+      "-S",
+      "-B",
+      "evaluate.py",
+      "--verify-only"
+    ],
+    "returncode": 0,
+    "wall_s": 0.034183792071416974
+  },
+  {
+    "command": [
+      "/opt/homebrew/bin/python3.12",
+      "-S",
+      "-B",
+      "tests/check_nominal.py",
+      "--package",
+      ".",
+      "--out",
+      "/Users/t/ai project/\u6570\u5b66\u5efa\u6a212026/\u4ee3\u7801/experiments/20260912_breakthrough/A2/checks/nominal_79.json"
+    ],
+    "returncode": 0,
+    "wall_s": 0.02987754193600267
+  },
+  {
+    "note": "Rule/nominal tests validate frozen environment, not universal candidate correctness",
+    "candidates": {
+      "R2_rotation_insertion.py": "6345a861cd33923f542eb456ea659b8e8ba93ebc6ea6896439c0b2665091ca2d",
+      "R1_rotation.py": "0ba39c29d23d6c65c37c60fbb46fa3dd2d1023eebb07c00f75a59fbfaedf4584",
+      "R3_deferred_rotation.py": "8d1293e0091d8e0762915e62148dc41ad937387846c87d086a7324b3c1e278d8"
+    },
+    "environment_manifest_sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140"
+  }
+]

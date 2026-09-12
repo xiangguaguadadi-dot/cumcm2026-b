@@ -1,0 +1,1156 @@
+{
+  "schema": "bc-rpi-research-corpus-v1",
+  "as_of": "2026-09-12",
+  "status": "research proposal only; no training/simulator/policy runs",
+  "scope": "Targeted mechanism expansion after local BC/PPO/Q negative results; main recent window 2024-01-01 through 2026-09-12 plus mechanism ancestors from 2011; not exhaustive novelty search.",
+  "counts": {
+    "this_round_unique": 16,
+    "core_specified_sections": 9,
+    "extended": 7,
+    "previous_unique": 41,
+    "overlap_previous": 9,
+    "new_identities": 7,
+    "union_with_previous": 48
+  },
+  "deduplication": "This corpus uses arXiv base ID or PMLR stable ID. Cross-round identity matches normalized exact title against preserved 41-record corpus; inspect match IDs, not counts alone.",
+  "prior_corpus": "20260911_rl_research/literature_merged.json",
+  "prior_corpus_sha256": "a4dd62844df48bf24b88b17d8e3ca0994686251d796d1d386052475d3ad788a4",
+  "records": [
+    {
+      "id": "S01_dagger",
+      "stable_id": "pmlr:v15/ross11a",
+      "short_name": "DAgger",
+      "title": "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning",
+      "authors": [
+        "Stephane Ross",
+        "Geoffrey Gordon",
+        "Drew Bagnell"
+      ],
+      "year": 2011,
+      "publication_date": "2011-06-14",
+      "latest_metadata_date": "2011-06-14",
+      "venue_or_public_status": "Proceedings of the Fourteenth International Conference on Artificial Intelligence and Statistics",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://proceedings.mlr.press/v15/ross11a.html",
+      "fulltext_urls": [
+        "https://proceedings.mlr.press/v15/ross11a/ross11a.pdf"
+      ],
+      "project_urls": [],
+      "code_urls": [],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "core",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "正文§1–4的方法和实验；未逐项复核附录定理",
+      "body_retrieval_status": "retrieved",
+      "problem": "行为克隆部署时遇到自身错误诱导的输入分布，固定专家数据存在分布偏移。",
+      "core_method": "迭代以当前/混合策略roll-in，查询专家动作并聚合数据，以no-regret学习器更新策略。",
+      "update_mechanism": "将学习策略诱导的状态纳入后续训练；其标签仍为专家动作而非成本差。",
+      "datasets_benchmarks": [
+        "Super Tux Kart",
+        "Super Mario",
+        "OCR"
+      ],
+      "experiment_comparison_protocol": "比较监督学习及迭代模仿基线；任务与评价不同，不构成本题秒/源对照。",
+      "reported_results": "正文展示聚合数据改善顺序预测；本报告不跨图读取单一综合改善百分比。",
+      "limitations_and_unproved": "不能仅靠动作模仿保证超过教师；理论依赖no-regret等条件，本提案小网络不自动满足。",
+      "transfer_to_this_project": "仅借诱导状态采样；本题主标签改为真实完整配对剩余费用。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "真实任务损失驱动的策略改进",
+        "诱导状态分布",
+        "数据聚合动作示范"
+      ],
+      "secondary_tags": [
+        "counterfactual proposal relevance",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "high",
+      "previous_corpus_match": null,
+      "acquisition_evidence": [
+        {
+          "url": "https://proceedings.mlr.press/v15/ross11a.html",
+          "accessed_utc": "2026-09-12T05:18:25.873489+00:00",
+          "returncode": 0,
+          "path": "sources/S01_dagger.html",
+          "bytes": 17497,
+          "sha256": "e515cc08883fb65a967c7cc1cd4905107d7dc31aeed4a71c254ea250a670ad75"
+        },
+        {
+          "url": "https://proceedings.mlr.press/v15/ross11a/ross11a.pdf",
+          "accessed_utc": "2026-09-12T05:18:26.635029+00:00",
+          "returncode": 0,
+          "path": "sources/S01_dagger.pdf",
+          "bytes": 1174501,
+          "sha256": "17bdd6e049e64f09010b322f9e2d4fb5c744c33ff7ac99b4c4561e39bd9082a7"
+        }
+      ]
+    },
+    {
+      "id": "S02_lols",
+      "stable_id": "pmlr:v37/changb15",
+      "short_name": "LOLS",
+      "title": "Learning to Search Better than Your Teacher",
+      "authors": [
+        "Kai-Wei Chang",
+        "Akshay Krishnamurthy",
+        "Alekh Agarwal",
+        "Hal Daumé, III",
+        "John Langford"
+      ],
+      "year": 2015,
+      "publication_date": "2015-06-01",
+      "latest_metadata_date": "2015-06-01",
+      "venue_or_public_status": "International Conference on Machine Learning",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://proceedings.mlr.press/v37/changb15.html",
+      "fulltext_urls": [
+        "https://proceedings.mlr.press/v37/changb15.pdf"
+      ],
+      "project_urls": [],
+      "code_urls": [],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "core",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "正文§2–5，算法1、roll-in/roll-out比较与实验表；非附录逐行证明审计",
+      "body_retrieval_status": "retrieved",
+      "problem": "次优reference及不匹配roll-in/roll-out使训练忽略学得策略真实访问或复合错误。",
+      "core_method": "在学得策略产生的状态评估不同动作，以reference/learned混合续局得到结构化预测损失。",
+      "update_mechanism": "区分状态访问分布与后续策略；比较及混合二者以获得局部改进性质。",
+      "datasets_benchmarks": [
+        "POS tagging",
+        "dependency parsing"
+      ],
+      "experiment_comparison_protocol": "改变reference质量及roll-in/roll-out组合；局部结果依任务而异。",
+      "reported_results": "次优reference依存分析条件learned/mixture为90.2 UAS，learned/reference为87.1；POS条件reference续局有优势。",
+      "limitations_and_unproved": "非处处优于reference；结构化损失与有限宏操作部分观测控制不同，不迁移定理。",
+      "transfer_to_this_project": "明确当前π_j roll-in/tail；首版不用混合tail，避免标签语义多版本。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "真实任务损失驱动的策略改进",
+        "roll-in与roll-out解耦",
+        "参考及学得策略续局混合"
+      ],
+      "secondary_tags": [
+        "counterfactual proposal relevance",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "high",
+      "previous_corpus_match": null,
+      "acquisition_evidence": [
+        {
+          "url": "https://proceedings.mlr.press/v37/changb15.html",
+          "accessed_utc": "2026-09-12T05:18:26.067128+00:00",
+          "returncode": 0,
+          "path": "sources/S02_lols.html",
+          "bytes": 16392,
+          "sha256": "a43dcfa8b31087a3a1707db62bb2c5e120155dc23016b7b96b8ec86f49780c18"
+        },
+        {
+          "url": "https://proceedings.mlr.press/v37/changb15.pdf",
+          "accessed_utc": "2026-09-12T05:18:26.995316+00:00",
+          "returncode": 0,
+          "path": "sources/S02_lols.pdf",
+          "bytes": 609671,
+          "sha256": "4f0886cb97a9af0609256adba348c2d29d36acf6f2f1f4c2592c0d0a6448d3d2"
+        }
+      ]
+    },
+    {
+      "id": "S03_aggrevated",
+      "stable_id": "pmlr:v70/sun17d",
+      "short_name": "AggreVaTeD",
+      "title": "Deeply AggreVaTeD: Differentiable Imitation Learning for Sequential Prediction",
+      "authors": [
+        "Wen Sun",
+        "Arun Venkatraman",
+        "Geoffrey J. Gordon",
+        "Byron Boots",
+        "J. Andrew Bagnell"
+      ],
+      "year": 2017,
+      "publication_date": "2017-07-17",
+      "latest_metadata_date": "2017-07-17",
+      "venue_or_public_status": "International Conference on Machine Learning",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://proceedings.mlr.press/v70/sun17d.html",
+      "fulltext_urls": [
+        "https://proceedings.mlr.press/v70/sun17d/sun17d.pdf"
+      ],
+      "project_urls": [],
+      "code_urls": [],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "core",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "正文引言、算法/梯度推导与实验章节；未独立核所有理论证明",
+      "body_retrieval_status": "retrieved",
+      "problem": "仅模仿专家动作忽略动作损失差，难利用可查询cost-to-go的训练信号。",
+      "core_method": "将cost-to-go oracle用于可微模仿学习，提出相应随机梯度及自然梯度更新。",
+      "update_mechanism": "可用专家未来成本指导连续/高维策略，不必从随机奖励探索开始。",
+      "datasets_benchmarks": [
+        "robotic control",
+        "partially observed control",
+        "dependency parsing"
+      ],
+      "experiment_comparison_protocol": "比较行为克隆、模仿/强化学习方法；有可供查询的oracle条件。",
+      "reported_results": "报告多任务性能和样本效率改善；本报告未将曲线视觉读数转作本题预期提升。",
+      "limitations_and_unproved": "训练oracle可得性和质量是关键；C7续局不等于论文近最优oracle。",
+      "transfer_to_this_project": "借完整未来损失查询，不照搬natural gradient；本题先配对回报回归。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "真实任务损失驱动的策略改进",
+        "cost-to-go策略优化",
+        "可微策略更新"
+      ],
+      "secondary_tags": [
+        "counterfactual proposal relevance",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "high",
+      "previous_corpus_match": null,
+      "acquisition_evidence": [
+        {
+          "url": "https://proceedings.mlr.press/v70/sun17d.html",
+          "accessed_utc": "2026-09-12T05:18:25.873423+00:00",
+          "returncode": 0,
+          "path": "sources/S03_aggrevated.html",
+          "bytes": 15876,
+          "sha256": "ae0e8b1506e933c9eb0cd49bfe542afa242d833f624853b3dfc09b049bd7af9c"
+        },
+        {
+          "url": "https://proceedings.mlr.press/v70/sun17d/sun17d.pdf",
+          "accessed_utc": "2026-09-12T05:18:26.511616+00:00",
+          "returncode": 0,
+          "path": "sources/S03_aggrevated.pdf",
+          "bytes": 738282,
+          "sha256": "cfe240725d4a7ca0872a6fa759e8b2cf1bc2c016285b534503a53edd7357114c"
+        }
+      ]
+    },
+    {
+      "id": "S04_spibb",
+      "stable_id": "pmlr:v97/laroche19a",
+      "short_name": "SPIBB",
+      "title": "Safe Policy Improvement with Baseline Bootstrapping",
+      "authors": [
+        "Romain Laroche",
+        "Paul Trichelair",
+        "Remi Tachet Des Combes"
+      ],
+      "year": 2019,
+      "publication_date": "2019-05-24",
+      "latest_metadata_date": "2019-05-24",
+      "venue_or_public_status": "International Conference on Machine Learning",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://proceedings.mlr.press/v97/laroche19a.html",
+      "fulltext_urls": [
+        "https://proceedings.mlr.press/v97/laroche19a/laroche19a.pdf"
+      ],
+      "project_urls": [],
+      "code_urls": [
+        "https://github.com/RomainLaroche/SPIBB",
+        "https://github.com/rems75/SPIBB-DQN"
+      ],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "core",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "正文§2–4：Π_b-SPIBB定义、保证条件与实验；区分理论版和放松版",
+      "body_retrieval_status": "retrieved",
+      "problem": "固定数据离线策略改进可能在低支持状态动作上发生外推并劣于基线。",
+      "core_method": "对不够支持的state-action复制基线策略概率，在有支持区域进行改进。",
+      "update_mechanism": "以baseline bootstrapping约束策略类；理论分析与深度伪计数实验分层。",
+      "datasets_benchmarks": [
+        "random MDP",
+        "stochastic grid world",
+        "helicopter navigation"
+      ],
+      "experiment_comparison_protocol": "有限折扣MDP理论与连续深度实验不是同一保证；比较数据规模/风险表现。",
+      "reported_results": "支持基线约束有助降低不安全改进风险；不引用为本题经验分位数的保证。",
+      "limitations_and_unproved": "有限MDP、覆盖/误差条件不能直接用于本题压缩历史和分布改变后的门控。",
+      "transfer_to_this_project": "仅借不足支持回基线原则；本题用经验裕量，明示不是SPIBB实现。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "限制统计/执行风险",
+        "低数据支持约束",
+        "复制基线概率质量"
+      ],
+      "secondary_tags": [
+        "counterfactual proposal relevance",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "high",
+      "previous_corpus_match": null,
+      "acquisition_evidence": [
+        {
+          "url": "https://proceedings.mlr.press/v97/laroche19a.html",
+          "accessed_utc": "2026-09-12T05:18:25.873268+00:00",
+          "returncode": 0,
+          "path": "sources/S04_spibb.html",
+          "bytes": 15837,
+          "sha256": "41e35c89b28052a05ec0015c877ba40abef3df69bb28d19273bf9e7bfc0ed498"
+        },
+        {
+          "url": "https://proceedings.mlr.press/v97/laroche19a/laroche19a.pdf",
+          "accessed_utc": "2026-09-12T05:18:26.567879+00:00",
+          "returncode": 0,
+          "path": "sources/S04_spibb.pdf",
+          "bytes": 842092,
+          "sha256": "30a4ff331b38103ef43ddcdcf4ec119dcec8e5cce9c4608e98718fe5fc83c215"
+        }
+      ]
+    },
+    {
+      "id": "S05_residual",
+      "stable_id": "arxiv:1812.03201",
+      "short_name": "Residual RL",
+      "title": "Residual Reinforcement Learning for Robot Control",
+      "authors": [
+        "Johannink, Tobias",
+        "Bahl, Shikhar",
+        "Nair, Ashvin",
+        "Luo, Jianlan",
+        "Kumar, Avinash",
+        "Loskyll, Matthias",
+        "Ojea, Juan Aparicio",
+        "Solowjow, Eugen",
+        "Levine, Sergey"
+      ],
+      "year": 2018,
+      "publication_date": "2018-12-07",
+      "latest_metadata_date": "2018-12-18",
+      "venue_or_public_status": "arXiv preprint; formal venue not independently verified this round",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://arxiv.org/abs/1812.03201v2",
+      "fulltext_urls": [
+        "https://arxiv.org/pdf/1812.03201v2"
+      ],
+      "project_urls": [
+        "https://residualrl.github.io"
+      ],
+      "code_urls": [],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "core",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "正文方法与simulation/real robot实验，Fig.3及实体块装配结果",
+      "body_retrieval_status": "retrieved",
+      "problem": "已知反馈控制可处理大部分物理，但接触摩擦残差难建模且手调脆弱。",
+      "core_method": "将传统控制器信号与学得连续残差信号叠加，使用off-policy RL训练残差。",
+      "update_mechanism": "保留解析先验，把学习容量用于模型不擅长的控制部分。",
+      "datasets_benchmarks": [
+        "MuJoCo control",
+        "real-world block assembly"
+      ],
+      "experiment_comparison_protocol": "手工控制、纯学习/残差在特定控制和错位块装配条件比较。",
+      "reported_results": "Fig.3错位实体块实验为残差15/20、手工控制2/20成功；小样本任务限定。",
+      "limitations_and_unproved": "本题不是连续扭矩叠加；不能迁移机器人训练时间、稳定性或样本效率。",
+      "transfer_to_this_project": "采用保留强控制器、限制改变范围的原则；动作改为离散整段服务替换。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "控制对象的分解",
+        "保留解析控制",
+        "学习连续动作残差"
+      ],
+      "secondary_tags": [
+        "counterfactual proposal relevance",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "high",
+      "previous_corpus_match": null,
+      "acquisition_evidence": [
+        {
+          "url": "https://arxiv.org/abs/1812.03201v2",
+          "accessed_utc": "2026-09-12T05:18:27.373054+00:00",
+          "returncode": 0,
+          "path": "sources/S05_residual.html",
+          "bytes": 43477,
+          "sha256": "d1cc7f376bc8dd5ba67210870de3e191fc28ea574fc6ad02a56d9d7e140460c3"
+        },
+        {
+          "url": "https://arxiv.org/pdf/1812.03201v2",
+          "accessed_utc": "2026-09-12T05:18:28.704267+00:00",
+          "returncode": 0,
+          "path": "sources/S05_residual.pdf",
+          "bytes": 2959124,
+          "sha256": "c6279120f9e0a799a9d7a943a5624a5738250e588f99c5fc8a9fac28e2039641"
+        }
+      ]
+    },
+    {
+      "id": "S06_aggrevate",
+      "stable_id": "arxiv:1406.5979",
+      "short_name": "NRPI / AggreVaTe",
+      "title": "Reinforcement and Imitation Learning via Interactive No-Regret Learning",
+      "authors": [
+        "Ross, Stephane",
+        "Bagnell, J. Andrew"
+      ],
+      "year": 2014,
+      "publication_date": "2014-06-23",
+      "latest_metadata_date": "2014-06-23",
+      "venue_or_public_status": "arXiv preprint; formal venue not independently verified this round",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://arxiv.org/abs/1406.5979",
+      "fulltext_urls": [
+        "https://arxiv.org/pdf/1406.5979"
+      ],
+      "project_urls": [],
+      "code_urls": [],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "core",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "§2 AggreVaTe，§2.5专家续局反例，§3 NRPI算法及理论条件；非全文证明复核",
+      "body_retrieval_status": "retrieved",
+      "problem": "动作模仿不利用任务成本；以不适合的专家tail估计动作价值会过于乐观。",
+      "core_method": "AggreVaTe查询专家cost-to-go；NRPI查询当前策略cost-to-go，将策略改进规约为交互no-regret学习。",
+      "update_mechanism": "训练标签依据冻结当前策略完整续局，更新后重新采样相应状态及cost-to-go。",
+      "datasets_benchmarks": [],
+      "experiment_comparison_protocol": "以理论框架、算法和窄路反例为主；不当作本题或现代神经网络基准成绩。",
+      "reported_results": "提供近似策略迭代/no-regret分析；§2.5说明专家tail不能无条件代表学习策略未来。",
+      "limitations_and_unproved": "分布覆盖、损失/学习器等假设不可自动由有限样本非凸回归满足。",
+      "transfer_to_this_project": "本提案最近机制祖先；γ=1变长operation、预算b及部分观測均是本题另立合同。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "真实任务损失驱动的策略改进",
+        "cost-to-go策略优化",
+        "当前策略完整续局标签"
+      ],
+      "secondary_tags": [
+        "counterfactual proposal relevance",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "high",
+      "previous_corpus_match": null,
+      "acquisition_evidence": [
+        {
+          "url": "https://arxiv.org/abs/1406.5979",
+          "accessed_utc": "2026-09-12T05:18:27.558760+00:00",
+          "returncode": 0,
+          "path": "sources/S06_aggrevate.html",
+          "bytes": 41604,
+          "sha256": "67205b031de046da3a1932991cf7f8baf61a905b4fd5554a5885ddd7552fecf5"
+        },
+        {
+          "url": "https://arxiv.org/pdf/1406.5979",
+          "accessed_utc": "2026-09-12T05:18:27.991068+00:00",
+          "returncode": 0,
+          "path": "sources/S06_aggrevate.pdf",
+          "bytes": 203265,
+          "sha256": "8039a4d7d59529069668f592c37c47eac058cdbad9dfdae5a28ad8f63ff91a65"
+        }
+      ]
+    },
+    {
+      "id": "S07_catnipp",
+      "stable_id": "pmlr:v205/cao23b",
+      "short_name": "CAtNIPP",
+      "title": "CAtNIPP: Context-Aware Attention-based Network for Informative Path Planning",
+      "authors": [
+        "Yuhong Cao",
+        "Yizhuo Wang",
+        "Apoorva Vashisth",
+        "Haolin Fan",
+        "Guillaume Adrien Sartoretti"
+      ],
+      "year": 2023,
+      "publication_date": "2023-03-06",
+      "latest_metadata_date": "2023-03-06",
+      "venue_or_public_status": "CoRL 2022; PMLR volume 205 published 2023-03-06",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://proceedings.mlr.press/v205/cao23b.html",
+      "fulltext_urls": [
+        "https://proceedings.mlr.press/v205/cao23b/cao23b.pdf"
+      ],
+      "project_urls": [],
+      "code_urls": [
+        "https://github.com/marmotlab/CAtNIPP"
+      ],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "core",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "正文§3–5：GP图、注意力/LSTM/Pointer/PPO、奖励与仿真/机器人实验",
+      "body_retrieval_status": "retrieved",
+      "problem": "连续信息路径规划需同时考虑预测不确定性、空间结构及剩余预算。",
+      "core_method": "GP增强图输入注意力网络、LSTM与Pointer；PPO选择图中下一点，mask保留返程可行性。",
+      "update_mechanism": "将belief和预算约束纳入候选表示与动作选择，不是本文原创的注意力+循环组合。",
+      "datasets_benchmarks": [
+        "Gaussian random field IPP",
+        "TurtleBot3 printed grayscale maps"
+      ],
+      "experiment_comparison_protocol": "每预算30个实例×10次试验；机器人灰度图实验另列。",
+      "reported_results": "展示信息收集与路径规划性能；动态归一化信息奖励和原目标仍有偏差。",
+      "limitations_and_unproved": "到终点及信息质量不等于未知多频道全部清除；GP也不描述本题固定测角/可见性。",
+      "transfer_to_this_project": "借显式候选及预算mask，拒绝把熵/面积下降直接代替秒/源。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "主动信息决策的表示与动作约束",
+        "显式空间候选表示",
+        "GP图与预算mask"
+      ],
+      "secondary_tags": [
+        "counterfactual proposal relevance",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "high",
+      "previous_corpus_match": "title:catnippcontextawareattentionbasednetworkforinformativepathplanning",
+      "acquisition_evidence": [
+        {
+          "url": "https://proceedings.mlr.press/v205/cao23b.html",
+          "accessed_utc": "2026-09-12T05:18:27.788654+00:00",
+          "returncode": 0,
+          "path": "sources/S07_catnipp.html",
+          "bytes": 16009,
+          "sha256": "9bbc379898e3df78f891655e916aa17b95caeb6350144cf261ada657865e20ea"
+        },
+        {
+          "url": "https://proceedings.mlr.press/v205/cao23b/cao23b.pdf",
+          "accessed_utc": "2026-09-12T05:18:28.684940+00:00",
+          "returncode": 0,
+          "path": "sources/S07_catnipp.pdf",
+          "bytes": 1674815,
+          "sha256": "7910c965e6ac85aea7913a664d7b4a39cec3b36068baed3c239251dcb59c982c"
+        }
+      ]
+    },
+    {
+      "id": "S08_offripp",
+      "stable_id": "arxiv:2409.16830",
+      "short_name": "OffRIPP",
+      "title": "OffRIPP: Offline RL-based Informative Path Planning",
+      "authors": [
+        "Gadipudi, Srikar Babu",
+        "Deolasee, Srujan",
+        "Kailas, Siva",
+        "Luo, Wenhao",
+        "Sycara, Katia",
+        "Kim, Woojun"
+      ],
+      "year": 2024,
+      "publication_date": "2024-09-25",
+      "latest_metadata_date": "2024-09-25",
+      "venue_or_public_status": "arXiv preprint; formal venue not independently verified this round",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://arxiv.org/abs/2409.16830",
+      "fulltext_urls": [
+        "https://arxiv.org/pdf/2409.16830"
+      ],
+      "project_urls": [],
+      "code_urls": [],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "core",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "正文方法Eq.4与实验Table I；2D/3D设置及数据/成本范围",
+      "body_retrieval_status": "retrieved",
+      "problem": "IPP在线收集训练数据昂贵，离线Q又会外推到缺乏行为支持的候选。",
+      "core_method": "拟合行为分布，在行为支持内使用batch-constrained Q选择信息路径候选。",
+      "update_mechanism": "以数据支持约束Q选择；与当前提案可fork获得真实counterfactual的条件不同。",
+      "datasets_benchmarks": [
+        "2D light-intensity IPP",
+        "3D fruit recognition IPP"
+      ],
+      "experiment_comparison_protocol": "各50测试实例，expert/greedy/random数据条件；CAtNIPP对照是naive offline PPO。",
+      "reported_results": "Table I expert数据预算10：covariance trace行为3.73、OffRIPP3.96、BC7.02（低好）；未超过行为专家。",
+      "limitations_and_unproved": "Eq.4不等号与τ端点文字冲突；不能推出Q普遍优于正确on-policy PPO；论文算力不移植。",
+      "transfer_to_this_project": "作为旧约束Q近祖和负面边界，首版不继续将支持内宏排序Q当主突破口。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "主动信息决策的表示与动作约束",
+        "离线数据支持",
+        "行为约束候选Q"
+      ],
+      "secondary_tags": [
+        "counterfactual proposal relevance",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "high",
+      "previous_corpus_match": "arxiv:2409.16830",
+      "acquisition_evidence": [
+        {
+          "url": "https://arxiv.org/abs/2409.16830",
+          "accessed_utc": "2026-09-12T05:18:27.856371+00:00",
+          "returncode": 0,
+          "path": "sources/S08_offripp.html",
+          "bytes": 41115,
+          "sha256": "d9fb9f05426f5e620c4a8083843c7ec3ee7663a6f67bc9a385295f706392ebf2"
+        },
+        {
+          "url": "https://arxiv.org/pdf/2409.16830",
+          "accessed_utc": "2026-09-12T05:18:28.685985+00:00",
+          "returncode": 0,
+          "path": "sources/S08_offripp.pdf",
+          "bytes": 1030458,
+          "sha256": "b56f7c70a1997e3cc695bb1d9cf108cc366a533e3fa686395ad9fdfee1fdcadf"
+        }
+      ]
+    },
+    {
+      "id": "S09_rf",
+      "stable_id": "arxiv:2605.12569",
+      "short_name": "RF active sensing",
+      "title": "Active Sensing with Meta-Reinforcement Learning for Emitter Localization from RF Observations",
+      "authors": [
+        "Khan, M. Shamail J.",
+        "Raichur, Nisha L.",
+        "Heublein, Lucas",
+        "Wielenberg, Christian",
+        "Mattick, Alexander",
+        "Feigl, Tobias",
+        "Mutschler, Christopher",
+        "Ott, Felix"
+      ],
+      "year": 2026,
+      "publication_date": "2026-05-12",
+      "latest_metadata_date": "2026-05-12",
+      "venue_or_public_status": "arXiv preprint; formal venue not independently verified this round",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://arxiv.org/abs/2605.12569v1",
+      "fulltext_urls": [
+        "https://arxiv.org/html/2605.12569v1"
+      ],
+      "project_urls": [],
+      "code_urls": [],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "extended",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "v1正文输入/网络/实验指定章节；只作扩展邻近任务，不新增核心结论",
+      "body_retrieval_status": "retrieved",
+      "problem": "多径环境中单RF观测难确定发射源位置，需要主动移动和历史信息。",
+      "core_method": "2×2天线IQ、深度特征和可选循环模块，比较DQN/PPO及环境迁移。",
+      "update_mechanism": "通过主动观测与记忆处理RF多径歧义。",
+      "datasets_benchmarks": [
+        "Sionna industrial hall emitter localization"
+      ],
+      "experiment_comparison_protocol": "单静态源、多天线IQ；PPO/DQN折扣和环境并行不同，测试N未在本轮落实。",
+      "reported_results": "论文报告80.1%定位成功；不同信息/配置，不作本题RL选型因果依据。",
+      "limitations_and_unproved": "current/goal输入的部署可得性和对比配置不一致；本题多源离散接口不匹配。",
+      "transfer_to_this_project": "提醒部分观测表示问题；不因此认定必须PPO/LSTM。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "主动信息决策的表示与动作约束",
+        "RF部分观测表示",
+        "高维IQ与循环策略"
+      ],
+      "secondary_tags": [
+        "alternative or boundary",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "medium: reading scope limited",
+      "previous_corpus_match": "arxiv:2605.12569",
+      "acquisition_evidence": [
+        {
+          "url": "https://arxiv.org/abs/2605.12569v1",
+          "accessed_utc": "2026-09-12T05:18:28.835773+00:00",
+          "returncode": 0,
+          "path": "sources/S09_rf.html",
+          "bytes": 44220,
+          "sha256": "aca16eb1ef0aea9a76f9e1694baa166374cef1fcedccb953c7fbc7dcb9676807"
+        },
+        {
+          "url": "https://arxiv.org/html/2605.12569v1",
+          "accessed_utc": "2026-09-12T05:18:29.276866+00:00",
+          "returncode": 0,
+          "path": "sources/S09_rf.body.html",
+          "bytes": 227966,
+          "sha256": "99b9d6eec4c073baaa725608d1d0db9b6027c76b0ea8fbc109ad422afbb8b46d"
+        }
+      ]
+    },
+    {
+      "id": "S10_multistep",
+      "stable_id": "arxiv:2609.03842",
+      "short_name": "Multi-step PPI",
+      "title": "Multi-step Proximal Policy Improvement in Offline Reinforcement Learning",
+      "authors": [
+        "Choi, Soohyun",
+        "Cho, Seonvin",
+        "Hong, Songnam"
+      ],
+      "year": 2026,
+      "publication_date": "2026-09-03",
+      "latest_metadata_date": "2026-09-03",
+      "venue_or_public_status": "arXiv v1; manuscript explicitly states not peer-reviewed",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://arxiv.org/abs/2609.03842",
+      "fulltext_urls": [
+        "https://arxiv.org/html/2609.03842v1"
+      ],
+      "project_urls": [],
+      "code_urls": [],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "extended",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "2026-09-03 v1摘要、引言、目录；未深读实验和证明",
+      "body_retrieval_status": "retrieved",
+      "problem": "离线actor需保留数据支持，又希望获得超过单步近端更新的改进。",
+      "core_method": "顺序重定中心的proximal policy improvement，可用于确定性或高斯策略。",
+      "update_mechanism": "区分多个重定中心步和同一固定目标下更多优化步。",
+      "datasets_benchmarks": [
+        "D4RL (abstract claim only)"
+      ],
+      "experiment_comparison_protocol": "摘要提及TD3+BC/ReBRAC/IQL；本轮未核完整配置/分母。",
+      "reported_results": "仅记录摘要主张若干任务改善；不引用其数字或普遍效力。",
+      "limitations_and_unproved": "v1明确未经同行评审；仍依赖critic误差，未解决本题缺完整反事实标签。",
+      "transfer_to_this_project": "作为近期竞争优化机制扩展，暂不采用。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "真实任务损失驱动的策略改进",
+        "离线actor优化",
+        "重定中心近端多步改进"
+      ],
+      "secondary_tags": [
+        "alternative or boundary",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "medium: reading scope limited",
+      "previous_corpus_match": null,
+      "acquisition_evidence": [
+        {
+          "url": "https://arxiv.org/abs/2609.03842",
+          "accessed_utc": "2026-09-12T05:18:29.171889+00:00",
+          "returncode": 0,
+          "path": "sources/S10_multistep.html",
+          "bytes": 42303,
+          "sha256": "e34a5672a1e5c23c9b09220ecd37e9c7fca2b1d7e4cb60ec9cd4ee3d76852eb1"
+        },
+        {
+          "url": "https://arxiv.org/html/2609.03842v1",
+          "accessed_utc": "2026-09-12T05:18:29.772734+00:00",
+          "returncode": 0,
+          "path": "sources/S10_multistep.body.html",
+          "bytes": 675750,
+          "sha256": "403cf8adb35f1503c4cc80590229d45715093d74f0189f036925be6345f1d08c"
+        }
+      ]
+    },
+    {
+      "id": "S11_shield",
+      "stable_id": "arxiv:1708.08611",
+      "short_name": "Shielding",
+      "title": "Safe Reinforcement Learning via Shielding",
+      "authors": [
+        "Alshiekh, Mohammed",
+        "Bloem, Roderick",
+        "Ehlers, Ruediger",
+        "Könighofer, Bettina",
+        "Niekum, Scott",
+        "Topcu, Ufuk"
+      ],
+      "year": 2017,
+      "publication_date": "2017-08-29",
+      "latest_metadata_date": "2017-09-03",
+      "venue_or_public_status": "arXiv preprint; formal venue not independently verified this round",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://arxiv.org/abs/1708.08611",
+      "fulltext_urls": [
+        "https://arxiv.org/pdf/1708.08611"
+      ],
+      "project_urls": [],
+      "code_urls": [
+        "https://github.com/safe-rl/safe-rl-shielding"
+      ],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "core",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "正文安全规格、shield构造、前置/后置方案与实验边界；不复核全部证明",
+      "body_retrieval_status": "retrieved",
+      "problem": "只最大化奖励的RL可能在训练或执行期违背安全规格。",
+      "core_method": "依据环境抽象及temporal-logic规格合成shield，预先给安全动作或事后修正违规动作。",
+      "update_mechanism": "将安全约束的执行层与奖励学习分离。",
+      "datasets_benchmarks": [
+        "9x9 and 15x9 robot grid worlds",
+        "self-driving car",
+        "Atari Seaquest",
+        "water tank"
+      ],
+      "experiment_comparison_protocol": "具有给定抽象/规格条件的shield实验；本轮不建立统一数值榜。",
+      "reported_results": "展示不同RL场景下屏障作用；本题无直接部署试验。",
+      "limitations_and_unproved": "safety fragment不自动证明最终全部清除的liveness；可靠抽象是前提。",
+      "transfer_to_this_project": "保留四接口、几何证书、有限进展及独立fallback，不以统计阈值代替。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "限制统计/执行风险",
+        "执行约束",
+        "形式规格前置与后置屏障"
+      ],
+      "secondary_tags": [
+        "counterfactual proposal relevance",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "high",
+      "previous_corpus_match": "arxiv:1708.08611",
+      "acquisition_evidence": [
+        {
+          "url": "https://arxiv.org/abs/1708.08611",
+          "accessed_utc": "2026-09-12T05:18:29.688702+00:00",
+          "returncode": 0,
+          "path": "sources/S11_shield.html",
+          "bytes": 42490,
+          "sha256": "8934ac264e51dd126254814678c60244472c49ae3c8e92ab24ccf4c9479fe8c2"
+        },
+        {
+          "url": "https://arxiv.org/pdf/1708.08611",
+          "accessed_utc": "2026-09-12T05:18:30.258841+00:00",
+          "returncode": 0,
+          "path": "sources/S11_shield.pdf",
+          "bytes": 1223856,
+          "sha256": "f8b87dcbd1932ffce5c2d6d2e84f788cc1d44dae3b1a4d001dbbee3c28567282"
+        }
+      ]
+    },
+    {
+      "id": "S12_robust_ipp",
+      "stable_id": "arxiv:2410.17186",
+      "short_name": "DyPNIPP",
+      "title": "DyPNIPP: Predicting Environment Dynamics for RL-based Robust Informative Path Planning",
+      "authors": [
+        "Deolasee, Srujan",
+        "Kailas, Siva",
+        "Luo, Wenhao",
+        "Sycara, Katia",
+        "Kim, Woojun"
+      ],
+      "year": 2024,
+      "publication_date": "2024-10-22",
+      "latest_metadata_date": "2024-10-22",
+      "venue_or_public_status": "arXiv preprint; formal venue not independently verified this round",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://arxiv.org/abs/2410.17186",
+      "fulltext_urls": [
+        "https://arxiv.org/html/2410.17186v2"
+      ],
+      "project_urls": [],
+      "code_urls": [],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "extended",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "本轮只读arXiv元数据/摘要；尝试HTML v2返回404，未取得所请求正文",
+      "body_retrieval_status": "attempted_body_failed",
+      "problem": "IPP在时空动态不同的环境间缺乏鲁棒性。",
+      "core_method": "摘要描述domain randomization与dynamics prediction model辅助策略。",
+      "update_mechanism": "以context适应不同环境动态（仅摘要层）。",
+      "datasets_benchmarks": [
+        "wildfire environment (abstract)"
+      ],
+      "experiment_comparison_protocol": "本轮未核正文设置/数据规模，不复用旧轮深读标签。",
+      "reported_results": "仅摘要声称鲁棒性提高；本轮不报告数值。",
+      "limitations_and_unproved": "本题源静态；HTML获取失败不等于全文不存在，当前机制证据深度有限。",
+      "transfer_to_this_project": "作为将来域变化路线，不引入本题没有的移动源。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "主动信息决策的表示与动作约束",
+        "环境变化适应",
+        "动态预测context与域随机化"
+      ],
+      "secondary_tags": [
+        "alternative or boundary",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "medium: reading scope limited",
+      "previous_corpus_match": "arxiv:2410.17186",
+      "acquisition_evidence": [
+        {
+          "url": "https://arxiv.org/abs/2410.17186",
+          "accessed_utc": "2026-09-12T05:18:29.769880+00:00",
+          "returncode": 0,
+          "path": "sources/S12_robust_ipp.html",
+          "bytes": 41614,
+          "sha256": "1a2dd6e9532876248b753e621eb6c01aaa6ed7d97812707651d044ec3c687284"
+        },
+        {
+          "url": "https://arxiv.org/html/2410.17186v2",
+          "accessed_utc": "2026-09-12T05:18:30.395816+00:00",
+          "returncode": 56,
+          "error": "curl: (56) The requested URL returned error: 404\n"
+        }
+      ]
+    },
+    {
+      "id": "S13_recurrent",
+      "stable_id": "arxiv:2405.15384",
+      "short_name": "RESeL",
+      "title": "Efficient Recurrent Off-Policy RL Requires a Context-Encoder-Specific Learning Rate",
+      "authors": [
+        "Luo, Fan-Ming",
+        "Tu, Zuolin",
+        "Huang, Zefang",
+        "Yu, Yang"
+      ],
+      "year": 2024,
+      "publication_date": "2024-05-24",
+      "latest_metadata_date": "2024-05-24",
+      "venue_or_public_status": "arXiv preprint; formal venue not independently verified this round",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://arxiv.org/abs/2405.15384",
+      "fulltext_urls": [
+        "https://arxiv.org/html/2405.15384v3"
+      ],
+      "project_urls": [],
+      "code_urls": [],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "extended",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "本轮只读元数据/摘要；尝试HTML v3返回404，未复读旧轮正文",
+      "body_retrieval_status": "attempted_body_failed",
+      "problem": "recurrent off-policy RL的context编码器与MLP共同学习率可能不稳定。",
+      "core_method": "对context encoder采用更低学习率，集成现有off-policy方法。",
+      "update_mechanism": "分离表示学习和决策网络的优化尺度（摘要）。",
+      "datasets_benchmarks": [
+        "18 POMDP tasks (abstract)",
+        "5 MDP locomotion tasks (abstract)"
+      ],
+      "experiment_comparison_protocol": "本轮没有核正文表格和实验超参。",
+      "reported_results": "摘要报告稳定性/性能改善；本轮不作精确效果比较。",
+      "limitations_and_unproved": "循环结构不保证本题收益，获取的摘要不能替代复现或证明。",
+      "transfer_to_this_project": "提醒GRU不能当无代价修补；首版先简单集合编码。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "主动信息决策的表示与动作约束",
+        "历史记忆训练",
+        "context编码器独立学习率"
+      ],
+      "secondary_tags": [
+        "alternative or boundary",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "medium: reading scope limited",
+      "previous_corpus_match": "arxiv:2405.15384",
+      "acquisition_evidence": [
+        {
+          "url": "https://arxiv.org/abs/2405.15384",
+          "accessed_utc": "2026-09-12T05:18:29.932993+00:00",
+          "returncode": 0,
+          "path": "sources/S13_recurrent.html",
+          "bytes": 43076,
+          "sha256": "97a0fdc9d5da91e07ef1f13cc251c45d286d0f0c695b88e688ba44a6e0ee7643"
+        },
+        {
+          "url": "https://arxiv.org/html/2405.15384v3",
+          "accessed_utc": "2026-09-12T05:18:30.300971+00:00",
+          "returncode": 56,
+          "error": "curl: (56) The requested URL returned error: 404\n"
+        }
+      ]
+    },
+    {
+      "id": "S14_tdmpc2",
+      "stable_id": "arxiv:2310.16828",
+      "short_name": "TD-MPC2",
+      "title": "TD-MPC2: Scalable, Robust World Models for Continuous Control",
+      "authors": [
+        "Hansen, Nicklas",
+        "Su, Hao",
+        "Wang, Xiaolong"
+      ],
+      "year": 2023,
+      "publication_date": "2023-10-25",
+      "latest_metadata_date": "2024-03-21",
+      "venue_or_public_status": "arXiv preprint; formal venue not independently verified this round",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://arxiv.org/abs/2310.16828",
+      "fulltext_urls": [],
+      "project_urls": [
+        "https://tdmpc2.com"
+      ],
+      "code_urls": [],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "extended",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "本轮arXiv摘要/元数据；未重新下载正文",
+      "body_retrieval_status": "not_requested",
+      "problem": "连续控制世界模型和规划的鲁棒性/跨任务可扩展性。",
+      "core_method": "隐式latent world model中作局部轨迹优化并预测价值。",
+      "update_mechanism": "TD-MPC系列改进，扩展跨任务模型规模（摘要）。",
+      "datasets_benchmarks": [
+        "104 online RL tasks, 4 domains (abstract)"
+      ],
+      "experiment_comparison_protocol": "摘要说明统一超参及规模实验；本轮未核正文可比性。",
+      "reported_results": "摘要报告104任务和317M参数80任务模型；只是来源背景，不是本题算力要求。",
+      "limitations_and_unproved": "重学已知移动物理可能浪费；离散可见性边界难以无误差学习。",
+      "transfer_to_this_project": "暂不采用完整世界模型；先用真实模拟器生成成本标签。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "控制对象的分解",
+        "学习预测模型",
+        "隐式世界模型局部规划"
+      ],
+      "secondary_tags": [
+        "alternative or boundary",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "medium: reading scope limited",
+      "previous_corpus_match": "arxiv:2310.16828",
+      "acquisition_evidence": [
+        {
+          "url": "https://arxiv.org/abs/2310.16828",
+          "accessed_utc": "2026-09-12T05:18:30.104290+00:00",
+          "returncode": 0,
+          "path": "sources/S14_tdmpc2.html",
+          "bytes": 41722,
+          "sha256": "2902676cfa8cf64a5daff5d9775fa34de28e6ba2a2cf475fa7e1a7f7adf1ecf1"
+        }
+      ]
+    },
+    {
+      "id": "S15_fql",
+      "stable_id": "arxiv:2502.02538",
+      "short_name": "FQL",
+      "title": "Flow Q-Learning",
+      "authors": [
+        "Park, Seohong",
+        "Li, Qiyang",
+        "Levine, Sergey"
+      ],
+      "year": 2025,
+      "publication_date": "2025-02-04",
+      "latest_metadata_date": "2025-05-25",
+      "venue_or_public_status": "arXiv preprint; formal venue not independently verified this round",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://arxiv.org/abs/2502.02538",
+      "fulltext_urls": [],
+      "project_urls": [
+        "https://seohong.me/projects/fql/"
+      ],
+      "code_urls": [],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "extended",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "本轮arXiv元数据/摘要；未重新深读方法正文",
+      "body_retrieval_status": "not_requested",
+      "problem": "复杂离线动作分布难用简单策略表示，迭代flow的RL优化昂贵。",
+      "core_method": "flow-matching行为表示配合一步策略接受Q学习，避免反复反传迭代flow。",
+      "update_mechanism": "将表达性行为模型与快速一步动作策略分开（摘要）。",
+      "datasets_benchmarks": [
+        "73 OGBench/D4RL tasks (abstract)"
+      ],
+      "experiment_comparison_protocol": "state/pixel、offline/offline-to-online多设置；本轮无公平数值比较。",
+      "reported_results": "仅保留摘要跨任务主张，不预测本题增益。",
+      "limitations_and_unproved": "本题有限离散候选未证明需连续多峰生成器；不核代码即不声称可运行。",
+      "transfer_to_this_project": "连续落点若后续确为瓶颈再比较；首版不使用flow。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "主动信息决策的表示与动作约束",
+        "连续动作分布",
+        "flow行为模型与一步Q策略"
+      ],
+      "secondary_tags": [
+        "alternative or boundary",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "medium: reading scope limited",
+      "previous_corpus_match": "arxiv:2502.02538",
+      "acquisition_evidence": [
+        {
+          "url": "https://arxiv.org/abs/2502.02538",
+          "accessed_utc": "2026-09-12T05:18:30.451047+00:00",
+          "returncode": 0,
+          "path": "sources/S15_fql.html",
+          "bytes": 40630,
+          "sha256": "c5949bfffa38d89ab056b429109099b452687b07aa3b2e6ebf65450f068b86a8"
+        }
+      ]
+    },
+    {
+      "id": "S16_cids",
+      "stable_id": "arxiv:2602.03939",
+      "short_name": "C-IDS",
+      "title": "C-IDS: Solving Contextual POMDP via Information-Directed Objective",
+      "authors": [
+        "Shi, Chongyang",
+        "Dorothy, Michael",
+        "Fu, Jie"
+      ],
+      "year": 2026,
+      "publication_date": "2026-02-03",
+      "latest_metadata_date": "2026-02-03",
+      "venue_or_public_status": "arXiv preprint; formal venue not independently verified this round",
+      "presentation_award_status": "not checked; no Oral/Spotlight/Award claim",
+      "paper_url": "https://arxiv.org/abs/2602.03939",
+      "fulltext_urls": [],
+      "project_urls": [],
+      "code_urls": [],
+      "data_urls": [],
+      "code_data_verification": "source-linked URLs only where present; not cloned, executed or independently audited this round; absent URLs mean not established, not nonexistent",
+      "source_tier": "primary",
+      "corpus_layer": "extended",
+      "identity_verification": "primary publisher/arXiv metadata retrieved with date, bytes and SHA256",
+      "reading_scope": "本轮arXiv元数据/摘要；不重述旧轮未独立核通过的证明为已验证",
+      "body_retrieval_status": "not_requested",
+      "problem": "未知latent context的POMDP中同时优化奖励和context识别。",
+      "core_method": "加入context与观测的互信息，构造information-directed目标。",
+      "update_mechanism": "以拉格朗日形式关联信息ratio与策略目标（摘要）。",
+      "datasets_benchmarks": [
+        "continuous Light-Dark (abstract)"
+      ],
+      "experiment_comparison_protocol": "上下文假设及Bayesian regret证明本轮未独立核验。",
+      "reported_results": "仅保留摘要方法与实验主张，不采用理论保证。",
+      "limitations_and_unproved": "ensemble分歧不等于互信息；本题需另行定义context与观测模型。",
+      "transfer_to_this_project": "不把本题Q差和预测残差命名为真实information ratio。",
+      "transfer_status": "research hypothesis; no project effectiveness run",
+      "primary_classification_path": [
+        "利用强基线改善部分可观测控制",
+        "主动信息决策的表示与动作约束",
+        "信息与任务回报联合",
+        "context互信息目标"
+      ],
+      "secondary_tags": [
+        "alternative or boundary",
+        "no cross-paper SOTA claim"
+      ],
+      "classification_confidence": "medium: reading scope limited",
+      "previous_corpus_match": "arxiv:2602.03939",
+      "acquisition_evidence": [
+        {
+          "url": "https://arxiv.org/abs/2602.03939",
+          "accessed_utc": "2026-09-12T05:18:30.621139+00:00",
+          "returncode": 0,
+          "path": "sources/S16_cids.html",
+          "bytes": 41120,
+          "sha256": "8fef086f136b08010170c35ea1c2aaf623d8508a3d073c255674e89f0ddf08a3"
+        }
+      ]
+    }
+  ]
+}

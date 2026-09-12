@@ -1,0 +1,90 @@
+{
+  "status": "pass",
+  "evidence": "Rule checks and synthetic research fixtures only; not solver full-game results",
+  "results": [
+    {
+      "name": "frozen_rules",
+      "command": [
+        "/opt/homebrew/bin/python3.12",
+        "-S",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "returncode": 0,
+      "wall_s": 0.1277919999556616,
+      "log": "experiments/20260912_breakthrough/verification/final_checks_v1/frozen_rules.log",
+      "log_sha256": "677d51a2604afb7e9e78a8f19ff028ed8c4f7bb724861b5d6ed023ad45d23add"
+    },
+    {
+      "name": "frozen_hashes",
+      "command": [
+        "/opt/homebrew/bin/python3.12",
+        "-S",
+        "-B",
+        "evaluate.py",
+        "--verify-only"
+      ],
+      "returncode": 0,
+      "wall_s": 0.058475709054619074,
+      "log": "experiments/20260912_breakthrough/verification/final_checks_v1/frozen_hashes.log",
+      "log_sha256": "6fef9d95094d4c0ffacb95fe6a13b6b48ca50a69d5eb32d9feb0ceaaebe2f274"
+    },
+    {
+      "name": "nominal_79",
+      "command": [
+        "/opt/homebrew/bin/python3.12",
+        "-S",
+        "-B",
+        "tests/check_nominal.py",
+        "--package",
+        ".",
+        "--out",
+        "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/verification/final_checks_v1/nominal.json"
+      ],
+      "returncode": 0,
+      "wall_s": 0.048690332914702594,
+      "log": "experiments/20260912_breakthrough/verification/final_checks_v1/nominal_79.log",
+      "log_sha256": "3f56981cbf11d21e61674ea0e5db8fd1998f7877a5a27902d20efd16fdbd14f7"
+    },
+    {
+      "name": "exact_geometric_witnesses",
+      "command": [
+        "/opt/homebrew/bin/python3.12",
+        "-S",
+        "-B",
+        "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/test_geometric_counterexamples.py"
+      ],
+      "returncode": 0,
+      "wall_s": 0.0494122909149155,
+      "log": "experiments/20260912_breakthrough/verification/final_checks_v1/exact_geometric_witnesses.log",
+      "log_sha256": "dcd2147edfda2291b456dfb6d9f3021f0fed07760d5a1c8869fc5446f30e28fe"
+    },
+    {
+      "name": "rl_synthetic_contracts",
+      "command": [
+        "/opt/homebrew/bin/python3.12",
+        "-S",
+        "-B",
+        "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/RL/test_contracts.py"
+      ],
+      "returncode": 0,
+      "wall_s": 0.15574958396609873,
+      "log": "experiments/20260912_breakthrough/verification/final_checks_v1/rl_synthetic_contracts.log",
+      "log_sha256": "1e07700f76d1ff18cba2560d5ec3916c1ab55abc17d77aad6089f247dfa1fe45"
+    }
+  ],
+  "script_sha256": "38fe7c366212d174bb513655e66dc0a7ac3505e13bdec5eb717de59e8917b873",
+  "checked_source_sha256": {
+    "evaluation/manifest_v1.json": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+    "experiments/20260912_breakthrough/RL/test_contracts.py": "bad998a551aae35514601e496e761b38e2f683db0fb878d0c57ded32361aaabd",
+    "experiments/20260912_breakthrough/RL/implementation_spec.md": "deb0ac21bcbe326bdb32023ea3ba23cb858645dc410875249d6a5d4fbebcc2b8",
+    "experiments/20260912_breakthrough/RL/PROPOSAL.md": "000281b9a17183763957bd4318b6a00173193ad53254d1e94147d6f810efa736",
+    "experiments/20260912_breakthrough/test_geometric_counterexamples.py": "08364cdfe969930daaedaa942b4aa3964dd19532298f2b6f208626965f727f3c",
+    "experiments/20260912_breakthrough/verify_geometric_counterexamples.py": "50b7493dd6da5e72415b3f3f7e154b1be020d16bc5fb8752af624d1598b56bdb"
+  }
+}
