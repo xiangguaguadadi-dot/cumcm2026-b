@@ -64,7 +64,7 @@ def main():
         '区间针对“最终减起点”的秒/源变化，按同一个种子跨场景形成的簇重采样，未把 1200 局当作 1200 个独立随机种子。本批仍来自原有的 12 类本地分布假设，不代表官方分布或 Windows 官方执行。', '',
         '[确认审计](confirmation/audit.json) · [最终候选原行](confirmation/frozen_candidate/case_metrics.json) · [起点原行](confirmation/start_baseline/case_metrics.json) · [冻结登记](confirmation_registry.json) · [种子排重范围](confirmation_seed_review.json)', '',
         '## 最终方法及实际贡献', '',
-        'Q3 保留 A1 R8：把连续定位区域分成可被 20 米清除圆完整覆盖的凸条，用子集动态规划安排首次命中费用最小的访问顺序；在预计划算时用多次光学试探替代继续测向。Q4 使用 A2 的最终有限光学几何，并叠加 A3 B4 的在线共享偏差规划。全部失败 clear、移动和换频道费用照常记录。', '',
+        'Q3 保留 A1 R8：把连续定位区域分成可被 20 米清除圆完整覆盖的凸条，用子集动态规划安排首次命中费用最小的访问顺序；在预计费用更低时用多次光学试探替代继续测向。Q4 使用 A2 的最终有限光学几何，并叠加 A3 B4 的在线共享偏差规划。全部失败 clear、移动和换频道费用照常记录。', '',
         f'Q4 在同一 2400 局上，最终几何父版本为 {cell(ablation,4)["baseline_mean"]:.6f} 秒/源，加入 B4 后为 {cell(ablation,4)["candidate_mean"]:.6f}，额外降低 {-cell(ablation,4)["delta"]:.6f} 秒/源。主要收益来自几何与动作选择；组合增益不能把两个独立收益简单相加。', '',
         f'[几何与学习消融审计]({name}_vs_geometry_audit.json) · [方法、费用递推、证明边界与论文依据](METHODS.md)', '',
         '最初融合曾因学习模块改动已证明完整覆盖的清除点而漏清一局，已淘汰并保留原行。修正版通过覆盖执行上下文保护实际点位；最终每份组合重新跑全量，未用“两个父版本单独全清”替代组合验证。', '',
@@ -72,6 +72,7 @@ def main():
         '## 研究与停止记录', '',
         'A1 完成 11 轮：R8 后 R9/R10/R11 连续三轮不晋级，冻结 R8。A3 完成两个机制方向共 13 轮：残差门控在 R3 后三轮不晋级停止，共享偏差规划在 B4 后三轮不晋级停止。A2 最终保留 finite R7，随后 R8/R9/R10 连续三轮未晋级；R11/R12 在停止口径澄清前已启动的 quick 只归档，没有追加 full。其他已停止路线和实测原行保留在 A2 报告。未通过 quick/开发筛选的候选不虚构 full 结果。', '',
         'A3 针对 15 篇一手来源记录阅读深度，其中 7 篇做了针对性的方法与实验条件阅读，其余为扩展筛选；没有宣称全部全文深读或系统综述。训练实际包括 1296 个不同训练/校准 world，加 96 个复用开发 world。保存账本有 1296 次完整教师执行、9994 次从克隆状态开始的反事实分支及 35688 次完整评估；反事实分支不是新增独立 world。最终选用在线偏差规划，未把训练过程等同于大幅强化学习突破。', '',
+        '[三位 Agent 的报告、证明、来源和执行账本索引](AGENT_ARTIFACTS.json)。索引同时给出本地路径及已上传提交的固定链接，未上传项明确标注。', '',
         '## 验证和交付范围', '',
         '冻结物理规则的 14 项单元检查、79 项名义夹具和 manifest 校验通过；几何顶点认证、DP 小例穷举对照、学习实际坐标/保护契约另有专门检查。样本与夹具不代替连续几何论证或完整程序形式证明。最终可见接口仍只有 enter、measure、clear、exit，部署单文件不包含案例真值、测试 ID 分派或缓存得分读取。', '',
         '本地函数模拟器的现实计算耗时发生在共享负载下，不能拿历史缓存时间当受控运行速度对照。Windows HTTP 通信、官方误差场及正式测试均未执行；这里没有官方成绩。', '',
@@ -87,9 +88,13 @@ def main():
                    for a,m in ((current,3),(current,4),(fresh,3),(fresh,4))]]
              for g in sorted({r['group'] for r in current['comparisons'] if r['group']!='ALL'})]), '']
     (HERE / 'REPORT.md').write_text('\n'.join(lines))
+    exposed_ids = {r['case_id'] for r in read(HERE / (name + '_exposed/case_metrics.json'))}
+    fresh_ids = {r['case_id'] for r in read(HERE / 'confirmation/frozen_candidate/case_metrics.json')}
+    assert len(exposed_ids) == 4800 and len(fresh_ids) == 2400 and not (exposed_ids & fresh_ids)
     summary = dict(selection=selection, exposed=[cell(current,m) for m in (3,4)],
         v1=[cell(current,m,'v1') for m in (3,4)], fresh=[cell(fresh,m) for m in (3,4)],
         comparison_to_c7=[cell(c7,m) for m in (3,4)], learning_increment_q4=cell(ablation,4),
+        unique_case_ids=len(exposed_ids | fresh_ids), confirmation_supported=confirmation_supported,
         all_7200_unique_cases_complete=current['all_complete'] and fresh['all_complete'])
     (HERE / 'FINAL_METRICS.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({'candidate':name,'all_7200_complete':summary['all_7200_unique_cases_complete'],
