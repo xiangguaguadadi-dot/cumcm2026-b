@@ -1,0 +1,25 @@
+{
+  "schema": "bc-rpi-r1-coordinator-development-acceptance-v1",
+  "evaluation_accepted": true,
+  "source_freeze_sha256": "86f12d20d8b44d5fc6e001bd5e47b8652889a490beedec97df6b2f6de134bb01",
+  "input_freeze_sha256": "85f5506f7455fdb8192622b80712f3de57681695bdc18f51c5f93074dc87256f",
+  "calibration_margins_sha256": "730c1ea9c0587689810417d354106697e1a163bcd48e23ad104c8cb9e95f7d62",
+  "compatibility_summary_sha256": "5be631be267f1735bfea05d9e6b259d364db9589f9cf00df2f252ec59811ec1c",
+  "independent_checks": {
+    "rl_round1_compatibility_v2.json": "5475a5df0856389b2a231bb8b26ff998407d2d4e8454c65b9e5a9f1783e112cb",
+    "rl_round1_compatibility_records_v1.json": "2945ad08204e542fa33d1739fa612c92b4fd920aa794c07e48f0529f227df461",
+    "rl_round1_compatibility_forwards_v1.json": "5304aab85c77b22311d02c1eca5a6ee1844ce648d3747358ab035edc335ea62e",
+    "rl_round1_development_archives_v1.json": "23027300a0f5eda952f634c0fba3fbb4de105c6f6c76f9ffab81380a5cd6a5d6"
+  },
+  "scope": "Exactly the registered 120 development worlds, each C7 + Q4 R2 + all three frozen neural policies, 600 full episodes. No tuning, checkpoint replacement, extra arms, further training, sealed final test, official interface or deployment promotion.",
+  "compatibility_verified": {
+    "worlds": 12,
+    "full_episodes": 24,
+    "exact_trace_pairs": 12,
+    "independently_reconstructed_neural_forwards": 217
+  },
+  "cumulative_verified_calls": 176905,
+  "cumulative_verified_executions": 1375,
+  "budget": "Fixed 300000 development call phase cap, global 1000000 calls/3000 executions, 15846 full-tail reserve and six-hour new-run admission unchanged.",
+  "analysis": "World-equal T/N after all-clear check; fixed 12-group world bootstrap 10000 repetitions, seed 912199, all three models versus both controls; preserve all failures and negative results."
+}

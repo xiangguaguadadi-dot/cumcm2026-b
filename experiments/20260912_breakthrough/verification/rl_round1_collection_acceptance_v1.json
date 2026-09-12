@@ -1,0 +1,31 @@
+{
+  "schema": "bc-rpi-round1-coordinator-collection-acceptance-v1",
+  "collection_accepted": true,
+  "source_freeze_sha256": "d2fb97014448ce7164c459d99ff3a5a3c34359d9c5d8d7942c42f38dc1ca7bff",
+  "world_manifest_sha256": "5046e9fbce26a5ca25290353642636feb6a8fcf17b33b226fd94101137eb0268",
+  "source_archive_sha256": "eb73c6cb03c9c2f7226bdfd08344dc8d2a135ce2834cec0c0eb25a733c004e19",
+  "input_archive_sha256": "e79e5f7fb449e169e81fe39b2cfdd0f0f5f2ab45d1f93becdc2a74130d96b488",
+  "preflight": "RL/training_round1_20260912/preflight_collection_v2",
+  "authorized_work": "Exactly the registered 36 fit/fit_val worlds, full retained action bundles with frozen C7 continuation, shared by three later neural initializations.",
+  "coordinator_checks": {
+    "new_budget_and_terminal_classification_pure_tests": 20,
+    "all_45_archived_source_files_equal_live_and_frozen_bytes": true,
+    "all_11_archived_input_files_equal_live_and_frozen_bytes": true,
+    "archive_CRC_unique_member_sets": true,
+    "world_count_and_all_roles_independently_recounted": 180,
+    "all_12_groups_balanced_within_each_role": true,
+    "new_world_geometry_and_source_count_constraints": true,
+    "prior_G0_G1_sources_preserved": true,
+    "full_C7_rollin_and_same_public_boundary_A0_suffix_parity_path_reviewed": true,
+    "resource_or_unproven_terminal_failures_stop_without_training_labels": true,
+    "interrupted_worlds_are_not_replaced_or_filtered_for_success": true
+  },
+  "limits": {
+    "labels_attempted_calls": 500000,
+    "new_round_attempted_calls": 1000000,
+    "new_round_actual_executions": 3000,
+    "per_full_or_suffix_admission_reserve": 15846,
+    "campaign_admission_wall_seconds": 21600
+  },
+  "scope_boundary": "Acceptance of the collection implementation, not proof of completed data, fitting, useful learned policy, or permission for further rounds or official testing. Network modules not executed by collection may be completed in parallel without changing frozen collection dependencies."
+}

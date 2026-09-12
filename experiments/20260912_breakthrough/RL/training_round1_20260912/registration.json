@@ -1,0 +1,49 @@
+{
+  "schema": "bc-rpi-round1-registration-v1",
+  "status": "registered_no_actual_calls",
+  "registered_utc": "2026-09-12T08:51:16.042626+00:00",
+  "approved_scope": "One first-round counterfactual-supervised neural fit, 3 seeds, independent calibration and complete development; old headroom gate overridden by explicit user request",
+  "neural_seeds": [
+    912101,
+    912102,
+    912103
+  ],
+  "limits": {
+    "business_calls": 1000000,
+    "executions": 3000,
+    "run_call_reserve": 15846,
+    "campaign_wall_s": 21600,
+    "raw_bytes": 8589934592,
+    "rss_bytes": 17179869184,
+    "phase_calls": {
+      "labels": 500000,
+      "calibration": 150000,
+      "development": 300000,
+      "compatibility": 50000
+    },
+    "compatibility_executions": 24
+  },
+  "carry_in": {
+    "business_calls": 197456,
+    "executions_started": 1696
+  },
+  "role_counts": {
+    "fit": 24,
+    "fit_val": 12,
+    "calibration": 24,
+    "development": 120
+  },
+  "manifest_sha256": "5046e9fbce26a5ca25290353642636feb6a8fcf17b33b226fd94101137eb0268",
+  "novelty_sha256": "48f0a0e88f62bf8cbce230828554769d07eb2d7d9f9a0398b70ce5b5f55669a4",
+  "plan_sha256": "61db5cda4442224ad396db70b13f0d0d0a686ebc0f099a9661f00cda8a86c7ec",
+  "prior_result_sha256": "298d3423d4fb1a15f70ce230df2423d28dcafe5133fd9ef5ef6b784118cd94e2",
+  "compatibility_sha256": "80892db1bfc001234ba60f1d59ef2ede291a3f0bd395fd452fbd777bfa7a42fc",
+  "clock_start": "Independent Budget initialized after coordinator collection acceptance, before first new actual call",
+  "labels_shared_across_initializations": true,
+  "label_continuation": "Same frozen C7 pi0 for every action and reference",
+  "state_sampling": "public source-entry index; m=min(4,n); floor(k*(n-1)/(m-1)); m=1 -> index0",
+  "empty_action_state_loss": "0, retained in fixed state denominator; malformed/failed data is not empty",
+  "no_further_rounds": true,
+  "no_sealed_final": true,
+  "no_official": true
+}

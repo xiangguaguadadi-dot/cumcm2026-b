@@ -1,0 +1,19 @@
+{
+  "schema":"bc-rpi-r1-coordinator-calibration-acceptance-v1",
+  "calibration_accepted":true,
+  "source_freeze_sha256":"f2b4d99b4816948175d8fd5f2fdd4bff8aa88096f1e91e906c9a022dcc145ebd",
+  "input_freeze_sha256":"ce808dad97a97fd20bf93b53aa2636d1b73b1277fc6adb1b8836279baa07a446",
+  "selected_checkpoint_sha256s":[
+    "fde843fcd26fbdc381406fa35602cc424217e0abc7751c0e906f18866e3f9ac3",
+    "a4a18c71212bc11d4ac17edf4ed3314ef1a8249ddc579bfa89beb3dbd9b64076",
+    "bc8e4a36c5c363862c3c7ba7d5aa73ca081be95f75af7daa0253e55e72aed8cb"
+  ],
+  "independent_checks":{
+    "rl_round1_fitted_models_v1.json":"d5b00271b6d1c6b415f78e9f51263cbe28c5b75ddc84efdc43fddc439bea2a3a",
+    "rl_round1_calibration_archives_v1.json":"96481bf2675626ad45fdef6bf9942e04af94f16f3fc3469ec2e10383b09d83b6",
+    "rl_round1_public_export_v2.json":"e6d15feff7c2d1ef1ca0a70c0eb20cdf098ba537abb640bc69d1099f5233f8d8"
+  },
+  "scope":"Exactly 24 registered calibration worlds, all 3 frozen fit_val-selected models; fixed per-state neural argmax before full A0/selected tails, registered world-max rank 22 margin. No further gradients, tuning, compatibility or development under this stage acceptance.",
+  "budget":"Existing independent phase cap 150000 calibration calls and global 1000000 calls, 3000 executions, six-hour new-run admission unchanged.",
+  "review":"42 independent calibration synthetic checks passed. Real calibration evidence is pending. Public export audit v2 additionally binds every origin file to the previously accepted label audit; original evidence unchanged."
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "bc-rpi-round1-coordinator-model-review-v1",
+  "status": "model_module_accepted_for_first_round_fit_after_data_gate",
+  "model_sha256": "4ebc333c5db62f0b21a3b752ab490ceaca65dd9fb7e385900227847725e7ddbb",
+  "model_tests_sha256": "97c3282ad63b9ecbb62b18c1743ec2fa85e89ab397483211143705541175c2e3",
+  "python": "/opt/homebrew/bin/python3.12",
+  "python_flags": ["-S", "-B"],
+  "torch_version": "2.8.0",
+  "trainable_parameters": 61121,
+  "independently_rerun_pure_tensor_tests": 22,
+  "test_failures": 0,
+  "actual_neural_fit_runs_in_this_review": 0,
+  "actual_environment_calls_in_this_review": 0,
+  "reviewed_contract": "D3 exact shared encoders and raw per-action scores; six numerical input keys; boolean event mask; finite shape/device/dtype checks; no path, world identity, label or environment access in model.py.",
+  "evidence_limits": "This accepts only the model module and synthetic tensor tests. Public feature correctness, loss weighting, dataset completeness, real fitting, calibration and closed-loop behavior are separate gates. The pure backward check is not counted as a real training run."
+}

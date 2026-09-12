@@ -1,0 +1,20 @@
+{
+  "schema": "bc-rpi-r1-coordinator-fit-acceptance-v1",
+  "fit_accepted": true,
+  "dataset_manifest_sha256": "77ac2da2f7089c764226c67412c85ff808c1120acbf13db4ae56587d029a7852",
+  "fit_source_freeze_path": "preflight_fit_v1/source_freeze.json",
+  "fit_source_freeze_sha256": "fe40d4a24a3414849e0dad17eaed327574830c66ad2412fc9f7b4a90f0d56b82",
+  "independent_checks": {
+    "rl_round1_label_records_v1.json": "595cdae1ab8972975f1c2a59dabbc9c7e7ce418a1813b4c52d6cc4fe8f15580d",
+    "rl_round1_labels_v1.json": "39ea28322ce0314c0ef58340960ff72185cf3367c4ddb74feab76c05b0307ceb",
+    "rl_round1_public_export_v1.json": "9490b9ccb8ddaa7d39df91dee8d0a5642acea286e9cbd503de5b70038f4c3e7f",
+    "rl_round1_fit_archives_v1.json": "a8b3db71ecbda16be9a43b8cbbe5b66c7d83caa3240b1fece94602003638d55a"
+  },
+  "worlds": {"fit":24,"fit_val":12},
+  "verified_states":144,
+  "verified_nonreference_labels":1060,
+  "actual_collected_executions":1240,
+  "actual_collected_calls":155180,
+  "scope": "Exactly the registered three initializations, 20 epochs each, fit_val-only selection from epochs 5/10/20. No calibration, development, second training round or deployment is authorized by this stage acceptance.",
+  "evidence_limits": "Independent saved full-tail accounting and public-export lineage verified; not a second environment replay. Fitted tensors and validation selection require next-stage audit."
+}

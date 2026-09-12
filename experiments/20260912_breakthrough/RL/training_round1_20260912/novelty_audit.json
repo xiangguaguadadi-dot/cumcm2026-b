@@ -1,0 +1,2394 @@
+{
+  "schema": "bc-rpi-r1-novelty-v1",
+  "status": "pass",
+  "checked_files": [
+    {
+      "path": "evaluation/cases_v1.json",
+      "sha256": "988f42a74cac1aa8249cb0d138e1b1a5de927ef41ad38efa4e70a9c4d97457ac"
+    },
+    {
+      "path": "experiments/20260911_agent_campaign/candidate_registry.json",
+      "sha256": "9fdd9d458e78f71bf7fb2f29b919e159045f59844befbe75f7af7737973a2c62"
+    },
+    {
+      "path": "experiments/20260911_agent_campaign/final_validation/cases.json",
+      "sha256": "7baaefd611e9af6727b032508d8d06be3282d44635170507241d91c72a17d92b"
+    },
+    {
+      "path": "experiments/20260911_agent_campaign/final_validation/manifest.json",
+      "sha256": "f6d783063971c87bc7925fa5e2657d923989b61f431f7e1941583892d4c8c5a0"
+    },
+    {
+      "path": "experiments/20260911_breakthrough/exposed_cases.json",
+      "sha256": "e5bdfb611ff26a38dd5655b8f0d036936c178310bf0cc2197f82afa46225855a"
+    },
+    {
+      "path": "experiments/20260911_breakthrough/exposure_manifest.json",
+      "sha256": "e1b8fa70a365be8e79cbf15f124a2b8db12c239756f2b009322033f63b0f48e2"
+    },
+    {
+      "path": "experiments/20260911_breakthrough/stage_registry.json",
+      "sha256": "048b229132c2a6219f7e3c984763709676be9657e8b2800c24ecf17767461a37"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/core/g0_audit_v1/manifest.json",
+      "sha256": "e8f8358a3d278f363d7dfa2ce23375d4c0fc438ce4c0c9ef058ce9cf4cb2c4e4"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/core/g0_results_v1/manifest.json",
+      "sha256": "d8b55d1940c6ede9045a42ca720b9ffdcdd51f12278099144980d689b2270f04"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/core/regression_v1/manifest.json",
+      "sha256": "73b14231d1136033ee814b37ebb4e5dc458e3faa984886d8f3cd12ff7f97f3f1"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/data/g2_plan.json",
+      "sha256": "d1f97c7fac97365e9fef08bad774316d3797fb76dcc050cc98a8a3a196390821"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/data/initial_registry.json",
+      "sha256": "ec76709f5327d31a730642ce36de9999bf4dc57f9ed636b62137c439a940cfe4"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/data/runtime_dependency_freeze.json",
+      "sha256": "8ee84c6a979c6bab432e4933a0e503d912ec5aa98daff46174361d01f339ba2b"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/data/selection_freeze.json",
+      "sha256": "3b46066d7705ff2273590e21f90479ba0ff41fa02b869d221c0a7abe0b488b9b"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g1_pipeline_v1/manifest.json",
+      "sha256": "a08c7e6c68a11ae512cea9b60a763a6df06e5cf84af4fe749179cb0e16537f66"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2/init_81001/manifest.json",
+      "sha256": "ecdfa1afa5e2e4fa071e308d4510ec6bbf2d32010280529fcf0f6c89bd9820a4"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2/init_81001/q/range_registration.json",
+      "sha256": "89b7dacbb2dfc5df80ed58648b97d954c4e474320392bda21ab2eee2c89c0fd7"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2/init_81002/manifest.json",
+      "sha256": "07a5b8cd13830c802da2dd8700dc043e4999214fcf07ac0a598be1638912fe48"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2/init_81002/q/range_registration.json",
+      "sha256": "3f4903c999a818f24584954d1b72f537fad526c60b03f67647ae1f9a01d9deb1"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2/init_81003/manifest.json",
+      "sha256": "b278bddcecc33326262bd7ff1e246eda800b275498255d0aa5f9c66f179feb0e"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2/init_81003/q/range_registration.json",
+      "sha256": "954052acd452a8df5574526a84dfac38805e4fdbef65d54dd0a1335c8b2e821f"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/baselines/bc_init81001/manifest.json",
+      "sha256": "17b37d0101bd25371b3504d4db0c2dcf444f8492d721b9bf755f4a3954c730b9"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/baselines/bc_init81002/manifest.json",
+      "sha256": "8f53863473884b9ccd02aecc53506f6d62498d88e97fedcd452f4bf04e0d6e2e"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/baselines/bc_init81003/manifest.json",
+      "sha256": "242d356f7729045d76bff6ad3795e281d822fb8054e8e4e762b5071f48d7cea4"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/baselines/original_c7/manifest.json",
+      "sha256": "3fddb83cda2844b60fabd7eb1f946fa60948a5fddfb4b4d23aeeac0adb539207"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/baselines/same_candidates_greedy/manifest.json",
+      "sha256": "3735bbac3d4fc29ec08416dae22d338acfc78f3b91b4147946a5fcdeff7d89e4"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/baselines/teacher_wrapper/manifest.json",
+      "sha256": "76211fe964ef0d6f36a3d1ec5c82c78b9e4cf36a9193d2409863afd5a21f1b76"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/ppo_init81001_ep0128/manifest.json",
+      "sha256": "d559a9854d42f865aad7ed256ffc7a9e2fe3765bda8a31bdf565e4dd377f9e20"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/ppo_init81001_ep0256/manifest.json",
+      "sha256": "d4fd27671ce224da1eaabceeec861cb4712d1e6b1df7a5c4e4f00f5467d101e9"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/ppo_init81001_ep0512/manifest.json",
+      "sha256": "11d7f339b4b5b2c54c14796bf9c6f1358759526b156d356319979efe7589bb76"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/ppo_init81001_ep1024/manifest.json",
+      "sha256": "785b44e648d9689a5bcc23691a8bd43f08e2e1c59735a297d807f61ea126990f"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/ppo_init81002_ep0128/manifest.json",
+      "sha256": "e45be9542180bf07021896ee1f22dd7230269807c14f99ebd0e56b5d6b4b881a"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/ppo_init81002_ep0256/manifest.json",
+      "sha256": "b84dbd4de0e7954aa2760140e9dec58946d2ffd3f30ba3408c4172bc3727b4a7"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/ppo_init81002_ep0512/manifest.json",
+      "sha256": "820a5d1c5317c88dd368cd5259813c5d5c0e6dc5265eb2b55943887234a99e21"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/ppo_init81002_ep1024/manifest.json",
+      "sha256": "31faeb3206e7ce905f9ec0df7ef6fa6955d828bafa74687ba6440114686ec65c"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/ppo_init81003_ep0128/manifest.json",
+      "sha256": "8593779244447de72e88c27a7a8c7c3efed18bdabbe76a03ca6e52e7f007f0c7"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/ppo_init81003_ep0256/manifest.json",
+      "sha256": "bf212154936bb83b1ec8d9f1dd6dcdbf732b7704edc733e5125751aa287ff794"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/ppo_init81003_ep0512/manifest.json",
+      "sha256": "3d8a483d9fef7b5b6e6beacfe8d4db3585d132a79b8a274674d0c24c37d16a62"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/ppo_init81003_ep1024/manifest.json",
+      "sha256": "d11dc043a09ffd982a41154a3b64e23a06feb97c9292327a538174a704ea339b"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/q_init81001_ep0128/manifest.json",
+      "sha256": "89afd945c6e429a37b99eee50f29e5893f854ddf8a1c7492c1ad2c7d57c20726"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/q_init81001_ep0256/manifest.json",
+      "sha256": "77b3236f826c5d50c36008adb43d3919d0c5debdab47fb59b6f831555137338e"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/q_init81001_ep0512/manifest.json",
+      "sha256": "fea7ef437d055d300f202d5b0ed0e95d57902c3c9522c1c5c2569e73eaeea83f"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/q_init81001_ep1024/manifest.json",
+      "sha256": "96f2d24bb2e39cdecd27c23d3981a9b23506abfbf812b541484ca997a3e7066f"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/q_init81002_ep0128/manifest.json",
+      "sha256": "50ceb3d336f2265ba9cb07354e72e10141c30868ede2c87103e27c36e55a4254"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/q_init81002_ep0256/manifest.json",
+      "sha256": "3cbf7f0884138e9d9f1dca4310207a619a48ab23f08f1a237debbe48faed765c"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/q_init81002_ep0512/manifest.json",
+      "sha256": "059c1088f947a21c4a9111f25094968d5bcb8fae946ea3e263220c76de5c784d"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/q_init81002_ep1024/manifest.json",
+      "sha256": "98c2f51d8e746b5bd636f8ed123ec7a5ef547ec66cc2801f2746599221219f80"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/q_init81003_ep0128/manifest.json",
+      "sha256": "f282d675f933a5d59d95f996dcb204b4deb83e784915aec91826dfd8a22e8981"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/q_init81003_ep0256/manifest.json",
+      "sha256": "6ba8bfca20e135d88fc97e38d2cb3fe8254c2317107acaa123eaac36af80fa67"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/q_init81003_ep0512/manifest.json",
+      "sha256": "0bab6ae7c441864aa5b7fa7c888fffd65040218da3a8803a189ecd7ca354f77a"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/results/g2_selection/models/q_init81003_ep1024/manifest.json",
+      "sha256": "c4b36240639d0021106348a730bb824180eb0ca08562ef1597883c79efd467ba"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/verification/full_audit_v1/local_only_trajectory_manifest.json",
+      "sha256": "47529fa00313c4c95cfbfe84a1412980c5a1b92c9339b74f1980bb340a81bd89"
+    },
+    {
+      "path": "experiments/20260911_rl_execution/verification/metadata_precheck_v1/local_only_trajectory_manifest.json",
+      "sha256": "eab0c3410fc2452c0ea9c65d276f60b149e9b1b6d5f392c18178ca79e040ee90"
+    },
+    {
+      "path": "experiments/20260911_rl_research/DELIVERY_MANIFEST.json",
+      "sha256": "2d56242a5332108dd1b191db7261675517a5910f7049164e1e74cff78f5716a1"
+    },
+    {
+      "path": "experiments/20260911_stage3/candidate_registry_prepared.json",
+      "sha256": "76d0ca650d42b35cd6d1926b3217f63e18873b8f04452a7e6cd92dfee5094ce3"
+    },
+    {
+      "path": "experiments/20260911_stage3/exposed_cases.json",
+      "sha256": "e5bdfb611ff26a38dd5655b8f0d036936c178310bf0cc2197f82afa46225855a"
+    },
+    {
+      "path": "experiments/20260911_stage3/exposure_manifest.json",
+      "sha256": "e1b8fa70a365be8e79cbf15f124a2b8db12c239756f2b009322033f63b0f48e2"
+    },
+    {
+      "path": "experiments/20260911_stage4/candidate_registry.json",
+      "sha256": "4a8b1960f0a67aec91098cebc8c4d2c01bc9fdcfd093a3127acb5f41b200df9d"
+    },
+    {
+      "path": "experiments/20260911_stage4/combination/candidate_registry.json",
+      "sha256": "f8a1cfc6e1f8fb01738661490e380484adcd5c6af5e6243dd677e359302076d4"
+    },
+    {
+      "path": "experiments/20260911_stage4/combination/development_r1/cases.json",
+      "sha256": "af420ad8aeabea75205ad16abf2f20742527d43faf9a2236943c652ee53f293f"
+    },
+    {
+      "path": "experiments/20260911_stage4/combination/development_r1/registration.json",
+      "sha256": "39bbc7e32438b6f43bf751673d52686b7893f2246954ff00d2bac9e3a997debf"
+    },
+    {
+      "path": "experiments/20260911_stage4/combination/development_r2/cases.json",
+      "sha256": "1e0af20fc6eeb8469a982c92e3fe7a4f4cae2cea86fe9984b60ac9f37df0d3fc"
+    },
+    {
+      "path": "experiments/20260911_stage4/combination/development_r2/registration.json",
+      "sha256": "fd3e84db205b578bb9a57602023a54652184b7caf158c5d04574c5f64faf7627"
+    },
+    {
+      "path": "experiments/20260911_stage4/combination/development_r3/cases.json",
+      "sha256": "ba59b9a559c90c66af03570c20857737a3e96d4b3a6d1f1a1477388149794262"
+    },
+    {
+      "path": "experiments/20260911_stage4/combination/development_r3/registration.json",
+      "sha256": "d5c4cf45bd61b67fb451761803279f6509fab454febb748bda2f86a8d0a6fd4f"
+    },
+    {
+      "path": "experiments/20260911_stage4/combination/geometry_fusions/registry.json",
+      "sha256": "32d664e596d6c0b20f4ad9555e878bee644eb7b8f5fad8620191abc934351d1a"
+    },
+    {
+      "path": "experiments/20260911_stage4/combination/service_fusions/registry.json",
+      "sha256": "14c295dd0d111a078f87be2fab72ae66eb2a35602df986ed6c77a0a1374f4580"
+    },
+    {
+      "path": "experiments/20260911_stage4/exposed_cases.json",
+      "sha256": "e5bdfb611ff26a38dd5655b8f0d036936c178310bf0cc2197f82afa46225855a"
+    },
+    {
+      "path": "experiments/20260911_stage4/exposure_manifest.json",
+      "sha256": "e1b8fa70a365be8e79cbf15f124a2b8db12c239756f2b009322033f63b0f48e2"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/BEST_manifest.json",
+      "sha256": "ecda38751fe2095ebbbcefab8256525413fd2285b5bdfc8a456b35fd995c3eb2"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/HANDOFF_AUDIT.json",
+      "sha256": "91c650339ccf12765b7426e469f6f1e6fccd47df931b6dd95c3938cfe25977d8"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/diagnostic_q3_quick/summary.json",
+      "sha256": "4631ff271122c6dd60081d2a671691813e4f2e6b13f2ad9001383160468e96de"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/inspection/manifest.json",
+      "sha256": "c9aa94795c5dd0b962fce0cebef6892c3df4d9ae95943c7d605bfef9fd1341f5"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/iteration_ledger.json",
+      "sha256": "7b5639f2001b9f3fcffee204adf61488af0f91ac7f3b3b1a7847a233c55b5fc5"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/literature.json",
+      "sha256": "778832090865bf3dc80de7ff240dec498818dd64c430a2dc839a8991977f2a29"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r10_registration.json",
+      "sha256": "8de0982aa08a74acfbbf72433630bbb42db202e319305542c9bdfbb94bf0e6d5"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r11_registration.json",
+      "sha256": "c8d38f79207d4e65f2a079f023f155ab7d4b030799993bd1b5276afcbac269da"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r12_registration.json",
+      "sha256": "203c9414dc2642ba336f7e15bd5f22e109a604d6bddb85b717e53d8c49dbd8e4"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r13_registration.json",
+      "sha256": "7473b19b3eb17cc42aa986760b09e6c3b474fb5a459fac7ff79fe553b5617439"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r14_registration.json",
+      "sha256": "79be487e3ac90e259d3cfab855dacf13ab7cf5b1ca12c16199b78b59501db775"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r1_registration.json",
+      "sha256": "11b55cdf205a395bd8363e63f79730ae0e9eab4491a77e5ab4f669c0eb51c203"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r2_registration.json",
+      "sha256": "2b569d11c3dea492965c43cd63acb444de97fdb8f33f5bb3a263e3d6250687c9"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r3_registration.json",
+      "sha256": "1f071f0a82e85fb22d7280d7847e729a63e2aea45a55b3b80c37b31dd5372ab7"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r4_registration.json",
+      "sha256": "e85b7fd00846284407b87c9c718254f7f0db1fd33a0b87db402cf9ef1616862f"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r5_registration.json",
+      "sha256": "1095bb1e645450c3c405d32e9d24d38ca7f3d383da11ae4bfa478b6d33b80b00"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r6_execution_correction.json",
+      "sha256": "1e53f0922a5f124d329fe6806ce5088ad5c26f781a9c19d1b8cc3969de603852"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r6_preflight_revision.json",
+      "sha256": "b30829184fa74896454b65527214f1116083e9ab1375de3e560a9bbbde213737"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r6_registration.json",
+      "sha256": "4b3fb62e5f5ac905c8ad561461bf1dfe229bfaf8275f7d5d4525df3feb11aedb"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r6a_registration.json",
+      "sha256": "2c5ebc813c6ecd789bc9cef455c7630dc30611551e0db958ae237d491aefe630"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r6b_registration.json",
+      "sha256": "85c08ade0b91406beb24a0453c4a24c0dd6f25e49c5a081c35362dc36b05028f"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r7_registration.json",
+      "sha256": "5752e040006f82312e13bb01364b5fa8825d5514b075aa78804a9e0a8484ecab"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r8_registration.json",
+      "sha256": "6277006626ad7db1596aa54e0f4db4154eb7fe7ead40eabf717bff4fc31721ff"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/r9_registration.json",
+      "sha256": "33645118aa5e6cc973e2a7af63f3708b4ba3ef1b80bbe59074ab762d729b34e0"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r10_exposed/case_metrics.json",
+      "sha256": "90035dd23257134272c2a452e2f5fc5bf1027551b3035f6be2fcd10e1b83d2b7"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r10_exposed/summary.json",
+      "sha256": "87a61d28f781c6696fd6daa7fe4ebc0c59570be2096e20f34fff05f1b38d5bb2"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r10_full/case_metrics.json",
+      "sha256": "ace7a20120cc45027a63f8d391ea94ded6a20d394c7fd33e2a16645c91650ce7"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r10_full/summary.json",
+      "sha256": "ad08a832eb5dd9f9976e6f6f4939ecf6f5b380d2031e98eec1e339c9d325ad80"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r10_quick/case_metrics.json",
+      "sha256": "bf3db1567c6ce3a91741f4317bf346be8d1d687cd94d6d2e8b801be6bdf72e39"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r10_quick/summary.json",
+      "sha256": "4adbb528c87c7215398a738284178bc930ded443637aefcc35439bccac7c1005"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r10_rules/execution.json",
+      "sha256": "04f61ed9acda77e1996074f72fced524bdc337664a6f8925695dc873ece774b5"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r10_rules/nominal.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r11_all_q3_cover_diagnostic.json",
+      "sha256": "f78ddd2a9376f296fdac00cc14790458e7e512fc45d796e6496a24842da5bbac"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r11_exposed/case_metrics.json",
+      "sha256": "b40027fb159290c658128effe4fab285a117ca2904340f80eea897f5f964c5fb"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r11_exposed/summary.json",
+      "sha256": "46fd845ec73d3b2b664d82b67f18796bd7018c0ee32d6a5694900b762802dc08"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r11_full/case_metrics.json",
+      "sha256": "b4e6d843d82d0d8fda3f762e271a9b5b731382e4b0cfb9f9f758119e204c478a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r11_full/summary.json",
+      "sha256": "e2806081ca422e24ee8767f42e0fbcc1fd3756d30192117ee360dce838a5e9f7"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r11_quick/case_metrics.json",
+      "sha256": "e31840161831aa33b35c602e56b4f86f0745d79cb365490d742e6f0b41c47b2b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r11_quick/summary.json",
+      "sha256": "d31221ba1b7c33e469f601038671e8f2af5432bca3c22d5253e69b21a3fe817a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r11_rules/execution.json",
+      "sha256": "c2a4db81f93fd07876d22a76454380a7c9612056fc105a1db31a064535471af2"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r11_rules/nominal.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r12_quick/case_metrics.json",
+      "sha256": "e53a24a647bd713c2024ac18985fcd5b36ad07cfba2750da1a69af3df5376449"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r12_quick/summary.json",
+      "sha256": "207e0701fed1c63b4edf717ad95e0d55e9aa6cba9a35c7eb17a1423cb7a782be"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r12_rules/execution.json",
+      "sha256": "6ad87ce23ea266927471ef9ec6a86d92d8081e3a171ccccd203abcd15c9f1d31"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r12_rules/nominal.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r13_quick/case_metrics.json",
+      "sha256": "d7aafa62e6de154686b56d3e85feb2f71c01f1e6ca62b0b5300d4170cf3a204a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r13_quick/summary.json",
+      "sha256": "926e3c99f0ef48dfcc70b79e27dcd47ef72cee2ddf19d999302f5ddf89e08b7d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r13_rules/execution.json",
+      "sha256": "57b0cf54e6425b75952a106c3cb659007c6133ca7b3f5acac7de976583bf5bd4"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r13_rules/nominal.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r14_exposed/case_metrics.json",
+      "sha256": "eebd6f9c939b470374d477feedbbc03b953a14630a63b0b80b1491b05b683af2"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r14_exposed/summary.json",
+      "sha256": "fa9b836f09836ad2ce1e3a8c7c90fb2788f875688b8a60c80f37bc4af49e6773"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r14_full/case_metrics.json",
+      "sha256": "ae6db5978c819897c3b24eed8b58adf0b9f16cc7765bdffc413eae329e16bfb9"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r14_full/summary.json",
+      "sha256": "c815b4ae6c9b2d072c430d33fc3ccd13d2bc6785179e5fc27813de5320d1da35"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r14_quick/case_metrics.json",
+      "sha256": "3bc712aeb009512c9ab1d53c7d233561f4e08eb3b25aada8f8ff7a37eb4a164f"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r14_quick/summary.json",
+      "sha256": "327702346e87cbe9720c3c3cfb234ff637b852c074e9f2239a2e471728b13d26"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r14_rules/execution.json",
+      "sha256": "6dc762dba1dcfbb9a398d43b9eb6100b4598c804d35ea5667095b649301d187d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r14_rules/nominal.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r1_audit.json",
+      "sha256": "17956e503d4170a95b037b5f8b985f9c4b0297ba293be22b5b460cd2c9ff7bc1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r1_exposed/case_metrics.json",
+      "sha256": "4e45830a8d9fceb1e61f89cc05d84f7297ec080489451217d17e3f750536559e"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r1_exposed/summary.json",
+      "sha256": "0f187f0414729becb3d28f67cd6037efef34eba3a7442e6943bcfcd2bfe1aa83"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r1_full/case_metrics.json",
+      "sha256": "18073c4d586fbd9026ba41b3c9d66f7da8cf56bd7f80800333f4d1ff93b9ba91"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r1_full/summary.json",
+      "sha256": "d737384895de3da36bd955a979feaa835535cdd0c3492017442418d27965e87c"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r1_quick/case_metrics.json",
+      "sha256": "6d323d9a648a6712d398422f4f30c39801e36a9f42b2ee8a6268cc915b839a21"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r1_quick/summary.json",
+      "sha256": "3dd71717d31dfbf5e69e05ce44b04a09c930d0fcc89b5d2a4f4d14dc4b562997"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r1_rules/execution.json",
+      "sha256": "8aa175b06f129055a4b870a83d7fa048dfa2e3016587775606bbafb384355a7b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r1_rules/nominal.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r2_audit.json",
+      "sha256": "5d3df5b081aa5697c3eeed047fc52f06db90e53d061301b0c9f3695776a00257"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r2_exposed/case_metrics.json",
+      "sha256": "31265bcea825be3f89de2592566fe887ecd873837bdd46e644540ebe40c1d71b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r2_exposed/summary.json",
+      "sha256": "94ed012c7829b960e928770709b5ddc19d6f970ab745e66aa5ba69e0e1911a63"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r2_full/case_metrics.json",
+      "sha256": "978d5a6eb10a7679707260ae519f201646c9fdb4c31fed5e93d71128ccd8f8b6"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r2_full/summary.json",
+      "sha256": "84409047693e45fee10a569c7cd70deb1f468e558db6fa0e57773d69e615f275"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r2_quick/case_metrics.json",
+      "sha256": "f450e61e04065ba53ca80039f948763155b1375efa2621da38d17fbcfb4964d9"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r2_quick/summary.json",
+      "sha256": "a2f39c062ac390a6ee47d45f073989bbfc3ff97890acd16b6d145a911b62111f"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r2_rules/execution.json",
+      "sha256": "c27ade3cc8467c05c0a875e4112724bae6384130d909a8f0d812c39f621a5508"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r2_rules/nominal.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r3_quick/case_metrics.json",
+      "sha256": "e9bc8fe58f567b73f6ab5d4fdb5af7d5b35929f0ee0a3527198cc22dbadbd4c3"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r3_quick/summary.json",
+      "sha256": "16c59bac870a12e1b890d40911a80e276ebc7b0a8ed1a8ccb04536d137064e78"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r3_rules/execution.json",
+      "sha256": "92bb26d39adefe5d044c09d038662c9267512a6e12791872bb14ac5b7763f1bb"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r3_rules/nominal.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r4_quick/case_metrics.json",
+      "sha256": "d474094a8a79802c5f4745ef5b00f0164453c4c8e527587e3e64779afa279c9b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r4_quick/summary.json",
+      "sha256": "10fe94e9ede0bc5768959892f3de300dffc914eac30986afa9d85221ba0cab89"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r4_rules/execution.json",
+      "sha256": "004256b0b3318041eebd3d8439b7e765d154f4c21457ca93296d932afcf3759e"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r4_rules/nominal.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r5_quick/case_metrics.json",
+      "sha256": "21a8a1b11e3ab01af6915083294897c475899be79fb46b43d68dfed2519c3a73"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r5_quick/summary.json",
+      "sha256": "e9602642a2d3af662b9e39626f770a45c6547f9bb39818b7e21cccbc8ee963ba"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r5_rules/execution.json",
+      "sha256": "98a32cd47e34bdbf47b60cdb63e1e6b950849753d7c442e3fe058907e28e6aa0"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r5_rules/nominal.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r6_geometry_checks.json",
+      "sha256": "42a01f4feb3f0436fe21de8dc77219d94776efd480907d22699cb73dd08af8c1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r6a_quick/case_metrics.json",
+      "sha256": "5c1796834974ac59ccfc2f0e71f96779cbd6954fb2c245c7afafebf9792b4189"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r6a_quick/summary.json",
+      "sha256": "3affcbc04268176287d8b7d6fd26420d63c1eb70557a28d796b5b27a5ad89880"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r6a_rules/execution.json",
+      "sha256": "c508f2ece489506df937522c03c2e2d1af1239a27df8eed2e1e2a2bf63d369db"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r6a_rules/nominal.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r6b_audit.json",
+      "sha256": "d9e2ed54bf5c72b8ace869160122083a05a02de13b6691929bc0fc44b3047334"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r6b_cover_diagnostic.json",
+      "sha256": "c0d69adbec464ac49428a43f57b28b9fdb17cb7c583b46a48bda534a137e2991"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r6b_exposed/case_metrics.json",
+      "sha256": "582c1015197e11767368643cfe54ce895ac4dc840794014ec03e1effcf75f5f4"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r6b_exposed/summary.json",
+      "sha256": "378c4cc3bf906c60e823ff4579501464bc042d1a525851f65b36279dcd307466"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r6b_full/case_metrics.json",
+      "sha256": "8e10871d30402938d02c8973b0d76aaeef197429a64d44e3be59c62b2291a83b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r6b_full/summary.json",
+      "sha256": "6a3e726bb585ed69b5a817e3f1e8c37247c6c30d2c1e86355964acc00eb11a85"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r6b_quick/case_metrics.json",
+      "sha256": "004f82d3bed23c1f74f515802be6c53caf9fa2c092262f4f0d92dd487869ccb3"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r6b_quick/summary.json",
+      "sha256": "5c5621335cf62622dd97a9cb2557391b50a8b9eb3516fb0ef8523bfc370e4e46"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r6b_rules/execution.json",
+      "sha256": "87697f88633aaf0e2c2f662ea44eadb885ae91decf979cebe5b5b4b27b27aace"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r6b_rules/nominal.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r7_exposed/case_metrics.json",
+      "sha256": "234e7e9880aee506452806f29afe32ccb8f2fff7d53d9b067d20221766549af0"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r7_exposed/summary.json",
+      "sha256": "51c9616eaf6bbbd42e55639535b39f1157afbc2d80fdc31d659cb5d5fb20a61b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r7_full/case_metrics.json",
+      "sha256": "e4114a250dd3f926cea3a8c8dc4ab0fd9272d189c34cdefd7be8e03a5d77ec18"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r7_full/summary.json",
+      "sha256": "125467276d3e26692398e59ab90e108a29e9c789524e9448ef67204b5ab9f4a3"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r7_quick/case_metrics.json",
+      "sha256": "117b7d98393a5f54fee51b94e088363bff14e0c0e19176c4ab72b3a2185cc8ae"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r7_quick/summary.json",
+      "sha256": "d8523173456c8722e42cf232cfb844a7aa45965569db3dfe85b1c987e212a269"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r7_rules/execution.json",
+      "sha256": "544358eb624f8f146ea550401bd355cea025fd5e73cf1cd7e0762b5e6043b368"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r7_rules/nominal.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r8_exposed/case_metrics.json",
+      "sha256": "72d851c1f6d2e5f8c750161a14b6119ca0f8b446b65188769e550d9006507de2"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r8_exposed/summary.json",
+      "sha256": "a282139aadc4311a0cb98bce6da0b5534d92f93f3d746da8c660b4a30a3687cf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r8_full/case_metrics.json",
+      "sha256": "861318538d9d1c127fa1a95798d73ecc907173bede22c8d64bd26a1b06c4d25a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r8_full/summary.json",
+      "sha256": "614b1f0328e0859d94703187516be15745285a3c89b390ec57729dbb99bebca0"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r8_quick/case_metrics.json",
+      "sha256": "6cda6a431ae994e06a877f66d6fc7f806abd58bf2fc952c4dcb451440220f892"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r8_quick/summary.json",
+      "sha256": "6d1d26fb9bb3c98e8de551f1c3d2b96bf65d784244ad9110b8066ac0d68c01ec"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r8_rules/execution.json",
+      "sha256": "3833d4efe24e422054956ac7cb8facf870e22fd00eb9aa2a65f41a8f400282fb"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r8_rules/nominal.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r9_exposed/case_metrics.json",
+      "sha256": "d6cb66312b11af7d1c38ebd08610c475e96cf9eaaf3275687b7315d80ca300be"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r9_exposed/summary.json",
+      "sha256": "5473fdff8ec96923f36af57d7c53c80098e41b26c9a117dee8ab3d7ef0524ccc"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r9_full/case_metrics.json",
+      "sha256": "268919f66c9a2686c73c9c6791c3ce89ef732c8af6f1e21b8ffaa5296ce57e30"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r9_full/summary.json",
+      "sha256": "9a4e317f7b2042e6978297ab81f414a4c734adbb649267ed4521a8ef4182021c"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r9_quick/case_metrics.json",
+      "sha256": "e3f812b7442bf83c357590d82d11bd34e04c84c0aebc51b477303cd9ff779be1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r9_quick/summary.json",
+      "sha256": "030409bba62032af4e87505a2d890b77c722db43776b70f2b222b0816e36b1c1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r9_rules/execution.json",
+      "sha256": "436a7fde9e8e851b0160359f487fa3647907f6a2326b9b4b5ff7229107ea058a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/results/r9_rules/nominal.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A1/round_decisions.json",
+      "sha256": "570e4f02af102c824ea8acb54f7d28e2ff15c80614d95a1d301a8d9d92fad81d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/C7_dependency.json",
+      "sha256": "c23f5f756b7cab1edfa3cebbf9592e891be619641e271606d0c924f67887f426"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/checks/checks_manifest.json",
+      "sha256": "34d7f40128d842100bbee100ea0b04ae9fae576811bebe6c5c51a1d48e54c827"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/checks/nominal_79.json",
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/iteration_ledger.json",
+      "sha256": "507b095d9604e3021de9e852abba6a96e93c5859a1ca2d18cbc6c631400da150"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/literature/corpus.json",
+      "sha256": "eefd1c774982d67e1165ebb9208c8f08e89d572a541d6223266611eda0ea725f"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/literature/fetch_manifest.json",
+      "sha256": "f501b3366220018cdb687cc4869e865d7bd4d9f356d09bf323591597cce4fd1a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/best_r2_packaging_exposed/case_metrics.json",
+      "sha256": "3949a98c80c2b801645155f1368dd5736aaa94cdaa0106bf28d583defe031f14"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/best_r2_packaging_exposed/summary.json",
+      "sha256": "edeb52e88bb3900e72f32914aa12e952f30b7e9da3a7264a651373198d1b1fe3"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/best_r2_packaging_full/case_metrics.json",
+      "sha256": "7bcbbb48ce00dba001a44aaef37edf10a348adc799f4b02318cc7db1939a8c81"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/best_r2_packaging_full/summary.json",
+      "sha256": "2cf06b4cb718a468fc7aed96e46aca4482c86fa910cad6657b0fb95963e5eede"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/best_r2_packaging_quick/case_metrics.json",
+      "sha256": "ba0bfd3f376de17fc23c18fa21f58e8f25a157851c78e41af2a588abd1ec0ff0"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/best_r2_packaging_quick/summary.json",
+      "sha256": "a381217d4a60444d082d6e8089e96be0febcc4cb7b8becd9ea1ae535f0c55a6a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/certificate_7_13/certificate.json",
+      "sha256": "62485aac2f58b9e7c7623018ef1e5d73cd2c663d270f015325fc545579c7db77"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/certificate_7_13/selected.json",
+      "sha256": "d6d95185509b4892e18feb1b503ba529c256175e96dd85b9964c7db756456433"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/diagnostic_96/C7__E2-dev-q4-cell500_shared_field-62000040_trace.json",
+      "sha256": "b90a1d9d491336b18fb21721f8734c7586091dedb6b437dcb18c42edb9391e88"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/diagnostic_96/C7__E2-dev-q4-cell50_shared_field-62000032_trace.json",
+      "sha256": "c6e1e3a1b47416c8015207b45fb0003889ecc90ecd86043d5c297a27db9150b1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/diagnostic_96/C7__E2-dev-q4-edge_mixed_min_radius-62000048_trace.json",
+      "sha256": "b665b6f1966d1b899cb4b73189c59a8e9f24d532c4b47cf9fb4c72523c1db6e3"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/diagnostic_96/C7__E2-dev-q4-exactly10_sources-62000080_trace.json",
+      "sha256": "8a9ee58147213a5a417068d40a480ca00c659c716f337ecdab15667429fb7283"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/diagnostic_96/C7__E2-dev-q4-exactly16_sources-62000088_trace.json",
+      "sha256": "53b6e43a8cc8daf873ab02eac4d45f65f4783c814bda0c51a1dcfa6647b8d59e"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/diagnostic_96/C7__E2-dev-q4-fixed_negative_bias-62000016_trace.json",
+      "sha256": "f5fcbfccfa77d1e8ae9fbc50c8d7df6c6ce70cf872cca4c92eba67a369b234e2"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/diagnostic_96/C7__E2-dev-q4-fixed_positive_bias-62000008_trace.json",
+      "sha256": "cd4c97c88d5854d6bc048ca9541c03e60fbe37b5ed515e6f60e47a250cc3ba5a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/diagnostic_96/C7__E2-dev-q4-minimum_radius-62000072_trace.json",
+      "sha256": "5e03bf84c48756cc34e457e3b0ac374e4bca5c7812069a42b7a89539baa1e74e"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/diagnostic_96/C7__E2-dev-q4-offcenter_cluster-62000056_trace.json",
+      "sha256": "09a1e03cef267ea2da4fc23a03466e5821ed9e9a690b4b659f1ebe2987d7268a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/diagnostic_96/C7__E2-dev-q4-origin_cluster-62000064_trace.json",
+      "sha256": "d67c19f30a5f000af49d28dc7cbd240089163ac29231fa8e94248cdb30df4595"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/diagnostic_96/C7__E2-dev-q4-reference_assumed-62000000_trace.json",
+      "sha256": "74b6b4c0eda66ea50009af2ac50a79ee4d1b8b134eacf2e6458b8c82995f8c8a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/diagnostic_96/C7__E2-dev-q4-smooth_shared_field-62000024_trace.json",
+      "sha256": "a5779ba10c695b548a80dda3c5fbe0a96668dce8f6526ecf0a5a4d97302a008e"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/diagnostic_96/C7_rows.json",
+      "sha256": "4f278f5ff9312450b262584cb0af590f948eaac8669a51cdbab3f2340765f678"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/diagnostic_96/cases.json",
+      "sha256": "f56866ea37ec892e0cc0ac581d574d38a023e894865ff7abc1f416f91439b441"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/diagnostic_96/summary.json",
+      "sha256": "abc4e368b8c8e1b52b665f98911360bc8036dba647c719f8e0c34998894bc8cb"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/geometry20_round1/records.json",
+      "sha256": "b3c42c19ef522b2f3e2302894f5add196898983c22098b70d2b2228aa4e25a48"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/geometry20_round1/summary.json",
+      "sha256": "97a1efa91f600c1257fc0041d81882568d0f96369dec8fd959bb7f8d36a6a60b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/geometry20_round1_boundarysafe/records.json",
+      "sha256": "f46f8674b0fffdac9e1adb177ec7da632462c1d176548d916bfcbb00f795fcf3"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/geometry20_round1_boundarysafe/summary.json",
+      "sha256": "f792c2e663efedc0be9005cfe2a74379c5256547ff1d4d192e01575846b48207"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/geometry20_round1_corrected/records.json",
+      "sha256": "d93ddbc7d99a7ae233e1d9d7697a8e8c1bdfa5abf1c5f1133453d8d2532876b2"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/geometry20_round1_corrected/summary.json",
+      "sha256": "e58c79328b186dca3fa4a247469455ddeda0422098a638e27fcb9cea7fd85f75"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/geometry21_round2/records.json",
+      "sha256": "0dbfbc1efddd2e8d4f4190fc2f278ad6b7f5ebde69dafc36771a683611d10b96"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/geometry21_round2/summary.json",
+      "sha256": "be91dd18a319f40ebd009f68fe45b75cfa1d6369fbb36590cc5e25585d7c0314"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/geometry_phase_round3/certificate_0.json",
+      "sha256": "b6421287e61784daa19bfb2864d681ffd17501294fb9db0c4f38276e84c5a675"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/geometry_phase_round3/certificate_1.json",
+      "sha256": "b7f181a1381af9c8f17c6b2bb378c4d451370046938739a048e0c314fc1d08bf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/geometry_phase_round3/certificate_2.json",
+      "sha256": "0b06f6a08a9022086969aa9d0c92c163fcf11750de06c89e9480a1e1e5f49003"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/geometry_phase_round3/records.json",
+      "sha256": "fbbdd7e2f3880bcf6cdd0ac468b4be59bb65f302201d6d453735f9a6a5d6bf0e"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/original_certificate_check.json",
+      "sha256": "de35e2bb14f5142d15f9412a87e5d75273e6d0c63ed4461a6a3aa992dd182a48"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_exposed/case_metrics.json",
+      "sha256": "89567ecd73d0a762b62d9e234b7d19667ec4c98fed7a0a4d284aba20eee649f4"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_exposed/summary.json",
+      "sha256": "628da0fe9819e00aa54d2e5422ef505dd621589aec235f561645787a9cf6723f"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_full/case_metrics.json",
+      "sha256": "5deda5d32b2384044ca6b9a664ec013877a3c177d9ac343b49321b7de6d40600"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_full/summary.json",
+      "sha256": "eae986086c36c522ac2fc0f0b3bc3cd47c85d1c3907741dd30375c13512f207a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_quick/case_metrics.json",
+      "sha256": "26976797c62d534341336fb8eac53a722f1e88ffea6e262c9e474fc833c6dcf6"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_quick/summary.json",
+      "sha256": "6d6f58dffabf873a785b4c0c9c1636a35c0b11ca2e3c764931de27b63bd9c8f6"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/C7_rows.json",
+      "sha256": "4f278f5ff9312450b262584cb0af590f948eaac8669a51cdbab3f2340765f678"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/R1_rotation__E2-dev-q4-cell500_shared_field-62000040_trace.json",
+      "sha256": "3e11cd152124d25cd428c58bc36957aeb81c8d5c9a778a0c84b43fbec31f4a7d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/R1_rotation__E2-dev-q4-cell50_shared_field-62000032_trace.json",
+      "sha256": "48b24f33199fd59961e7de3d5297192c435e096960a919a1916957f743367a57"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/R1_rotation__E2-dev-q4-edge_mixed_min_radius-62000048_trace.json",
+      "sha256": "9a3c3f52e0412215ec1d71c06628f902f449788bcf19485d4dc5d7eaf17f0b8a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/R1_rotation__E2-dev-q4-exactly10_sources-62000080_trace.json",
+      "sha256": "42d40de1f68fc00a52c60ccc761b8898c5c69a9ba6c02fb847a6a8cfaa2fcc96"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/R1_rotation__E2-dev-q4-exactly16_sources-62000088_trace.json",
+      "sha256": "f1f1a07ebaddff52beec29b89ca9fd09b31cbebf272d2eb21002f675bf57535c"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/R1_rotation__E2-dev-q4-fixed_negative_bias-62000016_trace.json",
+      "sha256": "9e85515c772114d8fe739a463527e5148c443b6db794bcc67cbc361798961aa4"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/R1_rotation__E2-dev-q4-fixed_positive_bias-62000008_trace.json",
+      "sha256": "40c56cc094cb6e5c74ea3b9a032eb0f9ffab2115d74ba9b194e9a3e702828726"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/R1_rotation__E2-dev-q4-minimum_radius-62000072_trace.json",
+      "sha256": "efdcc391c4b0091d93c1ba0c72bc406d2576acf01388fec489af27b5ab03f024"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/R1_rotation__E2-dev-q4-offcenter_cluster-62000056_trace.json",
+      "sha256": "407e7c40bded54f8bf8b9c9c2c002764a490c52ad0c1accb6520f7bd267db7b6"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/R1_rotation__E2-dev-q4-origin_cluster-62000064_trace.json",
+      "sha256": "d99c5a443cc170ef0675dc52c96b38534424c8a8255833e0bdbd975d2338743e"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/R1_rotation__E2-dev-q4-reference_assumed-62000000_trace.json",
+      "sha256": "293dc9475aa0d5d32f60c3b9d178bf7768305f4732e1ab41f167fcfe4dc9a255"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/R1_rotation__E2-dev-q4-smooth_shared_field-62000024_trace.json",
+      "sha256": "d784a64663f8f67bb19bb9be556c04d794c4672a58ebc901967df3bb206814e0"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/R1_rotation_rows.json",
+      "sha256": "6eb69658ac96665b6a5529cd55cd31a9071179bdb440b7b5b96be020ecd2da45"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/cases.json",
+      "sha256": "f56866ea37ec892e0cc0ac581d574d38a023e894865ff7abc1f416f91439b441"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r1_rotation_dev/summary.json",
+      "sha256": "2bdad54b8c90ad747e102c6adae8b2f41034af34a0d8d77bd002eb3c2521f7d3"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_exposed/case_metrics.json",
+      "sha256": "2bbbbc72bb7f854ebb256ee05e1be1e4792f056c8d74073c535a75b039dfca1b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_exposed/summary.json",
+      "sha256": "ca4f2f159567d610939e56ce15529ce7e497f366692a5e0305ea2e3f85157d94"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_full/case_metrics.json",
+      "sha256": "7551b248255b3654dfed49506eddb3e639e3affdd55404ad2db24faf93da8d54"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_full/summary.json",
+      "sha256": "5c634f0674e09118b404c636cbf2b17a3499f1bd042c000e731f20d05f72e054"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_quick/case_metrics.json",
+      "sha256": "a72f331921e3be4123ae474a7193882d6ccd5deec554ca886e94b648dfd6a9c0"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_quick/summary.json",
+      "sha256": "f9b70c922ecf89d0c52c103acb0b098bbd86ac0b5cd94edf0132ee88b19553ff"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/C7_rows.json",
+      "sha256": "4f278f5ff9312450b262584cb0af590f948eaac8669a51cdbab3f2340765f678"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/R2_rotation_insertion__E2-dev-q4-cell500_shared_field-62000040_trace.json",
+      "sha256": "c3b110211a371a394624c6535164ae87f502461094e8a45a9a4d47c6cd89b770"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/R2_rotation_insertion__E2-dev-q4-cell50_shared_field-62000032_trace.json",
+      "sha256": "4e205e214a0e7164aadd42ebdc19cae64ff9a35615dc5fc86758ec4ced268818"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/R2_rotation_insertion__E2-dev-q4-edge_mixed_min_radius-62000048_trace.json",
+      "sha256": "2c1c93b2c9578968b38fbd9197ada87516ee520a1025f3b3c0b2ed6d25d2f699"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/R2_rotation_insertion__E2-dev-q4-exactly10_sources-62000080_trace.json",
+      "sha256": "72c9a511e587e300fdab707457ea485b4868436294102b10c876ce684410cbee"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/R2_rotation_insertion__E2-dev-q4-exactly16_sources-62000088_trace.json",
+      "sha256": "511c9d3fc67c0cb0c52bc67806b606e131d9dfc7a3e3435a074c0a9c115e39b4"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/R2_rotation_insertion__E2-dev-q4-fixed_negative_bias-62000016_trace.json",
+      "sha256": "5f7bee1450fb7157627a0c9d25a624050017aceb00876c669ee7f49b2c143659"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/R2_rotation_insertion__E2-dev-q4-fixed_positive_bias-62000008_trace.json",
+      "sha256": "1a6573774b6a89093a576f78e637ad21e06c7e6a136376ff3b7cf021d3201778"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/R2_rotation_insertion__E2-dev-q4-minimum_radius-62000072_trace.json",
+      "sha256": "3e8d81d8360fce323ec5f660c4095916f9a93fa853f708a75344cd92bb8f95a5"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/R2_rotation_insertion__E2-dev-q4-offcenter_cluster-62000056_trace.json",
+      "sha256": "5dafac93fe8c26d6bfb2ff490a151719081d2020560e0fc78a29cd0e3a00ff9e"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/R2_rotation_insertion__E2-dev-q4-origin_cluster-62000064_trace.json",
+      "sha256": "3471470d8bbc6bc4dea7a394dda57179b24ba785a16913d1d095e612ce814736"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/R2_rotation_insertion__E2-dev-q4-reference_assumed-62000000_trace.json",
+      "sha256": "6d3c91723c69aa49108cbcc7330345857310b0e306c5d5636b7a4e68ba40fead"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/R2_rotation_insertion__E2-dev-q4-smooth_shared_field-62000024_trace.json",
+      "sha256": "ec3a82f2d39ba2e66300c905d51e20ed640ced823e563f32b89e2e3af084dfdc"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/R2_rotation_insertion_rows.json",
+      "sha256": "ac9c1d33b5c59723cd940ecbb5397e0fa54983c23d82d80d7847f4aa137afcd0"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/cases.json",
+      "sha256": "f56866ea37ec892e0cc0ac581d574d38a023e894865ff7abc1f416f91439b441"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r2_rotation_insertion_dev/summary.json",
+      "sha256": "2329d69b222b89ceefc0cb8bdbf7755528263f00c69dd2f142a2ab4c75e18fa0"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/C7_rows.json",
+      "sha256": "4f278f5ff9312450b262584cb0af590f948eaac8669a51cdbab3f2340765f678"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/R3_deferred_rotation__E2-dev-q4-cell500_shared_field-62000040_trace.json",
+      "sha256": "ecfcfd191cdfe4484fd13ec99d1e7a926edb1dd222f859446ed71fb92dcb9b37"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/R3_deferred_rotation__E2-dev-q4-cell50_shared_field-62000032_trace.json",
+      "sha256": "f6fe524ce81deec1028d12fd74244f404924e407935b203d79d0df8b7269fb21"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/R3_deferred_rotation__E2-dev-q4-edge_mixed_min_radius-62000048_trace.json",
+      "sha256": "080f0f50c35405dc2210247ba30690344776274023988c631264110b7b173f68"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/R3_deferred_rotation__E2-dev-q4-exactly10_sources-62000080_trace.json",
+      "sha256": "25cb34769c467fb09c4b3d36757bb3bad20f888a1a9f0b9262a940b3999de53e"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/R3_deferred_rotation__E2-dev-q4-exactly16_sources-62000088_trace.json",
+      "sha256": "f4317cd8547d01c822d7f25d97fc1e824ab841aa9acd51cea8707655985fe193"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/R3_deferred_rotation__E2-dev-q4-fixed_negative_bias-62000016_trace.json",
+      "sha256": "f271821c779ddc374c64630034e3664e266b8ff842797f2ead51ab32125f57f2"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/R3_deferred_rotation__E2-dev-q4-fixed_positive_bias-62000008_trace.json",
+      "sha256": "3bb78dead53ce6162bf90ab274387ebbde75b83d9428ad6180f7ded526538639"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/R3_deferred_rotation__E2-dev-q4-minimum_radius-62000072_trace.json",
+      "sha256": "2e0f76a6a48c4432cd48459b011581ac6839405c979acc037feb4b641891cab7"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/R3_deferred_rotation__E2-dev-q4-offcenter_cluster-62000056_trace.json",
+      "sha256": "10fae09cbe99a9eb4251faf34aac62dcf74e5674edaf65d51cd84d6c8076a47f"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/R3_deferred_rotation__E2-dev-q4-origin_cluster-62000064_trace.json",
+      "sha256": "a872e5cf1aecacab4ea48b4e2f62562734cbc92186cf7229b100fd8df2397b0c"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/R3_deferred_rotation__E2-dev-q4-reference_assumed-62000000_trace.json",
+      "sha256": "5d88bc90787e72d5ba13911d9eb420bff58dd62c603a776065171df22588d36c"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/R3_deferred_rotation__E2-dev-q4-smooth_shared_field-62000024_trace.json",
+      "sha256": "c718e7497fc64347e9f5b079ba71944b49ad68f55841491bb08f1741bf0ebcfd"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/R3_deferred_rotation_rows.json",
+      "sha256": "df4d1caa57e493bd1088d5c8b6b35e249941bfd7124825e8855d4f38e3abae10"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/cases.json",
+      "sha256": "f56866ea37ec892e0cc0ac581d574d38a023e894865ff7abc1f416f91439b441"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_deferred_rotation_dev/summary.json",
+      "sha256": "62cf74faef9bf16b24abacfac7d64e775c2206389dff2c36476927c72bccee23"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_quick/case_metrics.json",
+      "sha256": "aba1402a3b7b801c5b44c797a7c4a746c7b4aee42d3ce7c03d1088f1329f71d2"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r3_quick/summary.json",
+      "sha256": "660353f2b7c65cca50b82943c0b923a449774cb2006ac1154286ae071a8f5feb"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/C7_rows.json",
+      "sha256": "4f278f5ff9312450b262584cb0af590f948eaac8669a51cdbab3f2340765f678"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/R4_commit_rotation__E2-dev-q4-cell500_shared_field-62000040_trace.json",
+      "sha256": "5b25490f46f21e943b3b2606c72e2258ee8c3fc73a635a2c1160fe37d6cc131c"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/R4_commit_rotation__E2-dev-q4-cell50_shared_field-62000032_trace.json",
+      "sha256": "09344b795398ab5719d6685e80a623aff075233187ccfcb1fbd955928a835927"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/R4_commit_rotation__E2-dev-q4-edge_mixed_min_radius-62000048_trace.json",
+      "sha256": "5a1bb3bf69d6bc58391b2c47bbbec64a929153c4719c516f7644911defdeb7c8"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/R4_commit_rotation__E2-dev-q4-exactly10_sources-62000080_trace.json",
+      "sha256": "9067a5196ccfe971d271b5ff67e8fcfeb04c6f349cbfba91f9e022fa4913a3f6"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/R4_commit_rotation__E2-dev-q4-exactly16_sources-62000088_trace.json",
+      "sha256": "5b2edfd6260528225f481fb570db9efddd2aa0b2cb77573a504a43cba00eaf49"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/R4_commit_rotation__E2-dev-q4-fixed_negative_bias-62000016_trace.json",
+      "sha256": "17f20ed74558b22081e3106bd9f9ecf870f7ef3092aa47a0b352f71fa515c94f"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/R4_commit_rotation__E2-dev-q4-fixed_positive_bias-62000008_trace.json",
+      "sha256": "3a7be8572b4bf75a979b36018cc61dd7a4ac9bf5808544b028643cef3cca0a4b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/R4_commit_rotation__E2-dev-q4-minimum_radius-62000072_trace.json",
+      "sha256": "e02cdfce595e40b882362ccc340cf696804434b9e2fd9ecb7318172553454919"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/R4_commit_rotation__E2-dev-q4-offcenter_cluster-62000056_trace.json",
+      "sha256": "a6d0c3220d6038a57397221c8cef1d6d90ab4f2c6c3ae947f23006ee8cdfb1ab"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/R4_commit_rotation__E2-dev-q4-origin_cluster-62000064_trace.json",
+      "sha256": "9e2fa4de34c5f772c03a7b8036682dc7efc47dd58f8c4088bdf32305ac06e63b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/R4_commit_rotation__E2-dev-q4-reference_assumed-62000000_trace.json",
+      "sha256": "5c5c930488db3b0414e47e0c227cb51f70606592a80ed952cc6b601a7eb9b652"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/R4_commit_rotation__E2-dev-q4-smooth_shared_field-62000024_trace.json",
+      "sha256": "b6cc3202bf75537087542d758ed9f5e29fd9400f54dd0800c5b7f54d320737f1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/R4_commit_rotation_rows.json",
+      "sha256": "3d42aef0aced68edd06ddb8b08c6d265132a10e447f424681f73cf8e61aa7b61"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/cases.json",
+      "sha256": "f56866ea37ec892e0cc0ac581d574d38a023e894865ff7abc1f416f91439b441"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_commit_rotation_dev/summary.json",
+      "sha256": "a25e692bd960b332baef57d4b476ba33afeb11201870006beb8bf605cb1ee0f2"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_quick/case_metrics.json",
+      "sha256": "dd509e2173506d0e3ca780b72daa1ad02af85958d69b91374ffa8bc80e01438b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r4_quick/summary.json",
+      "sha256": "2694325d724147178b37dae0c1efe52412e3e4a0aa56d145083e76bf70daa4db"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/C7_rows.json",
+      "sha256": "4f278f5ff9312450b262584cb0af590f948eaac8669a51cdbab3f2340765f678"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/R5_continuous_rotation__E2-dev-q4-cell500_shared_field-62000040_trace.json",
+      "sha256": "9784d20c575cceb85e914baac290b4ddcadadd141421554b64bfe9512124cadc"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/R5_continuous_rotation__E2-dev-q4-cell50_shared_field-62000032_trace.json",
+      "sha256": "df6fcb555297f265faf0cff8d2893c80dd967f95bc29f204fca8f041eceea574"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/R5_continuous_rotation__E2-dev-q4-edge_mixed_min_radius-62000048_trace.json",
+      "sha256": "649a05339b6542eca42c0957ef840197fdac37d3946c4503097949d3a98ac747"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/R5_continuous_rotation__E2-dev-q4-exactly10_sources-62000080_trace.json",
+      "sha256": "7d93ea5e8e083f9517ddcc1771f315a731657fc6ee3764cfac97279a5650614b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/R5_continuous_rotation__E2-dev-q4-exactly16_sources-62000088_trace.json",
+      "sha256": "4db861d58005902a755074db7b85eeb232251f0cbb0f356d8377824f25ca36ce"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/R5_continuous_rotation__E2-dev-q4-fixed_negative_bias-62000016_trace.json",
+      "sha256": "cf53c109202a1492901b54dad2847fc68f268422d33b9290810cb3f719276e96"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/R5_continuous_rotation__E2-dev-q4-fixed_positive_bias-62000008_trace.json",
+      "sha256": "147a00c250f455316ff5d3c0250d19af53238952e864c55fb8df4c40fd8cc9a8"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/R5_continuous_rotation__E2-dev-q4-minimum_radius-62000072_trace.json",
+      "sha256": "9a7137dff3a7be55b49048e2d1f6818b6c8762e11e49781b5e02afabc1a1a1f3"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/R5_continuous_rotation__E2-dev-q4-offcenter_cluster-62000056_trace.json",
+      "sha256": "610cba2321a61eaf76670727c504f4bbca08e62fc5ac524ace4621d378415b08"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/R5_continuous_rotation__E2-dev-q4-origin_cluster-62000064_trace.json",
+      "sha256": "8adfaf865e5e035e2e029e4d9d672d357a8a8564a015c427a47c34779be87c5a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/R5_continuous_rotation__E2-dev-q4-reference_assumed-62000000_trace.json",
+      "sha256": "ecf2f262ed012e36eb25e9bf018dad52d0e7882bf0a1d94d6ebbfda51f6d37d1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/R5_continuous_rotation__E2-dev-q4-smooth_shared_field-62000024_trace.json",
+      "sha256": "ba54d1d92c3b8bfb3f1ef4057309ebeb7868a231fd737b96cf8b124fcc2d61ef"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/R5_continuous_rotation_rows.json",
+      "sha256": "ad2269ad69335ec08dc67b1be35466c648d0a9669a8257e9cb8f4fbd77fee060"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/cases.json",
+      "sha256": "f56866ea37ec892e0cc0ac581d574d38a023e894865ff7abc1f416f91439b441"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_continuous_rotation_dev/summary.json",
+      "sha256": "fb42fd20e0b6fb6d86be13a55782adbebef78d6db2fe9133680361452a53b960"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_quick/case_metrics.json",
+      "sha256": "89af5bfac6155056ef68f0e057ae40f1d8bd74819a6056dcb7765c1940628ba8"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/r5_quick/summary.json",
+      "sha256": "c9a11d46b85c8f9d5777a5481b6a6aedc015cace422505d30b85f6b2c20ba065"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/results/rotation_certificate_check.json",
+      "sha256": "07fb53c18769bb37ea4a9d84b2cd4cccb9740298fcb4aee8dcd1a7beb22a75a6"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/A2/rotation_dependencies.json",
+      "sha256": "9100f24b25073a1d9369b8a313ad9fa7e1578c47bb789a543181f4d061aaf2b1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/evaluator/probes_v1.json",
+      "sha256": "15ed0ffdbeaab744c8b3d9cab5841823c3dd620fa941b638f035b2c155732263"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/execution_registration.json",
+      "sha256": "303e78737c6f22e838f6c106d6573bdd0e3551ddf7688e5661ffefef56aeb15d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g0_partial_override_v1/registration.json",
+      "sha256": "c39662d5a019789ad93d5e809c7603ea4a63cd37edf7b25821baf3cd39802e27"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g0_v1/fixture_registration.json",
+      "sha256": "faf24f5e7386ab61b72a909a74cff7775097e0c42cf8096efddfb8d6c885146d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g0_v2/fixture_registration.json",
+      "sha256": "faf24f5e7386ab61b72a909a74cff7775097e0c42cf8096efddfb8d6c885146d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/registration.json",
+      "sha256": "2bafabf03ba74df5b0a8ec57df96c9cfcd9d20883e83acf8a6183a773bce8d00"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w00/o1_s00/registration.json",
+      "sha256": "578514cff81b24447fa1845915597691895c8a72daa113e2c3416d0ed1d00e73"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w00/o1_s01/registration.json",
+      "sha256": "db399f82acd17fd0d44960173e935a85ccc6139df846a132aeb36e9eec7b4cfb"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w00/o1_s02/registration.json",
+      "sha256": "d57155374f646df76872f484fd1ae654c72f9b7ce8af8c413b0e4537ea7660e7"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w00/o1_s03/registration.json",
+      "sha256": "ae88e30a75104261ea57e66d3c251309983ea30cbc2f8e7237b6e1d58920eefa"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w00/o2_s00/registration.json",
+      "sha256": "82c40065e18d78760c21336139f25354e0078c061544ada1a14d58b307e5b6e1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w00/o2_s01/registration.json",
+      "sha256": "bf7275690152266f51f2fb6137be5463e047448bdddb86a12c84bfb492edf0fc"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w00/o2_s02/registration.json",
+      "sha256": "a19b081d6da67b31590a1dfaf2e178d16df40d3eb4bd3f8ca0f92ecc157662ec"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w00/o2_s03/registration.json",
+      "sha256": "1f7ea81165c0fac303074cacc6179136a362b6c5bbef4027bec2b2328de51180"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w01/o1_s00/registration.json",
+      "sha256": "f1eb77546ed9898d23026f952e1e6f105b9fe25aa572a5f214fe6484db7fd13b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w01/o1_s01/registration.json",
+      "sha256": "9c7492e7bd0ab1e6bba4a5ab391b674295a920afde7116344b129127c21d8da6"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w01/o1_s02/registration.json",
+      "sha256": "2cf26aec746220744e386849c901a8b908f7d83dde547ef7031eda65d6824532"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w01/o1_s03/registration.json",
+      "sha256": "ac0d8fcb2beca8bb87432703756c27ef20b9916ebf821fb6a375ac0752ae1cf1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w01/o2_s00/registration.json",
+      "sha256": "6afb1cdcd84f333b7ff7eaa83612392606d16b1636f87cf6f9f97a5014f8a3d9"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w01/o2_s01/registration.json",
+      "sha256": "46827f585c7e0f8ed7be68027951eb8ffbebdd8829b4cda2df787f0832d73d47"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w01/o2_s02/registration.json",
+      "sha256": "d7bac1604ef80455723a39f58071cef5a90dc6bbd2d8b63d0997b1d69b0360bc"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w01/o2_s03/registration.json",
+      "sha256": "5b9b63616ad4adeaad6b8fc4614b2e78bf4426e1b6c7822b0ba18b3f7a9c8286"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w02/o1_s00/registration.json",
+      "sha256": "0c9f5c47b98132f1ade96513fc302f675d099a226723ec338cec8309ac5e2dfe"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w02/o1_s01/registration.json",
+      "sha256": "025fee0977d04ba6c38192144e2b37d7b4b62728bc622a44a6be5e32e671ef6c"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w02/o1_s02/registration.json",
+      "sha256": "7ea1871f8bde8c1cdd43a4150115a970f43059716a58ecd8929b72137af4eb49"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w02/o1_s03/registration.json",
+      "sha256": "06582300da52890cb4a67cba0af323d91c179cb91bdfdafca6a4e2ffc854670b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w02/o2_s00/registration.json",
+      "sha256": "12456c67bc804388f5798da84bcc51e524c055cca8a16bd8f055cc0fecdb1de1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w02/o2_s01/registration.json",
+      "sha256": "6dc71e298dd77c0d354d934addad5ddc604ad554339d2729b0f51ca4901ad281"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w02/o2_s02/registration.json",
+      "sha256": "6b8f6170311db3fdc9460be5596c9f47a9e709cda123c2298cf34f7ef1951312"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w02/o2_s03/registration.json",
+      "sha256": "8d4a5e4d052de4955c5f8a1ba262035e041d7ddecfd608ffe7b8e1f6c438bd04"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w03/o1_s00/registration.json",
+      "sha256": "2cdf6f18ae2d98bb498616c934eb6b40ee4cc9bf4c7e60057b7ee0fb2a0ef101"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w03/o1_s01/registration.json",
+      "sha256": "5ee44269751a9ed6b24c6031e908d73881706f4ec5567ab22d0c6857eafde3a5"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w03/o1_s02/registration.json",
+      "sha256": "69637eb750185b5af4162b4f9fbc276a9c1fe25f83f8cda60d57fcf95b5938e5"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w03/o1_s03/registration.json",
+      "sha256": "3d5bbedc3d83fcc746ab8aad718cef2d94f1b53fe95de4ea2103c95a594fca77"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w04/o1_s00/registration.json",
+      "sha256": "d056d013881fe9fae2af9db2c24548c9ffb61bdaac7d77d0b8e82e7809af04ac"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w04/o1_s01/registration.json",
+      "sha256": "7c2cf2e2adc4d7bd024ff6e46bb3b4a39e2e62f8fec4fdcf619dd65302ae9b6b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w04/o1_s02/registration.json",
+      "sha256": "5fc48456fe1231a9ccf69f1adc3531f81f85ca787e7149ea0e3cb39578265602"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w04/o1_s03/registration.json",
+      "sha256": "5d4af2f72de45d2ad63bae0d4fa999c3026cde09fc3781604acb6ac9cf820248"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w04/o2_s00/registration.json",
+      "sha256": "2d47b4a3a804e1ca025202d63f2a56f8ed246c7097d799b54a81af945d84e813"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w04/o2_s01/registration.json",
+      "sha256": "abf561a75a179728842a3eb488152786a170b7f9ce0dc9bb06e3490db0b200f5"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w04/o2_s02/registration.json",
+      "sha256": "254184f263a2b1660f24ba992543d618c74fb91bcb10eb0783cc965784f2cbc0"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w04/o2_s03/registration.json",
+      "sha256": "5be8b4eea14a6049b83255b50fdde35776d9dbd192bf06c9d1979a06ea2f17ea"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w05/o1_s00/registration.json",
+      "sha256": "ee13beca62aa1ecd00f146327caf96511142e9562ab58ee84b1e754be01669dd"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w05/o1_s01/registration.json",
+      "sha256": "b3395976490d078a1bdabb8eef2db9b5df837601124b88f28738c335c2a06c38"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w05/o1_s02/registration.json",
+      "sha256": "8725e13220fa1c95e438bf733029a6560ef8b399a304214f478125ad1989efe3"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w05/o1_s03/registration.json",
+      "sha256": "beb2ecd9055766e5741eebfb07c873b38508b90ff48559332787d60e27ad0fa1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w05/o2_s00/registration.json",
+      "sha256": "ba3aec56d849f7a3492d7054c29476f0e6ee172756ed32d5532d1a72e4aa3b2c"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w05/o2_s01/registration.json",
+      "sha256": "668682f6b25847ad8bfc8e3e890637054ea60b9675d0ecd3679a3f1e1abfc380"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w05/o2_s02/registration.json",
+      "sha256": "eac3d6ddb4da162acfd7384be799e02211587dc3f286469d9747ad5c0c0ca599"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w05/o2_s03/registration.json",
+      "sha256": "a6b9c16e92c99693034861cbbea55b3c2b54508e3914e4a5f649e3cb21ed76f6"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w06/o1_s00/registration.json",
+      "sha256": "80cb555e0d402c10efb6f18cc418356cb7a3301dbb7f4bd7baa0f093a93c3779"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w06/o1_s01/registration.json",
+      "sha256": "645855fe21b9737b7b787c68cd791c217564ec4c5195444ce9fcc1bb0c611d0a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w06/o1_s02/registration.json",
+      "sha256": "68d68278c2cd04857592bb87ebe66f97e71b7dc9f30208965083cfd33916be0b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w06/o1_s03/registration.json",
+      "sha256": "302ae8aef1edad27bbc80b35e7dc14042434c9e3a6fb1bde93a818e27d724ec1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w06/o2_s00/registration.json",
+      "sha256": "8eeb8b96d68dca4a40f8b187628d6e58c40a87ef40e44e82746ce19da21c8031"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w06/o2_s01/registration.json",
+      "sha256": "c7affd788a8b614959d1e9b8574551837cfd886ee5dfdfef230bd8f2408008c6"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w06/o2_s02/registration.json",
+      "sha256": "d92533e16e8ed88099dc10407e9555dd66e15fac7f13bb25ca17680c658ac97b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w06/o2_s03/registration.json",
+      "sha256": "6391900a1214e562fbb73b93d8262cb49372cb0802d66c56564a948fac980324"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w07/o1_s00/registration.json",
+      "sha256": "cd4154c49dfc6290b5b62a8c3343aff353dd8523c79980b114fe64744d3b5093"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w07/o1_s01/registration.json",
+      "sha256": "74c6ec8ab30c6d2ee61572f5b3a1e8bdcb6fb006e2ee278915e9d8a950090d7e"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w07/o1_s02/registration.json",
+      "sha256": "e2e657531c263ae62dfed02ae392e7fdb200cb50abcc6c662acc93f1952628fb"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w07/o1_s03/registration.json",
+      "sha256": "4330b2eef814bbda9c62f411246031a83dea20048929ef0c6156c2be61fa16b9"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w07/o2_s00/registration.json",
+      "sha256": "c1c848b54dfa7dd8ecc30da968c61931a1e70cc95a79bd0435710bec0f66985e"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w07/o2_s01/registration.json",
+      "sha256": "b458b63ce38ba7f68b9f0d235410c2ca45454229a66b0e34912c66c5b0b1cd29"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w07/o2_s02/registration.json",
+      "sha256": "425706edf21c3b38b301818f9d5a97a39c83658a06c976725618c642aa3e4c4c"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w07/o2_s03/registration.json",
+      "sha256": "c025fa96165dd31ca99ed762dec36c4accc729477acccbbc47b1b7b4aa26fe59"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w08/o1_s00/registration.json",
+      "sha256": "efff2e3bead6d01b1b3ee3ee043974125c09902cc2d305f2801c69ddda9bbea4"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w08/o1_s01/registration.json",
+      "sha256": "e5ad46e1e307a7bf5a052cbd20a69e51a8797733e0456cfe9fda80cb26e06188"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w08/o1_s02/registration.json",
+      "sha256": "ccf723f97d5e89f2735a487dd99ccaa902a2c06d18da8d27bc4cc52dceff1a88"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w08/o1_s03/registration.json",
+      "sha256": "a0ae51a8e331ec0a67d376eabb5a3fb601bf74e106e225984517ef2283d68b43"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w08/o2_s00/registration.json",
+      "sha256": "ba53e0a243decc22439669dc7499375a16f9536c06c3744b20bd7ee0a0e84538"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w08/o2_s01/registration.json",
+      "sha256": "7ff15d6b4f4a89a4ae03d3386e9e5205547ac6ef6d3ca18881d3cba4eed019f9"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w08/o2_s02/registration.json",
+      "sha256": "7942b66dfba252c4915aa3ec37f19fc05e8f256b47955bd3791c1e210e513b05"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w08/o2_s03/registration.json",
+      "sha256": "f16f5889533985828ffed13a07e842c2aa8940aea3ddec3213d0bad43a061866"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w09/o1_s00/registration.json",
+      "sha256": "fe387485419d3938abb5448ca914dec7cd9e12eb8f21e8c7e9951af15588d5ee"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w09/o1_s01/registration.json",
+      "sha256": "839070b760b6fd08bbcedcfa9528bf72bf3f10184aab5c7e54d29c1725fd8347"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w09/o1_s02/registration.json",
+      "sha256": "99002f9cf40a5d17f5ebfcb90862d98403710f2b717868d52b63fd0d5af54bfd"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w09/o1_s03/registration.json",
+      "sha256": "0ee0659e4706bb46879a3a3813b06d614fd58ae67491dc4eac3062992e53f129"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w09/o2_s00/registration.json",
+      "sha256": "8825aebfbadd3ceed54875986e4b28acf65ae97fabac95c809c95e96a6505355"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w09/o2_s01/registration.json",
+      "sha256": "53874060fea463164dd1e38d34638ae7afea8da16ab561c03901001ceb722b20"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w09/o2_s02/registration.json",
+      "sha256": "48885f39af0fa002a4219f403d060b34732d84ede578917ca3c08d1667564715"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w09/o2_s03/registration.json",
+      "sha256": "ccef5521e6f54ce24e3e405974c7d446802b95210b470145c94e18bb03da8a1f"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w10/o1_s00/registration.json",
+      "sha256": "9d64d4e01c68dbb1a6dfaaf7132ad6833fb0afecb852f978eb7371853e43d2b2"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w10/o1_s01/registration.json",
+      "sha256": "fa33cdcd67af8ce47711c39d316ce0fb402494104997abd8561b79330486003d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w10/o1_s02/registration.json",
+      "sha256": "55c25798dbf2660acef9fde1f2d329dacf3f38e1eff4ccac2d93bfa99ee3c3e8"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w10/o1_s03/registration.json",
+      "sha256": "4e17a10619958e10bedc59c2be81bbe305fe754c089434eea4cc4b91198d76dd"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w10/o2_s00/registration.json",
+      "sha256": "418ce0e208a7909af6ee657770871d32194cc49dafc8020611dedbd780d061e7"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w10/o2_s01/registration.json",
+      "sha256": "499060a64c7a8ac4f86f0b83e370f0110ccede1488f671863659ac47074c67e0"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w10/o2_s02/registration.json",
+      "sha256": "bee58702d7ad1a9e7bfdca8284415029586327949b69e14bae2dc7b479bae74c"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w10/o2_s03/registration.json",
+      "sha256": "d23013e99f6ed1a7b9bccc83c48dedf09eaca9c3d66c9ca496a91f7b5e41cdfb"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w11/o1_s00/registration.json",
+      "sha256": "80c19a72d382fe8e75695a5d6336f0cdd18f1981a910f9cd07ecb4cd4cd5c365"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w11/o1_s01/registration.json",
+      "sha256": "111218b833316503fadf90ff9ffe0c0ba924cbb2a8f9ef024beb6c40b14f29f7"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w11/o1_s02/registration.json",
+      "sha256": "ac0377645057d3f19ee7522667bc50068f4c37351a532247cf5feda9be4d8159"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w11/o1_s03/registration.json",
+      "sha256": "101f431010581d901d7d175bbf6e974b26579c73c464976f13e4d64725fef515"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w12/o1_s00/registration.json",
+      "sha256": "7b0fed66cc8cb4ec5d7c55716fb221c9df455081708b5b6895ca7091ff881dad"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w12/o1_s01/registration.json",
+      "sha256": "a6d2d8b9adb8feb8d9dfb6f7267634da19a8ecb0341ef0bd0fd2015878476e33"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w12/o1_s02/registration.json",
+      "sha256": "bea52ef03c18625bc07354a5dc0224a718a4ef72d7e5e79c956c0e065ec71e16"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w12/o1_s03/registration.json",
+      "sha256": "bae410ed84490df7004edc2b0805a6afc383f47c676f7b24d48ee9ce19a4141e"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w12/o2_s00/registration.json",
+      "sha256": "2640254abfa7e63625d457c9e7f42f7119fbc1a7ab492e3684b4ffe72128a236"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w12/o2_s01/registration.json",
+      "sha256": "24bccb6b130dfd4f681c8bda569cd7c1aa6f31a62d408a2e09bec59a51c10d49"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w12/o2_s02/registration.json",
+      "sha256": "10bf280aed0293084368c92111a903382bfda9ff96d278012448e9c62f1dc09d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w12/o2_s03/registration.json",
+      "sha256": "20b3a8ac16e790a43d459c563e37326b38dae1bb416241d79c0a7a8d4a5adacd"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w13/o1_s00/registration.json",
+      "sha256": "2b2ce78783756caa3cb23f510cdb8901be2aaf24d6aae14dab9a20fa1f15b751"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w13/o1_s01/registration.json",
+      "sha256": "d4c5ae99e76437d18848a4c23691c2ad6bfd5ff5f967ec847d801df1412eedb8"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w13/o1_s02/registration.json",
+      "sha256": "700d22f5e77e18a854c75823727d3f2fa68834ca73e82a728c7579d45d77d88a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w13/o1_s03/registration.json",
+      "sha256": "58ec1cce1871dcb41c49e469c49b2d4c931250b1592dd4070d2ac7d186451416"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w13/o2_s00/registration.json",
+      "sha256": "2b2d9574d429ef105935f6027161fdd3ed5704d48bdeb35fb983aa93a8564d68"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w13/o2_s01/registration.json",
+      "sha256": "a390ebca4f757d5801c5aa519c7be12d84f92f1921b49f7c47249c8168d09643"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w13/o2_s02/registration.json",
+      "sha256": "86f29684f51a2f60a96b456fcdded1d8c5ef7a095c245c1aebe3bc2abc13eb4a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w13/o2_s03/registration.json",
+      "sha256": "ea42c38bd6c0ab3cb1c0b445365c8ed4678019ed709c4d882d4d0c56ee13b1bd"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w14/o1_s00/registration.json",
+      "sha256": "db3b95c2bac236c07c168b344f85a293cffd50fc805051bcd5f09c2669cbc8b6"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w14/o1_s01/registration.json",
+      "sha256": "2cca9bd80248db5fe43d699acea19129feae4dce9645c1c5627afba3a8ab71dd"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w14/o1_s02/registration.json",
+      "sha256": "62eac2f0341e2c387b6786a45abd77d3b6cf8e8876efaef019039db91ea9feec"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w14/o1_s03/registration.json",
+      "sha256": "8d17977db07631144213350576d8f0b863149f4620d6e143a8fd5be4cfcd6055"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w14/o2_s00/registration.json",
+      "sha256": "37c2719e62175f5fe7027da00705fc17ee01bea06312355db34ac6cd53625e16"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w14/o2_s01/registration.json",
+      "sha256": "e6a9ba4c1955ffd69083b38843abcd27f6665b03a477ffbc3440d3aa844332b8"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w14/o2_s02/registration.json",
+      "sha256": "23d705721e6f6fa2fdf50fd0bc2b0167f6f77d7b4ee56f1a06e3c47d46e26483"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w14/o2_s03/registration.json",
+      "sha256": "0f237f934fb87dadee208da770a9e3e28f818aa30c97086834be5cfd68619832"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w15/o1_s00/registration.json",
+      "sha256": "6dbd098b84a6fdd4a72534d3f69a2478de7b20ab470bdcaff0c5aaf448047d79"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w15/o1_s01/registration.json",
+      "sha256": "ef3de79de199dba4427bf15a0cf6fb535731c9adf89fd27159a350d57523681d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w15/o1_s02/registration.json",
+      "sha256": "8375911eaf307f0d0fc07469ab956e1aadf2ebda0e5cff7eba969af2bc095c38"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w15/o1_s03/registration.json",
+      "sha256": "71f1727b3ace28acf02fb194afa7fd36c632e10cbaa385eaa604373e61b69959"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w15/o2_s00/registration.json",
+      "sha256": "259951a884561ca7af4d08cab8168b74e68d20a0a7f13620d7c6886cbaa8a153"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w15/o2_s01/registration.json",
+      "sha256": "f1ebe9b3e74c7cecc3f4146a7bd93f019a16641458b9026e2172a13ad78e90e5"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w15/o2_s02/registration.json",
+      "sha256": "a743ebe8a64b2b0d876d6731758f07cc69c3e7ec00b141a5d42f7dacb41cee64"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w15/o2_s03/registration.json",
+      "sha256": "e87e381443e87e56dc0fb4c856fb7618c26a7956b8b0fd2b1bf77ac2ffecffde"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w16/o1_s00/registration.json",
+      "sha256": "9a2a5e672c31c21f966815787115dc0c4f4b1bf58afe20e71498eb8ff6b282b1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w16/o1_s01/registration.json",
+      "sha256": "a432e686247d0d6d781bbc94861773ff16a3bbdbd2640e87835f34ab22e920c2"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w16/o1_s02/registration.json",
+      "sha256": "7eeb279e544b10348f893ea89a945b7f48c774d77bec6b8d86820bc3b414bced"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w16/o1_s03/registration.json",
+      "sha256": "cdece329c8c515c4eeb0772f39ee9ddf5917ec12d9b5621903199332fc4b833b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w16/o2_s00/registration.json",
+      "sha256": "d2ad0be0109c144db3b0ec15c7a344be0a6e8b118c46e2cb48b3c32db358fbae"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w16/o2_s01/registration.json",
+      "sha256": "f88685b53e8cbcff5e30162122f985f56db5f5ec8cc9856f13105bcca3f7b5e9"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w16/o2_s02/registration.json",
+      "sha256": "7e79733079c1091de6e729ef3effda07e939d05a86ab7758027bc6a2a1c8abcb"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w16/o2_s03/registration.json",
+      "sha256": "d1e65a632d81f2cea2fbf6931961285a00a0f63bc8da6c61c9ba3323772c22d4"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w17/o1_s00/registration.json",
+      "sha256": "eda36054318af7e0aaff1fe26497a71eb5ce7d26ef60492dc0060b29aa78a834"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w17/o1_s01/registration.json",
+      "sha256": "b042630fb8e3058f2da21e52d58094c3f9b2126fd0897b42670413ba2b51757f"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w17/o1_s02/registration.json",
+      "sha256": "b671470b6dc53253c86b55a3bc3638bbc5e62aa5cc8362247928a26988dd782d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w17/o1_s03/registration.json",
+      "sha256": "58119225b56f321f3fed08a091810f0401c46f2bf23f8ae3b3ee0b6705ee1713"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w17/o2_s00/registration.json",
+      "sha256": "a523800d12d2f017f0af9af21185d8554d158017d26bc386c0e460f32e9bf320"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w17/o2_s01/registration.json",
+      "sha256": "bbd8380bf0596aadea451deed7e8b18c7386817ff51bdd15fa127e419cff42df"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w17/o2_s02/registration.json",
+      "sha256": "8093c2bc99c3f67c761b9c5122b62c08a119a6dc28b0f1c55f634ec98f6bc265"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w17/o2_s03/registration.json",
+      "sha256": "8704cc263df4063d587fb0558d733c6b9a12b2210e1fd0825d810ce44af9f35f"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w18/o1_s00/registration.json",
+      "sha256": "81dc62588599281e5f3f55ce89e73b966cff33e10a3fa709c41eb651c8b922d8"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w18/o1_s01/registration.json",
+      "sha256": "3b2065a61b29a8d2215ae371621bc3b2e7915763a8e3e6eb18cbb2bd07c1d716"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w18/o1_s02/registration.json",
+      "sha256": "07cc23b0dbb1dbda0eeb15d176bfc47a1fd09b1bb375fbc64d22162d7852a052"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w18/o1_s03/registration.json",
+      "sha256": "a88a676c6566329cf7c0d42953fc251072ea4d1c10d56bced6ff38ee4dccc837"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w18/o2_s00/registration.json",
+      "sha256": "8beef53bb7c49667e33411d767a955d560c9cd9da24c018d485b7cacf7d42f4a"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w18/o2_s01/registration.json",
+      "sha256": "1a7569332c6cfa377b4da368b8a313b57096c113e2ef02421960476a24a69a69"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w18/o2_s02/registration.json",
+      "sha256": "697aa30be1ab2cded6edb713674fe0eaa368deb627df4b6dd890dbb83ffc97c8"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w18/o2_s03/registration.json",
+      "sha256": "60bb788e472d0295cad35c1c8b8809e1791c560dbf457fde981e60320e43def1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w19/o1_s00/registration.json",
+      "sha256": "fbe71078a4a6df118cd74ca24fa44faab780fbec6ee30ff1f7fc4b6cf69251f9"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w19/o1_s01/registration.json",
+      "sha256": "1c1224b54a3503f157e5b095bbc8bc0ef766bcde7d3f4c4889393aba2334cb19"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w19/o1_s02/registration.json",
+      "sha256": "9d91d3f4c808f00f742601cb6a361001c00b335501f6fa2ae2cd4a4cfcf100cc"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w19/o1_s03/registration.json",
+      "sha256": "02de55a5ead5ecd504e54cc590be6e3e5a6c21bfee92a92e44aeab1a0d6709fb"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w20/o1_s00/registration.json",
+      "sha256": "2ff967dc4c7399eebb15e1a754be522982f0cae3f51b45094e6af8540b100d50"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w20/o1_s01/registration.json",
+      "sha256": "b64c9035f9bcf02a823310fea899ce524fe4055d43fa7211a95f423838af854e"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w20/o1_s02/registration.json",
+      "sha256": "2db1cbda164d03aa870cef4d593c1f1f0bb6df1cb296146391ccc730aa11822d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w20/o1_s03/registration.json",
+      "sha256": "4d7bc133eb574d48df430fc18166b0ef4fd301ef3cb6b723c0fbb07aeef1691d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w20/o2_s00/registration.json",
+      "sha256": "377859c0f39640e5f815fc9e2999d125cb3114f4faeb952c6f534a0ae8a229f1"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w20/o2_s01/registration.json",
+      "sha256": "300ed762231a4d27bc017637b29815040f940a09498affb60fc64e1c9e0d5a5c"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w20/o2_s02/registration.json",
+      "sha256": "397aea7a2ebe41804df9e03f5a4bb0ad9e7d5ef788a982a8f8ea0ee2ba04cdb9"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w20/o2_s03/registration.json",
+      "sha256": "c0ce9d490e9e18cfc3b3629e6ad1e0aa1e87f1d7fdd340ea4322f11344b96427"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w21/o1_s00/registration.json",
+      "sha256": "512e42783a80be909179ea17fed43a75bda48ae8083df496dd0d519aa97f3f97"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w21/o1_s01/registration.json",
+      "sha256": "002ae4e819e423454e530633b0bad9e8267e97d8da50d5f6e49c2c4f51ca6cad"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w21/o1_s02/registration.json",
+      "sha256": "e7d320647d2ae092c676c19ffc3a3536f2db9ff5cd840ebbce310441bca2374b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w21/o1_s03/registration.json",
+      "sha256": "c82bf33189c6320107a6dd6a320b619da62a78407d6c7cf7c2fbac90c36a920e"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w21/o2_s00/registration.json",
+      "sha256": "e2e9675f15f87db50d34fe9a9ba63bee970a7a7364d3dda1a342b9f74a433a71"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w21/o2_s01/registration.json",
+      "sha256": "819100ef172eca6386c5bf2050a6e065daaa740333407f56ab971b433698680f"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w21/o2_s02/registration.json",
+      "sha256": "a8d5ffeb1cddf8ea1238363d1937f9e0a7e85c2fb01360f589379f00b8c5da86"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w21/o2_s03/registration.json",
+      "sha256": "f4f08526d568abeb5f554d89fe1d341eeeac27da635cf45ace63c4c2eea39eef"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w22/o1_s00/registration.json",
+      "sha256": "0586a0ced22902b87eaaeac1a930862d9309bc86feb15519f25673bdacadbfaa"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w22/o1_s01/registration.json",
+      "sha256": "1051631e28505272ba8b80970394d45afef9539e9c02e188ba5722fe0397aab3"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w22/o1_s02/registration.json",
+      "sha256": "0cd2de4a06f997d5087498de99ae0bf71d3304443713c780e0c0c407386728fe"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w22/o1_s03/registration.json",
+      "sha256": "0b15a874ed2ba264f54a199dad921502c1d5ea84e2edec3b518d083a461bf2cf"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w23/o1_s00/registration.json",
+      "sha256": "ef0822a08ec30a191b3cf9962cf3e40765317d501311a5787a72956b7c420696"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w23/o1_s01/registration.json",
+      "sha256": "d858062e9e3cf3e81f60aac6b8dc7d0605a280c6907799a7ce10da1c06f9415d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w23/o1_s02/registration.json",
+      "sha256": "1316b066c4d2db59c603a4f983929b20e2e262fc84cf96458a20b5491b252a0c"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w23/o1_s03/registration.json",
+      "sha256": "ce3b8a9bf0615247089ea6e3fd07cfd642611bd456b92d0e5ed3cec06b7e02f5"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w23/o2_s00/registration.json",
+      "sha256": "9da1214ccacd02f7990857f764b0f741052fb099e1d801df38a64c7110f64eef"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w23/o2_s01/registration.json",
+      "sha256": "997bb2b9a3a5111a1415c4f170bec04be14f7ea6ca45133ccc17f9bedabcb32b"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w23/o2_s02/registration.json",
+      "sha256": "069248542a87e9cfe11690eb14af9c9cad9c91dc78c5e8b28b7a34ff005b2f8d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/RL/implementation/results/g1_v1/worlds/w23/o2_s03/registration.json",
+      "sha256": "85d00c17d772d275f0ade4010073bf2a4e901f777c25442527f348cdc06fdba5"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/verification/rl_g0_final_ledger_v1/snapshot_manifest.json",
+      "sha256": "dd457338408fb21e7c916582be55c47c7e6c83c71841595cee22869b70bae80d"
+    },
+    {
+      "path": "experiments/20260912_breakthrough/verification/rl_g0g1_final_ledger_v1/snapshot_manifest.json",
+      "sha256": "fbb978ba2457f190596f68f0a300862efeba27836b5b91fd71d55832ba32b5bf"
+    },
+    {
+      "path": "experiments/B1/results/r1_development/cases.json",
+      "sha256": "eaf9e3ac22e75e31524ead15b2315b4c67383717fb81b7d5df9c81a10f30c69b"
+    },
+    {
+      "path": "experiments/B1/results/r1_train/cases.json",
+      "sha256": "379a860fd044fb567b822ba4b01695481d8d0a082612ef8d134102a3a9da7f72"
+    },
+    {
+      "path": "experiments/B1/results/r1_worst_cases.json",
+      "sha256": "5bd1cc0f600cedf4e6b4a72509f8c5a82d046bd7519708fb0ad4bdada68011d3"
+    },
+    {
+      "path": "experiments/B2/development/r1/cases.json",
+      "sha256": "bb52d9e52fb6b282fc51503d6f428a18cd79a382e346f0d47d1e5509f1e569a4"
+    },
+    {
+      "path": "experiments/B2/development/r1/registration.json",
+      "sha256": "7e9701a17b974433556b35793926a3fb04ecbe1572ccd66b58201263f7c66dd1"
+    },
+    {
+      "path": "experiments/B2/development/r2/cases.json",
+      "sha256": "0f60821cfcee84f0bb51ef48cc933ac97da56996ca2d35eec168ef1b8dbd0d9d"
+    },
+    {
+      "path": "experiments/B2/development/r2/registration.json",
+      "sha256": "f7287c4ddb8217886e3eada7f0b4928d1ab5f2ebf6ee27fc5a1f42ded6cc610c"
+    },
+    {
+      "path": "experiments/B2/development/r3/cases.json",
+      "sha256": "f0e3ca41da56475dea5f0f3908a365c9b36aec9f7a27c1edba59d0ab88559b71"
+    },
+    {
+      "path": "experiments/B2/development/r3/registration.json",
+      "sha256": "4a64c32ce59faae2c73f379403853f702852610a9a6058a1545f063ae69f09da"
+    },
+    {
+      "path": "experiments/B3/development/r1/cases.json",
+      "sha256": "53dcd2e75e661b4bd5b7a8b5e5ffb3bc4b93e8889ecc8476cfd4558cca2f729a"
+    },
+    {
+      "path": "experiments/E1_refine/development/r1_screen/cases.json",
+      "sha256": "c4a936299007ad2595149f42d836b2c836f77f766c6187b7fb1a710f655c9bd1"
+    },
+    {
+      "path": "experiments/E1_refine/development/r1_screen/registration.json",
+      "sha256": "03c4c4d47bdd1b26f893689ef1e90353a2db634286a78bd9f5f80a7d8ba1037d"
+    },
+    {
+      "path": "experiments/E1_refine/development/r2_closure/cases.json",
+      "sha256": "3883c1924426d2a30b5ee7358468c11b178ff67a633d3d96a2ca0cbd0f1b4973"
+    },
+    {
+      "path": "experiments/E1_refine/development/r2_closure/registration.json",
+      "sha256": "9884cfdb3b8b64ad7126251e2c5b93574ab098007c6a316f2b62dc9c01500dbc"
+    },
+    {
+      "path": "experiments/E1_refine/development/r3_joint/cases.json",
+      "sha256": "24d378fb6b12a27fe2a8923df28fa04ef6fb49b8f732f937842efdcbae6ab213"
+    },
+    {
+      "path": "experiments/E1_refine/development/r3_joint/registration.json",
+      "sha256": "43ec983f76001e484a343ff0ed0bade17dc14b5d5dd799616b45f4e74d135d9a"
+    },
+    {
+      "path": "experiments/E1_refine/development/r4_service_blocks/cases.json",
+      "sha256": "692446305df61052c7d247ed1061471ca5894d70537bdd86e79ac94d73e77b90"
+    },
+    {
+      "path": "experiments/E1_refine/development/r4_service_blocks/registration.json",
+      "sha256": "d44a514a2eb842b11e4d4dd0d2f4bdd43f274630a2b133e873addb1dbffda520"
+    },
+    {
+      "path": "experiments/E1_refine/development/r5_immediate_block/cases.json",
+      "sha256": "554f01c4e11d0e527bce4cbfce520d442a07abc907d4831194e8eb0313d9c583"
+    },
+    {
+      "path": "experiments/E1_refine/development/r5_immediate_block/registration.json",
+      "sha256": "02ad05ed43111884deee1869c8fdc83e134a92d7db3377e55b50fdee979879f8"
+    },
+    {
+      "path": "experiments/E2_refine/results/r1_ablation/cases.json",
+      "sha256": "630f8b777cf4342ed6bb91fbfc2d04dc13fc5eb37ec14aa7014a1b874c6c24e7"
+    },
+    {
+      "path": "experiments/E2_refine/results/r1_development/cases.json",
+      "sha256": "630f8b777cf4342ed6bb91fbfc2d04dc13fc5eb37ec14aa7014a1b874c6c24e7"
+    },
+    {
+      "path": "experiments/E2_refine/results/r2_development/cases.json",
+      "sha256": "f7ccbe487431565123fa227b681b383df1540142b6e1e3e1dfd7846b67c8ca10"
+    },
+    {
+      "path": "experiments/E2_refine/results/r3_development/cases.json",
+      "sha256": "a154b61cfbd5b18f3ae4de3172a18e8dff56efb16b3c45b64abf597a2c20c5e1"
+    },
+    {
+      "path": "experiments/E2_refine/results/r4_development/cases.json",
+      "sha256": "64143cd9f273701aba4db5c674ab1a2e79092f37c3c6043d1ce0cde361a89667"
+    },
+    {
+      "path": "experiments/E3_expand/research/download_manifest.json",
+      "sha256": "80b640b4031e3d499fe2b1bc05a51238bd2c503341fb9c46da67f26775c9f52a"
+    },
+    {
+      "path": "experiments/E3_expand/research/expansion_download_manifest.json",
+      "sha256": "d7e29fb7c5833801bf4707b4a8bbb4ee09fa0a34778ea1bbf438bf8ccd2f1f6f"
+    },
+    {
+      "path": "experiments/E3_expand/research/source_reading_manifest.json",
+      "sha256": "310f44fd9335709fb6672fd286b74cc119581a36fe6bd93b51c8da3fae04a677"
+    },
+    {
+      "path": "experiments/E3_expand/results/r1_development/cases.json",
+      "sha256": "b983ab73fd629f0c0dbde318407e7c037087e160b683b0836f8712f57f2854f8"
+    },
+    {
+      "path": "experiments/E3_expand/results/r2_development/cases.json",
+      "sha256": "3bc0e604e875c25ab4d148120b825888727cff1788ce9462317957e0c74bcfca"
+    },
+    {
+      "path": "experiments/E3_expand/results/r3_development/cases.json",
+      "sha256": "df75f96de9f858bc37121201d7fa65d766deaca8f67ee43bc801240256eac683"
+    },
+    {
+      "path": "experiments/E3_expand/results/r4_confirmation/cases.json",
+      "sha256": "ab24892a9aae3bff59b08d292783ccdf6a64b976f921810b14c0c750e3f5bf3d"
+    },
+    {
+      "path": "experiments/E3_expand/results/r4_development/cases.json",
+      "sha256": "b80eb4fd432c86490d83f5aaf95ea64d2791beac346f92b5e35db3edff460709"
+    },
+    {
+      "path": "experiments/R1_atlas/breakthrough_increment/manifest.json",
+      "sha256": "914dc6976c02980f5319e838a5605e17e2ddd63a1178986e76f2117ffa1820b5"
+    },
+    {
+      "path": "experiments/R1_atlas/breakthrough_increment/nodes/S6_RL_BC_RPI_PLAN.json",
+      "sha256": "3b3bfe9a2bfd11b175b7c93c488e3f970dc76af6157308eaa96f5c5b1f2e590b"
+    },
+    {
+      "path": "experiments/R1_atlas/breakthrough_increment/snapshots/rl_g0g1_20260912T062643_857849Z/execution_registration.json",
+      "sha256": "303e78737c6f22e838f6c106d6573bdd0e3551ddf7688e5661ffefef56aeb15d"
+    },
+    {
+      "path": "experiments/R1_atlas/breakthrough_increment/snapshots/rl_g0g1_20260912T063311_829574Z/execution_registration.json",
+      "sha256": "303e78737c6f22e838f6c106d6573bdd0e3551ddf7688e5661ffefef56aeb15d"
+    },
+    {
+      "path": "experiments/R1_atlas/research/source_cache_manifest.json",
+      "sha256": "e7002c77fa7d5df9d035bac0421612139f777254099f359fd863ace04dbd7225"
+    },
+    {
+      "path": "experiments/R1_atlas/research/stage3_frozen_registry.json",
+      "sha256": "645fd605ca8641d5127e0c1a8e754671e762d63b3b6a4c1ce45709fef52d7bf1"
+    },
+    {
+      "path": "experiments/R1_atlas/rl_increment/initial_build_before_report/source_manifest.json",
+      "sha256": "4200bc2ae211f80c144220d5b64b6d33acc07678215a31f67305f95867ea6cf2"
+    },
+    {
+      "path": "experiments/R1_atlas/rl_increment/source_manifest.json",
+      "sha256": "23bcf8e7b3519419e31f3f03e983f7146413ad8d6c665ad23479a2d87e04c9f3"
+    },
+    {
+      "path": "experiments/R1_atlas/stage4_increment/manifest.json",
+      "sha256": "4c41279d364ea39f8ff7b6e8fd54fbcd3bc60d953f76f6e47d554945028658f0"
+    },
+    {
+      "path": "experiments/R2_open/results/r1_development/cases.json",
+      "sha256": "55db8466f9ef5c827c6e56d3ac02cd847c434df10feed8b3b1f5dfbbbfd9bae4"
+    },
+    {
+      "path": "experiments/R2_open/results/r1_development/preregistration.json",
+      "sha256": "9f026f0e90adf1d484072fae7016e0f2787728ddabc7c92229cdf6005796dd0d"
+    },
+    {
+      "path": "experiments/R2_open/results/r1_worst_cases.json",
+      "sha256": "f1e66c3bfac5bf1cf07a52ce192252d5076aea3d65726bc04761e424e5e28d37"
+    },
+    {
+      "path": "experiments/R2_open/results/r2_development/cases.json",
+      "sha256": "3b57594389d874a6ef00669a097105d42027cdaa85b55a8f939c4fc6e65c8359"
+    },
+    {
+      "path": "experiments/R2_open/results/r2_development/preregistration.json",
+      "sha256": "7aa4649176e983b8494d2f49953af15e0009edc06c15fe7178f810abe9b09510"
+    },
+    {
+      "path": "experiments/R2_open/results/r2_worst_cases.json",
+      "sha256": "f1e66c3bfac5bf1cf07a52ce192252d5076aea3d65726bc04761e424e5e28d37"
+    },
+    {
+      "path": "experiments/R2_open/results/r3_development/cases.json",
+      "sha256": "946a122210d20ef4beaccdfca6808c01e411f1f6c42398c94033b61c0ba03b78"
+    },
+    {
+      "path": "experiments/R2_open/results/r3_development/preregistration.json",
+      "sha256": "9d8560b440e8fa6dcce4df2b420a6497caf8220a1e4158dc6564d956f10fed79"
+    },
+    {
+      "path": "experiments/R2_open/results/r3_worst_cases.json",
+      "sha256": "557ac77038923894915d8466276de4f1fb3b339ccc449c2e6f550ac2c48d1408"
+    },
+    {
+      "path": "experiments/R2_open/results/r4_development/cases.json",
+      "sha256": "aae77bbfc03ece4590afb51ac766227dc2c3b5fa11d536bc7945047203cbb7a1"
+    },
+    {
+      "path": "experiments/R2_open/results/r4_development/preregistration.json",
+      "sha256": "e57eb7427ae439073cb0b2e4627a6882f290f742f38f83551cc438189c14ddb5"
+    },
+    {
+      "path": "experiments/R2_open/results/r4_worst_cases.json",
+      "sha256": "0fc43083ee8a2fd4d48066475615e3ae2f53a31a7b0102d6659153f2b3982cd9"
+    },
+    {
+      "path": "experiments/R2_open/results/r5_corrected_development/cases.json",
+      "sha256": "27fdd4c8d353ced4c62e642c91b0e12ded79938a03dfe382aa0c3a7b306851d3"
+    },
+    {
+      "path": "experiments/R2_open/results/r5_corrected_development/preregistration.json",
+      "sha256": "e63420aec76311ff70a08f936aa7f9b2ac2078620322cebbb00de932803f4f74"
+    },
+    {
+      "path": "experiments/R2_open/results/r5_development/cases.json",
+      "sha256": "27fdd4c8d353ced4c62e642c91b0e12ded79938a03dfe382aa0c3a7b306851d3"
+    },
+    {
+      "path": "experiments/R2_open/results/r5_development/preregistration.json",
+      "sha256": "b07e08d262a1f6d6b1c19614bf851384008e87a95c460c84080f0df9baee6726"
+    },
+    {
+      "path": "experiments/R2_open/results/r5_final_development/cases.json",
+      "sha256": "27fdd4c8d353ced4c62e642c91b0e12ded79938a03dfe382aa0c3a7b306851d3"
+    },
+    {
+      "path": "experiments/R2_open/results/r5_final_development/preregistration.json",
+      "sha256": "86f345494285fe18c826b388c32a46f041299018a924397bc06cfaa4c82774aa"
+    },
+    {
+      "path": "experiments/R3_open/results/r1_development/cases.json",
+      "sha256": "43c65bcb2c34f163f4fa4fe3bc0eb772c981122f3281db085f8605f7e278ed6c"
+    },
+    {
+      "path": "experiments/R3_open/results/r1_train/cases.json",
+      "sha256": "1a56eeec560e70ffe703dcf73344fe31563337b77367f0e4a8e8304348d034db"
+    },
+    {
+      "path": "experiments/R3_open/results/r2_development/cases.json",
+      "sha256": "819306bc50cb2056d11bb03c159ac60911bdfd8cf4e49621ca5c5ca919ff3174"
+    },
+    {
+      "path": "experiments/R3_open/results/r2_train/cases.json",
+      "sha256": "b7295f677a019c4b240da3ecc294115f27ade2b873fef97bff0c2986addb1bc5"
+    },
+    {
+      "path": "experiments/R3_open/results/r3_development/cases.json",
+      "sha256": "1059984007c0c871f3a3027b3fd33a4dc6a77408158dd5865cc0bbc97d8353f2"
+    },
+    {
+      "path": "experiments/R3_open/results/r3_train/cases.json",
+      "sha256": "d4a1f786780b9a8270cc6cd807a491d59ccb46a40d5f1dbec6e490ed5c4da5cb"
+    },
+    {
+      "path": "experiments/R3_open/results/r4_development/cases.json",
+      "sha256": "4ceb8bbe67a8456731a36ee9872b15d3536a31ba01af76b6122482e38a3891f6"
+    },
+    {
+      "path": "experiments/R3_open/results/r4_train/cases.json",
+      "sha256": "15164756ab372ab929c28931b5ff941dc92ef5d06dd57a764f75e21a2580bd1c"
+    },
+    {
+      "path": "experiments/R3_open/results/r5_development/cases.json",
+      "sha256": "eb9bf69637b86c7624fff83b97a278bb619c2236ca8608d92e6fb2821c7c74dd"
+    },
+    {
+      "path": "experiments/R3_open/results/r5_train/cases.json",
+      "sha256": "5950e5ee3c8ab0e529ca5bdd3173fae8ff1762545fc5631739df76f7513809b2"
+    }
+  ],
+  "old_concrete_or_reconstructed_records": 33242,
+  "old_unique_seeds": 5958,
+  "old_unique_worlds": 17385,
+  "old_unique_layouts": 12299,
+  "old_unique_rotation_mode_families": 12299,
+  "overlap_with_prior": {
+    "seed": [],
+    "world_sha256": [],
+    "layout_without_mode_seed_sha256": [],
+    "rotation_mode_family_sha256": []
+  },
+  "duplicate_counts_within_new_roles": {
+    "seed": 0,
+    "world_sha256": 0,
+    "layout_without_mode_seed_sha256": 0,
+    "rotation_mode_family_sha256": 0
+  },
+  "new_worlds": 180,
+  "family_definition": "Conservative rounded source radii, origin squared distances and pairwise squared distance multiset; ignores mode/channel/direction/noise/seed",
+  "evidence_boundary": "Fresh development is not sealed final. Exact and necessary invariant screening covers only listed files/reconstructable registered recipes, not every possible historical transformed world or official distribution."
+}

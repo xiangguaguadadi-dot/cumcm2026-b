@@ -1,0 +1,17 @@
+{
+  "schema":"bc-rpi-r1-coordinator-compatibility-acceptance-v1",
+  "evaluation_accepted":true,
+  "source_freeze_sha256":"86f12d20d8b44d5fc6e001bd5e47b8652889a490beedec97df6b2f6de134bb01",
+  "input_freeze_sha256":"455202805eff43fefe80a43520f4d8015b3491417815352508e4f5067776a0ce",
+  "calibration_margins_sha256":"730c1ea9c0587689810417d354106697e1a163bcd48e23ad104c8cb9e95f7d62",
+  "independent_checks":{
+    "rl_round1_calibration_v1.json":"1bea5b2247b930a49d6613a17b00824e9c53776191be8a5e30ebf55e323dceb6",
+    "rl_round1_calibration_records_v1.json":"de0c4f3f0b3304ec88285ee433ef36ac5b361609343e3a79a4fc539acc892fd7",
+    "rl_round1_compatibility_archives_v1.json":"e7a59b14dedb2e90347984bc997defaa25bec733a4aa581cf0f2185e23f071d6"
+  },
+  "scope":"Only 12 registered old compatibility worlds, C7 and first frozen neural model with forced teacher selection, 24 complete full executions. Preserve exact requests/observations/cost and record actual public neural forward. No development, threshold tuning, training or deployment under this acceptance.",
+  "calibration_verified":{"worlds":24,"states":48,"unique_paid_suffixes":87,"actual_executions":111,"actual_calls":15451},
+  "cumulative_verified_calls":170631,
+  "cumulative_verified_executions":1351,
+  "budget":"Existing 50000 compatibility call/24 execution cap and all global limits unchanged."
+}
