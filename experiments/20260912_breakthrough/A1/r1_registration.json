@@ -1,0 +1,20 @@
+{
+  "round": "r1",
+  "direction": "D1 station task-cost gate",
+  "description": "Use existing Q3 task cost gate for known-channel paid-station retests; unknown scanning unchanged",
+  "parent": "/Users/t/ai project/数学建模2026/代码/experiments/20260911_stage4/combination/geometry_fusions/C7_both.py",
+  "parent_sha256": "cf37866829b9c6f376895075e819a732939e6fa8ad6d8d6297a151d7a213dcb3",
+  "component": "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/A1/station_component.py",
+  "component_sha256": "5e9ead9293d5c06ed37e3ab1f99fb9162d539adebd9d605acc22051ae6e4bc2b",
+  "candidate": "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/A1/snapshots/r1.py",
+  "candidate_sha256": "530eb32fdb251af1689862185c3fd81e61d133b7b8caa097c084562ed49d3387",
+  "tests": [
+    "rules",
+    "quick",
+    "full if retained",
+    "4800 exposed if retained"
+  ],
+  "data_role": "exposed local regression; not holdout or official",
+  "q4": "unchanged dispatch to pinned parent",
+  "gate": "all complete; Q3 both batches improve against retained parent; no Q4 change"
+}
