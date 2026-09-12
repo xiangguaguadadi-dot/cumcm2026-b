@@ -1,0 +1,42 @@
+{
+  "research_frozen": true,
+  "agents_frozen": {
+    "a1": "R8 then R9/R10/R11 no promotion",
+    "a2": "finite R7 then R8/R9/R10 no promotion",
+    "a3": "R3 then R4/R5/R6 stopped; B4 then B5/B6/B7 stopped"
+  },
+  "confirmation_policy": "one paired confirmation; no outcome-dependent candidate revision",
+  "cases": "experiments/parallel_v2_coordinator/confirmation_cases/cases.json",
+  "cases_sha256": "1efb8975ba39debd6b812d018920cd1b6565a976e9a9dd8f3859952207b69af1",
+  "seed_review": "experiments/parallel_v2_coordinator/confirmation_seed_review.json",
+  "output": "experiments/parallel_v2_coordinator/confirmation",
+  "candidates": [
+    {
+      "role": "start_baseline",
+      "label": "Start A1 R2 + A2 R2",
+      "path": "experiments/parallel_v2_coordinator/baseline_combined.py",
+      "sha256": "c9404a2e7ad13928b0f5f6f092e7537ccaa4b3797b98e60f21d5276f07c864b9"
+    },
+    {
+      "role": "frozen_candidate",
+      "label": "Frozen fusion R5",
+      "path": "experiments/parallel_v2_coordinator/fusion_r5.py",
+      "sha256": "0bda4f711b9e9716739af8aedf456cb1eeefb47d8ba3ed230ca682c8450a96ea"
+    }
+  ],
+  "frozen_files": {
+    "experiments/parallel_v2_coordinator/baseline_combined.py": "c9404a2e7ad13928b0f5f6f092e7537ccaa4b3797b98e60f21d5276f07c864b9",
+    "experiments/parallel_v2_coordinator/fusion_r5.py": "0bda4f711b9e9716739af8aedf456cb1eeefb47d8ba3ed230ca682c8450a96ea",
+    "experiments/parallel_v2_coordinator/confirmation_cases/cases.json": "1efb8975ba39debd6b812d018920cd1b6565a976e9a9dd8f3859952207b69af1",
+    "experiments/parallel_v2_coordinator/confirmation_seed_review.json": "9882007fcc39c137b2ba01d2471f79a9c8cb7902db69ce5645ac1ff699ef3a59",
+    "experiments/parallel_v2_coordinator/confirm_frozen.py": "ba2ffc8da5ff00694e8945ca0033b8e6d1649f79d51c518d3fe4d3d4feb7f799",
+    "experiments/parallel_v2_coordinator/review_confirmation_seeds.py": "d006181fc5a3de523550f350acd477329e464f985eebb289c17517f0df3ad8fa",
+    "experiments/parallel_v2_coordinator/audit_pair.py": "8b456dd48380fe058f9a03b6bcaff4c5a9fb875750fdd9b5007a7c6a94ad6962",
+    "experiments/20260911_stage3/final_review.py": "bfebd9e98372b4aaaf717933a3a11fcad52b97ebe42422a7b050a416e41619f4",
+    "evaluate.py": "61088a2c9cd45b7026e4caaf9f7d55282a55d1114dfe74d179b086dafb0dc498",
+    "local_env.py": "99587518fa378e1bef2fbbaa9425ee907bea80885a69666b3765311cbcf4f42a",
+    "evaluation/manifest_v1.json": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+    "experiments/parallel_v2_coordinator/FINAL_SELECTION.json": "802b106bbb8d37cabb9234bb64826f8ea9fcd639b764917f04c104ceff4d0a9f"
+  },
+  "confirmation_acceptance": "all cases complete and per-mode mean decreases; seed-cluster intervals also reported without tuning against outcomes"
+}

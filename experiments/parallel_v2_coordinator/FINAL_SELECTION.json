@@ -1,0 +1,37 @@
+{
+  "candidate_name": "fusion_r5",
+  "candidate_sha256": "0bda4f711b9e9716739af8aedf456cb1eeefb47d8ba3ed230ca682c8450a96ea",
+  "frozen_utc": "2026-09-12T06:40:13.004435+00:00",
+  "mode3": "A1 R8 finite optical cover + 243-point planning + subset DP",
+  "mode4_geometry": "A2 finite R7 up to ten optical disks",
+  "mode4_learning": "A3 B4 protected empirical-bias disk-mass planning",
+  "parents": {
+    "Q3": {
+      "path": "/Users/t/ai project/数学建模2026/agent_experiments/20260912_parallel_v2/a1/experiments/parallel_v2_a1/snapshots/r8.py",
+      "sha256": "0ab1d54000c3a671fd61d469c8ed1cc0eb78f318c58f9b9aada8be9c98e1be52"
+    },
+    "Q4": {
+      "path": "/Users/t/ai project/数学建模2026/agent_experiments/20260912_parallel_v2/coordinator/experiments/parallel_v2_coordinator/fusion_r5_q4.py",
+      "sha256": "a92bab77c5d2abf25f99547a6db43ec545354745627d272d3f0b6d9e25b9bdd9"
+    }
+  },
+  "q4_fusion": {
+    "candidate_sha256": "a92bab77c5d2abf25f99547a6db43ec545354745627d272d3f0b6d9e25b9bdd9",
+    "dependencies": {},
+    "geometric_parent": "/Users/t/ai project/数学建模2026/agent_experiments/20260912_parallel_v2/a2/experiments/parallel_v2_a2/snapshots/finite_r7.py",
+    "geometric_parent_sha256": "6891cc27d3cd23f9c4c91e0b7ab2bb2fe0104b4768d8f68ab44e01b36f254671",
+    "geometric_parent_class": "MultiDiskSpatial",
+    "learned_candidate": "/Users/t/ai project/数学建模2026/agent_experiments/20260912_parallel_v2/a3/experiments/parallel_v2_a3/snapshots/b4_safe.py",
+    "learned_candidate_sha256": "d19433fc9b61de42a28ef50c7c4702e5d67c3cda690ee17a90b0628acd84fc8b",
+    "learned_prefix_sha256": "e54690167d980ccb68d1a01dd97c01ddf67b04b5886a9aa4fb75aae65b25181e",
+    "unchanged_learned_component_sha256": "c7d4677964eea744be14829bbadc8d9a8891723097e44b8a0eae595fc572a969",
+    "note": "A learned component changes its inherited geometric parent; evaluation required."
+  },
+  "gate": "Both exposed batches improve in each mode; all 4800 cases complete; Q4 also improves geometric parent in both batches.",
+  "agents_frozen": {
+    "a1": "R8 then R9/R10/R11 no promotion",
+    "a2": "finite R7 then R8/R9/R10 no promotion",
+    "a3": "R3 then R4/R5/R6 stopped; B4 then B5/B6/B7 stopped"
+  },
+  "new_confirmation_outcomes_seen": false
+}
