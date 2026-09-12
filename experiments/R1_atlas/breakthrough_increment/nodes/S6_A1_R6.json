@@ -1,0 +1,80 @@
+{
+  "id": "S6_A1_R6",
+  "kind": "unexecuted_draft",
+  "title": "A1 R6：Certified paid-stop replacement before preflight exit-guard revision",
+  "status": "draft_not_executed",
+  "direction_tags": [
+    "A1_Q3",
+    "D3"
+  ],
+  "round_key": "S6_A1_R6",
+  "counts_as_algorithm_round": false,
+  "counts_as_completed_4800_round": false,
+  "retained": false,
+  "selected_final_per_task": false,
+  "retention_semantics": "retained records historical promotion; selected_final_per_task marks the final per-task choice",
+  "candidate": {
+    "source": "s6src_f46c8a6a93471438",
+    "path": "experiments/20260912_breakthrough/A1/snapshots/r6.py",
+    "sha256": "8ffcce4e7f814c147b960a9753e43b8e95f47305e2c966021e3c80e1faa3afcb",
+    "href": "../../20260912_breakthrough/A1/snapshots/r6.py"
+  },
+  "registration_source": "s6src_245706a1e938f124",
+  "ledger_source": "s6src_04126418845fa40a",
+  "decision_artifact": {
+    "source": "s6src_a39baa36e7575832",
+    "path": "experiments/20260912_breakthrough/A1/round_decisions.json",
+    "sha256": "570e4f02af102c824ea8acb54f7d28e2ff15c80614d95a1d301a8d9d92fad81d",
+    "href": "../../20260912_breakthrough/A1/round_decisions.json"
+  },
+  "actual_code_parent": "S6_A1_R2",
+  "retained_parent_at_evaluation": "S6_A1_R2",
+  "parent_artifact": {
+    "source": "s6src_7837fd96891d6800",
+    "path": "experiments/20260912_breakthrough/A1/snapshots/r2.py",
+    "sha256": "ba99196e9b7b61b5af50ba272f545148ed1bed618407d7711051c63b006cba01",
+    "href": "../../20260912_breakthrough/A1/snapshots/r2.py"
+  },
+  "promotion_comparison_from_author_ledger": [],
+  "parent_prefix_and_component_sha_verified": true,
+  "component_registered_sha256": "be472b284a9db1927670b88ef7d84ae70966aedf5b278456263fbb7927a491c5",
+  "current_component": {
+    "source": "s6src_b0843b033042be9c",
+    "path": "experiments/20260912_breakthrough/A1/cover_component.py",
+    "sha256": "5e0c8fc543c362b6fd73f92b4667d45872ef75e3cb317dae0bb07dfd43036664",
+    "href": "../../20260912_breakthrough/A1/cover_component.py"
+  },
+  "current_component_matches_registered": false,
+  "scopes": {},
+  "primary_effects": [],
+  "research_artifacts": [
+    {
+      "source": "s6src_5d7687720f2c5e5e",
+      "path": "experiments/20260912_breakthrough/A1/RESEARCH.md",
+      "sha256": "0da0118c1cf35fb195946fcd6429abe92513f66ce1603997deb99fe689c7cdbb",
+      "href": "../../20260912_breakthrough/A1/RESEARCH.md"
+    },
+    {
+      "source": "s6src_960a2a9363c4665a",
+      "path": "experiments/20260912_breakthrough/A1/literature.json",
+      "sha256": "778832090865bf3dc80de7ff240dec498818dd64c430a2dc839a8991977f2a29",
+      "href": "../../20260912_breakthrough/A1/literature.json"
+    }
+  ],
+  "parents": [
+    {
+      "id": "S6_A1_R2",
+      "relationship": "actual_code_parent",
+      "evidence_source": "s6src_245706a1e938f124"
+    },
+    {
+      "id": "S6_A1_R2",
+      "relationship": "retained_promotion_control_not_necessarily_code_parent",
+      "evidence_source": "s6src_04126418845fa40a"
+    }
+  ],
+  "evidence_boundary": "Snapshot and registered append-only parent/component hashes are checked. Editable component may have changed after this immutable snapshot. quick is an exposed full subset; failures are retained.",
+  "stage": 6,
+  "official_result": false,
+  "new_holdout_result": false
+}

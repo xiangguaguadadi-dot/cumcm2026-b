@@ -1,0 +1,1785 @@
+{
+  "schema_version": "breakthrough-atlas-increment-v1",
+  "status": "ready",
+  "pending_evidence": [],
+  "legacy_records_unchanged": true,
+  "legacy_indexes": [
+    {
+      "source": "s6src_ff6eca3f59112a0e",
+      "path": "experiments/R1_atlas/exploration_index.json",
+      "sha256": "b98d410c788534132ee51c08c1b2000f9025438e6d528e1f39978f5b1291f42d",
+      "href": "../exploration_index.json"
+    },
+    {
+      "source": "s6src_27e0f6e6d6fd27a6",
+      "path": "experiments/R1_atlas/stage4_increment/index.json",
+      "sha256": "60533fe23dfa76ce7fa4efb382646c03f65e7d4e16d9cf177f9321da957e1b9a",
+      "href": "../stage4_increment/index.json"
+    },
+    {
+      "source": "s6src_cd3a108b291d61b1",
+      "path": "experiments/R1_atlas/rl_increment/index.json",
+      "sha256": "eb397356bdafd2639c06ed579eadbb00f79adfae892e3cd8df995f1c4e342b77",
+      "href": "../rl_increment/index.json"
+    }
+  ],
+  "frozen_v1_manifest": {
+    "source": "s6src_ba4c175663dbce07",
+    "path": "evaluation/manifest_v1.json",
+    "sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+    "href": "../../../evaluation/manifest_v1.json"
+  },
+  "protocol": {
+    "source": "s6src_f82e0894dd68f7b3",
+    "path": "experiments/20260912_breakthrough/PROTOCOL.md",
+    "sha256": "8289e8191c09ed1477bedaf8154d847ac0e1fb8abbfe14e0508bb25e996aaff7",
+    "href": "../../20260912_breakthrough/PROTOCOL.md"
+  },
+  "counts": {
+    "new_nodes": 29,
+    "nodes_by_kind": {
+      "background_anchor": 1,
+      "algorithm_candidate": 19,
+      "unexecuted_draft": 1,
+      "implementation_failure": 1,
+      "geometry_research": 3,
+      "mechanical_packaging": 1,
+      "research_plan_snapshot": 1,
+      "authorized_execution_status_snapshot": 1,
+      "mechanical_combination": 1
+    },
+    "algorithm_research_rounds": 19,
+    "algorithm_rounds_with_complete_4800": 11,
+    "retained_algorithm_rounds": 9,
+    "geometry_research_rounds": 3,
+    "mechanical_packaging_or_combination_nodes": 2,
+    "new_policy_executions_by_this_builder": 0,
+    "new_training_updates_by_this_builder": 0,
+    "new_official_runs": 0,
+    "new_sealed_final_worlds": 0
+  },
+  "current_lane_best": {
+    "A1": "S6_A1_R11",
+    "A2": "S6_A2_R2"
+  },
+  "reported_execution_costs": {
+    "A1": {
+      "source": "s6src_04126418845fa40a",
+      "reported_budgets": [
+        {
+          "round": "r1",
+          "scope": "quick",
+          "actual_policy_runs": 120,
+          "actual_requests": 23544,
+          "failed_runs": 0,
+          "wall_s": 2.173002249910496,
+          "rows_path": "results/r1_quick/case_metrics.json"
+        },
+        {
+          "round": "r1",
+          "scope": "full",
+          "actual_policy_runs": 2400,
+          "actual_requests": 468302,
+          "failed_runs": 0,
+          "wall_s": 43.58590329205617,
+          "rows_path": "results/r1_full/case_metrics.json"
+        },
+        {
+          "round": "r1",
+          "scope": "exposed",
+          "actual_policy_runs": 2400,
+          "actual_requests": 468799,
+          "failed_runs": 0,
+          "wall_s": 44.00584329199046,
+          "rows_path": "results/r1_exposed/case_metrics.json"
+        },
+        {
+          "round": "r2",
+          "scope": "quick",
+          "actual_policy_runs": 120,
+          "actual_requests": 23554,
+          "failed_runs": 0,
+          "wall_s": 2.368677124963142,
+          "rows_path": "results/r2_quick/case_metrics.json"
+        },
+        {
+          "round": "r2",
+          "scope": "full",
+          "actual_policy_runs": 2400,
+          "actual_requests": 468521,
+          "failed_runs": 0,
+          "wall_s": 45.93952466594055,
+          "rows_path": "results/r2_full/case_metrics.json"
+        },
+        {
+          "round": "r2",
+          "scope": "exposed",
+          "actual_policy_runs": 2400,
+          "actual_requests": 469053,
+          "failed_runs": 0,
+          "wall_s": 45.556777792051435,
+          "rows_path": "results/r2_exposed/case_metrics.json"
+        },
+        {
+          "round": "r3",
+          "scope": "quick",
+          "actual_policy_runs": 120,
+          "actual_requests": 23430,
+          "failed_runs": 0,
+          "wall_s": 2.4672836249228567,
+          "rows_path": "results/r3_quick/case_metrics.json"
+        },
+        {
+          "round": "r4",
+          "scope": "quick",
+          "actual_policy_runs": 120,
+          "actual_requests": 23366,
+          "failed_runs": 0,
+          "wall_s": 3.392264166031964,
+          "rows_path": "results/r4_quick/case_metrics.json"
+        },
+        {
+          "round": "r5",
+          "scope": "quick",
+          "actual_policy_runs": 120,
+          "actual_requests": 23376,
+          "failed_runs": 0,
+          "wall_s": 2.529997625038959,
+          "rows_path": "results/r5_quick/case_metrics.json"
+        },
+        {
+          "round": "r6a",
+          "scope": "quick",
+          "actual_policy_runs": 120,
+          "actual_requests": 18150,
+          "failed_runs": 59,
+          "wall_s": 1.9118901250185445,
+          "rows_path": "results/r6a_quick/case_metrics.json"
+        },
+        {
+          "round": "r6b",
+          "scope": "quick",
+          "actual_policy_runs": 120,
+          "actual_requests": 23551,
+          "failed_runs": 0,
+          "wall_s": 2.476486917003058,
+          "rows_path": "results/r6b_quick/case_metrics.json"
+        },
+        {
+          "round": "r6b",
+          "scope": "full",
+          "actual_policy_runs": 2400,
+          "actual_requests": 468483,
+          "failed_runs": 0,
+          "wall_s": 48.73481058294419,
+          "rows_path": "results/r6b_full/case_metrics.json"
+        },
+        {
+          "round": "r6b",
+          "scope": "exposed",
+          "actual_policy_runs": 2400,
+          "actual_requests": 469026,
+          "failed_runs": 0,
+          "wall_s": 47.003483333974145,
+          "rows_path": "results/r6b_exposed/case_metrics.json"
+        },
+        {
+          "round": "r7",
+          "scope": "quick",
+          "actual_policy_runs": 120,
+          "actual_requests": 23551,
+          "failed_runs": 0,
+          "wall_s": 2.3867325839819387,
+          "rows_path": "results/r7_quick/case_metrics.json"
+        },
+        {
+          "round": "r7",
+          "scope": "full",
+          "actual_policy_runs": 2400,
+          "actual_requests": 468490,
+          "failed_runs": 0,
+          "wall_s": 46.627603415981866,
+          "rows_path": "results/r7_full/case_metrics.json"
+        },
+        {
+          "round": "r7",
+          "scope": "exposed",
+          "actual_policy_runs": 2400,
+          "actual_requests": 469027,
+          "failed_runs": 0,
+          "wall_s": 49.495561458054,
+          "rows_path": "results/r7_exposed/case_metrics.json"
+        },
+        {
+          "round": "r8",
+          "scope": "quick",
+          "actual_policy_runs": 120,
+          "actual_requests": 23548,
+          "failed_runs": 0,
+          "wall_s": 4.189582250081003,
+          "rows_path": "results/r8_quick/case_metrics.json"
+        },
+        {
+          "round": "r8",
+          "scope": "full",
+          "actual_policy_runs": 2400,
+          "actual_requests": 468478,
+          "failed_runs": 0,
+          "wall_s": 73.97533604095224,
+          "rows_path": "results/r8_full/case_metrics.json"
+        },
+        {
+          "round": "r8",
+          "scope": "exposed",
+          "actual_policy_runs": 2400,
+          "actual_requests": 469015,
+          "failed_runs": 0,
+          "wall_s": 67.67701237497386,
+          "rows_path": "results/r8_exposed/case_metrics.json"
+        },
+        {
+          "round": "r9",
+          "scope": "quick",
+          "actual_policy_runs": 120,
+          "actual_requests": 23548,
+          "failed_runs": 0,
+          "wall_s": 3.759555874974467,
+          "rows_path": "results/r9_quick/case_metrics.json"
+        },
+        {
+          "round": "r9",
+          "scope": "full",
+          "actual_policy_runs": 2400,
+          "actual_requests": 468485,
+          "failed_runs": 0,
+          "wall_s": 64.49456633406226,
+          "rows_path": "results/r9_full/case_metrics.json"
+        },
+        {
+          "round": "r9",
+          "scope": "exposed",
+          "actual_policy_runs": 2400,
+          "actual_requests": 469016,
+          "failed_runs": 0,
+          "wall_s": 65.47311908297706,
+          "rows_path": "results/r9_exposed/case_metrics.json"
+        },
+        {
+          "round": "r10",
+          "scope": "quick",
+          "actual_policy_runs": 120,
+          "actual_requests": 23548,
+          "failed_runs": 0,
+          "wall_s": 5.676693332963623,
+          "rows_path": "results/r10_quick/case_metrics.json"
+        },
+        {
+          "round": "r10",
+          "scope": "full",
+          "actual_policy_runs": 2400,
+          "actual_requests": 468486,
+          "failed_runs": 0,
+          "wall_s": 89.1072728750296,
+          "rows_path": "results/r10_full/case_metrics.json"
+        },
+        {
+          "round": "r10",
+          "scope": "exposed",
+          "actual_policy_runs": 2400,
+          "actual_requests": 469015,
+          "failed_runs": 0,
+          "wall_s": 82.7449950419832,
+          "rows_path": "results/r10_exposed/case_metrics.json"
+        },
+        {
+          "round": "r11",
+          "scope": "quick",
+          "actual_policy_runs": 120,
+          "actual_requests": 23561,
+          "failed_runs": 0,
+          "wall_s": 4.372840457945131,
+          "rows_path": "results/r11_quick/case_metrics.json"
+        },
+        {
+          "round": "r11",
+          "scope": "full",
+          "actual_policy_runs": 2400,
+          "actual_requests": 468808,
+          "failed_runs": 0,
+          "wall_s": 85.43087466689758,
+          "rows_path": "results/r11_full/case_metrics.json"
+        },
+        {
+          "round": "r11",
+          "scope": "exposed",
+          "actual_policy_runs": 2400,
+          "actual_requests": 469441,
+          "failed_runs": 0,
+          "wall_s": 90.50840945797972,
+          "rows_path": "results/r11_exposed/case_metrics.json"
+        },
+        {
+          "round": "r12",
+          "scope": "quick",
+          "actual_policy_runs": 120,
+          "actual_requests": 23560,
+          "failed_runs": 0,
+          "wall_s": 5.179624749929644,
+          "rows_path": "results/r12_quick/case_metrics.json"
+        },
+        {
+          "round": "r13",
+          "scope": "quick",
+          "actual_policy_runs": 120,
+          "actual_requests": 23562,
+          "failed_runs": 0,
+          "wall_s": 4.892845208989456,
+          "rows_path": "results/r13_quick/case_metrics.json"
+        },
+        {
+          "round": "r14",
+          "scope": "quick",
+          "actual_policy_runs": 120,
+          "actual_requests": 23560,
+          "failed_runs": 0,
+          "wall_s": 4.527966083027422,
+          "rows_path": "results/r14_quick/case_metrics.json"
+        },
+        {
+          "round": "r14",
+          "scope": "full",
+          "actual_policy_runs": 2400,
+          "actual_requests": 468756,
+          "failed_runs": 0,
+          "wall_s": 78.39917616709135,
+          "rows_path": "results/r14_full/case_metrics.json"
+        },
+        {
+          "round": "r14",
+          "scope": "exposed",
+          "actual_policy_runs": 2400,
+          "actual_requests": 469442,
+          "failed_runs": 0,
+          "wall_s": 103.71458074997645,
+          "rows_path": "results/r14_exposed/case_metrics.json"
+        }
+      ],
+      "reported_totals": {
+        "evaluation_runs": 45000,
+        "evaluation_requests": 8786052,
+        "evaluation_failures": 59,
+        "evaluation_wall_s": 1224.7802929996978,
+        "diagnostic_runs": 2580,
+        "diagnostic_requests": 330896,
+        "unique_exposed_case_ids": 4800,
+        "new_holdout_worlds": 0,
+        "official_runs": 0,
+        "training_runs": 0,
+        "request_counting": "v1 recorded requests = measures + clear_attempts + int(started) + int(user_exit); parameter/state prevalidation rejection attempts are not fully counted",
+        "attempt_counts_available": false,
+        "rules": "Frozen unit/nominal checks are not candidate policy executions; source reading, synthetic geometry CPU, assembly and audit overhead are not inside evaluation_wall_s",
+        "timing": "Wall and per-case runtimes were gathered under concurrent workloads, not controlled benchmark latency or official runtime",
+        "total_policy_runs": 47580,
+        "total_requests": 9116948
+      },
+      "not_summed_with_overlapping_node_scopes": true,
+      "request_count_semantics": "Recorded local requests derived from measure/clear counters plus enter/normal exit. Batch rows.requests omits prevalidation or state-rejected attempts; without a full attempt journal it cannot exclude unrecorded rejected attempts. Diagnostic request counts retain their author's reconstruction caveats."
+    },
+    "A2": {
+      "source": "s6src_634be6e93e96ab53",
+      "actual_task_runs": 20496,
+      "execution_costs": {
+        "batches": [
+          {
+            "batch": "best_r2_packaging_exposed",
+            "runs": 2400,
+            "requests": 476937,
+            "wall_seconds": 44.61747495899908,
+            "source_instances": 30840,
+            "row_runtime_seconds": 44.16112951457035
+          },
+          {
+            "batch": "best_r2_packaging_full",
+            "runs": 2400,
+            "requests": 476055,
+            "wall_seconds": 46.35183220892213,
+            "source_instances": 31100,
+            "row_runtime_seconds": 45.850125232711434
+          },
+          {
+            "batch": "best_r2_packaging_quick",
+            "runs": 120,
+            "requests": 24210,
+            "wall_seconds": 2.3499851250089705,
+            "source_instances": 1520,
+            "row_runtime_seconds": 2.2428877474740148
+          },
+          {
+            "batch": "diagnostic_96/C7",
+            "runs": 96,
+            "requests": 25343,
+            "wall_seconds": 2.592412666999735,
+            "source_instances": 1227,
+            "row_runtime_seconds": 2.5421937057981268
+          },
+          {
+            "batch": "r1_exposed",
+            "runs": 4800,
+            "requests": 950435,
+            "wall_seconds": 89.29099516605493,
+            "source_instances": 61940,
+            "row_runtime_seconds": 88.61163675319403
+          },
+          {
+            "batch": "r1_full",
+            "runs": 2400,
+            "requests": 474426,
+            "wall_seconds": 45.23181237501558,
+            "source_instances": 31100,
+            "row_runtime_seconds": 44.844772741547786
+          },
+          {
+            "batch": "r1_quick",
+            "runs": 120,
+            "requests": 24181,
+            "wall_seconds": 2.2457752090413123,
+            "source_instances": 1520,
+            "row_runtime_seconds": 2.13570237334352
+          },
+          {
+            "batch": "r1_rotation_dev/R1_rotation",
+            "runs": 96,
+            "requests": 25222,
+            "wall_seconds": 2.7604615839663893,
+            "source_instances": 1227,
+            "row_runtime_seconds": 2.716120746685192
+          },
+          {
+            "batch": "r2_exposed",
+            "runs": 4800,
+            "requests": 952992,
+            "wall_seconds": 87.48855095799081,
+            "source_instances": 61940,
+            "row_runtime_seconds": 86.79401221207809
+          },
+          {
+            "batch": "r2_full",
+            "runs": 2400,
+            "requests": 476055,
+            "wall_seconds": 43.105260082986206,
+            "source_instances": 31100,
+            "row_runtime_seconds": 42.729804584989324
+          },
+          {
+            "batch": "r2_quick",
+            "runs": 120,
+            "requests": 24210,
+            "wall_seconds": 2.2621113329660147,
+            "source_instances": 1520,
+            "row_runtime_seconds": 2.1686354257399216
+          },
+          {
+            "batch": "r2_rotation_insertion_dev/R2_rotation_insertion",
+            "runs": 96,
+            "requests": 24940,
+            "wall_seconds": 2.73352895793505,
+            "source_instances": 1227,
+            "row_runtime_seconds": 2.687674999353476
+          },
+          {
+            "batch": "r3_deferred_rotation_dev/R3_deferred_rotation",
+            "runs": 96,
+            "requests": 25324,
+            "wall_seconds": 2.893127833958715,
+            "source_instances": 1227,
+            "row_runtime_seconds": 2.840457623824477
+          },
+          {
+            "batch": "r3_quick",
+            "runs": 120,
+            "requests": 24430,
+            "wall_seconds": 2.3708906250540167,
+            "source_instances": 1520,
+            "row_runtime_seconds": 2.27718375378754
+          },
+          {
+            "batch": "r4_commit_rotation_dev/R4_commit_rotation",
+            "runs": 96,
+            "requests": 25087,
+            "wall_seconds": 2.6969515410019085,
+            "source_instances": 1227,
+            "row_runtime_seconds": 2.644626666093245
+          },
+          {
+            "batch": "r4_quick",
+            "runs": 120,
+            "requests": 24156,
+            "wall_seconds": 2.1767807089490816,
+            "source_instances": 1520,
+            "row_runtime_seconds": 2.0863473331555724
+          },
+          {
+            "batch": "r5_continuous_rotation_dev/R5_continuous_rotation",
+            "runs": 96,
+            "requests": 25021,
+            "wall_seconds": 2.76301316707395,
+            "source_instances": 1227,
+            "row_runtime_seconds": 2.7155992042971775
+          },
+          {
+            "batch": "r5_quick",
+            "runs": 120,
+            "requests": 24241,
+            "wall_seconds": 2.337716041947715,
+            "source_instances": 1520,
+            "row_runtime_seconds": 2.24539858661592
+          }
+        ],
+        "requests": 4103265,
+        "summed_batch_wall_seconds": 386.2686805438716,
+        "semantics": "Actual local requests include enter/measure/clear/exit, with repeats counted. Summed batch wall time excludes literature, geometry, rules, analysis and orchestration; not total elapsed project time."
+      },
+      "distinct_new_development_cases": 96,
+      "not_summed_with_overlapping_node_scopes": true,
+      "request_count_semantics": "Recorded local requests, not a complete attempt ledger: saved batch rows.requests excludes prevalidation or state-rejected attempts. No full-attempt precision is claimed for these historical batches."
+    },
+    "RL_G0_G1": {
+      "registration_source": "s6src_87d2b12e0dfd81d5",
+      "status_snapshot": {
+        "source": "s6src_ba2ca314cbf3dc31",
+        "path": "experiments/R1_atlas/breakthrough_increment/snapshots/rl_g0g1_20260912T063311_829574Z/execution_status.json",
+        "sha256": "3a00dcc46628a8516d7bb3b6be24b58d0d9f9801fdf99dc9d3001c864eb1df04",
+        "href": "snapshots/rl_g0g1_20260912T063311_829574Z/execution_status.json"
+      },
+      "reported_actual_counters": {
+        "entered": 0,
+        "full_runs": 0,
+        "suffix_runs": 0,
+        "fixture_runs": 0,
+        "executions_started": 0,
+        "executions_completed": 0,
+        "business_calls": 0,
+        "accepted_calls": 0,
+        "failed_calls": 0,
+        "failed_runs": 0,
+        "network_training_runs": 0,
+        "unknown_cost_runs": 0
+      },
+      "journal": null,
+      "independently_recounted_journal": null,
+      "as_of_utc": "2026-09-12T06:12:52.456143+00:00",
+      "captured_at_utc": "2026-09-12T06:33:11.829452+00:00",
+      "limits_are_not_actual_execution_costs": true,
+      "not_summed_with_algorithm_or_packaging_runs": true
+    }
+  },
+  "evidence_boundary": "Saved rows are independently recomputed for IDs, T/cleared, completeness and per-mode/group means; source bytes are SHA256-bound. No strategy/environment execution, old-statistic rewrite, new holdout, official test or new RL training.",
+  "read_order": "Read the legacy indexes, then this standalone S6 increment. Only nodes listed by this index are active; counts exclude packaging, drafts, revision duplicates, geometry and synthetic tests from algorithm full-round totals.",
+  "nodes": [
+    {
+      "id": "S6_C7_ANCHOR",
+      "kind": "background_anchor",
+      "title": "原冻结 C7：本轮机制起点",
+      "status": "historical_exposed_reference",
+      "parents": [
+        {
+          "id": "S4_ROOT_C7_both",
+          "relationship": "same_frozen_candidate_identity"
+        }
+      ],
+      "round_key": null,
+      "counts_as_algorithm_round": false,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_C7_ANCHOR.json",
+      "primary_effects": [
+        {
+          "suite": "exposed",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 235.87694581189243,
+          "failed_case_ids": []
+        },
+        {
+          "suite": "exposed",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 456.11182087573513,
+          "failed_case_ids": []
+        }
+      ]
+    },
+    {
+      "id": "S6_A1_R1",
+      "kind": "algorithm_candidate",
+      "title": "A1 R1：Task-cost gate for known-channel measurements while at discovery stations",
+      "status": "retained",
+      "parents": [
+        {
+          "id": "S6_C7_ANCHOR",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_b8705e19192855d0"
+        },
+        {
+          "id": "S6_C7_ANCHOR",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R1",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": true,
+      "details": "nodes/S6_A1_R1.json",
+      "primary_effects": [
+        {
+          "suite": "exposed",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 233.16760076633992,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": -2.7093450455525114,
+          "faster": 1758,
+          "equal": 604,
+          "slower": 38,
+          "max_regression": 9.520613999999995
+        },
+        {
+          "suite": "exposed",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 456.11182087573513,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 456.11182087573513,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "max_regression": 0.0
+        }
+      ]
+    },
+    {
+      "id": "S6_A1_R2",
+      "kind": "algorithm_candidate",
+      "title": "A1 R2：One persistent localization round followed by global replanning",
+      "status": "retained",
+      "parents": [
+        {
+          "id": "S6_A1_R1",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_a6971b776c3c035d"
+        },
+        {
+          "id": "S6_A1_R1",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R2",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": true,
+      "details": "nodes/S6_A1_R2.json",
+      "primary_effects": [
+        {
+          "suite": "exposed",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 230.82141809866428,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": -5.055527713228152,
+          "faster": 2054,
+          "equal": 74,
+          "slower": 272,
+          "max_regression": 22.258053800000027
+        },
+        {
+          "suite": "exposed",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 456.11182087573513,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 456.11182087573513,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "max_regression": 0.0
+        }
+      ]
+    },
+    {
+      "id": "S6_A1_R3",
+      "kind": "algorithm_candidate",
+      "title": "A1 R3：Use next actual service destination in global task route",
+      "status": "rejected_quick",
+      "parents": [
+        {
+          "id": "S6_A1_R2",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_805330b1df2d1b97"
+        },
+        {
+          "id": "S6_A1_R2",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R3",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_A1_R3.json",
+      "primary_effects": []
+    },
+    {
+      "id": "S6_A1_R4",
+      "kind": "algorithm_candidate",
+      "title": "A1 R4：Information-value route ranking with fixed-first expanded route choices",
+      "status": "rejected_quick",
+      "parents": [
+        {
+          "id": "S6_A1_R2",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_7ee616c5c4cbf515"
+        },
+        {
+          "id": "S6_A1_R2",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R4",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_A1_R4.json",
+      "primary_effects": []
+    },
+    {
+      "id": "S6_A1_R5",
+      "kind": "algorithm_candidate",
+      "title": "A1 R5：Remove R4 expanded route choices; retain cross-channel information score",
+      "status": "rejected_quick_stop_D2",
+      "parents": [
+        {
+          "id": "S6_A1_R2",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_18125409d83579c3"
+        },
+        {
+          "id": "S6_A1_R2",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R5",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_A1_R5.json",
+      "primary_effects": []
+    },
+    {
+      "id": "S6_A1_R6",
+      "kind": "unexecuted_draft",
+      "title": "A1 R6：Certified paid-stop replacement before preflight exit-guard revision",
+      "status": "draft_not_executed",
+      "parents": [
+        {
+          "id": "S6_A1_R2",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_245706a1e938f124"
+        },
+        {
+          "id": "S6_A1_R2",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R6",
+      "counts_as_algorithm_round": false,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_A1_R6.json",
+      "primary_effects": []
+    },
+    {
+      "id": "S6_A1_R6A",
+      "kind": "implementation_failure",
+      "title": "A1 R6A：Add real-negative per-channel exit guard; missing time import causes 59 quick NameErrors",
+      "status": "execution_failure_not_efficiency_ranked",
+      "parents": [
+        {
+          "id": "S6_A1_R2",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_1bc2292582a713ae"
+        },
+        {
+          "id": "S6_A1_R2",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R6",
+      "counts_as_algorithm_round": false,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_A1_R6A.json",
+      "primary_effects": []
+    },
+    {
+      "id": "S6_A1_R6B",
+      "kind": "algorithm_candidate",
+      "title": "A1 R6B：Same R6 mechanism with missing time import repaired; not a new direction or independent algorithm round",
+      "status": "retained",
+      "parents": [
+        {
+          "id": "S6_A1_R2",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_1ba9703fdadf6875"
+        },
+        {
+          "id": "S6_A1_R2",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R6",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": true,
+      "details": "nodes/S6_A1_R6B.json",
+      "primary_effects": [
+        {
+          "suite": "exposed",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 230.47564294956968,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": -5.4013028623227415,
+          "faster": 2066,
+          "equal": 73,
+          "slower": 261,
+          "max_regression": 22.258053800000027
+        },
+        {
+          "suite": "exposed",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 456.11182087573513,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 456.11182087573513,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "max_regression": 0.0
+        }
+      ]
+    },
+    {
+      "id": "S6_A1_R7",
+      "kind": "algorithm_candidate",
+      "title": "A1 R7：Rotate future unscanned sites jointly to fit a certified paid stop",
+      "status": "retained_marginal",
+      "parents": [
+        {
+          "id": "S6_A1_R6B",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_9f57fefc3a749dfc"
+        },
+        {
+          "id": "S6_A1_R6B",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R7",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": true,
+      "details": "nodes/S6_A1_R7.json",
+      "primary_effects": [
+        {
+          "suite": "exposed",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 230.44471660457418,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": -5.432229207318241,
+          "faster": 2066,
+          "equal": 73,
+          "slower": 261,
+          "max_regression": 22.258053800000027
+        },
+        {
+          "suite": "exposed",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 456.11182087573513,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 456.11182087573513,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "max_regression": 0.0
+        }
+      ]
+    },
+    {
+      "id": "S6_A1_R8",
+      "kind": "algorithm_candidate",
+      "title": "A1 R8：Fixed visited sites/paid anchor with up to four minimax Voronoi updates and station-only path guard",
+      "status": "not_promoted_opposite_batch_signs",
+      "parents": [
+        {
+          "id": "S6_A1_R6B",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_052d0cea148ea083"
+        },
+        {
+          "id": "S6_A1_R7",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R8",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": true,
+      "details": "nodes/S6_A1_R8.json",
+      "primary_effects": [
+        {
+          "suite": "exposed",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 230.437994713265,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": -5.438951098627414,
+          "faster": 2062,
+          "equal": 73,
+          "slower": 265,
+          "max_regression": 22.258053800000027
+        },
+        {
+          "suite": "exposed",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 456.11182087573513,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 456.11182087573513,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "max_regression": 0.0
+        }
+      ]
+    },
+    {
+      "id": "S6_A1_R9",
+      "kind": "algorithm_candidate",
+      "title": "A1 R9：Keep R7 rotation priority, then R8 constrained minimax fallback",
+      "status": "retained_marginal",
+      "parents": [
+        {
+          "id": "S6_A1_R7",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_ca517947dffbab2f"
+        },
+        {
+          "id": "S6_A1_R7",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R9",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": true,
+      "details": "nodes/S6_A1_R9.json",
+      "primary_effects": [
+        {
+          "suite": "exposed",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 230.40654787876952,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": -5.470397933122913,
+          "faster": 2062,
+          "equal": 73,
+          "slower": 265,
+          "max_regression": 22.258053800000027
+        },
+        {
+          "suite": "exposed",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 456.11182087573513,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 456.11182087573513,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "max_regression": 0.0
+        }
+      ]
+    },
+    {
+      "id": "S6_A1_R10",
+      "kind": "algorithm_candidate",
+      "title": "A1 R10：After R9 proposals fail, rotate future sites toward the paid anchor and run the same four constrained minimax updates",
+      "status": "retained_marginal",
+      "parents": [
+        {
+          "id": "S6_A1_R9",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_44c4613e41cfefa0"
+        },
+        {
+          "id": "S6_A1_R9",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R10",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": true,
+      "details": "nodes/S6_A1_R10.json",
+      "primary_effects": [
+        {
+          "suite": "exposed",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 230.40134590129554,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": -5.475599910596872,
+          "faster": 2062,
+          "equal": 73,
+          "slower": 265,
+          "max_regression": 22.258053800000027
+        },
+        {
+          "suite": "exposed",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 456.11182087573513,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 456.11182087573513,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "max_regression": 0.0
+        }
+      ]
+    },
+    {
+      "id": "S6_A1_R11",
+      "kind": "algorithm_candidate",
+      "title": "A1 R11：Only shorten the incoming line segment to an already selected unscanned station; ten-step certified search, same station task and real scans",
+      "status": "retained",
+      "parents": [
+        {
+          "id": "S6_A1_R10",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_49533c526961b89c"
+        },
+        {
+          "id": "S6_A1_R10",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R11",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": true,
+      "details": "nodes/S6_A1_R11.json",
+      "primary_effects": [
+        {
+          "suite": "exposed",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 229.8703247460732,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": -6.006621065819223,
+          "faster": 2080,
+          "equal": 53,
+          "slower": 267,
+          "max_regression": 72.92589350000003
+        },
+        {
+          "suite": "exposed",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 456.11182087573513,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 456.11182087573513,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "max_regression": 0.0
+        }
+      ]
+    },
+    {
+      "id": "S6_A1_R12",
+      "kind": "algorithm_candidate",
+      "title": "A1 R12：Retain R11 incoming candidate and add a certified move toward its projection on the current-position/route-successor segment; choose by two-edge Euclidean route cost",
+      "status": "rejected_quick",
+      "parents": [
+        {
+          "id": "S6_A1_R11",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_afcfb240bb9a6a64"
+        },
+        {
+          "id": "S6_A1_R11",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R12",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_A1_R12.json",
+      "primary_effects": []
+    },
+    {
+      "id": "S6_A1_R13",
+      "kind": "algorithm_candidate",
+      "title": "A1 R13：Damp R11's maximum certified station displacement by one half, then recertify; retain geometric slack rather than hugging the constraint",
+      "status": "rejected_quick",
+      "parents": [
+        {
+          "id": "S6_A1_R11",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_a807409ce2c40e58"
+        },
+        {
+          "id": "S6_A1_R11",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R13",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_A1_R13.json",
+      "primary_effects": []
+    },
+    {
+      "id": "S6_A1_R14",
+      "kind": "algorithm_candidate",
+      "title": "A1 R14：Enable partial station displacement only when no observed uncleared channel remains; R10 paid-stop substitutions unchanged",
+      "status": "rejected_both_batches_stop_D3",
+      "parents": [
+        {
+          "id": "S6_A1_R11",
+          "relationship": "actual_code_parent",
+          "evidence_source": "s6src_4acbfaa3dfa92aa6"
+        },
+        {
+          "id": "S6_A1_R11",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent",
+          "evidence_source": "s6src_04126418845fa40a"
+        }
+      ],
+      "round_key": "S6_A1_R14",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": true,
+      "details": "nodes/S6_A1_R14.json",
+      "primary_effects": [
+        {
+          "suite": "exposed",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 229.95216527916534,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": -5.924780532727066,
+          "faster": 2072,
+          "equal": 53,
+          "slower": 275,
+          "max_regression": 72.92589350000003
+        },
+        {
+          "suite": "exposed",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 456.11182087573513,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 456.11182087573513,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "max_regression": 0.0
+        }
+      ]
+    },
+    {
+      "id": "S6_A2_R1",
+      "kind": "algorithm_candidate",
+      "title": "A2 R1：开放路径代理选共同相位",
+      "status": "retained_marginal",
+      "parents": [
+        {
+          "id": "S6_C7_ANCHOR",
+          "relationship": "class_or_wrapper_code_parent"
+        },
+        {
+          "id": "S6_C7_ANCHOR",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent"
+        }
+      ],
+      "round_key": "S6_A2_R1",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": true,
+      "details": "nodes/S6_A2_R1.json",
+      "primary_effects": [
+        {
+          "suite": "exposed",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 235.87694581189243,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "max_regression": 0.0
+        },
+        {
+          "suite": "exposed",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 455.9186321514586,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 456.11182087573513,
+          "delta_s_per_source": -0.19318872427656122,
+          "faster": 1044,
+          "equal": 388,
+          "slower": 968,
+          "max_regression": 232.4208363125
+        }
+      ]
+    },
+    {
+      "id": "S6_A2_R2",
+      "kind": "algorithm_candidate",
+      "title": "A2 R2：源到未来站连接距离代理选相位",
+      "status": "retained_marginal",
+      "parents": [
+        {
+          "id": "S6_A2_R1",
+          "relationship": "class_or_wrapper_code_parent"
+        },
+        {
+          "id": "S6_A2_R1",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent"
+        }
+      ],
+      "round_key": "S6_A2_R2",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": true,
+      "details": "nodes/S6_A2_R2.json",
+      "primary_effects": [
+        {
+          "suite": "exposed",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 235.87694581189243,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "max_regression": 0.0
+        },
+        {
+          "suite": "exposed",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 455.43447612387087,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 456.11182087573513,
+          "delta_s_per_source": -0.677344751864265,
+          "faster": 1096,
+          "equal": 369,
+          "slower": 935,
+          "max_regression": 232.4208363125
+        }
+      ]
+    },
+    {
+      "id": "S6_A2_R3",
+      "kind": "algorithm_candidate",
+      "title": "A2 R3：首次非原点扫描前延迟改相位",
+      "status": "rejected_development_and_quick",
+      "parents": [
+        {
+          "id": "S6_C7_ANCHOR",
+          "relationship": "class_or_wrapper_code_parent"
+        },
+        {
+          "id": "S6_A2_R2",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent"
+        }
+      ],
+      "round_key": "S6_A2_R3",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_A2_R3.json",
+      "primary_effects": []
+    },
+    {
+      "id": "S6_A2_R4",
+      "kind": "algorithm_candidate",
+      "title": "A2 R4：首次站点执行时径向对齐",
+      "status": "rejected_development_and_quick",
+      "parents": [
+        {
+          "id": "S6_A2_R1",
+          "relationship": "class_or_wrapper_code_parent"
+        },
+        {
+          "id": "S6_A2_R2",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent"
+        }
+      ],
+      "round_key": "S6_A2_R4",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_A2_R4.json",
+      "primary_effects": []
+    },
+    {
+      "id": "S6_A2_R5",
+      "kind": "algorithm_candidate",
+      "title": "A2 R5：连续一维细化插入相位",
+      "status": "rejected_development_and_quick",
+      "parents": [
+        {
+          "id": "S6_A2_R1",
+          "relationship": "class_or_wrapper_code_parent"
+        },
+        {
+          "id": "S6_A2_R2",
+          "relationship": "retained_promotion_control_not_necessarily_code_parent"
+        }
+      ],
+      "round_key": "S6_A2_R5",
+      "counts_as_algorithm_round": true,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_A2_R5.json",
+      "primary_effects": []
+    },
+    {
+      "id": "S6_A2_G1",
+      "kind": "geometry_research",
+      "title": "G1：180 个20点布局的有限反例搜索",
+      "status": "listed_layouts_refuted_not_global_lower_bound",
+      "parents": [
+        {
+          "id": "S6_C7_ANCHOR",
+          "relationship": "search_for_smaller_certified_topology"
+        }
+      ],
+      "round_key": null,
+      "counts_as_algorithm_round": false,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_A2_G1.json",
+      "primary_effects": []
+    },
+    {
+      "id": "S6_A2_G2",
+      "kind": "geometry_research",
+      "title": "G2：21点新拓扑筛选与连续证书尝试",
+      "status": "grid_passes_but_novel_topology_uncertified",
+      "parents": [
+        {
+          "id": "S6_A2_G1",
+          "relationship": "next_bounded_geometry_direction_step"
+        }
+      ],
+      "round_key": null,
+      "counts_as_algorithm_round": false,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_A2_G2.json",
+      "primary_effects": []
+    },
+    {
+      "id": "S6_A2_G3",
+      "kind": "geometry_research",
+      "title": "G3：7+13 构型相位修订，仍未获连续证书",
+      "status": "three_uncertified_phase_variants_direction_stopped",
+      "parents": [
+        {
+          "id": "S6_A2_G2",
+          "relationship": "phase_refinement_of_selected_topology"
+        }
+      ],
+      "round_key": null,
+      "counts_as_algorithm_round": false,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_A2_G3.json",
+      "primary_effects": []
+    },
+    {
+      "id": "S6_A2_PACKAGED_R2",
+      "kind": "mechanical_packaging",
+      "title": "A2 R2 单文件等价封装",
+      "status": "4800_saved_task_fields_exact",
+      "parents": [
+        {
+          "id": "S6_A2_R2",
+          "relationship": "mechanical_packaging_no_new_algorithm"
+        }
+      ],
+      "round_key": null,
+      "counts_as_algorithm_round": false,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_A2_PACKAGED_R2.json",
+      "primary_effects": [
+        {
+          "suite": "exposed",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 235.87694581189243,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": 0.0,
+          "faster": 0,
+          "equal": 2400,
+          "slower": 0,
+          "max_regression": 0.0
+        },
+        {
+          "suite": "exposed",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 455.43447612387087,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 456.11182087573513,
+          "delta_s_per_source": -0.677344751864265,
+          "faster": 1096,
+          "equal": 369,
+          "slower": 935,
+          "max_regression": 232.4208363125
+        }
+      ]
+    },
+    {
+      "id": "S6_RL_BC_RPI_PLAN",
+      "kind": "research_plan_snapshot",
+      "title": "BC-RPI：预算化反事实源服务策略迭代方案",
+      "status": "historical_plan_review_accepted_before_execution_authorization",
+      "parents": [
+        {
+          "id": "S6_C7_ANCHOR",
+          "relationship": "teacher_mechanism_anchor_not_rl_improvement_result"
+        }
+      ],
+      "round_key": null,
+      "counts_as_algorithm_round": false,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_RL_BC_RPI_PLAN.json",
+      "primary_effects": []
+    },
+    {
+      "id": "S6_RL_G0_G1_EXECUTION",
+      "kind": "authorized_execution_status_snapshot",
+      "title": "BC-RPI G0/G1：后续获准的零训练执行状态快照",
+      "status": "implementing_g0",
+      "parents": [
+        {
+          "id": "S6_RL_BC_RPI_PLAN",
+          "relationship": "subsequent_user_authorization_not_retroactive_training_result"
+        },
+        {
+          "id": "S6_C7_ANCHOR",
+          "relationship": "registered_teacher_mechanism_anchor"
+        }
+      ],
+      "round_key": null,
+      "counts_as_algorithm_round": false,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_RL_G0_G1_EXECUTION.json",
+      "primary_effects": []
+    },
+    {
+      "id": "S6_FINAL_COMBINED",
+      "kind": "mechanical_combination",
+      "title": "最终 Q3/Q4 组合入口",
+      "status": "completed_4800_combination_with_coordinator_audits",
+      "parents": [
+        {
+          "id": "S6_A1_R11",
+          "relationship": "selected_Q3_component"
+        },
+        {
+          "id": "S6_A2_PACKAGED_R2",
+          "relationship": "selected_Q4_component"
+        }
+      ],
+      "round_key": null,
+      "counts_as_algorithm_round": false,
+      "counts_as_completed_4800_round": false,
+      "details": "nodes/S6_FINAL_COMBINED.json",
+      "primary_effects": [
+        {
+          "suite": "exposed",
+          "mode": 3,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 229.8703247460732,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 235.87694581189243,
+          "delta_s_per_source": -6.006621065819223,
+          "faster": 2080,
+          "equal": 53,
+          "slower": 267,
+          "max_regression": 72.92589350000003
+        },
+        {
+          "suite": "exposed",
+          "mode": 4,
+          "group": "ALL",
+          "cases": 2400,
+          "complete_cases": 2400,
+          "error_cases": 0,
+          "all_clear_and_normal": true,
+          "source_count": 30970,
+          "cleared_count": 30970,
+          "unknown_clearance_rows": 0,
+          "mean_s_per_source": 455.43447612387087,
+          "failed_case_ids": [],
+          "comparison_valid": true,
+          "baseline_mean_s_per_source": 456.11182087573513,
+          "delta_s_per_source": -0.677344751864265,
+          "faster": 1096,
+          "equal": 369,
+          "slower": 935,
+          "max_regression": 232.4208363125
+        }
+      ]
+    }
+  ]
+}

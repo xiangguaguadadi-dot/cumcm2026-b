@@ -1,0 +1,12 @@
+{
+  "failed_candidate": "snapshots/r6a.py",
+  "actual_policy_executions": 120,
+  "q3_failures": 59,
+  "q3_complete": 1,
+  "q4_failures": 0,
+  "reason": "The new CPU timer used time.perf_counter but the top-level embedded C7 module did not import time.",
+  "correction": "Add import time to the standalone coverage component, creating r6b.",
+  "failed_rows": "results/r6a_quick/case_metrics.json",
+  "ranking": "No efficiency mean or successful-subset ranking for the failed Q3 candidate.",
+  "round_identity": "D3 R6 implementation correction; repeated cases are not new independent validation."
+}

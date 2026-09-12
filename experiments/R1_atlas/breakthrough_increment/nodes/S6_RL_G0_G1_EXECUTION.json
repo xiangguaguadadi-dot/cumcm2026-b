@@ -1,0 +1,53 @@
+{
+  "id": "S6_RL_G0_G1_EXECUTION",
+  "kind": "authorized_execution_status_snapshot",
+  "title": "BC-RPI G0/G1：后续获准的零训练执行状态快照",
+  "status": "implementing_g0",
+  "registration_source": "s6src_87d2b12e0dfd81d5",
+  "authorized_scope": "G0/G1 only; no neural training",
+  "execution_snapshot": {
+    "registration_source": "s6src_87d2b12e0dfd81d5",
+    "status_snapshot": {
+      "source": "s6src_ba2ca314cbf3dc31",
+      "path": "experiments/R1_atlas/breakthrough_increment/snapshots/rl_g0g1_20260912T063311_829574Z/execution_status.json",
+      "sha256": "3a00dcc46628a8516d7bb3b6be24b58d0d9f9801fdf99dc9d3001c864eb1df04",
+      "href": "snapshots/rl_g0g1_20260912T063311_829574Z/execution_status.json"
+    },
+    "reported_actual_counters": {
+      "entered": 0,
+      "full_runs": 0,
+      "suffix_runs": 0,
+      "fixture_runs": 0,
+      "executions_started": 0,
+      "executions_completed": 0,
+      "business_calls": 0,
+      "accepted_calls": 0,
+      "failed_calls": 0,
+      "failed_runs": 0,
+      "network_training_runs": 0,
+      "unknown_cost_runs": 0
+    },
+    "journal": null,
+    "independently_recounted_journal": null,
+    "as_of_utc": "2026-09-12T06:12:52.456143+00:00",
+    "captured_at_utc": "2026-09-12T06:33:11.829452+00:00",
+    "limits_are_not_actual_execution_costs": true,
+    "not_summed_with_algorithm_or_packaging_runs": true
+  },
+  "parents": [
+    {
+      "id": "S6_RL_BC_RPI_PLAN",
+      "relationship": "subsequent_user_authorization_not_retroactive_training_result"
+    },
+    {
+      "id": "S6_C7_ANCHOR",
+      "relationship": "registered_teacher_mechanism_anchor"
+    }
+  ],
+  "evidence_boundary": "Current saved snapshot, not a claim of completed G0/G1 or a trained improvement. Missing/unreconciled journal counts remain null; status counters are labeled reported. Only G0/G1 was authorized; no promotion result is inferred.",
+  "stage": 6,
+  "official_result": false,
+  "new_holdout_result": false,
+  "counts_as_algorithm_round": false,
+  "counts_as_completed_4800_round": false
+}

@@ -1,0 +1,254 @@
+{
+  "schema": "cumcm-breakthrough-best-v1",
+  "frozen_at_utc": "2026-09-12T06:26:10.899560+00:00",
+  "candidate": "final_candidates/combined.py",
+  "candidate_sha256": "08dbe1dc5018b98c3b4ac0b128953174e4067be96b22683e61b030f10087ef01",
+  "q3_source": "A1/snapshots/r11.py",
+  "q3_sha256": "6c73bf90ac76b6e6e3d34b90883bf9acbf5e6a1443640633d29b3eb653a55cd7",
+  "q4_source": "A2/BEST_R2.py",
+  "q4_sha256": "789096af68fcf470e3973fd93757c556d81d60f3fe3910c5991c537def3f91cc",
+  "status": "verified_local_exposed_recommendation",
+  "deployment": "Research candidate only; root solver.py and prior C7 unchanged; official execution not performed",
+  "evaluation_version": "v1",
+  "evaluation_manifest_sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+  "cases_sha256": "e5bdfb611ff26a38dd5655b8f0d036936c178310bf0cc2197f82afa46225855a",
+  "evidence_role": "4800 exposed local regression cases, not new holdout",
+  "official_runs": 0,
+  "new_sealed_cases": 0,
+  "all_complete": true,
+  "compared_cases": 4800,
+  "metrics": [
+    {
+      "suite": "combined",
+      "mode": 3,
+      "group": "ALL",
+      "cases": 2400,
+      "candidate_complete": 2400,
+      "baseline_complete": 2400,
+      "source_count": 30970,
+      "candidate_cleared": 30970,
+      "valid_comparison": true,
+      "candidate_mean": 229.8703247460732,
+      "baseline_mean": 235.87694581189243,
+      "delta": -6.006621065819218,
+      "improvement_pct": 2.5465062069310447,
+      "faster": 2080,
+      "equal": 53,
+      "slower": 267,
+      "worst_candidate": 400.969544,
+      "largest_regression": 72.92589350000003,
+      "largest_improvement": -63.90843499999997,
+      "candidate_requests": 306891,
+      "candidate_clear_failures": 6402,
+      "candidate_mean_move_s_per_source": 171.3715353364571,
+      "candidate_max_runtime_s": 0.1982342090923339,
+      "candidate_mean_nonmove_s_per_source": 58.49878940961611
+    },
+    {
+      "suite": "combined",
+      "mode": 4,
+      "group": "ALL",
+      "cases": 2400,
+      "candidate_complete": 2400,
+      "baseline_complete": 2400,
+      "source_count": 30970,
+      "candidate_cleared": 30970,
+      "valid_comparison": true,
+      "candidate_mean": 455.43447612387087,
+      "baseline_mean": 456.11182087573513,
+      "delta": -0.6773447518642683,
+      "improvement_pct": 0.14850409940346773,
+      "faster": 1096,
+      "equal": 369,
+      "slower": 935,
+      "worst_candidate": 722.4135973,
+      "largest_regression": 232.4208363125,
+      "largest_improvement": -142.71221175,
+      "candidate_requests": 632563,
+      "candidate_clear_failures": 10842,
+      "candidate_mean_move_s_per_source": 330.5401639807418,
+      "candidate_max_runtime_s": 0.06944212492089719,
+      "candidate_mean_nonmove_s_per_source": 124.89431214312907
+    },
+    {
+      "suite": "v1",
+      "mode": 3,
+      "group": "ALL",
+      "cases": 1200,
+      "candidate_complete": 1200,
+      "baseline_complete": 1200,
+      "source_count": 15550,
+      "candidate_cleared": 15550,
+      "valid_comparison": true,
+      "candidate_mean": 229.59878776297055,
+      "baseline_mean": 235.23558254305806,
+      "delta": -5.636794780087513,
+      "improvement_pct": 2.3962339026901853,
+      "faster": 1026,
+      "equal": 31,
+      "slower": 143,
+      "worst_candidate": 380.09951179999996,
+      "largest_regression": 43.41543783333333,
+      "largest_improvement": -63.90843499999997,
+      "candidate_requests": 153613,
+      "candidate_clear_failures": 3211,
+      "candidate_mean_move_s_per_source": 171.30933148884256,
+      "candidate_max_runtime_s": 0.1982342090923339,
+      "candidate_mean_nonmove_s_per_source": 58.289456274127986
+    },
+    {
+      "suite": "v1",
+      "mode": 4,
+      "group": "ALL",
+      "cases": 1200,
+      "candidate_complete": 1200,
+      "baseline_complete": 1200,
+      "source_count": 15550,
+      "candidate_cleared": 15550,
+      "valid_comparison": true,
+      "candidate_mean": 451.9007815083405,
+      "baseline_mean": 452.7609068198019,
+      "delta": -0.8601253114613883,
+      "improvement_pct": 0.1899734050589568,
+      "faster": 552,
+      "equal": 188,
+      "slower": 460,
+      "worst_candidate": 693.5840546000001,
+      "largest_regression": 124.43371006250001,
+      "largest_improvement": -123.74369243749999,
+      "candidate_requests": 315687,
+      "candidate_clear_failures": 5382,
+      "candidate_mean_move_s_per_source": 327.768964644694,
+      "candidate_max_runtime_s": 0.06944212492089719,
+      "candidate_mean_nonmove_s_per_source": 124.13181686364652
+    },
+    {
+      "suite": "previous_final",
+      "mode": 3,
+      "group": "ALL",
+      "cases": 1200,
+      "candidate_complete": 1200,
+      "baseline_complete": 1200,
+      "source_count": 15420,
+      "candidate_cleared": 15420,
+      "valid_comparison": true,
+      "candidate_mean": 230.14186172917582,
+      "baseline_mean": 236.51830908072677,
+      "delta": -6.376447351550951,
+      "improvement_pct": 2.6959635287154815,
+      "faster": 1054,
+      "equal": 22,
+      "slower": 124,
+      "worst_candidate": 400.969544,
+      "largest_regression": 72.92589350000003,
+      "largest_improvement": -47.95011672727273,
+      "candidate_requests": 153278,
+      "candidate_clear_failures": 3191,
+      "candidate_mean_move_s_per_source": 171.4337391840716,
+      "candidate_max_runtime_s": 0.11075637501198798,
+      "candidate_mean_nonmove_s_per_source": 58.7081225451042
+    },
+    {
+      "suite": "previous_final",
+      "mode": 4,
+      "group": "ALL",
+      "cases": 1200,
+      "candidate_complete": 1200,
+      "baseline_complete": 1200,
+      "source_count": 15420,
+      "candidate_cleared": 15420,
+      "valid_comparison": true,
+      "candidate_mean": 458.9681707394013,
+      "baseline_mean": 459.46273493166836,
+      "delta": -0.4945641922670916,
+      "improvement_pct": 0.10763967448647245,
+      "faster": 544,
+      "equal": 181,
+      "slower": 475,
+      "worst_candidate": 722.4135973,
+      "largest_regression": 232.4208363125,
+      "largest_improvement": -142.71221175,
+      "candidate_requests": 316876,
+      "candidate_clear_failures": 5460,
+      "candidate_mean_move_s_per_source": 333.3113633167896,
+      "candidate_max_runtime_s": 0.055570874945260584,
+      "candidate_mean_nonmove_s_per_source": 125.65680742261168
+    }
+  ],
+  "build": {
+    "path": "final_candidates/combined.build.json",
+    "sha256": "6b0c0233931b54f8c752b49bf392ba6d493b9fdc1631be979a75ccc37e14677e"
+  },
+  "results": {
+    "quick": {
+      "path": "verification/final_quick/case_metrics.json",
+      "sha256": "8b30c2597462fa6b4f146e73dd90931ab66b8598e206d7023f0e94fd1dd46eb6"
+    },
+    "full": {
+      "path": "verification/final_full/case_metrics.json",
+      "sha256": "a7b2624cb7bc87a137c69eb2f616adcc34c8cc2869fd1833251ce4e61178fbf4"
+    },
+    "exposed": {
+      "path": "verification/final_exposed/case_metrics.json",
+      "sha256": "81446905572411782876e0ad954ef57a5417dc26cd6378987dc29897cd97a726"
+    }
+  },
+  "verification": {
+    "final_saved_rows.json": {
+      "path": "verification/final_saved_rows.json",
+      "sha256": "3289e997ec221d81a7532879b3cfc1b635035b6bdc18ae464d145bc3946b78cb"
+    },
+    "final_task_parity.json": {
+      "path": "verification/final_task_parity.json",
+      "sha256": "3bc9acc922db53543b50807fb894cd373ca6ebad33686ae8e2b44083bb1fc9d7"
+    },
+    "final_trace_parity.json": {
+      "path": "verification/final_trace_parity.json",
+      "sha256": "2aba646e5e58436596435f127343425d4ff0b13766c63c60be01c20fc6dffca5"
+    },
+    "summary.json": {
+      "path": "verification/final_checks_v3/summary.json",
+      "sha256": "a9955f18e09fa707b22e1af6998160641157f3c0f306d4cd09363f060b68dbe3"
+    },
+    "A1_execution_cost_audit.json": {
+      "path": "verification/A1_execution_cost_audit.json",
+      "sha256": "bac70ac291c7b1184d18ce90315ee4cbbb297e30f8c3323af2e3d1866861fa25"
+    },
+    "A2_execution_cost_audit_v2.json": {
+      "path": "verification/A2_execution_cost_audit_v2.json",
+      "sha256": "e57bf5566a0504ee854449c18f9685203546ea7a0b9bf23f40466fefe73154ab"
+    },
+    "final_execution_costs.json": {
+      "path": "verification/final_execution_costs.json",
+      "sha256": "f24d83e88edaf8707f7513ac995a2591f69239d78d6804c9894d09c17e7ecc87"
+    },
+    "r11_all_q3_cover_diagnostic.json": {
+      "path": "A1/results/r11_all_q3_cover_diagnostic.json",
+      "sha256": "f78ddd2a9376f296fdac00cc14790458e7e512fc45d796e6496a24842da5bbac"
+    },
+    "geometry20_round1_exact_counterexamples.json": {
+      "path": "verification/geometry20_round1_exact_counterexamples.json",
+      "sha256": "ec813cd05f0e374180d9932b0e2bc6eae1b3acc101e0381de3b2b63bb924741b"
+    }
+  },
+  "branch_ledgers": {
+    "A1": {
+      "path": "A1/iteration_ledger.json",
+      "sha256": "7b5639f2001b9f3fcffee204adf61488af0f91ac7f3b3b1a7847a233c55b5fc5"
+    },
+    "A2": {
+      "path": "A2/iteration_ledger.json",
+      "sha256": "507b095d9604e3021de9e852abba6a96e93c5859a1ca2d18cbc6c631400da150"
+    }
+  },
+  "rl_status_at_freeze": {
+    "path": "verification/rl_status_at_nonrl_freeze.json",
+    "sha256": "a400666f86f962f0c331d5ff1bced526c28e4b3e10a85a387f7678767bda4dc5"
+  },
+  "rl_scope": "G0/G1 implementation separate, no learned policy in this candidate",
+  "report_generator_sha256": "ae9aa9e78cb4ebee69da66a6fbb9211354bad2b9a68a3e117f42331f03b45e7a",
+  "pre_release_metadata_corrections": [
+    "Task metric parity covers 16 listed fields; report corrected from 17 and generator now derives the count.",
+    "Research-path wording does not claim every round has full request traces; reconstructed diagnostic count now derives from its marked ledger entry. No candidate or result rows changed."
+  ]
+}

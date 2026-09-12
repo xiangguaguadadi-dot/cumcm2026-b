@@ -1,0 +1,20 @@
+{
+  "round": "r12",
+  "direction": "D3 certified paid-stop discovery station substitution",
+  "description": "Keep R11 incoming-segment candidate; also move toward the original station projection on the current-position/known-route-successor segment using the same ten certificate-checked bisections. Select by fixed two-leg physical length; unknown future observations can still worsen actual time.",
+  "parent": "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/A1/snapshots/r11.py",
+  "parent_sha256": "6c73bf90ac76b6e6e3d34b90883bf9acbf5e6a1443640633d29b3eb653a55cd7",
+  "component": "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/A1/lookahead_station_component.py",
+  "component_sha256": "a4159f134cf0560e1b4e5a41a0af2695a843975bdb89ff70162b6f9ac6c38973",
+  "candidate": "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/A1/snapshots/r12.py",
+  "candidate_sha256": "37f7e0ed53b9729d225f395b657d9fadcbbb9a508e3e4464ada32f822e7b79ac",
+  "tests": [
+    "rules",
+    "quick",
+    "full if retained",
+    "4800 exposed if retained"
+  ],
+  "data_role": "exposed local regression; not holdout or official",
+  "q4": "unchanged dispatch to pinned parent",
+  "gate": "all complete; Q3 both batches improve against retained parent; no Q4 change"
+}

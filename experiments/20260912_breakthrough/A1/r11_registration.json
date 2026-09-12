@@ -1,0 +1,20 @@
+{
+  "round": "r11",
+  "direction": "D3 certified paid-stop discovery station substitution",
+  "description": "After parent has selected a discovery station, shorten its incoming segment using ten certificate-checked bisection steps; retain previous scanned coordinates, task order and actual scans. Same-next-point route is nonincreasing by triangle inequality, but future information can alter tasks, so whole-run efficiency is empirical.",
+  "parent": "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/A1/snapshots/r10.py",
+  "parent_sha256": "48b63e7664d3a0b2bd7315c5a057d4df10f67a24e754ab641858e18b96c63ea9",
+  "component": "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/A1/partial_station_component.py",
+  "component_sha256": "be1d6db55d72b55932b65fdb3059eef6453da7738b90caf121d85533e024c3bd",
+  "candidate": "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/A1/snapshots/r11.py",
+  "candidate_sha256": "6c73bf90ac76b6e6e3d34b90883bf9acbf5e6a1443640633d29b3eb653a55cd7",
+  "tests": [
+    "rules",
+    "quick",
+    "full if retained",
+    "4800 exposed if retained"
+  ],
+  "data_role": "exposed local regression; not holdout or official",
+  "q4": "unchanged dispatch to pinned parent",
+  "gate": "all complete; Q3 both batches improve against retained parent; no Q4 change"
+}

@@ -1,0 +1,20 @@
+{
+  "round": "r5",
+  "direction": "D2 preemptive localization and replanning",
+  "description": "Restrict information scoring to the original six physical tours; isolate speculative fixed-first candidate expansion",
+  "parent": "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/A1/snapshots/r2.py",
+  "parent_sha256": "ba99196e9b7b61b5af50ba272f545148ed1bed618407d7711051c63b006cba01",
+  "component": "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/A1/restricted_information_component.py",
+  "component_sha256": "81936fdc085f4ce04fd529b25e5f7a3eb24429a1a0a9e6a18252bc404a9dbe8e",
+  "candidate": "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/A1/snapshots/r5.py",
+  "candidate_sha256": "c8a42baa0cc187cc8361ab63e6df3ee8a595cbe27ff8351fd23642155d6f2e1f",
+  "tests": [
+    "rules",
+    "quick",
+    "full if retained",
+    "4800 exposed if retained"
+  ],
+  "data_role": "exposed local regression; not holdout or official",
+  "q4": "unchanged dispatch to pinned parent",
+  "gate": "all complete; Q3 both batches improve against retained parent; no Q4 change"
+}

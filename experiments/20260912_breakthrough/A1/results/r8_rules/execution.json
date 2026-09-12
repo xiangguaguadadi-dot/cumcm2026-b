@@ -1,0 +1,45 @@
+[
+  {
+    "name": "unit",
+    "command": [
+      "/opt/homebrew/bin/python3.12",
+      "-S",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 0,
+    "wall_s": 0.09248845896217972
+  },
+  {
+    "name": "manifest",
+    "command": [
+      "/opt/homebrew/bin/python3.12",
+      "-S",
+      "-B",
+      "evaluate.py",
+      "--verify-only"
+    ],
+    "returncode": 0,
+    "wall_s": 0.040121291065588593
+  },
+  {
+    "name": "nominal",
+    "command": [
+      "/opt/homebrew/bin/python3.12",
+      "-S",
+      "-B",
+      "tests/check_nominal.py",
+      "--package",
+      ".",
+      "--out",
+      "/Users/t/ai project/\u6570\u5b66\u5efa\u6a212026/\u4ee3\u7801/experiments/20260912_breakthrough/A1/results/r8_rules/nominal.json"
+    ],
+    "returncode": 0,
+    "wall_s": 0.03448174998629838
+  }
+]

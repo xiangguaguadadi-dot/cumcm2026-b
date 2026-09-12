@@ -1,0 +1,20 @@
+{
+  "round": "r14",
+  "direction": "D3 certified paid-stop discovery station substitution",
+  "description": "Only enable R11 partial-station movements when no observed uncleared channel remains; preserve R10 paid-stop substitutions. This legal-history gate tests separating pure discovery from pending service geometry; lost motion savings are possible.",
+  "parent": "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/A1/snapshots/r11.py",
+  "parent_sha256": "6c73bf90ac76b6e6e3d34b90883bf9acbf5e6a1443640633d29b3eb653a55cd7",
+  "component": "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/A1/discovery_stage_component.py",
+  "component_sha256": "d16d4929cdfb53c4f665e5e72d2659f2734ead1c6e6aebdba510b6abdbed8156",
+  "candidate": "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/A1/snapshots/r14.py",
+  "candidate_sha256": "eebffd2b9b30b4ff8c6ece12f6681a0642c431b054aab4c773344d1e7c756210",
+  "tests": [
+    "rules",
+    "quick",
+    "full if retained",
+    "4800 exposed if retained"
+  ],
+  "data_role": "exposed local regression; not holdout or official",
+  "q4": "unchanged dispatch to pinned parent",
+  "gate": "all complete; Q3 both batches improve against retained parent; no Q4 change"
+}

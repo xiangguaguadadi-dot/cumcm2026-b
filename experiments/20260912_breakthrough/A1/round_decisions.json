@@ -1,0 +1,29 @@
+{
+  "best_round": "r11",
+  "directions": {
+    "D1": "R1 retained; moved to a genuinely different scheduling mechanism, not an abandoned failure streak",
+    "D2": "R2 retained, R3/R4/R5 three consecutive quick nonpromotions; direction stopped",
+    "D3": "STOPPED after R12/R13 quick nonpromotions and R14 both-batch full regression (three consecutive). Retain R11. Earlier R7/R9/R10 were explicitly retained_marginal; no new direction renamed to reset this streak."
+  },
+  "rounds": [
+    {"round":"r1","direction":"D1","status":"retained","gate_control":null,"mechanism":"Task-cost gate for known-channel measurements while at discovery stations"},
+    {"round":"r2","direction":"D2","status":"retained","gate_control":"r1","mechanism":"One persistent localization round followed by global replanning"},
+    {"round":"r3","direction":"D2","status":"rejected_quick","gate_control":"r2","mechanism":"Use next actual service destination in global task route"},
+    {"round":"r4","direction":"D2","status":"rejected_quick","gate_control":"r2","mechanism":"Information-value route ranking with fixed-first expanded route choices"},
+    {"round":"r5","direction":"D2","status":"rejected_quick_stop_D2","gate_control":"r2","mechanism":"Remove R4 expanded route choices; retain cross-channel information score"},
+    {"round":"r6","direction":"D3","status":"draft_not_executed","gate_control":"r2","mechanism":"Certified paid-stop replacement before preflight exit-guard revision"},
+    {"round":"r6a","direction":"D3","status":"execution_failure_not_efficiency_ranked","gate_control":"r2","mechanism":"Add real-negative per-channel exit guard; missing time import causes 59 quick NameErrors"},
+    {"round":"r6b","direction":"D3","status":"retained","gate_control":"r2","mechanism":"Same R6 mechanism with missing time import repaired; not a new direction or independent algorithm round"},
+    {"round":"r7","direction":"D3","status":"retained_marginal","gate_control":"r6b","mechanism":"Rotate future unscanned sites jointly to fit a certified paid stop"},
+    {"round":"r8","direction":"D3","status":"not_promoted_opposite_batch_signs","gate_control":"r7","design_parent":"r6b","mechanism":"Fixed visited sites/paid anchor with up to four minimax Voronoi updates and station-only path guard"},
+    {"round":"r9","direction":"D3","status":"retained_marginal","gate_control":"r7","mechanism":"Keep R7 rotation priority, then R8 constrained minimax fallback"},
+    {"round":"r10","direction":"D3","status":"retained_marginal","gate_control":"r9","mechanism":"After R9 proposals fail, rotate future sites toward the paid anchor and run the same four constrained minimax updates"},
+    {"round":"r11","direction":"D3","status":"retained","gate_control":"r10","mechanism":"Only shorten the incoming line segment to an already selected unscanned station; ten-step certified search, same station task and real scans"},
+    {"round":"r12","direction":"D3","status":"rejected_quick","gate_control":"r11","mechanism":"Retain R11 incoming candidate and add a certified move toward its projection on the current-position/route-successor segment; choose by two-edge Euclidean route cost"},
+    {"round":"r13","direction":"D3","status":"rejected_quick","gate_control":"r11","mechanism":"Damp R11's maximum certified station displacement by one half, then recertify; retain geometric slack rather than hugging the constraint"},
+    {"round":"r14","direction":"D3","status":"rejected_both_batches_stop_D3","gate_control":"r11","mechanism":"Enable partial station displacement only when no observed uncleared channel remains; R10 paid-stop substitutions unchanged"}
+  ],
+  "additional_diagnostics": [
+    {"path":"results/r11_all_q3_cover_diagnostic.json","label":"Final R11 real measurement and exit-negative evidence replay on all 2400 exposed Q3 worlds"}
+  ]
+}

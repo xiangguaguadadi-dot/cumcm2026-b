@@ -107,15 +107,23 @@ def main():
     manifest = read(STAGE4 / 'exposure_manifest.json')
     assert digest(CASES) == manifest['cases_sha256']
     summary_path = a.rows.parent / 'summary.json'
+    dependencies = {}
     if summary_path.exists():
         summary = read(summary_path)
         assert summary['candidate_sha256'] == digest(a.candidate)
+        dependencies = summary.get('dependencies', {})
+        for name, expected in dependencies.items():
+            path = Path(name)
+            if not path.is_absolute():
+                path = ROOT / path
+            assert digest(path) == expected, 'Deployment dependency changed: '+name
     result = audit(read(a.rows), read(a.baseline_rows), read(CASES))
     result.update(evidence='Independent saved-row recomputation; exposed regression, not new inference or holdout',
                   candidate=str(a.candidate), candidate_sha256=digest(a.candidate),
                   candidate_rows=str(a.rows), candidate_rows_sha256=digest(a.rows),
                   baseline_rows=str(a.baseline_rows), baseline_rows_sha256=digest(a.baseline_rows),
-                  cases_sha256=digest(CASES), script_sha256=digest(__file__))
+                  cases_sha256=digest(CASES), script_sha256=digest(__file__),
+                  verified_deployment_dependencies=dependencies)
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n')
     print(json.dumps({k:v for k,v in result.items() if k != 'comparisons'}, ensure_ascii=False))

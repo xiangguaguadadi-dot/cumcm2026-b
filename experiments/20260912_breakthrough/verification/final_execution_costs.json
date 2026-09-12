@@ -1,0 +1,58 @@
+{
+  "final_batches": [
+    {
+      "batch": "final_quick",
+      "runs": 120,
+      "recorded_requests": 23870,
+      "membership": "all candidate rows",
+      "wall_s": 7.907715540961362,
+      "source": {
+        "path": "verification/final_quick/case_metrics.json",
+        "sha256": "8b30c2597462fa6b4f146e73dd90931ab66b8598e206d7023f0e94fd1dd46eb6"
+      }
+    },
+    {
+      "batch": "final_full",
+      "runs": 2400,
+      "recorded_requests": 469300,
+      "membership": "all candidate rows",
+      "wall_s": 90.99082416703459,
+      "source": {
+        "path": "verification/final_full/case_metrics.json",
+        "sha256": "a7b2624cb7bc87a137c69eb2f616adcc34c8cc2869fd1833251ce4e61178fbf4"
+      }
+    },
+    {
+      "batch": "final_exposed",
+      "runs": 2400,
+      "recorded_requests": 470154,
+      "membership": "previous_final only; v1 reused",
+      "wall_s": 82.31570212496445,
+      "source": {
+        "path": "verification/final_exposed/case_metrics.json",
+        "sha256": "81446905572411782876e0ad954ef57a5417dc26cd6378987dc29897cd97a726"
+      }
+    },
+    {
+      "batch": "trace_parity",
+      "runs": 48,
+      "recorded_requests": 9856,
+      "attempts": 9856,
+      "accepted_requests": 9856,
+      "wall_s": 3.451279707951471,
+      "source": {
+        "path": "verification/final_trace_parity.json",
+        "sha256": "2aba646e5e58436596435f127343425d4ff0b13766c63c60be01c20fc6dffca5"
+      }
+    }
+  ],
+  "final_runs": 4968,
+  "final_recorded_requests": 973180,
+  "nonrl_total_policy_runs": 73044,
+  "nonrl_total_recorded_requests": 14193393,
+  "a1_diagnostic_reconstructed_requests": 7885,
+  "unique_exposed_regression_worlds": 4800,
+  "additional_a2_development_worlds": 96,
+  "attempted_request_overhead_unknown": true,
+  "boundary": "Recorded v1 counts, including a separately identified 7885-call deterministic reconstruction. Not an exhaustive attempted-call ledger. No RL implementation costs included."
+}

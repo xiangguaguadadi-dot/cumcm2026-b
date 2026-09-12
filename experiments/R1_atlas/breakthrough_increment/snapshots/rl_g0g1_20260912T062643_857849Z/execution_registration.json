@@ -1,0 +1,31 @@
+{
+  "status": "registered_before_environment_calls",
+  "scope": "G0/G1 only; no neural training",
+  "authority": "User requested the original proposal agent to execute; coordinator bounded next gate to G0/G1",
+  "prior_registration": "../execution_20260912_g0g1/REGISTRATION.md",
+  "business_call_limit": 350000,
+  "execution_count_limit": 2000,
+  "world_registry_sha256": "15ed0ffdbeaab744c8b3d9cab5841823c3dd620fa941b638f035b2c155732263",
+  "input_sha256": {
+    "experiments/20260912_breakthrough/RL/PROPOSAL.md": "000281b9a17183763957bd4318b6a00173193ad53254d1e94147d6f810efa736",
+    "experiments/20260912_breakthrough/RL/implementation_spec.md": "deb0ac21bcbe326bdb32023ea3ba23cb858645dc410875249d6a5d4fbebcc2b8",
+    "experiments/20260911_stage4/combination/geometry_fusions/C7_both.py": "cf37866829b9c6f376895075e819a732939e6fa8ad6d8d6297a151d7a213dcb3",
+    "experiments/20260912_breakthrough/A2/BEST_R2.py": "789096af68fcf470e3973fd93757c556d81d60f3fe3910c5991c537def3f91cc",
+    "evaluation/manifest_v1.json": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+    "local_env.py": "99587518fa378e1bef2fbbaa9425ee907bea80885a69666b3765311cbcf4f42a",
+    "experiments/20260911_rl_execution/data/worlds.py": "f595623edd01fbcaeefd64a05bf3905f13deb25f9508d2f813e94715a5509f80"
+  },
+  "world_recipe": {
+    "g0_namespace": "bc_rpi_g0_20260912_v1",
+    "g1_namespace": "bc_rpi_g1_20260912_v1",
+    "per_mode_worlds": 24,
+    "index_range": [
+      0,
+      23
+    ],
+    "group": "index % 12"
+  },
+  "state_sampling": "Up to four source READY_PREPARE indexes: floor(k*(n-1)/(m-1)), k=0..m-1, m=min(4,n); m=1 uses index0; public trajectory only",
+  "stop": "G0 failure stops before G1; G1 completed/negative/budget-pending stops before G2",
+  "g0_latest_q3_compatibility": "pending coordinator freeze; C7 equivalence only"
+}

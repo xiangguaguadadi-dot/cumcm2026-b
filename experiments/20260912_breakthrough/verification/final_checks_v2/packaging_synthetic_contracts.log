@@ -1,0 +1,78 @@
+test_dispatch_preserves_mode_env_and_overrides (__main__.PackagingTests.test_dispatch_preserves_mode_env_and_overrides) ... FAIL
+test_existing_output_not_overwritten (__main__.PackagingTests.test_existing_output_not_overwritten) ... FAIL
+test_manifest_binds_exact_source_and_output (__main__.PackagingTests.test_manifest_binds_exact_source_and_output) ... FAIL
+test_parent_namespaces_and_config_are_independent (__main__.PackagingTests.test_parent_namespaces_and_config_are_independent) ... FAIL
+test_sidecar_rejected_at_build_and_import (__main__.PackagingTests.test_sidecar_rejected_at_build_and_import) ... FAIL
+test_wrong_parent_hash_rejected_before_output (__main__.PackagingTests.test_wrong_parent_hash_rejected_before_output) ... ok
+test_only_two_machine_clock_fields_are_ignored (__main__.TraceTests.test_only_two_machine_clock_fields_are_ignored) ... ok
+test_rejected_attempt_is_recorded (__main__.TraceTests.test_rejected_attempt_is_recorded) ... ok
+
+======================================================================
+FAIL: test_dispatch_preserves_mode_env_and_overrides (__main__.PackagingTests.test_dispatch_preserves_mode_env_and_overrides)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/test_final_packaging.py", line 57, in test_dispatch_preserves_mode_env_and_overrides
+    self.build()
+  File "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/test_final_packaging.py", line 54, in build
+    builder.main()
+  File "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/build_final.py", line 25, in main
+    assert q3.is_relative_to(HERE / 'A1')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+======================================================================
+FAIL: test_existing_output_not_overwritten (__main__.PackagingTests.test_existing_output_not_overwritten)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/test_final_packaging.py", line 88, in test_existing_output_not_overwritten
+    self.build()
+  File "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/test_final_packaging.py", line 54, in build
+    builder.main()
+  File "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/build_final.py", line 25, in main
+    assert q3.is_relative_to(HERE / 'A1')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+======================================================================
+FAIL: test_manifest_binds_exact_source_and_output (__main__.PackagingTests.test_manifest_binds_exact_source_and_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/test_final_packaging.py", line 74, in test_manifest_binds_exact_source_and_output
+    self.build()
+  File "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/test_final_packaging.py", line 54, in build
+    builder.main()
+  File "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/build_final.py", line 25, in main
+    assert q3.is_relative_to(HERE / 'A1')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+======================================================================
+FAIL: test_parent_namespaces_and_config_are_independent (__main__.PackagingTests.test_parent_namespaces_and_config_are_independent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/test_final_packaging.py", line 66, in test_parent_namespaces_and_config_are_independent
+    self.build()
+  File "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/test_final_packaging.py", line 54, in build
+    builder.main()
+  File "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/build_final.py", line 25, in main
+    assert q3.is_relative_to(HERE / 'A1')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+======================================================================
+FAIL: test_sidecar_rejected_at_build_and_import (__main__.PackagingTests.test_sidecar_rejected_at_build_and_import)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/test_final_packaging.py", line 101, in test_sidecar_rejected_at_build_and_import
+    self.build()
+  File "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/test_final_packaging.py", line 54, in build
+    builder.main()
+  File "/Users/t/ai project/数学建模2026/代码/experiments/20260912_breakthrough/build_final.py", line 25, in main
+    assert q3.is_relative_to(HERE / 'A1')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.009s
+
+FAILED (failures=5)

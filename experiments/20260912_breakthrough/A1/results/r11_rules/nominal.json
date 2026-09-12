@@ -1,0 +1,486 @@
+{
+  "checks": [
+    {
+      "name": "omnidirectional_at_radius",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "omnidirectional_at_radius_bearing_field",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "omnidirectional_outside_radius",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "omnidirectional_outside_radius_bearing_field",
+      "passed": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "near_at_five",
+      "passed": true,
+      "actual": "near",
+      "expected": "near"
+    },
+    {
+      "name": "near_at_five_bearing_field",
+      "passed": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "above_five",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "above_five_bearing_field",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "directional_front",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "directional_front_bearing_field",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "directional_back",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "directional_back_bearing_field",
+      "passed": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "directional_positive_boundary",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "directional_positive_boundary_bearing_field",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "directional_negative_boundary",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "directional_negative_boundary_bearing_field",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "directional_back_even_inside_five",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "directional_back_even_inside_five_bearing_field",
+      "passed": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "outside_target_region_receiver",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "outside_target_region_receiver_bearing_field",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "clear_at_twenty",
+      "passed": true,
+      "actual": "success",
+      "expected": "success"
+    },
+    {
+      "name": "clear_at_twenty_time",
+      "passed": true,
+      "actual": 9.0,
+      "expected": 9.0
+    },
+    {
+      "name": "clear_outside_twenty",
+      "passed": true,
+      "actual": "no_target_in_range",
+      "expected": "no_target_in_range"
+    },
+    {
+      "name": "clear_outside_twenty_time",
+      "passed": true,
+      "actual": 7.0002,
+      "expected": 7.0002
+    },
+    {
+      "name": "clear_from_directional_back",
+      "passed": true,
+      "actual": "success",
+      "expected": "success"
+    },
+    {
+      "name": "clear_from_directional_back_time",
+      "passed": true,
+      "actual": 9.0,
+      "expected": 9.0
+    },
+    {
+      "name": "clear_does_not_switch_channel",
+      "passed": true,
+      "actual": [
+        "success",
+        1
+      ],
+      "expected": [
+        "success",
+        1
+      ]
+    },
+    {
+      "name": "cleared_source_has_no_signal",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "clear_twice",
+      "passed": true,
+      "actual": "no_target_in_range",
+      "expected": "no_target_in_range"
+    },
+    {
+      "name": "empty_channel",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "official_document_199_second_example",
+      "passed": true,
+      "actual": 199.0,
+      "expected": 199.0
+    },
+    {
+      "name": "official_document_final_channel",
+      "passed": true,
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "name": "exit_does_not_advance_virtual_time",
+      "passed": true,
+      "actual": 199.0,
+      "expected": 199.0
+    },
+    {
+      "name": "bearing_0",
+      "passed": true,
+      "actual": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "bearing_90",
+      "passed": true,
+      "actual": 90.0,
+      "expected": 90.0
+    },
+    {
+      "name": "bearing_180",
+      "passed": true,
+      "actual": 180.0,
+      "expected": 180.0
+    },
+    {
+      "name": "bearing_270",
+      "passed": true,
+      "actual": 270.0,
+      "expected": 270.0
+    },
+    {
+      "name": "repeat_exact_coordinate_is_fixed",
+      "passed": true,
+      "actual": 0.56,
+      "expected": 0.56
+    },
+    {
+      "name": "noise_within_one_degree",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "hemisphere_15_-91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "hemisphere_15_-89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_15_0",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_15_89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_15_91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "hemisphere_37_-91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "hemisphere_37_-89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_37_0",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_37_89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_37_91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "hemisphere_83_-91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "hemisphere_83_-89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_83_0",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_83_89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_83_91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "hemisphere_121_-91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "hemisphere_121_-89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_121_0",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_121_89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_121_91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "hemisphere_169_-91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "hemisphere_169_-89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_169_0",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_169_89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_169_91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "hemisphere_201_-91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "hemisphere_201_-89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_201_0",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_201_89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_201_91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "hemisphere_263_-91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "hemisphere_263_-89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_263_0",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_263_89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_263_91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "hemisphere_319_-91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    },
+    {
+      "name": "hemisphere_319_-89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_319_0",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_319_89",
+      "passed": true,
+      "actual": "direction",
+      "expected": "direction"
+    },
+    {
+      "name": "hemisphere_319_91",
+      "passed": true,
+      "actual": "no_signal",
+      "expected": "no_signal"
+    }
+  ],
+  "passed": 79,
+  "total": 79
+}
