@@ -1,0 +1,188 @@
+{
+  "label": "Observer correction only; candidate and all actions unchanged",
+  "false_positives": 2,
+  "cause": "Normalizing approximately duplicated polygon edges of length 9.17e-13 and 1.60e-12 m",
+  "corrected_true_source_exclusions_quick": 0,
+  "original_artifacts_retained": true,
+  "confirmation_summary": {
+    "pairs": 1,
+    "actual_runs": 2,
+    "all_complete": true,
+    "true_source_exclusions": 0,
+    "sources_per_arm": 11,
+    "same_state_updates": 26,
+    "same_state_effective_shrinks": 0,
+    "overall": {
+      "on": {
+        "average_clear_time_s": 544.9056033636364,
+        "measures": 296,
+        "clear_attempts": 17,
+        "clear_failures": 6,
+        "distance_m": 20814.808172889934
+      },
+      "off": {
+        "average_clear_time_s": 544.4823386363637,
+        "measures": 296,
+        "clear_attempts": 16,
+        "clear_failures": 5,
+        "distance_m": 20806.528616439624
+      },
+      "n": 1,
+      "mean_delta_s_per_source": 0.42326472727268083,
+      "faster": 0,
+      "same": 0,
+      "slower": 1
+    },
+    "groups": {
+      "minimum_radius": {
+        "on": {
+          "average_clear_time_s": 544.9056033636364,
+          "measures": 296,
+          "clear_attempts": 17,
+          "clear_failures": 6,
+          "distance_m": 20814.808172889934
+        },
+        "off": {
+          "average_clear_time_s": 544.4823386363637,
+          "measures": 296,
+          "clear_attempts": 16,
+          "clear_failures": 5,
+          "distance_m": 20806.528616439624
+        },
+        "n": 1,
+        "mean_delta_s_per_source": 0.42326472727268083,
+        "faster": 0,
+        "same": 0,
+        "slower": 1
+      }
+    },
+    "seed_cluster_bootstrap_95ci_delta_s_per_source": [
+      0.42326472727268083,
+      0.42326472727268083
+    ],
+    "seed_clusters": 1,
+    "wall_s": 0.24911537498701364,
+    "label": "Actual LOCAL exposed-regression executions, not official or blind test"
+  },
+  "audits": [
+    {
+      "case_id": "LOCAL-v1-q4-minimum_radius-5003",
+      "arm": "off",
+      "channel": 20,
+      "original_violation": {
+        "channel": 20,
+        "kind": "direction",
+        "polygon": [
+          [
+            -177.54170963909388,
+            -1429.8299526039523
+          ],
+          [
+            -177.54170963909377,
+            -1429.8299526039514
+          ],
+          [
+            -215.4650416457712,
+            -1789.7398825080459
+          ],
+          [
+            -212.05998959276408,
+            -1789.9630614106661
+          ]
+        ],
+        "source": [
+          -201.72532152082096,
+          -1662.1706721842113
+        ]
+      },
+      "edges": [
+        {
+          "length_m": 9.165725883006586e-13,
+          "signed_distance_m": -4.82145643813557,
+          "below_resolution": true
+        },
+        {
+          "length_m": 361.9023856705823,
+          "signed_distance_m": 0.2962461547016925,
+          "below_resolution": false
+        },
+        {
+          "length_m": 3.4123581737946,
+          "signed_distance_m": 128.19469554305866,
+          "below_resolution": false
+        },
+        {
+          "length_m": 361.7835923722196,
+          "signed_distance_m": 1.905330536171989,
+          "below_resolution": false
+        }
+      ],
+      "minimum_non_degenerate_edge_margin_m": 0.2962461547016925,
+      "corrected_inside": true
+    },
+    {
+      "case_id": "LOCAL-v1-q4-minimum_radius-5003",
+      "arm": "off",
+      "channel": 20,
+      "original_violation": {
+        "channel": 20,
+        "kind": "direction",
+        "polygon": [
+          [
+            -205.64550831290268,
+            -1723.0400545922648
+          ],
+          [
+            -196.50337564243256,
+            -1609.7849175559988
+          ],
+          [
+            -196.50337564243236,
+            -1609.7849175559973
+          ],
+          [
+            -215.4650416457712,
+            -1789.7398825080459
+          ],
+          [
+            -212.05998959276408,
+            -1789.9630614106661
+          ]
+        ],
+        "source": [
+          -201.72532152082096,
+          -1662.1706721842113
+        ]
+      },
+      "edges": [
+        {
+          "length_m": 113.62352157395873,
+          "signed_distance_m": 0.9900650467500773,
+          "below_resolution": false
+        },
+        {
+          "length_m": 1.6040020295261528e-12,
+          "signed_distance_m": -1.3160318030448037,
+          "below_resolution": true
+        },
+        {
+          "length_m": 180.95119283529252,
+          "signed_distance_m": 0.2962461547017073,
+          "below_resolution": false
+        },
+        {
+          "length_m": 3.4123581737946,
+          "signed_distance_m": 128.19469554305866,
+          "below_resolution": false
+        },
+        {
+          "length_m": 67.22971375593889,
+          "signed_distance_m": 1.905330536171993,
+          "below_resolution": false
+        }
+      ],
+      "minimum_non_degenerate_edge_margin_m": 0.2962461547017073,
+      "corrected_inside": true
+    }
+  ]
+}

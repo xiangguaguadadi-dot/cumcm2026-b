@@ -1,0 +1,74 @@
+{
+  "status": "complete",
+  "date": "2026-09-13",
+  "scope": "Five modeling-highlight experiments; main solver and frozen evaluation unchanged",
+  "closed_loop_policy_executions": {
+    "total_actual": 8630,
+    "all_complete": true,
+    "coverage_group": 3828,
+    "information_q4_group": 4802,
+    "coverage_scan_only_executions": 1440,
+    "note": "Execution counts include repeated arms and quick cases that are a subset of full; they are not counts of independent worlds."
+  },
+  "highlights": {
+    "1_adaptive_optical_cover": {
+      "evidence": "36 synthetic geometry states with continuous partition and vertex certificates",
+      "mean_grid_disks": 7.5,
+      "mean_adaptive_disks": 4.222222222222222,
+      "adaptive_fewer_disks": 36,
+      "planning_cost_better": 35,
+      "planning_cost_worse": 1,
+      "boundary": "Mechanism evidence only; zero new full-task worlds"
+    },
+    "2_convex_hull_discovery": {
+      "fixed21_certificate": true,
+      "fixed22_certificate": true,
+      "full_case_ids_per_arm": 1200,
+      "all_complete": true,
+      "fixed21_mean_s_per_source": 448.2587320302424,
+      "fixed22_mean_s_per_source": 462.432231458157,
+      "fixed21_minus_fixed22_mean_s_per_source": -14.173499427914559,
+      "seed_cluster_ci95": [-16.543856394296125, -11.796579291250325],
+      "decision": "retain fixed21",
+      "boundary": "Exposed local cases; rotated binary64 coordinates are not covered by the fixed-site integer certificate"
+    },
+    "3_safe_action_domain": {
+      "synthetic_states": 108,
+      "feasible_states": 90,
+      "correct_empty_domain_rejections": 18,
+      "all_returned_points_certified": true,
+      "mean_entry_saved_nearest_vs_center_m": 5.680497473472277,
+      "boundary": "Mechanism evidence only; zero new full-task worlds"
+    },
+    "4_no_signal_convex_wedge": {
+      "paired_cases": 2400,
+      "actual_runs_including_confirmation": 4802,
+      "all_complete": true,
+      "on_mean_s_per_source": 450.9804221258637,
+      "off_mean_s_per_source": 451.0410850876804,
+      "on_minus_off_mean_s_per_source": -0.06066296181666685,
+      "seed_cluster_ci95": [-0.2480785030211465, 0.12380590324088345],
+      "eligible_same_state_updates": 42296,
+      "effective_shrinks": 1192,
+      "true_source_exclusions": 0,
+      "decision": "geometry validated; independent speed benefit unresolved"
+    },
+    "5_q2_worst_case_precision": {
+      "geometries_per_error_bound": 80,
+      "error_bounds_deg": [1.0, 1.005001],
+      "methods_per_condition": 3,
+      "certified_better_per_error_bound": 77,
+      "certified_worse_per_error_bound": 0,
+      "unresolved_or_equal_per_error_bound": 3,
+      "shorter_actual_move_conditions_per_error_bound": 18,
+      "equal_actual_distance_certified_better_per_error_bound": 59,
+      "two_measure_uniform_lower_bound_m": 25.729566798699136,
+      "boundary": "Ordinary double-precision continuous-reading envelope; finite candidate search, not continuous-q global optimality"
+    }
+  },
+  "reports": {
+    "geometry": "geometry/RESULTS.md",
+    "coverage": "coverage/RESULTS.md",
+    "information": "information/RESULTS.md"
+  }
+}

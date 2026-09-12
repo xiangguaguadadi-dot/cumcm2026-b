@@ -1,0 +1,71 @@
+{
+  "status": "complete",
+  "scope": "Top-level index and integrity anchors for the three experiment groups; recursive artifact hashes are in the group manifests.",
+  "files": {
+    "RESULTS.md": {
+      "sha256": "917af829b35c5f71963851b959a90bc40a857dadf369912b2545c4c45c089a23",
+      "bytes": 4343
+    },
+    "summary.json": {
+      "sha256": "c709ec626aca3a6d6cf0bcd62cda389f14de2a764b221a5e98cffd18a7a4c5bb",
+      "bytes": 3135
+    },
+    "VALIDATION.json": {
+      "sha256": "7aa2a5e5e3814b9a1ab4ac3d2df94e6a9bfeee7affb4cce7e526fb132daabfc8",
+      "bytes": 725
+    },
+    "geometry/RESULTS.md": {
+      "sha256": "beba00507d3353260ee6baa19f3b970555c0901e3d02ac39ac0c16ab40034e0a",
+      "bytes": 9386
+    },
+    "geometry/summary.json": {
+      "sha256": "488e5a3b1bb51aa5443e1402546dee461ed087764d89a53b66ed4f04c3e93c77",
+      "bytes": 4299
+    },
+    "geometry/run_04_final_synthetic/verification.json": {
+      "sha256": "033d5269f4cc4ca02258495b8c4381407cec437c5067fc6622bac58a71846879",
+      "bytes": 485
+    },
+    "coverage/RESULTS.md": {
+      "sha256": "430e4bd1bb79f3788ba4f98bc52c11ba5ff16fa4737e67ac0045c26275e6134b",
+      "bytes": 11848
+    },
+    "coverage/summary.json": {
+      "sha256": "753080290f5238b9b91d669b31c675f4b9fc69444289415f015de0f09333fadf",
+      "bytes": 99130
+    },
+    "coverage/final_audit.json": {
+      "sha256": "a4676d7fe541207092c27f09a511135b8b152606740d62c476f6d70c370ca3e2",
+      "bytes": 911
+    },
+    "coverage/artifact_manifest.json": {
+      "sha256": "59430e534fc8f8854060240fb45f680aa69ca37590828070684689889f647486",
+      "bytes": 17076
+    },
+    "information/RESULTS.md": {
+      "sha256": "94e9200562dc6e5f3831d8e9e0f6cd55340151c528b658985c136935d8b361b3",
+      "bytes": 8290
+    },
+    "information/summary.json": {
+      "sha256": "7f8ef3aeea533c73ac478ef1598b302ffb1aae58358aa1f2e496c6f0bfcf1f37",
+      "bytes": 70414
+    },
+    "information/FINAL_AUDIT.json": {
+      "sha256": "9f8680dff15a50fe78aa3ac49eb784887e2bd76130624e3fa49ebe86f2b900b7",
+      "bytes": 442
+    },
+    "information/ARTIFACT_MANIFEST.json": {
+      "sha256": "cdcdabb9103a708f598b273abf11a0689c89088242f62d84e627e43ebc5b4258",
+      "bytes": 8112
+    },
+    "information/INDEPENDENT_SOURCE_REVIEW.json": {
+      "sha256": "20c7729ce7232fcf3e495529215be2fb81001efbfea441cbcbe5e8d17e9f461e",
+      "bytes": 963
+    }
+  },
+  "recursive_manifests": {
+    "geometry": "geometry/run_04_final_synthetic/input_manifest.json plus geometry verification fields",
+    "coverage": "coverage/artifact_manifest.json (100 files)",
+    "information": "information/ARTIFACT_MANIFEST.json (55 files)"
+  }
+}

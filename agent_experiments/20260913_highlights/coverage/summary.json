@@ -1,0 +1,2798 @@
+{
+  "status": "complete",
+  "scope": "Coverage-only isolated ablation; no main solver or frozen evaluation edits.",
+  "evidence_levels": [
+    "continuous integer coverage certificate for fixed sites",
+    "constructed interface scan counterexamples",
+    "constructed complete-world pure-geometry termination",
+    "exposed frozen local Q4 closed-loop regression"
+  ],
+  "physics": {
+    "manifest_sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+    "parent_sha256": "e6a0666d644ceaa1d7ae69f19042b9ca022379f3e5a57d927e52bcf1a09360bd",
+    "certificate_sha256": "8eaeae3c86cd7378ef4a242afdae2ba35d3620ba0c82cf9419ab5ebdb4cdeaba",
+    "files_verified": 10,
+    "mismatches": []
+  },
+  "certificates": {
+    "fixed21": {
+      "status": "pass",
+      "certificate": "experiments/B3/research/certificate_21_999_1864.json",
+      "certificate_sha256": "8eaeae3c86cd7378ef4a242afdae2ba35d3620ba0c82cf9419ab5ebdb4cdeaba",
+      "station_count": 21,
+      "leaf_count": 11200,
+      "covered_leaves": 5796,
+      "outside_leaves": 5404,
+      "maximum_depth": 14,
+      "coordinate_basis": "actual IEEE-754 float.as_integer_ratio",
+      "common_denominator": 4398046511104,
+      "exact_integer_checks": true,
+      "partition_prefix_free": true,
+      "partition_full_area": true,
+      "rebuilt_witness_convex_hulls": true,
+      "min_range_slack_m_approx": 0.10961342942698593,
+      "min_hull_slack_m_approx": 0.0007287540373368244,
+      "leaf_checks_sha256": "eb1bd6be79c9aa5e3d829961a367a9f8a295171b4ecd5272bc80619ec0718f7c",
+      "wall_s": 0.08005450002383441,
+      "guarantee": "Every point of the 1800 m disk lies in the convex hull of sites <1000 m away; every closed emission half-plane contains one such site.",
+      "boundary": "Certifies these fixed binary64 site coordinates under the physical model. Does not certify runtime, official interface, or arbitrary rotated floating points.",
+      "current_b3_initial_coordinates_exactly_equal": true,
+      "construction_environment_actions": 0
+    },
+    "fixed22": {
+      "status": "pass",
+      "certificate": "agent_experiments/20260913_highlights/coverage/certificate_checks_v1/22_certificate.json",
+      "certificate_sha256": "2a1ea1200db1f9749645c42042cbcfb6b590d7f1597d3f21abdcdab36a134516",
+      "station_count": 22,
+      "leaf_count": 5086,
+      "covered_leaves": 3114,
+      "outside_leaves": 1972,
+      "maximum_depth": 13,
+      "coordinate_basis": "actual IEEE-754 float.as_integer_ratio",
+      "common_denominator": 35184372088832,
+      "exact_integer_checks": true,
+      "partition_prefix_free": true,
+      "partition_full_area": true,
+      "rebuilt_witness_convex_hulls": true,
+      "min_range_slack_m_approx": 0.001423262330945363,
+      "min_hull_slack_m_approx": 0.0004916315252975601,
+      "leaf_checks_sha256": "c26428af55484f69a12e9ff7afa5ed832316b3d9371797416a367bc714558e6c",
+      "wall_s": 0.04153699998278171,
+      "guarantee": "Every point of the 1800 m disk lies in the convex hull of sites <1000 m away; every closed emission half-plane contains one such site.",
+      "boundary": "Certifies these fixed binary64 site coordinates under the physical model. Does not certify runtime, official interface, or arbitrary rotated floating points.",
+      "witness_generator_sha256": "85e09b2d186791148457dab078370c92c54239c1305f6910e8237b118910cabe",
+      "generator_did_not_decide_acceptance": true,
+      "ideal_22_point_triangulation": {
+        "triangles": 28,
+        "max_edge_m": 999.5,
+        "outer_inradius_m": 1801.036766936936,
+        "note": "Explanation of old construction; acceptance above independently certifies actual binary64 sites."
+      }
+    }
+  },
+  "scan_pressure": {
+    "status": "pass",
+    "label": "Constructed scan diagnostics, NOT complete policy tasks or official results",
+    "distinct_worlds": 360,
+    "scan_executions": 1440,
+    "full_policy_executions": 0,
+    "world_source_count": 3600,
+    "unique_target_sources": 360,
+    "total_requests": 29160,
+    "groups": {
+      "fixed21": {
+        "fixtures": 360,
+        "detected": 360,
+        "missed": 0,
+        "total_requests": 8280,
+        "outward_missed": 0
+      },
+      "fixed22": {
+        "fixtures": 360,
+        "detected": 360,
+        "missed": 0,
+        "total_requests": 8640,
+        "outward_missed": 0
+      },
+      "distance_only_21": {
+        "fixtures": 360,
+        "detected": 288,
+        "missed": 72,
+        "total_requests": 8280,
+        "outward_missed": 72
+      },
+      "delete_outer_9": {
+        "fixtures": 360,
+        "detected": 192,
+        "missed": 168,
+        "total_requests": 3960,
+        "outward_missed": 72
+      }
+    },
+    "source_after": {
+      "manifest_sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+      "parent_sha256": "e6a0666d644ceaa1d7ae69f19042b9ca022379f3e5a57d927e52bcf1a09360bd",
+      "certificate_sha256": "8eaeae3c86cd7378ef4a242afdae2ba35d3620ba0c82cf9419ab5ebdb4cdeaba",
+      "files_verified": 10,
+      "mismatches": []
+    },
+    "rows_sha256": "686b4cfd52c2d8f122381bd7887fddfea2036691c109c11e114fc696736d6ada",
+    "cases_sha256": "a0aafe8f4e23db215ea292c5926b566a696dcce99c0a1ca6e2232d6c4dc2541d"
+  },
+  "pure_geometry": {
+    "pure21": {
+      "case_ids": 24,
+      "complete": 24,
+      "errors": 0,
+      "source_instances": 312,
+      "cleared_instances": 312,
+      "mean_s_per_source": 531.7247913744792,
+      "median_s_per_source": 536.2466806875,
+      "p95_s_per_source": 681.6604652799999,
+      "p99_s_per_source": 697.896102315,
+      "worst_s_per_source": 702.6809003000001,
+      "worst_case_id": "CONSTRUCTED-full-pressure-10-n10",
+      "requests": 8049,
+      "measures": 7391,
+      "clear_attempts": 610,
+      "clear_failures": 298,
+      "switches": 6926,
+      "distance_m": 555954.5978263738,
+      "mean_visited_stations": 21,
+      "certificate_type_counts": {
+        "complete_geometric_coverage": 24
+      },
+      "known16_pending_worlds": 12,
+      "mean_components_s_per_source": {
+        "movement": 371.48104111281936,
+        "measure": 128.23697916666666,
+        "switch": 24.153645833333332,
+        "clear": 7.853125
+      }
+    },
+    "pure22": {
+      "case_ids": 24,
+      "complete": 24,
+      "errors": 0,
+      "source_instances": 312,
+      "cleared_instances": 312,
+      "mean_s_per_source": 571.163146165625,
+      "median_s_per_source": 579.1320600312499,
+      "p95_s_per_source": 760.94205124,
+      "p99_s_per_source": 805.7886699119999,
+      "worst_s_per_source": 818.4042287,
+      "worst_case_id": "CONSTRUCTED-full-pressure-03-n10",
+      "requests": 8517,
+      "measures": 7846,
+      "clear_attempts": 623,
+      "clear_failures": 311,
+      "switches": 7360,
+      "distance_m": 603298.4392861073,
+      "mean_visited_stations": 22,
+      "certificate_type_counts": {
+        "complete_geometric_coverage": 24
+      },
+      "known16_pending_worlds": 12,
+      "mean_components_s_per_source": {
+        "movement": 402.6600210693676,
+        "measure": 135.03645833333334,
+        "switch": 25.394791666666666,
+        "clear": 8.071875
+      }
+    }
+  },
+  "pure_geometry_trace_audit": {
+    "status": "pass",
+    "traces": 48,
+    "known16_pending_traces": 24,
+    "all_final_certificates_geometric": true,
+    "all_unresolved_channels_actually_scanned_no_signal": true,
+    "trace_checks_file": "pure_pressure_trace_audit.json"
+  },
+  "full_metrics": {
+    "fixed21": {
+      "case_ids": 1200,
+      "complete": 1200,
+      "errors": 0,
+      "source_instances": 15550,
+      "cleared_instances": 15550,
+      "mean_s_per_source": 448.2587320302424,
+      "median_s_per_source": 456.482928099359,
+      "p95_s_per_source": 607.9228970549999,
+      "p99_s_per_source": 631.690508358,
+      "worst_s_per_source": 676.1662752999999,
+      "worst_case_id": "LOCAL-v1-q4-edge_mixed_min_radius-5035",
+      "requests": 314336,
+      "measures": 288579,
+      "clear_attempts": 23357,
+      "clear_failures": 7807,
+      "switches": 274157,
+      "distance_m": 24423390.914768234,
+      "mean_visited_stations": 19.574166666666667,
+      "certificate_type_counts": {
+        "complete_geometric_coverage": 970,
+        "known_count_upper_bound": 230
+      },
+      "known16_pending_worlds": 230,
+      "mean_components_s_per_source": {
+        "movement": 325.006886701095,
+        "measure": 98.10124252483628,
+        "switch": 18.64544081959707,
+        "clear": 6.505161900599401
+      }
+    },
+    "fixed22": {
+      "case_ids": 1200,
+      "complete": 1200,
+      "errors": 0,
+      "source_instances": 15550,
+      "cleared_instances": 15550,
+      "mean_s_per_source": 462.432231458157,
+      "median_s_per_source": 471.1891980128205,
+      "p95_s_per_source": 625.4505486099999,
+      "p99_s_per_source": 667.84795743,
+      "worst_s_per_source": 740.421075,
+      "worst_case_id": "LOCAL-v1-q4-edge_mixed_min_radius-5080",
+      "requests": 316928,
+      "measures": 291165,
+      "clear_attempts": 23363,
+      "clear_failures": 7813,
+      "switches": 275427,
+      "distance_m": 25358004.076366078,
+      "mean_visited_stations": 20.223333333333333,
+      "certificate_type_counts": {
+        "complete_geometric_coverage": 970,
+        "known_count_upper_bound": 230
+      },
+      "known16_pending_worlds": 230,
+      "mean_components_s_per_source": {
+        "movement": 337.8404483383728,
+        "measure": 99.29396383130758,
+        "switch": 18.791370095182597,
+        "clear": 6.506449102980353
+      }
+    },
+    "rotating21": {
+      "case_ids": 1200,
+      "complete": 1200,
+      "errors": 0,
+      "source_instances": 15550,
+      "cleared_instances": 15550,
+      "mean_s_per_source": 447.5218596920804,
+      "median_s_per_source": 453.52913168333333,
+      "p95_s_per_source": 606.48859088,
+      "p99_s_per_source": 631.7210587229999,
+      "worst_s_per_source": 689.7464311,
+      "worst_case_id": "LOCAL-v1-q4-smooth_shared_field-5035",
+      "requests": 314848,
+      "measures": 289257,
+      "clear_attempts": 23191,
+      "clear_failures": 7641,
+      "switches": 274651,
+      "distance_m": 24358604.25650345,
+      "mean_visited_stations": 19.64666666666667,
+      "certificate_type_counts": {
+        "complete_geometric_coverage": 970,
+        "known_count_upper_bound": 230
+      },
+      "known16_pending_worlds": 230,
+      "mean_components_s_per_source": {
+        "movement": 324.1254716141424,
+        "measure": 98.25984917859918,
+        "switch": 18.665988764707514,
+        "clear": 6.470550043706294
+      }
+    }
+  },
+  "full_groups": {
+    "reference_assumed": {
+      "fixed21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 451.0827244071225,
+        "median_s_per_source": 453.1014494423077,
+        "p95_s_per_source": 594.99372003,
+        "p99_s_per_source": 608.4181472070001,
+        "worst_s_per_source": 621.8665257,
+        "worst_case_id": "LOCAL-v1-q4-reference_assumed-5018",
+        "requests": 26221,
+        "measures": 24056,
+        "clear_attempts": 1965,
+        "clear_failures": 670,
+        "switches": 22993,
+        "distance_m": 2076434.8713332936,
+        "mean_visited_stations": 20.05,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 328.7701891451523,
+          "measure": 97.18183753746254,
+          "switch": 18.583155719280718,
+          "clear": 6.547541958041958
+        }
+      },
+      "fixed22": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 467.5130012257488,
+        "median_s_per_source": 467.6384250384615,
+        "p95_s_per_source": 619.30986823,
+        "p99_s_per_source": 626.4624801410002,
+        "worst_s_per_source": 675.6742952,
+        "worst_case_id": "LOCAL-v1-q4-reference_assumed-5035",
+        "requests": 26394,
+        "measures": 24221,
+        "clear_attempts": 1973,
+        "clear_failures": 678,
+        "switches": 23029,
+        "distance_m": 2170603.8216854194,
+        "mean_visited_stations": 20.68,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 344.1759517825598,
+          "measure": 98.10512071262072,
+          "switch": 18.658457126207125,
+          "clear": 6.573471528471528
+        }
+      },
+      "rotating21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 452.3125202504344,
+        "median_s_per_source": 458.7579998333334,
+        "p95_s_per_source": 588.2937289949999,
+        "p99_s_per_source": 635.4276405800002,
+        "worst_s_per_source": 667.5846998,
+        "worst_case_id": "LOCAL-v1-q4-reference_assumed-5035",
+        "requests": 26454,
+        "measures": 24366,
+        "clear_attempts": 1888,
+        "clear_failures": 593,
+        "switches": 23314,
+        "distance_m": 2075889.4505724523,
+        "mean_visited_stations": 20.16,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 328.7469806363734,
+          "measure": 98.36916271228772,
+          "switch": 18.827302031302033,
+          "clear": 6.3690748001998
+        }
+      }
+    },
+    "fixed_positive_bias": {
+      "fixed21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 452.3993436146087,
+        "median_s_per_source": 451.0851420384615,
+        "p95_s_per_source": 595.1544493749999,
+        "p99_s_per_source": 609.351065328,
+        "worst_s_per_source": 612.8600736000001,
+        "worst_case_id": "LOCAL-v1-q4-fixed_positive_bias-5012",
+        "requests": 26511,
+        "measures": 24121,
+        "clear_attempts": 2190,
+        "clear_failures": 895,
+        "switches": 23078,
+        "distance_m": 2077895.582363742,
+        "mean_visited_stations": 19.97,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 329.1332420785628,
+          "measure": 97.51845966533466,
+          "switch": 18.663844447219446,
+          "clear": 7.083797327672328
+        }
+      },
+      "fixed22": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 468.6248550845441,
+        "median_s_per_source": 471.9050653076923,
+        "p95_s_per_source": 613.58559482,
+        "p99_s_per_source": 669.4491129170002,
+        "worst_s_per_source": 701.9252924,
+        "worst_case_id": "LOCAL-v1-q4-fixed_positive_bias-5035",
+        "requests": 26871,
+        "measures": 24495,
+        "clear_attempts": 2176,
+        "clear_failures": 881,
+        "switches": 23290,
+        "distance_m": 2168371.370620861,
+        "mean_visited_stations": 20.85,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 343.6772753665133,
+          "measure": 99.06225961538462,
+          "switch": 18.83995188145188,
+          "clear": 7.045368131868132
+        }
+      },
+      "rotating21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 454.4275510681697,
+        "median_s_per_source": 452.512969574359,
+        "p95_s_per_source": 596.878934235,
+        "p99_s_per_source": 620.765144533,
+        "worst_s_per_source": 639.6573673,
+        "worst_case_id": "LOCAL-v1-q4-fixed_positive_bias-5028",
+        "requests": 26399,
+        "measures": 24084,
+        "clear_attempts": 2115,
+        "clear_failures": 820,
+        "switches": 23007,
+        "distance_m": 2096490.9832794967,
+        "mean_visited_stations": 20.1,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 331.7325251156239,
+          "measure": 97.23369671994672,
+          "switch": 18.58338061938062,
+          "clear": 6.877948551448552
+        }
+      }
+    },
+    "fixed_negative_bias": {
+      "fixed21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 453.4391882769849,
+        "median_s_per_source": 461.5714161666667,
+        "p95_s_per_source": 598.7254018799999,
+        "p99_s_per_source": 621.6287547050001,
+        "worst_s_per_source": 630.6135793999999,
+        "worst_case_id": "LOCAL-v1-q4-fixed_negative_bias-5018",
+        "requests": 26372,
+        "measures": 24068,
+        "clear_attempts": 2104,
+        "clear_failures": 809,
+        "switches": 23003,
+        "distance_m": 2087895.837903634,
+        "mean_visited_stations": 20.06,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 330.69561127346884,
+          "measure": 97.29335705960706,
+          "switch": 18.60180407092907,
+          "clear": 6.848415834165834
+        }
+      },
+      "fixed22": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 469.8866956794104,
+        "median_s_per_source": 478.409080625,
+        "p95_s_per_source": 621.9460200399999,
+        "p99_s_per_source": 635.1493172690002,
+        "worst_s_per_source": 682.6041227,
+        "worst_case_id": "LOCAL-v1-q4-fixed_negative_bias-5035",
+        "requests": 26627,
+        "measures": 24339,
+        "clear_attempts": 2088,
+        "clear_failures": 793,
+        "switches": 23179,
+        "distance_m": 2180557.4051750684,
+        "mean_visited_stations": 20.63,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 345.74635316673846,
+          "measure": 98.52420142357643,
+          "switch": 18.76940388777889,
+          "clear": 6.846737137862138
+        }
+      },
+      "rotating21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 452.1288792634449,
+        "median_s_per_source": 450.06488699358977,
+        "p95_s_per_source": 598.68222595,
+        "p99_s_per_source": 620.0940940319999,
+        "worst_s_per_source": 624.1682837999999,
+        "worst_case_id": "LOCAL-v1-q4-fixed_negative_bias-5095",
+        "requests": 26670,
+        "measures": 24302,
+        "clear_attempts": 2168,
+        "clear_failures": 873,
+        "switches": 23238,
+        "distance_m": 2073992.3520437493,
+        "mean_visited_stations": 20.21,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 328.34852314355163,
+          "measure": 98.02695512820513,
+          "switch": 18.752334124209124,
+          "clear": 7.001066808191808
+        }
+      }
+    },
+    "smooth_shared_field": {
+      "fixed21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 451.6392309015497,
+        "median_s_per_source": 462.1091764166667,
+        "p95_s_per_source": 594.06933734,
+        "p99_s_per_source": 609.516517383,
+        "worst_s_per_source": 611.3300274000001,
+        "worst_case_id": "LOCAL-v1-q4-smooth_shared_field-5018",
+        "requests": 26318,
+        "measures": 24001,
+        "clear_attempts": 2117,
+        "clear_failures": 822,
+        "switches": 22916,
+        "distance_m": 2080236.0015504195,
+        "mean_visited_stations": 20.09,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 329.3440133327387,
+          "measure": 96.88522644022645,
+          "switch": 18.506005577755577,
+          "clear": 6.903985514485514
+        }
+      },
+      "fixed22": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 466.2870707826504,
+        "median_s_per_source": 474.02195787820517,
+        "p95_s_per_source": 611.729266095,
+        "p99_s_per_source": 624.1439600690002,
+        "worst_s_per_source": 674.2631723000001,
+        "worst_case_id": "LOCAL-v1-q4-smooth_shared_field-5035",
+        "requests": 26472,
+        "measures": 24217,
+        "clear_attempts": 2055,
+        "clear_failures": 760,
+        "switches": 23036,
+        "distance_m": 2161133.664546155,
+        "mean_visited_stations": 20.65,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 342.71238918954094,
+          "measure": 98.13995816683317,
+          "switch": 18.67571033133533,
+          "clear": 6.759012987012987
+        }
+      },
+      "rotating21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 450.0464705611173,
+        "median_s_per_source": 453.03214984615386,
+        "p95_s_per_source": 593.5838793849999,
+        "p99_s_per_source": 618.2303977750003,
+        "worst_s_per_source": 689.7464311,
+        "worst_case_id": "LOCAL-v1-q4-smooth_shared_field-5035",
+        "requests": 26305,
+        "measures": 24089,
+        "clear_attempts": 2016,
+        "clear_failures": 721,
+        "switches": 23043,
+        "distance_m": 2063971.0998003897,
+        "mean_visited_stations": 20.01,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 327.4789746476194,
+          "measure": 97.28700112387612,
+          "switch": 18.61541371128871,
+          "clear": 6.665081043956044
+        }
+      }
+    },
+    "cell50_shared_field": {
+      "fixed21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 452.2536261995517,
+        "median_s_per_source": 455.6485717724359,
+        "p95_s_per_source": 598.314954475,
+        "p99_s_per_source": 616.2057085470001,
+        "worst_s_per_source": 619.6395579,
+        "worst_case_id": "LOCAL-v1-q4-cell50_shared_field-5018",
+        "requests": 26147,
+        "measures": 24067,
+        "clear_attempts": 1880,
+        "clear_failures": 585,
+        "switches": 22994,
+        "distance_m": 2085189.561872108,
+        "mean_visited_stations": 20.05,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 330.11729119870125,
+          "measure": 97.19994776057275,
+          "switch": 18.57589368964369,
+          "clear": 6.360493506493507
+        }
+      },
+      "fixed22": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 468.75293861983494,
+        "median_s_per_source": 472.1182722307692,
+        "p95_s_per_source": 618.195167085,
+        "p99_s_per_source": 623.4909209440002,
+        "worst_s_per_source": 676.2704983,
+        "worst_case_id": "LOCAL-v1-q4-cell50_shared_field-5035",
+        "requests": 26335,
+        "measures": 24275,
+        "clear_attempts": 1860,
+        "clear_failures": 565,
+        "switches": 23064,
+        "distance_m": 2181016.388337826,
+        "mean_visited_stations": 20.87,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 345.52827860470677,
+          "measure": 98.24165834165834,
+          "switch": 18.67241416916417,
+          "clear": 6.310587412587412
+        }
+      },
+      "rotating21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 450.65657173897137,
+        "median_s_per_source": 448.19026653333333,
+        "p95_s_per_source": 592.7402504999999,
+        "p99_s_per_source": 617.7647665479999,
+        "worst_s_per_source": 620.0085568000001,
+        "worst_case_id": "LOCAL-v1-q4-cell50_shared_field-5049",
+        "requests": 26378,
+        "measures": 24263,
+        "clear_attempts": 1915,
+        "clear_failures": 620,
+        "switches": 23171,
+        "distance_m": 2069102.9853174863,
+        "mean_visited_stations": 20.1,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 327.6328317920161,
+          "measure": 97.8653252997003,
+          "switch": 18.69999075924076,
+          "clear": 6.458423826173826
+        }
+      }
+    },
+    "cell500_shared_field": {
+      "fixed21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 451.56487305584216,
+        "median_s_per_source": 456.72843872435897,
+        "p95_s_per_source": 596.9039437499999,
+        "p99_s_per_source": 608.045711866,
+        "worst_s_per_source": 609.8399647,
+        "worst_case_id": "LOCAL-v1-q4-cell500_shared_field-5012",
+        "requests": 26121,
+        "measures": 24083,
+        "clear_attempts": 1838,
+        "clear_failures": 543,
+        "switches": 23026,
+        "distance_m": 2081959.5508071072,
+        "mean_visited_stations": 20.03,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 329.3100844350766,
+          "measure": 97.36304112554113,
+          "switch": 18.62375645188145,
+          "clear": 6.267991008991009
+        }
+      },
+      "fixed22": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 469.09143732406085,
+        "median_s_per_source": 474.5316426538461,
+        "p95_s_per_source": 614.89389228,
+        "p99_s_per_source": 641.9205640960002,
+        "worst_s_per_source": 683.7123643,
+        "worst_case_id": "LOCAL-v1-q4-cell500_shared_field-5035",
+        "requests": 26354,
+        "measures": 24278,
+        "clear_attempts": 1876,
+        "clear_failures": 581,
+        "switches": 23088,
+        "distance_m": 2181301.6771363644,
+        "mean_visited_stations": 20.79,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 345.7709435659951,
+          "measure": 98.27945304695305,
+          "switch": 18.693647644022644,
+          "clear": 6.347392982017982
+        }
+      },
+      "rotating21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 449.14391306375745,
+        "median_s_per_source": 452.4741773452381,
+        "p95_s_per_source": 590.4339436099999,
+        "p99_s_per_source": 637.3329109600002,
+        "worst_s_per_source": 670.540081,
+        "worst_case_id": "LOCAL-v1-q4-cell500_shared_field-5035",
+        "requests": 26228,
+        "measures": 24167,
+        "clear_attempts": 1861,
+        "clear_failures": 566,
+        "switches": 23068,
+        "distance_m": 2059282.7979697012,
+        "mean_visited_stations": 19.97,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 326.4607239136942,
+          "measure": 97.71512987012987,
+          "switch": 18.66238852813853,
+          "clear": 6.3056707042957045
+        }
+      }
+    },
+    "edge_mixed_min_radius": {
+      "fixed21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 487.5447671655796,
+        "median_s_per_source": 482.2539361964286,
+        "p95_s_per_source": 627.4039169050001,
+        "p99_s_per_source": 655.302980947,
+        "worst_s_per_source": 676.1662752999999,
+        "worst_case_id": "LOCAL-v1-q4-edge_mixed_min_radius-5035",
+        "requests": 32340,
+        "measures": 30326,
+        "clear_attempts": 1814,
+        "clear_failures": 519,
+        "switches": 28771,
+        "distance_m": 2132374.6281572334,
+        "mean_visited_stations": 20.45,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 337.07012333992316,
+          "measure": 121.25574654512154,
+          "switch": 23.014348276723275,
+          "clear": 6.204548826173826
+        }
+      },
+      "fixed22": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 505.02161505974965,
+        "median_s_per_source": 504.03459396153846,
+        "p95_s_per_source": 654.25827253,
+        "p99_s_per_source": 705.9908011440002,
+        "worst_s_per_source": 740.421075,
+        "worst_case_id": "LOCAL-v1-q4-edge_mixed_min_radius-5080",
+        "requests": 32591,
+        "measures": 30530,
+        "clear_attempts": 1861,
+        "clear_failures": 566,
+        "switches": 28874,
+        "distance_m": 2231649.600905286,
+        "mean_visited_stations": 21.46,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 353.2394853322205,
+          "measure": 122.33894376456877,
+          "switch": 23.145682276057276,
+          "clear": 6.297503621378621
+        }
+      },
+      "rotating21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 487.5447671655796,
+        "median_s_per_source": 482.2539361964286,
+        "p95_s_per_source": 627.4039169050001,
+        "p99_s_per_source": 655.302980947,
+        "worst_s_per_source": 676.1662752999999,
+        "worst_case_id": "LOCAL-v1-q4-edge_mixed_min_radius-5035",
+        "requests": 32340,
+        "measures": 30326,
+        "clear_attempts": 1814,
+        "clear_failures": 519,
+        "switches": 28771,
+        "distance_m": 2132374.6281572334,
+        "mean_visited_stations": 20.45,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 337.07012333992316,
+          "measure": 121.25574654512154,
+          "switch": 23.014348276723275,
+          "clear": 6.204548826173826
+        }
+      }
+    },
+    "offcenter_cluster": {
+      "fixed21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 400.1918348347973,
+        "median_s_per_source": 423.1631135929487,
+        "p95_s_per_source": 557.5788897900001,
+        "p99_s_per_source": 570.865977786,
+        "worst_s_per_source": 578.9859861,
+        "worst_case_id": "LOCAL-v1-q4-offcenter_cluster-5095",
+        "requests": 25042,
+        "measures": 23252,
+        "clear_attempts": 1590,
+        "clear_failures": 295,
+        "switches": 21689,
+        "distance_m": 1756247.3530910437,
+        "mean_visited_stations": 19.39,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 282.5508425480557,
+          "measure": 94.35550345487846,
+          "switch": 17.60958116883117,
+          "clear": 5.675907467532467
+        }
+      },
+      "fixed22": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 412.7799502946689,
+        "median_s_per_source": 426.4872997115385,
+        "p95_s_per_source": 570.3648198750001,
+        "p99_s_per_source": 600.840057582,
+        "worst_s_per_source": 608.8679559,
+        "worst_case_id": "LOCAL-v1-q4-offcenter_cluster-5035",
+        "requests": 25004,
+        "measures": 23247,
+        "clear_attempts": 1557,
+        "clear_failures": 262,
+        "switches": 21578,
+        "distance_m": 1837019.8099439966,
+        "mean_visited_stations": 20.32,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 295.11698707018815,
+          "measure": 94.49490197302697,
+          "switch": 17.555203005328007,
+          "clear": 5.612858141858142
+        }
+      },
+      "rotating21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 396.61990168862206,
+        "median_s_per_source": 424.0648028429487,
+        "p95_s_per_source": 552.5194936799999,
+        "p99_s_per_source": 567.8122249009999,
+        "worst_s_per_source": 570.7839575,
+        "worst_case_id": "LOCAL-v1-q4-offcenter_cluster-5080",
+        "requests": 24457,
+        "measures": 22648,
+        "clear_attempts": 1609,
+        "clear_failures": 314,
+        "switches": 21117,
+        "distance_m": 1751638.2267753512,
+        "mean_visited_stations": 19.39,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 281.838697916877,
+          "measure": 91.91658071095571,
+          "switch": 17.14736525974026,
+          "clear": 5.717257617382617
+        }
+      }
+    },
+    "origin_cluster": {
+      "fixed21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 425.2347053740455,
+        "median_s_per_source": 445.16842520714283,
+        "p95_s_per_source": 618.272852725,
+        "p99_s_per_source": 636.0924808930001,
+        "worst_s_per_source": 662.7365877999999,
+        "worst_case_id": "LOCAL-v1-q4-origin_cluster-5035",
+        "requests": 21185,
+        "measures": 18896,
+        "clear_attempts": 2089,
+        "clear_failures": 794,
+        "switches": 17024,
+        "distance_m": 2030469.3879512544,
+        "mean_visited_stations": 18.96,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 326.7998390840719,
+          "measure": 77.58696449383949,
+          "switch": 14.005812853812854,
+          "clear": 6.842088786213786
+        }
+      },
+      "fixed22": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 428.05278321669095,
+        "median_s_per_source": 446.47709695833333,
+        "p95_s_per_source": 606.44655739,
+        "p99_s_per_source": 629.4946430520001,
+        "worst_s_per_source": 658.9257048000001,
+        "worst_case_id": "LOCAL-v1-q4-origin_cluster-5018",
+        "requests": 21421,
+        "measures": 19161,
+        "clear_attempts": 2060,
+        "clear_failures": 765,
+        "switches": 17244,
+        "distance_m": 2038874.7590028055,
+        "mean_visited_stations": 19.79,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 328.21770705036386,
+          "measure": 78.82737991175492,
+          "switch": 14.214471195471196,
+          "clear": 6.7932249000999
+        }
+      },
+      "rotating21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 420.59123139623875,
+        "median_s_per_source": 447.9825880769231,
+        "p95_s_per_source": 587.42994138,
+        "p99_s_per_source": 636.046946238,
+        "worst_s_per_source": 662.5153326,
+        "worst_case_id": "LOCAL-v1-q4-origin_cluster-5095",
+        "requests": 21023,
+        "measures": 18832,
+        "clear_attempts": 1991,
+        "clear_failures": 696,
+        "switches": 16943,
+        "distance_m": 2007544.776497066,
+        "mean_visited_stations": 19.02,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 322.73036190730767,
+          "measure": 77.29626332001332,
+          "switch": 13.935154678654678,
+          "clear": 6.629451298701299
+        }
+      }
+    },
+    "minimum_radius": {
+      "fixed21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 464.9165780912021,
+        "median_s_per_source": 466.7875840897436,
+        "p95_s_per_source": 608.596100745,
+        "p99_s_per_source": 628.689715489,
+        "worst_s_per_source": 656.4918349,
+        "worst_case_id": "LOCAL-v1-q4-minimum_radius-5018",
+        "requests": 27760,
+        "measures": 25625,
+        "clear_attempts": 1935,
+        "clear_failures": 640,
+        "switches": 24443,
+        "distance_m": 2118088.1765955356,
+        "mean_visited_stations": 20.1,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 335.4301166532037,
+          "measure": 103.30482621545121,
+          "switch": 19.71121257908758,
+          "clear": 6.470422577422577
+        }
+      },
+      "fixed22": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 486.39618295239984,
+        "median_s_per_source": 485.78869522115383,
+        "p95_s_per_source": 637.9311130259091,
+        "p99_s_per_source": 651.3569230150001,
+        "worst_s_per_source": 657.2089828000001,
+        "worst_case_id": "LOCAL-v1-q4-minimum_radius-5035",
+        "requests": 28571,
+        "measures": 26469,
+        "clear_attempts": 1902,
+        "clear_failures": 607,
+        "switches": 25168,
+        "distance_m": 2232423.7347484874,
+        "mean_visited_stations": 21.1,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 352.96613683488425,
+          "measure": 106.72056401931403,
+          "switch": 20.303374625374627,
+          "clear": 6.406107392607392
+        }
+      },
+      "rotating21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1295,
+        "cleared_instances": 1295,
+        "mean_s_per_source": 468.9662484108795,
+        "median_s_per_source": 461.1674910416667,
+        "p95_s_per_source": 605.61496124,
+        "p99_s_per_source": 622.2888557520001,
+        "worst_s_per_source": 662.4390731999999,
+        "worst_case_id": "LOCAL-v1-q4-minimum_radius-5080",
+        "requests": 28374,
+        "measures": 26295,
+        "clear_attempts": 1879,
+        "clear_failures": 584,
+        "switches": 25087,
+        "distance_m": 2130472.9020758322,
+        "mean_visited_stations": 20.48,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 87,
+          "known_count_upper_bound": 13
+        },
+        "known16_pending_worlds": 13,
+        "mean_components_s_per_source": {
+          "movement": 336.78690536498567,
+          "measure": 105.6654537129537,
+          "switch": 20.168187187812187,
+          "clear": 6.345702047952048
+        }
+      }
+    },
+    "exactly10_sources": {
+      "fixed21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1000,
+        "cleared_instances": 1000,
+        "mean_s_per_source": 585.792778561,
+        "median_s_per_source": 584.0126634000001,
+        "p95_s_per_source": 626.9062740549999,
+        "p99_s_per_source": 655.617789472,
+        "worst_s_per_source": 656.0066785,
+        "worst_case_id": "LOCAL-v1-q4-exactly10_sources-5088",
+        "requests": 30085,
+        "measures": 28404,
+        "clear_attempts": 1481,
+        "clear_failures": 481,
+        "switches": 27233,
+        "distance_m": 2050483.892417701,
+        "mean_visited_stations": 21,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 100
+        },
+        "known16_pending_worlds": 0,
+        "mean_components_s_per_source": {
+          "movement": 410.0967784835402,
+          "measure": 142.02,
+          "switch": 27.233,
+          "clear": 6.443
+        }
+      },
+      "fixed22": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1000,
+        "cleared_instances": 1000,
+        "mean_s_per_source": 608.71837762,
+        "median_s_per_source": 609.1313787500001,
+        "p95_s_per_source": 647.63279858,
+        "p99_s_per_source": 675.069263062,
+        "worst_s_per_source": 687.4149454000001,
+        "worst_case_id": "LOCAL-v1-q4-exactly10_sources-5051",
+        "requests": 31152,
+        "measures": 29468,
+        "clear_attempts": 1484,
+        "clear_failures": 484,
+        "switches": 28120,
+        "distance_m": 2134031.8875171617,
+        "mean_visited_stations": 22,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 100
+        },
+        "known16_pending_worlds": 0,
+        "mean_components_s_per_source": {
+          "movement": 426.8063775034324,
+          "measure": 147.34,
+          "switch": 28.12,
+          "clear": 6.452
+        }
+      },
+      "rotating21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1000,
+        "cleared_instances": 1000,
+        "mean_s_per_source": 584.380012979,
+        "median_s_per_source": 580.9203152,
+        "p95_s_per_source": 622.22818387,
+        "p99_s_per_source": 628.203755927,
+        "worst_s_per_source": 642.1766384,
+        "worst_case_id": "LOCAL-v1-q4-exactly10_sources-5036",
+        "requests": 30024,
+        "measures": 28318,
+        "clear_attempts": 1506,
+        "clear_failures": 506,
+        "switches": 27076,
+        "distance_m": 2045980.0645319973,
+        "mean_visited_stations": 21,
+        "certificate_type_counts": {
+          "complete_geometric_coverage": 100
+        },
+        "known16_pending_worlds": 0,
+        "mean_components_s_per_source": {
+          "movement": 409.19601290639946,
+          "measure": 141.59,
+          "switch": 27.076,
+          "clear": 6.518
+        }
+      }
+    },
+    "exactly16_sources": {
+      "fixed21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1600,
+        "cleared_instances": 1600,
+        "mean_s_per_source": 303.045133880625,
+        "median_s_per_source": 303.56118809375,
+        "p95_s_per_source": 372.9784955625,
+        "p99_s_per_source": 398.7069772406252,
+        "worst_s_per_source": 427.3496191875,
+        "worst_case_id": "LOCAL-v1-q4-exactly16_sources-5043",
+        "requests": 20234,
+        "measures": 17680,
+        "clear_attempts": 2354,
+        "clear_failures": 754,
+        "switches": 16987,
+        "distance_m": 1846116.0707251604,
+        "mean_visited_stations": 14.74,
+        "certificate_type_counts": {
+          "known_count_upper_bound": 100
+        },
+        "known16_pending_worlds": 100,
+        "mean_components_s_per_source": {
+          "movement": 230.76450884064505,
+          "measure": 55.25,
+          "switch": 10.616875,
+          "clear": 6.41375
+        }
+      },
+      "fixed22": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1600,
+        "cleared_instances": 1600,
+        "mean_s_per_source": 298.061869638125,
+        "median_s_per_source": 299.10414365625,
+        "p95_s_per_source": 384.7479512625,
+        "p99_s_per_source": 404.24658093187503,
+        "worst_s_per_source": 407.6350471875,
+        "worst_case_id": "LOCAL-v1-q4-exactly16_sources-5061",
+        "requests": 19136,
+        "measures": 16465,
+        "clear_attempts": 2471,
+        "clear_failures": 871,
+        "switches": 15757,
+        "distance_m": 1841019.9567466448,
+        "mean_visited_stations": 13.54,
+        "certificate_type_counts": {
+          "known_count_upper_bound": 100
+        },
+        "known16_pending_worlds": 100,
+        "mean_components_s_per_source": {
+          "movement": 230.1274945933306,
+          "measure": 51.453125,
+          "switch": 9.848125,
+          "clear": 6.633125
+        }
+      },
+      "rotating21": {
+        "case_ids": 100,
+        "complete": 100,
+        "errors": 0,
+        "source_instances": 1600,
+        "cleared_instances": 1600,
+        "mean_s_per_source": 303.44424871875,
+        "median_s_per_source": 307.49879553125004,
+        "p95_s_per_source": 381.25762533125,
+        "p99_s_per_source": 393.7084699806253,
+        "worst_s_per_source": 450.6798371875,
+        "worst_case_id": "LOCAL-v1-q4-exactly16_sources-5043",
+        "requests": 20196,
+        "measures": 17567,
+        "clear_attempts": 2429,
+        "clear_failures": 829,
+        "switches": 16816,
+        "distance_m": 1851863.989482695,
+        "mean_visited_stations": 14.87,
+        "certificate_type_counts": {
+          "known_count_upper_bound": 100
+        },
+        "known16_pending_worlds": 100,
+        "mean_components_s_per_source": {
+          "movement": 231.48299868533687,
+          "measure": 54.896875,
+          "switch": 10.51,
+          "clear": 6.554375
+        }
+      }
+    }
+  },
+  "primary": {
+    "pairs": 1200,
+    "candidate": "fixed21",
+    "baseline": "fixed22",
+    "sign": "negative means candidate uses less time",
+    "mean_difference_s_per_source": -14.173499427914559,
+    "improved": 875,
+    "tied": 0,
+    "regressed": 325,
+    "ci95": {
+      "method": "paired seed-cluster percentile bootstrap",
+      "clusters": 100,
+      "case_ids_per_cluster": 12,
+      "replicates": 20000,
+      "random_seed": 913902,
+      "confidence": 0.95,
+      "low": -16.543856394296125,
+      "high": -11.796579291250325,
+      "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+    },
+    "largest_regression": {
+      "case_id": "LOCAL-v1-q4-exactly16_sources-5092",
+      "group": "exactly16_sources",
+      "seed": 5092,
+      "source_count": 16,
+      "candidate_s_per_source": 374.3321315625,
+      "baseline_s_per_source": 264.9077544375,
+      "difference_s_per_source": 109.42437712500003
+    },
+    "largest_improvement": {
+      "case_id": "LOCAL-v1-q4-minimum_radius-5016",
+      "group": "minimum_radius",
+      "seed": 5016,
+      "source_count": 16,
+      "candidate_s_per_source": 226.077095625,
+      "baseline_s_per_source": 377.2436096875,
+      "difference_s_per_source": -151.1665140625
+    },
+    "groups": {
+      "reference_assumed": {
+        "pairs": 100,
+        "candidate": "fixed21",
+        "baseline": "fixed22",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -16.43027681862629,
+        "improved": 82,
+        "tied": 0,
+        "regressed": 18,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -20.635900149957923,
+          "high": -12.128763408301577,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-reference_assumed-5016",
+          "group": "reference_assumed",
+          "seed": 5016,
+          "source_count": 16,
+          "candidate_s_per_source": 294.020291125,
+          "baseline_s_per_source": 233.1147754375,
+          "difference_s_per_source": 60.90551568750004
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-reference_assumed-5035",
+          "group": "reference_assumed",
+          "seed": 5035,
+          "source_count": 10,
+          "candidate_s_per_source": 592.3592997,
+          "baseline_s_per_source": 675.6742952,
+          "difference_s_per_source": -83.31499550000001
+        },
+        "relative_time_reduction_percent": 3.514399979369253
+      },
+      "fixed_positive_bias": {
+        "pairs": 100,
+        "candidate": "fixed21",
+        "baseline": "fixed22",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -16.225511469935395,
+        "improved": 79,
+        "tied": 0,
+        "regressed": 21,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -21.24351930863468,
+          "high": -11.121511309977508,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-fixed_positive_bias-5054",
+          "group": "fixed_positive_bias",
+          "seed": 5054,
+          "source_count": 16,
+          "candidate_s_per_source": 310.2958463125,
+          "baseline_s_per_source": 243.2679651875,
+          "difference_s_per_source": 67.02788112499996
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-fixed_positive_bias-5035",
+          "group": "fixed_positive_bias",
+          "seed": 5035,
+          "source_count": 10,
+          "candidate_s_per_source": 592.799987,
+          "baseline_s_per_source": 701.9252924,
+          "difference_s_per_source": -109.1253054
+        },
+        "relative_time_reduction_percent": 3.4623668151379143
+      },
+      "fixed_negative_bias": {
+        "pairs": 100,
+        "candidate": "fixed21",
+        "baseline": "fixed22",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -16.44750740242549,
+        "improved": 78,
+        "tied": 0,
+        "regressed": 22,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -20.783174220118518,
+          "high": -12.044134118642477,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-fixed_negative_bias-5031",
+          "group": "fixed_negative_bias",
+          "seed": 5031,
+          "source_count": 15,
+          "candidate_s_per_source": 445.85123300000004,
+          "baseline_s_per_source": 399.76069953333337,
+          "difference_s_per_source": 46.09053346666667
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-fixed_negative_bias-5020",
+          "group": "fixed_negative_bias",
+          "seed": 5020,
+          "source_count": 16,
+          "candidate_s_per_source": 228.127046625,
+          "baseline_s_per_source": 310.9289231875,
+          "difference_s_per_source": -82.80187656250001
+        },
+        "relative_time_reduction_percent": 3.50031349124367
+      },
+      "smooth_shared_field": {
+        "pairs": 100,
+        "candidate": "fixed21",
+        "baseline": "fixed22",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -14.647839881100689,
+        "improved": 75,
+        "tied": 0,
+        "regressed": 25,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -19.317759591545812,
+          "high": -9.862210217327355,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-smooth_shared_field-5016",
+          "group": "smooth_shared_field",
+          "seed": 5016,
+          "source_count": 16,
+          "candidate_s_per_source": 301.802487125,
+          "baseline_s_per_source": 238.5883354375,
+          "difference_s_per_source": 63.21415168750002
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-smooth_shared_field-5062",
+          "group": "smooth_shared_field",
+          "seed": 5062,
+          "source_count": 16,
+          "candidate_s_per_source": 245.403817,
+          "baseline_s_per_source": 316.02501775,
+          "difference_s_per_source": -70.62120075000001
+        },
+        "relative_time_reduction_percent": 3.141378090650183
+      },
+      "cell50_shared_field": {
+        "pairs": 100,
+        "candidate": "fixed21",
+        "baseline": "fixed22",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -16.499312420283253,
+        "improved": 79,
+        "tied": 0,
+        "regressed": 21,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -21.68162599281801,
+          "high": -11.46470737640483,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-cell50_shared_field-5081",
+          "group": "cell50_shared_field",
+          "seed": 5081,
+          "source_count": 16,
+          "candidate_s_per_source": 318.7443339375,
+          "baseline_s_per_source": 255.2360175,
+          "difference_s_per_source": 63.508316437500014
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-cell50_shared_field-5074",
+          "group": "cell50_shared_field",
+          "seed": 5074,
+          "source_count": 16,
+          "candidate_s_per_source": 254.1191643125,
+          "baseline_s_per_source": 378.550341625,
+          "difference_s_per_source": -124.43117731249998
+        },
+        "relative_time_reduction_percent": 3.5198312503091147
+      },
+      "cell500_shared_field": {
+        "pairs": 100,
+        "candidate": "fixed21",
+        "baseline": "fixed22",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -17.526564268218706,
+        "improved": 77,
+        "tied": 0,
+        "regressed": 23,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -22.206817188751472,
+          "high": -12.923448385421809,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-cell500_shared_field-5074",
+          "group": "cell500_shared_field",
+          "seed": 5074,
+          "source_count": 16,
+          "candidate_s_per_source": 322.4624111875,
+          "baseline_s_per_source": 284.29624625,
+          "difference_s_per_source": 38.16616493749996
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-cell500_shared_field-5035",
+          "group": "cell500_shared_field",
+          "seed": 5035,
+          "source_count": 10,
+          "candidate_s_per_source": 589.7026764999999,
+          "baseline_s_per_source": 683.7123643,
+          "difference_s_per_source": -94.00968780000005
+        },
+        "relative_time_reduction_percent": 3.7362788730911944
+      },
+      "edge_mixed_min_radius": {
+        "pairs": 100,
+        "candidate": "fixed21",
+        "baseline": "fixed22",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -17.476847894170078,
+        "improved": 72,
+        "tied": 0,
+        "regressed": 28,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -23.798595397442018,
+          "high": -11.193263343725208,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-edge_mixed_min_radius-5016",
+          "group": "edge_mixed_min_radius",
+          "seed": 5016,
+          "source_count": 16,
+          "candidate_s_per_source": 423.482336625,
+          "baseline_s_per_source": 340.4733568125,
+          "difference_s_per_source": 83.0089798125
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-edge_mixed_min_radius-5080",
+          "group": "edge_mixed_min_radius",
+          "seed": 5080,
+          "source_count": 10,
+          "candidate_s_per_source": 631.6868995,
+          "baseline_s_per_source": 740.421075,
+          "difference_s_per_source": -108.73417549999999
+        },
+        "relative_time_reduction_percent": 3.4606138377071987
+      },
+      "offcenter_cluster": {
+        "pairs": 100,
+        "candidate": "fixed21",
+        "baseline": "fixed22",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -12.588115459871553,
+        "improved": 74,
+        "tied": 0,
+        "regressed": 26,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -17.060424976896144,
+          "high": -8.057295219579546,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-offcenter_cluster-5074",
+          "group": "offcenter_cluster",
+          "seed": 5074,
+          "source_count": 16,
+          "candidate_s_per_source": 234.2716533125,
+          "baseline_s_per_source": 157.4908098125,
+          "difference_s_per_source": 76.7808435
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-offcenter_cluster-5088",
+          "group": "offcenter_cluster",
+          "seed": 5088,
+          "source_count": 16,
+          "candidate_s_per_source": 79.291905,
+          "baseline_s_per_source": 163.1114900625,
+          "difference_s_per_source": -83.8195850625
+        },
+        "relative_time_reduction_percent": 3.049594693464483
+      },
+      "origin_cluster": {
+        "pairs": 100,
+        "candidate": "fixed21",
+        "baseline": "fixed22",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -2.81807784264548,
+        "improved": 57,
+        "tied": 0,
+        "regressed": 43,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -8.808908405151676,
+          "high": 3.005657442869935,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-origin_cluster-5088",
+          "group": "origin_cluster",
+          "seed": 5088,
+          "source_count": 16,
+          "candidate_s_per_source": 136.7055206875,
+          "baseline_s_per_source": 70.431774625,
+          "difference_s_per_source": 66.27374606250001
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-origin_cluster-5079",
+          "group": "origin_cluster",
+          "seed": 5079,
+          "source_count": 10,
+          "candidate_s_per_source": 518.3938942,
+          "baseline_s_per_source": 612.5045134,
+          "difference_s_per_source": -94.11061919999997
+        },
+        "relative_time_reduction_percent": 0.6583482115145829
+      },
+      "minimum_radius": {
+        "pairs": 100,
+        "candidate": "fixed21",
+        "baseline": "fixed22",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -21.47960486119776,
+        "improved": 75,
+        "tied": 0,
+        "regressed": 25,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -28.078413193057457,
+          "high": -15.202480244153982,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-minimum_radius-5074",
+          "group": "minimum_radius",
+          "seed": 5074,
+          "source_count": 16,
+          "candidate_s_per_source": 382.764901625,
+          "baseline_s_per_source": 314.175511875,
+          "difference_s_per_source": 68.58938975000001
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-minimum_radius-5016",
+          "group": "minimum_radius",
+          "seed": 5016,
+          "source_count": 16,
+          "candidate_s_per_source": 226.077095625,
+          "baseline_s_per_source": 377.2436096875,
+          "difference_s_per_source": -151.1665140625
+        },
+        "relative_time_reduction_percent": 4.4160718389724325
+      },
+      "exactly10_sources": {
+        "pairs": 100,
+        "candidate": "fixed21",
+        "baseline": "fixed22",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -22.925599058999996,
+        "improved": 83,
+        "tied": 0,
+        "regressed": 17,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -28.109347443150003,
+          "high": -17.670589123650007,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-exactly10_sources-5088",
+          "group": "exactly10_sources",
+          "seed": 5088,
+          "source_count": 10,
+          "candidate_s_per_source": 656.0066785,
+          "baseline_s_per_source": 583.3065842,
+          "difference_s_per_source": 72.70009430000005
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-exactly10_sources-5051",
+          "group": "exactly10_sources",
+          "seed": 5051,
+          "source_count": 10,
+          "candidate_s_per_source": 593.5592211000001,
+          "baseline_s_per_source": 687.4149454000001,
+          "difference_s_per_source": -93.85572430000002
+        },
+        "relative_time_reduction_percent": 3.7662078067423796
+      },
+      "exactly16_sources": {
+        "pairs": 100,
+        "candidate": "fixed21",
+        "baseline": "fixed22",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": 4.9832642425,
+        "improved": 44,
+        "tied": 0,
+        "regressed": 56,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -2.5746603346093786,
+          "high": 12.364453924953116,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-exactly16_sources-5092",
+          "group": "exactly16_sources",
+          "seed": 5092,
+          "source_count": 16,
+          "candidate_s_per_source": 374.3321315625,
+          "baseline_s_per_source": 264.9077544375,
+          "difference_s_per_source": 109.42437712500003
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-exactly16_sources-5060",
+          "group": "exactly16_sources",
+          "seed": 5060,
+          "source_count": 16,
+          "candidate_s_per_source": 324.432867,
+          "baseline_s_per_source": 401.92082225,
+          "difference_s_per_source": -77.48795525000003
+        },
+        "relative_time_reduction_percent": -1.6718892116425859
+      }
+    },
+    "overall_scope": "Equal-weight descriptive mean across the fixed 12 groups; no combined percentage improvement.",
+    "all_pairs_file": "fixed21_minus_fixed22_pairs.jsonl",
+    "all_regressions_file": "fixed21_minus_fixed22_regressions.json"
+  },
+  "rotation_extension": {
+    "pairs": 1200,
+    "candidate": "rotating21",
+    "baseline": "fixed21",
+    "sign": "negative means candidate uses less time",
+    "mean_difference_s_per_source": -0.7368723381620164,
+    "improved": 540,
+    "tied": 188,
+    "regressed": 472,
+    "ci95": {
+      "method": "paired seed-cluster percentile bootstrap",
+      "clusters": 100,
+      "case_ids_per_cluster": 12,
+      "replicates": 20000,
+      "random_seed": 913902,
+      "confidence": 0.95,
+      "low": -2.627159848003142,
+      "high": 1.1474445356182874,
+      "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+    },
+    "largest_regression": {
+      "case_id": "LOCAL-v1-q4-offcenter_cluster-5088",
+      "group": "offcenter_cluster",
+      "seed": 5088,
+      "source_count": 16,
+      "candidate_s_per_source": 203.6474166875,
+      "baseline_s_per_source": 79.291905,
+      "difference_s_per_source": 124.3555116875
+    },
+    "largest_improvement": {
+      "case_id": "LOCAL-v1-q4-offcenter_cluster-5016",
+      "group": "offcenter_cluster",
+      "seed": 5016,
+      "source_count": 16,
+      "candidate_s_per_source": 99.236434375,
+      "baseline_s_per_source": 215.4344098125,
+      "difference_s_per_source": -116.1979754375
+    },
+    "groups": {
+      "reference_assumed": {
+        "pairs": 100,
+        "candidate": "rotating21",
+        "baseline": "fixed21",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": 1.22979584331185,
+        "improved": 48,
+        "tied": 6,
+        "regressed": 46,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -3.6719477626906953,
+          "high": 6.337104541648144,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-reference_assumed-5054",
+          "group": "reference_assumed",
+          "seed": 5054,
+          "source_count": 16,
+          "candidate_s_per_source": 356.651151875,
+          "baseline_s_per_source": 248.8497631875,
+          "difference_s_per_source": 107.80138868749998
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-reference_assumed-5020",
+          "group": "reference_assumed",
+          "seed": 5020,
+          "source_count": 16,
+          "candidate_s_per_source": 220.491509,
+          "baseline_s_per_source": 290.256822875,
+          "difference_s_per_source": -69.765313875
+        },
+        "relative_time_reduction_percent": -0.27263199780666036
+      },
+      "fixed_positive_bias": {
+        "pairs": 100,
+        "candidate": "rotating21",
+        "baseline": "fixed21",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": 2.02820745356102,
+        "improved": 41,
+        "tied": 4,
+        "regressed": 55,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -2.13034223374675,
+          "high": 6.301413432785195,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-fixed_positive_bias-5016",
+          "group": "fixed_positive_bias",
+          "seed": 5016,
+          "source_count": 16,
+          "candidate_s_per_source": 298.79153075,
+          "baseline_s_per_source": 207.2485065625,
+          "difference_s_per_source": 91.54302418749998
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-fixed_positive_bias-5020",
+          "group": "fixed_positive_bias",
+          "seed": 5020,
+          "source_count": 16,
+          "candidate_s_per_source": 232.6281056875,
+          "baseline_s_per_source": 289.8628869375,
+          "difference_s_per_source": -57.23478124999997
+        },
+        "relative_time_reduction_percent": -0.44832236876294307
+      },
+      "fixed_negative_bias": {
+        "pairs": 100,
+        "candidate": "rotating21",
+        "baseline": "fixed21",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -1.3103090135400046,
+        "improved": 56,
+        "tied": 7,
+        "regressed": 37,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -5.54186497701607,
+          "high": 3.0855419350348026,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-fixed_negative_bias-5062",
+          "group": "fixed_negative_bias",
+          "seed": 5062,
+          "source_count": 16,
+          "candidate_s_per_source": 330.7771655,
+          "baseline_s_per_source": 243.5237100625,
+          "difference_s_per_source": 87.25345543750004
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-fixed_negative_bias-5018",
+          "group": "fixed_negative_bias",
+          "seed": 5018,
+          "source_count": 10,
+          "candidate_s_per_source": 581.3420064,
+          "baseline_s_per_source": 630.6135793999999,
+          "difference_s_per_source": -49.27157299999999
+        },
+        "relative_time_reduction_percent": 0.2889712771670713
+      },
+      "smooth_shared_field": {
+        "pairs": 100,
+        "candidate": "rotating21",
+        "baseline": "fixed21",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -1.5927603404324062,
+        "improved": 54,
+        "tied": 7,
+        "regressed": 39,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -5.559055738418297,
+          "high": 2.4041527319464215,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-smooth_shared_field-5035",
+          "group": "smooth_shared_field",
+          "seed": 5035,
+          "source_count": 10,
+          "candidate_s_per_source": 689.7464311,
+          "baseline_s_per_source": 609.1117071,
+          "difference_s_per_source": 80.634724
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-smooth_shared_field-5020",
+          "group": "smooth_shared_field",
+          "seed": 5020,
+          "source_count": 16,
+          "candidate_s_per_source": 224.21570375,
+          "baseline_s_per_source": 289.63331225,
+          "difference_s_per_source": -65.41760850000003
+        },
+        "relative_time_reduction_percent": 0.35266208766961676
+      },
+      "cell50_shared_field": {
+        "pairs": 100,
+        "candidate": "rotating21",
+        "baseline": "fixed21",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -1.5970544605803412,
+        "improved": 54,
+        "tied": 6,
+        "regressed": 40,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -5.792581043366976,
+          "high": 2.6146536412254897,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-cell50_shared_field-5074",
+          "group": "cell50_shared_field",
+          "seed": 5074,
+          "source_count": 16,
+          "candidate_s_per_source": 336.8869895,
+          "baseline_s_per_source": 254.1191643125,
+          "difference_s_per_source": 82.76782518750002
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-cell50_shared_field-5081",
+          "group": "cell50_shared_field",
+          "seed": 5081,
+          "source_count": 16,
+          "candidate_s_per_source": 256.9792096875,
+          "baseline_s_per_source": 318.7443339375,
+          "difference_s_per_source": -61.76512425000004
+        },
+        "relative_time_reduction_percent": 0.3531324832043822
+      },
+      "cell500_shared_field": {
+        "pairs": 100,
+        "candidate": "rotating21",
+        "baseline": "fixed21",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -2.420959992084705,
+        "improved": 48,
+        "tied": 6,
+        "regressed": 46,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -7.072496119409576,
+          "high": 2.175613349995617,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-cell500_shared_field-5035",
+          "group": "cell500_shared_field",
+          "seed": 5035,
+          "source_count": 10,
+          "candidate_s_per_source": 670.540081,
+          "baseline_s_per_source": 589.7026764999999,
+          "difference_s_per_source": 80.83740450000005
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-cell500_shared_field-5020",
+          "group": "cell500_shared_field",
+          "seed": 5020,
+          "source_count": 16,
+          "candidate_s_per_source": 223.653240125,
+          "baseline_s_per_source": 328.741897,
+          "difference_s_per_source": -105.088656875
+        },
+        "relative_time_reduction_percent": 0.5361267309614935
+      },
+      "edge_mixed_min_radius": {
+        "pairs": 100,
+        "candidate": "rotating21",
+        "baseline": "fixed21",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": 0.0,
+        "improved": 0,
+        "tied": 100,
+        "regressed": 0,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": 0.0,
+          "high": 0.0,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-edge_mixed_min_radius-5000",
+          "group": "edge_mixed_min_radius",
+          "seed": 5000,
+          "source_count": 11,
+          "candidate_s_per_source": 527.2691915454545,
+          "baseline_s_per_source": 527.2691915454545,
+          "difference_s_per_source": 0.0
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-edge_mixed_min_radius-5000",
+          "group": "edge_mixed_min_radius",
+          "seed": 5000,
+          "source_count": 11,
+          "candidate_s_per_source": 527.2691915454545,
+          "baseline_s_per_source": 527.2691915454545,
+          "difference_s_per_source": 0.0
+        },
+        "relative_time_reduction_percent": -0.0
+      },
+      "offcenter_cluster": {
+        "pairs": 100,
+        "candidate": "rotating21",
+        "baseline": "fixed21",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -3.5719331461752857,
+        "improved": 46,
+        "tied": 30,
+        "regressed": 24,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -8.239803324901073,
+          "high": 1.1178403411020037,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-offcenter_cluster-5088",
+          "group": "offcenter_cluster",
+          "seed": 5088,
+          "source_count": 16,
+          "candidate_s_per_source": 203.6474166875,
+          "baseline_s_per_source": 79.291905,
+          "difference_s_per_source": 124.3555116875
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-offcenter_cluster-5016",
+          "group": "offcenter_cluster",
+          "seed": 5016,
+          "source_count": 16,
+          "candidate_s_per_source": 99.236434375,
+          "baseline_s_per_source": 215.4344098125,
+          "difference_s_per_source": -116.1979754375
+        },
+        "relative_time_reduction_percent": 0.8925552285817653
+      },
+      "origin_cluster": {
+        "pairs": 100,
+        "candidate": "rotating21",
+        "baseline": "fixed21",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -4.643473977806732,
+        "improved": 55,
+        "tied": 3,
+        "regressed": 42,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -9.886963765049751,
+          "high": 0.7398580347505234,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-origin_cluster-5087",
+          "group": "origin_cluster",
+          "seed": 5087,
+          "source_count": 13,
+          "candidate_s_per_source": 506.74094107692304,
+          "baseline_s_per_source": 442.3590790769231,
+          "difference_s_per_source": 64.38186199999996
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-origin_cluster-5084",
+          "group": "origin_cluster",
+          "seed": 5084,
+          "source_count": 14,
+          "candidate_s_per_source": 371.9852717857143,
+          "baseline_s_per_source": 447.3008162142857,
+          "difference_s_per_source": -75.3155444285714
+        },
+        "relative_time_reduction_percent": 1.091979069234773
+      },
+      "minimum_radius": {
+        "pairs": 100,
+        "candidate": "rotating21",
+        "baseline": "fixed21",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": 4.04967031967741,
+        "improved": 40,
+        "tied": 11,
+        "regressed": 49,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -0.8589424628567924,
+          "high": 9.014616888183896,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-minimum_radius-5081",
+          "group": "minimum_radius",
+          "seed": 5081,
+          "source_count": 16,
+          "candidate_s_per_source": 400.4783230625,
+          "baseline_s_per_source": 308.1169905,
+          "difference_s_per_source": 92.36133256250002
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-minimum_radius-5018",
+          "group": "minimum_radius",
+          "seed": 5018,
+          "source_count": 10,
+          "candidate_s_per_source": 589.3038748,
+          "baseline_s_per_source": 656.4918349,
+          "difference_s_per_source": -67.18796009999994
+        },
+        "relative_time_reduction_percent": -0.8710531115719842
+      },
+      "exactly10_sources": {
+        "pairs": 100,
+        "candidate": "rotating21",
+        "baseline": "fixed21",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": -1.412765582000004,
+        "improved": 47,
+        "tied": 5,
+        "regressed": 48,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -6.01611417565,
+          "high": 3.253215430999999,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-exactly10_sources-5036",
+          "group": "exactly10_sources",
+          "seed": 5036,
+          "source_count": 10,
+          "candidate_s_per_source": 642.1766384,
+          "baseline_s_per_source": 550.2981901,
+          "difference_s_per_source": 91.87844829999995
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-exactly10_sources-5038",
+          "group": "exactly10_sources",
+          "seed": 5038,
+          "source_count": 10,
+          "candidate_s_per_source": 581.2373369,
+          "baseline_s_per_source": 655.6138613,
+          "difference_s_per_source": -74.37652440000011
+        },
+        "relative_time_reduction_percent": 0.24117155992780634
+      },
+      "exactly16_sources": {
+        "pairs": 100,
+        "candidate": "rotating21",
+        "baseline": "fixed21",
+        "sign": "negative means candidate uses less time",
+        "mean_difference_s_per_source": 0.39911483812500165,
+        "improved": 51,
+        "tied": 3,
+        "regressed": 46,
+        "ci95": {
+          "method": "paired seed-cluster percentile bootstrap",
+          "clusters": 100,
+          "case_ids_per_cluster": 1,
+          "replicates": 20000,
+          "random_seed": 913902,
+          "confidence": 0.95,
+          "low": -7.841721002968748,
+          "high": 8.629742075390626,
+          "limitation": "Exposed local generated cases; conditional sampling variability, not a blind-test or official guarantee."
+        },
+        "largest_regression": {
+          "case_id": "LOCAL-v1-q4-exactly16_sources-5054",
+          "group": "exactly16_sources",
+          "seed": 5054,
+          "source_count": 16,
+          "candidate_s_per_source": 356.651151875,
+          "baseline_s_per_source": 248.8497631875,
+          "difference_s_per_source": 107.80138868749998
+        },
+        "largest_improvement": {
+          "case_id": "LOCAL-v1-q4-exactly16_sources-5087",
+          "group": "exactly16_sources",
+          "seed": 5087,
+          "source_count": 16,
+          "candidate_s_per_source": 216.544292875,
+          "baseline_s_per_source": 326.997885375,
+          "difference_s_per_source": -110.45359250000001
+        },
+        "relative_time_reduction_percent": -0.1317014508743837
+      }
+    },
+    "overall_scope": "Equal-weight descriptive mean across the fixed 12 groups; no combined percentage improvement.",
+    "all_pairs_file": "rotating21_minus_fixed21_pairs.jsonl",
+    "all_regressions_file": "rotating21_minus_fixed21_regressions.json"
+  },
+  "world_identity": {
+    "full": {
+      "case_ids": 1200,
+      "distinct_input_worlds": 1187,
+      "duplicate_input_extra_case_ids": 13,
+      "duplicate_groups": [
+        [
+          "LOCAL-v1-q4-reference_assumed-5016",
+          "LOCAL-v1-q4-exactly16_sources-5016"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5020",
+          "LOCAL-v1-q4-exactly16_sources-5020"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5034",
+          "LOCAL-v1-q4-exactly16_sources-5034"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5038",
+          "LOCAL-v1-q4-exactly16_sources-5038"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5047",
+          "LOCAL-v1-q4-exactly16_sources-5047"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5053",
+          "LOCAL-v1-q4-exactly16_sources-5053"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5054",
+          "LOCAL-v1-q4-exactly16_sources-5054"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5062",
+          "LOCAL-v1-q4-exactly16_sources-5062"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5067",
+          "LOCAL-v1-q4-exactly16_sources-5067"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5074",
+          "LOCAL-v1-q4-exactly16_sources-5074"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5081",
+          "LOCAL-v1-q4-exactly16_sources-5081"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5088",
+          "LOCAL-v1-q4-exactly16_sources-5088"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5098",
+          "LOCAL-v1-q4-exactly16_sources-5098"
+        ]
+      ],
+      "distinct_input_world_source_instances": 15342,
+      "key_fields": [
+        "mode",
+        "seed",
+        "noise",
+        "sources"
+      ],
+      "duplicate_input_outcomes_identical_within_each_arm": true,
+      "duplicate_input_outcome_fields": [
+        "total_virtual_time_s",
+        "cleared_count",
+        "distance_m",
+        "measures",
+        "switches",
+        "clear_attempts",
+        "clear_failures"
+      ]
+    },
+    "quick": {
+      "case_ids": 60,
+      "distinct_input_worlds": 60,
+      "duplicate_input_extra_case_ids": 0,
+      "duplicate_groups": [],
+      "distinct_input_world_source_instances": 760,
+      "key_fields": [
+        "mode",
+        "seed",
+        "noise",
+        "sources"
+      ]
+    },
+    "pure": {
+      "case_ids": 24,
+      "distinct_input_worlds": 24,
+      "duplicate_input_extra_case_ids": 0,
+      "duplicate_groups": [],
+      "distinct_input_world_source_instances": 312,
+      "key_fields": [
+        "mode",
+        "seed",
+        "noise",
+        "sources"
+      ]
+    },
+    "complete_policy": {
+      "case_ids": 1224,
+      "distinct_input_worlds": 1211,
+      "duplicate_input_extra_case_ids": 13,
+      "duplicate_groups": [
+        [
+          "LOCAL-v1-q4-reference_assumed-5016",
+          "LOCAL-v1-q4-exactly16_sources-5016"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5020",
+          "LOCAL-v1-q4-exactly16_sources-5020"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5034",
+          "LOCAL-v1-q4-exactly16_sources-5034"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5038",
+          "LOCAL-v1-q4-exactly16_sources-5038"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5047",
+          "LOCAL-v1-q4-exactly16_sources-5047"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5053",
+          "LOCAL-v1-q4-exactly16_sources-5053"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5054",
+          "LOCAL-v1-q4-exactly16_sources-5054"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5062",
+          "LOCAL-v1-q4-exactly16_sources-5062"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5067",
+          "LOCAL-v1-q4-exactly16_sources-5067"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5074",
+          "LOCAL-v1-q4-exactly16_sources-5074"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5081",
+          "LOCAL-v1-q4-exactly16_sources-5081"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5088",
+          "LOCAL-v1-q4-exactly16_sources-5088"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5098",
+          "LOCAL-v1-q4-exactly16_sources-5098"
+        ]
+      ],
+      "distinct_input_world_source_instances": 15654,
+      "key_fields": [
+        "mode",
+        "seed",
+        "noise",
+        "sources"
+      ]
+    },
+    "scan_only": {
+      "case_ids": 360,
+      "distinct_input_worlds": 360,
+      "duplicate_input_extra_case_ids": 0,
+      "duplicate_groups": [],
+      "distinct_input_world_source_instances": 3600,
+      "key_fields": [
+        "mode",
+        "seed",
+        "noise",
+        "sources"
+      ]
+    },
+    "all": {
+      "case_ids": 1584,
+      "distinct_input_worlds": 1571,
+      "duplicate_input_extra_case_ids": 13,
+      "duplicate_groups": [
+        [
+          "LOCAL-v1-q4-reference_assumed-5016",
+          "LOCAL-v1-q4-exactly16_sources-5016"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5020",
+          "LOCAL-v1-q4-exactly16_sources-5020"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5034",
+          "LOCAL-v1-q4-exactly16_sources-5034"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5038",
+          "LOCAL-v1-q4-exactly16_sources-5038"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5047",
+          "LOCAL-v1-q4-exactly16_sources-5047"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5053",
+          "LOCAL-v1-q4-exactly16_sources-5053"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5054",
+          "LOCAL-v1-q4-exactly16_sources-5054"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5062",
+          "LOCAL-v1-q4-exactly16_sources-5062"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5067",
+          "LOCAL-v1-q4-exactly16_sources-5067"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5074",
+          "LOCAL-v1-q4-exactly16_sources-5074"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5081",
+          "LOCAL-v1-q4-exactly16_sources-5081"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5088",
+          "LOCAL-v1-q4-exactly16_sources-5088"
+        ],
+        [
+          "LOCAL-v1-q4-reference_assumed-5098",
+          "LOCAL-v1-q4-exactly16_sources-5098"
+        ]
+      ],
+      "distinct_input_world_source_instances": 19254,
+      "key_fields": [
+        "mode",
+        "seed",
+        "noise",
+        "sources"
+      ]
+    }
+  },
+  "nominal_checks": {
+    "passed": 79,
+    "total": 79,
+    "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf"
+  },
+  "audits": {
+    "quick": {
+      "status": "pass",
+      "rows": 180,
+      "case_ids": 60,
+      "pairs_unique": true,
+      "id_sets_match": true,
+      "source_and_runner_hashes_match": true,
+      "denominators_recomputed": true,
+      "max_time_formula_error_s": 5.916788722970523e-06,
+      "rows_sha256": "dd1edf5f1f73594f57d08d24defada9ff80c5d5ce233406fca170ec5419e75c7",
+      "registration_sha256": "2682a59a6ea12ce12191600f03f7db6e367ae65cef647bbc6236f49624e129c1"
+    },
+    "full": {
+      "status": "pass",
+      "rows": 3600,
+      "case_ids": 1200,
+      "pairs_unique": true,
+      "id_sets_match": true,
+      "source_and_runner_hashes_match": true,
+      "denominators_recomputed": true,
+      "max_time_formula_error_s": 8.237784641096368e-06,
+      "rows_sha256": "e6a8c2c2e9f504748ca2bf6bf62770d72720a92a5f116fe1472789e5901a7b10",
+      "registration_sha256": "f533460912b20eb0cf1539cbbc8fbf467a918448d01043b4c6ebebb7f3ce5432"
+    },
+    "pure_pressure": {
+      "status": "pass",
+      "rows": 48,
+      "case_ids": 24,
+      "pairs_unique": true,
+      "id_sets_match": true,
+      "source_and_runner_hashes_match": true,
+      "denominators_recomputed": true,
+      "max_time_formula_error_s": 7.772376193315722e-06,
+      "rows_sha256": "04336cbaee2853492e7d82989d7f2b613a83c11fd05a7309ec870d7e5ca65c48",
+      "registration_sha256": "063b82b61767dbd0b70f786c36ff8f1fc45087d027ef8e7c806a6812eb15a79b"
+    }
+  },
+  "execution_ledger": {
+    "full_policy_executions": 3828,
+    "scope": "Recorded complete-policy and target-channel scan executions; nominal rule-check internal calls excluded.",
+    "full_v1_policy_executions": 3600,
+    "quick_v1_policy_executions": 180,
+    "pure_pressure_policy_executions": 48,
+    "unique_full_policy_case_ids": 1224,
+    "distinct_full_policy_worlds": 1211,
+    "quick_is_full_subset": true,
+    "scan_only_executions": 1440,
+    "scan_only_worlds": 360,
+    "unique_case_ids_all_runs": 1584,
+    "distinct_worlds_all_runs": 1571,
+    "complete_policy_source_instances": 49554,
+    "complete_policy_cleared_instances": 49554,
+    "unique_case_id_full_policy_source_instances": 15862,
+    "distinct_full_policy_world_source_instances": 15654,
+    "targeted_scan_source_instances": 1440,
+    "targeted_scan_unique_sources": 360,
+    "complete_policy_requests": 1011005,
+    "scan_only_requests": 29160,
+    "all_requests": 1040165,
+    "measure_clear_actions": 1029629,
+    "enter_exit_calls": 10536,
+    "cached_or_replayed_policy_runs": 0,
+    "failures": 0
+  },
+  "limitations": [
+    "No global minimality claim for the 21-site layout.",
+    "Integer certificate applies to fixed binary64 coordinates; the runtime floating-point rotated coordinates are not individually recertified.",
+    "Geometry ensures detection coverage, not bounded localization/clearing time by itself.",
+    "All source-position and error-field distributions in closed-loop cases are local modeling choices.",
+    "No new blind test, training, or Windows official execution."
+  ],
+  "finalizer_sha256": "92780ccab11ab8f1aa2dcc55cbc75a627e5b9b50a64d6b53fb72cd8963a60c37"
+}

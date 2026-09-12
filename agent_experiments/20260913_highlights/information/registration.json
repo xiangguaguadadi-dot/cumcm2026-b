@@ -1,0 +1,33 @@
+{
+  "registered_before_execution": true,
+  "date": "2026-09-13",
+  "scope": "Information experiments C: Q4 convex no-signal exclusion and Q2 bounded-error second-point geometry",
+  "frozen_candidate": "最佳方法/代码/solver.py",
+  "candidate_sha256": "e6a0666d644ceaa1d7ae69f19042b9ca022379f3e5a57d927e52bcf1a09360bd",
+  "q4": {
+    "arms": {"on": {"convex_no_signal": true}, "off": {"convex_no_signal": false}},
+    "quick_cases": "Q4 v1 quick cases, 12 groups x 5 seeds = 60 paired cases",
+    "full_cases": "All Q4 cases in 最佳方法/数据/exposed_cases.json, 2400 paired cases; historical exposed local regression",
+    "same_state": "Apply the unchanged exclusion function to copies of the off-arm polygon after eligible actual observations; never modify actual off-arm state",
+    "truth_access": "Evaluator observers only; source truth is not passed to the solver",
+    "metrics": ["complete", "true_source_exclusions", "area_before_m2", "area_after_m2", "measures", "clear_attempts", "clear_failures", "distance_m", "average_clear_time_s"],
+    "stress": "Predeclared 1000 random physical fixtures and deterministic directional/range boundary and near-collinear fixtures; not task-performance cases"
+  },
+  "q2": {
+    "first_station_radii_m": [0, 600, 1200, 1750],
+    "first_bearings_relative_outward_deg": [0, 45, 90, 135, 180],
+    "origin_bearing_only_deg": 0,
+    "budgets_m": [300, 500, 670.8203932499369, 850, 1000],
+    "conditions_per_error_bound": 80,
+    "error_halfwidths_deg_separate": [1, 1.005001],
+    "methods": ["fixed_600_300_direction", "analytic_strip_candidate", "actual_prior_candidate_search"],
+    "shared_safe_domain": "Conservative three-disk domain centered in the first-station/first-bearing frame; all candidates obey the same movement upper bound",
+    "prior": "Actual target disk radius 1800 intersected with first bearing wedge and reception upper disk radius 1500; normal-report range >5",
+    "coarse": "Complete 80 conditions per error model; deterministic finite candidate and reading search, explicitly not continuous certification",
+    "continuous_representatives": "20 conditions per error model: origin with all 5 budgets, other 15 first geometries at sqrt(450000) budget; all three selected methods",
+    "continuous_reading_step_deg_max": 0.05,
+    "upper_bound": "Outer polygon prior and reading cells enclosed by halfwidth delta+h/2; evaluate every reading cell",
+    "lower_bound": "Two legal source hypotheses with a common first and second report; validate source radii, near exclusion, target disk, and angular errors",
+    "numeric_limit": "Double precision conservative enclosures with explicit margins; not interval-arithmetic certificates or a continuous second-point global optimum"
+  }
+}

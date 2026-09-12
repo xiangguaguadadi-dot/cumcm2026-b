@@ -1,0 +1,75 @@
+{
+  "status": "pass",
+  "source_before": {
+    "manifest_sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+    "parent_sha256": "e6a0666d644ceaa1d7ae69f19042b9ca022379f3e5a57d927e52bcf1a09360bd",
+    "certificate_sha256": "8eaeae3c86cd7378ef4a242afdae2ba35d3620ba0c82cf9419ab5ebdb4cdeaba",
+    "files_verified": 10,
+    "mismatches": []
+  },
+  "source_after": {
+    "manifest_sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+    "parent_sha256": "e6a0666d644ceaa1d7ae69f19042b9ca022379f3e5a57d927e52bcf1a09360bd",
+    "certificate_sha256": "8eaeae3c86cd7378ef4a242afdae2ba35d3620ba0c82cf9419ab5ebdb4cdeaba",
+    "files_verified": 10,
+    "mismatches": []
+  },
+  "verifier_sha256": "22ba9da1ffb2aea0a1f8296fa3c8f48e9e0ad0a7e28bc32805b3f6ce29ea6b54",
+  "certificates": {
+    "fixed21": {
+      "status": "pass",
+      "certificate": "experiments/B3/research/certificate_21_999_1864.json",
+      "certificate_sha256": "8eaeae3c86cd7378ef4a242afdae2ba35d3620ba0c82cf9419ab5ebdb4cdeaba",
+      "station_count": 21,
+      "leaf_count": 11200,
+      "covered_leaves": 5796,
+      "outside_leaves": 5404,
+      "maximum_depth": 14,
+      "coordinate_basis": "actual IEEE-754 float.as_integer_ratio",
+      "common_denominator": 4398046511104,
+      "exact_integer_checks": true,
+      "partition_prefix_free": true,
+      "partition_full_area": true,
+      "rebuilt_witness_convex_hulls": true,
+      "min_range_slack_m_approx": 0.10961342942698593,
+      "min_hull_slack_m_approx": 0.0007287540373368244,
+      "leaf_checks_sha256": "eb1bd6be79c9aa5e3d829961a367a9f8a295171b4ecd5272bc80619ec0718f7c",
+      "wall_s": 0.08005450002383441,
+      "guarantee": "Every point of the 1800 m disk lies in the convex hull of sites <1000 m away; every closed emission half-plane contains one such site.",
+      "boundary": "Certifies these fixed binary64 site coordinates under the physical model. Does not certify runtime, official interface, or arbitrary rotated floating points.",
+      "current_b3_initial_coordinates_exactly_equal": true,
+      "construction_environment_actions": 0
+    },
+    "fixed22": {
+      "status": "pass",
+      "certificate": "agent_experiments/20260913_highlights/coverage/certificate_checks_v1/22_certificate.json",
+      "certificate_sha256": "2a1ea1200db1f9749645c42042cbcfb6b590d7f1597d3f21abdcdab36a134516",
+      "station_count": 22,
+      "leaf_count": 5086,
+      "covered_leaves": 3114,
+      "outside_leaves": 1972,
+      "maximum_depth": 13,
+      "coordinate_basis": "actual IEEE-754 float.as_integer_ratio",
+      "common_denominator": 35184372088832,
+      "exact_integer_checks": true,
+      "partition_prefix_free": true,
+      "partition_full_area": true,
+      "rebuilt_witness_convex_hulls": true,
+      "min_range_slack_m_approx": 0.001423262330945363,
+      "min_hull_slack_m_approx": 0.0004916315252975601,
+      "leaf_checks_sha256": "c26428af55484f69a12e9ff7afa5ed832316b3d9371797416a367bc714558e6c",
+      "wall_s": 0.04153699998278171,
+      "guarantee": "Every point of the 1800 m disk lies in the convex hull of sites <1000 m away; every closed emission half-plane contains one such site.",
+      "boundary": "Certifies these fixed binary64 site coordinates under the physical model. Does not certify runtime, official interface, or arbitrary rotated floating points.",
+      "witness_generator_sha256": "85e09b2d186791148457dab078370c92c54239c1305f6910e8237b118910cabe",
+      "generator_did_not_decide_acceptance": true,
+      "ideal_22_point_triangulation": {
+        "triangles": 28,
+        "max_edge_m": 999.5,
+        "outer_inradius_m": 1801.036766936936,
+        "note": "Explanation of old construction; acceptance above independently certifies actual binary64 sites."
+      }
+    }
+  },
+  "environment_policy_worlds_executed": 0
+}

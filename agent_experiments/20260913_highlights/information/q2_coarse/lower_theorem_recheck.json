@@ -1,0 +1,341 @@
+{
+  "label": "Analytic indistinguishability lower bound, independent of numerical candidate search",
+  "assumptions": [
+    "omnidirectional source",
+    "first station at target center, first reading 0",
+    "normal readings range>5",
+    "unknown reception radius in [1000,1500]",
+    "second point guarantees reception for every first-consistent source/radius",
+    "bounded errors may differ at different measurement positions"
+  ],
+  "proof": [
+    "Near source (5+epsilon,0), reception radius1000, forces ||q-(5,0)||<=1000, hence ||q||<=1005.",
+    "Disk center a=1500/(1+sin delta), radius r=a sin delta lies inside the first sector.",
+    "q is outside this disk; the two endpoints of its diameter through q have identical second true bearing.",
+    "Both produce first reading0 and the same normal second reading with legal radius1500; their separation2r forces posterior enclosing radius>=r."
+  ],
+  "rows": [
+    {
+      "error_halfwidth_deg": 1.0,
+      "center_m": [
+        1474.270433201301,
+        0.0
+      ],
+      "radius_lower_m": 25.72956679869914,
+      "diameter_lower_m": 51.45913359739828,
+      "safe_q_norm_upper_m": 1005.0,
+      "source_norm_lower_m": 1448.540866402602,
+      "second_range_lower_m": 443.540866402602,
+      "examples": [
+        {
+          "q": [
+            600.0,
+            300.0
+          ],
+          "three_disk_safe": true,
+          "pair": [
+            [
+              1449.933790780174,
+              8.350954634945413
+            ],
+            [
+              1498.6070756224283,
+              -8.350954634945413
+            ]
+          ],
+          "separation_m": 51.45913359739836,
+          "legal": true,
+          "common_first_reading_deg": 0.0,
+          "common_second_reading_deg": 341.0606883028107,
+          "source_checks": [
+            {
+              "source": [
+                1449.933790780174,
+                8.350954634945413
+              ],
+              "first_distance_m": 1449.957839417919,
+              "second_distance_m": 898.5803327317509,
+              "target_radius_m": 1449.957839417919,
+              "first_error_deg": 0.3299938024288101,
+              "second_error_deg": 0.0,
+              "legal": true,
+              "common_reception_radius_m": 1500.0
+            },
+            {
+              "source": [
+                1498.6070756224283,
+                -8.350954634945413
+              ],
+              "first_distance_m": 1498.6303431963872,
+              "second_distance_m": 950.0394663291493,
+              "target_radius_m": 1498.6303431963872,
+              "first_error_deg": 0.31927615367117446,
+              "second_error_deg": 0.0,
+              "legal": true,
+              "common_reception_radius_m": 1500.0
+            }
+          ]
+        },
+        {
+          "q": [
+            818.0493476157561,
+            575.148037348156
+          ],
+          "three_disk_safe": true,
+          "pair": [
+            [
+              1454.920916495954,
+              16.95897434747224
+            ],
+            [
+              1493.6199499066481,
+              -16.95897434747224
+            ]
+          ],
+          "separation_m": 51.45913359739841,
+          "legal": true,
+          "common_first_reading_deg": 0.0,
+          "common_second_reading_deg": 318.7669036653056,
+          "source_checks": [
+            {
+              "source": [
+                1454.920916495954,
+                16.95897434747224
+              ],
+              "first_distance_m": 1455.0197524667303,
+              "second_distance_m": 846.8650573152172,
+              "target_radius_m": 1455.0197524667303,
+              "first_error_deg": 0.6678257495601014,
+              "second_error_deg": 0.0,
+              "legal": true,
+              "common_reception_radius_m": 1500.0
+            },
+            {
+              "source": [
+                1493.6199499066481,
+                -16.95897434747224
+              ],
+              "first_distance_m": 1493.7162252483088,
+              "second_distance_m": 898.3241909126156,
+              "target_radius_m": 1493.7162252483088,
+              "first_error_deg": 0.6505241860035264,
+              "second_error_deg": 6.3611093629270335e-15,
+              "legal": true,
+              "common_reception_radius_m": 1500.0
+            }
+          ]
+        },
+        {
+          "q": [
+            1000.0,
+            0.0
+          ],
+          "three_disk_safe": true,
+          "pair": [
+            [
+              1448.540866402602,
+              -0.0
+            ],
+            [
+              1500.0000000000002,
+              0.0
+            ]
+          ],
+          "separation_m": 51.45913359739825,
+          "legal": true,
+          "common_first_reading_deg": 0.0,
+          "common_second_reading_deg": 0.0,
+          "source_checks": [
+            {
+              "source": [
+                1448.540866402602,
+                -0.0
+              ],
+              "first_distance_m": 1448.540866402602,
+              "second_distance_m": 448.540866402602,
+              "target_radius_m": 1448.540866402602,
+              "first_error_deg": 0.0,
+              "second_error_deg": 0.0,
+              "legal": true,
+              "common_reception_radius_m": 1500.0
+            },
+            {
+              "source": [
+                1500.0000000000002,
+                0.0
+              ],
+              "first_distance_m": 1500.0000000000002,
+              "second_distance_m": 500.0000000000002,
+              "target_radius_m": 1500.0000000000002,
+              "first_error_deg": 0.0,
+              "second_error_deg": 0.0,
+              "legal": true,
+              "common_reception_radius_m": 1500.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "error_halfwidth_deg": 1.005001,
+      "center_m": [
+        1474.1439905645884,
+        0.0
+      ],
+      "radius_lower_m": 25.856009435411575,
+      "diameter_lower_m": 51.71201887082315,
+      "safe_q_norm_upper_m": 1005.0,
+      "source_norm_lower_m": 1448.2879811291768,
+      "second_range_lower_m": 443.28798112917684,
+      "examples": [
+        {
+          "q": [
+            600.0,
+            300.0
+          ],
+          "three_disk_safe": true,
+          "pair": [
+            [
+              1449.6881234195776,
+              8.393079655863788
+            ],
+            [
+              1498.5998577095993,
+              -8.393079655863788
+            ]
+          ],
+          "separation_m": 51.71201887082332,
+          "legal": true,
+          "common_first_reading_deg": 0.0,
+          "common_second_reading_deg": 341.0581440608024,
+          "source_checks": [
+            {
+              "source": [
+                1449.6881234195776,
+                8.393079655863788
+              ],
+              "first_distance_m": 1449.7124194025123,
+              "second_distance_m": 898.3342936083842,
+              "target_radius_m": 1449.7124194025123,
+              "first_error_deg": 0.3317145672540538,
+              "second_error_deg": 3.1805546814635168e-15,
+              "legal": true,
+              "common_reception_radius_m": 1500.0
+            },
+            {
+              "source": [
+                1498.5998577095993,
+                -8.393079655863788
+              ],
+              "first_distance_m": 1498.6233607258832,
+              "second_distance_m": 950.0463124792076,
+              "target_radius_m": 1498.6233607258832,
+              "first_error_deg": 0.3208882017658437,
+              "second_error_deg": 0.0,
+              "legal": true,
+              "common_reception_radius_m": 1500.0
+            }
+          ]
+        },
+        {
+          "q": [
+            818.0493476157561,
+            575.148037348156
+          ],
+          "three_disk_safe": true,
+          "pair": [
+            [
+              1454.7010126346552,
+              17.04417299666433
+            ],
+            [
+              1493.5869684945217,
+              -17.04417299666433
+            ]
+          ],
+          "separation_m": 51.71201887082317,
+          "legal": true,
+          "common_first_reading_deg": 0.0,
+          "common_second_reading_deg": 318.76143075816293,
+          "source_checks": [
+            {
+              "source": [
+                1454.7010126346552,
+                17.04417299666433
+              ],
+              "first_distance_m": 1454.8008592221245,
+              "second_distance_m": 846.6435294593615,
+              "target_radius_m": 1454.8008592221245,
+              "first_error_deg": 0.6712819240157437,
+              "second_error_deg": 0.0,
+              "legal": true,
+              "common_reception_radius_m": 1500.0
+            },
+            {
+              "source": [
+                1493.5869684945217,
+                -17.04417299666433
+              ],
+              "first_distance_m": 1493.6842157195729,
+              "second_distance_m": 898.3555483301847,
+              "target_radius_m": 1493.6842157195729,
+              "first_error_deg": 0.6538064481334652,
+              "second_error_deg": 0.0,
+              "legal": true,
+              "common_reception_radius_m": 1500.0
+            }
+          ]
+        },
+        {
+          "q": [
+            1000.0,
+            0.0
+          ],
+          "three_disk_safe": true,
+          "pair": [
+            [
+              1448.2879811291768,
+              -0.0
+            ],
+            [
+              1500.0,
+              0.0
+            ]
+          ],
+          "separation_m": 51.71201887082316,
+          "legal": true,
+          "common_first_reading_deg": 0.0,
+          "common_second_reading_deg": 0.0,
+          "source_checks": [
+            {
+              "source": [
+                1448.2879811291768,
+                -0.0
+              ],
+              "first_distance_m": 1448.2879811291768,
+              "second_distance_m": 448.28798112917684,
+              "target_radius_m": 1448.2879811291768,
+              "first_error_deg": 0.0,
+              "second_error_deg": 0.0,
+              "legal": true,
+              "common_reception_radius_m": 1500.0
+            },
+            {
+              "source": [
+                1500.0,
+                0.0
+              ],
+              "first_distance_m": 1500.0,
+              "second_distance_m": 500.0,
+              "target_radius_m": 1500.0,
+              "first_error_deg": 0.0,
+              "second_error_deg": 0.0,
+              "legal": true,
+              "common_reception_radius_m": 1500.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

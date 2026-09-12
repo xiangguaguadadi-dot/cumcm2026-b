@@ -1,0 +1,534 @@
+{
+  "task": "B: continuous half-plane coverage and existence/termination certificates",
+  "created_utc": "2026-09-12T18:35:51Z",
+  "python": "3.12.13",
+  "executable": "/opt/homebrew/bin/python3.12",
+  "parent": "最佳方法/代码/solver.py",
+  "manifest_sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+  "parent_sha256": "e6a0666d644ceaa1d7ae69f19042b9ca022379f3e5a57d927e52bcf1a09360bd",
+  "certificate_sha256": "8eaeae3c86cd7378ef4a242afdae2ba35d3620ba0c82cf9419ab5ebdb4cdeaba",
+  "files_verified": 10,
+  "mismatches": [],
+  "physical_source_sha256": "99587518fa378e1bef2fbbaa9425ee907bea80885a69666b3765311cbcf4f42a",
+  "cases_sha256": "988f42a74cac1aa8249cb0d138e1b1a5de927ef41ad38efa4e70a9c4d97457ac",
+  "source_restriction": "Solver sees only enter/measure/clear/exit; evaluation reads truth.",
+  "arms": [
+    "fixed21",
+    "fixed22",
+    "rotating21",
+    "pure21",
+    "pure22"
+  ],
+  "primary_comparison": "fixed21 minus fixed22 on same Q4 full-v1 cases",
+  "secondary_comparison": "rotating21 minus fixed21; separate from layout comparison",
+  "full_v1": {
+    "mode": 4,
+    "worlds": 1200,
+    "sources_per_world": "frozen 10..16",
+    "arms": [
+      "fixed21",
+      "fixed22",
+      "rotating21"
+    ],
+    "policy_executions": 3600,
+    "role": "exposed local regression, no holdout"
+  },
+  "quick_v1": {
+    "mode": 4,
+    "worlds": 60,
+    "arms": 3,
+    "policy_executions": 180,
+    "subset_of_full": true
+  },
+  "stopping": "No tuning from result; preserve failures. All arms must complete before speed ranking.",
+  "pure_geometry": "Disable stop_discovered, upper_bound_stop, all_sources_discovered and final count certificate; keep pending-source clearing.",
+  "scope": "No changes outside this coverage directory; no official simulator, training, or blind-test claim.",
+  "builds": [
+    {
+      "name": "fixed21",
+      "path": "snapshots/fixed21.py",
+      "sha256": "e3cd0198a7cbdd77bb48a781d21d9316b8179a0f7d3f472ae6010f451c2bce5e",
+      "points": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          999.0,
+          0.0
+        ],
+        [
+          706.399674,
+          706.399674
+        ],
+        [
+          0.0,
+          999.0
+        ],
+        [
+          -706.399674,
+          706.399674
+        ],
+        [
+          -999.0,
+          0.0
+        ],
+        [
+          -706.399674,
+          -706.399674
+        ],
+        [
+          -0.0,
+          -999.0
+        ],
+        [
+          706.399674,
+          -706.399674
+        ],
+        [
+          1864.0,
+          0.0
+        ],
+        [
+          1614.271353,
+          932.0
+        ],
+        [
+          932.0,
+          1614.271353
+        ],
+        [
+          0.0,
+          1864.0
+        ],
+        [
+          -932.0,
+          1614.271353
+        ],
+        [
+          -1614.271353,
+          932.0
+        ],
+        [
+          -1864.0,
+          0.0
+        ],
+        [
+          -1614.271353,
+          -932.0
+        ],
+        [
+          -932.0,
+          -1614.271353
+        ],
+        [
+          -0.0,
+          -1864.0
+        ],
+        [
+          932.0,
+          -1614.271353
+        ],
+        [
+          1614.271353,
+          -932.0
+        ]
+      ],
+      "rotation": false,
+      "pure_geometry": false,
+      "local_method_bytecode_matches_parent": true,
+      "construction_environment_actions": 0
+    },
+    {
+      "name": "fixed22",
+      "path": "snapshots/fixed22.py",
+      "sha256": "2d0a8b65e0736a9c6cf9299aea091b66811b2ed733230f738f68ca1d0c7cd8eb",
+      "points": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          999.5,
+          0.0
+        ],
+        [
+          623.1780569578042,
+          781.4405667267957
+        ],
+        [
+          -222.40967348933617,
+          974.4404482257327
+        ],
+        [
+          -900.5183834684678,
+          433.66679724799945
+        ],
+        [
+          -900.518383468468,
+          -433.6667972479992
+        ],
+        [
+          -222.40967348933643,
+          -974.4404482257327
+        ],
+        [
+          623.178056957804,
+          -781.4405667267959
+        ],
+        [
+          1999.0,
+          0.0
+        ],
+        [
+          1246.3561139156084,
+          1562.8811334535915
+        ],
+        [
+          -444.81934697867234,
+          1948.8808964514653
+        ],
+        [
+          -1801.0367669369357,
+          867.3335944959989
+        ],
+        [
+          -1801.036766936936,
+          -867.3335944959985
+        ],
+        [
+          -444.81934697867285,
+          -1948.8808964514653
+        ],
+        [
+          1246.356113915608,
+          -1562.8811334535917
+        ],
+        [
+          1622.678056957804,
+          781.4405667267957
+        ],
+        [
+          400.768383468468,
+          1755.8810149525284
+        ],
+        [
+          -1122.928056957804,
+          1408.107245473732
+        ],
+        [
+          -1801.0367669369357,
+          2.2737367544323206e-13
+        ],
+        [
+          -1122.9280569578043,
+          -1408.1072454737318
+        ],
+        [
+          400.7683834684675,
+          -1755.8810149525284
+        ],
+        [
+          1622.678056957804,
+          -781.4405667267959
+        ]
+      ],
+      "rotation": false,
+      "pure_geometry": false,
+      "local_method_bytecode_matches_parent": true,
+      "construction_environment_actions": 0
+    },
+    {
+      "name": "rotating21",
+      "path": "snapshots/rotating21.py",
+      "sha256": "977c6ff2761a492186378707d997ba7b6260220138b9f703157781d12c97570d",
+      "points": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          999.0,
+          0.0
+        ],
+        [
+          706.399674,
+          706.399674
+        ],
+        [
+          0.0,
+          999.0
+        ],
+        [
+          -706.399674,
+          706.399674
+        ],
+        [
+          -999.0,
+          0.0
+        ],
+        [
+          -706.399674,
+          -706.399674
+        ],
+        [
+          -0.0,
+          -999.0
+        ],
+        [
+          706.399674,
+          -706.399674
+        ],
+        [
+          1864.0,
+          0.0
+        ],
+        [
+          1614.271353,
+          932.0
+        ],
+        [
+          932.0,
+          1614.271353
+        ],
+        [
+          0.0,
+          1864.0
+        ],
+        [
+          -932.0,
+          1614.271353
+        ],
+        [
+          -1614.271353,
+          932.0
+        ],
+        [
+          -1864.0,
+          0.0
+        ],
+        [
+          -1614.271353,
+          -932.0
+        ],
+        [
+          -932.0,
+          -1614.271353
+        ],
+        [
+          -0.0,
+          -1864.0
+        ],
+        [
+          932.0,
+          -1614.271353
+        ],
+        [
+          1614.271353,
+          -932.0
+        ]
+      ],
+      "rotation": true,
+      "pure_geometry": false,
+      "local_method_bytecode_matches_parent": true,
+      "construction_environment_actions": 0
+    },
+    {
+      "name": "pure21",
+      "path": "snapshots/pure21.py",
+      "sha256": "83fbf707453f1e970de7f2b7ea3bf69f4e378ffb6f6269656eef6700dac3a71a",
+      "points": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          999.0,
+          0.0
+        ],
+        [
+          706.399674,
+          706.399674
+        ],
+        [
+          0.0,
+          999.0
+        ],
+        [
+          -706.399674,
+          706.399674
+        ],
+        [
+          -999.0,
+          0.0
+        ],
+        [
+          -706.399674,
+          -706.399674
+        ],
+        [
+          -0.0,
+          -999.0
+        ],
+        [
+          706.399674,
+          -706.399674
+        ],
+        [
+          1864.0,
+          0.0
+        ],
+        [
+          1614.271353,
+          932.0
+        ],
+        [
+          932.0,
+          1614.271353
+        ],
+        [
+          0.0,
+          1864.0
+        ],
+        [
+          -932.0,
+          1614.271353
+        ],
+        [
+          -1614.271353,
+          932.0
+        ],
+        [
+          -1864.0,
+          0.0
+        ],
+        [
+          -1614.271353,
+          -932.0
+        ],
+        [
+          -932.0,
+          -1614.271353
+        ],
+        [
+          -0.0,
+          -1864.0
+        ],
+        [
+          932.0,
+          -1614.271353
+        ],
+        [
+          1614.271353,
+          -932.0
+        ]
+      ],
+      "rotation": false,
+      "pure_geometry": true,
+      "local_method_bytecode_matches_parent": true,
+      "construction_environment_actions": 0
+    },
+    {
+      "name": "pure22",
+      "path": "snapshots/pure22.py",
+      "sha256": "4647b519ff858be4657c78c8c4a9f46411756b8e919022d4fed2b28de6fc4819",
+      "points": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          999.5,
+          0.0
+        ],
+        [
+          623.1780569578042,
+          781.4405667267957
+        ],
+        [
+          -222.40967348933617,
+          974.4404482257327
+        ],
+        [
+          -900.5183834684678,
+          433.66679724799945
+        ],
+        [
+          -900.518383468468,
+          -433.6667972479992
+        ],
+        [
+          -222.40967348933643,
+          -974.4404482257327
+        ],
+        [
+          623.178056957804,
+          -781.4405667267959
+        ],
+        [
+          1999.0,
+          0.0
+        ],
+        [
+          1246.3561139156084,
+          1562.8811334535915
+        ],
+        [
+          -444.81934697867234,
+          1948.8808964514653
+        ],
+        [
+          -1801.0367669369357,
+          867.3335944959989
+        ],
+        [
+          -1801.036766936936,
+          -867.3335944959985
+        ],
+        [
+          -444.81934697867285,
+          -1948.8808964514653
+        ],
+        [
+          1246.356113915608,
+          -1562.8811334535917
+        ],
+        [
+          1622.678056957804,
+          781.4405667267957
+        ],
+        [
+          400.768383468468,
+          1755.8810149525284
+        ],
+        [
+          -1122.928056957804,
+          1408.107245473732
+        ],
+        [
+          -1801.0367669369357,
+          2.2737367544323206e-13
+        ],
+        [
+          -1122.9280569578043,
+          -1408.1072454737318
+        ],
+        [
+          400.7683834684675,
+          -1755.8810149525284
+        ],
+        [
+          1622.678056957804,
+          -781.4405667267959
+        ]
+      ],
+      "rotation": false,
+      "pure_geometry": true,
+      "local_method_bytecode_matches_parent": true,
+      "construction_environment_actions": 0
+    }
+  ],
+  "pure_run_change": "Only final count_certificate assigned False; both count-based early branches disabled through fixed config.",
+  "build_script_sha256": "a936d04255cd19d233b23244bd977de48af061b6c53cac846504ccefb469bf62",
+  "common_script_sha256": "516a11592657826ee7c989a87b35522a19b86f3253aca673a14b5e99a3d18a22"
+}

@@ -1,0 +1,87 @@
+{
+  "date": "2026-09-13",
+  "scope": "State-level geometric experiments for highlights 1 and 3; no solver or frozen evaluation changes",
+  "source_solver": "最佳方法/代码/solver.py",
+  "expected_solver_sha256": "e6a0666d644ceaa1d7ae69f19042b9ca022379f3e5a57d927e52bcf1a09360bd",
+  "seed": 2026091303,
+  "synthetic_families": [
+    "long_strip",
+    "spindle",
+    "slanted_narrow",
+    "near_circle",
+    "critical_radius",
+    "skew_triangle"
+  ],
+  "coverage_scales": [
+    0.65,
+    1.0,
+    1.45
+  ],
+  "coverage_rotations_deg": [
+    0,
+    37
+  ],
+  "clear_radius_m": 20.0,
+  "grid_spacing_m": 25.0,
+  "coverage_arms": [
+    "continue_bearing_one_step_proxy",
+    "grid25_nearest_order",
+    "adaptive_certified_partition_nearest_order"
+  ],
+  "coverage_adaptation_boundary": "Mechanism-only candidate construction inspired by B3 strip partition; broad near-circular shapes may require recursive convex splitting. This extension is reported separately from the unchanged B3 planner.",
+  "action_arms": [
+    "mec_center",
+    "inner_safe_disk",
+    "full_K_nearest",
+    "full_K_route"
+  ],
+  "action_radii_m": [
+    5.0,
+    12.0,
+    18.0,
+    19.999,
+    20.0,
+    20.001
+  ],
+  "action_start_offsets_m": [
+    [
+      -100,
+      0
+    ],
+    [
+      0,
+      -100
+    ],
+    [
+      70,
+      60
+    ]
+  ],
+  "action_successor_offsets_m": [
+    [
+      100,
+      0
+    ],
+    [
+      0,
+      100
+    ],
+    [
+      -70,
+      50
+    ]
+  ],
+  "public_trace_source": "最佳方法/实验记录/B_improved/diagnostics/B3_first_per_group/public_diagnostics.json",
+  "public_trace_selection": "Replay all 24 existing public action logs against unchanged B3. Capture first pre-action state in each case and radius bin (coverage: (20,45], (45,100], (100,185]; action: (0,5], (5,10], (10,15], (15,20]). Source truth is neither loaded nor passed to planners.",
+  "continuous_certificate": "Each convex cell is certified at every vertex and partition cuts analytically cover the full parent polygon. Sampling is used only for a separately labelled equal-area planning-cost approximation.",
+  "first_hit_cost_model": "Movement / 5 + 3 per attempted clear + 2 at first success; planning atoms are constructed equal-area hypotheses, not true sources or official probability assumptions.",
+  "continue_bearing_boundary": "One-step public-polygon bearing prediction proxy, not a complete clearing policy, not a guaranteed cost upper bound, and not eligible for task performance ranking.",
+  "timing": "Same process, repeated interleaved order; report geometry planning runtime separately from virtual cost. No historical timing comparison.",
+  "evidence_labels": [
+    "analytic_constructed_check",
+    "synthetic_state_mechanism",
+    "replayed_public_state_mechanism"
+  ],
+  "full_world_new_executions": 0,
+  "no_new_blind_test": true
+}

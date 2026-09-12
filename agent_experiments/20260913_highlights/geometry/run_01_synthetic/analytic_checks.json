@@ -1,0 +1,116 @@
+{
+  "evidence": "analytic_constructed_check",
+  "not_simulation": true,
+  "spindle": {
+    "polygon": [
+      [
+        0.0,
+        -6.0
+      ],
+      [
+        30.0,
+        -12.0
+      ],
+      [
+        60.0,
+        -6.0
+      ],
+      [
+        60.0,
+        6.0
+      ],
+      [
+        30.0,
+        12.0
+      ],
+      [
+        0.0,
+        6.0
+      ]
+    ],
+    "centers": [
+      [
+        15.0,
+        0.0
+      ],
+      [
+        45.0,
+        0.0
+      ]
+    ],
+    "cells": [
+      [
+        [
+          0.0,
+          -6.0
+        ],
+        [
+          30.0,
+          -12.0
+        ],
+        [
+          30.0,
+          12.0
+        ],
+        [
+          0.0,
+          6.0
+        ]
+      ],
+      [
+        [
+          30.0,
+          -12.0
+        ],
+        [
+          60.0,
+          -6.0
+        ],
+        [
+          60.0,
+          6.0
+        ],
+        [
+          30.0,
+          12.0
+        ]
+      ]
+    ],
+    "squared_radius_upper": 369,
+    "clear_radius_squared": 400,
+    "certified": true,
+    "minimum_circle_count": 2,
+    "minimality_proof": "P contains points (0,6) and (60,6) at distance 60>40; one 20m disk is impossible; two certified cells attain two."
+  },
+  "action_segment": {
+    "polygon": [
+      [
+        100.0,
+        -15.0
+      ],
+      [
+        100.0,
+        15.0
+      ]
+    ],
+    "position": [
+      0.0,
+      0.0
+    ],
+    "mec_center": [
+      100.0,
+      0.0
+    ],
+    "full_K_nearest": [
+      86.77124344467705,
+      0.0
+    ],
+    "center_distance_m": 100.0,
+    "inner_disk_distance_m": 95.0,
+    "full_K_distance_m": 86.77124344467705,
+    "saved_vs_center_m": 13.228756555322946,
+    "saved_vs_inner_disk_m": 8.228756555322946,
+    "proof": "For both endpoints: (100-q_x)^2+15^2=175+225=400; convexity covers the full segment."
+  },
+  "numerical_tests_do_not_replace_proofs": true
+}

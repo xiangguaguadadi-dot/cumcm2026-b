@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "python": "/opt/homebrew/bin/python3.12 -I -S",
+  "checks": {
+    "repository_unittests": {"passed": 14, "failed": 0},
+    "frozen_v1_hashes": "verified",
+    "geometry_output_audit": {
+      "passed": true,
+      "synthetic_states": 144,
+      "action_rows": 432,
+      "coverage_rows": 108,
+      "certified_optical_plans": 92
+    },
+    "coverage_finalizer": "pass",
+    "information_finalizer": "pass",
+    "subartifact_hashes_rechecked": 155,
+    "top_numeric_crosschecks": 5,
+    "report_link_files_checked": 4
+  },
+  "environment_note": "The macOS system python3 is 3.9 and cannot parse the repository's documented Python 3.10+ type syntax; the required test suite passed under Python 3.12."
+}
