@@ -1,0 +1,15 @@
+{"status": "passed", "command": "audit", "solver_runs_executed": 0, "verified_files": 166, "paired_cases": 4800, "modes": [{"mode": 3, "suite": "combined", "group": "ALL", "cases": 2400, "source_count": 30970, "candidate_complete": 2400, "baseline_complete": 2400, "valid_comparison": true, "candidate_mean": 229.66984347891437, "baseline_mean": 229.8531339886025, "delta": -0.18329050968813476, "improvement_pct": 0.07974244532042074, "faster": 1194, "equal": 149, "slower": 1057, "candidate_p95": 303.86142620075753, "candidate_p99": 331.6597479329995, "candidate_worst": 377.1169007, "largest_regression": 108.89254812499999, "largest_improvement": -43.832271937499996, "candidate_requests": 309276, "candidate_failed_clear_attempts": 14187, "candidate_mean_movement_s_per_source": 171.40907557711694, "candidate_max_runtime_s": 0.14179358398541808, "paired_seed_cluster_bootstrap_95pct_delta": [-0.4953602596769243, 0.10978659442142523], "bootstrap_clusters": 200}, {"mode": 4, "suite": "combined", "group": "ALL", "cases": 2400, "source_count": 30970, "candidate_complete": 2400, "baseline_complete": 2400, "valid_comparison": true, "candidate_mean": 450.98042212586375, "baseline_mean": 453.6564921432069, "delta": -2.676070017343136, "improvement_pct": 0.5898890600464226, "faster": 1481, "equal": 176, "slower": 743, "candidate_p95": 606.3130124349999, "candidate_p99": 635.8170326609996, "candidate_worst": 699.827488, "largest_regression": 110.75640837499998, "largest_improvement": -119.39993637500004, "candidate_requests": 631853, "candidate_failed_clear_attempts": 15649, "candidate_mean_movement_s_per_source": 326.64458411594285, "candidate_max_runtime_s": 0.45898012490943074, "paired_seed_cluster_bootstrap_95pct_delta": [-3.2369552171509532, -2.1397858190740515], "bootstrap_clusters": 200}], "output": "/private/var/folders/8r/jybbrm_n0rv9vn3thf25vvpr0000gn/T/best-method-standalone-u0zyinmo/audit"}
+Error processing line 1 of /opt/homebrew/lib/python3.12/site-packages/hostile.pth:
+
+  Traceback (most recent call last):
+    File "<frozen site>", line 206, in addpackage
+    File "<string>", line 1, in <module>
+    File "/opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1047, in write_text
+      with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+      return io.open(self, mode, buffering, encoding, errors, newline)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/8r/jybbrm_n0rv9vn3thf25vvpr0000gn/T/pytest-of-t/pytest-20/test_no_site_bootstrap_does_no0/pth-executed'
+
+Remainder of file ignored

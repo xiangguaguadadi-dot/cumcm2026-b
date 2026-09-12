@@ -1,0 +1,321 @@
+{
+  "all_row_audits_passed": true,
+  "data_role": "existing exposed local regression; neither blind nor official",
+  "run_audits": [
+    {
+      "run": "A1_quick",
+      "candidate_sha256": "cfc64836f09321cfe4271305f617bbc84b6b02f98ce5f81b6816df55849da579",
+      "raw_row_count": 120,
+      "id_alignment_unique": true,
+      "all_complete": true,
+      "means_recomputed": [
+        {
+          "run": "A1_quick",
+          "mode": 3,
+          "batch": "combined",
+          "cases": 60,
+          "candidate_mean": 232.16102041233677,
+          "baseline_mean": 232.16665239983678,
+          "delta_s_per_source": -0.005631987500009927,
+          "improvement_pct": 0.0024258382682385005
+        },
+        {
+          "run": "A1_quick",
+          "mode": 3,
+          "batch": "v1",
+          "cases": 60,
+          "candidate_mean": 232.16102041233677,
+          "baseline_mean": 232.16665239983678,
+          "delta_s_per_source": -0.005631987500009927,
+          "improvement_pct": 0.0024258382682385005
+        },
+        {
+          "run": "A1_quick",
+          "mode": 4,
+          "batch": "combined",
+          "cases": 60,
+          "candidate_mean": 463.18842509565116,
+          "baseline_mean": 463.18842509565116,
+          "delta_s_per_source": 0.0,
+          "improvement_pct": 0.0
+        },
+        {
+          "run": "A1_quick",
+          "mode": 4,
+          "batch": "v1",
+          "cases": 60,
+          "candidate_mean": 463.18842509565116,
+          "baseline_mean": 463.18842509565116,
+          "delta_s_per_source": 0.0,
+          "improvement_pct": 0.0
+        }
+      ],
+      "actual_runs": 120,
+      "reused_rows": 0,
+      "wall_seconds": 8.402630832977593
+    },
+    {
+      "run": "A1_full",
+      "candidate_sha256": "cfc64836f09321cfe4271305f617bbc84b6b02f98ce5f81b6816df55849da579",
+      "raw_row_count": 2400,
+      "id_alignment_unique": true,
+      "all_complete": true,
+      "means_recomputed": [
+        {
+          "run": "A1_full",
+          "mode": 3,
+          "batch": "combined",
+          "cases": 1200,
+          "candidate_mean": 229.53586881459466,
+          "baseline_mean": 229.53417326329358,
+          "delta_s_per_source": 0.0016955513010827872,
+          "improvement_pct": -0.0007386923162489012
+        },
+        {
+          "run": "A1_full",
+          "mode": 3,
+          "batch": "v1",
+          "cases": 1200,
+          "candidate_mean": 229.53586881459466,
+          "baseline_mean": 229.53417326329358,
+          "delta_s_per_source": 0.0016955513010827872,
+          "improvement_pct": -0.0007386923162489012
+        },
+        {
+          "run": "A1_full",
+          "mode": 4,
+          "batch": "combined",
+          "cases": 1200,
+          "candidate_mean": 450.255619516373,
+          "baseline_mean": 450.30955867329857,
+          "delta_s_per_source": -0.053939156925594034,
+          "improvement_pct": 0.011978239388144019
+        },
+        {
+          "run": "A1_full",
+          "mode": 4,
+          "batch": "v1",
+          "cases": 1200,
+          "candidate_mean": 450.255619516373,
+          "baseline_mean": 450.30955867329857,
+          "delta_s_per_source": -0.053939156925594034,
+          "improvement_pct": 0.011978239388144019
+        }
+      ],
+      "actual_runs": 2400,
+      "reused_rows": 0,
+      "wall_seconds": 191.47835975000635
+    },
+    {
+      "run": "A1_exposed",
+      "candidate_sha256": "cfc64836f09321cfe4271305f617bbc84b6b02f98ce5f81b6816df55849da579",
+      "raw_row_count": 4800,
+      "id_alignment_unique": true,
+      "all_complete": true,
+      "means_recomputed": [
+        {
+          "run": "A1_exposed",
+          "mode": 3,
+          "batch": "combined",
+          "cases": 2400,
+          "candidate_mean": 229.85435303791397,
+          "baseline_mean": 229.8531339886025,
+          "delta_s_per_source": 0.0012190493114587753,
+          "improvement_pct": -0.0005303601000816727
+        },
+        {
+          "run": "A1_exposed",
+          "mode": 3,
+          "batch": "previous_final",
+          "cases": 1200,
+          "candidate_mean": 230.17283726123327,
+          "baseline_mean": 230.17209471391146,
+          "delta_s_per_source": 0.0007425473218063416,
+          "improvement_pct": -0.000322605276159571
+        },
+        {
+          "run": "A1_exposed",
+          "mode": 3,
+          "batch": "v1",
+          "cases": 1200,
+          "candidate_mean": 229.53586881459466,
+          "baseline_mean": 229.53417326329358,
+          "delta_s_per_source": 0.0016955513010827872,
+          "improvement_pct": -0.0007386923162489012
+        },
+        {
+          "run": "A1_exposed",
+          "mode": 4,
+          "batch": "combined",
+          "cases": 2400,
+          "candidate_mean": 453.60176781268206,
+          "baseline_mean": 453.6564921432069,
+          "delta_s_per_source": -0.054724330524834386,
+          "improvement_pct": 0.012062944424384714
+        },
+        {
+          "run": "A1_exposed",
+          "mode": 4,
+          "batch": "previous_final",
+          "cases": 1200,
+          "candidate_mean": 456.9479161089913,
+          "baseline_mean": 457.00342561311527,
+          "delta_s_per_source": -0.05550950412396105,
+          "improvement_pct": 0.012146408760393967
+        },
+        {
+          "run": "A1_exposed",
+          "mode": 4,
+          "batch": "v1",
+          "cases": 1200,
+          "candidate_mean": 450.255619516373,
+          "baseline_mean": 450.30955867329857,
+          "delta_s_per_source": -0.053939156925594034,
+          "improvement_pct": 0.011978239388144019
+        }
+      ],
+      "actual_runs": 2400,
+      "reused_rows": 2400,
+      "wall_seconds": 195.86409229203127
+    },
+    {
+      "run": "A2_quick",
+      "candidate_sha256": "eb9c3097df1f836c7ba0bc60964a3852d3d3e1fc2d9bfaaf0c77250a9bd80eb8",
+      "raw_row_count": 120,
+      "id_alignment_unique": true,
+      "all_complete": true,
+      "means_recomputed": [
+        {
+          "run": "A2_quick",
+          "mode": 3,
+          "batch": "combined",
+          "cases": 60,
+          "candidate_mean": 241.03119457503877,
+          "baseline_mean": 232.16665239983678,
+          "delta_s_per_source": 8.86454217520199,
+          "improvement_pct": -3.818180640316715
+        },
+        {
+          "run": "A2_quick",
+          "mode": 3,
+          "batch": "v1",
+          "cases": 60,
+          "candidate_mean": 241.03119457503877,
+          "baseline_mean": 232.16665239983678,
+          "delta_s_per_source": 8.86454217520199,
+          "improvement_pct": -3.818180640316715
+        },
+        {
+          "run": "A2_quick",
+          "mode": 4,
+          "batch": "combined",
+          "cases": 60,
+          "candidate_mean": 468.0279093716144,
+          "baseline_mean": 463.18842509565116,
+          "delta_s_per_source": 4.83948427596323,
+          "improvement_pct": -1.044819778249817
+        },
+        {
+          "run": "A2_quick",
+          "mode": 4,
+          "batch": "v1",
+          "cases": 60,
+          "candidate_mean": 468.0279093716144,
+          "baseline_mean": 463.18842509565116,
+          "delta_s_per_source": 4.83948427596323,
+          "improvement_pct": -1.044819778249817
+        }
+      ],
+      "actual_runs": 120,
+      "reused_rows": 0,
+      "wall_seconds": 9.970137957949191
+    }
+  ],
+  "diagnostics": [
+    {
+      "version": "A1",
+      "replay_rows": 120,
+      "same_virtual_time_distance_clear_counts_as_common_runner": true,
+      "modes": [
+        {
+          "mode": 3,
+          "cases": 60,
+          "calls": 217,
+          "selected_calls": 1,
+          "cases_selected": 1,
+          "all_outcomes": {
+            "direction": 217
+          },
+          "selected_outcomes": {
+            "direction": 1
+          },
+          "geometry_evaluations": 836,
+          "unmatched_measurements": 0
+        },
+        {
+          "mode": 4,
+          "cases": 60,
+          "calls": 251,
+          "selected_calls": 0,
+          "cases_selected": 0,
+          "all_outcomes": {
+            "direction": 219,
+            "no_signal": 32
+          },
+          "selected_outcomes": {},
+          "geometry_evaluations": 484,
+          "unmatched_measurements": 0
+        }
+      ]
+    },
+    {
+      "version": "A2",
+      "replay_rows": 120,
+      "same_virtual_time_distance_clear_counts_as_common_runner": true,
+      "modes": [
+        {
+          "mode": 3,
+          "cases": 60,
+          "calls": 220,
+          "selected_calls": 215,
+          "cases_selected": 60,
+          "all_outcomes": {
+            "direction": 220
+          },
+          "selected_outcomes": {
+            "direction": 215
+          },
+          "geometry_evaluations": 852,
+          "unmatched_measurements": 0
+        },
+        {
+          "mode": 4,
+          "cases": 60,
+          "calls": 240,
+          "selected_calls": 163,
+          "cases_selected": 60,
+          "all_outcomes": {
+            "direction": 213,
+            "no_signal": 27
+          },
+          "selected_outcomes": {
+            "direction": 144,
+            "no_signal": 19
+          },
+          "geometry_evaluations": 475,
+          "unmatched_measurements": 0
+        }
+      ]
+    }
+  ],
+  "actual_common_runner_candidate_runs": 5040,
+  "additional_diagnostic_runs": 240,
+  "A1_eligible_modes_after_two_batches": [
+    4
+  ],
+  "A2_status": "rejected after both quick modes regressed; no full/exposed run",
+  "candidate_files": {
+    "candidate_A1": "cfc64836f09321cfe4271305f617bbc84b6b02f98ce5f81b6816df55849da579",
+    "candidate_A2": "eb9c3097df1f836c7ba0bc60964a3852d3d3e1fc2d9bfaaf0c77250a9bd80eb8"
+  }
+}

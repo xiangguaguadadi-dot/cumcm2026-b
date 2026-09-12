@@ -1,0 +1,849 @@
+{
+  "package_name": "最佳方法",
+  "schema_version": 1,
+  "sealed_at_utc": "2026-09-12T17:21:59.788197+00:00",
+  "source_commit": "b1e3a39da400c9439b3ea84dacfd6e9f4060f11a",
+  "candidate_sha256": "e6a0666d644ceaa1d7ae69f19042b9ca022379f3e5a57d927e52bcf1a09360bd",
+  "scope": "B3 best among tested candidates on existing exposed local Q3/Q4 regression; not global optimum or official results",
+  "files": {
+    "README.md": {
+      "sha256": "214aeaaf61d4a2c8c5013491b8988c20af386e2e69314eff915c955aa81513e1",
+      "bytes": 6934,
+      "source": "generated:this_delivery"
+    },
+    "代码/audit_pair.py": {
+      "sha256": "8b456dd48380fe058f9a03b6bcaff4c5a9fb875750fdd9b5007a7c6a94ad6962",
+      "bytes": 6484,
+      "source": "repository:experiments/parallel_v2_coordinator/audit_pair.py"
+    },
+    "代码/baseline.py": {
+      "sha256": "0bda4f711b9e9716739af8aedf456cb1eeefb47d8ba3ed230ca682c8450a96ea",
+      "bytes": 498857,
+      "source": "repository:experiments/20260913_q2_transfer/baseline.py"
+    },
+    "代码/docs/评测标准_v1.md": {
+      "sha256": "817a5bada460a48f01cd8ee60d91fd483b611b9609fd524c90f451cbb78e89f7",
+      "bytes": 6091,
+      "source": "repository:docs/评测标准_v1.md"
+    },
+    "代码/evaluate.py": {
+      "sha256": "61088a2c9cd45b7026e4caaf9f7d55282a55d1114dfe74d179b086dafb0dc498",
+      "bytes": 7724,
+      "source": "repository:evaluate.py"
+    },
+    "代码/evaluation/baseline_metrics_v1.json": {
+      "sha256": "8ee0577c4e8e29f759779f8725f40bcea4d5b33ac4cafff498fe64fd900ebe5f",
+      "bytes": 1150690,
+      "source": "repository:evaluation/baseline_metrics_v1.json"
+    },
+    "代码/evaluation/baseline_solver.py": {
+      "sha256": "36271e5c84cdcd4468b54484d699dce64194f09d78c0c03f3ec1c38f105f6ca9",
+      "bytes": 21872,
+      "source": "repository:evaluation/baseline_solver.py"
+    },
+    "代码/evaluation/cases_v1.json": {
+      "sha256": "988f42a74cac1aa8249cb0d138e1b1a5de927ef41ad38efa4e70a9c4d97457ac",
+      "bytes": 4118255,
+      "source": "repository:evaluation/cases_v1.json"
+    },
+    "代码/evaluation/generate_cases.py": {
+      "sha256": "6da3aa3f61eae748204366129761dea4a1e131a9d2b464a6651ac5901404cfea",
+      "bytes": 2779,
+      "source": "repository:evaluation/generate_cases.py"
+    },
+    "代码/evaluation/manifest_v1.json": {
+      "sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+      "bytes": 1518,
+      "source": "repository:evaluation/manifest_v1.json"
+    },
+    "代码/local_env.py": {
+      "sha256": "99587518fa378e1bef2fbbaa9425ee907bea80885a69666b3765311cbcf4f42a",
+      "bytes": 8891,
+      "source": "repository:local_env.py"
+    },
+    "代码/q2_candidates.py": {
+      "sha256": "de0f06a51414e25dee99a31fcbd53f5c5ad7ec0faad2389ea1439559536c8631",
+      "bytes": 564,
+      "source": "repository:q2_candidates.py"
+    },
+    "代码/solver.py": {
+      "sha256": "e6a0666d644ceaa1d7ae69f19042b9ca022379f3e5a57d927e52bcf1a09360bd",
+      "bytes": 576095,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/B3_local_refinement.py"
+    },
+    "代码/tests/check_nominal.py": {
+      "sha256": "1b15d3ef04847ec25f7d5c19740752394aa086a20e3f4731e60cbcb05ebbfe4d",
+      "bytes": 5114,
+      "source": "repository:tests/check_nominal.py"
+    },
+    "代码/tests/test_metrics.py": {
+      "sha256": "252623a3b518c8b9ddef063e4482760254349e68a14ef56efe4b013265c27e36",
+      "bytes": 789,
+      "source": "repository:tests/test_metrics.py"
+    },
+    "代码/tests/test_rules.py": {
+      "sha256": "cd30c43600fd337dd080c6984a32d7d33ac2ef491f738fd997a6191c46a0fe7a",
+      "bytes": 3618,
+      "source": "repository:tests/test_rules.py"
+    },
+    "复现.py": {
+      "sha256": "3a02f0ebc8d7076e5786908fc912dbfe66515558ac696ead978bbf7f92aa4bcc",
+      "bytes": 24504,
+      "source": "generated:this_delivery"
+    },
+    "实验记录/A_transfer/AUDIT.json": {
+      "sha256": "09eeafd0b204462f6c0e8a40ce7a3087b491fae04d8134349e1242b512cd6414",
+      "bytes": 9591,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/AUDIT.json"
+    },
+    "实验记录/A_transfer/B_geometry_pair_witnesses.json": {
+      "sha256": "63207e6dff656cb8293371736c81163f812ca216a29bbdad9f291b44c0bcbab4",
+      "bytes": 163580,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/B_geometry_pair_witnesses.json"
+    },
+    "实验记录/A_transfer/REPORT.md": {
+      "sha256": "e1f9e8461cd1e5cae832a76420c01db75f9ca9709e79cef70d0203cc5bcd2769",
+      "bytes": 6905,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/REPORT.md"
+    },
+    "实验记录/A_transfer/audit_results.py": {
+      "sha256": "4453718d8acfe8389283545a09dbd4d3d06373917d46620682419e1728f93ecb",
+      "bytes": 10704,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/audit_results.py"
+    },
+    "实验记录/A_transfer/build.py": {
+      "sha256": "19aa73482497c8730824ec89229820cf14baba570382a082e6f630e9e268f083",
+      "bytes": 1338,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/build.py"
+    },
+    "实验记录/A_transfer/build_A2.py": {
+      "sha256": "2b6ce97229d862c5a88c81164306ec1806cb90e1b71370b5576cb89c6ae610c5",
+      "bytes": 2598,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/build_A2.py"
+    },
+    "实验记录/A_transfer/candidate_A1.py": {
+      "sha256": "cfc64836f09321cfe4271305f617bbc84b6b02f98ce5f81b6816df55849da579",
+      "bytes": 504319,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/candidate_A1.py"
+    },
+    "实验记录/A_transfer/candidate_A2.py": {
+      "sha256": "eb9c3097df1f836c7ba0bc60964a3852d3d3e1fc2d9bfaaf0c77250a9bd80eb8",
+      "bytes": 504310,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/candidate_A2.py"
+    },
+    "实验记录/A_transfer/check_branches.py": {
+      "sha256": "fd4312d67ae13ba0db3d843ab4105c2bd86602d43501f1568f87fc02b7f5b7f2",
+      "bytes": 2737,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/check_branches.py"
+    },
+    "实验记录/A_transfer/checks_A1.json": {
+      "sha256": "a94aa3d9713a7be4ec10c405c95e53bd0b9c7696eeecc9e54f7cf3512bec43cb",
+      "bytes": 9172,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/checks_A1.json"
+    },
+    "实验记录/A_transfer/checks_A2.json": {
+      "sha256": "8b8e7ad80c785445c9f033df2e92c8d2b863c135a11eb84ddd447a19ec63b7df",
+      "bytes": 9230,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/checks_A2.json"
+    },
+    "实验记录/A_transfer/cross_check_B_geometry.py": {
+      "sha256": "d916d3cf5585127f241d38985bbb84c7ac96dff0916b58227ba8a5edc11aa208",
+      "bytes": 7191,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/cross_check_B_geometry.py"
+    },
+    "实验记录/A_transfer/diagnose_public.py": {
+      "sha256": "020e2b90001242c358243b322122e7eadf86b01bf2a0d66973bc6e55d097f687",
+      "bytes": 4714,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/diagnose_public.py"
+    },
+    "实验记录/A_transfer/diagnostics/A1_quick/second_point_calls.jsonl": {
+      "sha256": "8b902273d07208d9f2ae82b626c568604ec35f59e07a069843e66a8a0032c237",
+      "bytes": 311256,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/diagnostics/A1_quick/second_point_calls.jsonl"
+    },
+    "实验记录/A_transfer/diagnostics/A1_quick/summary.json": {
+      "sha256": "4ceac268f4903f1548be979375c2a5cee82ef6a8ba3aeb7c66c5bcb57b04ef44",
+      "bytes": 88629,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/diagnostics/A1_quick/summary.json"
+    },
+    "实验记录/A_transfer/diagnostics/A2_quick/second_point_calls.jsonl": {
+      "sha256": "e1c120811dc321b1f39f355c56c1bf416855bf4386e4661b7491d7ccf83d6f1f",
+      "bytes": 305216,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/diagnostics/A2_quick/second_point_calls.jsonl"
+    },
+    "实验记录/A_transfer/diagnostics/A2_quick/summary.json": {
+      "sha256": "55738b5cfe29f4816ce41f4e27a54c194761bcc368fd3e9c18b4eaf1f34308d8",
+      "bytes": 104321,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/diagnostics/A2_quick/summary.json"
+    },
+    "实验记录/A_transfer/patch_A1.py": {
+      "sha256": "ddfe151d7282a108e2321f6e67879f4b598c089bb3e03d93ab36d348778c8724",
+      "bytes": 5460,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/patch_A1.py"
+    },
+    "实验记录/A_transfer/patch_A2.py": {
+      "sha256": "94255353b13f213bdec83ba13de3696af7304e6ac4f6da9e0e953e7f80a91b1a",
+      "bytes": 5451,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/patch_A2.py"
+    },
+    "实验记录/A_transfer/registration_A1.json": {
+      "sha256": "6725089319c90322d78ee536201f4a07602ff4ee860681148c3226efa412c0af",
+      "bytes": 981,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/registration_A1.json"
+    },
+    "实验记录/A_transfer/registration_A2.json": {
+      "sha256": "fb027c65f84fdeea073c3279b844ab2246e7e01ae5d25c0f5821148bc9b914a5",
+      "bytes": 809,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/registration_A2.json"
+    },
+    "实验记录/A_transfer/results/A1_exposed/case_metrics.json": {
+      "sha256": "65053edb457b3540403228a045438afbbff20359e18635d2323f43ee04429950",
+      "bytes": 3131151,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A1_exposed/case_metrics.json"
+    },
+    "实验记录/A_transfer/results/A1_exposed/executed_rows.jsonl": {
+      "sha256": "3222110c1cb6c912e231f1079bcb41afa4f6fc8dcec3458c09d185b700a7d1a1",
+      "bytes": 1388006,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A1_exposed/executed_rows.jsonl"
+    },
+    "实验记录/A_transfer/results/A1_exposed/execution_registration.json": {
+      "sha256": "7e090165ba6f48673d9c4c7ee56f713bf9cc260103123f1b73bb5927a4003bef",
+      "bytes": 226571,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A1_exposed/execution_registration.json"
+    },
+    "实验记录/A_transfer/results/A1_exposed/summary.json": {
+      "sha256": "1fe30e5a8a8956b7f8b06b2cfb7a46f05e71c83b43953038245fe5a43f44debe",
+      "bytes": 75444,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A1_exposed/summary.json"
+    },
+    "实验记录/A_transfer/results/A1_full/case_metrics.json": {
+      "sha256": "66a5da9410302cd12616c72ed591ac7b2358d50ce78703492a6b4a60c0f76118",
+      "bytes": 1534345,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A1_full/case_metrics.json"
+    },
+    "实验记录/A_transfer/results/A1_full/executed_rows.jsonl": {
+      "sha256": "8430d760bc45d24312c653751fdc14c8cf887bf27783faa285ab96c3be86060f",
+      "bytes": 1325542,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A1_full/executed_rows.jsonl"
+    },
+    "实验记录/A_transfer/results/A1_full/execution_registration.json": {
+      "sha256": "9a54830a754f0f7e51ff7a08fd795613c9f610285e4a742025d2339f656cd7f9",
+      "bytes": 103152,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A1_full/execution_registration.json"
+    },
+    "实验记录/A_transfer/results/A1_full/summary.json": {
+      "sha256": "022a27d9afe3fdf8f3ad4c2d5f5bc7f42f9e3c8430f4d4a407abc8dd77fa6da4",
+      "bytes": 49771,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A1_full/summary.json"
+    },
+    "实验记录/A_transfer/results/A1_quick/case_metrics.json": {
+      "sha256": "a5c09fb928a38913ddaf652335754b85519b7beffbaca115184b8cd167110d3e",
+      "bytes": 76822,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A1_quick/case_metrics.json"
+    },
+    "实验记录/A_transfer/results/A1_quick/executed_rows.jsonl": {
+      "sha256": "77aba1ed63276dd4e92b9a4520847f64bd6a4af41fe0813df83a01ff5fe50f20",
+      "bytes": 66379,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A1_quick/executed_rows.jsonl"
+    },
+    "实验记录/A_transfer/results/A1_quick/execution_registration.json": {
+      "sha256": "c7df3aea37a733b78c43f040bdf6a4da2a0eff430d3d4cda6446aba4e1598f2d",
+      "bytes": 5681,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A1_quick/execution_registration.json"
+    },
+    "实验记录/A_transfer/results/A1_quick/summary.json": {
+      "sha256": "50e83e369d9ee493a8acf35d89cce53fcc5681e9dda95083dd9463d09e5af224",
+      "bytes": 47474,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A1_quick/summary.json"
+    },
+    "实验记录/A_transfer/results/A2_quick/case_metrics.json": {
+      "sha256": "b0f025db06800639a04d647f0fd42c4c91bcdad9bf93f5f37435a720494ffdc0",
+      "bytes": 76811,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A2_quick/case_metrics.json"
+    },
+    "实验记录/A_transfer/results/A2_quick/executed_rows.jsonl": {
+      "sha256": "e353a56ba5ac0eaa427f1c2e7274fe9c754387ab4a035a15eceba1045166deb1",
+      "bytes": 66368,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A2_quick/executed_rows.jsonl"
+    },
+    "实验记录/A_transfer/results/A2_quick/execution_registration.json": {
+      "sha256": "349647c3b1d8843528043c24f6fd3d9023adf373d4985a2c4a5a6ae12ed6716f",
+      "bytes": 5681,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A2_quick/execution_registration.json"
+    },
+    "实验记录/A_transfer/results/A2_quick/summary.json": {
+      "sha256": "fbb2db7a1b292ab8b7ad84a14d89e2df6ea631c90c7ec7c1f79645b0cc1465b1",
+      "bytes": 50372,
+      "source": "repository:experiments/20260913_q2_transfer/A_transfer/results/A2_quick/summary.json"
+    },
+    "实验记录/B_improved/B1_REGISTRATION.json": {
+      "sha256": "8787e7f1ca68b9ad4a07526f5b3687adfa62a496d4f2f9fc0088581cac9db505",
+      "bytes": 1440,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/B1_REGISTRATION.json"
+    },
+    "实验记录/B_improved/B1_SYNTHETIC.json": {
+      "sha256": "848dccd51c857d0f6690131620ace152b561a00c243d5ac143cce301974a2f62",
+      "bytes": 1552,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/B1_SYNTHETIC.json"
+    },
+    "实验记录/B_improved/B1_minimax_costgate.py": {
+      "sha256": "5a518e41bdb9c4c64050ce35878d6d3e432645fb948f81c72e79c63ee82991d7",
+      "bytes": 575596,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/B1_minimax_costgate.py"
+    },
+    "实验记录/B_improved/B2_REGISTRATION.json": {
+      "sha256": "aec250711c657ea9b21d5f5ddcf3e48546d37078855409ea5043b76d153b719f",
+      "bytes": 1055,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/B2_REGISTRATION.json"
+    },
+    "实验记录/B_improved/B2_SYNTHETIC.json": {
+      "sha256": "4ee8e916dfb0d14767f93161b969654bd249bf85a3934b4092f804a70186387c",
+      "bytes": 1552,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/B2_SYNTHETIC.json"
+    },
+    "实验记录/B_improved/B2_cost_precisiongate.py": {
+      "sha256": "721994d54ec765696857260a3feeb70351e921b99302bb267c7a5ca36c9eabcb",
+      "bytes": 575596,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/B2_cost_precisiongate.py"
+    },
+    "实验记录/B_improved/B3_REGISTRATION.json": {
+      "sha256": "4e4d8beb95d34cf0a3d3d91ddb4ead784d0568e231ea0b793a6265e8f354a64d",
+      "bytes": 1072,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/B3_REGISTRATION.json"
+    },
+    "实验记录/B_improved/B3_SYNTHETIC.json": {
+      "sha256": "072d43d47823a9bf6561eddeeed56bf85543d881d7de8e33dfe1f0d7711306d8",
+      "bytes": 1552,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/B3_SYNTHETIC.json"
+    },
+    "实验记录/B_improved/B3_local_refinement.py": {
+      "sha256": "e6a0666d644ceaa1d7ae69f19042b9ca022379f3e5a57d927e52bcf1a09360bd",
+      "bytes": 576095,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/B3_local_refinement.py"
+    },
+    "实验记录/B_improved/BUILD_AUDIT.json": {
+      "sha256": "7073dc07c7accd2f873e5049f260b40c82a1c8581d7899b6e5b5253afbed554f",
+      "bytes": 789,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/BUILD_AUDIT.json"
+    },
+    "实验记录/B_improved/REPORT.md": {
+      "sha256": "3277f8629babc5d17939fe5cf5b9e3f1a8050f51ac75c2fd61dbbd323e3c6b86",
+      "bytes": 7647,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/REPORT.md"
+    },
+    "实验记录/B_improved/ROW_AUDIT.json": {
+      "sha256": "12c1b3c2348354132fa4170b034d61cb656a51419871d17ab9c18dd7c75a4a45",
+      "bytes": 80612,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/ROW_AUDIT.json"
+    },
+    "实验记录/B_improved/build_candidate.py": {
+      "sha256": "f27a66fa210be5c8543a6ebd176a71996cc0eb188ecbd5cd304cf92703d36739",
+      "bytes": 1861,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/build_candidate.py"
+    },
+    "实验记录/B_improved/check_mechanism.py": {
+      "sha256": "d944efba477e6361e5d5fda4b633c2c6b81f0255236b85c0b3ba32c8f8990ff0",
+      "bytes": 1651,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/check_mechanism.py"
+    },
+    "实验记录/B_improved/diagnose_public.py": {
+      "sha256": "65f21f854444b6a53614fcf558027dbaa7cd427e34aa02247863b903d3fcc3c8",
+      "bytes": 6629,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/diagnose_public.py"
+    },
+    "实验记录/B_improved/diagnostics/B1_first_per_group/hook_noninterference.json": {
+      "sha256": "58b185b9aad9cf222e32d1f4ffd383e3cffca85ae723eddbbfea54dc94b1afcf",
+      "bytes": 4692,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/diagnostics/B1_first_per_group/hook_noninterference.json"
+    },
+    "实验记录/B_improved/diagnostics/B1_first_per_group/public_diagnostics.json": {
+      "sha256": "755976dc96a6ee533935defd9e6497f4ff055328afe3d04b5ec0d9353b917bbf",
+      "bytes": 1273633,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/diagnostics/B1_first_per_group/public_diagnostics.json"
+    },
+    "实验记录/B_improved/diagnostics/B1_first_per_group/registration.json": {
+      "sha256": "a7f987e38f3f3d21db598350183ba641e974191bc9e544abab502ee9b1fff29c",
+      "bytes": 1377,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/diagnostics/B1_first_per_group/registration.json"
+    },
+    "实验记录/B_improved/diagnostics/B1_first_per_group/summary.json": {
+      "sha256": "6adc1937c2bd34ff66a0047023c662d98ca0adf8ca09a5661aae3db1bc6118d5",
+      "bytes": 1431,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/diagnostics/B1_first_per_group/summary.json"
+    },
+    "实验记录/B_improved/diagnostics/B3_first_per_group/hook_noninterference.json": {
+      "sha256": "58b185b9aad9cf222e32d1f4ffd383e3cffca85ae723eddbbfea54dc94b1afcf",
+      "bytes": 4692,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/diagnostics/B3_first_per_group/hook_noninterference.json"
+    },
+    "实验记录/B_improved/diagnostics/B3_first_per_group/public_diagnostics.json": {
+      "sha256": "9f35b1089c8617bcb393863b64fe29dcc70511edcb82b0dc89662fd86ac6c750",
+      "bytes": 1264000,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/diagnostics/B3_first_per_group/public_diagnostics.json"
+    },
+    "实验记录/B_improved/diagnostics/B3_first_per_group/registration.json": {
+      "sha256": "e1869303061fe33cc55b8f219ac1ffa20defe2f82201ed97b05a149e3b8cd9c7",
+      "bytes": 1377,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/diagnostics/B3_first_per_group/registration.json"
+    },
+    "实验记录/B_improved/diagnostics/B3_first_per_group/summary.json": {
+      "sha256": "8069d5adef29330be7a6d0aeb0313df1665c0df62a2f73c0ce6e4e74d8b19935",
+      "bytes": 1435,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/diagnostics/B3_first_per_group/summary.json"
+    },
+    "实验记录/B_improved/diagnostics/precision_and_omni_domain_audit.json": {
+      "sha256": "98324f0ac8230e36d7675c2e7ec179dd5cde579727565513a85a4228d6d6ed28",
+      "bytes": 15642,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/diagnostics/precision_and_omni_domain_audit.json"
+    },
+    "实验记录/B_improved/mechanism.py": {
+      "sha256": "60d40193b10bf4f50f75f138cb21cc744e52226cbce6423620bf5faecf4fcae0",
+      "bytes": 6649,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/mechanism.py"
+    },
+    "实验记录/B_improved/results/B1_exposed/case_metrics.json": {
+      "sha256": "974a001a2ca95b7bb76b0b5d4583023757ef5adef1259e1c41f02b9c0dce7ba3",
+      "bytes": 3130719,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B1_exposed/case_metrics.json"
+    },
+    "实验记录/B_improved/results/B1_exposed/executed_rows.jsonl": {
+      "sha256": "58956826a9c5dfdd1e0e6a0040a995eb43508c8c31e4b75768236c742ba54e23",
+      "bytes": 1387798,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B1_exposed/executed_rows.jsonl"
+    },
+    "实验记录/B_improved/results/B1_exposed/execution_registration.json": {
+      "sha256": "5168dd6ead47d08e6d66f55affeab18fdad4e4e57391f8be96c33c3cba40f54a",
+      "bytes": 226578,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B1_exposed/execution_registration.json"
+    },
+    "实验记录/B_improved/results/B1_exposed/summary.json": {
+      "sha256": "155a014b9c50f8a51d4269a3c4ea5601c766e2aa1c210629da3a77fcc5b9e809",
+      "bytes": 76631,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B1_exposed/summary.json"
+    },
+    "实验记录/B_improved/results/B1_full/case_metrics.json": {
+      "sha256": "66374bb52668e0c1272ccd8a0b70ba8aff21d36bb18327269feaaf4f2e65611d",
+      "bytes": 1534121,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B1_full/case_metrics.json"
+    },
+    "实验记录/B_improved/results/B1_full/executed_rows.jsonl": {
+      "sha256": "79b236a6feca5ed8b92c53dda220afb90f2f0577a241ac5cbee6601a2f84682b",
+      "bytes": 1325318,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B1_full/executed_rows.jsonl"
+    },
+    "实验记录/B_improved/results/B1_full/execution_registration.json": {
+      "sha256": "98ed8fe95b499556f580478d725d732266c8bf4f07d05c67d6961ba6e33f864f",
+      "bytes": 103159,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B1_full/execution_registration.json"
+    },
+    "实验记录/B_improved/results/B1_full/summary.json": {
+      "sha256": "cb35558182428dfca08cd5493d834f87b0f3189554c1434c9c8f4ddd17bddfcf",
+      "bytes": 51073,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B1_full/summary.json"
+    },
+    "实验记录/B_improved/results/B1_quick/case_metrics.json": {
+      "sha256": "f536df6e7f9d461702ef5869ac1f79319c39dd796e6b9b058129ed665fa8d313",
+      "bytes": 76835,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B1_quick/case_metrics.json"
+    },
+    "实验记录/B_improved/results/B1_quick/executed_rows.jsonl": {
+      "sha256": "48d79f3176d2b17b92059d9d69194e04535ce09b633151ebcc2ac6c7be1dbd28",
+      "bytes": 66392,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B1_quick/executed_rows.jsonl"
+    },
+    "实验记录/B_improved/results/B1_quick/execution_registration.json": {
+      "sha256": "a9508c83a9c02813a688968b9fc3349f901491c73c59601d94c9285febff93cf",
+      "bytes": 5688,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B1_quick/execution_registration.json"
+    },
+    "实验记录/B_improved/results/B1_quick/summary.json": {
+      "sha256": "3cb01facf94be13c7cb8cbc61bb2d56c610fd7960d425a330218f729e625336d",
+      "bytes": 50035,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B1_quick/summary.json"
+    },
+    "实验记录/B_improved/results/B2_exposed/case_metrics.json": {
+      "sha256": "91d61bf500f96a5d4e56d3f20c3eec5c8a9b6e88f32eebae003d545720afcea5",
+      "bytes": 3131130,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B2_exposed/case_metrics.json"
+    },
+    "实验记录/B_improved/results/B2_exposed/executed_rows.jsonl": {
+      "sha256": "f025f54e025cbcf8f21a6570eccd85287172ad88d0da71cc1c723f44d4f2f3da",
+      "bytes": 1388139,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B2_exposed/executed_rows.jsonl"
+    },
+    "实验记录/B_improved/results/B2_exposed/execution_registration.json": {
+      "sha256": "473365a0930cc4818e839e517cff87030fe2e4c676c463b2dbbe76bd7a9d13a2",
+      "bytes": 226580,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B2_exposed/execution_registration.json"
+    },
+    "实验记录/B_improved/results/B2_exposed/summary.json": {
+      "sha256": "415d9d27b4a1e27d84e1ccbfd2c9ad98290e5faca63ef9c812338f2b0ea93f7d",
+      "bytes": 76612,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B2_exposed/summary.json"
+    },
+    "实验记录/B_improved/results/B2_full/case_metrics.json": {
+      "sha256": "e81207e6b6798f74e94c7a1d523d0058fbf8b0c55dd895fecd16621151e83b2c",
+      "bytes": 1534191,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B2_full/case_metrics.json"
+    },
+    "实验记录/B_improved/results/B2_full/executed_rows.jsonl": {
+      "sha256": "369652a7ac0ac8d26b5da84113d94cd14bb25a43cfedcc48149bdf90f2f14a90",
+      "bytes": 1325388,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B2_full/executed_rows.jsonl"
+    },
+    "实验记录/B_improved/results/B2_full/execution_registration.json": {
+      "sha256": "d0f1ab35e032af223a1520a873f75b99c405d1db31a7d66fe7577332c120b449",
+      "bytes": 103161,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B2_full/execution_registration.json"
+    },
+    "实验记录/B_improved/results/B2_full/summary.json": {
+      "sha256": "d9e12dbfba642a5b55047b54c3c68eabbad262244b45872796c94581ba5b7879",
+      "bytes": 51049,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B2_full/summary.json"
+    },
+    "实验记录/B_improved/results/B2_quick/case_metrics.json": {
+      "sha256": "36c37c838563b7bd2ee35ab76d50371596a50216cdb4ab6d1d17a10194c9737a",
+      "bytes": 76804,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B2_quick/case_metrics.json"
+    },
+    "实验记录/B_improved/results/B2_quick/executed_rows.jsonl": {
+      "sha256": "2960d5a4274bc6d6651d02959a30bfef2a5ed164a9bd40ea6e5cbda22e6840a3",
+      "bytes": 66361,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B2_quick/executed_rows.jsonl"
+    },
+    "实验记录/B_improved/results/B2_quick/execution_registration.json": {
+      "sha256": "6edcea1efa2f42bedeae3517e168f656ffa636f4001e49214e90656e45f924dc",
+      "bytes": 5690,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B2_quick/execution_registration.json"
+    },
+    "实验记录/B_improved/results/B2_quick/summary.json": {
+      "sha256": "dc57a839593a94ef404159620f8a17bafe0ae8501e6bd019f852c2ba62d91d3c",
+      "bytes": 50029,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B2_quick/summary.json"
+    },
+    "实验记录/B_improved/results/B3_exposed/case_metrics.json": {
+      "sha256": "41cf71a5ed2c8eb2da6fe1d977da3fd32d8e3647aa344d362fcb13c381212702",
+      "bytes": 3131143,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B3_exposed/case_metrics.json"
+    },
+    "实验记录/B_improved/results/B3_exposed/executed_rows.jsonl": {
+      "sha256": "cbfcf3889da54d1e32706ed877b7c4f7ef68b877d0ca6968a3653783f606a3cc",
+      "bytes": 1388179,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B3_exposed/executed_rows.jsonl"
+    },
+    "实验记录/B_improved/results/B3_exposed/execution_registration.json": {
+      "sha256": "8959bfb196d4db4eb219b3ce088bb2831fe3073baae4fc8d30d7b4544e736db4",
+      "bytes": 226578,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B3_exposed/execution_registration.json"
+    },
+    "实验记录/B_improved/results/B3_exposed/summary.json": {
+      "sha256": "d73e2da2da9c5e176ac7b0d9ca616ffc36b48dafa7c77a3e0539b38a129c8976",
+      "bytes": 76558,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B3_exposed/summary.json"
+    },
+    "实验记录/B_improved/results/B3_full/case_metrics.json": {
+      "sha256": "b2770fcf7204c7b18bdb7550f9aef5a1e4f65974f36fe7fbebc53da53b241e92",
+      "bytes": 1534164,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B3_full/case_metrics.json"
+    },
+    "实验记录/B_improved/results/B3_full/executed_rows.jsonl": {
+      "sha256": "88a2c2b29e8d14cbdf335598770f84c860d4e54b9c6c7f09156bbca3b8c645bb",
+      "bytes": 1325361,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B3_full/executed_rows.jsonl"
+    },
+    "实验记录/B_improved/results/B3_full/execution_registration.json": {
+      "sha256": "437866aea1c425a2a61ac01b07e4e1bb7a0079841ce6aa764666a1b631a02724",
+      "bytes": 103159,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B3_full/execution_registration.json"
+    },
+    "实验记录/B_improved/results/B3_full/summary.json": {
+      "sha256": "2feb0491a797ea491b38d9f932b04e1d845cdad0e4904106f837ef3a252cadb1",
+      "bytes": 51073,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B3_full/summary.json"
+    },
+    "实验记录/B_improved/results/B3_quick/case_metrics.json": {
+      "sha256": "c8f2a5f83356c530cae5b205ede87e3bff2f7147442f6f12750f26faf78ec806",
+      "bytes": 76811,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B3_quick/case_metrics.json"
+    },
+    "实验记录/B_improved/results/B3_quick/executed_rows.jsonl": {
+      "sha256": "59b051c0a163bcde6100b046c12eabc9fbd9558c144912e1260d5b9447397d78",
+      "bytes": 66368,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B3_quick/executed_rows.jsonl"
+    },
+    "实验记录/B_improved/results/B3_quick/execution_registration.json": {
+      "sha256": "2c42b7147cc9dffee18822a1abc70c62454c94cbc20a900e2a04ee0f81340e15",
+      "bytes": 5688,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B3_quick/execution_registration.json"
+    },
+    "实验记录/B_improved/results/B3_quick/summary.json": {
+      "sha256": "d6adde5c6b7e2b3dffe1cd785fddfd26aaf37d06204dab662051d4bbe4f2d595",
+      "bytes": 50469,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/results/B3_quick/summary.json"
+    },
+    "实验记录/B_improved/summarize_B.py": {
+      "sha256": "ed7956f12d2bfb665d6518667461bd03ca9d4632940e16dfc570872bcedb23bc",
+      "bytes": 12345,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/summarize_B.py"
+    },
+    "实验记录/B_improved/verify_builds.py": {
+      "sha256": "e89d9c618892113722936dfc43e82ae612888a8d34b111ec3b0eca582060067b",
+      "bytes": 2100,
+      "source": "repository:experiments/20260913_q2_transfer/B_improved/verify_builds.py"
+    },
+    "实验记录/INDEPENDENT_AUDIT.json": {
+      "sha256": "e7caba063aae56337e6a7871a1bf235857658cac64dc76c3b29b1dd4dba91051",
+      "bytes": 814194,
+      "source": "repository:experiments/20260913_q2_transfer/INDEPENDENT_AUDIT.json"
+    },
+    "实验记录/NUMERICAL_AUDIT.md": {
+      "sha256": "fa8c5a602bdc9772dab821f8360b6235e583a63370c57fc73ee49447087e6b22",
+      "bytes": 9016,
+      "source": "repository:experiments/20260913_q2_transfer/NUMERICAL_AUDIT.md"
+    },
+    "实验记录/PROTOCOL.md": {
+      "sha256": "a97d09661bb4d5df3ca9e87831d45c18a34a71f16e3410e61bc83004f70eb2ec",
+      "bytes": 3803,
+      "source": "repository:experiments/20260913_q2_transfer/PROTOCOL.md"
+    },
+    "实验记录/REGISTRATION.json": {
+      "sha256": "7d74f13f99a904203de2549cb9864370c8e9ee846be75a0aae20564969d3a517",
+      "bytes": 1794,
+      "source": "repository:experiments/20260913_q2_transfer/REGISTRATION.json"
+    },
+    "实验记录/REPORT.md": {
+      "sha256": "cd96fdbb16b1debe96ac788cc380a26923fa6e5e2466fe018edf2c2b396d0220",
+      "bytes": 7310,
+      "source": "repository:experiments/20260913_q2_transfer/REPORT.md"
+    },
+    "实验记录/REVIEW.md": {
+      "sha256": "90a6e1cef7ca5371753e0624aea604298f83d74e3ea36affdbd255089cb7a4c1",
+      "bytes": 8322,
+      "source": "repository:experiments/20260913_q2_transfer/REVIEW.md"
+    },
+    "实验记录/SELECTION.json": {
+      "sha256": "e6cbfe849c4a959f8a6e55ba4148f4dca592e8b8c3f1a603e4c117bbdd44ba2a",
+      "bytes": 7884,
+      "source": "repository:experiments/20260913_q2_transfer/SELECTION.json"
+    },
+    "实验记录/audit_campaign.py": {
+      "sha256": "0c9edd35b28b58d224fbb64b05656a48fca4c5920f16b61416ab9c612f459356",
+      "bytes": 6877,
+      "source": "repository:experiments/20260913_q2_transfer/audit_campaign.py"
+    },
+    "实验记录/baseline.py": {
+      "sha256": "0bda4f711b9e9716739af8aedf456cb1eeefb47d8ba3ed230ca682c8450a96ea",
+      "bytes": 498857,
+      "source": "repository:experiments/20260913_q2_transfer/baseline.py"
+    },
+    "实验记录/evaluate_transfer.py": {
+      "sha256": "58770769677906d41bb2949cbc80e3cc193391e814be974f6ed515be42f88c9a",
+      "bytes": 8872,
+      "source": "repository:experiments/20260913_q2_transfer/evaluate_transfer.py"
+    },
+    "实验记录/finalize_campaign.py": {
+      "sha256": "43377a49a1bdd172b2e2dc95ff5942383d1606633797b84a0a75a4f2b8a695c0",
+      "bytes": 12473,
+      "source": "repository:experiments/20260913_q2_transfer/finalize_campaign.py"
+    },
+    "实验记录/verification/BASELINE_CHECKS.json": {
+      "sha256": "69cfc5d874fa9b46eed5d18deb16d1beded23e9e1cc3736c3770c0cfe2f49cc3",
+      "bytes": 11945,
+      "source": "repository:experiments/20260913_q2_transfer/verification/BASELINE_CHECKS.json"
+    },
+    "实验记录/verification/baseline_quick/case_metrics.json": {
+      "sha256": "c42ed82f6c5a4dc3950510611e0bdea5090e2e9a75cf8ca90f42c6054c04e48c",
+      "bytes": 76812,
+      "source": "repository:experiments/20260913_q2_transfer/verification/baseline_quick/case_metrics.json"
+    },
+    "实验记录/verification/baseline_quick/executed_rows.jsonl": {
+      "sha256": "436e469622933b4323fb60eb3c82c994d20f7eb2d81308b102aa4e39d5c6db51",
+      "bytes": 66369,
+      "source": "repository:experiments/20260913_q2_transfer/verification/baseline_quick/executed_rows.jsonl"
+    },
+    "实验记录/verification/baseline_quick/execution_registration.json": {
+      "sha256": "4b6936d9fd73269e9e5dde0ab4224b3bcbb8484236c2694a9b55a3d3e3237a8e",
+      "bytes": 5666,
+      "source": "repository:experiments/20260913_q2_transfer/verification/baseline_quick/execution_registration.json"
+    },
+    "实验记录/verification/baseline_quick/summary.json": {
+      "sha256": "de32ff9737f4161385f700e49bee919af58f9740fbbcd799b2395b58c9b8402c",
+      "bytes": 47263,
+      "source": "repository:experiments/20260913_q2_transfer/verification/baseline_quick/summary.json"
+    },
+    "实验记录/verification/nominal.json": {
+      "sha256": "be1ad95acdc4c5eed209472eedb437c68e8d56d6e25ac296013eeaa5201f8adf",
+      "bytes": 10363,
+      "source": "repository:experiments/20260913_q2_transfer/verification/nominal.json"
+    },
+    "数据/baseline_case_metrics.json": {
+      "sha256": "a5371365e301f10725e4a061efe630054f37d2630496aab83f088d1fc1cd4914",
+      "bytes": 3132161,
+      "source": "repository:experiments/parallel_v2_coordinator/fusion_r5_exposed/case_metrics.json"
+    },
+    "数据/baseline_summary.json": {
+      "sha256": "36b2a98b75976c8f03942138e86cbdbd6de81e92378d01d154155690c0a56cfb",
+      "bytes": 114540,
+      "source": "repository:experiments/parallel_v2_coordinator/fusion_r5_exposed/summary.json"
+    },
+    "数据/exposed_cases.json": {
+      "sha256": "e5bdfb611ff26a38dd5655b8f0d036936c178310bf0cc2197f82afa46225855a",
+      "bytes": 13247151,
+      "source": "repository:experiments/20260911_stage4/exposed_cases.json"
+    },
+    "数据/exposure_manifest.json": {
+      "sha256": "e1b8fa70a365be8e79cbf15f124a2b8db12c239756f2b009322033f63b0f48e2",
+      "bytes": 477,
+      "source": "repository:experiments/20260911_stage4/exposure_manifest.json"
+    },
+    "文档/原第二问方案.md": {
+      "sha256": "fe63c63c8bc0fdc4cd6c93904be3d341febd47425f0b1ba7344a191e480f6563",
+      "bytes": 2947,
+      "source": "repository:docs/第二问_结果与候选区域.md"
+    },
+    "文档/第二问精度研究/AUDIT.json": {
+      "sha256": "a88d06d08ae106a025299db80c537f60f4df353a1937e1f024b5d66300b0d7d5",
+      "bytes": 4080,
+      "source": "workspace:agent_research/20260913_q2_accuracy/AUDIT.json"
+    },
+    "文档/第二问精度研究/audit_results.py": {
+      "sha256": "bfa0ab3d308e5e5b3e94d6fb61d06e5f687de5ea289a25ca475de27636ba6462",
+      "bytes": 3393,
+      "source": "workspace:agent_research/20260913_q2_accuracy/audit_results.py"
+    },
+    "文档/第二问精度研究/geometry/check_geometry.py": {
+      "sha256": "c41e8480c680faf9dde0fcb56322b23c8824ee96658e75b71e4c484f30797151",
+      "bytes": 2738,
+      "source": "workspace:agent_research/20260913_q2_accuracy/geometry/check_geometry.py"
+    },
+    "文档/第二问精度研究/geometry/geometry_accuracy.md": {
+      "sha256": "37ce1f19e7deb72058de478d10ca21f43eac071af9ab133cad626f1bf80b3dd4",
+      "bytes": 9044,
+      "source": "workspace:agent_research/20260913_q2_accuracy/geometry/geometry_accuracy.md"
+    },
+    "文档/第二问精度研究/geometry/geometry_numbers.json": {
+      "sha256": "e981b043f2e87a88bf4bcd08129b1d4562e27aa01d907cd16874c63ef9aba4c9",
+      "bytes": 3589,
+      "source": "workspace:agent_research/20260913_q2_accuracy/geometry/geometry_numbers.json"
+    },
+    "文档/第二问精度研究/numerical/SUMMARY.md": {
+      "sha256": "e8ebf944764d1e8e482fbeec89f3e1c1a98f038848355058000ae23427310aff",
+      "bytes": 8062,
+      "source": "workspace:agent_research/20260913_q2_accuracy/numerical/SUMMARY.md"
+    },
+    "文档/第二问精度研究/numerical/continuous_bounds.json": {
+      "sha256": "f2e2f2eb2afb92dce8850cac78853b3a71ef19baeff880e239441f1e925030f2",
+      "bytes": 2476,
+      "source": "workspace:agent_research/20260913_q2_accuracy/numerical/continuous_bounds.json"
+    },
+    "文档/第二问精度研究/numerical/continuous_bounds.log": {
+      "sha256": "cc9013042e69ee0e042b0c1f11917dce8fda1b65270964309bf6c41c1f2c51c8",
+      "bytes": 2060,
+      "source": "workspace:agent_research/20260913_q2_accuracy/numerical/continuous_bounds.log"
+    },
+    "文档/第二问精度研究/numerical/continuous_bounds.py": {
+      "sha256": "112c2b9c091020cfda798d4094fa4b75f9231912dc42bd98577891761ffacbc4",
+      "bytes": 1573,
+      "source": "workspace:agent_research/20260913_q2_accuracy/numerical/continuous_bounds.py"
+    },
+    "文档/第二问精度研究/numerical/final_comparison.json": {
+      "sha256": "2770ab6427b6278b1f652dc3f18345622c7b084517a9ce12b476663206a63694",
+      "bytes": 5031,
+      "source": "workspace:agent_research/20260913_q2_accuracy/numerical/final_comparison.json"
+    },
+    "文档/第二问精度研究/numerical/finalize.log": {
+      "sha256": "37cbb2ad2b8ee3aaec77b55e2b411aa9384417699d904373d64562c62746f065",
+      "bytes": 4056,
+      "source": "workspace:agent_research/20260913_q2_accuracy/numerical/finalize.log"
+    },
+    "文档/第二问精度研究/numerical/finalize.py": {
+      "sha256": "50f1f3e8a948e3aaf8a71f109b33aa7c77bc8b7b541095e0004e61bb339bce24",
+      "bytes": 2553,
+      "source": "workspace:agent_research/20260913_q2_accuracy/numerical/finalize.py"
+    },
+    "文档/第二问精度研究/numerical/full_domain.log": {
+      "sha256": "d2a8f8eda254c39058c1726c3a02998cfdfb2c199ac51306e159267b5729e745",
+      "bytes": 4123,
+      "source": "workspace:agent_research/20260913_q2_accuracy/numerical/full_domain.log"
+    },
+    "文档/第二问精度研究/numerical/full_domain.py": {
+      "sha256": "1d9b6747acbcf154f9f7605f3999132a9e777b7316365ab90a95011f0305eea4",
+      "bytes": 801,
+      "source": "workspace:agent_research/20260913_q2_accuracy/numerical/full_domain.py"
+    },
+    "文档/第二问精度研究/numerical/full_domain_results.json": {
+      "sha256": "098259557705fa170c57192f64304499f0d1950025c0f457fa6575d22b48ebd7",
+      "bytes": 3332578,
+      "source": "workspace:agent_research/20260913_q2_accuracy/numerical/full_domain_results.json"
+    },
+    "文档/第二问精度研究/numerical/results.json": {
+      "sha256": "0c34bf3eed43662051bb04a3c62287ca7b4784feeaa1b1b97efcc8a57a94075b",
+      "bytes": 656463,
+      "source": "workspace:agent_research/20260913_q2_accuracy/numerical/results.json"
+    },
+    "文档/第二问精度研究/numerical/run.log": {
+      "sha256": "3fb0bab8841251e2619bc5d9511634ab0b262da249416466681271a41d96fbe3",
+      "bytes": 30889,
+      "source": "workspace:agent_research/20260913_q2_accuracy/numerical/run.log"
+    },
+    "文档/第二问精度研究/numerical/scan.py": {
+      "sha256": "fdc077f7ca1b6da05835f00c683f8e3da4808240851bc48ef87a18d37ef476fa",
+      "bytes": 7760,
+      "source": "workspace:agent_research/20260913_q2_accuracy/numerical/scan.py"
+    },
+    "文档/第二问精度研究/robust/NUMERICAL_REVIEW.md": {
+      "sha256": "ffbc3ce1bc77329985ddcfaeb61b8be2a29d3677e523362e855066fb9ce9491e",
+      "bytes": 4545,
+      "source": "workspace:agent_research/20260913_q2_accuracy/robust/NUMERICAL_REVIEW.md"
+    },
+    "文档/第二问精度研究/robust/ROBUST_MODEL.md": {
+      "sha256": "0d337befafbe80e70064969dfe70c6fd6f3bff76a65807be702d3b401ecc43c5",
+      "bytes": 11286,
+      "source": "workspace:agent_research/20260913_q2_accuracy/robust/ROBUST_MODEL.md"
+    },
+    "文档/第二问精度研究/robust/inradius_certificate.json": {
+      "sha256": "729b85d3ff8cefc11a391968225445d4f3dc7191f3dca30958efd163f4962672",
+      "bytes": 2279,
+      "source": "workspace:agent_research/20260913_q2_accuracy/robust/inradius_certificate.json"
+    },
+    "文档/第二问精度研究/第二问_精度优化研究.md": {
+      "sha256": "f05c7b283c336266bfcd10e730abb44a14f47eda6f4a9a769c0d96da44191af6",
+      "bytes": 9325,
+      "source": "workspace:agent_research/20260913_q2_accuracy/第二问_精度优化研究.md"
+    },
+    "文档/路线B与现有第二问的比较.md": {
+      "sha256": "14eacedbf58a89ada216ff5c7ab8348aabc09678e57c7587f85988b102f89b98",
+      "bytes": 19045,
+      "source": "generated:this_delivery"
+    },
+    "文档/题目原文/B题.pdf": {
+      "sha256": "81c992a9bee5376308c4768b58719b177f17d6ee1f9861577a851924c5a838ca",
+      "bytes": 514825,
+      "source": "workspace:题目与附件/B题.pdf"
+    },
+    "文档/题目原文/附件1.docx": {
+      "sha256": "20a27603ea81efa8f11658b3fa5b859a69aa3ff88fb3664d2abb80d740b47553",
+      "bytes": 33675,
+      "source": "workspace:题目与附件/附件1.docx"
+    },
+    "文档/题目原文/附件2.docx": {
+      "sha256": "c882513d5b7e0ec50f3068570ea55fdc1b5c4a5fa2d6e9e54e79b33cf0858cb2",
+      "bytes": 57179,
+      "source": "workspace:题目与附件/附件2.docx"
+    },
+    "来源映射.json": {
+      "sha256": "097707eb243a80b3a72617636fb7116acf38211760af2ae84ca84525eb20f53b",
+      "bytes": 43309,
+      "source": "generated:this_delivery"
+    }
+  },
+  "excluded": [
+    "文件清单.json (cannot hash itself)",
+    "验证产物/** (generated after input sealing)",
+    "__pycache__/**",
+    ".DS_Store"
+  ],
+  "total_sealed_bytes": 68129798,
+  "copied_source_files": 162,
+  "generated_input_files": 4
+}

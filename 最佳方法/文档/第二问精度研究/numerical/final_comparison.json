@@ -1,0 +1,150 @@
+{
+  "scope": "S1=(0,0), first reported angle=0 deg, delta=1 deg, relaxed source sector 5<r<=1500; unknown target-domain truncation omitted",
+  "method": "all possible second reported bearings; actual wedge intersection; exact polygon diameter and minimum enclosing circle; widened-wedge covering upper envelope",
+  "candidate_grid_count": 3018,
+  "candidate_grid": "b=25:25:1000 m; angle 0:1:floor(acos(b/2000)-1 deg), plus safety boundary; symmetry y>=0; selected radii directions refined to 0.05 deg",
+  "continuous_bounds_caveat": "geometric covering proof; ordinary floating point and tolerance checks, not interval-arithmetic certificate or continuous-global-optimum proof",
+  "rows": [
+    {
+      "name": "default",
+      "q": [
+        600.0,
+        300.0
+      ],
+      "movement_m": 670.820393249937,
+      "movement_and_second_measure_seconds": 139.1640786499874,
+      "angle_deg": 26.56505117707799,
+      "safe": true,
+      "worst_diameter_m_estimate": 215.9550481948575,
+      "worst_mec_radius_m_estimate": 107.97752409742876,
+      "continuous_diameter_m_enclosure": [
+        215.9550481948575,
+        216.19195232572926
+      ],
+      "continuous_mec_radius_m_enclosure": [
+        107.97752409742876,
+        108.09597616286463
+      ],
+      "worst_observation_deg": 339.0737762958641,
+      "ambiguity_witness": [
+        {
+          "source": [
+            1499.771542734587,
+            -26.178609655925268
+          ],
+          "first_error_deg": 0.9999999999999998,
+          "second_error_deg": -1.0,
+          "radius_from_first": 1500.0000000000002,
+          "radius_from_second": 957.0691273424565
+        },
+        {
+          "source": [
+            1289.3757771031114,
+            22.50613790620581
+          ],
+          "first_error_deg": -0.9999999999999998,
+          "second_error_deg": 1.0,
+          "radius_from_first": 1289.5721851930996,
+          "radius_from_second": 743.1297366922201
+        }
+      ],
+      "worst_polygon_min_x": 1289.3757771031114,
+      "worst_polygon_min_x_displacement_from_second": 689.3757771031114,
+      "bounds_grid_points": 13834
+    },
+    {
+      "name": "optimized_length_670.820393249937",
+      "q": [
+        431.19503710611133,
+        513.8782345800018
+      ],
+      "movement_m": 670.820393249937,
+      "movement_and_second_measure_seconds": 139.1640786499874,
+      "angle_deg": 50.0,
+      "safe": true,
+      "worst_diameter_m_estimate": 183.0558644001434,
+      "worst_mec_radius_m_estimate": 91.52793220007159,
+      "continuous_diameter_m_enclosure": [
+        183.0558644001434,
+        183.33956289496982
+      ],
+      "continuous_mec_radius_m_enclosure": [
+        91.5279322000717,
+        91.66978144748491
+      ],
+      "worst_observation_deg": 332.18803960469864,
+      "ambiguity_witness": [
+        {
+          "source": [
+            1499.771542734587,
+            -26.178609655925268
+          ],
+          "first_error_deg": 0.9999999999999998,
+          "second_error_deg": -1.0,
+          "radius_from_first": 1500.0000000000002,
+          "radius_from_second": 1197.2957627032813
+        },
+        {
+          "source": [
+            1323.4736751074636,
+            23.101318929787517
+          ],
+          "first_error_deg": -0.9999999999999998,
+          "second_error_deg": 1.0,
+          "radius_from_first": 1323.6752772635562,
+          "radius_from_second": 1018.3433354074085
+        }
+      ],
+      "worst_polygon_min_x": 1323.4736751074636,
+      "worst_polygon_min_x_displacement_from_second": 892.2786380013522,
+      "bounds_grid_points": 10716
+    },
+    {
+      "name": "optimized_length_1000.0",
+      "q": [
+        836.7643134589617,
+        547.5632234925502
+      ],
+      "movement_m": 1000.0,
+      "movement_and_second_measure_seconds": 205.0,
+      "angle_deg": 33.199999999999996,
+      "safe": true,
+      "worst_diameter_m_estimate": 111.63946943186423,
+      "worst_mec_radius_m_estimate": 55.819734715932086,
+      "continuous_diameter_m_enclosure": [
+        111.63946943186423,
+        111.79132061182398
+      ],
+      "continuous_mec_radius_m_enclosure": [
+        55.819734715932114,
+        55.89566030591199
+      ],
+      "worst_observation_deg": 318.1283043925331,
+      "ambiguity_witness": [
+        {
+          "source": [
+            1499.771542734587,
+            -26.178609655925417
+          ],
+          "first_error_deg": 1.0000000000000056,
+          "second_error_deg": -1.0,
+          "radius_from_first": 1500.0000000000002,
+          "radius_from_second": 876.7886160166057
+        },
+        {
+          "source": [
+            1400.268033474405,
+            24.44176944120329
+          ],
+          "first_error_deg": -0.9999999999999998,
+          "second_error_deg": 1.0,
+          "radius_from_first": 1400.4813335648907,
+          "radius_from_second": 768.89043313078
+        }
+      ],
+      "worst_polygon_min_x": 1400.268033474405,
+      "worst_polygon_min_x_displacement_from_second": 563.5037200154433,
+      "bounds_grid_points": 11048
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "rows": [
+    {
+      "b": 100.0,
+      "x": 9.976307379609231,
+      "y": 99.50112205933938,
+      "phi_deg": 84.27447261884618,
+      "Dlin_worst": 1567.546544371486,
+      "time_s": 25.0,
+      "safety_slack": 6476.50783305728
+    },
+    {
+      "b": 300.0,
+      "x": 88.22185545497571,
+      "y": 286.73490234026514,
+      "phi_deg": 72.89805017557202,
+      "Dlin_worst": 513.2114740715441,
+      "time_s": 65.0,
+      "safety_slack": 76408.40956736132
+    },
+    {
+      "b": 500.0,
+      "x": 236.80603306335584,
+      "y": 440.3667820178956,
+      "phi_deg": 61.73097979787407,
+      "Dlin_worst": 296.7624284711002,
+      "time_s": 105.0,
+      "safety_slack": 208169.01259253913
+    },
+    {
+      "b": 670.820393249937,
+      "x": 409.02860256397815,
+      "y": 531.6912659472217,
+      "phi_deg": 52.429016762970974,
+      "Dlin_worst": 210.79239539857545,
+      "time_s": 139.1640786499874,
+      "safety_slack": 349374.02690833685
+    },
+    {
+      "b": 800.0,
+      "x": 560.2259459242038,
+      "y": 571.0927153390517,
+      "phi_deg": 45.55033201376029,
+      "Dlin_worst": 168.46976225909685,
+      "time_s": 165.0,
+      "safety_slack": 460347.3572353106
+    },
+    {
+      "b": 1000.0,
+      "x": 818.0572051279565,
+      "y": 575.1368612236886,
+      "phi_deg": 35.109217233422584,
+      "Dlin_worst": 122.2189987462282,
+      "time_s": 205.0,
+      "safety_slack": 615790.1775882544
+    }
+  ],
+  "old_default": {
+    "x": 600,
+    "y": 300,
+    "Dlin_worst": 273.5766591737404
+  },
+  "same_budget_linear_reduction_fraction": 0.2294942264621066,
+  "conservative_three_disk_domain_radial_lower_bound": 41.45427108269364,
+  "max_angular_separation_41m_deg": 1.9769399612318406,
+  "sampled_corroboration": [
+    {
+      "b": 100.0,
+      "sampled_range_angle_max": 1567.546544371486,
+      "analytic_endpoint_max": 1567.546544371486,
+      "grid_best_D": 1567.5482895280984,
+      "grid_best_phi_deg": 84.27809448071226,
+      "analytic_D_minus_grid_best": -0.0017451566122872464
+    },
+    {
+      "b": 300.0,
+      "sampled_range_angle_max": 513.2114740715441,
+      "analytic_endpoint_max": 513.2114740715441,
+      "grid_best_D": 513.2118013659949,
+      "grid_best_phi_deg": 72.89612997712152,
+      "analytic_D_minus_grid_best": -0.00032729445081258746
+    },
+    {
+      "b": 500.0,
+      "sampled_range_angle_max": 296.7624284711002,
+      "analytic_endpoint_max": 296.7624284711002,
+      "grid_best_D": 296.7625887196268,
+      "grid_best_phi_deg": 61.729575034116536,
+      "analytic_D_minus_grid_best": -0.0001602485266403164
+    },
+    {
+      "b": 670.820393249937,
+      "sampled_range_angle_max": 210.79239539857545,
+      "analytic_endpoint_max": 210.79239539857545,
+      "grid_best_D": 210.79266412209952,
+      "grid_best_phi_deg": 52.43185213835254,
+      "analytic_D_minus_grid_best": -0.0002687235240728114
+    },
+    {
+      "b": 800.0,
+      "sampled_range_angle_max": 168.46976225909685,
+      "analytic_endpoint_max": 168.46976225909685,
+      "grid_best_D": 168.47000718760486,
+      "grid_best_phi_deg": 45.54768975908091,
+      "analytic_D_minus_grid_best": -0.0002449285080103891
+    },
+    {
+      "b": 1000.0,
+      "sampled_range_angle_max": 122.2189987462282,
+      "analytic_endpoint_max": 122.2189987462282,
+      "grid_best_D": 122.21905104274117,
+      "grid_best_phi_deg": 35.10980023600131,
+      "analytic_D_minus_grid_best": -5.229651297611326e-05
+    }
+  ],
+  "evidence": "Exact analytic results apply to the explicitly linearized strip model only. Grid checks are numerical corroboration, not exact-wedge validation."
+}
