@@ -84,3 +84,27 @@ in `research/mixed_proxy_public_prefix_v1.json`.
 Run pure tests with `/opt/homebrew/bin/python3.12 -S -m unittest discover -s
 experiments/jointplan_v1/planner/tests -v`. Python 3.9 cannot run the frozen
 parent's `int.bit_count`; `-S` avoids unrelated local site initialization.
+
+## Standalone packaging
+
+`build_standalone.py --repo ROOT --out NEW_FILE.py --entry joint` produces one
+standard-library file and a `.manifest.json` sidecar. Entry choices also include
+`a-only`, `b-only`, `disabled` and `parent`. `--config-json` may supply per-mode
+normal actor settings; replay-prefix data and callbacks are rejected as default
+configuration. Existing output paths are never overwritten.
+
+The builder records raw and transformed source hashes, replaces only filesystem
+component loaders with in-memory modules, and explicitly binds the frozen
+parent's optional neighboring-JSON fallback to its same built-in certified
+points. It discovers relative geometry module dependencies for later versions.
+No sibling source, data file or outer `__file__` value is required at runtime.
+The packaging fixtures disable filesystem access and omit `__file__`, then run
+pure near/silent protocol fixtures and continuous Q3 certification successfully.
+The disabled bundle retains the exact synthetic parent action sequence.
+
+`research/packaging_v1/joint_standalone_preview.py` is a source-bounded packaging
+preview (634,213 bytes; SHA256
+`834d06f89164765592fc476b1e5a3213ef43e07aa81d30468d376dbbd9c7d5be`), not a new
+environment-validated candidate. Its sidecar binds the coordinator sources used
+at build time. All 12 current pure tests pass; the preview has zero environment
+runs. Rebuild and revalidate the final artifact after component selection.
