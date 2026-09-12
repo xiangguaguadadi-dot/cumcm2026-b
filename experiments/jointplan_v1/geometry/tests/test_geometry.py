@@ -3,7 +3,7 @@ import copy
 import math
 import unittest
 from experiments.jointplan_v1.geometry import certify_points, replay_certificate, propose, verify, snapshot_hash
-from experiments.jointplan_v1.geometry.continuous import quantize_points
+from experiments.jointplan_v1.geometry.continuous import quantize_points, _PROOF_CACHE
 
 
 def q3_points(radius=1124.):
@@ -20,6 +20,9 @@ def snapshot():
 
 
 class GeometryTests(unittest.TestCase):
+    def setUp(self):
+        _PROOF_CACHE.clear()
+
     def test_q3_full_continuous_certificate_and_replay(self):
         points = q3_points()
         proof = certify_points(3, points, keep_leaves=True)
