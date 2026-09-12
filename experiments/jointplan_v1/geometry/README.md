@@ -53,3 +53,22 @@ As of first handoff: 12 checks pass. The original Q3 seven-point and Q4
 A synthetic radial service-anchor fixture yields certified 2-, 3- and 4-station
 alternatives. Its proxy reduction is a construction check only. No complete
 strategy performance claim is made before registered environment replay.
+
+Revision 1.1: Q4's default `step_scale=.05` reduces the first large-coordinate
+steps to the observed geometric margin scale; `.005` is available as a bounded
+fine-step variant. Candidate reports separate `coordinate_gain_same_order_s`
+from `route_gain_old_geometry_s`, and require positive coordinate gain under the
+candidate's fixed task order. A tiny move can flip a two-opt tour, so the latter
+route gain must never be reported as a geometric saving. This distinction
+reduced one constructed Q4 fixture's apparent 47 s proxy benefit to <1 s of
+actual fixed-order coordinate benefit. It is still purely synthetic.
+
+For efficient incremental checking, a bounded cache stores only locally proved,
+immutable dyadic partitions keyed by public quantized geometry. Unchanged
+support sets retain their whole-square proof; every affected square is reproved
+or subdivided. Returned proof mutation cannot alter the cache. `diagnostics={}`
+may be passed as the third argument to `propose` to collect attempts,
+certified/counterexample/unknown counts and wall time even when no plan is found.
+There are now 16 pure checks, including paid-channel deletion supported by only
+that channel's actual measurements, rejected actions, stable physical hashes,
+and cache immutability. No new environment calls were used for this revision.

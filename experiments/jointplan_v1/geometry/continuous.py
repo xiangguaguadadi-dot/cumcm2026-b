@@ -16,6 +16,7 @@ EXTENT = 2048 * SCALE
 DOMAIN2 = (1800 * SCALE) ** 2
 RADIUS = 1000 * SCALE - 2
 MARGIN = 2
+_PROOF_CACHE = {}  # Only locally proved immutable whole-square partitions.
 
 
 def canonical_hash(value):
@@ -109,26 +110,36 @@ def certify_points(mode, coordinates, max_depth=18, max_nodes=60000, deadline=No
         raise ValueError('mode must be 3 or 4')
     started = time.perf_counter()
     points = quantize_points(coordinates)
-    stack = [(0, 0, EXTENT, 0)]
+    point_set = set(points)
+    closest = None
+    closest_delta = 9
+    for (old_mode, old_points), old_leaves in _PROOF_CACHE.items():
+        if old_mode == mode:
+            delta = len(set(old_points) ^ point_set)
+            if delta < closest_delta:
+                closest, closest_delta = old_leaves, delta
+    if closest is None:
+        stack = [(0, 0, EXTENT, 0, None)]
+    else:
+        stack = [(x, y, h, EXTENT.bit_length() - h.bit_length(), support)
+                 for x, y, h, support in reversed(closest)]
     count = 0
     leaves = []
     supports = set()
     max_used_depth = 0
     while stack:
-        x, y, h, depth = stack.pop()
+        x, y, h, depth, inherited = stack.pop()
         count += 1
         if count > max_nodes or (deadline is not None and count % 32 == 0 and time.perf_counter() > deadline):
             return {'status': 'unknown', 'reason': 'computation_limit', 'nodes': count, 'seconds': time.perf_counter() - started}
         if _outside(x, y, h):
-            if keep_leaves:
-                leaves.append([x, y, h, []])
+            leaves.append((x, y, h, ()))
             continue
-        support = _support(mode, points, x, y, h)
+        support = inherited if inherited and all(p in point_set for p in inherited) else _support(mode, points, x, y, h)
         if support:
             max_used_depth = max(max_used_depth, depth)
             supports.update(support)
-            if keep_leaves:
-                leaves.append([x, y, h, [list(p) for p in support]])
+            leaves.append((x, y, h, tuple(support)))
             continue
         counterexample = _counterexample(mode, points, x, y)
         if counterexample is not None:
@@ -136,10 +147,16 @@ def certify_points(mode, coordinates, max_depth=18, max_nodes=60000, deadline=No
         if depth >= max_depth or h < 2:
             return {'status': 'unknown', 'reason': 'boundary_or_degenerate', 'cell': [x, y, h], 'nodes': count, 'seconds': time.perf_counter() - started}
         half = h // 2
-        stack.extend((x + dx * half, y + dy * half, half, depth + 1) for dx, dy in ((-1, -1), (-1, 1), (1, -1), (1, 1)))
+        stack.extend((x + dx * half, y + dy * half, half, depth + 1, None) for dx, dy in ((-1, -1), (-1, 1), (1, -1), (1, 1)))
     result = {'status': 'certified', 'method': 'integer_square_cover' if mode == 3 else 'integer_near_hull_cover', 'mode': mode, 'quantized_points_hash': canonical_hash(points), 'nodes': count, 'max_depth': max_used_depth, 'support_points': [list(p) for p in sorted(supports)], 'seconds': time.perf_counter() - started, 'scale': SCALE, 'radial_margin_units': 2, 'hull_margin_units': 2}
+    cache_key = (mode, tuple(points))
+    if cache_key not in _PROOF_CACHE:
+        if len(_PROOF_CACHE) >= 16:
+            del _PROOF_CACHE[next(iter(_PROOF_CACHE))]
+        _PROOF_CACHE[cache_key] = tuple(leaves)
+    result['reused_partition'] = closest is not None
     if keep_leaves:
-        result['leaves'] = leaves
+        result['leaves'] = [[x, y, h, [list(p) for p in support]] for x, y, h, support in leaves]
     return result
 
 

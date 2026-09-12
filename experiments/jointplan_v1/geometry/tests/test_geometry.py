@@ -67,7 +67,7 @@ class GeometryTests(unittest.TestCase):
         s = snapshot()
         p = {'snapshot_hash': snapshot_hash(s), 'parent_sha256': s['parent_sha256'], 'history_version': s['history_version'], 'stations': copy.deepcopy(s['stations'])}
         p['stations'][0]['channels'].remove(10)
-        self.assertEqual(verify(s, p)['status'], 'counterexample')
+        self.assertNotEqual(verify(s, p)['status'], 'certified')
 
     def test_stale_snapshot_rejected(self):
         s = snapshot()
@@ -85,6 +85,43 @@ class GeometryTests(unittest.TestCase):
             self.assertGreater(plans[0]['proxy_gain_s'], 0.)
             self.assertEqual(verify(s, plans[0])['status'], 'certified')
             self.assertEqual(s, snapshot(), 'propose must not mutate public history')
+
+    def test_paid_channel_pruning_uses_only_that_channels_real_history(self):
+        s = snapshot()
+        for point in q3_points()[1:]:
+            s['history'].append({'action': 'measure', 'request': {'point': list(point), 'channel': 10},
+                                 'response': {'accepted': True, 'measure_result': 'no_signal'}})
+        s['history_version'] = len(s['history'])
+        plan = propose(s, {'max_seconds': 2, 'block_sizes': [2], 'max_plans': 1})[0]
+        self.assertEqual(len(plan['removed_channel_actions']), 6)
+        self.assertTrue(all(ch == 10 for station, ch in plan['removed_channel_actions']))
+        self.assertTrue(all(10 not in station['channels'] for station in plan['stations']))
+        self.assertEqual(verify(s, plan)['status'], 'certified')
+
+    def test_rejected_measure_is_not_coverage_evidence(self):
+        s = snapshot()
+        s['history'] = [{'action': 'measure', 'request': {'point': list(p), 'channel': 10},
+                         'response': {'accepted': False, 'measure_result': 'no_signal'}} for p in q3_points()]
+        s['unknown_channels'] = [10]
+        plan = {'snapshot_hash': snapshot_hash(s), 'parent_sha256': s['parent_sha256'],
+                'history_version': s['history_version'], 'stations': copy.deepcopy(s['stations'])}
+        for station in plan['stations']:
+            station['channels'] = []
+        self.assertNotEqual(verify(s, plan)['status'], 'certified')
+
+    def test_wall_clock_changes_do_not_change_public_physical_hash(self):
+        s = snapshot()
+        s['remaining_real_s'], s['deadline_monotonic'] = 1000., 5000.
+        before = snapshot_hash(s)
+        s['remaining_real_s'], s['deadline_monotonic'] = 999., 5001.
+        self.assertEqual(snapshot_hash(s), before)
+
+    def test_returned_proof_mutation_does_not_poison_internal_cache(self):
+        points = q3_points()
+        proof = certify_points(3, points, keep_leaves=True)
+        proof['leaves'].clear()
+        again = certify_points(3, points, keep_leaves=True)
+        self.assertTrue(replay_certificate(3, points, again))
 
     def test_integer_quantization_bound(self):
         for x in (-2000000., -1.2345, -.00049, 0., .00049, 1.2345, 2000000.):

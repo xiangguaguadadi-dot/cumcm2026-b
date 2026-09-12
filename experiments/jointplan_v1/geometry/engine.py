@@ -116,8 +116,17 @@ def _route(snapshot, stations):
     return order, best
 
 
-def proxy_cost(snapshot, stations):
-    order, movement = _route(snapshot, stations)
+def proxy_cost(snapshot, stations, order=None):
+    if order is None:
+        order, movement = _route(snapshot, stations)
+    else:
+        positions = {('station', s['id']): tuple(s['point']) for s in stations}
+        positions.update(dict(_source_anchors(snapshot)))
+        last, movement = tuple(snapshot['position']), 0.
+        for key in order:
+            position = positions[tuple(key)]
+            movement += math.dist(last, position)
+            last = position
     assigned = {s['id']: _channels(s) for s in stations}
     channel, measures, switches = snapshot.get('channel', 1), 0, 0
     for kind, key in order:
@@ -150,18 +159,22 @@ def _interpolate(a, b, f, max_move):
     return _roundpoint([a[k] + f * (b[k] - a[k]) for k in (0, 1)])
 
 
-def propose(snapshot, options=None):
+def propose(snapshot, options=None, diagnostics=None):
     options = {**snapshot.get('geometry_options', {}), **(options or {})}
     started = time.perf_counter()
     deadline = started + float(options.get('max_seconds', 1.5 if snapshot['mode'] == 4 else .25))
     max_plans = int(options.get('max_plans', 6))
     base = _base_plan(snapshot)
     base_cost = proxy_cost(snapshot, base['stations'])
+    # Build a genuine whole-domain proof once; nearby alternatives reuse only
+    # unchanged witness squares and reprove every affected leaf.
+    baseline_certificate = verify(snapshot, base, deadline=deadline)
     mutable = {s['id']: s for s in base['stations'] if s.get('mutable', True) and _channels(s)}
     order = [key for kind, key in base_cost['route'] if kind == 'station' and key in mutable]
     anchors = _source_anchors(snapshot)
     candidates = []
     block_sizes = options.get('block_sizes', [2])
+    step_scale = float(options.get('step_scale', .05 if snapshot['mode'] == 4 else 1.))
     # Move a block toward several public service tasks together. Repositioning
     # can profit even when its scan-only path is longer, because sources already
     # have to be served. Include radial and route-smoothing alternatives.
@@ -171,6 +184,7 @@ def propose(snapshot, options=None):
         for start in range(len(order) - count + 1):
             keys = order[start:start + count]
             for attraction, step in (('source', 80.), ('source', 200.), ('source', 450.), ('radial_in', 50.), ('radial_out', 150.), ('smooth', 80.)):
+                step *= step_scale
                 plan = copy.deepcopy(base)
                 points = {s['id']: s for s in plan['stations']}
                 for index, key in enumerate(keys):
@@ -195,7 +209,11 @@ def propose(snapshot, options=None):
                 plan['mechanism'] = {'block_size': count, 'attraction': attraction, 'step_m': step}
                 plan['proxy'] = proxy_cost(snapshot, plan['stations'])
                 plan['proxy_gain_s'] = base_cost['total_s'] - plan['proxy']['total_s']
-                candidates.append(plan)
+                same_order_base = proxy_cost(snapshot, base['stations'], plan['proxy']['route'])
+                plan['coordinate_gain_same_order_s'] = same_order_base['total_s'] - plan['proxy']['total_s']
+                plan['route_gain_old_geometry_s'] = base_cost['total_s'] - same_order_base['total_s']
+                if plan['coordinate_gain_same_order_s'] > 1e-7:
+                    candidates.append(plan)
     # Preferred complete proxy first; finite enumeration is deterministic and
     # candidate ranking never observes later true environment responses.
     candidates.sort(key=lambda p: (-p['proxy_gain_s'], canonical_hash(p['stations'])))
@@ -241,4 +259,8 @@ def propose(snapshot, options=None):
         plan['route_station_ids'] = [key for kind, key in plan['proxy']['route'] if kind == 'station']
         plan['generation'] = {'seconds': time.perf_counter() - started, 'attempts': attempts, 'statuses': dict(statuses), 'proposed_candidates': len(candidates)}
         emitted.append(plan)
+    if diagnostics is not None:
+        diagnostics.update({'seconds': time.perf_counter() - started, 'attempts': attempts,
+                            'statuses': statuses, 'proposed_candidates': len(candidates),
+                            'certified_plans': len(emitted), 'time_limit_reached': time.perf_counter() >= deadline})
     return emitted
