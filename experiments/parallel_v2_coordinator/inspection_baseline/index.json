@@ -1,0 +1,241 @@
+{
+  "source": "/Users/t/ai project/数学建模2026/agent_experiments/20260912_parallel_v2/coordinator/experiments/parallel_v2_coordinator/baseline_combined.py",
+  "source_sha256": "c9404a2e7ad13928b0f5f6f092e7537ccaa4b3797b98e60f21d5276f07c864b9",
+  "note": "Review aid only; AST pattern checks do not prove information isolation.",
+  "modules": [
+    {
+      "file": "module_00_c9404a2e7ad1.py",
+      "origin": "experiments/parallel_v2_coordinator/baseline_combined.py",
+      "sha256": "c9404a2e7ad13928b0f5f6f092e7537ccaa4b3797b98e60f21d5276f07c864b9",
+      "bytes": 456377,
+      "imports": [
+        {
+          "line": 2,
+          "code": "import types"
+        }
+      ],
+      "review_calls": [
+        {
+          "line": 5,
+          "function": "exec"
+        },
+        {
+          "line": 8,
+          "function": "exec"
+        }
+      ]
+    },
+    {
+      "file": "module_01_ba99196e9b7b.py",
+      "origin": "module_00_c9404a2e7ad1.py:5",
+      "sha256": "ba99196e9b7b61b5af50ba272f545148ed1bed618407d7711051c63b006cba01",
+      "bytes": 205948,
+      "imports": [
+        {
+          "line": 2,
+          "code": "import types, math"
+        }
+      ],
+      "review_calls": [
+        {
+          "line": 5,
+          "function": "exec"
+        }
+      ]
+    },
+    {
+      "file": "module_02_d3112c89a555.py",
+      "origin": "module_01_ba99196e9b7b.py:5",
+      "sha256": "d3112c89a555c13b589d01f4de9aa952dc3c5d89299845e4f0e2aff21d5fbe82",
+      "bytes": 178829,
+      "imports": [
+        {
+          "line": 2,
+          "code": "import math, types"
+        }
+      ],
+      "review_calls": [
+        {
+          "line": 5,
+          "function": "exec"
+        },
+        {
+          "line": 8,
+          "function": "exec"
+        }
+      ]
+    },
+    {
+      "file": "module_03_d0bda0a51470.py",
+      "origin": "module_02_d3112c89a555.py:5",
+      "sha256": "d0bda0a51470eda3bd5f713be1552a004c7a73b8debcb333c323afd06d4c68f3",
+      "bytes": 87848,
+      "imports": [
+        {
+          "line": 7,
+          "code": "import json"
+        },
+        {
+          "line": 8,
+          "code": "import math"
+        },
+        {
+          "line": 9,
+          "code": "import os"
+        },
+        {
+          "line": 10,
+          "code": "import time"
+        },
+        {
+          "line": 639,
+          "code": "import json"
+        },
+        {
+          "line": 640,
+          "code": "import math"
+        },
+        {
+          "line": 641,
+          "code": "import os"
+        },
+        {
+          "line": 642,
+          "code": "import time"
+        }
+      ],
+      "review_calls": [
+        {
+          "line": 246,
+          "function": "getattr"
+        },
+        {
+          "line": 130,
+          "function": "open"
+        },
+        {
+          "line": 131,
+          "function": "json.load"
+        },
+        {
+          "line": 753,
+          "function": "open"
+        },
+        {
+          "line": 754,
+          "function": "json.load"
+        },
+        {
+          "line": 1748,
+          "function": "getattr"
+        }
+      ]
+    },
+    {
+      "file": "module_04_4a70421d5a22.py",
+      "origin": "module_02_d3112c89a555.py:8",
+      "sha256": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf",
+      "bytes": 79426,
+      "imports": [
+        {
+          "line": 7,
+          "code": "import json"
+        },
+        {
+          "line": 8,
+          "code": "import math"
+        },
+        {
+          "line": 9,
+          "code": "import os"
+        },
+        {
+          "line": 10,
+          "code": "import time"
+        },
+        {
+          "line": 639,
+          "code": "import json"
+        },
+        {
+          "line": 640,
+          "code": "import math"
+        },
+        {
+          "line": 641,
+          "code": "import os"
+        },
+        {
+          "line": 642,
+          "code": "import time"
+        }
+      ],
+      "review_calls": [
+        {
+          "line": 246,
+          "function": "getattr"
+        },
+        {
+          "line": 922,
+          "function": "getattr"
+        },
+        {
+          "line": 130,
+          "function": "open"
+        },
+        {
+          "line": 131,
+          "function": "json.load"
+        },
+        {
+          "line": 753,
+          "function": "open"
+        },
+        {
+          "line": 754,
+          "function": "json.load"
+        },
+        {
+          "line": 1599,
+          "function": "getattr"
+        }
+      ]
+    },
+    {
+      "file": "module_05_789096af68fc.py",
+      "origin": "module_00_c9404a2e7ad1.py:8",
+      "sha256": "789096af68fcf470e3973fd93757c556d81d60f3fe3910c5991c537def3f91cc",
+      "bytes": 215069,
+      "imports": [
+        {
+          "line": 4,
+          "code": "import types, math"
+        }
+      ],
+      "review_calls": [
+        {
+          "line": 7,
+          "function": "exec"
+        }
+      ]
+    },
+    {
+      "file": "module_06_cf37866829b9.py",
+      "origin": "module_05_789096af68fc.py:7",
+      "sha256": "cf37866829b9c6f376895075e819a732939e6fa8ad6d8d6297a151d7a213dcb3",
+      "bytes": 200259,
+      "imports": [
+        {
+          "line": 2,
+          "code": "import types, math"
+        }
+      ],
+      "review_calls": [
+        {
+          "line": 5,
+          "function": "exec"
+        }
+      ]
+    }
+  ]
+}

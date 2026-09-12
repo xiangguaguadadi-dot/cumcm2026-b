@@ -1,0 +1,13 @@
+{
+  "reviewed_utc": "2026-09-12T05:46:28.218489+00:00",
+  "source_sha256": "c9404a2e7ad13928b0f5f6f092e7537ccaa4b3797b98e60f21d5276f07c864b9",
+  "embedded_modules": 7,
+  "inspection": "AST source unpacking without executing code, imports and data-reading call review",
+  "findings": [
+    "Parent read calls only support optional adjacent coverage_points.json, absent in this package; evaluator records optional_coverage_sha256=null.",
+    "Other reflection calls inspect solver route_successor, not environment state.",
+    "Embedded modules import math/types/time/json/os; no evaluation or training dataset import.",
+    "Mode dispatcher supplies only env, mode and the existing config."
+  ],
+  "limits": "Static call pattern review is not a security proof; tested behavior and exact parent equivalence recorded separately."
+}
