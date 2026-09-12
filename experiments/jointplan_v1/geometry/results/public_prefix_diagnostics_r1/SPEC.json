@@ -1,0 +1,68 @@
+{
+  "role": "public-prefix candidate-space diagnostics only",
+  "environment_calls": 0,
+  "input_sha256": "57abeaca43fc9793c06d8c45b6943b07b444f1e36686e40eab3e013a3c6db91f",
+  "geometry_sha256": {
+    "engine.py": "bed0f356290fc0a2af5fc5b70b183989febf3c01dc95bed848ec65dd5a7dc154",
+    "continuous.py": "6e31a18165fd2a876867ead364ca34f6e418fe476976e6f58591c9150903f5b0"
+  },
+  "variants": {
+    "3": [
+      {
+        "block_sizes": [
+          2
+        ],
+        "max_plans": 2,
+        "max_seconds": 0.75,
+        "prune_channels": true
+      },
+      {
+        "block_sizes": [
+          3
+        ],
+        "max_plans": 2,
+        "max_seconds": 0.75,
+        "prune_channels": true
+      },
+      {
+        "block_sizes": [
+          4
+        ],
+        "max_plans": 2,
+        "max_seconds": 0.75,
+        "prune_channels": true
+      }
+    ],
+    "4": [
+      {
+        "block_sizes": [
+          2
+        ],
+        "max_plans": 2,
+        "max_seconds": 1.5,
+        "prune_channels": true,
+        "step_scale": 0.05
+      },
+      {
+        "block_sizes": [
+          3
+        ],
+        "max_plans": 2,
+        "max_seconds": 1.5,
+        "prune_channels": true,
+        "step_scale": 0.005
+      },
+      {
+        "block_sizes": [
+          4
+        ],
+        "max_plans": 2,
+        "max_seconds": 1.5,
+        "prune_channels": true,
+        "step_scale": 0.005
+      }
+    ]
+  },
+  "max_plans_per_prefix": 6,
+  "actual_future_outcomes_observed": false
+}
