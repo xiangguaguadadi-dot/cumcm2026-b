@@ -92,6 +92,8 @@ standard-library file and a `.manifest.json` sidecar. Entry choices also include
 `a-only`, `b-only`, `disabled` and `parent`. `--config-json` may supply per-mode
 normal actor settings; replay-prefix data and callbacks are rejected as default
 configuration. Existing output paths are never overwritten.
+`--geometry-provider compensated_engine` can bind a source-defined alternate
+proposal module; its full relative dependency closure and hashes are embedded.
 
 The builder records raw and transformed source hashes, replaces only filesystem
 component loaders with in-memory modules, and explicitly binds the frozen
@@ -107,4 +109,5 @@ preview (634,213 bytes; SHA256
 `834d06f89164765592fc476b1e5a3213ef43e07aa81d30468d376dbbd9c7d5be`), not a new
 environment-validated candidate. Its sidecar binds the coordinator sources used
 at build time. All 12 current pure tests pass; the preview has zero environment
-runs. Rebuild and revalidate the final artifact after component selection.
+runs. A later provider-packaging fixture brings the current pure suite to 13
+passing tests. Rebuild and revalidate the final artifact after component selection.

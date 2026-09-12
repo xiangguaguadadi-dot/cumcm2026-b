@@ -127,6 +127,10 @@ def _JP_LOAD(name):
             setattr(module, part, child)
             exec(compile(_JP_SOURCES["geometry." + part], child.__file__, "exec"), child.__dict__)
         exec(compile(_JP_SOURCES["geometry"], module.__file__, "exec"), module.__dict__)
+        provider_name = BUNDLE_MANIFEST.get("geometry_provider")
+        if provider_name:
+            provider = _jp_sys.modules[module_name + "." + provider_name]
+            module.propose, module.verify = provider.propose, provider.verify
         return module
     module = _jp_types.ModuleType(_JP_NAMESPACE + "." + name)
     module.__file__ = "<embedded-frozen-parent>" if name == "parent" else "<embedded-" + name + ">"
@@ -159,7 +163,7 @@ class Solver:
 '''
 
 
-def build_sources(repo, entry="joint", config=None, geometry_dir=None):
+def build_sources(repo, entry="joint", config=None, geometry_dir=None, geometry_provider=None):
     repo = Path(repo).resolve()
     planner = repo / "experiments/jointplan_v1/planner"
     geometry = Path(geometry_dir).resolve() if geometry_dir else repo / "experiments/jointplan_v1/geometry"
@@ -186,6 +190,10 @@ def build_sources(repo, entry="joint", config=None, geometry_dir=None):
         visiting.remove(name)
         complete.add(name)
     discover_geometry("")
+    if geometry_provider:
+        if not geometry_provider.isidentifier():
+            raise ValueError("Geometry provider must name one local module")
+        discover_geometry(geometry_provider)
     raw = {name: path.read_text(encoding="utf-8") for name, path in paths.items()}
     if sha256(raw["parent"]) != PARENT_SHA256:
         raise ValueError("Parent must match the approved frozen fusion_r5 SHA256")
@@ -207,6 +215,7 @@ def build_sources(repo, entry="joint", config=None, geometry_dir=None):
                 "source_set_sha256": sha256(json.dumps(source_hashes, sort_keys=True, separators=(",", ":"))),
                 "static_config": config,
                 "geometry_load_order": geometry_order,
+                "geometry_provider": geometry_provider,
                 "transformations": ["replace filesystem component loaders with in-memory source modules",
                     "bind frozen optional-JSON default-point fallback to the same built-in certified layouts"],
                 "environment_runs": 0}
@@ -226,13 +235,15 @@ def main():
     parser.add_argument("--repo", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--geometry-dir", type=Path)
+    parser.add_argument("--geometry-provider", help="Fixed alternate geometry module, e.g. compensated_engine")
     parser.add_argument("--entry", choices=["joint", "a-only", "b-only", "disabled", "parent"], default="joint")
     parser.add_argument("--config-json", type=Path)
     args = parser.parse_args()
     config = json.loads(args.config_json.read_text(encoding="utf-8")) if args.config_json else None
     if args.out.exists() or args.out.with_suffix(".manifest.json").exists():
         raise SystemExit("Refusing to overwrite an existing frozen bundle or manifest")
-    code, manifest = build_sources(args.repo, entry=args.entry, config=config, geometry_dir=args.geometry_dir)
+    code, manifest = build_sources(args.repo, entry=args.entry, config=config, geometry_dir=args.geometry_dir,
+                                  geometry_provider=args.geometry_provider)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(code, encoding="utf-8")
     args.out.with_suffix(".manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")

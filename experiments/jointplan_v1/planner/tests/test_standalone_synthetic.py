@@ -63,6 +63,18 @@ class StandaloneTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "checksum mismatch"):
             exec(compile(code, "<tampered-bundle>", "exec"), {"__name__": "tampered_bundle"})
 
+    @unittest.skipUnless((GEOMETRY / "compensated_engine.py").is_file(), "Optional compensated provider unavailable")
+    def test_fixed_alternate_geometry_provider_is_fully_embedded(self):
+        code, manifest = builder.build_sources(REPO, geometry_dir=GEOMETRY,
+                                               geometry_provider="compensated_engine")
+        self.assertIn("compensated_engine", manifest["geometry_load_order"])
+        self.assertIn("compensated_arcs", manifest["geometry_load_order"])
+        scope = {"__name__": "alternate_geometry_bundle"}
+        exec(compile(code, "<alternate-geometry>", "exec"), scope)
+        provider = scope["_JP_LOAD"]("geometry")
+        self.assertTrue(provider.propose.__module__.endswith(".compensated_engine"))
+        self.assertTrue(callable(provider.verify))
+
 
 if __name__ == "__main__":
     unittest.main()
