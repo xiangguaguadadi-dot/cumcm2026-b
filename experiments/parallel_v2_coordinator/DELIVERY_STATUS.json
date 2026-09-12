@@ -10,8 +10,8 @@
     "a2": {
       "branch": "experiments/20260912-parallel-v2/a2",
       "commit": "0d16d7409ceea2dc4220550babc38607da884c50",
-      "remote_verified": false,
-      "status": "Automatic approval rejected export; destination and 267-file payload require explicit confirmation."
+      "remote_verified": true,
+      "status": "Explicitly authorized push succeeded; remote commit independently verified."
     },
     "a3": {
       "branch": "experiments/20260912-parallel-v2/a3",
@@ -20,8 +20,9 @@
     },
     "coordinator": {
       "branch": "experiments/20260912-parallel-v2/coordinator",
-      "remote_verified": false,
-      "status": "All 7200 unique local cases complete; final report ready. Local final commit and remote sync pending."
+      "remote_verified": true,
+      "status": "Final artifact commit pushed and independently verified. This metadata records that completed verification.",
+      "artifact_commit": "9fc94b4fd70e263a9336e230227fae1bf520b830"
     }
   },
   "local_agent_reports": {
@@ -29,6 +30,7 @@
     "a2": "/Users/t/ai project/数学建模2026/agent_experiments/20260912_parallel_v2/a2/experiments/parallel_v2_a2/REPORT.md",
     "a3": "/Users/t/ai project/数学建模2026/agent_experiments/20260912_parallel_v2/a3/experiments/parallel_v2_a3/REPORT.md"
   },
-  "authorization_context": "User said 允许提交 after initial rejection. A3 accepted and pushed; A2 review still required explicit destination/payload scope.",
-  "no_original_working_files_modified_by_this_campaign": true
+  "authorization_context": "User explicitly authorized the named private repository, A2/coordinator branches and their full 267/146-file payload after the scope-specific approval question.",
+  "no_original_working_files_modified_by_this_campaign": true,
+  "verification_utc": "2026-09-12T06:50:03.167054+00:00"
 }
