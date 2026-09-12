@@ -151,6 +151,21 @@ def _disabled_boundary(self, todo, visited):
         callback(copy.deepcopy(snapshot))
 
 
+def _diagnostics(self):
+    return {"schema_version": 1, "kind": "disabled_public_adapter",
+            "snapshots": copy.deepcopy(self.jointplan_snapshots),
+            "public_history": copy.deepcopy(self.env.history),
+            "semantic_state": {"position": list(self.position), "channel": self.channel,
+                "cleared": sorted(self.cleared), "virtual_time_s": self.virtual_time,
+                "points": [list(p) for p in self.points],
+                "scanned": {str(c): sorted(v) for c, v in self.scanned.items()},
+                "counters": copy.deepcopy(self.counters),
+                "observations": copy.deepcopy(self.observations),
+                "no_signal_points": copy.deepcopy(self.no_signal_points),
+                "polygons": copy.deepcopy(self.polygons),
+                "service_progress": copy.deepcopy(getattr(self, "_a1_progress", getattr(self, "_e2_progress", {})))}}
+
+
 _RUN_CACHE = {}
 
 
@@ -165,6 +180,7 @@ class Solver:
             _RUN_CACHE[original] = _hooked_run(original)
         solver.run = types.MethodType(_RUN_CACHE[original], solver)
         solver._jp_boundary = types.MethodType(_disabled_boundary, solver)
+        solver.jointplan_diagnostics = types.MethodType(_diagnostics, solver)
         solver.jointplan_options = options
         solver.jointplan_snapshots = []
         return solver
