@@ -1,0 +1,56 @@
+{
+  "schema": "a3-linear-cost-gate-v1",
+  "weights": [
+    1.2650656802085711,
+    -2.04305825210565,
+    -0.9540872065935786,
+    -6.752018839562216,
+    3.698265328987785,
+    -1.0972327953203145,
+    0.12451954835014234,
+    -4.49564631231949,
+    -6.373440794757685,
+    -0.5758775273788488,
+    -4.611392948061104,
+    -0.7977016693842116,
+    -1.8386758286343547,
+    5.481055905378124,
+    2.502745975223736
+  ],
+  "threshold": 0.0,
+  "features": 15,
+  "ridge": 1.0,
+  "target": "cost_ref-cost_alt+30*(success_alt-success_ref), seconds; one-action surrogate",
+  "fit_worlds": 192,
+  "calibration_worlds": 96,
+  "fit_samples": 914,
+  "calibration_samples": 461,
+  "calibration_scores": [
+    {
+      "threshold": 0.0,
+      "mean_proxy_advantage_s": 0.7632669505376339,
+      "selected": 239
+    },
+    {
+      "threshold": 1.0,
+      "mean_proxy_advantage_s": 0.2813928039426505,
+      "selected": 83
+    },
+    {
+      "threshold": 2.0,
+      "mean_proxy_advantage_s": 0.0009680716845889533,
+      "selected": 4
+    },
+    {
+      "threshold": 5.0,
+      "mean_proxy_advantage_s": 0.0,
+      "selected": 0
+    },
+    {
+      "threshold": 10.0,
+      "mean_proxy_advantage_s": 0.0,
+      "selected": 0
+    }
+  ],
+  "wall_s": 9.863160875043832
+}

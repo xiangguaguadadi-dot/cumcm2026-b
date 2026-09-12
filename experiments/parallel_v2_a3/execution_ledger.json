@@ -1,0 +1,397 @@
+{
+  "training": [
+    {
+      "round": "r2",
+      "fit_worlds": 192,
+      "calibration_worlds": 96,
+      "completed_rollin_episodes": 288,
+      "fit_samples": 914,
+      "calibration_samples": 461,
+      "counterfactual_branches": 2750,
+      "branch_kind": "single clear",
+      "actual_requests": 75829,
+      "counterfactual_requests": 2750,
+      "wall_s": 9.863160875043832,
+      "registry_sha256": "a2471615756d6e6b4c3dd99ae796660d963ef1c1d82dbca9330017d7c9b1c044"
+    },
+    {
+      "round": "r3",
+      "fit_worlds": 192,
+      "calibration_worlds": 96,
+      "completed_rollin_episodes": 288,
+      "fit_samples": 712,
+      "calibration_samples": 362,
+      "counterfactual_branches": 2148,
+      "branch_kind": "target-source completion tail",
+      "actual_requests": 74547,
+      "counterfactual_requests": 4544,
+      "wall_s": 11.564711834071204,
+      "registry_sha256": "79f794e54347a1fdc9f4d8bec50f2ad918b7241ae3c9bbd63369afba63afac9e"
+    },
+    {
+      "round": "r4",
+      "fit_worlds": 192,
+      "calibration_worlds": 96,
+      "completed_rollin_episodes": 288,
+      "fit_samples": 694,
+      "calibration_samples": 357,
+      "counterfactual_branches": 2102,
+      "branch_kind": "target-source completion tail",
+      "actual_requests": 75008,
+      "counterfactual_requests": 4564,
+      "wall_s": 12.7805309999967,
+      "registry_sha256": "4921b32b3734a61650168b00051e9f6840b73b25cc7e75e70506e4df65162696"
+    },
+    {
+      "round": "r5",
+      "fit_worlds": 192,
+      "calibration_worlds": 96,
+      "completed_rollin_episodes": 288,
+      "fit_samples": 719,
+      "calibration_samples": 352,
+      "counterfactual_branches": 2142,
+      "branch_kind": "target-source completion tail",
+      "actual_requests": 75773,
+      "counterfactual_requests": 4545,
+      "wall_s": 14.36868225003127,
+      "registry_sha256": "c6d310d159827e7031bbccaddedd3fad8a369457db9fa99904e5c05b9dad9f56"
+    },
+    {
+      "round": "r6",
+      "fit_worlds": 96,
+      "calibration_worlds": 48,
+      "completed_rollin_episodes": 144,
+      "fit_samples": 189,
+      "calibration_samples": 95,
+      "counterfactual_branches": 852,
+      "branch_kind": "whole-task continuation",
+      "actual_requests": 37040,
+      "counterfactual_requests": 144994,
+      "wall_s": 21.31678166706115,
+      "registry_sha256": "63e116a76cb95211b2f5ed4878299b9189fd673f22238f579b8852008452ef2f"
+    }
+  ],
+  "evaluations": [
+    {
+      "output": "b1_development",
+      "stage": "reused 96-world development",
+      "completed_policy_episodes": 192,
+      "requests": 50143,
+      "wall_s": 6.399903833051212
+    },
+    {
+      "output": "b1_exposed",
+      "stage": "old exposed second batch; full-v1 rows reused",
+      "completed_policy_episodes": 2400,
+      "requests": 469396,
+      "wall_s": 63.73816195898689
+    },
+    {
+      "output": "b1_full",
+      "stage": "full",
+      "completed_policy_episodes": 2400,
+      "requests": 468756,
+      "wall_s": 52.41427099995781
+    },
+    {
+      "output": "b1_quick",
+      "stage": "quick",
+      "completed_policy_episodes": 120,
+      "requests": 23838,
+      "wall_s": 2.6597963329404593
+    },
+    {
+      "output": "b1_safe_development",
+      "stage": "reused 96-world development",
+      "completed_policy_episodes": 192,
+      "requests": 50143,
+      "wall_s": 6.461381125031039
+    },
+    {
+      "output": "b1_safe_exposed",
+      "stage": "old exposed second batch; full-v1 rows reused",
+      "completed_policy_episodes": 2400,
+      "requests": 469396,
+      "wall_s": 70.4589543750044
+    },
+    {
+      "output": "b1_safe_full",
+      "stage": "full",
+      "completed_policy_episodes": 2400,
+      "requests": 468756,
+      "wall_s": 60.78500300005544
+    },
+    {
+      "output": "b1_safe_quick",
+      "stage": "runner startup failure",
+      "completed_policy_episodes": 0,
+      "worker_startup_failures": 120,
+      "reason": "Python3.9 cannot import frozen Python>=3.10 environment; all failures retained."
+    },
+    {
+      "output": "b1_safe_quick_py312",
+      "stage": "quick",
+      "completed_policy_episodes": 120,
+      "requests": 23838,
+      "wall_s": 2.813234042027034
+    },
+    {
+      "output": "b2_development",
+      "stage": "reused 96-world development",
+      "completed_policy_episodes": 192,
+      "requests": 50139,
+      "wall_s": 7.904964499990456
+    },
+    {
+      "output": "b2_quick",
+      "stage": "quick",
+      "completed_policy_episodes": 120,
+      "requests": 23838,
+      "wall_s": 2.880972250015475
+    },
+    {
+      "output": "b2_safe_development",
+      "stage": "reused 96-world development",
+      "completed_policy_episodes": 192,
+      "requests": 50139,
+      "wall_s": 7.886597750009969
+    },
+    {
+      "output": "b2_safe_exposed",
+      "stage": "old exposed second batch; full-v1 rows reused",
+      "completed_policy_episodes": 2400,
+      "requests": 469165,
+      "wall_s": 59.23779445805121
+    },
+    {
+      "output": "b2_safe_full",
+      "stage": "full",
+      "completed_policy_episodes": 2400,
+      "requests": 468544,
+      "wall_s": 74.47382954100613
+    },
+    {
+      "output": "b2_safe_quick",
+      "stage": "quick",
+      "completed_policy_episodes": 120,
+      "requests": 23838,
+      "wall_s": 3.055265875067562
+    },
+    {
+      "output": "b3_safe_development",
+      "stage": "reused 96-world development",
+      "completed_policy_episodes": 192,
+      "requests": 50143,
+      "wall_s": 9.987645625020377
+    },
+    {
+      "output": "b3_safe_quick",
+      "stage": "quick",
+      "completed_policy_episodes": 120,
+      "requests": 23838,
+      "wall_s": 3.595133875031024
+    },
+    {
+      "output": "b4_safe_development",
+      "stage": "reused 96-world development",
+      "completed_policy_episodes": 192,
+      "requests": 50133,
+      "wall_s": 8.982289999956265
+    },
+    {
+      "output": "b4_safe_exposed",
+      "stage": "old exposed second batch; full-v1 rows reused",
+      "completed_policy_episodes": 2400,
+      "requests": 469113,
+      "wall_s": 49.78202483302448
+    },
+    {
+      "output": "b4_safe_full",
+      "stage": "full",
+      "completed_policy_episodes": 2400,
+      "requests": 468541,
+      "wall_s": 59.38336662505753
+    },
+    {
+      "output": "b4_safe_quick",
+      "stage": "quick",
+      "completed_policy_episodes": 120,
+      "requests": 23841,
+      "wall_s": 4.112259541056119
+    },
+    {
+      "output": "b5_safe_development",
+      "stage": "reused 96-world development",
+      "completed_policy_episodes": 192,
+      "requests": 50139,
+      "wall_s": 6.736185917048715
+    },
+    {
+      "output": "b5_safe_quick",
+      "stage": "quick",
+      "completed_policy_episodes": 120,
+      "requests": 23838,
+      "wall_s": 2.925369624979794
+    },
+    {
+      "output": "b6_safe_development",
+      "stage": "reused 96-world development",
+      "completed_policy_episodes": 192,
+      "requests": 50198,
+      "wall_s": 6.259776332997717
+    },
+    {
+      "output": "b6_safe_quick",
+      "stage": "quick",
+      "completed_policy_episodes": 120,
+      "requests": 23863,
+      "wall_s": 2.8069139170693234
+    },
+    {
+      "output": "b7_safe_development",
+      "stage": "reused 96-world development",
+      "completed_policy_episodes": 192,
+      "requests": 50141,
+      "wall_s": 5.959190957946703
+    },
+    {
+      "output": "b7_safe_quick",
+      "stage": "quick",
+      "completed_policy_episodes": 120,
+      "requests": 23841,
+      "wall_s": 2.557860624976456
+    },
+    {
+      "output": "r1_development",
+      "stage": "reused 96-world development",
+      "completed_policy_episodes": 192,
+      "requests": 51008,
+      "wall_s": 6.034697458031587
+    },
+    {
+      "output": "r1_quick",
+      "stage": "quick",
+      "completed_policy_episodes": 120,
+      "requests": 24117,
+      "wall_s": 3.119001541985199
+    },
+    {
+      "output": "r2_development",
+      "stage": "reused 96-world development",
+      "completed_policy_episodes": 192,
+      "requests": 50154,
+      "wall_s": 5.6043222500011325
+    },
+    {
+      "output": "r2_full",
+      "stage": "full",
+      "completed_policy_episodes": 2400,
+      "requests": 468841,
+      "wall_s": 57.222774417023174
+    },
+    {
+      "output": "r2_quick",
+      "stage": "quick",
+      "completed_policy_episodes": 120,
+      "requests": 23837,
+      "wall_s": 2.4003542499849573
+    },
+    {
+      "output": "r3_development",
+      "stage": "reused 96-world development",
+      "completed_policy_episodes": 192,
+      "requests": 50182,
+      "wall_s": 6.411677291966043
+    },
+    {
+      "output": "r3_exposed",
+      "stage": "old exposed second batch; full-v1 rows reused",
+      "completed_policy_episodes": 2400,
+      "requests": 469661,
+      "wall_s": 53.67149433400482
+    },
+    {
+      "output": "r3_full",
+      "stage": "full",
+      "completed_policy_episodes": 2400,
+      "requests": 468782,
+      "wall_s": 50.84873558289837
+    },
+    {
+      "output": "r3_guard_exposed",
+      "stage": "old exposed second batch; full-v1 rows reused",
+      "completed_policy_episodes": 2400,
+      "requests": 469661,
+      "wall_s": 50.19217283395119
+    },
+    {
+      "output": "r3_guard_full",
+      "stage": "full",
+      "completed_policy_episodes": 2400,
+      "requests": 468782,
+      "wall_s": 48.18351879203692
+    },
+    {
+      "output": "r3_guard_quick",
+      "stage": "quick",
+      "completed_policy_episodes": 120,
+      "requests": 23789,
+      "wall_s": 2.7923687089933082
+    },
+    {
+      "output": "r3_quick",
+      "stage": "quick",
+      "completed_policy_episodes": 120,
+      "requests": 23789,
+      "wall_s": 2.6230616660322994
+    },
+    {
+      "output": "r4_development",
+      "stage": "reused 96-world development",
+      "completed_policy_episodes": 192,
+      "requests": 50184,
+      "wall_s": 6.917760999989696
+    },
+    {
+      "output": "r4_quick",
+      "stage": "quick",
+      "completed_policy_episodes": 120,
+      "requests": 23841,
+      "wall_s": 2.852811500080861
+    },
+    {
+      "output": "r5_development",
+      "stage": "reused 96-world development",
+      "completed_policy_episodes": 192,
+      "requests": 50178,
+      "wall_s": 5.679044832941145
+    },
+    {
+      "output": "r5_quick",
+      "stage": "quick",
+      "completed_policy_episodes": 120,
+      "requests": 23792,
+      "wall_s": 2.4324967910069972
+    }
+  ],
+  "distinct_new_training_worlds": 1296,
+  "distinct_development_worlds": 96,
+  "completed_training_rollins": 1296,
+  "counterfactual_branches": 9994,
+  "completed_evaluation_episodes": 35688,
+  "training_requests": 499594,
+  "evaluation_requests": 7158156,
+  "failed_preflight": {
+    "directory": "results/r6_preflight_failed",
+    "accepted_training_labels": 0,
+    "complete_execution_and_request_ledger_available": false,
+    "note": "One teacher rollin and six continuation branches are inferred from rejected G0 control flow and identical first-world selected states; no raw per-action cost ledger was saved. Excluded from exact counted totals."
+  },
+  "caveats": [
+    "A branch starts from a cloned prefix and is not an independent world or a full enter-to-exit deployment.",
+    "Quick cases are part of full; repeated 96-world development is selection exposure, never new holdout.",
+    "Exposed summary reuses 2400 v1 rows and executes only 2400 other cases; no double-counting.",
+    "Wall times overlap on shared hardware and must not be summed as user waiting time.",
+    "Frozen unit and nominal fixtures are separate from source-world deployments."
+  ]
+}

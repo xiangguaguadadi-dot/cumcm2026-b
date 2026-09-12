@@ -1,0 +1,415 @@
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+Deeply AggreVaTeD: Differentiable Imitation Learning for Sequential Prediction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+.hero-text {
+    color: #303030;
+  }
+
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92432422-1', 'auto');
+  ga('send', 'pageview');
+
+
+
+
+
+
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+          autoNumber: "AMS"
+        }
+      },
+      tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+      displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+      processEscapes: true,
+    }
+  });
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+
+
+
+
+  
+
+    
+
+    Proceedings of Machine Learning Research
+  
+
+
+
+
+
+    
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+
+  
+Volume 70
+JMLR
+ 
+    
+DMLR
+ 
+    
+TMLR
+ 
+    
+MLOSS
+
+    
+FAQ
+
+    
+Submission Format
+
+    
+
+      
+
+    
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+[
+edit
+]
+
+
+
+
+  
+Deeply AggreVaTeD: Differentiable Imitation Learning for Sequential Prediction
+Wen Sun, Arun Venkatraman, Geoffrey J. Gordon, Byron Boots, J. Andrew Bagnell
+
+
+Proceedings of the 34th International Conference on Machine Learning
+, PMLR 70:3309-3318, 2017.
+  
+ 
+
+  
+  
+Abstract
+
+  
+
+    Recently, researchers have demonstrated state-of-the-art performance on sequential prediction problems using deep neural networks and Reinforcement Learning (RL). For some of these problems, oracles that can demonstrate good performance may be available during training, but are not used by plain RL methods. To take advantage of this extra information, we propose AggreVaTeD, an extension of the Imitation Learning (IL) approach of Ross \& Bagnell (2014). AggreVaTeD allows us to use expressive differentiable policy representations such as deep networks, while leveraging training-time oracles to achieve faster and more accurate solutions with less training data. Specifically, we present two gradient procedures that can learn neural network policies for several problems, including a sequential prediction task and several high-dimensional robotics control problems. We also provide a comprehensive theoretical study of IL that demonstrates that we can expect up to exponentially-lower sample complexity for learning with AggreVaTeD than with plain RL algorithms. Our results and theory indicate that IL (and AggreVaTeD in particular) can be a more effective strategy for sequential prediction than plain RL.
+  
+
+  
+Cite this Paper
+
+
+
+
+
+
+  
+
+    BibTeX
+  
+
+  
+
+  
+
+    
+@InProceedings{pmlr-v70-sun17d,
+  title = 	 {Deeply {A}ggre{V}a{T}e{D}: Differentiable Imitation Learning for Sequential Prediction},
+  author =       {Wen Sun and Arun Venkatraman and Geoffrey J. Gordon and Byron Boots and J. Andrew Bagnell},
+  booktitle = 	 {Proceedings of the 34th International Conference on Machine Learning},
+  pages = 	 {3309--3318},
+  year = 	 {2017},
+  editor = 	 {Precup, Doina and Teh, Yee Whye},
+  volume = 	 {70},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {06--11 Aug},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v70/sun17d/sun17d.pdf},
+  url = 	 {https://proceedings.mlr.press/v70/sun17d.html},
+  abstract = 	 {Recently, researchers have demonstrated state-of-the-art performance on sequential prediction problems using deep neural networks and Reinforcement Learning (RL). For some of these problems, oracles that can demonstrate good performance may be available during training, but are not used by plain RL methods. To take advantage of this extra information, we propose AggreVaTeD, an extension of the Imitation Learning (IL) approach of Ross \& Bagnell (2014). AggreVaTeD allows us to use expressive differentiable policy representations such as deep networks, while leveraging training-time oracles to achieve faster and more accurate solutions with less training data. Specifically, we present two gradient procedures that can learn neural network policies for several problems, including a sequential prediction task and several high-dimensional robotics control problems. We also provide a comprehensive theoretical study of IL that demonstrates that we can expect up to exponentially-lower sample complexity for learning with AggreVaTeD than with plain RL algorithms. Our results and theory indicate that IL (and AggreVaTeD in particular) can be a more effective strategy for sequential prediction than plain RL.}
+}
+
+
+  
+
+  
+Copy to Clipboard
+
+  
+Download
+
+  
+
+
+
+
+
+
+
+  
+
+    Endnote
+  
+
+  
+
+  
+
+    
+%0 Conference Paper
+%T Deeply AggreVaTeD: Differentiable Imitation Learning for Sequential Prediction
+%A Wen Sun
+%A Arun Venkatraman
+%A Geoffrey J. Gordon
+%A Byron Boots
+%A J. Andrew Bagnell
+%B Proceedings of the 34th International Conference on Machine Learning
+%C Proceedings of Machine Learning Research
+%D 2017
+%E Doina Precup
+%E Yee Whye Teh	
+%F pmlr-v70-sun17d
+%I PMLR
+%P 3309--3318
+%U https://proceedings.mlr.press/v70/sun17d.html
+%V 70
+%X Recently, researchers have demonstrated state-of-the-art performance on sequential prediction problems using deep neural networks and Reinforcement Learning (RL). For some of these problems, oracles that can demonstrate good performance may be available during training, but are not used by plain RL methods. To take advantage of this extra information, we propose AggreVaTeD, an extension of the Imitation Learning (IL) approach of Ross \& Bagnell (2014). AggreVaTeD allows us to use expressive differentiable policy representations such as deep networks, while leveraging training-time oracles to achieve faster and more accurate solutions with less training data. Specifically, we present two gradient procedures that can learn neural network policies for several problems, including a sequential prediction task and several high-dimensional robotics control problems. We also provide a comprehensive theoretical study of IL that demonstrates that we can expect up to exponentially-lower sample complexity for learning with AggreVaTeD than with plain RL algorithms. Our results and theory indicate that IL (and AggreVaTeD in particular) can be a more effective strategy for sequential prediction than plain RL.
+
+
+  
+
+  
+Copy to Clipboard
+
+  
+Download
+
+  
+
+
+
+
+
+
+
+
+  
+
+    APA
+  
+
+  
+
+  
+
+    
+Sun, W., Venkatraman, A., Gordon, G.J., Boots, B. & Bagnell, J.A.. (2017). Deeply AggreVaTeD: Differentiable Imitation Learning for Sequential Prediction. 
+Proceedings of the 34th International Conference on Machine Learning
+, in 
+Proceedings of Machine Learning Research
+ 70:3309-3318 Available from https://proceedings.mlr.press/v70/sun17d.html.
+
+
+
+  
+
+  
+Copy to Clipboard
+
+  
+Download
+
+  
+
+
+
+
+
+
+
+
+  
+  
+Related Material
+
+  
+
+    
+
+      
+Download PDF
+
+      
+Supplementary PDF
+
+    
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+
+
+
+
+  
+
+    
+This site last compiled Sun, 05 Jul 2026 15:11:08 +0000
+
+      
+Github Account
+
+      
+
+      
+Copyright © 
+The authors and PMLR
+ 2026.
+ MLResearchPress
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+

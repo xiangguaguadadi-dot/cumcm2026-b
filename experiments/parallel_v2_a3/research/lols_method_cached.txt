@@ -1,0 +1,986 @@
+=== PDF PAGE 1 ===
+Learning to Search Better than Your Teacher
+Kai-Wei Chang KCHANG 10@ ILLINOIS .EDU
+University of Illinois at Urbana Champaign, IL
+Akshay Krishnamurthy AKSHAYKR @CS.CMU .EDU
+Carnegie Mellon University, Pittsburgh, PA
+Alekh Agarwal ALEKHA @MICROSOFT .COM
+Microsoft Research, New York, NY
+Hal Daum´e III HAL @UMIACS .UMD .EDU
+University of Maryland, College Park, MD
+John Langford JCL @MICROSOFT .COM
+Microsoft Research, New York, NY
+Abstract
+Methods for learning to search for structured
+prediction typically imitate a reference policy,
+with existing theoretical guarantees demonstrat-
+ing low regret compared to that reference. This
+is unsatisfactory in many applications where the
+reference policy is suboptimal and the goal of
+learning is to improve upon it. Can learning to
+search work even when the reference is poor?
+We provide a new learning to search algorithm,
+LOLS, which does well relative to the refer-
+ence policy, but additionally guarantees low re-
+gret compared to deviations from the learned
+policy: a local-optimality guarantee. Conse-
+quently, LOLS can improve upon the reference
+policy, unlike previous algorithms. This enables
+us to develop structured contextual bandits , a
+partial information structured prediction setting
+with many potential applications.
+1. Introduction
+In structured prediction problems, a learner makes joint
+predictions over a set of interdependent output variables
+and observes a joint loss. For example, in a parsing task,
+the output is a parse tree over a sentence. Achieving optimal
+performance commonly requires the prediction of each out-
+Proceedings of the 32nd International Conference on Machine
+Learning, Lille, France, 2015. JMLR: W&CP volume 37. Copy-
+right 2015 by the author(s).
+put variable to depend on neighboring variables. One ap-
+proach to structured prediction is learning to search (L2S)
+(Collins & Roark, 2004; Daum´e III & Marcu, 2005; Daum´e
+III et al., 2009; Ross et al., 2011; Doppa et al., 2014; Ross
+& Bagnell, 2014), which solves the problem by:
+1. converting structured prediction into a search problem
+with speciﬁed search space and actions;
+2. deﬁning structured features over each state to capture
+the interdependency between output variables;
+3. constructing a reference policy based on training data;
+4. learning a policy that imitates the reference policy.
+Empirically, L2S approaches have been shown to be com-
+petitive with other structured prediction approaches both
+in accuracy and running time (see e.g. Daum ´e III et al.
+(2014)). Theoretically, existing L2S algorithms guarantee
+that if the learning step performs well, then the learned pol-
+icy is almost as good as the reference policy, implicitly as-
+suming that the reference policy attains good performance.
+Good reference policies are typically derived using labels
+in the training data, such as assigning each word to its cor-
+rect POS tag. However, when the reference policy is sub-
+optimal, which can arise for reasons such as computational
+constraints, nothing can be said for existing approaches.
+This problem is most obviously manifest in a “structured
+contextual bandit”1 setting. For example, one might want
+to predict how the landing page of a high proﬁle web-
+1The key difference from (1) contextual bandits is that the ac-
+tion space is exponentially large (in the length of trajectories in
+the search space); and from (2) reinforcement learning is that a
+baseline reference policy exists before learning starts.
+
+=== PDF PAGE 2 ===
+Learning to Search Better than Your Teacher
+site should be displayed; this involves many interdepen-
+dent predictions: items to show, position and size of those
+items, font, color, layout, etc. It may be plausible to derive
+a quality signal for the displayed page based on user feed-
+back, and we may have access to a reasonable reference
+policy (namely the existing rule-based system that renders
+the current web page). But, applying L2S techniques re-
+sults in nonsense—learning something almost as good as
+the existing policy is useless as we can just keep using the
+current system and obtain that guarantee. Unlike the full
+feedback settings, label information is not even available
+during learning to deﬁne a substantially better reference.
+The goal of learning here is to improve upon the current
+system, which is most likely far from optimal. This nat-
+urally leads to the question: is learning to search useless
+when the reference policy is poor?
+This is the core question of the paper, which we address
+ﬁrst with a new L2S algorithm, LOLS (Locally Optimal
+Learning to Search) in Section 2. LOLS operates in an
+online fashion and achieves a bound on a convex combi-
+nation of regret-to-reference and regret-to-own-one-step-
+deviations. The ﬁrst part ensures that good reference poli-
+cies can be leveraged effectively; the second part ensures
+that even if the reference policy is very sub-optimal, the
+learned policy is approximately “locally optimal” in a sense
+made formal in Section 3.
+LOLS operates according to a general schematic that en-
+compases many past L2S algorithms (see Section 2), in-
+cluding Searn (Daum´e III et al., 2009), DAgger (Ross et al.,
+2011) and AggreVaTe (Ross & Bagnell, 2014). A sec-
+ondary contribution of this paper is a theoretical analysis of
+both good and bad ways of instantiating this schematic un-
+der a variety of conditions, including: whether the reference
+policy is optimal or not, and whether the reference policy is
+in the hypothesis class or not. We ﬁnd that, while past algo-
+rithms achieve good regret guarantees when the reference
+policy is optimal, they can fail rather dramatically when it
+is not. LOLS, on the other hand, has superior performance
+to other L2S algorithms when the reference policy performs
+poorly but local hill-climbing in policy space is effective. In
+Section 5, we empirically conﬁrm that LOLS can signiﬁ-
+cantly outperform the reference policy in practice on real-
+world datasets.
+In Section 4 we extend LOLS to address the structured
+contextual bandit setting, giving a natural modiﬁcation to
+the algorithm as well as the corresponding regret analysis.
+The proofs of our main results, and the details of the cost-
+sensitive classiﬁer used in experiments are deferred to the
+appendix. The algorithm LOLS, the new kind of regret
+guarantee it satisﬁes, the modiﬁcations for the structured
+contextual bandit setting, and all experiments are new here.
+[ ]
+...
+[N ]
+...
+[N V ]
+...
+[N V V],loss=1
+[N V N],loss=0[N N ][V ]
+Figure 1. An illustration of the search space of a sequential tag-
+ging example that assigns a part-of-speech tag sequence to the
+sentence “John saw Mary.” Each state represents a partial la-
+beling. The start state b = [ ] and the set of end states
+E = {[N V N], [N V V ],... }. Each end state is associated
+with a loss. A policy chooses an action at each state in the search
+space to specify the next state.
+2. Learning to Search
+A structured prediction problem consists of an input space
+X , an output spaceY, a ﬁxed but unknown distributionD
+overX×Y , and a non-negative loss function 𝓁(y∗, ˆy)→
+R≥0 which measures the distance between the true (y∗) and
+predicted (ˆy) outputs. The goal of structured learning is to
+useN samples (xi, yi)N
+i=1 to learn a mappingf :X→Y
+that minimizes the expected structured loss underD.
+In the learning to search framework, an input x∈X in-
+duces a search space, consisting of an initial stateb (which
+we will take to also encode x), a set of end states and a
+transition function that takes state/action pairs s,a and de-
+terministically transitions to a new state s′. For each end
+state e, there is a corresponding structured output ye and
+for convenience we deﬁne the loss𝓁(e) =𝓁(y∗, ye) where
+y∗ will be clear from context. We futher deﬁne a feature
+generating function Φ that maps states to feature vectors in
+Rd. The features express both the inputx and previous pre-
+dictions (actions). Fig. 1 shows an example search space2.
+An agent follows a policyπ∈ Π, which chooses an action
+a∈ A(s) at each non-terminal state s. An action speciﬁes
+the next state froms. We consider policies that only access
+states through its feature vector Φ(s), meaning that π(s)
+is a mapping from Rd to the set of actions A(s). A trajec-
+tory is a complete sequence of state/action pairs from the
+starting stateb to an end statee. Trajectories can be gener-
+ated by repeatedly executing a policyπ in the search space.
+Without loss of generality, we assume the lengths of trajec-
+tories are ﬁxed and equal toT . The expected loss of a policy
+J(π) is the expected loss of the end state of the trajectory
+e∼ π, where e∈ E is an end state reached by follow-
+ing the policy 3. Throughout, expectations are taken with
+2Doppa et al. (2014) discuss several approaches for deﬁning
+a search space. The theoretical properties of our approach do not
+depend on which search space deﬁnition is used.
+3Some imitation learning literature (e.g., (Ross et al., 2011;
+He et al., 2012)) deﬁnes the loss of a policy as an accumulation
+of the costs of states and actions in the trajectory generated by the
+policy. For simplicity, we deﬁne the loss only based on the end
+
+=== PDF PAGE 3 ===
+Learning to Search Better than Your Teacher
+s r e
+e
+e
+rollin
+rollout
+  one-step
+deviations
+x  X
+yeY,   l(ye)=0.0
+yeY,   l(ye)=0.2
+yeY,   l(ye)=0.8
+Figure 2. An example search space. The exploration begins at the
+start state s and chooses the middle among three actions by the
+roll-in policy twice. Grey nodes are not explored. At state r the
+learning algorithm considers the chosen action (middle) and both
+one-step deviations from that action (top and bottom). Each of
+these deviations is completed using the roll-out policy until an
+end state is reached, at which point the loss is collected. Here, we
+learn that deviating to the top action (instead of middle) at stater
+decreases the loss by 0.2.
+respect to draws of (x, y) from the training distribution, as
+well as any internal randomness in the learning algorithm.
+An optimal policy chooses the action leading to the min-
+imal expected loss at each state. For losses decomposable
+over the states in a trajectory, generating an optimal policy
+is trivial given y∗ (e.g., the sequence tagging example in
+(Daum´e III et al., 2009)). In general, ﬁnding the optimal
+action at states not in the optimal trajectory can be tricky
+(e.g., (Goldberg & Nivre, 2013; Goldberg et al., 2014)).
+Finally, like most other L2S algorithms, LOLS assumes
+access to a cost-sensitive classiﬁcation algorithm. A cost-
+sensitive classiﬁer predicts a label ˆy given an example x,
+and receives a loss cx(ˆy), where cx is a vector containing
+the cost for each possible label. In order to perform on-
+line updates, we assume access to a no-regret online cost-
+sensitive learner, which we formally deﬁne below.
+Deﬁnition 1. Given a hypothesis classH : X→ [K], the
+regret of an online cost-sensitive classiﬁcation algorithm
+which produces hypotheses h1,...,h M on cost-sensitive
+example sequence{(x1, c1),..., (xM, cM)} is
+RegretCS
+M =
+M∑
+m=1
+cm(hm(xm))− min
+h∈H
+M∑
+m=1
+cm(h(xm)).
+(1)
+An algorithm is no-regret ifRegretCS
+M =o(M).
+Such no-regret guarantees can be obtained, for instance, by
+applying the SECOC technique (Langford & Beygelzimer,
+2005) on top of any importance weighted binary classiﬁca-
+tion algorithm that operates in an online fashion, examples
+being the perceptron algorithm or online ridge regression.
+state. However, our theorems can be generalized.
+Algorithm 1 Locally Optimal Learning to Search (LOLS)
+Require: Dataset{xi, yi}N
+i=1 drawn fromD andβ≥ 0: a
+mixture parameter for roll-out.
+1: Initialize a policyπ0.
+2: for all i∈{ 1, 2,...,N } (loop over each instance)do
+3: Generate a reference policyπref based on yi.
+4: Initialize Γ =∅.
+5: for allt∈{ 0, 1, 2,...,T − 1} do
+6: Roll-in by executing πin
+i = ˆπi for t rounds and
+reachst.
+7: for alla∈A(st) do
+8: Letπout
+i =πref with probabilityβ, otherwise ˆπi.
+9: Evaluate cost ci,t(a) by rolling-out with πout
+i
+forT−t− 1 steps.
+10: end for
+11: Generate a feature vector Φ(xi,st).
+12: Set Γ = Γ∪{⟨ci,t, Φ(xi,st)⟩}.
+13: end for
+14: ˆπi+1← Train(ˆπi, Γ) (Update).
+15: end for
+16: Return the average policy across ˆπ0, ˆπ1,... ˆπN .
+LOLS (see Algorithm 1) learns a policy ˆπ ∈ Π to ap-
+proximately minimize J(π),4 assuming access to a refer-
+ence policy πref (which may or may not be optimal). The
+algorithm proceeds in an online fashion generating a se-
+quence of learned policies ˆπ0, ˆπ1, ˆπ2,... . At round i, a
+structured sample (xi, yi) is observed, and the conﬁgura-
+tion of a search space is generated along with the reference
+policy πref. Based on (xi, yi), LOLS constructs T cost-
+sensitive multiclass examples using a roll-in policyπin
+i and
+a roll-out policyπout
+i . The roll-in policy is used to generate
+an initial trajectory and the roll-out policy is used to de-
+rive the expected loss. More speciﬁcally, for each decision
+pointt∈ [0,T ), LOLS executes πin
+i fort rounds reaching
+a statest∼ πin
+i . Then, a cost-sensitive multiclass example
+is generated using the features Φ(st). Classes in the mul-
+ticlass example correspond to available actions in state st.
+The costc(a) assigned to action a is the difference in loss
+between taking actiona and the best action.
+c(a) =𝓁(e(a))− min
+a′
+𝓁(e(a′)), (2)
+wheree(a) is the end state reached with rollout by πout
+i af-
+ter taking action a in statest. LOLS collects the T exam-
+ples from the different roll-out points and feeds the set of
+examples Γ into an online cost-sensitive multiclass learner,
+thereby updating the learned policy fromˆπi to ˆπi+1. By de-
+fault, we use the learned policy ˆπi for roll-in and a mixture
+4 We can parameterize the policyˆπ using a weight vector w∈
+Rd such that a cost-sensitive classiﬁer can be used to choose an
+action based on the features at each state. We do not consider
+using different weight vectors at different states.
+
+=== PDF PAGE 4 ===
+Learning to Search Better than Your Teacher
+roll-out→
+↓ roll-in
+Reference Mixture Learned
+Reference Inconsistent
+Learned Not locally opt. Good RL
+Table 1. Effect of different roll-in and roll-out policies. The strate-
+gies marked with “Inconsistent” might generate a learned policy
+with a large structured regret, and the strategies marked with “Not
+locally opt.” could be much worse than its one step deviation. The
+strategy marked with “RL” reduces the structure learning problem
+to a reinforcement learning problem, which is much harder. The
+strategy marked with “Good” is favored.
+policy for roll-out. For each roll-out, the mixture policy ei-
+ther executes πref to an end-state with probability β or ˆπi
+with probability 1−β. LOLS converts into a batch algo-
+rithm with a standard online-to-batch conversion where the
+ﬁnal model ¯π is generated by averagingˆπi across all rounds
+(i.e., picking one of ˆπ1,... ˆπN uniformly at random).
+3. Theoretical Analysis
+In this section, we analyze LOLS and answer the ques-
+tions raised in Section 1. Throughout this section we use
+¯π to denote the average policy obtained by ﬁrst choosing
+n∈ [1,N ] uniformly at random and then acting according
+toπn.We begin with discussing the choices of roll-in and
+roll-out policies. Table 1 summarizes the results of using
+different strategies for roll-in and roll-out.
+3.1. The Bad Choices
+An obvious bad choice is roll-in and roll-out with the
+learned policy, because the learner is blind to the reference
+policy. It reduces the structured learning problem to a re-
+inforcement learning problem, which is much harder. To
+build intuition, we show two other bad cases.
+Roll-in with πref is bad. Roll-in with a reference policy
+causes the state distribution to be unrealistically good. As
+a result, the learned policy never learns to correct for pre-
+vious mistakes, performing poorly when testing. A related
+discussion can be found at Theorem 2.1 in (Ross & Bag-
+nell, 2010). We show a theorem below.
+Theorem 1. For πin
+i = πref, there is a distribution D
+over (x, y) such that the induced cost-sensitive regret
+RegretCS
+M =o(M) butJ(¯π)−J(πref) = Ω(1).
+Proof. We demonstrate examples where the claim is true.
+We start with the case whereπout
+i =πin
+i =πref. In this case,
+suppose we have one structured example, whose search
+space is deﬁned as in Figure 3(a). From state s1, there are
+s1
+s3
+e4, 0
+f
+e3, 100eb
+s2
+e2, 10
+d
+e1, 0c
+a
+(a) πin
+i =πout
+i =πref
+s1
+s3
+e4, 0
+f
+e3, 100ea
+s2
+e2, 10
+d
+e1, 0c
+a
+(b) πin
+i = πref, repre-
+sentation constrained
+s1
+s3
+e4, 0
+d
+e3, 1+ϵcb
+s2
+e2, 1−ϵ
+d
+e1, 1c
+a
+(c) πout
+i =πref
+Figure 3. Counterexamples of πin
+i = πref and πout
+i = πref. All
+three examples have 7 states. The loss of each end state is spec-
+iﬁed in the ﬁgure. A policy chooses actions to traverse through
+the search space until it reaches an end state. Legal policies are
+bit-vectors, so that a policy with a weight on a goes up in s1
+of Figure 3(a) while a weight on b sends it down. Since features
+uniquely identify actions of the policy in this case, we just mark
+the edges with corresponding features for simplicity. The refer-
+ence policy is bold-faced. In Figure 3(b), the features are the same
+on either branch froms1, so that the learned policy can do no bet-
+ter than pick randomly between the two. In Figure 3(c), states s2
+ands3 share the same feature set (i.e., Φ(s2) = Φ(s3)). There-
+fore, a policy chooses the same set of actions at states s2 ands3.
+Please see text for details.
+two possible actions:a andb (we will use actions and fea-
+tures interchangeably since features uniquely identify ac-
+tions here); the (optimal) reference policy takes action a.
+From state s2, there are again two actions ( c and d); the
+reference takesc. Finally, even though the reference policy
+would never visit s3, from that state it chooses action f.
+When rolling in with πref, the cost-sensitive examples are
+generated only at state s1 (if we take a one-step deviation
+on s1) and s2 but never at s3 (since that would require a
+two deviations, one at s1 and one at s3). As a result, we
+can never learn how to make predictions at state s3. Fur-
+thermore, under a rollout with πref, both actions from state
+s1 lead to a loss of zero. The learner can therefore learn to
+take actionc at state s2 andb at state s1, and achieve zero
+cost-sensitive regret, thereby “thinking” it is doing a good
+job. Unfortunately, when this policy is actually run, it per-
+forms as badly as possible (by taking actione half the time
+ins3), which results in the large structured regret.
+Next we consider the case where πout
+i is either the learned
+policy or a mixture withπref. When applied to the example
+in Figure 3(b), our feature representation is not expressive
+enough to differentiate between the two actions at states1,
+so the learned policy can do no better than pick randomly
+between the top and bottom branches from this state. The
+algorithm either rolls in with πref on s1 and generates a
+cost-sensitive example at s2, or generates a cost-sensitive
+example ons1 and then completes a roll out withπout
+i . Cru-
+cially, the algorithm still never generates a cost-sensitive
+example at the state s3 (since it would have already taken
+a one-step deviation to reach s3 and is constrained to do a
+roll out from s3). As a result, if the learned policy were to
+
+=== PDF PAGE 5 ===
+Learning to Search Better than Your Teacher
+choose the action e in s3, it leads to a zero cost-sensitive
+regret but large structured regret.
+Despite these negative results, rolling in with the learned
+policy is robust to both the above failure modes. In Fig-
+ure 3(a), if the learned policy picks actionb in states1, then
+we can roll in to the states3, then generate a cost-sensitive
+example and learn thatf is a better action thane. Similarly,
+we also observe a cost-sensitive example ins3 in the exam-
+ple of Figure 3(b), which clearly demonstrates the beneﬁts
+of rolling in with the learned policy as opposed toπref.
+Roll-out withπref is bad ifπref is not optimal. When the
+reference policy is not optimal or the reference policy is
+not in the hypothesis class, roll-out with πref can make the
+learner blind to compounding errors. The following theo-
+rem holds. We state this in terms of “local optimality”: a
+policy is locally optimal if changing any one decision it
+makes never improves its performance.
+Theorem 2. Forπout
+i = πref, there is a distribution D
+over (x, y) such that the induced cost-sensitive regret
+RegretCS
+M = o(M) but ¯π has arbitrarily large structured
+regret to one-step deviations.
+Proof. Suppose we have only one structured example,
+whose search space is deﬁned as in Figure 3(c) and the ref-
+erence policy choosesa orc depending on the node. If we
+roll-out with πref, we observe expected losses 1 and 1 +ϵ
+for actions a andb at state s1, respectively. Therefore, the
+policy with zero cost-sensitive classiﬁcation regret chooses
+actionsa andd depending on the node. However, a one step
+deviation (a→b) does radically better and can be learned
+by instead rolling out with a mixture policy.
+The above theorems show the bad cases and motivate a
+good L2S algorithm which generates a learned policy that
+competes with the reference policy and deviations from the
+learned policy. In the following section, we show that Al-
+gorithm 1 is such an algorithm.
+3.2. Regret Guarantees
+LetQπ(st,a ) represent the expected loss of executing ac-
+tion a at state st and then executing policy π until reach-
+ing an end state.T is the number of decisions required be-
+fore reaching an end state. For notational simplicity, we use
+Qπ(st,π′) as a shorthand forQπ(st,π′(st)), whereπ′(st)
+is the action that π′ takes at state st. Finally, we use dt
+π
+to denote the distribution over states at time t when acting
+according to the policyπ. The expected loss of a policy is:
+J(π) = Es∼dtπ [Qπ(s,π )], (3)
+for any t∈ [0,T ]. In words, this is the expected cost of
+rolling in with π up to some time t, taking π’s action at
+timet and then completing the roll out withπ.
+Our main regret guarantee for Algorithm 1 shows that
+LOLS minimizes a combination of regret to the reference
+policy πref and regret its own one-step deviations. In or-
+der to concisely present the result, we present an additional
+deﬁnition which captures the regret of our approach:
+δN = 1
+NT
+N∑
+i=1
+T∑
+t=1
+Es∼dt
+ˆπi
+[
+Qπout
+i (s, ˆπi)−
+(
+β min
+a
+Qπref
+(s,a )
++(1−β) min
+a
+Qˆπi(s,a )
+)]
+, (4)
+whereπout
+i =βπ ref + (1−β)ˆπi is the mixture policy used
+to roll-out in Algorithm 1. With these deﬁnitions in place,
+we can now state our main result for Algorithm 1.
+Theorem 3. LetδN be as deﬁned in Equation 4. The aver-
+aged policy ¯π generated by runningN steps of Algorithm 1
+with a mixing parameterβ satisﬁes
+β(J(¯π)−J(πref)) + (1−β)
+T∑
+t=1
+(
+J(¯π)− min
+π∈Π
+Es∼dt
+¯π
+[Q¯π(s,π )]
+)
+≤TδN.
+It might appear that the LHS of the theorem combines one
+term which is constant to another scaling withT . We point
+the reader to Lemma 1 in the appendix to see why the terms
+are comparable in magnitude. Note that the theorem does
+not assume anything about the quality of the reference pol-
+icy, and it might be arbitrarily suboptimal. Assuming that
+Algorithm 1 uses a no-regret cost-sensitive classiﬁcation
+algorithm (recall Deﬁnition 1), the ﬁrst term in the deﬁni-
+tion ofδN converges to
+𝓁∗ = min
+π∈Π
+1
+NT
+N∑
+i=1
+T∑
+t=1
+Es∼dt
+ˆπi
+[Qπout
+i (s,π )].
+This observation is formalized in the next corollary.
+Corollary 1. Suppose we use a no-regret cost-sensitive
+classiﬁer in Algorithm 1. AsN→∞ ,δN→δclass, where
+δclass =𝓁∗− 1
+NT
+∑
+i,t
+Es∼dt
+ˆπi
+[
+β min
+a
+Qπref
+(s,a )
++(1−β) min
+a
+Qˆπi(s,a )
+]
+.
+When we have β = 1 , so that LOLS becomes almost
+identical to A GGRE VATE (Ross & Bagnell, 2014), δclass
+arises solely due to the policy class Π being restricted. For
+other values of β ∈ (0, 1), the asymptotic gap does not
+always vanish even if the policy class is unrestricted, since
+𝓁∗ amounts to obtainingminaQπout
+i (s,a ) in each state. This
+corresponds to taking a minimum of an average rather than
+the average of the corresponding minimum values.
+In order to avoid this asymptotic gap, it seems desirable
+to have regrets to reference policy and one-step deviations
+
+=== PDF PAGE 6 ===
+Learning to Search Better than Your Teacher
+controlled individually, which is equivalent to having the
+guarantee of Theorem 3 for all values of β in [0, 1] rather
+than a speciﬁc one. As we show in the next section, guaran-
+teeing a regret bound to one-step deviations when the refer-
+ence policy is arbitrarily bad is rather tricky and can take an
+exponentially long time. Understanding structures where
+this can be done more tractably is an important question
+for future research. Nevertheless, the result of Theorem 3
+has interesting consequences in several settings, some of
+which we discuss next.
+1. The second term on the left in the theorem is always
+non-negative by deﬁnition, so the conclusion of Theo-
+rem 3 is at least as powerful as existing regret guaran-
+tee to reference policy whenβ = 1. Since the previous
+works in this area (Daum´e III et al., 2009; Ross et al.,
+2011; Ross & Bagnell, 2014) have only studied regret
+guarantees to the reference policy, the quantity we’re
+studying is strictly more difﬁcult.
+2. The asymptotic regret incurred by using a mixture pol-
+icy for roll-out might be larger than that using the ref-
+erence policy alone, when the reference policy is near-
+optimal. How the combination of these factors mani-
+fests in practice is empirically evaluated in Section 5.
+3. When the reference policy is optimal, the ﬁrst term
+is non-negative. Consequently, the theorem demon-
+strates that our algorithm competes with one-step
+deviations in this case. This is true irrespective of
+whetherπref is in the policy class Π or not.
+4. When the reference policy is very suboptimal, then the
+ﬁrst term can be negative. In this case, the regret to
+one-step deviations can be large despite the guarantee
+of Theorem 3, since the ﬁrst negative term allows the
+second term to be large while the sum stays bounded.
+However, when the ﬁrst term is signiﬁcantly negative,
+then the learned policy has already improved upon the
+reference policy substantially! This ability to improve
+upon a poor reference policy by using a mixture pol-
+icy for rolling out is an important distinction for Al-
+gorithm 1 compared with previous approaches.
+Overall, Theorem 3 shows that the learned policy is either
+competitive with the reference policyand nearly locally op-
+timal, or improves substantially upon the reference policy.
+3.3. Hardness of local optimality
+In this section we demonstrate that the process of reaching
+a local optimum (under one-step deviations) can be expo-
+nentially slow when the initial starting policy is arbitrary.
+This reﬂects the hardness of learning to search problems
+when equipped with a poor reference policy, even if local
+rather than global optimality is considered a yardstick. We
+establish this lower bound for a class of algorithms sub-
+stantially more powerful than LOLS. We start by deﬁning
+a search space and a policy class. Our search space con-
+sists of trajectories of length T , with 2 actions available
+at each step of the trajectory. We use 0 and 1 to index the
+two actions. We consider policies whose only feature in a
+state is the depth of the state in the trajectory, meaning that
+the action taken by any policyπ in a statest depends only
+on t. Consequently, each policy can be indexed by a bit
+string of length T . For instance, the policy 0100... 0 ex-
+ecutes action 0 in the ﬁrst step of any trajectory, action 1
+in the second step and 0 at all other levels. It is easily seen
+that two policies are one-step deviations of each other if the
+corresponding bit strings have a Hamming distance of 1.
+To establish a lower bound, consider the following power-
+ful algorithmic pattern. Given a current policy π, the algo-
+rithm examines the cost J(π′) for all the one-step devia-
+tionsπ′ ofπ. It then chooses the policy with the smallest
+cost as its new learned policy. Note that access to the ac-
+tual costs J(π) makes this algorithm more powerful than
+existing L2S algorithms, which can only estimate costs of
+policies through rollouts on individual examples. Suppose
+this algorithm starts from an initial policy ˆπ0. How long
+does it take for the algorithm to reach a policy ˆπi which is
+locally optimal compared with all its one-step deviations?
+We next present a lower bound for algorithms of this style.
+Theorem 4. Consider any algorithm which updates poli-
+cies only by moving from the current policy to a one-step
+deviation. Then there is a search space, a policy class and
+a cost function where the any such algorithm must make
+Ω(2T ) updates before reaching a locally optimal policy.
+Speciﬁcally, the lower bound also applies to Algorithm 1.
+The result shows that competing with the seemingly rea-
+sonable benchmark of one-step deviations may be very
+challenging from an algorithmic perspective, at least with-
+out assumptions on the search space, policy class, loss
+function, or starting policy. For instance, the construction
+used to prove Theorem 4 does not apply to Hamming loss.
+4. Structured Contextual Bandit
+We now show that a variant of LOLS can be run in a “struc-
+tured contextual bandit” setting, where only the loss of a
+single structured label can be observed. As mentioned, this
+setting has applications to webpage layout, personalized
+search, and several other domains.
+At each round, the learner is given an input example x,
+makes a prediction ˆy and suffers structured loss 𝓁(y∗, ˆy).
+We assume that the structured losses lie in the interval
+[0, 1], that the search space has depthT and that there are at
+mostK actions available at each state. As before, the algo-
+rithm has access to a policy classΠ, and also to a reference
+policyπref. It is important to emphasize that the reference
+policy does not have access to the true label, and the goal
+
+=== PDF PAGE 7 ===
+Learning to Search Better than Your Teacher
+Algorithm 2 Structured Contextual Bandit Learning
+Require: Examples{xi}N
+i=1, reference policyπref, explo-
+ration probabilityϵ and mixture parameterβ≥ 0.
+1: Initialize a policyπ0, and setI =∅.
+2: for all i = 1, 2,...,N (loop over each instance) do
+3: Obtain the example xi, set explore = 1 with
+probabilityϵ, setni =|I|.
+4: if explore then
+5: Pick random timet∈{ 0, 1,...,T − 1}.
+6: Roll-in by executing πin
+i = ˆπni fort rounds and
+reachst.
+7: Pick random actionat∈A(st); letK =|A(st)|.
+8: Letπout
+i =πref with probabilityβ, otherwise ˆπni.
+9: Roll-out withπout
+i forT−t− 1 steps to evaluate
+ˆc(a) =K𝓁(e(at))1[a =at].
+10: Generate a feature vector Φ(xi,st).
+11: ˆπni+1← Train(ˆπni, ˆc, Φ(xi,st)).
+12: AugmentI =I∪{ ˆπni+1}
+13: else
+14: Follow the trajectory of a policy π drawn ran-
+domly fromI to an end state e, predict the cor-
+responding structured output yie.
+15: end if
+16: end for
+is improving on the reference policy.
+Our approach is based on the ϵ-greedy algorithm which
+is a common strategy in partial feedback problems. Upon
+receiving an example xi, the algorithm randomly chooses
+whether to explore or exploit on this example. With proba-
+bility 1−ϵ, the algorithm chooses to exploit and follows the
+recommendation of the current learned policy. With the re-
+maining probability, the algorithm performs a randomized
+variant of the LOLS update. A detailed description is given
+in Algorithm 2.
+We assess the algorithm’s performance via a measure of
+regret, where the comparator is a mixture of the reference
+policy and the best one-step deviation. Let ¯πi be the aver-
+aged policy based on all policies inI at roundi. yie is the
+predicted label in either step 9 or step 14 of Algorithm 2.
+The average regret is deﬁned as:
+Regret = 1
+N
+N∑
+i=1
+(
+E[𝓁(y∗
+i, yie)]−βE[𝓁(y∗
+i, yieref)]
+− (1−β)
+T∑
+t=1
+min
+π∈Π
+Es∼dt
+¯πi
+[Q¯πi(s,π )]
+)
+Recalling our earlier deﬁnition of δi (4), we bound on the
+regret of Algorithm 2 with a proof in the appendix.
+Theorem 5. Algorithm 2 with parameterϵ satisﬁes:
+Regret≤ϵ + 1
+N
+N∑
+i=1
+δni,
+With a no-regret learning algorithm, we expect
+δi≤δclass +cK
+√
+log|Π|
+i , (5)
+where|Π| is the cardinality of the policy class. This leads
+to the following corollary with a proof in the appendix.
+Corollary 2. In the setup of Theorem 5, suppose further
+that the underlying no-regret learner satisﬁes (5). Then
+with probability at least 1− 2/(N5K2T 2 log(N|Π|))3,
+Regret =O
+(
+(KT )2/3 3
+√
+log(N|Π|)
+N +Tδ class
+)
+.
+5. Experiments
+This section shows that LOLS is able to improve upon
+a suboptimal reference policy and provides empirical ev-
+idence to support the analysis in Section 3. We conducted
+experiments on the following three applications.
+Cost-Sensitive Multiclass classiﬁcation. For each cost-
+sensitive multiclass sample, each choice of label has an
+associated cost. The search space for this task is a bi-
+nary search tree. The root of the tree corresponds to the
+whole set of labels. We recursively split the set of labels
+in half, until each subset contains only one label. A trajec-
+tory through the search space is a path from root-to-leaf in
+this tree. The loss of the end state is deﬁned by the cost.
+An optimal reference policy can lead the agent to the end
+state with the minimal cost. We also show results of using
+a bad reference policy which arbitrarily chooses an action
+at each state. The experiments are conducted on KDDCup
+99 dataset5 generated from a computer network intrusion
+detection task. The dataset contains 5 classes, 4, 898, 431
+training and 311, 029 test instances.
+Part of speech tagging. The search space for POS tagging
+is left-to-right prediction. Under Hamming loss the trivial
+optimal reference policy simply chooses the correct part of
+speech for each word. We train on 38k sentences and test
+on 11k from the Penn Treebank (Marcus et al., 1993). One
+can construct suboptimal or even bad reference policies, but
+under Hamming loss these are all equivalent to the optimal
+policy because roll-outs by any ﬁxed policy will incur ex-
+actly the same loss and the learner can immediately learn
+from one-step deviations.
+5http://kdd.ics.uci.edu/databases/
+kddcup99/kddcup99.html
+
+=== PDF PAGE 8 ===
+Learning to Search Better than Your Teacher
+roll-out→
+↓ roll-in Reference Mixture Learned
+Reference is optimal
+Reference 0.282 0.282 0.279
+Learned 0.267 0.266 0.266
+Reference is bad
+Reference 1.670 1.664 0.316
+Learned 0.266 0.266 0.266
+Table 2. The average cost on cost-sensitive classiﬁcation dataset;
+columns are roll-out and rows are roll-in. The best result is bold.
+SEARN achieves 0.281 and 0.282 when the reference policy is
+optimal and bad, respectively. LOLS is Learned/Mixture and
+highlighted in green.
+roll-out→
+↓ roll-in Reference Mixture Learned
+Reference is optimal
+Reference 95.58 94.12 94.10
+Learned 95.61 94.13 94.10
+Table 3. The accuracy on POS tagging; columns are roll-out and
+rows are roll-in. The best result is bold. SEARN achieves 94.88.
+LOLS is Learned/Mixture and highlighted in green.
+Dependency parsing. A dependency parser learns to gen-
+erate a tree structure describing the syntactic dependen-
+cies between words in a sentence (McDonald et al., 2005;
+Nivre, 2003). We implemented a hybrid transition sys-
+tem (Kuhlmann et al., 2011) which parses a sentence
+from left to right with three actions: SHIFT , REDUCE LEFT
+and R EDUCE RIGHT . We used the “non-deterministic or-
+acle” (Goldberg & Nivre, 2013) as the optimal reference
+policy, which leads the agent to the best end state reach-
+able from each state. We also designed two suboptimal
+reference policies. A bad reference policy chooses an ar-
+bitrary legal action at each state. A suboptimal policy ap-
+plies a greedy selection and chooses the action which leads
+to a good tree when it is obvious; otherwise, it arbitrarily
+chooses a legal action. (This suboptimal reference was the
+default reference policy used prior to the work on “non-
+deterministic oracles.”) We used data from the Penn Tree-
+bank Wall Street Journal corpus: the standard data split for
+training (sections 02-21) and test (section 23). The loss
+is evaluated in UAS (unlabeled attachment score), which
+measures the fraction of words that pick the correct parent.
+For each task and each reference policy, we compare 6 dif-
+ferent combinations of roll-in (learned or reference) and
+roll-out (learned, mixture or reference) strategies. We also
+include S EARN in the comparison, since it has notable
+differences from LOLS. S EARN rolls in and out with a
+mixture where a different policy is drawn for each state,
+while LOLS draws a policy once per example. S EARN
+roll-out→
+↓ roll-in Reference Mixture Learned
+Reference is optimal
+Reference 87.2 89.7 88.2
+Learned 90.7 90.5 86.9
+Reference is suboptimal
+Reference 83.3 87.2 81.6
+Learned 87.1 90.2 86.8
+Reference is bad
+Reference 68.7 65.4 66.7
+Learned 75.8 89.4 87.5
+Table 4. The UAS score on dependency parsing data set; columns
+are roll-out and rows are roll-in. The best result is bold.
+SEARN achieves 84.0, 81.1, and 63.4 when the reference pol-
+icy is optimal, suboptimal, and bad, respectively. LOLS is
+Learned/Mixture and highlighted in green.
+uses a batch learner, while LOLS uses online. The policy
+in S EARN is a mixture over the policies produced at each
+iteration. For LOLS, it sufﬁces to keep just the most recent
+one. It is an open research question whether an analogous
+theoretical guarantee of Theorem 3 can be established for
+SEARN .
+Our implementation is based on V owpal Wabbit 6, a ma-
+chine learning system that supports online learning and
+L2S. For LOLS’s mixture policy, we setβ = 0.5. We found
+that LOLS is not sensitive to β, and setting β to be 0.5
+works well in practice. For S EARN , we set the mixture pa-
+rameter to be 1− (1−α)t, wheret is the number of rounds
+andα = 10−5. Unless stated otherwise all the learners take
+5 passes over the data.
+Tables 2, 3 and 4 show the results on cost-sensitive multi-
+class classiﬁcation, POS tagging and dependency parsing,
+respectively. The empirical results qualitatively agree with
+the theory. Rolling in with reference is always bad. When
+the reference policy is optimal, then doing roll-outs with
+reference is a good idea. However, when the reference pol-
+icy is suboptimal or bad, then rolling out with reference
+is a bad idea, and mixture rollouts perform substantially
+better. LOLS also signiﬁcantly outperforms S EARN on all
+tasks.
+Acknowledgements
+Part of this work was carried out while Kai-Wei, Akshay
+and Hal were visiting Microsoft Research.
+6http://hunch.net/˜vw/
+
+=== PDF PAGE 9 ===
+Learning to Search Better than Your Teacher
+References
+Abbott, H.L and Katchalski, M. On the snake in the box
+problem. Journal of Combinatorial Theory, Series B, 45
+(1):13 – 24, 1988.
+Cesa-Bianchi, N. and Lugosi, G. Prediction, Learning, and
+Games. Cambridge University Press, 2006.
+Collins, Michael and Roark, Brian. Incremental parsing
+with the perceptron algorithm. In Proceedings of the
+Conference of the Association for Computational Lin-
+guistics (ACL), 2004.
+Daum´e III, Hal and Marcu, Daniel. Learning as search op-
+timization: Approximate large margin methods for struc-
+tured prediction. In Proceedings of the International
+Conference on Machine Learning (ICML), 2005.
+Daum´e III, Hal, Langford, John, and Marcu, Daniel.
+Search-based structured prediction. Machine Learning
+Journal, 2009.
+Daum´e III, Hal, Langford, John, and Ross, St ´ephane.
+Efﬁcient programmable learning to search.
+arXiv:1406.1837, 2014.
+Doppa, Janardhan Rao, Fern, Alan, and Tadepalli, Prasad.
+HC-Search: A learning framework for search-based
+structured prediction. Journal of Artiﬁcial Intelligence
+Research (JAIR), 50, 2014.
+Goldberg, Yoav and Nivre, Joakim. Training deterministic
+parsers with non-deterministic oracles. Transactions of
+the ACL, 1, 2013.
+Goldberg, Yoav, Sartorio, Francesco, and Satta, Giorgio. A
+tabular method for dynamic oracles in transition-based
+parsing. Transactions of the ACL, 2, 2014.
+He, He, Daum´e III, Hal, and Eisner, Jason. Imitation learn-
+ing by coaching. In Neural Information Processing Sys-
+tems (NIPS), 2012.
+Kuhlmann, Marco, G ´omez-Rodr´ıguez, Carlos, and Satta,
+Giorgio. Dynamic programming algorithms for
+transition-based dependency parsers. In Proceedings of
+the 49th Annual Meeting of the Association for Com-
+putational Linguistics: Human Language Technologies-
+Volume 1, pp. 673–682. Association for Computational
+Linguistics, 2011.
+Langford, John and Beygelzimer, Alina. Sensitive error
+correcting output codes. In Learning Theory, pp. 158–
+172. Springer, 2005.
+Marcus, Mitch, Marcinkiewicz, Mary Ann, and Santorini,
+Beatrice. Building a large annotated corpus of English:
+The Penn Treebank. Computational Linguistics, 19(2):
+313–330, 1993.
+McDonald, Ryan, Pereira, Fernando, Ribarov, Kiril, and
+Hajic, Jan. Non-projective dependency parsing using
+spanning tree algorithms. In Proceedings of the Joint
+Conference on Human Language Technology Confer-
+ence and Empirical Methods in Natural Language Pro-
+cessing (HLT/EMNLP), 2005.
+Nivre, Joakim. An efﬁcient algorithm for projective depen-
+dency parsing. In International Workshop on Parsing
+Technologies (IWPT), pp. 149–160, 2003.
+Ross, St ´ephane and Bagnell, J. Andrew. Efﬁcient reduc-
+tions for imitation learning. In Proceedings of the Work-
+shop on Artiﬁcial Intelligence and Statistics (AI-Stats) ,
+2010.
+Ross, St ´ephane and Bagnell, J. Andrew. Reinforcement
+and imitation learning via interactive no-regret learning.
+arXiv:1406.5979, 2014.
+Ross, St´ephane, Gordon, Geoff J., and Bagnell, J. Andrew.
+A reduction of imitation learning and structured predic-
+tion to no-regret online learning. In Proceedings of the
+Workshop on Artiﬁcial Intelligence and Statistics (AI-
+Stats), 2011.
+Zinkevich, Martin. Online convex programming and gen-
+eralized inﬁnitesimal gradient ascent. In Proceedings
+of the International Conference on Machine Learning
+(ICML), 2003.

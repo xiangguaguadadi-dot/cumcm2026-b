@@ -1,0 +1,11 @@
+{
+  "round": "B3",
+  "mechanism": "MAP bias estimate rather than posterior mean",
+  "hypothesis": "Bounded fixed bias near plus/minus one degree is pulled inward by posterior averaging. MAP retains best supported boundary bias while all geometric bounds stay unchanged.",
+  "parent": "B1 shared-bias posterior",
+  "source": "bias_component.py",
+  "change": {
+    "eb_bias_estimator": "map"
+  },
+  "gate": "Quick complete, development mean strictly below B1_safe, then full and exposed vs B1_safe."
+}

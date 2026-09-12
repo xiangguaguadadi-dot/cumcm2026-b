@@ -1,0 +1,416 @@
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+Safe Policy Improvement with Baseline Bootstrapping
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+.hero-text {
+    color: #303030;
+  }
+
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92432422-1', 'auto');
+  ga('send', 'pageview');
+
+
+
+
+
+
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+          autoNumber: "AMS"
+        }
+      },
+      tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+      displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+      processEscapes: true,
+    }
+  });
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+
+
+
+
+  
+
+    
+
+    Proceedings of Machine Learning Research
+  
+
+
+
+
+
+    
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+
+  
+Volume 97
+JMLR
+ 
+    
+DMLR
+ 
+    
+TMLR
+ 
+    
+MLOSS
+
+    
+FAQ
+
+    
+Submission Format
+
+    
+
+      
+
+    
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+[
+edit
+]
+
+
+
+
+  
+Safe Policy Improvement with Baseline Bootstrapping
+Romain Laroche, Paul Trichelair, Remi Tachet Des Combes
+
+
+Proceedings of the 36th International Conference on Machine Learning
+, PMLR 97:3652-3661, 2019.
+  
+ 
+
+  
+  
+Abstract
+
+  
+
+    This paper considers Safe Policy Improvement (SPI) in Batch Reinforcement Learning (Batch RL): from a fixed dataset and without direct access to the true environment, train a policy that is guaranteed to perform at least as well as the baseline policy used to collect the data. 	 Our approach, called SPI with Baseline Bootstrapping (SPIBB), is inspired by the knows-what-it-knows paradigm: it bootstraps the trained policy with the baseline when the uncertainty is high. 	 Our first algorithm, $\Pi_b$-SPIBB, comes with SPI theoretical guarantees. 	 We also implement a variant, $\Pi_{\leq b}$-SPIBB, that is even more efficient in practice. 	 We apply our algorithms to a motivational stochastic gridworld domain and further demonstrate on randomly generated MDPs the superiority of SPIBB with respect to existing algorithms, not only in safety but also in mean performance. 	 Finally, we implement a model-free version of SPIBB and show its benefits on a navigation task with deep RL implementation called SPIBB-DQN, which is, to the best of our knowledge, the first RL algorithm relying on a neural network representation able to train efficiently and reliably from batch data, without any interaction with the environment.
+  
+
+  
+Cite this Paper
+
+
+
+
+
+
+  
+
+    BibTeX
+  
+
+  
+
+  
+
+    
+@InProceedings{pmlr-v97-laroche19a,
+  title = 	 {Safe Policy Improvement with Baseline Bootstrapping},
+  author =       {Laroche, Romain and Trichelair, Paul and Combes, Remi Tachet Des},
+  booktitle = 	 {Proceedings of the 36th International Conference on Machine Learning},
+  pages = 	 {3652--3661},
+  year = 	 {2019},
+  editor = 	 {Chaudhuri, Kamalika and Salakhutdinov, Ruslan},
+  volume = 	 {97},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {09--15 Jun},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v97/laroche19a/laroche19a.pdf},
+  url = 	 {https://proceedings.mlr.press/v97/laroche19a.html},
+  abstract = 	 {This paper considers Safe Policy Improvement (SPI) in Batch Reinforcement Learning (Batch RL): from a fixed dataset and without direct access to the true environment, train a policy that is guaranteed to perform at least as well as the baseline policy used to collect the data. 	 Our approach, called SPI with Baseline Bootstrapping (SPIBB), is inspired by the knows-what-it-knows paradigm: it bootstraps the trained policy with the baseline when the uncertainty is high. 	 Our first algorithm, $\Pi_b$-SPIBB, comes with SPI theoretical guarantees. 	 We also implement a variant, $\Pi_{\leq b}$-SPIBB, that is even more efficient in practice. 	 We apply our algorithms to a motivational stochastic gridworld domain and further demonstrate on randomly generated MDPs the superiority of SPIBB with respect to existing algorithms, not only in safety but also in mean performance. 	 Finally, we implement a model-free version of SPIBB and show its benefits on a navigation task with deep RL implementation called SPIBB-DQN, which is, to the best of our knowledge, the first RL algorithm relying on a neural network representation able to train efficiently and reliably from batch data, without any interaction with the environment.}
+}
+
+
+  
+
+  
+Copy to Clipboard
+
+  
+Download
+
+  
+
+
+
+
+
+
+
+  
+
+    Endnote
+  
+
+  
+
+  
+
+    
+%0 Conference Paper
+%T Safe Policy Improvement with Baseline Bootstrapping
+%A Romain Laroche
+%A Paul Trichelair
+%A Remi Tachet Des Combes
+%B Proceedings of the 36th International Conference on Machine Learning
+%C Proceedings of Machine Learning Research
+%D 2019
+%E Kamalika Chaudhuri
+%E Ruslan Salakhutdinov	
+%F pmlr-v97-laroche19a
+%I PMLR
+%P 3652--3661
+%U https://proceedings.mlr.press/v97/laroche19a.html
+%V 97
+%X This paper considers Safe Policy Improvement (SPI) in Batch Reinforcement Learning (Batch RL): from a fixed dataset and without direct access to the true environment, train a policy that is guaranteed to perform at least as well as the baseline policy used to collect the data. 	 Our approach, called SPI with Baseline Bootstrapping (SPIBB), is inspired by the knows-what-it-knows paradigm: it bootstraps the trained policy with the baseline when the uncertainty is high. 	 Our first algorithm, $\Pi_b$-SPIBB, comes with SPI theoretical guarantees. 	 We also implement a variant, $\Pi_{\leq b}$-SPIBB, that is even more efficient in practice. 	 We apply our algorithms to a motivational stochastic gridworld domain and further demonstrate on randomly generated MDPs the superiority of SPIBB with respect to existing algorithms, not only in safety but also in mean performance. 	 Finally, we implement a model-free version of SPIBB and show its benefits on a navigation task with deep RL implementation called SPIBB-DQN, which is, to the best of our knowledge, the first RL algorithm relying on a neural network representation able to train efficiently and reliably from batch data, without any interaction with the environment.
+
+
+  
+
+  
+Copy to Clipboard
+
+  
+Download
+
+  
+
+
+
+
+
+
+
+
+  
+
+    APA
+  
+
+  
+
+  
+
+    
+Laroche, R., Trichelair, P. & Combes, R.T.D.. (2019). Safe Policy Improvement with Baseline Bootstrapping. 
+Proceedings of the 36th International Conference on Machine Learning
+, in 
+Proceedings of Machine Learning Research
+ 97:3652-3661 Available from https://proceedings.mlr.press/v97/laroche19a.html.
+
+
+
+  
+
+  
+Copy to Clipboard
+
+  
+Download
+
+  
+
+
+
+
+
+
+
+
+  
+  
+Related Material
+
+  
+
+    
+
+      
+Download PDF
+
+      
+Supplementary PDF
+
+      
+Code
+
+    
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+
+
+
+
+  
+
+    
+This site last compiled Tue, 30 Jun 2026 09:26:54 +0000
+
+      
+Github Account
+
+      
+
+      
+Copyright © 
+The authors and PMLR
+ 2026.
+ MLResearchPress
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+

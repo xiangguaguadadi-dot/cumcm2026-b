@@ -1,0 +1,58 @@
+{
+  "schema": "a3-local-rollout-ridge-v1",
+  "weights": [
+    0.08599818042533264,
+    -0.5752427477430995,
+    4.009585739636181,
+    -4.445670324603404,
+    0.7488481952449086,
+    0.38274389825704125,
+    2.1142149819087983,
+    -1.2700821439379721,
+    0.004513099586134328,
+    -0.5520659648350789,
+    0.8095981979170497,
+    1.5594687253720458,
+    0.28056206095843417,
+    -1.6675256725852323,
+    -2.0530495211108364
+  ],
+  "threshold": 0.0,
+  "features": 15,
+  "ridge": 1.0,
+  "target": "actual virtual seconds(ref local source-completion tail) - seconds(alt tail)",
+  "tail": "clear(target); measure(target) on fail; frozen parent localize until chosen channel success, max12 rounds",
+  "limitations": "Not whole-task rollout; no claim of policy improvement guarantee; incidental other clear value not adjusted",
+  "fit_worlds": 192,
+  "calibration_worlds": 96,
+  "fit_samples": 712,
+  "calibration_samples": 362,
+  "calibration_scores": [
+    {
+      "threshold": 0.0,
+      "mean_local_advantage_s": 0.024634038194442886,
+      "selected": 258
+    },
+    {
+      "threshold": 1.0,
+      "mean_local_advantage_s": -0.06305421788194282,
+      "selected": 91
+    },
+    {
+      "threshold": 2.0,
+      "mean_local_advantage_s": -0.14565008072916688,
+      "selected": 7
+    },
+    {
+      "threshold": 5.0,
+      "mean_local_advantage_s": 0.0,
+      "selected": 0
+    },
+    {
+      "threshold": 10.0,
+      "mean_local_advantage_s": 0.0,
+      "selected": 0
+    }
+  ],
+  "wall_s": 11.564711834071204
+}

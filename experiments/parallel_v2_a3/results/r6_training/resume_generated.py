@@ -1,0 +1,56 @@
+def resume(self, todo, visited):
+    started = time.monotonic()
+    while todo or any((self.observations[c] and c not in self.cleared for c in range(1, 21))):
+        if todo and self.config.get('stop_discovered', True) and self.config.get('upper_bound_stop', True) and self.config.get('joint_scheduling', False):
+            discovered = {c for c in range(1, 21) if c in self.cleared or self.observations[c]}
+            ready = self.config.get('discovered_ready_radius', float('inf'))
+            if len(discovered) >= 16 and all((_di_enclosing_circle(self.polygons[c])[1] <= ready for c in discovered if c not in self.cleared)):
+                self.counters['stations_removed_after_discovery'] = self.counters.get('stations_removed_after_discovery', 0) + len(todo)
+                todo.clear()
+        self.route_successor = None
+        route_pending = [c for c in range(1, 21) if self.observations[c] and c not in self.cleared]
+        spatial_ready = route_pending and all((_di_enclosing_circle(self.polygons[c])[1] <= self.config.get('spatial_ready_radius', 100.0) for c in route_pending))
+        if self.config.get('spatial_route', False) and (spatial_ready or not route_pending):
+            kind, key = self.spatial_next_task(todo)
+            if kind == 'source':
+                self.localize(key)
+            else:
+                self.scan_station(key, defer=True)
+                visited.append(key)
+                todo.remove(key)
+            if self.config.get('upper_bound_stop', True) and len(self.cleared) >= 16:
+                break
+            continue
+        if self.config.get('joint_scheduling', False):
+            pending = [c for c in range(1, 21) if self.observations[c] and c not in self.cleared]
+            index = self.next_station(todo) if todo else None
+            if pending:
+                ch = min(pending, key=lambda c: _di_dist(self.position, _di_enclosing_circle(self.polygons[c])[0]))
+                target = _di_enclosing_circle(self.polygons[ch])[0]
+                source_cost = _di_dist(self.position, target) * self.config.get('source_priority', 1.0)
+                station_cost = _di_dist(self.position, self.points[index]) if index is not None else float('inf')
+                if source_cost <= station_cost:
+                    self.localize(ch)
+                    if self.config.get('upper_bound_stop', True) and len(self.cleared) >= 16:
+                        break
+                    continue
+            self.scan_station(index, defer=True)
+            visited.append(index)
+            todo.remove(index)
+            if self.config.get('upper_bound_stop', True) and len(self.cleared) >= 16:
+                break
+            continue
+        index = self.next_station(todo)
+        self.scan_station(index)
+        visited.append(index)
+        todo.remove(index)
+        if self.config.get('upper_bound_stop', True) and len(self.cleared) >= 16:
+            break
+    unresolved = [c for c in range(1, 21) if c not in self.cleared]
+    count_certificate = len(self.cleared) >= 16
+    geometric_certificate = all((not self.observations[c] and len(self.scanned[c]) == len(self.points) for c in unresolved))
+    certificate = count_certificate or geometric_certificate
+    if not certificate:
+        raise RuntimeError('Search ended without complete coverage certificate')
+    final = self._accept(self.env.exit())
+    return {'mode': self.mode, 'cleared_count': len(self.cleared), 'cleared_channels': sorted(self.cleared), 'virtual_time_s': self.virtual_time, 'average_time_s': self.virtual_time / max(1, len(self.cleared)), 'program_time_s': time.monotonic() - started, 'coverage_complete': certificate, 'completion_certified': certificate, 'geometric_coverage_complete': geometric_certificate, 'coverage_point_count': len(self.points), 'visited_points': visited, 'certificate_type': 'known_count_upper_bound' if count_certificate else 'complete_geometric_coverage', 'unresolved_channels_certified_absent': unresolved, 'counters': dict(self.counters), 'exit_response': final}

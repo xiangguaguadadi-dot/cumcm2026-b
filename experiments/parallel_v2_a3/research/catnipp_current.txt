@@ -1,0 +1,422 @@
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+CAtNIPP: Context-Aware Attention-based Network for Informative Path Planning
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+.hero-text {
+    color: #303030;
+  }
+
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92432422-1', 'auto');
+  ga('send', 'pageview');
+
+
+
+
+
+
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+          autoNumber: "AMS"
+        }
+      },
+      tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+      displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+      processEscapes: true,
+    }
+  });
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+
+
+
+
+  
+
+    
+
+    Proceedings of Machine Learning Research
+  
+
+
+
+
+
+    
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+
+  
+Volume 205
+JMLR
+ 
+    
+DMLR
+ 
+    
+TMLR
+ 
+    
+MLOSS
+
+    
+FAQ
+
+    
+Submission Format
+
+    
+
+      
+
+    
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+[
+edit
+]
+
+
+
+
+
+  
+CAtNIPP: Context-Aware Attention-based Network for Informative Path Planning
+Yuhong Cao, Yizhuo Wang, Apoorva Vashisth, Haolin Fan, Guillaume Adrien Sartoretti
+
+
+Proceedings of The 6th Conference on Robot Learning
+, PMLR 205:1928-1937, 2023.
+  
+ 
+
+  
+  
+Abstract
+
+  
+
+    Informative path planning (IPP) is an NP-hard problem, which aims at planning a path allowing an agent to build an accurate belief about a quantity of interest throughout a given search domain, within constraints on resource budget (e.g., path length for robots with limited battery life). IPP requires frequent online replanning as this belief is updated with every new measurement (i.e., adaptive IPP), while balancing short-term exploitation and longer-term exploration to avoid suboptimal, myopic behaviors. Encouraged by the recent developments in deep reinforcement learning, we introduce CAtNIPP, a fully reactive, neural approach to the adaptive IPP problem. CAtNIPP relies on self-attention for its powerful ability to capture dependencies in data at multiple spatial scales. Specifically, our agent learns to form a context of its belief over the entire domain, which it uses to sequence local movement decisions that optimize short- and longer-term search objectives. We experimentally demonstrate that CAtNIPP significantly outperforms state-of-the-art non-learning IPP solvers in terms of solution quality and computing time once trained, and present experimental results on hardware.
+  
+
+  
+Cite this Paper
+
+
+
+
+
+
+  
+
+    BibTeX
+  
+
+  
+
+  
+
+    
+
+@InProceedings{pmlr-v205-cao23b,
+  title = 	 {CAtNIPP: Context-Aware Attention-based Network for Informative Path Planning},
+  author =       {Cao, Yuhong and Wang, Yizhuo and Vashisth, Apoorva and Fan, Haolin and Sartoretti, Guillaume Adrien},
+  booktitle = 	 {Proceedings of The 6th Conference on Robot Learning},
+  pages = 	 {1928--1937},
+  year = 	 {2023},
+  editor = 	 {Liu, Karen and Kulic, Dana and Ichnowski, Jeff},
+  volume = 	 {205},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {14--18 Dec},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v205/cao23b/cao23b.pdf},
+  url = 	 {https://proceedings.mlr.press/v205/cao23b.html},
+  abstract = 	 {Informative path planning (IPP) is an NP-hard problem, which aims at planning a path allowing an agent to build an accurate belief about a quantity of interest throughout a given search domain, within constraints on resource budget (e.g., path length for robots with limited battery life). IPP requires frequent online replanning as this belief is updated with every new measurement (i.e., adaptive IPP), while balancing short-term exploitation and longer-term exploration to avoid suboptimal, myopic behaviors. Encouraged by the recent developments in deep reinforcement learning, we introduce CAtNIPP, a fully reactive, neural approach to the adaptive IPP problem. CAtNIPP relies on self-attention for its powerful ability to capture dependencies in data at multiple spatial scales. Specifically, our agent learns to form a context of its belief over the entire domain, which it uses to sequence local movement decisions that optimize short- and longer-term search objectives. We experimentally demonstrate that CAtNIPP significantly outperforms state-of-the-art non-learning IPP solvers in terms of solution quality and computing time once trained, and present experimental results on hardware.}
+}
+
+
+  
+
+  
+Copy to Clipboard
+
+  
+Download
+
+  
+
+
+
+
+
+
+
+  
+
+    Endnote
+  
+
+  
+
+  
+
+    
+%0 Conference Paper
+%T CAtNIPP: Context-Aware Attention-based Network for Informative Path Planning
+%A Yuhong Cao
+%A Yizhuo Wang
+%A Apoorva Vashisth
+%A Haolin Fan
+%A Guillaume Adrien Sartoretti
+%B Proceedings of The 6th Conference on Robot Learning
+%C Proceedings of Machine Learning Research
+%D 2023
+%E Karen Liu
+%E Dana Kulic
+%E Jeff Ichnowski	
+%F pmlr-v205-cao23b
+%I PMLR
+%P 1928--1937
+%U https://proceedings.mlr.press/v205/cao23b.html
+%V 205
+%X Informative path planning (IPP) is an NP-hard problem, which aims at planning a path allowing an agent to build an accurate belief about a quantity of interest throughout a given search domain, within constraints on resource budget (e.g., path length for robots with limited battery life). IPP requires frequent online replanning as this belief is updated with every new measurement (i.e., adaptive IPP), while balancing short-term exploitation and longer-term exploration to avoid suboptimal, myopic behaviors. Encouraged by the recent developments in deep reinforcement learning, we introduce CAtNIPP, a fully reactive, neural approach to the adaptive IPP problem. CAtNIPP relies on self-attention for its powerful ability to capture dependencies in data at multiple spatial scales. Specifically, our agent learns to form a context of its belief over the entire domain, which it uses to sequence local movement decisions that optimize short- and longer-term search objectives. We experimentally demonstrate that CAtNIPP significantly outperforms state-of-the-art non-learning IPP solvers in terms of solution quality and computing time once trained, and present experimental results on hardware.
+
+
+  
+
+  
+Copy to Clipboard
+
+  
+Download
+
+  
+
+
+
+
+
+
+
+
+  
+
+    APA
+  
+
+  
+
+  
+
+    
+
+Cao, Y., Wang, Y., Vashisth, A., Fan, H. & Sartoretti, G.A.. (2023). CAtNIPP: Context-Aware Attention-based Network for Informative Path Planning. 
+Proceedings of The 6th Conference on Robot Learning
+, in 
+Proceedings of Machine Learning Research
+ 205:1928-1937 Available from https://proceedings.mlr.press/v205/cao23b.html.
+
+
+
+  
+
+  
+Copy to Clipboard
+
+  
+Download
+
+  
+
+
+
+
+
+
+
+
+  
+  
+Related Material
+
+  
+
+    
+
+      
+Download PDF
+
+      
+OpenReview
+
+      
+Supplementary PDF
+
+    
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+
+
+
+
+  
+
+    
+This site last compiled Wed, 23 Aug 2023 06:06:50 +0000
+
+      
+Github Account
+
+      
+
+      
+Copyright © 
+The authors and PMLR
+ 2023.
+ MLResearchPress
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,570 @@
+{
+  "cutoff": "2026-09-12",
+  "scope": "Bounded mechanism research for Q4 improvement, not an exhaustive systematic review",
+  "total": 15,
+  "targeted_core": 7,
+  "extended": 8,
+  "primary_families": 4,
+  "queries": [
+    "bearing only target localization pseudolinear least squares biased estimator",
+    "Bayesian experimental design source localization bearing only active sensing",
+    "residual reinforcement learning",
+    "cost-sensitive imitation rollout",
+    "bearings only bias estimation"
+  ],
+  "access_notes": "web tool and sandbox proxy failed; direct curl --noproxy with approved network access succeeded. Primary PDFs/texts from the frozen repository supplemented fresh pages.",
+  "entries": [
+    {
+      "id": "maxent",
+      "title": "Improving D-Optimal Sensor Placement for Bearing-Only Localization via Maximum-Entropy Reweighting",
+      "authors": [
+        "Raktim Bhattacharya"
+      ],
+      "date": [],
+      "venue": [
+        "arXiv/preprint identity only"
+      ],
+      "source_url": "https://arxiv.org/html/2605.11116v1",
+      "source_path": "experiments/parallel_v2_a3/research/bearing_maxent_current.html",
+      "sha256": "ba8075cc22b4b72206a0a40ab0e0e86dfbd5124580aad2226cbc9a1bbb3c2ee0",
+      "tier": "core",
+      "reading_scope": "II bearing FIM and two layers; IV setup; V limitations; no full proof audit",
+      "reading_sources": [
+        {
+          "path": "research/bearing_maxent_current.html",
+          "sha256": "ba8075cc22b4b72206a0a40ab0e0e86dfbd5124580aad2226cbc9a1bbb3c2ee0",
+          "role": "actual primary body used for targeted reading"
+        }
+      ],
+      "primary_path": [
+        "belief/model adaptation",
+        "planning-only posterior reweighting",
+        "maxent"
+      ],
+      "method": "Particle reweighting changes placement objective while the Bayesian observation update retains the original prior.",
+      "benchmark_scope": "Multi-source 2D synthetic bearing localization; Gaussian noise 8 or 15 degrees, D-optimal comparison.",
+      "limitations": "No guarantee on complete-task time; Gaussian independence and particle approximation differ from bounded fixed error.",
+      "local_transfer": "Separate planning estimates from reliable polygons; no direct MaxEnt reproduction.",
+      "verification": "primary page retrieved this run"
+    },
+    {
+      "id": "bias_registration",
+      "title": "Multisensor--Multitarget Bearing--Only Sensor Registration",
+      "authors": [
+        "Taghavi, Ehsan",
+        "Tharmarasa, R.",
+        "Kirubarajan, T.",
+        "McDonald, Mike"
+      ],
+      "date": [
+        "2016/03/09"
+      ],
+      "venue": [
+        "arXiv/preprint identity only"
+      ],
+      "source_url": "https://arxiv.org/abs/1603.03450",
+      "source_path": "experiments/parallel_v2_a3/research/bias_registration_current.html",
+      "sha256": "cc782bce8b3fa9f4045792ba7708435e7a383a0f3f99f17da471168522e6be6e",
+      "tier": "core",
+      "reading_scope": "PDF pages 1-6 including measurement model and likelihood; simulation setup excerpt",
+      "reading_sources": [
+        {
+          "path": "research/bias_registration.pdf",
+          "sha256": "4ac02d6b7958f9d290f83b61394d93c582538ebbbd819344da447ea636a4a6ae",
+          "role": "actual primary body used for targeted reading"
+        }
+      ],
+      "primary_path": [
+        "belief/model adaptation",
+        "shared sensor-bias estimation",
+        "bias_registration"
+      ],
+      "method": "Triangulated pseudo-measurement differences identify sensor bias, fitted with batch maximum likelihood.",
+      "benchmark_scope": "Distributed multisensor multitarget bearing tracking; simulations also consider missed detections and false alarms.",
+      "limitations": "Requires identifiable sensor geometry; independent Gaussian assumptions and moving targets differ from this problem.",
+      "local_transfer": "B1-B4 shared-angle planning hypotheses inferred from successful-clear regions; not the original estimator.",
+      "verification": "primary page retrieved this run"
+    },
+    {
+      "id": "vb_noise",
+      "title": "Tracking an Underwater Target with Unknown Measurement Noise Statistics Using Variational Bayesian Filters",
+      "authors": [
+        "Das, Shreya",
+        "Kumar, Kundan",
+        "Bhaumik, Shovan"
+      ],
+      "date": [
+        "2023/05/15"
+      ],
+      "venue": [
+        "arXiv/preprint identity only"
+      ],
+      "source_url": "https://arxiv.org/abs/2305.08390",
+      "source_path": "experiments/parallel_v2_a3/research/vb_noise_current.html",
+      "sha256": "4396d307bbbf740bbf54e4970c855745e1300aca23b118302c19f7a0d3498411",
+      "tier": "core",
+      "reading_scope": "PDF pages 1-4; VII setup and VIII discussion excerpts; no full VB derivation audit",
+      "reading_sources": [
+        {
+          "path": "research/vb_noise.pdf",
+          "sha256": "f4a5883771cc65f6d948be948650347d82687052922d94c00e8fccfc18359e9f",
+          "role": "actual primary body used for targeted reading"
+        }
+      ],
+      "primary_path": [
+        "belief/model adaptation",
+        "joint noise mean and covariance inference",
+        "vb_noise"
+      ],
+      "method": "Normal-inverse-Wishart model jointly adapts unknown noise mean and covariance through variational filtering.",
+      "benchmark_scope": "Moderate/high nonlinear underwater bearing tracking, static/varying covariance, RMSE and track-loss comparisons.",
+      "limitations": "Gaussian noise, process model and 30-minute sensing differ; some reported metrics exclude divergent tracks.",
+      "local_transfer": "Motivates learning a noise bias instead of assuming zero mean; our grid profile likelihood is not VB.",
+      "verification": "primary page retrieved this run"
+    },
+    {
+      "id": "residual",
+      "title": "Residual Reinforcement Learning for Robot Control",
+      "authors": [
+        "Johannink, Tobias",
+        "Bahl, Shikhar",
+        "Nair, Ashvin",
+        "Luo, Jianlan",
+        "Kumar, Avinash",
+        "Loskyll, Matthias",
+        "Ojea, Juan Aparicio",
+        "Solowjow, Eugen",
+        "Levine, Sergey"
+      ],
+      "date": [
+        "2018/12/07"
+      ],
+      "venue": [
+        "arXiv/preprint identity only"
+      ],
+      "source_url": "https://arxiv.org/abs/1812.03201v2",
+      "source_path": "experiments/parallel_v2_a3/research/residual_current.html",
+      "sha256": "d1cc7f376bc8dd5ba67210870de3e191fc28ea574fc6ad02a56d9d7e140460c3",
+      "tier": "core",
+      "reading_scope": "Cached PDF pages 1-5 method, setup, real block-assembly result",
+      "reading_sources": [
+        {
+          "path": "research/residual_method_cached.txt",
+          "sha256": "4610d4d7b860308b20986a38d2d59a0829d30a6df100e88cb2be361b31c9f06c",
+          "role": "cached primary PDF text; only reading_scope sections were read",
+          "original_pdf_sha256": "c6279120f9e0a799a9d7a943a5624a5738250e588f99c5fc8a9fac28e2039641"
+        }
+      ],
+      "primary_path": [
+        "controller structure",
+        "retain controller and learn residual",
+        "residual"
+      ],
+      "method": "An additive learned control policy complements a hand-engineered controller, trained using a TD3 variant.",
+      "benchmark_scope": "MuJoCo and physical block assembly, including misalignment and control-noise experiments.",
+      "limitations": "Continuous torque/position control differs from discrete service replacement; reported sample efficiency does not transfer.",
+      "local_transfer": "R1-R6 alter narrowly defined trial/service decisions while keeping coverage and fallback.",
+      "verification": "primary page retrieved this run"
+    },
+    {
+      "id": "spibb",
+      "title": "Safe Policy Improvement with Baseline Bootstrapping",
+      "authors": [
+        "Romain Laroche",
+        "Paul Trichelair",
+        "Remi Tachet Des Combes"
+      ],
+      "date": [
+        "2019/05/24"
+      ],
+      "venue": [
+        "International Conference on Machine Learning"
+      ],
+      "source_url": "https://proceedings.mlr.press/v97/laroche19a.html",
+      "source_path": "experiments/parallel_v2_a3/research/spibb_current.html",
+      "sha256": "41e35c89b28052a05ec0015c877ba40abef3df69bb28d19273bf9e7bfc0ed498",
+      "tier": "core",
+      "reading_scope": "Cached PDF page 3 method/theorems, page 5 experimental protocol",
+      "reading_sources": [
+        {
+          "path": "research/spibb_method_cached.txt",
+          "sha256": "993a66a1e505a285970e89470c1ab2099f98080c15b8069070ddc67d14083c9a",
+          "role": "cached primary PDF text; only reading_scope sections were read",
+          "original_pdf_sha256": "30a4ff331b38103ef43ddcdcf4ec119dcec8e5cce9c4608e98718fe5fc83c215"
+        }
+      ],
+      "primary_path": [
+        "controller structure",
+        "conservative policy improvement",
+        "spibb"
+      ],
+      "method": "On insufficiently supported state-action pairs, retain the baseline action probabilities.",
+      "benchmark_scope": "Finite MDP/gridworld mean and CVaR comparisons; approximate deep variants are separate.",
+      "limitations": "Our empirical gates have no finite-MDP SPIBB bound or state-action count guarantee.",
+      "local_transfer": "Use fixed validation gates and keep a baseline action; do not infer mathematical safety from a model score.",
+      "verification": "primary page retrieved this run"
+    },
+    {
+      "id": "aggrevate",
+      "title": "Reinforcement and Imitation Learning via Interactive No-Regret Learning",
+      "authors": [
+        "Ross, Stephane",
+        "Bagnell, J. Andrew"
+      ],
+      "date": [
+        "2014/06/23"
+      ],
+      "venue": [
+        "arXiv/preprint identity only"
+      ],
+      "source_url": "https://arxiv.org/abs/1406.5979",
+      "source_path": "experiments/parallel_v2_a3/research/aggrevate_current.html",
+      "sha256": "67205b031de046da3a1932991cf7f8baf61a905b4fd5554a5885ddd7552fecf5",
+      "tier": "core",
+      "reading_scope": "Cached PDF pages 1-3, algorithm and regression reduction; theoretical work",
+      "reading_sources": [
+        {
+          "path": "research/aggrevate_method_cached.txt",
+          "sha256": "28ce3211325cb9ce3cc238a0835488327bad4487e9d370fcf3ef114f962372e4",
+          "role": "cached primary PDF text; only reading_scope sections were read",
+          "original_pdf_sha256": "8039a4d7d59529069668f592c37c47eac058cdbad9dfdae5a28ad8f63ff91a65"
+        }
+      ],
+      "primary_path": [
+        "policy learning signal",
+        "cost-sensitive rollout labels",
+        "aggrevate"
+      ],
+      "method": "Explore an action at a visited state, complete a reference-policy rollout, and learn from its cost-to-go.",
+      "benchmark_scope": "Theoretical no-regret framework; no benchmark score imported into our report.",
+      "limitations": "Finite feature approximation and imperfect reference do not ensure monotone real-task improvement.",
+      "local_transfer": "R2 explicitly one-action surrogate; R3-R5 actual local tails; R6 exact whole-task paired tails.",
+      "verification": "primary page retrieved this run"
+    },
+    {
+      "id": "catnipp",
+      "title": "CAtNIPP: Context-Aware Attention-based Network for Informative Path Planning",
+      "authors": [
+        "Yuhong Cao",
+        "Yizhuo Wang",
+        "Apoorva Vashisth",
+        "Haolin Fan",
+        "Guillaume Adrien Sartoretti"
+      ],
+      "date": [
+        "2023/03/06"
+      ],
+      "venue": [
+        "Conference on Robot Learning"
+      ],
+      "source_url": "https://proceedings.mlr.press/v205/cao23b.html",
+      "source_path": "experiments/parallel_v2_a3/research/catnipp_current.html",
+      "sha256": "9bbc379898e3df78f891655e916aa17b95caeb6350144cf261ada657865e20ea",
+      "tier": "core",
+      "reading_scope": "Cached PDF pages 4-6 architecture/training/planning, page 8 limitations",
+      "reading_sources": [
+        {
+          "path": "research/catnipp_method_cached.txt",
+          "sha256": "f2eca034eeb3d6542fca773c08bcd7463b0fcbe3357080661b9f364c1cd87cfe",
+          "role": "cached primary PDF text; only reading_scope sections were read",
+          "original_pdf_sha256": "7910c965e6ac85aea7913a664d7b4a39cec3b36068baed3c239251dcb59c982c"
+        }
+      ],
+      "primary_path": [
+        "planning and representation",
+        "attention and receding-horizon IPP",
+        "catnipp"
+      ],
+      "method": "GP belief graph, attention/LSTM policy, budget mask, optional sampled receding-horizon trajectories.",
+      "benchmark_scope": "Information mapping and light-intensity experiment; comparison objective is covariance reduction, not full clearance time.",
+      "limitations": "GP-kernel sensitivity, graph discretization and substantial training budget; sensing reward mismatch matters.",
+      "local_transfer": "Supports history and macro planning alternatives; full graph PPO not repeated after repository negative result.",
+      "verification": "primary page retrieved this run"
+    },
+    {
+      "id": "lols",
+      "title": "Learning to Search Better than Your Teacher",
+      "authors": [
+        "Kai-Wei Chang",
+        "Akshay Krishnamurthy",
+        "Alekh Agarwal",
+        "Hal Daumé, III",
+        "John Langford"
+      ],
+      "date": [
+        "2015/06/01"
+      ],
+      "venue": [
+        "International Conference on Machine Learning"
+      ],
+      "source_url": "https://proceedings.mlr.press/v37/changb15.html",
+      "source_path": "experiments/parallel_v2_a3/research/lols_current.html",
+      "sha256": "a43dcfa8b31087a3a1707db62bb2c5e120155dc23016b7b96b8ec86f49780c18",
+      "tier": "extended",
+      "reading_scope": "Cached PDF page 3 algorithm; other results not deeply read",
+      "reading_sources": [
+        {
+          "path": "research/lols_method_cached.txt",
+          "sha256": "60d3210effd4f1c18bae3b6034bf8c0e7083c40ffbde90e6e9168daf9305794a",
+          "role": "cached primary PDF text; only reading_scope sections were read",
+          "original_pdf_sha256": "4f0886cb97a9af0609256adba348c2d29d36acf6f2f1f4c2592c0d0a6448d3d2"
+        }
+      ],
+      "primary_path": [
+        "policy learning signal",
+        "mixed-reference local rollout search",
+        "lols"
+      ],
+      "method": "One-step deviations evaluated by mixed reference/current-policy tails generate cost-sensitive examples.",
+      "benchmark_scope": "Structured prediction search; no numeric transfer claim.",
+      "limitations": "Teacher mismatch and downstream distribution shift remain.",
+      "local_transfer": "R5 changes visited-state distribution; R6 evaluates reference and two deviations.",
+      "verification": "primary page retrieved this run"
+    },
+    {
+      "id": "aggrevated",
+      "title": "Deeply AggreVaTeD: Differentiable Imitation Learning for Sequential Prediction",
+      "authors": [
+        "Wen Sun",
+        "Arun Venkatraman",
+        "Geoffrey J. Gordon",
+        "Byron Boots",
+        "J. Andrew Bagnell"
+      ],
+      "date": [
+        "2017/07/17"
+      ],
+      "venue": [
+        "International Conference on Machine Learning"
+      ],
+      "source_url": "https://proceedings.mlr.press/v70/sun17d.html",
+      "source_path": "experiments/parallel_v2_a3/research/aggrevated_current.html",
+      "sha256": "ae0e8b1506e933c9eb0cd49bfe542afa242d833f624853b3dfc09b049bd7af9c",
+      "tier": "extended",
+      "reading_scope": "Current primary metadata and abstract; cached repository proposal context only",
+      "reading_sources": [],
+      "primary_path": [
+        "policy learning signal",
+        "differentiable cost-to-go imitation",
+        "aggrevated"
+      ],
+      "method": "Differentiable policy improvement with reference cost-to-go information.",
+      "benchmark_scope": "Primary abstract only in this pass; no reproduced experiment or numerical claim.",
+      "limitations": "Neural optimization alone cannot enlarge useful actions or correct a poor target.",
+      "local_transfer": "Considered neural alternative; chose auditable ridge before a larger model.",
+      "verification": "primary page retrieved this run"
+    },
+    {
+      "id": "dagger",
+      "title": "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning",
+      "authors": [
+        "Stephane Ross",
+        "Geoffrey Gordon",
+        "Drew Bagnell"
+      ],
+      "date": [
+        "2011/06/14"
+      ],
+      "venue": [
+        "Proceedings of the Fourteenth International Conference on Artificial Intelligence and Statistics"
+      ],
+      "source_url": "https://proceedings.mlr.press/v15/ross11a.html",
+      "source_path": "experiments/parallel_v2_a3/research/dagger_cached.html",
+      "sha256": "e515cc08883fb65a967c7cc1cd4905107d7dc31aeed4a71c254ea250a670ad75",
+      "tier": "extended",
+      "reading_scope": "Cached PDF pages 1-2 introduction; current live page not re-fetched",
+      "reading_sources": [
+        {
+          "path": "research/dagger_method_cached.txt",
+          "sha256": "0f4b7f008756e82061002860254405d8942b84dc90f09f05bc6d50dca9470971",
+          "role": "cached primary PDF text; only reading_scope sections were read",
+          "original_pdf_sha256": "17bdd6e049e64f09010b322f9e2d4fb5c744c33ff7ac99b4c4561e39bd9082a7"
+        }
+      ],
+      "primary_path": [
+        "policy learning signal",
+        "on-policy data aggregation",
+        "dagger"
+      ],
+      "method": "Collect reference supervision on learner-visited states to address compounding imitation error.",
+      "benchmark_scope": "Imitation and sequence labeling; no exact benchmark number used.",
+      "limitations": "Imitating actions cannot by itself outperform a strong teacher.",
+      "local_transfer": "R5 learner-state recollection inspired by distribution correction, with cost labels instead of action agreement.",
+      "verification": "frozen cached primary page, not freshly retrieved"
+    },
+    {
+      "id": "offripp",
+      "title": "OffRIPP: Offline RL-based Informative Path Planning",
+      "authors": [
+        "Gadipudi, Srikar Babu",
+        "Deolasee, Srujan",
+        "Kailas, Siva",
+        "Luo, Wenhao",
+        "Sycara, Katia",
+        "Kim, Woojun"
+      ],
+      "date": [
+        "2024/09/25"
+      ],
+      "venue": [
+        "arXiv/preprint identity only"
+      ],
+      "source_url": "https://arxiv.org/abs/2409.16830",
+      "source_path": "experiments/parallel_v2_a3/research/offripp_current.html",
+      "sha256": "d9fb9f05426f5e620c4a8083843c7ec3ee7663a6f67bc9a385295f706392ebf2",
+      "tier": "extended",
+      "reading_scope": "Cached PDF first page and current metadata",
+      "reading_sources": [
+        {
+          "path": "research/offripp_method_cached.txt",
+          "sha256": "9b3382b3084cbc22fa40d079b6d844cf4ea2dada4e270765834857d4e3e6a985",
+          "role": "cached primary PDF text; only reading_scope sections were read",
+          "original_pdf_sha256": "b56f7c70a1997e3cc695bb1d9cf108cc366a533e3fa686395ad9fdfee1fdcadf"
+        }
+      ],
+      "primary_path": [
+        "planning and representation",
+        "offline support-constrained IPP",
+        "offripp"
+      ],
+      "method": "Batch-constrained offline RL limits extrapolation from pre-collected informative path data.",
+      "benchmark_scope": "2D light intensity and 3D fruit identification tasks stated in introduction.",
+      "limitations": "Dataset support and information-gain objective differ from legal clear-completion time.",
+      "local_transfer": "Did not rerun old constrained-Q route that already failed in the repository.",
+      "verification": "primary page retrieved this run"
+    },
+    {
+      "id": "meta_rf",
+      "title": "Active Sensing with Meta-Reinforcement Learning for Emitter Localization from RF Observations",
+      "authors": [
+        "M. Shamail J. Khan",
+        "Nisha L. Raichur",
+        "Lucas Heublein",
+        "Christian Wielenberg",
+        "Alexander Mattick",
+        "Tobias Feigl",
+        "Christopher Mutschler",
+        "Felix Ott"
+      ],
+      "date": [],
+      "venue": [
+        "arXiv/preprint identity only"
+      ],
+      "source_url": "https://arxiv.org/html/2605.12569v1",
+      "source_path": "experiments/parallel_v2_a3/research/meta_rf_current.html",
+      "sha256": "99b9d6eec4c073baaa725608d1d0db9b6027c76b0ea8fbc109ad422afbb8b46d",
+      "tier": "extended",
+      "reading_scope": "Current full body IV-V methods/data sections; VI results not fully audited",
+      "reading_sources": [
+        {
+          "path": "research/meta_rf_current.html",
+          "sha256": "99b9d6eec4c073baaa725608d1d0db9b6027c76b0ea8fbc109ad422afbb8b46d",
+          "role": "actual primary body used for targeted reading"
+        }
+      ],
+      "primary_path": [
+        "planning and representation",
+        "recurrent RF adaptation",
+        "meta_rf"
+      ],
+      "method": "CNN/LSTM observation encoders and meta adaptation for source-seeking from RF observations.",
+      "benchmark_scope": "Synthetic Sionna indoor RF environment with current and goal feature tensors.",
+      "limitations": "Raw multi-antenna IQ and goal observations are absent from the four contest interfaces; distance shaping differs.",
+      "local_transfer": "Rejected direct transfer of architecture/reward, retained idea of online latent-context adaptation.",
+      "verification": "primary page retrieved this run"
+    },
+    {
+      "id": "tdmpc2",
+      "title": "TD-MPC2: Scalable, Robust World Models for Continuous Control",
+      "authors": [
+        "Hansen, Nicklas",
+        "Su, Hao",
+        "Wang, Xiaolong"
+      ],
+      "date": [
+        "2023/10/25"
+      ],
+      "venue": [
+        "arXiv/preprint identity only"
+      ],
+      "source_url": "https://arxiv.org/abs/2310.16828",
+      "source_path": "experiments/parallel_v2_a3/research/tdmpc2_current.html",
+      "sha256": "2902676cfa8cf64a5daff5d9775fa34de28e6ba2a2cf475fa7e1a7f7adf1ecf1",
+      "tier": "extended",
+      "reading_scope": "Current primary metadata and abstract only",
+      "reading_sources": [],
+      "primary_path": [
+        "planning and representation",
+        "latent world-model planning",
+        "tdmpc2"
+      ],
+      "method": "Local trajectory optimization in a learned latent world model.",
+      "benchmark_scope": "Broad continuous-control benchmark in abstract; no reproduced score.",
+      "limitations": "Would add model error for deterministic geometry that is already available analytically.",
+      "local_transfer": "Not implemented; exact simulator tails are cheaper for this bounded experiment.",
+      "verification": "primary page retrieved this run"
+    },
+    {
+      "id": "fql",
+      "title": "Flow Q-Learning",
+      "authors": [
+        "Park, Seohong",
+        "Li, Qiyang",
+        "Levine, Sergey"
+      ],
+      "date": [
+        "2025/02/04"
+      ],
+      "venue": [
+        "arXiv/preprint identity only"
+      ],
+      "source_url": "https://arxiv.org/abs/2502.02538",
+      "source_path": "experiments/parallel_v2_a3/research/fql_current.html",
+      "sha256": "c5949bfffa38d89ab056b429109099b452687b07aa3b2e6ebf65450f068b86a8",
+      "tier": "extended",
+      "reading_scope": "Current primary metadata and abstract only",
+      "reading_sources": [],
+      "primary_path": [
+        "planning and representation",
+        "expressive offline action distribution",
+        "fql"
+      ],
+      "method": "Flow-matching behavior policy guides an expressive one-step RL actor.",
+      "benchmark_scope": "D4RL/OGBench according to primary abstract; not compared numerically here.",
+      "limitations": "Useful for broad continuous action spaces; our small legal residual set does not need a generative actor.",
+      "local_transfer": "Deferred until finite alternatives show substantial verified action-space headroom.",
+      "verification": "primary page retrieved this run"
+    },
+    {
+      "id": "cids",
+      "title": "C-IDS: Solving Contextual POMDP via Information-Directed Objective",
+      "authors": [
+        "Shi, Chongyang",
+        "Dorothy, Michael",
+        "Fu, Jie"
+      ],
+      "date": [
+        "2026/02/03"
+      ],
+      "venue": [
+        "arXiv/preprint identity only"
+      ],
+      "source_url": "https://arxiv.org/abs/2602.03939",
+      "source_path": "experiments/parallel_v2_a3/research/cids_current.html",
+      "sha256": "8fef086f136b08010170c35ea1c2aaf623d8508a3d073c255674e89f0ddf08a3",
+      "tier": "extended",
+      "reading_scope": "Current primary metadata and abstract only",
+      "reading_sources": [],
+      "primary_path": [
+        "planning and representation",
+        "latent-context information objective",
+        "cids"
+      ],
+      "method": "Reward augmented with information about latent context in contextual POMDPs.",
+      "benchmark_scope": "Light-Dark experiment described in primary abstract.",
+      "limitations": "Mutual-information bonus is not the contest time metric; Bayesian regret assumptions need a correct context model.",
+      "local_transfer": "Shared-bias hypothesis is a context candidate; no IDS bound or bonus is claimed.",
+      "verification": "primary page retrieved this run"
+    }
+  ]
+}

@@ -1,0 +1,4039 @@
+
+
+
+
+
+
+Active Sensing with Meta-Reinforcement Learning for Emitter Localization from RF Observations
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+  // Restore the saved color scheme preference, or
+  // enact the browser preference if "automatic", 
+  // without expecting DOM load to have completed.
+  //
+  // Also restore any saved readingmode and ToC display preferences.
+  function initializeReadingPreferences() {
+    let saved_theme = localStorage.getItem("ar5iv_theme") || "automatic";
+    if (saved_theme === "automatic") {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        saved_theme = "dark";
+      }
+    }
+    if (saved_theme == "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+
+    const tocDisplay = localStorage.getItem('arxiv_html_paper_toc_display');
+    if (tocDisplay) {
+      document.documentElement.setAttribute("data-toc-display", tocDisplay);
+    }
+    const readingMode = localStorage.getItem('arxiv_html_paper_reading_mode');
+    if (readingMode) {
+      document.documentElement.setAttribute("data-reading-mode", readingMode);
+    }
+    // Pre-apply spinout-banner dismissal here, before the banner paints, so it
+    // never flashes in only to be hidden later by the deferred arxiv-header.js.
+    // Key matches arxiv-header.js: "arxiv-banner-dismissed:" + data-banner-name.
+    if (localStorage.getItem('arxiv-banner-dismissed:spinout-nonprofit')) {
+      document.documentElement.setAttribute("data-banner-dismissed", "");
+    }
+  }
+  // Run as soon as JS starts, to minimize repainting
+  initializeReadingPreferences();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Banner pre-dismissal (set above before paint -> no flash-then-hide) and
+     reading-mode chrome hiding. */
+  html[data-banner-dismissed] .ds-announcement { display: none; }
+  html[data-reading-mode="enabled"] .ds-announcement,
+  html[data-reading-mode="enabled"] .ds-site-footer { display: none; }
+  /* Keep the announcement text dark on the Open-Blue band in both colour themes
+     (otherwise it inherits the paper's warm-wash text in dark mode and washes out). */
+  .ds-announcement-text { color: var(--arxiv-ink, #1c1a17); }
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+
+      
+Report GitHub Issue
+
+      
+×
+
+    
+
+
+    
+
+      
+Title:
+
+      
+
+
+      
+Content selection saved. Describe the issue below:
+
+
+      
+Description:
+
+      
+
+    
+
+
+    
+
+      
+Submit without GitHub
+
+      
+Submit in GitHub
+
+    
+
+  
+
+
+
+    
+
+    
+arXiv is now an independent nonprofit!
+
+    
+Learn more
+
+    
+×
+
+  
+
+
+
+
+  
+
+    
+
+      
+Back to arXiv
+
+    
+
+  
+
+  
+
+  
+
+    
+Why HTML?
+
+    
+
+      
+
+        
+
+      
+
+      
+Report Issue
+
+    
+
+    
+
+      
+
+        
+
+        
+
+      
+
+      
+Back to Abstract
+
+    
+
+    
+
+    
+
+      
+
+        
+
+      
+
+      
+Download PDF
+
+    
+
+    
+
+      
+
+        
+
+        
+
+      
+
+    
+
+    
+
+    
+
+      
+
+        
+
+      
+
+    
+
+    
+
+    
+
+      
+
+        
+
+          
+
+          
+
+        
+
+      
+
+      
+
+        
+
+          
+
+          
+
+        
+
+      
+
+      
+
+        
+
+          
+
+          
+
+        
+
+      
+
+    
+
+  
+
+
+
+
+
+
+
+
+Abstract
+
+
+I 
+Introduction
+
+
+II 
+Related Work
+
+
+III 
+Preliminaries
+
+
+
+
+III-A
+ 
+Markov Decision Process (MDP)
+
+
+III-B
+ 
+Deep Reinforcement Learning (DRL)
+
+
+
+
+Deep Q-Networks
+
+
+Policy-Gradient
+
+
+Recurrent Architectures
+
+
+
+
+
+
+IV 
+Methodology
+
+
+
+
+IV-A
+ 
+Problem Formulation & Key Idea
+
+
+IV-B
+ 
+Reward Function Design
+
+
+IV-C
+ 
+Policy & Value Function Architecture
+
+
+IV-D
+ 
+Statistical Feature Selection for Policy Learning
+
+
+
+
+V 
+Experiments
+
+
+
+
+Sionna Simulation Environment
+
+
+Signal Structure & Multipath Propagation
+
+
+Data Preprocessing
+
+
+
+
+VI 
+Evaluation
+
+
+
+
+Baseline Feasibility
+
+
+Impact of Temporal Memory
+
+
+Feature Selection
+
+
+
+
+VII 
+Conclusion
+
+
+References
+
+
+
+
+
+
+
+
+
+  
+
+    License: arXiv.org perpetual non-exclusive license
+  
+
+  
+
+arXiv:2605.12569v1 [eess.SP] 12 May 2026
+
+
+
+
+
+
+Active Sensing with Meta-Reinforcement Learning for Emitter Localization from RF Observations
+
+
+PubID: 
+pubid: 
+
+979-8-3503-8078-1/24/$31.00 ©2025
+IEEE  
+ 
+ 
+
+
+
+
+
+
+M. Shamail J. Khan
+1
+{}^{\textbf{1}}
+,
+Nisha L. Raichur
+1,
+{}^{\textbf{1,}}
+3
+{}^{\textbf{3}}
+,
+Lucas Heublein
+1
+{}^{\textbf{1}}
+,
+Christian Wielenberg
+1
+{}^{\textbf{1}}
+,
+Alexander Mattick
+1,
+{}^{\textbf{1,}}
+2
+{}^{\textbf{2}}
+, 
+
+Tobias Feigl
+1,
+{}^{\textbf{1,}}
+4
+{}^{\textbf{4}}
+,
+Christopher Mutschler
+1,
+{}^{\textbf{1,}}
+2
+{}^{\textbf{2}}
+,
+Felix Ott
+1
+{}^{\textbf{1}}
+
+
+
+
+Affiliation: 
+{firstname.lastname}@iis.fraunhofer.de
+
+
+
+
+
+Affiliation: 
+1
+{}^{\textbf{1}}
+Fraunhofer Institute for Integrated Circuits IIS, 90411 Nürnberg, Germany
+
+
+
+Affiliation: 
+2
+{}^{\textbf{2}}
+Machine Learning and Positioning Systems Lab, University of Technology Nürnberg (UTN), 90461 Nürnberg, Germany
+
+
+
+Affiliation: 
+3
+{}^{\textbf{3}}
+Center for Artificial Intelligence, Technical University of Applied Sciences Würzburg-Schweinfurt, Germany
+
+
+
+Affiliation: 
+4
+{}^{\textbf{4}}
+Programming Systems Lab, Friedrich-Alexander-Universität Erlangen-Nürnberg, 91052 Erlangen, Germany
+
+
+
+Affiliation: 
+
+
+
+
+
+Abstract
+
+    
+
+Global navigation satellite system (GNSS) interference poses a serious threat to reliable positioning, especially in indoor and multipath-rich environments where source localization is highly challenging. In this paper, we formulate GNSS interference localization as an active sensing problem and propose a reinforcement learning (RL) framework in which an agent sequentially explores the environment to infer the position of an emitter source from radio frequency (RF) observations acquired with a 
+2
+×
+2
+2{\times}2
+ patch antenna. The localization task is modeled as a partially observable decision process, since single-snapshot measurements are often ambiguous under multipath propagation and changing channel conditions. To address this, the proposed framework combines high-dimensional RF sensing with deep RL and recurrent policy learning. We investigate both value-based and policy-based approaches, namely Deep Q-Networks (DQN) and Proximal Policy Optimization (PPO), and study their behavior under domain shift. The approach is evaluated on a simulated dataset generated with the Sionna ray-tracing module, which provides realistic propagation effects and diverse environment configurations. Experimental results show that the proposed method achieves a localization success rate of 80.1%, demonstrating the potential of RL for adaptive GNSS interference localization. Overall, the results highlight simulation-assisted training as a promising direction for robust interference localization in challenging propagation environments.
+
+  
+
+
+
+
+
+Index Terms: 
+
+Adaptive Sensing, Reinforcement Learning, Interference Source Localization, Jamming, Domain Shift, RNNs, GNSS, Ray-Tracing, Multipath Propagation, DQN, PPO
+
+
+
+
+
+
+I 
+Introduction
+
+
+
+
+
+GNSS interference monitoring has advanced considerably in recent years, and methods for interference detection 
+[
+1
+]
+ and characterization 
+[
+2
+]
+ are now well established. Existing approaches can reliably estimate signal properties relevant to mitigation and situational awareness 
+[
+3
+, 
+4
+, 
+5
+, 
+6
+, 
+7
+, 
+8
+]
+. The focus is increasingly shifting from detection toward direction finding and localization of the emitter source itself 
+[
+9
+, 
+10
+, 
+11
+]
+. In this context, localization can be further enhanced by mobile or agent-based sensing platforms that actively explore the environment and collect informative observations, rather than relying on a single static measurement position.
+
+
+
+
+
+
+RL provides a natural framework for such sequential decision-making problems 
+[
+12
+, 
+13
+, 
+14
+, 
+15
+]
+. Instead of learning from static input–output pairs, an RL agent interacts with an environment, takes actions, and improves its policy based on the rewards it receives over time 
+[
+16
+, 
+17
+, 
+18
+, 
+19
+]
+. RL has been widely used in control, robotics, and autonomous navigation, where decisions must be made under uncertainty and long-term objectives are important. Recent advances 
+[
+17
+]
+ in deep RL have significantly expanded the range of solvable problems by combining RL with deep neural networks, enabling learning directly from high-dimensional sensory inputs. Among the most influential methods are value-based approaches such as Deep Q-Networks (DQN) 
+[
+20
+]
+, which learn action-value functions from data, and policy-based or actor–critic methods such as Proximal Policy Optimization (PPO) 
+[
+21
+]
+, which directly optimize policies while maintaining stable updates.
+
+
+
+
+
+
+In this work, we formulate interference localization as an active sensing problem in which a mobile agent sequentially explores the environment to infer the position of an interference source from RF observations measured with an antenna patch. Rather than treating localization as a one-shot estimation task, the agent is trained to select sensing actions that gradually reduce spatial ambiguity and improve source localization over time. This naturally leads to a partially observable RL problem, since single RF snapshots are often ambiguous in multipath-rich environments and do not uniquely determine the source position. To address this challenge, we investigate deep RL methods (i.e., DQN and PPO), and study how adaptive sensing policies can learn source-seeking behavior under domain shift across different propagation conditions.
+
+
+
+
+
+
+Contributions.
+ The main contributions are: (1) We formulate GNSS interference localization as an active sensing problem in which a mobile agent sequentially explores the environment to infer the source position from RF observations. (2) We develop a deep RL framework based on DQN and PPO that learns source-seeking policies directly from high-dimensional measurements acquired with a 
+2
+×
+2
+2\times 2
+ patch antenna. (3) We model the task as a partially observable decision process and investigate recurrent policy learning to exploit temporal context under multipath-induced ambiguity. (4) The proposed approach successfully localizes emitter sources in the simulated environment generated with the Sionna ray-tracing framework, achieving a success rate of up to 80%.
+
+
+
+
+
+
+
+
+II 
+Related Work
+
+
+
+
+
+GNSS interference mitigation has traditionally relied on classical signal processing, including frequency-domain analysis 
+[
+3
+]
+, adaptive filtering 
+[
+4
+]
+, statistical anomaly detection 
+[
+1
+]
+, suppression 
+[
+5
+]
+, and subspace-based direction finding such as MUSIC 
+[
+9
+]
+. While these methods are effective under stable and well-calibrated conditions 
+[
+6
+]
+, their performance often degrades in realistic environments due to waveform assumptions, calibration errors, dynamic noise, and multipath propagation 
+[
+7
+]
+. These limitations motivate data-driven approaches that can learn more robust representations and adapt to varying interference conditions. Supervised approaches such as Random Forests, Decision Trees, and SVMs have shown promising results in distinguishing jamming types and inferring jammer location 
+[
+10
+]
+. However, these methods often rely on handcrafted features and large labeled datasets, and their performance degrades when interference or propagation conditions differ from training 
+[
+8
+]
+. Moreover, most existing work focuses on classification rather than active localization, motivating adaptive learning-based methods for real-time emitter source localization.
+
+
+
+
+
+
+RL has emerged as a promising approach for dynamic anti-jamming tasks, since it enables agents to learn adaptive policies through interaction with the environment without requiring labeled data. Prior work has shown that (deep) RL methods can outperform rule-based strategies, particularly for channel selection and spectrum-aware decision-making under unknown or intelligent jammers 
+[
+17
+, 
+20
+]
+. More recent studies have further explored cooperative multi-agent learning, adversarial robustness, and imitation learning to improve adaptation in rapidly changing RF environments 
+[
+16
+]
+. However, most existing RL-based anti-jamming research focuses on interference avoidance in simplified simulations and low-dimensional state spaces 
+[
+17
+, 
+20
+, 
+18
+]
+, rather than source localization from high-dimensional multi-antenna IQ observations 
+[
+19
+]
+. These limitations motivate the use of more advanced deep RL frameworks that incorporate temporal modeling and adaptation mechanisms to address partial observability and domain shift 
+[
+22
+]
+ in emitter localization.
+
+
+
+
+
+
+Meta-learning and domain randomization strategies improve the generalization of learning algorithms in non-stationary environments. Meta-learning enables rapid adaptation to new tasks from limited data by learning model parameters that can be efficiently fine-tuned, as demonstrated by methods such as MAML 
+[
+12
+]
+. Domain randomization improves robustness by training agents across a distribution of environment variations, thereby reducing sensitivity to specific training conditions 
+[
+13
+]
+. In RF learning, these ideas are especially relevant because changes in propagation conditions, interference patterns, and physical layouts can induce substantial domain shift that cannot be resolved by simple signal-level augmentation alone 
+[
+14
+, 
+15
+]
+. Although prior work has shown the value of meta-learning and randomized training for robust RL, their use for emitter localization in multipath-rich GNSS environments remains largely unexplored.
+
+
+
+
+
+
+
+
+III 
+Preliminaries
+
+
+
+
+
+III-A
+ 
+Markov Decision Process (MDP)
+
+
+
+
+
+RL problems are commonly formulated as an MDP by
+
+
+
+
+
+
+
+
+
+ℳ
+=
+⟨
+𝒮
+,
+𝒜
+,
+𝒫
+,
+ℛ
+,
+γ
+⟩
+,
+\mathcal{M}=\langle\mathcal{S},\mathcal{A},\mathcal{P},\mathcal{R},\gamma\rangle,
+
+
+
+
+(1)
+
+
+
+
+where 
+𝒮
+\mathcal{S}
+ denotes the state space, 
+𝒜
+\mathcal{A}
+ the action space, 
+𝒫
+\mathcal{P}
+ the transition model, 
+ℛ
+\mathcal{R}
+ the reward function, and 
+γ
+∈
+[
+0
+,
+1
+]
+\gamma\in[0,1]
+ the discount factor 
+[
+23
+]
+. MDP assumes the Markov property, i.e., the next state depends only on the current state and action:
+
+
+
+
+
+
+
+
+
+
+
+
+
+P
+⁡
+(
+s
+t
++
+1
+∣
+s
+t
+,
+a
+t
+)
+=
+P
+⁡
+(
+s
+t
++
+1
+∣
+s
+t
+,
+a
+t
+,
+s
+t
+−
+1
+,
+a
+t
+−
+1
+,
+…
+,
+s
+0
+,
+a
+0
+)
+.
+P(s_{t+1}\mid s_{t},a_{t})=P(s_{t+1}\mid s_{t},a_{t},s_{t-1},a_{t-1},\dots,s_{0},a_{0}).
+
+
+
+
+
+
+(2)
+
+
+
+
+A policy 
+π
+⁡
+(
+a
+∣
+s
+)
+\pi(a\!\mid\!s)
+ specifies the probability of selecting action 
+a
+a
+ in state 
+s
+s
+ 
+[
+24
+]
+. The objective is to maximize the expected discounted return 
+G
+t
+=
+∑
+k
+=
+0
+∞
+γ
+k
+​
+r
+t
++
+k
++
+1
+G_{t}=\sum_{k=0}^{\infty}\gamma^{k}r_{t+k+1}
+. The corresponding state-value and action-value functions are given by
+
+
+
+
+
+
+
+
+
+
+
+
+
+V
+π
+(
+s
+)
+=
+𝔼
+π
+[
+G
+t
+∣
+S
+t
+=
+s
+]
+,
+Q
+π
+(
+s
+,
+a
+)
+=
+𝔼
+π
+[
+G
+t
+∣
+S
+t
+=
+s
+,
+A
+t
+=
+a
+]
+.
+V^{\pi}(s)=\mathbb{E}_{\pi}[G_{t}\!\mid\!S_{t}=s],\,\,\,Q^{\pi}(s,a)=\mathbb{E}_{\pi}[G_{t}\!\mid\!S_{t}=s,A_{t}=a].
+
+
+
+
+
+
+(3)
+
+
+
+
+The optimal action-value function satisfies the Bellman optimality equation:
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q
+∗
+(
+s
+,
+a
+)
+=
+𝔼
+[
+r
+t
++
+1
++
+γ
+max
+a
+′
+Q
+∗
+(
+s
+t
++
+1
+,
+a
+′
+)
+∣
+S
+t
+=
+s
+,
+A
+t
+=
+a
+]
+.
+Q^{\ast}(s,a)=\mathbb{E}\!\left[r_{t+1}+\gamma\max_{a^{\prime}}Q^{\ast}(s_{t+1},a^{\prime})\!\mid\!S_{t}=s,A_{t}=a\right].
+
+
+
+
+
+
+(4)
+
+
+
+
+We model the problem as a partially observable MDP (POMDP), 
+⟨
+𝒮
+,
+𝒜
+,
+𝒫
+,
+ℛ
+,
+Ω
+,
+𝒪
+,
+γ
+⟩
+\langle\mathcal{S},\mathcal{A},\mathcal{P},\mathcal{R},\Omega,\mathcal{O},\gamma\rangle
+ 
+[
+25
+]
+, where 
+Ω
+\Omega
+ denotes the observation space and 
+𝒪
+⁡
+(
+o
+∣
+s
+,
+a
+)
+\mathcal{O}(o\!\mid\!s,a)
+ the observation model 
+[
+25
+]
+. Since individual RF observations are often ambiguous, the policy must exploit temporal context.
+
+
+
+
+Dataset
+IQ / Spectrogram
+Preprocessing
+Reshaping,
+Normalization
+RL: Environment, Observation
+Mapping, Action Execution
+Learning Agent
+DQN / PPO
+Evaluation
+Returns, Success Rate
+Localization Error
+Observation: 
+o
+t
+o_{t}
+, Reward: 
+r
+t
+r_{t}
+Action: 
+a
+t
+a_{t}
+Training
+loop
+
+
+Fig. 1
+: 
+End-to-end pipeline showing preprocessing, environment interaction, agent training, and evaluation.
+
+
+
+
+
+
+
+
+III-B
+ 
+Deep Reinforcement Learning (DRL)
+
+
+
+
+
+DRL uses deep neural networks as function approximators for value functions and policies 
+[
+26
+]
+. This enables learning from high-dimensional observations, where tabular methods become infeasible. We consider two representative DRL algorithms: value-based approaches, such as DQN, and policy-based approaches, such as PPO, with actor–critic methods combining both formulations.
+
+
+
+
+
+
+Deep Q-Networks
+
+
+
+
+
+DQN approximates the optimal action-value function 
+Q
+∗
+​
+(
+s
+,
+a
+)
+Q^{\ast}(s,a)
+ with a neural network 
+Q
+⁡
+(
+s
+,
+a
+,
+θ
+)
+Q(s,a;\theta)
+ 
+[
+26
+]
+. To stabilize training, DQN combines experience replay with a target network, yielding the loss
+
+
+
+
+
+
+
+
+
+
+
+
+
+L
+i
+​
+(
+θ
+i
+)
+=
+𝔼
+(
+s
+,
+a
+,
+r
+,
+s
+′
+)
+∼
+U
+⁡
+(
+D
+)
+​
+[
+(
+r
++
+γ
+​
+max
+a
+′
+⁡
+Q
+⁡
+(
+s
+′
+,
+a
+′
+,
+θ
+i
+−
+)
+−
+Q
+⁡
+(
+s
+,
+a
+,
+θ
+i
+)
+)
+2
+]
+,
+L_{i}(\theta_{i})=\mathbb{E}_{(s,a,r,s^{\prime})\sim U(D)}\left[\left(r+\gamma\max_{a^{\prime}}Q(s^{\prime},a^{\prime};\theta_{i}^{-})-Q(s,a;\theta_{i})\right)^{2}\right],
+
+
+
+
+
+
+(5)
+
+
+
+
+where 
+θ
+i
+−
+\theta_{i}^{-}
+ denotes the parameters of the target network. DQN is effective for discrete decision-making problems, but its reliance on single observations can limit performance in partially observable environments.
+
+
+
+
+
+
+
+
+Policy-Gradient
+
+
+
+
+
+PPO is designed to improve the stability of policy optimization by constraining the update between successive policies 
+[
+21
+]
+. It maximizes the clipped surrogate objective
+
+
+
+
+
+
+
+
+
+
+
+
+
+L
+CLIP
+​
+(
+θ
+)
+=
+𝔼
+^
+t
+​
+[
+min
+⁡
+(
+r
+t
+​
+(
+θ
+)
+​
+A
+^
+t
+,
+clip
+⁡
+(
+r
+t
+​
+(
+θ
+)
+,
+1
+−
+ϵ
+,
+1
++
+ϵ
+)
+​
+A
+^
+t
+)
+]
+,
+L^{\mathrm{CLIP}}(\theta)=\hat{\mathbb{E}}_{t}\left[\min\!\left(r_{t}(\theta)\hat{A}_{t},\,\mathrm{clip}\!\left(r_{t}(\theta),1-\epsilon,1+\epsilon\right)\hat{A}_{t}\right)\right],
+
+
+
+
+
+
+(6)
+
+
+
+
+where
+
+
+
+
+
+
+
+
+
+r
+t
+​
+(
+θ
+)
+=
+π
+θ
+​
+(
+a
+t
+∣
+s
+t
+)
+π
+θ
+old
+​
+(
+a
+t
+∣
+s
+t
+)
+r_{t}(\theta)=\frac{\pi_{\theta}(a_{t}\mid s_{t})}{\pi_{\theta_{\mathrm{old}}}(a_{t}\mid s_{t})}
+
+
+
+
+(7)
+
+
+
+
+is the probability ratio and 
+A
+^
+t
+\hat{A}_{t}
+ denotes the estimated advantage. PPO is commonly implemented in an actor–critic architecture, where the actor represents the policy and the critic estimates the state value. Owing to its stable updates, PPO is well suited to noisy and partially observable problems.
+
+
+
+
+
+
+
+
+Recurrent Architectures
+
+
+
+
+
+In partially observable settings, the current observation may not uniquely identify the underlying state. Recurrent architectures address this limitation by integrating temporal context over multiple time steps. In particular, long short-term memory (LSTM) networks maintain an internal memory state through gated updates. By aggregating information over time, recurrent DRL agents can better resolve ambiguity in sequential RF observations and improve state estimation under multipath and domain shift.
+
+
+
+
+
+
+
+
+
+
+
+
+IV 
+Methodology
+
+
+
+
+
+IV-A
+ 
+Problem Formulation & Key Idea
+
+
+
+
+
+
+
+
+
+
+
+Fig. 2
+: 
+Structured navigation environment of the agent.
+
+
+
+
+2 Counter Clockwise Actions
+2 Clockwise Actions
+Radial
+
+
+Fig. 3
+: 
+Discrete action space for structured navigation.
+
+
+
+
+
+
+
+
+We consider the problem of localizing a stationary GNSS interference source from RF observations acquired with a 
+2
+×
+2
+2\times 2
+ antenna patch. Rather than treating localization as a single-step estimation problem, we formulate it as an active sensing task in which a mobile agent sequentially selects sensing locations to reduce uncertainty about the source position, see Figure 
+3
+. This view is motivated by the fact that a single RF snapshot is generally insufficient to determine the 3D source location, especially in indoor environments where multipath propagation and non-line-of-sight components introduce strong ambiguity. By moving through the environment and observing how the received signals change across space, the agent can progressively refine its estimate of the source location. The overall pipeline of preprocessing, environment interaction, policy learning, and evaluation, see Figure 
+1
+.
+
+
+
+
+
+
+The localization task is modeled as a partially observable sequential decision process. At timestep 
+t
+t
+, the underlying state is defined as 
+s
+t
+=
+(
+p
+t
+,
+p
+I
+)
+s_{t}=(p_{t},p_{I})
+, where 
+p
+t
+∈
+ℝ
+3
+p_{t}\in\mathbb{R}^{3}
+ denotes the agent position and 
+p
+I
+∈
+ℝ
+3
+p_{I}\in\mathbb{R}^{3}
+ denotes the fixed but unknown interference source position. Given an action 
+a
+t
+a_{t}
+ (see Figure 
+3
+, for the action space), the agent moves according to the environment dynamics to a new position 
+p
+t
++
+1
+p_{t+1}
+. In contrast, the observation process is stochastic: at each position, the agent receives an RF observation 
+o
+t
+o_{t}
+ influenced by propagation effects, noise, and reflections. Consequently, similar observations may arise at distinct locations, such that the source position cannot be inferred reliably from a single measurement.
+
+
+
+
+
+
+At each timestep, the agent selects an action 
+a
+t
+∈
+𝒜
+a_{t}\in\mathcal{A}
+, receives the next observation 
+o
+t
++
+1
+o_{t+1}
+, and obtains a reward 
+r
+t
+r_{t}
+. The objective is to learn a policy 
+π
+⁡
+(
+a
+t
+∣
+o
+t
+)
+\pi(a_{t}\!\mid\!o_{t})
+ that maximizes the expected cumulative discounted reward
+
+
+
+
+
+
+
+
+
+
+
+
+
+J
+⁡
+(
+π
+)
+=
+𝔼
+π
+​
+[
+∑
+t
+=
+0
+T
+γ
+t
+​
+r
+t
+]
+,
+J(\pi)=\mathbb{E}_{\pi}\!\left[\sum_{t=0}^{T}\gamma^{t}r_{t}\right],
+
+
+
+
+
+
+(8)
+
+
+
+
+while reaching the source region defined by 
+‖
+p
+t
+−
+p
+I
+‖
+2
+≤
+ϵ
+\|p_{t}-p_{I}\|_{2}\leq\epsilon
+, where 
+ϵ
+\epsilon
+ is a predefined success threshold 
+[
+24
+]
+. Since the observations are only partially informative, effective localization requires integrating information across time. In this work, this is achieved by RL policies that exploit observation histories to guide source-seeking behavior.
+
+
+
+
+
+
+
+
+IV-B
+ 
+Reward Function Design
+
+
+
+
+
+The reward function is designed to encourage efficient source-seeking behavior under partial observability. Since the interference source position is not directly observable, the reward must provide informative feedback based on spatial progress rather than instantaneous signal features, which may be unreliable under noise and multipath 
+[
+25
+]
+. We therefore adopt a simple reward design based on progress, step cost, and terminal success. The main component is a distance-based progress reward. Let
+
+
+
+
+
+
+
+
+
+d
+t
+=
+‖
+p
+t
+−
+p
+I
+‖
+2
+d_{t}=\|p_{t}-p_{I}\|_{2}
+
+
+
+
+(9)
+
+
+
+
+denote the Euclidean distance between the agent position 
+p
+t
+p_{t}
+ and the interference source position 
+p
+I
+p_{I}
+ at timestep 
+t
+t
+. Following potential-based reward shaping 
+[
+27
+]
+, the progress reward is defined as
+
+
+
+
+
+
+
+
+
+r
+prog
+​
+(
+t
+)
+=
+α
+⁡
+(
+d
+t
+−
+1
+−
+d
+t
+)
+,
+r_{\text{prog}}(t)=\alpha(d_{t-1}-d_{t}),
+
+
+
+
+(10)
+
+
+
+
+where 
+α
+>
+0
+\alpha>0
+ is a scaling factor. This term is positive when the agent moves toward the source and negative otherwise. To promote efficient trajectories, we additionally impose a constant step penalty 
+r
+step
+=
+−
+λ
+r_{\text{step}}=-\lambda
+, with 
+λ
+>
+0
+\lambda>0
+. The agent receives a terminal reward upon entering the success region,
+
+
+
+
+
+
+
+
+
+r
+succ
+=
+{
+R
+goal
+,
+if 
+​
+‖
+p
+t
+−
+p
+I
+‖
+2
+≤
+ϵ
+,
+0
+,
+otherwise
+,
+r_{\text{succ}}=\begin{cases}R_{\text{goal}},&\text{if }\|p_{t}-p_{I}\|_{2}\leq\epsilon,\\
+0,&\text{otherwise},\end{cases}
+
+
+
+
+(11)
+
+
+
+
+where 
+ϵ
+\epsilon
+ denotes the localization threshold and 
+R
+goal
+R_{\mathrm{goal}}
+ is a positive constant. The total reward at timestep 
+t
+t
+ is given by
+
+
+
+
+
+
+
+
+
+r
+t
+=
+r
+prog
+​
+(
+t
+)
++
+r
+step
++
+r
+succ
+.
+r_{t}=r_{\text{prog}}(t)+r_{\text{step}}+r_{\text{succ}}.
+
+
+
+
+(12)
+
+
+
+
+
+
+
+
+In preliminary experiments, more elaborate shaping terms led to unstable training and increased return variance. So, we retain the above reward design for its simplicity and stability for generalization across different propagation environments.
+
+†
+†
+
+              
+              
+            
+Parameters.
+ All agents were trained for 
+10
+6
+10^{6}
+ steps with Adam (
+ϵ
+=
+10
+−
+5
+\epsilon=10^{-5}
+). DQN used 
+γ
+=
+0.99
+\gamma=0.99
+, learning rate 
+2.5
+⋅
+10
+−
+4
+2.5\cdot 10^{-4}
+, target update every 
+1,000
+1{,}000
+ steps, 
+ϵ
+\epsilon
+-greedy exploration decayed linearly from 
+1.0
+1.0
+ to 
+0.05
+0.05
+ over 
+20
+%
+20\%
+ of training, and updates every 
+4
+4
+ steps; the feedforward variant used replay buffer 
+50,000
+50{,}000
+, batch size 
+128
+128
+, and learning start at 
+10,000
+10{,}000
+ steps, while the recurrent variant used replay buffer 
+5,000
+5{,}000
+, batch size 
+32
+32
+, learning start at 
+5,000
+5{,}000
+ steps, and sequence length 
+8
+8
+. PPO used 
+8
+8
+ synchronous environments, learning rate 
+2.5
+⋅
+10
+−
+4
+2.5\cdot 10^{-4}
+ with annealing, 
+γ
+=
+0.997
+\gamma=0.997
+, GAE 
+λ
+=
+0.95
+\lambda=0.95
+, clip coefficient 
+0.1
+0.1
+, entropy coefficient 
+0.02
+0.02
+, value loss coefficient 
+0.5
+0.5
+, gradient norm clip 
+0.5
+0.5
+, minibatch size 
+128
+128
+, and 
+4
+4
+ update epochs. For ANIL-FOMAML, meta-training used 
+2,000
+2{,}000
+ iterations with 
+3
+3
+ tasks per batch, outer learning rate 
+β
+=
+10
+−
+4
+\beta=10^{-4}
+, critic learning rate 
+10
+−
+4
+10^{-4}
+, max gradient norm 
+0.5
+0.5
+, inner learning rate 
+α
+=
+3
+⋅
+10
+−
+3
+\alpha=3\cdot 10^{-3}
+, one adaptation step, support size 
+128
+128
+ steps in training and 
+5
+5
+ episodes in evaluation, with PPO parameters 
+γ
+=
+0.997
+\gamma=0.997
+, clip coefficient 
+0.1
+0.1
+, entropy coefficient 
+0.02
+0.02
+, and value loss coefficient 
+0.4
+0.4
+.
+
+
+
+
+
+
+
+
+IV-C
+ 
+Policy & Value Function Architecture
+
+
+
+IQ Statistics input
+𝐗
+∈
+ℝ
+N
+×
+2
+×
+4
+×
+d
+\mathbf{X}\in\mathbb{R}^{N\times 2\times 4\times d}
+1D-CNN encoder
+(
+8
+,
+1024
+)
+→
+(
+256
+)
+(8,1024)\rightarrow(256)
+Flatten
+(
+256
+)
+(256)
+Actor
+π
+\pi
+Critic
+V
+V
+
+
+Fig. 4
+: 
+Feedforward PPO architecture.
+
+
+
+
+
+
+The model input is represented as a structured tensor 
+𝐗
+∈
+ℝ
+N
+×
+2
+×
+4
+×
+d
+\mathbf{X}\in\mathbb{R}^{N\times 2\times 4\times d}
+, where 
+N
+N
+ denotes the batch size, the second dimension distinguishes between the current and goal states, the third dimension corresponds to the four antenna elements, and 
+d
+d
+ denotes the number of features per antenna. Accordingly, each entry 
+𝐗
+n
+,
+t
+,
+i
+∈
+ℝ
+d
+\mathbf{X}_{n,t,i}\in\mathbb{R}^{d}
+ represents the feature vector associated with antenna 
+i
+∈
+{
+1
+,
+2
+,
+3
+,
+4
+}
+i\in\{1,2,3,4\}
+ for state type 
+t
+∈
+{
+current
+,
+goal
+}
+t\in\{\text{current},\text{goal}\}
+.
+
+
+
+
+
+
+For each sample, the feature vectors of the four antennas associated with the current and goal states can, if required by the downstream network, be concatenated into a single input vector, yielding a representation in 
+ℝ
+8
+​
+d
+\mathbb{R}^{8d}
+. This formulation preserves the individual contribution of each antenna while jointly encoding the current and target states within a unified representation. The proposed representation preserves the full feature resolution of each antenna and enables subsequent layers to learn both inter-antenna dependencies and the relationships between the current and goal configurations. To process this high-dimensional input efficiently, we employ a shared feature extractor implemented as a 1D convolutional encoder, which maps the structured observation to a compact latent representation. The encoder is designed to capture both local structure in the feature space and dependencies across antenna channels.
+
+
+
+
+
+
+Since interference localization is modeled as a partially observable decision process, a single RF snapshot is generally insufficient to uniquely infer the source position. We therefore consider both feedforward and recurrent architectures. The feedforward model consists of the convolutional encoder followed directly by policy and value heads (Figure 
+4
+). The recurrent model extends this architecture by incorporating an LSTM module that aggregates information over time (Figure 
+5
+). This temporal memory enables the agent to exploit sequential signal variations and to construct an implicit belief state in the presence of multipath-induced ambiguity.
+
+
+
+
+
+
+The latent representation is shared between the actor and critic networks in order to improve parameter efficiency and enhance training stability. The actor produces a categorical distribution over the discrete action space, while the critic estimates the corresponding state value. This actor–critic architecture is employed in conjunction with PPO to enable stable policy optimization in noisy environments. In addition, DQN is considered as a value-based baseline using the same feature encoder and, for the recurrent variant, the same temporal module. Overall, the proposed architecture combines convolutional feature extraction, optional recurrent memory, and shared policy–value learning to support adaptive source localization under uncertainty.
+
+
+
+
+IQ input
+(
+8
+,
+1024
+)
+(8,1024)
+LSTM-CNN encoder
+(
+8
+,
+1024
+)
+→
+(
+128
+)
+(8,1024)\rightarrow(128)
+Flatten
+(
+128
+)
+(128)
+LSTM
+(
+128
+)
+→
+(
+512
+)
+(128)\rightarrow(512)
+Actor
+π
+\pi
+Critic
+V
+V
+Hidden state: 
+(
+h
+t
+−
+1
+,
+c
+t
+−
+1
+)
+(h_{t-1},c_{t-1})
+
+
+Fig. 5
+: 
+Recurrent PPO architecture.
+
+
+
+
+
+
+
+
+IV-D
+ 
+Statistical Feature Selection for Policy Learning
+
+
+
+
+
+To enable the RL agent to navigate the environment, we extract a set of statistical features from the IQ samples and train the agent to localize the emitter using each feature individually. Specifically, we consider five feature types: the IQ mean, the IQ standard deviation, the IQ root-mean-square (RMS), and the IQ phase differences between antenna pairs. Based on these feature representations, the agent is trained using the policy and value function architecture described in Section 
+IV-C
+. In addition, during training, each episode is associated with a randomly assigned goal position. The environment is reset once the minimum number of steps has been reached. Consequently, the agent is not trained to reach a single fixed target, but instead learns a general policy that enables navigation toward arbitrary goal positions within the considered spatial region.
+
+
+
+
+
+
+
+
+
+
+V 
+Experiments
+
+
+
+
+
+Sionna Simulation Environment
+
+
+
+
+
+All experiments are conducted on a synthetic dataset generated with the Sionna ray-tracing framework 
+[
+28
+]
+. The simulated scene represents an indoor industrial hall with metallic boundary surfaces and interior structures such as shelves, yielding dense multipath propagation and non-line-of-sight conditions. Sionna computes the propagation paths and generates the corresponding complex baseband signals, which are then used as input to the localization framework. The transmitter is placed at a fixed position in the scene and operates at the GPS L1 center frequency of 
+1.57542
+​
+GHz
+1.57542\,\text{GHz}
+. The receiver is modeled as a 
+2
+×
+2
+2\times 2
+ antenna patch that traverses the environment while maintaining a fixed orientation. For each receiver position, the simulator generates 
+1,024
+1{,}024
+ complex IQ samples per antenna element at a bandwidth of 
+100
+​
+MHz
+100\,\text{MHz}
+. Each observation is represented as a tensor of shape 
+(
+4
+×
+1,024
+×
+2
+)
+(4\times 1{,}024\times 2)
+.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Fig. 6
+: 
+Trajectories of the agent during early (left) and late (right) training phase with PPO.
+
+
+
+
+
+
+
+
+Signal Structure & Multipath Propagation
+
+
+
+
+
+Let 
+s
+⁡
+(
+t
+)
+s(t)
+ denote the transmitted complex baseband signal. The received signal at the antenna array is modeled as a superposition of multiple propagation paths,
+
+
+
+
+
+
+
+
+
+𝐲
+⁡
+(
+t
+)
+=
+∑
+l
+=
+1
+L
+α
+l
+​
+𝐚
+​
+(
+θ
+l
+,
+ϕ
+l
+)
+​
+s
+​
+(
+t
+−
+τ
+l
+)
++
+𝐧
+⁡
+(
+t
+)
+,
+\mathbf{y}(t)=\sum_{l=1}^{L}\alpha_{l}\mathbf{a}(\theta_{l},\phi_{l})s(t-\tau_{l})+\mathbf{n}(t),
+
+
+
+
+(13)
+
+
+
+
+where 
+α
+l
+\alpha_{l}
+, 
+τ
+l
+\tau_{l}
+, and 
+(
+θ
+l
+,
+ϕ
+l
+)
+(\theta_{l},\phi_{l})
+ denote the complex attenuation, delay, and direction of arrival of the 
+l
+l
+-th path, respectively, and 
+𝐚
+⁡
+(
+θ
+l
+,
+ϕ
+l
+)
+\mathbf{a}(\theta_{l},\phi_{l})
+ is the array response. This model reflects the strong multipath conditions of the simulated indoor scene, where reflections from walls, floor, ceiling, and interior objects create ambiguous spatial signatures. Since the set of multipath components depends on the environment geometry, changes in the scene induce domain shifts in the observation distribution.
+
+
+
+
+
+
+
+
+Data Preprocessing
+
+
+
+
+
+The proposed framework operates directly on raw IQ observations in order to preserve both amplitude and phase information. Before training, the IQ samples are standardized channel-wise using z-score normalization, 
+x
+norm
+=
+x
+−
+μ
+σ
+x_{\mathrm{norm}}=\frac{x-\mu}{\sigma}
+, where 
+μ
+\mu
+ and 
+σ
+\sigma
+ are computed on the training set and reused for all evaluation settings. This preprocessing ensures numerical stability and a consistent input scale across environments, while maintaining the signal structure required for learning-based localization.
+
+
+
+
+
+
+
+
+
+
+VI 
+Evaluation
+
+
+
+
+
+Overall, the results show that RL can learn meaningful source-seeking behavior from RF observations, while recurrence and meta-learning provide further gains under partial observability and domain shift.
+
+
+
+
+
+
+Baseline Feasibility
+
+
+
+
+
+As a first baseline, PPO outperformed DQN, achieving a success rate of 
+80.1
+%
+80.1\%
+ compared to 
+76.3
+%
+76.3\%
+ and a higher mean return (
+4.98
+4.98
+ vs. 
+−
+0.09
+-0.09
+). Although localization errors remained high, these results indicate that RL can extract useful navigation cues from RF observations and learn non-trivial interference-seeking behavior. This qualitative progression is illustrated in Figure 
+6
+, where the PPO agent shows more goal-directed trajectories in later training stages.
+
+†
+†
+
+              
+              
+            
+Evaluation Metrics.
+ The 
+episodic return
+ measures the cumulative reward obtained within one episode,
+
+G
+=
+∑
+t
+=
+0
+T
+r
+t
+G=\sum_{t=0}^{T}r_{t}
+,
+and serves as the primary indicator of overall task performance, reflecting navigation efficiency and successful localization. The 
+success rate
+ (SR) is defined as the fraction of evaluation episodes in which the agent reaches the target region,
+
+SR
+=
+1
+N
+​
+∑
+i
+=
+1
+N
+𝕀
+⁡
+[
+success
+i
+]
+\mathrm{SR}=\frac{1}{N}\sum_{i=1}^{N}\mathbb{I}[\mathrm{success}_{i}]
+,
+where 
+N
+N
+ denotes the number of evaluation episodes. For PPO-based methods, the 
+explained variance
+ is defined as
+
+EV
+=
+1
+−
+Var
+⁡
+(
+V
+target
+−
+V
+pred
+)
+Var
+⁡
+(
+V
+target
+)
+\mathrm{EV}=1-\frac{\mathrm{Var}(V_{\mathrm{target}}-V_{\mathrm{pred}})}{\mathrm{Var}(V_{\mathrm{target}})}
+,
+where 
+V
+target
+V_{\mathrm{target}}
+ is the empirical return and 
+V
+pred
+V_{\mathrm{pred}}
+ is the critic estimate. Higher explained variance indicates a more accurate value function and improved state representation. For meta-learning, we evaluate the 
+mean query return
+, which measures post-adaptation performance on the query set,
+
+J
+query
+​
+(
+θ
+)
+=
+1
+|
+ℬ
+|
+​
+∑
+𝒯
+i
+∈
+ℬ
+𝔼
+τ
+∼
+π
+θ
+i
+′
+​
+[
+∑
+t
+=
+0
+T
+γ
+t
+​
+r
+t
+]
+J_{\mathrm{query}}(\theta)=\frac{1}{|\mathcal{B}|}\sum_{\mathcal{T}_{i}\in\mathcal{B}}\mathbb{E}_{\tau\sim\pi_{\theta_{i}^{\prime}}}\left[\sum_{t=0}^{T}\gamma^{t}r_{t}\right]
+,
+where 
+θ
+i
+′
+\theta_{i}^{\prime}
+ denotes the task-adapted parameters.
+
+
+
+
+
+
+Fig. 7
+: 
+Explained variance of the value function.
+
+
+
+
+
+
+
+
+Impact of Temporal Memory
+
+
+
+
+
+We next compared feedforward and recurrent agents. Recurrence improved success rate for both algorithm families. More importantly, the recurrent PPO agent achieved substantially higher explained variance than the feedforward variant, as shown in Figure 
+7
+. This indicates that temporal memory improves internal state estimation and yields more stable value learning under ambiguous RF observations.
+
+
+
+
+
+
+
+
+Feature Selection
+
+
+
+
+
+Figure 
+8
+ illustrates the spatial distributions of several signal representations, including the mean, standard deviation, RMS, and inter-antenna phase differences. The mean, standard deviation, and RMS features exhibit similar patterns, with elevated responses concentrated near the center and only limited variation across the remaining cells. By contrast, the inter-antenna phase difference shows a more distinctive and spatially structured distribution, indicating that it provides the most discriminative information for localization. Consistent with this observation, the reinforcement learning agent achieves its best performance under the PPO framework when the phase differences between IQ samples are used as input features. In addition, the phase difference representation leads to more stable learning behavior and higher localization accuracy (see Figure 
+9
+). Unlike the other feature types, phase differences remain consistently distinguishable across different cells of the environment, whereas the remaining representations exhibit overlapping and less discriminative patterns that hinder reliable spatial differentiation. The consistency of the phase information therefore provides a stronger and more informative signal, enabling the agent to infer spatial relationships more effectively and to improve its decision-making process.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Fig. 8
+: 
+Feature importance for different signal representations.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Fig. 9
+: 
+Comparison of episodic length and return values for different input signal representation inputs.
+
+
+
+
+
+
+
+
+
+
+VII 
+Conclusion
+
+
+
+
+
+We formulated signal emitter localization as an active sensing problem and presented an RL framework that learns source-seeking behavior directly from multi-antenna IQ observations. The results show that RL is a viable approach for this task, while recurrent policies improve stability under partial observability and meta-learning enables positive transfer to unseen propagation environments. The findings highlight the potential of adaptive RL for emitter localization.
+
+†
+†
+
+            
+            
+          
+Acknowledgments.
+ This work has been carried out within the PaiL project, funding code 50NP2506, sponsored by the German Federal Ministry for Transport (BMV) and supported by the German Space Agency at DLR, the Bundesnetzagentur (BNetzA), and the Federal Agency for Cartography and Geodesy (BKG).
+
+
+
+
+
+
+
+
+References
+
+
+
+
+
+[1]
+
+
+D. Borio, F. Dovis, H. Kuusniemi, and L. L. Presti
+ (2016)
+
+
+
+
+Impact and Detection of GNSS Jammers on Consumer Grade Satellite Navigation Receivers
+.
+
+
+
+In 
+Proceedings of the IEEE
+,
+
+
+
+pp. 1233–1245
+.
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[2]
+
+
+L. Heublein, T. Feigl, A. Rügamer, C. Mutschler, and F. Ott
+ (2026)
+
+
+
+
+Variational & Generative Models with Quantization for Disentanglement and Compressed Sensing of GNSS Spectrograms
+.
+
+
+
+In 
+IEEE J-ISPIN
+,
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+.
+
+
+
+[3]
+
+
+D. Borio and C. Gioia
+ (2021)
+
+
+
+
+GNSS Interference Mitigation: A Measurement and Position Domain Assessment
+.
+
+
+
+In 
+NAVIGATION
+,
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[4]
+
+
+W. Qin, M. T. Gamba, E. Falletti, and F. Dovis
+ (2020)
+
+
+
+
+An Assessment of Impact of Adaptive Notch Filters for Interference Removal on the Signal Processing Stages of a GNSS Receiver
+.
+
+
+
+In 
+IEEE TAES
+,
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[5]
+
+
+X. Dai, J. Nie, F. Chen, and G. Ou
+ (2017)
+
+
+
+
+Distortionless Space-Time Adaptive Processor Based on MVDR Beamformer for GNSS Receiver
+.
+
+
+
+In 
+IET Radar, Sonar & Navigation (RSN)
+,
+
+
+
+pp. 1488–1494
+.
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[6]
+
+
+D. Medina, C. Lass, E. P. Marcos, R. Ziebold, P. Closas, and J. García
+ (2019)
+
+
+
+
+On GNSS Jamming Threat from the Maritime Navigation Perspective
+.
+
+
+
+In 
+Proc. Intl. Conf. on Information Fusion (FUSION)
+,
+
+
+
+pp. 1–7
+.
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[7]
+
+
+X. Bai, W. Wen, and L. Hsu
+ (2020)
+
+
+
+
+Using Sky-Pointing Fish-Eye Camera and LiDAR to Aid GNSS Single-Point Positioning in Urban Canyons
+.
+
+
+
+In 
+IET Intelligent Transport Systems
+,
+
+
+
+pp. 908–914
+.
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[8]
+
+
+D. Lyu, X. Chen, F. Wen, L. Pei, and D. He
+ (2019)
+
+
+
+
+Urban Area GNSS In-Car-Jammer Localization Based on Pattern Recognition
+.
+
+
+
+In 
+NAVIGATION
+,
+
+
+
+pp. 325–340
+.
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[9]
+
+
+R. Schmidt
+ (1986)
+
+
+
+
+Multiple Emitter Location and Signal Parameter Estimation
+.
+
+
+
+In 
+IEEE TAP
+,
+
+
+
+pp. 276–280
+.
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[10]
+
+
+R. M. Ferre, A. D. L. Fuente, and E. S. Lohan
+ (2019)
+
+
+
+
+Jammer Classification in GNSS Bands via Machine Learning Algorithms
+.
+
+
+
+In 
+Sensors J.
+,
+
+
+
+pp. 4841–4862
+.
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[11]
+
+
+L. Heublein, C. Wielenberg, T. Nowak, T. Feigl, C. Mutschler, and F. Ott
+ (2025)
+
+
+
+
+Attention-Based Fusion of IQ and FFT Spectrograms with AoA Features for GNSS Jammer Localization
+.
+
+
+
+In 
+RadarConf
+,
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+.
+
+
+
+[12]
+
+
+C. Finn, P. Abbeel, and S. Levine
+ (2017)
+
+
+
+
+Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks
+.
+
+
+
+In 
+ICML
+,
+
+
+
+pp. 1126–1135
+.
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[13]
+
+
+N. Hansen and X. Wang
+ (2021)
+
+
+
+
+Generalization in Reinforcement Learning by Soft Data Augmentation
+.
+
+
+
+In 
+IEEE ICRA
+,
+
+
+
+pp. 13611–13617
+.
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[14]
+
+
+J. Tang, Z. Li, Q. Yu, H. Zhao, K. Zeng, S. Zhong, Q. Wang, K. Xie, V. Kuzin, and S. Xie
+ (2025)
+
+
+
+
+Deep Reinforcement Learning with Robust Augmented Reward Sequence Prediction for Improving GNSS Positioning
+.
+
+
+
+In 
+GPS Solutions
+,
+
+
+
+pp. 65
+.
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[15]
+
+
+Z. Li, P. Li, J. Tang, Y. Song, L. Chen, Y. Cai, and S. Xie
+ (2025)
+
+
+
+
+Deep Reinforcement Learning with Robust Spatial-Temporal Representation for Improving GNSS Positioning Correction
+.
+
+
+
+In 
+GPS Solutions
+,
+
+
+
+pp. 1–35
+.
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[16]
+
+
+Z. Zhou, Y. Niu, B. Wan, and W. Zhou
+ (2023)
+
+
+
+
+Anti-Jamming Communication Using Imitation Learning
+.
+
+
+
+In 
+Entropy
+,
+
+
+
+pp. 1547
+.
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[17]
+
+
+Y. Li, X. Wang, D. Liu, Q. Guo, X. Liu, J. Zhang, and Y. Xu
+ (2019)
+
+
+
+
+On the Performance of Deep Reinforcement Learning-Based Anti-Jamming Method Confronting Intelligent Jammer
+.
+
+
+
+In 
+Appl. Sc.
+,
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[18]
+
+
+G. Han, X. Liang, and H. V. Poor
+ (2017)
+
+
+
+
+Two-Dimensional Anti-Jamming Communication Based on Deep Reinforcement Learning
+.
+
+
+
+In 
+IEEE ICASSP
+,
+
+
+
+pp. 2087–2091
+.
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[19]
+
+
+C. Zhou, C. Wang, L. Bao, X. Gao, J. Gong, and M. Tan
+ (2024)
+
+
+
+
+Frequency Diversity Array Radar and Jammer Intelligent Frequency Domain Power Countermeasures Based on Multi-Agent Reinforcement Learning
+.
+
+
+
+In 
+Remote Sensing
+,
+
+
+
+pp. 2127
+.
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[20]
+
+
+V. H. Nguyen, D. N. Nguyen, D. T. Hoang, and E. Dutkiewicz
+ (2019)
+
+
+
+
+Jam Me If You Can: Defeating Jammer with Deep Dueling Neural Network Architecture and Ambient Backscattering Augmented Communications
+.
+
+
+
+In 
+IEEE J-SAC
+,
+
+
+
+pp. 2603–2620
+.
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§II
+.
+
+
+
+[21]
+
+
+J. Schulman, F. Wolski, P. Dhariwal, A. Radford, and O. Klimov
+ (2017)
+
+
+
+
+Proximal Policy Optimization Algorithms
+.
+
+
+
+In 
+arXiv:1707.06347
+,
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§I
+,
+
+§III-B
+.
+
+
+
+[22]
+
+
+Y. Wang, P. Gong, M. Wu, F. Ott, X. Li, L. Xie, and Z. Chen
+ (2025)
+
+
+
+
+Temporal Source Recovery for Time-Series Source-Free Unsupervised Domain Adaptation
+.
+
+
+
+In 
+IEEE TPAMI
+,
+
+
+
+Cited by: 
+§II
+.
+
+
+
+[23]
+
+
+M. L. Puterman
+ (2014)
+
+
+
+
+Markov Decision Processes: Discrete Stochastic Dynamic Programming
+.
+
+
+
+In 
+John Wiley and Sons
+,
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§III-A
+.
+
+
+
+[24]
+
+
+R. S. Sutton and A. G. Barto
+ (1998)
+
+
+
+
+Reinforcement Learning: An Introduction
+.
+
+
+
+In 
+A Bradford Book
+,
+
+
+
+Cited by: 
+§III-A
+,
+
+§IV-A
+.
+
+
+
+[25]
+
+
+L. P. Kaelbling, M. L. Littman, and A. R. Cassandra
+ (1998)
+
+
+
+
+Planning and Acting in Partially Observable Stochastic Domains
+.
+
+
+
+In 
+Artificial Intelligence
+,
+
+
+
+pp. 99–134
+.
+
+
+
+External Links: 
+Document
+
+
+
+
+Cited by: 
+§III-A
+,
+
+§IV-B
+.
+
+
+
+[26]
+
+
+V. Mnih, K. Kavukcuoglu, D. Silver, A. Graves, I. Antonoglou, D. Wierstra, and M. Riedmiller
+ (2013)
+
+
+
+
+Playing Atari with Deep Reinforcement Learning
+.
+
+
+
+In 
+arXiv:1312.5602
+,
+
+
+
+pp. 1–9
+.
+
+
+
+Cited by: 
+§III-B
+,
+
+§III-B
+.
+
+
+
+[27]
+
+
+A. Ng, D. Harada, and S. J. Russell
+ (1999)
+
+
+
+
+Policy Invariance Under Reward Transformations: Theory and Application to Reward Shaping
+.
+
+
+
+In 
+Intl. Conf. on Machine Learning (ICML)
+,
+
+
+
+Cited by: 
+§IV-B
+.
+
+
+
+[28]
+
+
+J. Hoydis, S. Cammerer, F. A. Aoudia, A. Vem, N. Binder, G. Marcus, and A. Keller
+ (2022)
+
+
+
+
+Sionna: An Open-Source Library for Next-Generation Physical Layer Research
+.
+
+
+
+In 
+arXiv:2203.11854
+,
+
+
+
+Cited by: 
+§V
+.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    Experimental support, please
+    
+view the build logs
+
+    for errors. Generated by
+    
+
+      
+
+        L
+        
+A
+
+        T
+        
+E
+
+      
+
+      
+xml
+
+      
+
+    
+.
+  
+
+  
+
+    
+Instructions for reporting errors
+
+    
+We are continuing to improve HTML versions of papers, and your feedback helps enhance accessibility and mobile
+      support. To report errors in the HTML that will help us improve conversion and rendering, choose any of the
+      methods listed below:
+
+    
+
+      
+Click the "Report Issue" 
+(
+
+            
+
+          
+)
+ button, located in the page header.
+
+    
+
+    
+Tip:
+ You can select the relevant text first, to include it in your report.
+
+    
+Our team has already identified 
+the following issues
+. We appreciate your time reviewing and reporting rendering errors we
+      may not have found yet. Your efforts will help us improve the HTML versions for all readers, because disability
+      should not be a barrier to accessing research. Thank you for your continued support in championing open access for
+      all.
+
+    
+Have a free development cycle? Help support accessibility at arXiv! Our collaborators at LaTeXML maintain a 
+list of packages that need conversion
+, and welcome 
+developer contributions
+.
+
+  
+
+
+
+  
+
+    
+
+      
+
+        We gratefully acknowledge support from
+        our 
+major funders
+,
+        
+member institutions
+, 
+,
+        and all contributors.
+      
+
+      
+
+        
+About
+
+        
+·
+
+        
+Help
+
+        
+·
+
+        
+Contact
+
+        
+·
+
+        
+Subscribe
+
+        
+·
+
+        
+Copyright
+
+        
+·
+
+        
+Privacy
+
+        
+·
+
+        
+Accessibility
+
+        
+·
+
+        
+Operational Status
+ (opens in new tab)
+
+      
+
+    
+
+
+    
+
+      
+Major funding support from
+
+      
+
+        
+
+          
+
+        
+
+        
+
+          
+
+        
+
+        
+
+          
+
+        
+
+      
+
+    
+
+  
+
+
+
+  
+
+    
+
+      
+
+    
+
+  
+
+
+
+
+

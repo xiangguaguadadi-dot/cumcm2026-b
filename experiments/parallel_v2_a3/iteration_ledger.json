@@ -1,0 +1,316 @@
+{
+  "scope": "two mechanism directions; safety corrections are not optimization rounds",
+  "rounds": [
+    {
+      "round": "r1",
+      "method": "角残差加权最小二乘直接试清",
+      "decision": "开发比起点慢2.968889，淘汰",
+      "development": {
+        "all_complete": true,
+        "cases": 96,
+        "candidate": "r1",
+        "wall_s": 6.034697458031587,
+        "baseline_mean": 447.19264267680535,
+        "candidate_mean": 450.16153193002043,
+        "delta_mean": 2.9688892532150972,
+        "faster": 40,
+        "slower": 56,
+        "equal": 0
+      },
+      "training": null,
+      "candidate_sha256": "0d4598a19cd2a8c90a14601bd8dccc00fad52993ba6f5c9136ec548be07c7822"
+    },
+    {
+      "round": "r2",
+      "method": "真实单次clear反事实标签加30秒失败代理、线性岭门控",
+      "decision": "开发改善；full保留为中间候选，未独立完成4800",
+      "development": {
+        "all_complete": true,
+        "cases": 96,
+        "candidate": "r2",
+        "wall_s": 5.6043222500011325,
+        "baseline_mean": 447.19264267680535,
+        "candidate_mean": 446.84879314815964,
+        "delta_mean": -0.34384952864570373,
+        "faster": 49,
+        "slower": 33,
+        "equal": 14
+      },
+      "training": {
+        "round": "r2",
+        "fit_worlds": 192,
+        "calibration_worlds": 96,
+        "completed_rollin_episodes": 288,
+        "fit_samples": 914,
+        "calibration_samples": 461,
+        "counterfactual_branches": 2750,
+        "branch_kind": "single clear",
+        "actual_requests": 75829,
+        "counterfactual_requests": 2750,
+        "wall_s": 9.863160875043832,
+        "registry_sha256": "a2471615756d6e6b4c3dd99ae796660d963ef1c1d82dbca9330017d7c9b1c044"
+      },
+      "candidate_sha256": "f7dd10cb0da471718d8e0c977b5003d2a9cd389de8b6774b3936a564f09f45a9"
+    },
+    {
+      "round": "r3",
+      "method": "以选定频道清除完毕的真实局部回报训练门控",
+      "decision": "最终残差候选；使用r3_guard安全版本",
+      "development": {
+        "all_complete": true,
+        "cases": 96,
+        "candidate": "r3",
+        "wall_s": 6.411677291966043,
+        "baseline_mean": 447.19264267680535,
+        "candidate_mean": 447.10398203862843,
+        "delta_mean": -0.0886606381769326,
+        "faster": 55,
+        "slower": 39,
+        "equal": 2
+      },
+      "training": {
+        "round": "r3",
+        "fit_worlds": 192,
+        "calibration_worlds": 96,
+        "completed_rollin_episodes": 288,
+        "fit_samples": 712,
+        "calibration_samples": 362,
+        "counterfactual_branches": 2148,
+        "branch_kind": "target-source completion tail",
+        "actual_requests": 74547,
+        "counterfactual_requests": 4544,
+        "wall_s": 11.564711834071204,
+        "registry_sha256": "79f794e54347a1fdc9f4d8bec50f2ad918b7241ae3c9bbd63369afba63afac9e"
+      },
+      "candidate_sha256": "a017a9d39ce057d5ffcfb3cd27c2ca2187420860406a614f3f4d3a0a73972c34"
+    },
+    {
+      "round": "r4",
+      "method": "修正WLS多边形内插线搜索后重新采样训练",
+      "decision": "开发退化，不晋级1",
+      "development": {
+        "all_complete": true,
+        "cases": 96,
+        "candidate": "r4",
+        "wall_s": 6.917760999989696,
+        "baseline_mean": 447.19264267680535,
+        "candidate_mean": 447.2770335268671,
+        "delta_mean": 0.08439085006174185,
+        "faster": 54,
+        "slower": 34,
+        "equal": 8
+      },
+      "training": {
+        "round": "r4",
+        "fit_worlds": 192,
+        "calibration_worlds": 96,
+        "completed_rollin_episodes": 288,
+        "fit_samples": 694,
+        "calibration_samples": 357,
+        "counterfactual_branches": 2102,
+        "branch_kind": "target-source completion tail",
+        "actual_requests": 75008,
+        "counterfactual_requests": 4564,
+        "wall_s": 12.7805309999967,
+        "registry_sha256": "4921b32b3734a61650168b00051e9f6840b73b25cc7e75e70506e4df65162696"
+      },
+      "candidate_sha256": "f441bae87b89fa4e5cfce0326dabccfcd57dade1019712bea54f039a9dfcd24a"
+    },
+    {
+      "round": "r5",
+      "method": "用已选R3策略采样，降低教师与部署状态分布差异",
+      "decision": "未超R3开发，不晋级2",
+      "development": {
+        "all_complete": true,
+        "cases": 96,
+        "candidate": "r5",
+        "wall_s": 5.679044832941145,
+        "baseline_mean": 447.19264267680535,
+        "candidate_mean": 447.1790311814051,
+        "delta_mean": -0.013611495400261594,
+        "faster": 53,
+        "slower": 37,
+        "equal": 6
+      },
+      "training": {
+        "round": "r5",
+        "fit_worlds": 192,
+        "calibration_worlds": 96,
+        "completed_rollin_episodes": 288,
+        "fit_samples": 719,
+        "calibration_samples": 352,
+        "counterfactual_branches": 2142,
+        "branch_kind": "target-source completion tail",
+        "actual_requests": 75773,
+        "counterfactual_requests": 4545,
+        "wall_s": 14.36868225003127,
+        "registry_sha256": "c6d310d159827e7031bbccaddedd3fad8a369457db9fa99904e5c05b9dad9f56"
+      },
+      "candidate_sha256": "34da5c8f3c03e1472fb390483fd27538f372e0f37043880b66a54abafc65a540"
+    },
+    {
+      "round": "r6",
+      "method": "在可恢复调度边界分叉、以整局真实秒/源回报训练双头门控",
+      "decision": "五个校准阈值实际优势均负；未建部署，不晋级3，停止",
+      "development": null,
+      "training": {
+        "round": "r6",
+        "fit_worlds": 96,
+        "calibration_worlds": 48,
+        "completed_rollin_episodes": 144,
+        "fit_samples": 189,
+        "calibration_samples": 95,
+        "counterfactual_branches": 852,
+        "branch_kind": "whole-task continuation",
+        "actual_requests": 37040,
+        "counterfactual_requests": 144994,
+        "wall_s": 21.31678166706115,
+        "registry_sha256": "63e116a76cb95211b2f5ed4878299b9189fd673f22238f579b8852008452ef2f"
+      },
+      "candidate_sha256": null
+    },
+    {
+      "round": "b1",
+      "method": "成功clear区域上的21格共享角偏差profile似然",
+      "decision": "全量改善；使用b1_safe保留保护上下文成功学习",
+      "development": {
+        "all_complete": true,
+        "cases": 96,
+        "candidate": "b1",
+        "wall_s": 6.399903833051212,
+        "baseline_mean": 447.19264267680535,
+        "candidate_mean": 446.9776912896769,
+        "delta_mean": -0.21495138712845266,
+        "faster": 13,
+        "slower": 6,
+        "equal": 77
+      },
+      "training": null,
+      "candidate_sha256": "5e1785067ea10a3b7d6b8f410a59b26d2eec5e411199aac41a475fc64679f2af"
+    },
+    {
+      "round": "b2_safe",
+      "method": "共享与各频道独立profile模型证据检验",
+      "decision": "全量晋级；改名safe是安全修正，不另算优化轮",
+      "development": {
+        "all_complete": true,
+        "cases": 96,
+        "candidate": "b2_safe",
+        "wall_s": 7.886597750009969,
+        "baseline_mean": 447.19264267680535,
+        "candidate_mean": 446.9683423977696,
+        "delta_mean": -0.22430027903572144,
+        "faster": 11,
+        "slower": 4,
+        "equal": 81
+      },
+      "training": null,
+      "candidate_sha256": "e88e49fe73340fe9d9ccbb9eade6da26e90a6da38d9e1ef232f2097dc58cde31"
+    },
+    {
+      "round": "b3_safe",
+      "method": "以MAP替代偏差后验均值",
+      "decision": "开发未超B2，不晋级",
+      "development": {
+        "all_complete": true,
+        "cases": 96,
+        "candidate": "b3_safe",
+        "wall_s": 9.987645625020377,
+        "baseline_mean": 447.19264267680535,
+        "candidate_mean": 447.0179110708551,
+        "delta_mean": -0.17473160595025763,
+        "faster": 13,
+        "slower": 6,
+        "equal": 77
+      },
+      "training": null,
+      "candidate_sha256": "7fd153eb90b4683234539d6272863a2041c92011361a5233f9215b62e1fda6dc"
+    },
+    {
+      "round": "b4_safe",
+      "method": "积分各偏差对应的profile位置，最大化20米清除盘原子质量",
+      "decision": "全量晋级；最终冻结",
+      "development": {
+        "all_complete": true,
+        "cases": 96,
+        "candidate": "b4_safe",
+        "wall_s": 8.982289999956265,
+        "baseline_mean": 447.19264267680535,
+        "candidate_mean": 446.8942606376119,
+        "delta_mean": -0.2983820391934433,
+        "faster": 18,
+        "slower": 1,
+        "equal": 77
+      },
+      "training": null,
+      "candidate_sha256": "d19433fc9b61de42a28ef50c7c4702e5d67c3cda690ee17a90b0628acd84fc8b"
+    },
+    {
+      "round": "b5_safe",
+      "method": "跨频道留一MAP符号稳定性",
+      "decision": "未超B4，不晋级1",
+      "development": {
+        "all_complete": true,
+        "cases": 96,
+        "candidate": "b5_safe",
+        "wall_s": 6.736185917048715,
+        "baseline_mean": 447.19264267680535,
+        "candidate_mean": 446.9683423977696,
+        "delta_mean": -0.22430027903572144,
+        "faster": 11,
+        "slower": 4,
+        "equal": 81
+      },
+      "training": null,
+      "candidate_sha256": "e5c5f1de8b2581cb3c268a4eff21558cda67a87d4c75c4d0aef110b51f65cddc"
+    },
+    {
+      "round": "b6_safe",
+      "method": "等权共享/污染似然混合后再做后验盘规划",
+      "decision": "开发与起点相同，不晋级2",
+      "development": {
+        "all_complete": true,
+        "cases": 96,
+        "candidate": "b6_safe",
+        "wall_s": 6.259776332997717,
+        "baseline_mean": 447.19264267680535,
+        "candidate_mean": 447.19264267680535,
+        "delta_mean": 0.0,
+        "faster": 0,
+        "slower": 0,
+        "equal": 96
+      },
+      "training": null,
+      "candidate_sha256": "61b6afa77ef627fc2398f1d7be8d2b70e76029fe85791a61e0b7b9bcfe3ce2d7"
+    },
+    {
+      "round": "b7_safe",
+      "method": "共享/非共享profile证据模型平均清除点",
+      "decision": "未超B4，不晋级3，停止",
+      "development": {
+        "all_complete": true,
+        "cases": 96,
+        "candidate": "b7_safe",
+        "wall_s": 5.959190957946703,
+        "baseline_mean": 447.19264267680535,
+        "candidate_mean": 446.9363435530804,
+        "delta_mean": -0.25629912372497204,
+        "faster": 19,
+        "slower": 0,
+        "equal": 77
+      },
+      "training": null,
+      "candidate_sha256": "601600a7ed5ceb1448af18d8594bfa19a4beee09ec70c8b1c5975e9338b803c4"
+    }
+  ],
+  "stopping": {
+    "residual": "R4/R5/R6 three consecutive nonpromotions after R3",
+    "bias": "B5/B6/B7 three consecutive nonpromotions after B4"
+  },
+  "safety_revisions": [
+    "r3_guard preserves cover_polygon/protected plans and failed-clear follow-up coordinates",
+    "b1_guard is superseded: its early return dropped calibration from protected successes",
+    "b1_safe and later bias snapshots preserve calibration and derive clear-disk center from actual public trace",
+    "training R2-R6 occurred before the coverage-context fix; no retraining or universal behavioral equivalence is claimed"
+  ]
+}

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- new favicon config and versions by realfavicongenerator.net -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon-16x16.png">
+<link rel="manifest" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/site.webmanifest">
+<link rel="mask-icon" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/safari-pinned-tab.svg" color="#b31b1b">
+<link rel="shortcut icon" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#b31b1b">
+<meta name="msapplication-config" content="images/icons/browserconfig.xml">
+<meta name="theme-color" content="#b31b1b">
+<!-- end favicon config -->
+<title>Search | arXiv e-print repository</title>
+<script defer src="https://static.arxiv.org/static/base/1.0.0a5/fontawesome-free-5.11.2-web/js/all.js"></script>
+<link rel="stylesheet" href="https://static.arxiv.org/static/base/1.0.0a5/css/arxivstyle.css" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      ignoreClass: '.*',
+      processClass: 'mathjax.*'
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js"],
+        noErrors: {
+          inlineDelimiters: ["$","$"],
+          multiLine: false,
+          style: {
+            "font-size": "normal",
+            "border": ""
+          }
+        }
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script src='//static.arxiv.org/MathJax-2.7.3/MathJax.js'></script>
+<script src="https://static.arxiv.org/static/base/1.0.0a5/js/notification.js"></script>
+
+    
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" type="text/css" media="screen" href="https://static.arxiv.org/static/base/1.0.1/css/arxiv-header-footer.css?v=20260626" />
+  <script defer src="https://static.arxiv.org/static/base/1.0.1/js/arxiv-header.js?v=20260626"></script>
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/bulma-tooltip.min.css" />
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/search.css" />
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
+
+  <script src="https://static.arxiv.org/static/search/0.5.6/js/fieldset.js"></script>
+  <style>
+  radio#cf-customfield_11400 {
+    display: none;
+  }
+  /* Render the spinout .ds-site-footer standalone / full-bleed. search extends the
+     legacy base, whose bare wrapping <footer> (in base/base.html, outside any
+     overridable block — so it can't be removed from here) is styled by
+     arxivstyle.css with a grey background (hsl(0,0%,95%)) + 1em 2em padding,
+     boxing our warm-wash footer inside a second grey band. display:contents drops
+     the wrapper's box entirely (cleaner than zeroing individual properties) so
+     .ds-site-footer renders in its place; it inherits flex-shrink:0 from the same
+     legacy `footer` rule, so the sticky footer still works. Search-specific
+     legacy-base integration; the shared chrome CSS stays byte-identical to the SSOT. */
+  body > footer {
+    display: contents;
+  }
+  </style>
+
+  </head>
+  <body>
+  
+  
+  <header><a href="#main-container" class="is-sr-only">Skip to main content</a>
+    <div class="ds-announcement" id="announcement-banner" role="region" aria-label="Announcement" data-banner-name="spinout-nonprofit">
+  <img class="ds-announcement-glyph" src="https://static.arxiv.org/static/base/1.0.1/images/icons/smileybones-small.svg" alt="" aria-hidden="true">
+  <span class="ds-announcement-text">arXiv is now an independent nonprofit!</span>
+  <a class="ds-announcement-link" href="https://info.arxiv.org/about">Learn more</a>
+  <button type="button" class="ds-announcement-close" aria-label="Dismiss announcement">&times;</button>
+</div>
+<header class="ds-site-header">
+  <a href="https://arxiv.org/" class="ds-site-header-logo" aria-label="archive home">
+    <img src="https://static.arxiv.org/static/base/1.0.1/images/arxiv-logo-primary-light.svg" alt="archive">
+  </a>
+  <button type="button" id="ds-nav-toggle" class="ds-site-header-nav-toggle"
+    aria-label="Open menu" aria-controls="ds-site-header-nav" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+  <nav class="ds-site-header-nav" id="ds-site-header-nav" aria-label="Main navigation">
+    <a id="arxiv-search-toggle" href="/search" aria-controls="arxiv-search-overlay" aria-expanded="false">
+      <svg class="ds-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      Search
+    </a>
+    <a href="https://arxiv.org/user/create">Submit</a>
+    <a href="https://info.arxiv.org/about/donate.html">Donate</a>
+    <span class="ds-site-header-divider" aria-hidden="true"></span>
+    <a href="https://arxiv.org/login" class="ds-site-header-login">Log in</a>
+  </nav>
+</header>
+
+<div class="arxiv-search-overlay" id="arxiv-search-overlay" hidden>
+  <div class="arxiv-search-panel" role="search">
+    <form method="GET" action="/search">
+      <label for="arxiv-search-input" class="is-sr-only">Search arXiv</label>
+      <input type="text" name="query" id="arxiv-search-input" autocomplete="off"
+        placeholder="Search papers by title, author, abstract, or ID...">
+      <input type="hidden" name="searchtype" value="all">
+      <input type="hidden" name="source" value="header">
+    </form>
+    <div class="arxiv-search-hint">
+      Press Enter to search &middot; <a href="/search/advanced">Advanced search</a>
+    </div>
+  </div>
+</div>
+
+  </header>
+  <main class="container" id="main-container">
+    
+
+
+    
+  <div class="level is-marginless">
+    <div class="level-left">
+      <h1 class="title is-clearfix">
+    
+        Showing 1&ndash;5 of 5 results for all: <span class="mathjax">bearings only bias estimation</span>
+    
+</h1>
+    </div>
+    <div class="level-right is-hidden-mobile">
+      <!-- feedback for mobile is moved to footer -->
+      <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+    </div>
+  </div>
+    <div class="content">
+      
+  <form method="GET" action="/search/"  aria-role="search">
+    
+
+    
+    <div class="field has-addons-tablet">
+      <div class="control is-expanded">
+        <label for="query" class="hidden-label">Search term or terms</label>
+        
+          <input class="input is-medium" id="query" name="query" placeholder="Search term..." type="text" value="bearings only bias estimation">
+        
+        
+      </div>
+      <div class="select control is-medium">
+        <label class="is-hidden" for="searchtype">Field</label>
+        <select class="is-medium" id="searchtype" name="searchtype"><option selected value="all">All fields</option><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="license">License (URI)</option><option value="author_id">arXiv author ID</option><option value="help">Help pages</option><option value="full_text">Full text</option></select>
+      </div>
+      <div class="control">
+          <button class="button is-link is-medium">Search</button>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control is-size-7">
+        
+        <label class="radio">
+          <input checked id="abstracts-0" name="abstracts" type="radio" value="show"> Show abstracts
+        </label>
+        
+        <label class="radio">
+          <input id="abstracts-1" name="abstracts" type="radio" value="hide"> Hide abstracts
+        </label>
+        
+      </div>
+    </div>
+    <div class="is-clearfix" style="height: 2.5em"> 
+      <div class="is-pulled-right">
+        
+        <a href="/search/advanced?terms-0-term=bearings+only+bias+estimation&amp;terms-0-field=all&amp;size=50&amp;order=-announced_date_first">Advanced Search</a>
+        
+      </div>
+    </div>
+    <input type="hidden" name="order" value="-announced_date_first">
+    <input type="hidden" name="size" value="50">
+  </form>
+
+  
+
+  
+      
+<div class="level breathe-horizontal">
+  <div class="level-left">
+    <form method="GET" action="/search/">
+      <div style="display: none;">
+        
+          
+            <select id="searchtype" name="searchtype"><option selected value="all">All fields</option><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="license">License (URI)</option><option value="author_id">arXiv author ID</option><option value="help">Help pages</option><option value="full_text">Full text</option></select>
+          
+        
+          
+            <input id="query" name="query" type="text" value="bearings only bias estimation">
+          
+        
+          
+        
+          
+        
+          
+            <ul id="abstracts"><li><input checked id="abstracts-0" name="abstracts" type="radio" value="show"> <label for="abstracts-0">Show abstracts</label></li><li><input id="abstracts-1" name="abstracts" type="radio" value="hide"> <label for="abstracts-1">Hide abstracts</label></li></ul>
+          
+        
+      </div>
+      <div class="box field is-grouped is-grouped-multiline level-item">
+        <div class="control">
+          <span class="select is-small">
+            <select id="size" name="size"><option value="25">25</option><option selected value="50">50</option><option value="100">100</option><option value="200">200</option></select>
+          </span>
+          <label for="size">results per page</label>.
+        </div>
+        <div class="control">
+          <label for="order">Sort results by</label>
+          <span class="select is-small">
+            <select id="order" name="order"><option selected value="-announced_date_first">Announcement date (newest first)</option><option value="announced_date_first">Announcement date (oldest first)</option><option value="-submitted_date">Submission date (newest first)</option><option value="submitted_date">Submission date (oldest first)</option><option value="">Relevance</option></select>
+          </span>
+        </div>
+        <div class="control">
+          <button class="button is-small is-link">Go</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+      
+
+
+
+
+<ol class="breathe-horizontal" start="1"> 
+
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2504.03826">arXiv:2504.03826</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2504.03826">pdf</a>, <a href="https://arxiv.org/ps/2504.03826">ps</a>, <a href="https://arxiv.org/format/2504.03826">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Cosmology and Nongalactic Astrophysics">astro-ph.CO</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Astrophysics of Galaxies">astro-ph.GA</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="General Relativity and Quantum Cosmology">gr-qc</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="High Energy Physics - Phenomenology">hep-ph</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="High Energy Physics - Theory">hep-th</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        The ISW-Lensing Bispectrum &amp; Trispectrum
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Philcox%2C+O+H+E">Oliver H. E. Philcox</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Hill%2C+J+C">J. Colin Hill</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2504.03826v3-abstract-short" style="display: inline;">
+        &hellip;at higher-order, producing an ISW-lensing trispectrum whose amplitude is hitherto unconstrained. We present a detailed discussion of this effect, and define minimum-variance <span class="search-hit mathjax">estimators</span> for the ISW-lensing three- and four-point functions. These are implemented within the PolySpec code, and&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2504.03826v3-abstract-full').style.display = 'inline'; document.getElementById('2504.03826v3-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2504.03826v3-abstract-full" style="display: none;">
+        Due to the integrated Sachs-Wolfe (ISW) effect, cosmic microwave background (CMB) temperature and polarization fluctuations are correlated with the gravitational lensing potential. Famously, this induces a CMB three-point function, whose shape can be used to constrain dark energy and modifications to gravity. An analogous effect occurs at higher-order, producing an ISW-lensing trispectrum whose amplitude is hitherto unconstrained. We present a detailed discussion of this effect, and define minimum-variance <span class="search-hit mathjax">estimators</span> for the ISW-lensing three- and four-point functions. These are implemented within the PolySpec code, and <span class="search-hit mathjax">bear</span> strong similarities to the quadratic <span class="search-hit mathjax">estimators</span> used in lensing analyses. Applying these tools to Planck, we obtain strong detections of the bispectrum amplitude (consistent with previous works), but find <span class="search-hit mathjax">only</span> weak constraints on the trispectrum, due to a strong cancellation between the various ISW-induced contributions. We additionally forecast the constraints from future datasets, finding that (a) simple <span class="search-hit mathjax">estimators</span> for the ISW-lensing bispectrum will be severely limited by non-Gaussian modifications to the covariance, and (b) the ISW-lensing trispectrum will be very challenging to detect even with high-resolution future experiments. We finally consider the induced <span class="search-hit mathjax">bias</span> on primordial non-Gaussianity amplitudes (and lensing itself), which we show to be large for the bispectrum (as expected) but negligible for the trispectrum.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2504.03826v3-abstract-full').style.display = 'none'; document.getElementById('2504.03826v3-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 16 June, 2025; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 4 April, 2025;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> April 2025.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">17+11 pages, 6 figures, accepted by Phys. Rev. D. Code available at https://github.com/oliverphilcox/PolySpec</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2305.08390">arXiv:2305.08390</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2305.08390">pdf</a>, <a href="https://arxiv.org/format/2305.08390">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Signal Processing">eess.SP</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Systems and Control">eess.SY</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Tracking an Underwater Target with Unknown Measurement Noise Statistics Using Variational Bayesian Filters
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Das%2C+S">Shreya Das</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kumar%2C+K">Kundan Kumar</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Bhaumik%2C+S">Shovan Bhaumik</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2305.08390v1-abstract-short" style="display: inline;">
+        This paper considers a <span class="search-hit mathjax">bearings</span>-&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2305.08390v1-abstract-full').style.display = 'inline'; document.getElementById('2305.08390v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2305.08390v1-abstract-full" style="display: none;">
+        This paper considers a <span class="search-hit mathjax">bearings</span>-<span class="search-hit mathjax">only</span> tracking problem using noisy measurements of unknown noise statistics from a passive sensor. It is assumed that the process and measurement noise follows the Gaussian distribution where the measurement noise has an unknown non-zero mean and unknown covariance. Here an adaptive nonlinear filtering technique is proposed where the joint distribution of the measurement noise mean and its covariance are considered to be following normal inverse Wishart distribution (NIW). Using the variational Bayesian (VB) method the <span class="search-hit mathjax">estimation</span> technique is derived with optimized tuning parameters i.e, the confidence parameter and the initial degree of freedom of the measurement noise mean and the covariance, respectively. The proposed filtering technique is compared with the adaptive filtering techniques based on maximum likelihood and maximum aposteriori in terms of root mean square error in position and velocity, <span class="search-hit mathjax">bias</span> norm, average normalized <span class="search-hit mathjax">estimation</span> error squared, percentage of track loss, and relative execution time. Both adaptive filtering techniques are implemented using the traditional Gaussian approximate filters and are applied to a <span class="search-hit mathjax">bearings</span>-<span class="search-hit mathjax">only</span> tracking problem illustrated with moderately nonlinear and highly nonlinear scenarios to track a target following a nearly straight line path. Two cases are considered for each scenario, one when the measurement noise covariance is static and another when the measurement noise covariance is varying linearly with the distance between the target and the ownship. In this work, the proposed adaptive filters using the VB approach are found to be superior to their corresponding adaptive filters based on the maximum aposteriori and the maximum likelihood at the expense of higher computation cost.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2305.08390v1-abstract-full').style.display = 'none'; document.getElementById('2305.08390v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 15 May, 2023; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> May 2023.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">24 pages, 26 figures</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2302.01729">arXiv:2302.01729</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2302.01729">pdf</a>, <a href="https://arxiv.org/format/2302.01729">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Signal Processing">eess.SP</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Resolving Left-Right Ambiguity During <span class="search-hit mathjax">Bearing</span> <span class="search-hit mathjax">Only</span> Tracking of an Underwater Target Using Towed Array
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Das%2C+S">Shreya Das</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Tiwari%2C+R+K">Ranjeet Kumar Tiwari</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Bhaumik%2C+S">Shovan Bhaumik</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2302.01729v1-abstract-short" style="display: inline;">
+        In <span class="search-hit mathjax">bearing</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2302.01729v1-abstract-full').style.display = 'inline'; document.getElementById('2302.01729v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2302.01729v1-abstract-full" style="display: none;">
+        In <span class="search-hit mathjax">bearing</span> <span class="search-hit mathjax">only</span> tracking using a towed array, the array can sense the <span class="search-hit mathjax">bearing</span> angle of the target but is unable to differentiate whether the target is on the left or the right side of the array. Thus, the traditional tracking algorithm generates tracks in both the sides of the array which create difficulties when interception is required. In this paper, we propose a method based on likelihood of measurement which along with the <span class="search-hit mathjax">estimators</span> can resolve left-right ambiguity and track the target. A case study has been presented where the target moves (a) in a straight line with a near constant velocity, (b) maneuvers with a turn, and observer takes a `U&#39;-like maneuver. The method along with the various <span class="search-hit mathjax">estimators</span> has been applied which successfully resolves the ambiguity and tracks the target. Further, the tracking results are compared in terms of the root mean square error in position and velocity, <span class="search-hit mathjax">bias</span> norm, \% of track loss and the relative execution time.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2302.01729v1-abstract-full').style.display = 'none'; document.getElementById('2302.01729v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 3 February, 2023; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> February 2023.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">6 pages, 10 figures, correspondence paper</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1910.03844">arXiv:1910.03844</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1910.03844">pdf</a>, <a href="https://arxiv.org/ps/1910.03844">ps</a>, <a href="https://arxiv.org/format/1910.03844">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Systems and Control">eess.SY</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Edge Localization in Two Dimensional Space via Orientation <span class="search-hit mathjax">Estimation</span>
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Oh%2C+K">Koog-Hwan Oh</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Fidan%2C+B">Baris Fidan</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ahn%2C+H">Hyo-Sung Ahn</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1910.03844v4-abstract-short" style="display: inline;">
+        This paper focuses on the problem of <span class="search-hit mathjax">estimating</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1910.03844v4-abstract-full').style.display = 'inline'; document.getElementById('1910.03844v4-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1910.03844v4-abstract-full" style="display: none;">
+        This paper focuses on the problem of <span class="search-hit mathjax">estimating</span> <span class="search-hit mathjax">bearing</span> vectors between the agents in a two dimensional multi-agent network based on subtended angle measurements, called edge localization problem. We propose an edge localization graph to investigate the solvability of this problem and a distributed <span class="search-hit mathjax">estimation</span> method via orientation <span class="search-hit mathjax">estimation</span> of virtual agents to solve the problem. Under the proposed method, the <span class="search-hit mathjax">estimated</span> <span class="search-hit mathjax">bearing</span> vector exponentially converges to the real one with a common <span class="search-hit mathjax">bias</span> if and <span class="search-hit mathjax">only</span> if the edge localization graph has an oriented spanning tree. Furthermore, the <span class="search-hit mathjax">estimated</span> variables exponentially converge to the true values if the edge localization graph has an oriented spanning tree with a root knowing the <span class="search-hit mathjax">bearing</span> vector from it to one of its neighbors.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1910.03844v4-abstract-full').style.display = 'none'; document.getElementById('1910.03844v4-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 13 July, 2020; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 9 October, 2019;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2019.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">12 pages, 12 figures, Brief version of a paper named "Distributed Bearing Vector <span class="search-hit mathjax">Estimation</span> in Multi-agent Networks" published in Automatica</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1603.03450">arXiv:1603.03450</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1603.03450">pdf</a>, <a href="https://arxiv.org/format/1603.03450">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Methodology">stat.ME</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Systems and Control">eess.SY</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Multisensor--Multitarget <span class="search-hit mathjax">Bearing</span>--<span class="search-hit mathjax">Only</span> Sensor Registration
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Taghavi%2C+E">Ehsan Taghavi</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Tharmarasa%2C+R">R. Tharmarasa</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kirubarajan%2C+T">T. Kirubarajan</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=McDonald%2C+M">Mike McDonald</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1603.03450v1-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Bearing</span>--&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1603.03450v1-abstract-full').style.display = 'inline'; document.getElementById('1603.03450v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1603.03450v1-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Bearing</span>--<span class="search-hit mathjax">only</span> <span class="search-hit mathjax">estimation</span> is one of the fundamental and challenging problems in target tracking. As in the case of radar tracking, the presence of offset or position biases can exacerbate the challenges in <span class="search-hit mathjax">bearing</span>--<span class="search-hit mathjax">only</span> <span class="search-hit mathjax">estimation</span>. Modeling various sensor biases is not a trivial task and not much has been done in the literature specifically for <span class="search-hit mathjax">bearing</span>--<span class="search-hit mathjax">only</span> tracking. This paper addresses the modeling of offset biases in <span class="search-hit mathjax">bearing</span>--<span class="search-hit mathjax">only</span> sensors and the ensuing multitarget tracking with <span class="search-hit mathjax">bias</span> compensation. <span class="search-hit mathjax">Bias</span> <span class="search-hit mathjax">estimation</span> is handled at the fusion node to which individual sensors report their local tracks in the form of associated measurement reports (AMR) or angle-<span class="search-hit mathjax">only</span> tracks. The modeling is based on a multisensor approach that can effectively handle a time--varying number of targets in the surveillance region. The proposed algorithm leads to a maximum likelihood <span class="search-hit mathjax">bias</span> <span class="search-hit mathjax">estimator</span>. The corresponding Cramér--Rao Lower Bound to quantify the theoretical accuracy that can be achieved by the proposed method or any other algorithm is also derived. Finally, simulation results on different distributed tracking scenarios are presented to demonstrate the capabilities of the proposed approach. In order to show that the proposed method can work even with false alarms and missed detections, simulation results on a centralized tracking scenario where the local sensors send all their measurements (not AMRs or local tracks) are also presented.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1603.03450v1-abstract-full').style.display = 'none'; document.getElementById('1603.03450v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 9 March, 2016; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> March 2016.
+      
+    </p>
+    
+
+    
+
+    
+      <p class="comments is-size-7">
+        <span class="has-text-black-bis has-text-weight-semibold">Journal ref:</span>
+        IEEE Transactions on Aerospace and Electronics Systems, 52 (4), 2016
+      </p>
+    
+  </li>
+
+</ol>
+
+
+  
+
+
+      <div class="is-hidden-tablet">
+        <!-- feedback for mobile only -->
+        <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    
+<footer class="ds-site-footer">
+  <div class="ds-site-footer-grid">
+    <div class="ds-site-footer-main">
+      <div class="ds-site-footer-ack">
+        We gratefully acknowledge support from
+        our <strong>major funders</strong>,
+        <a href="https://info.arxiv.org/about/ourmembers.html"><strong>member institutions</strong></a><span class="ack-member-inline" hidden>, <strong></strong></span>,
+        and all contributors.
+      </div>
+      <nav class="ds-site-footer-links" aria-label="Site navigation">
+        <a href="https://info.arxiv.org/about">About</a>
+        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help">Help</a>
+        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/contact.html">Contact</a>
+        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/subscribe">Subscribe</a>
+        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/license/index.html">Copyright</a>
+        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/policies/privacy_policy.html">Privacy</a>
+        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/web_accessibility.html">Accessibility</a>
+        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://status.arxiv.org" target="_blank" rel="noopener noreferrer">Operational Status<span class="is-sr-only"> (opens in new tab)</span></a>
+      </nav>
+    </div>
+    <div class="ds-site-footer-funders" aria-label="Major funders">
+      <div class="ds-site-footer-funders-label">Major funding support from</div>
+      <div class="ds-site-footer-funders-logos">
+        <a class="ds-funder-link" href="https://www.simonsfoundation.org/" target="_blank" rel="noopener noreferrer">
+          <img class="ds-funder-logo" src="https://static.arxiv.org/static/base/1.0.1/images/funders/simons-foundation.png" alt="Simons Foundation"></a>
+        <a class="ds-funder-link" href="https://www.sfi.org.bm/" target="_blank" rel="noopener noreferrer">
+          <img class="ds-funder-logo" src="https://static.arxiv.org/static/base/1.0.1/images/funders/simons-foundation-international.png" alt="Simons Foundation International"></a>
+        <a class="ds-funder-link" href="https://www.schmidtsciences.org/" target="_blank" rel="noopener noreferrer">
+          <img class="ds-funder-logo" src="https://static.arxiv.org/static/base/1.0.1/images/funders/schmidt-sciences.png" alt="Schmidt Sciences"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </footer>
+  <script src="https://static.arxiv.org/static/base/1.0.0a5/js/member_acknowledgement.js"></script>
+  </body>
+</html>

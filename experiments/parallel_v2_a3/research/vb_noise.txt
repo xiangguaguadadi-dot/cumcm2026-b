@@ -1,0 +1,2207 @@
+=== PAGE 1 ===
+1
+Tracking an Underwater Target with Unknown
+Measurement Noise Statistics Using Variational
+Bayesian Filters
+Shreya Das
+Dept. of Elect. Engg.
+IIT Patna
+Patna, India
+shreya 2121ee15@iitp.ac.in
+Kundan Kumar
+Dept. of Elect. Engg. and Automation
+Aalto University,
+Finland
+kundan.kumar@aalto.ﬁ
+Shovan Bhaumik
+Dept. of Elect. Engg.
+IIT Patna
+Patna, India
+shovan.bhaumik@iitp.ac.in
+Abstract
+This paper considers a bearings-only tracking problem using noisy measurements of unknown noise statistics
+from a passive sensor. It is assumed that the process and measurement noise follows the Gaussian distribution where
+the measurement noise has an unknown non-zero mean and unknown covariance. Here an adaptive nonlinear ﬁltering
+technique is proposed where the joint distribution of the measurement noise mean and its covariance are considered to
+be following normal inverse Wishart distribution (NIW). Using the variational Bayesian (VB) method the estimation
+technique is derived with optimized tuning parameters i.e., the conﬁdence parameter and the initial degree of freedom
+of the measurement noise mean and the covariance, respectively. The proposed ﬁltering technique is compared with
+the adaptive ﬁltering techniques based on maximum likelihood and maximum aposteriori in terms of root mean square
+error in position and velocity, bias norm, average normalized estimation error squared, percentage of track loss, and
+relative execution time. Both adaptive ﬁltering techniques are implemented using the traditional Gaussian approximate
+ﬁlters and are applied to a bearings-only tracking problem illustrated with moderately nonlinear and highly nonlinear
+scenarios to track a target following a nearly straight line path. Two cases are considered for each scenario, one
+when the measurement noise covariance is static and another when the measurement noise covariance is varying
+linearly with the distance between the target and the ownship. In this work, the proposed adaptive ﬁlters using the
+VB approach are found to be superior to their corresponding adaptive ﬁlters based on the maximum aposteriori and
+the maximum likelihood at the expense of higher computation cost.
+Index Terms
+Bearings-only tracking, target motion analysis, Gaussian ﬁlters, adaptive ﬁltering, normal inverse Wishart, varia-
+tional Bayesian, maximum aposteriori, maximum likelihood.
+I. I NTRODUCTION
+Target motion analysis (TMA) is the problem of tracking the kinematics of a target, i.e. localizing the target
+and estimating its velocity using noisy measurements. When measurements are obtained from a single observer the
+problem is termed autonomous TMA [1]–[3]. In TMA, the use of only the line of sight (LOS) angle of the target i.e.
+the bearing angle as a measurement to estimate the kinematics of a target is commonly referred to as the bearings-
+only tracking (BOT) problem. The BOT ﬁnds several challenging applications in the practical world having major
+signiﬁcance in defense applications like for example tracking of submarine [4], [5], torpedo [6], [7] using bearing
+measurements obtained from passive sonars and aircraft surveillance using passive bearing measurements from radar
+[8]. A vital reason for using these passive bearing measurements in defense applications is to prevent revealing
+arXiv:2305.08390v1  [eess.SP]  15 May 2023
+=== PAGE 2 ===
+2
+the ownship’s orientation to the enemies, especially during times of conﬂict [9]. In such a case, an outstanding
+performance of BOT becomes crucial.
+So BOT is extensively explored in literature and it has been observed that the dynamic model of autonomous
+TMA becomes unobservable if the observer does not maneuver and follow a constant velocity model while tracking
+a nonmaneuvering target [10]. In order to make the system observable, the observer has to outmaneuver the target
+[11]. BOT for maneuvering target is also discussed in literature [12]–[15].
+Due to the nonlinearity present in the bearing measurements, the optimal Kalman ﬁlter becomes ineffective in
+estimating the location and the velocity of the target as the optimal solution leads to mathematically intractable
+integrals [16], [17]. Consequently, we have to settle with the suboptimal nonlinear ﬁltering algorithms, the ﬁrst and
+the most popular among which is the extended Kalman ﬁlter (EKF). The EKF [18] and its variants [19]–[21] deal
+with the nonlinearities simply by linearizing them using the ﬁrst order Taylor series approximation. But the EKF
+suffered from drawbacks as it often resulted in unstable performances that included poor estimation accuracy and
+high track divergence [16], [22]. To compensate for these disadvantages of EKF several other nonlinear ﬁltering
+algorithms were developed namely the cubature Kalman ﬁlter (CKF) [23], the unscented Kalman ﬁlter (UKF)
+[24], [25], the Gauss-Hermite ﬁlter (GHF) [26], [27] and their variants [28]–[30]. These ﬁlters approximate the
+probability density functions using deterministic sample points and their corresponding weights. The process and
+the measurement equations update the sample points and the weights.
+All the above mentioned Gaussian approximated ﬁlters (GAFs) consider the measurement noise to be Gaussian in
+nature and their performance is greatly affected by the prior knowledge of the measurement noise statistics. These
+ﬁlters perform best when the measurement noise statistics i.e. the mean and the covariance of the measurement
+noise are known. But in most practical applications, the statistics of the measurement noise remain unknown. In
+such a situation the estimation performance of these ﬁlters degrades.
+Lack of information on the measurement noise statistics may lead to biased estimation or track divergence. If
+the covariance of the measurement noise is assumed to be very less than the truth then the estimation becomes
+biased while if it is very high compared to the true value then the ﬁlter loses track [31]. So estimation of the
+measurement noise statistics directly affects the ﬁltering performance. So an adaptive UKF using the maximum a
+posteriori (MAP) method is proposed in [32] to estimate the non-zero mean as well as the covariance of both the
+process and measurement noise along with the states of the target. In a similar approach, an adaptive square root
+cubature Kalman ﬁlter was proposed in [33] to enhance the adaptivity and robustness of the square root Kalman
+ﬁlter. But the technique cannot guarantee the convergence to the right noise covariance and the positive deﬁniteness
+of the estimated noise covariance. Due to its numerical instability and ﬁltering divergence, this process of adaptation
+is not always favorable.
+Another adaptive ﬁltering technique was developed [34]–[36]. R-adaptive ﬁlter was developed using the maximum
+likelihood estimation (MLE) of the innovation based sequence and the residual based sequence [37]. The residual
+based R-adaptive UKF and the innovation based R-adaptive UKF was proposed in [38] which was analogous to
+the R-adaptive Kalman ﬁlter in [37]. Using the estimated R the process noise covariance, Q is also estimated. The
+positive deﬁniteness of the estimated noise covariance matrix is guaranteed in the residual adaptive method based
+on MLE. However, these papers consider the process and measurement noise to be Gaussian having a known zero
+mean.
+Recently, an adaptive technique to estimate the target state with the process and measurement noise having
+unknown covariance and known zero mean using inverse Wishart (IW) distribution for linear Kalman ﬁlter was
+proposed in [39]. The same technique implemented for nonlinear extended Kalman ﬁlter (EKF) was proposed in
+[40] and for cubature Kalman ﬁlter in [41]. Here, the measurement noise covariance matrix and the predicted error
+covariance matrix are approximated by inverse Wishart distribution. This technique was further explored to estimate
+the target state with inaccurate process and measurement noise non zero mean and covariance for the linear Kalman
+ﬁlter in [42].
+In our work, we developed an adaptive ﬁltering technique to estimate the target state for BOT problems when the
+measurement noise non zero mean and covariance are unknown using VB based technique, optimizing the likelihood
+to ﬁnd the prior conﬁdence parameter of measurement mean and degree of freedom of the measurement covariance,
+for nonlinear Gaussian ﬁlters. The results of it are compared with the MAPMLE based adaptive technique. In the
+MAPMLE based technique, we estimated the measurement noise mean using the MAP method and the covariance
+using the MLE method to ensure the positive deﬁniteness of the estimated error covariance matrix.
+The adaptive methods were implemented in two scenarios, one moderately nonlinear and the other highly nonlinear
+to track a target moving with constant velocity, with both static and varying measurement noise covariance. The
+performance of adaptive ﬁlters using the VB method is compared with the adaptive ﬁlters with the MAPMLE
+=== PAGE 3 ===
+3
+method and the corresponding nonadaptive ﬁlters with known measurement noise statistics in terms of root mean
+square error (RMSE) in position and velocity, bias norm, average normalized estimation error squared (ANEES),
+percentage of track divergence, and relative execution time. In both scenarios, the adaptive ﬁlters using the VB
+approach have better accuracy than the adaptive ﬁlters using the MAPMLE methods at the expense of more execution
+time.
+The organization of the paper is as follows: Section II contains the problem formulation that included the
+formulation of the process model and the measurement model. Section III describes the normal inverse Wishart
+distribution. Section IV derives the VB method of adaptive ﬁltering. Section V provides a brief explanation of
+the MAPMLE technique of adaptive ﬁlters. Section VI deals with the properties of both the adaptive ﬁltering
+approaches used in the paper. Section VII provides the simulation results. The paper ends with a brief discussion
+and conclusion in Section VIII.
+II. P ROBLEM FORMULATION
+A. System model
+The state space dynamic of the target that is assumed to follow a nearly straight line path with constant velocity in
+the discrete time domain is expressed as Xt
+k =
+[xt
+k yt
+k ˙xt
+k ˙yt
+k
+]
+, where
+[xt
+k yt
+k
+]
+and
+[ ˙xt
+k ˙yt
+k
+]
+are the target’s
+position and velocity at the k-th time instant, respectively. The same way follows the observer state space dynamic
+which can be expressed as Xo
+k =
+[xo
+k yo
+k ˙xo
+k ˙yo
+k
+]
+, where
+[
+xo
+k yo
+k
+]
+and
+[
+˙xo
+k ˙yo
+k
+]
+are the observer’s position
+and velocity at the k-th time instant, respectively. The dynamic model of the target can be expressed as [1], [2]
+Xk =FXk−1 +ωk−1− ℧k−1,k, (1)
+whereXk =Xt
+k−X o
+k =
+[xk yk ˙xk ˙yk
+]T
+is the relative state vector between target and observer, F is the
+state transition matrix evaluated as:
+F =
+
+
+1 0 ∆ 0
+0 1 0 ∆
+0 0 1 0
+0 0 0 1
+
+, (2)
+where ∆ is the sampling time. ℧k−1,k is a vector of inputs evaluated as:
+℧k−1,k =
+
+
+xo
+k−xo
+k−1− ∆ ˙xo
+k−1
+yo
+k−yo
+k−1− ∆ ˙yo
+k−1
+˙xo
+k− ˙xo
+k−1
+˙yo
+k− ˙yo
+k−1
+
+, (3)
+and ωk−1∼N (0,Qk−1) is the process noise with qm mean and covariance Qk−1 given as:
+Q =
+
+
+∆3
+3 0 ∆2
+2 0
+0 ∆3
+3 0 ∆2
+2
+∆2
+2 0 ∆ 0
+0 ∆2
+2 0 ∆
+
+
+¯q, (4)
+where ¯q is the intensity of process noise.
+B. Measurement model
+The bearing measurement of the target with respect to true north is measured using sensors mounted to own
+ship. The measurement model is expressed as:
+Yk =h(Xk) +νθk, (5)
+where h(Xk) = tan−1(xk/yk) and νθk is the measurement noise with rm mean and σθk standard deviation i.e.
+νθk∼N (rm,σ 2
+θk). To make the system observable, the the own ship has to maneuver to estimate the target state
+[1], [2].
+=== PAGE 4 ===
+4
+III. N ORMAL INVERSE WISHART (NIW) D ISTRIBUTION
+The inverse Wishart distribution of a random symmetric positive deﬁnite matrix, B∈ Rn×n can be written as
+IW (B;λ,ψ ) =|ψ|λ/2|B|−(λ+n+1)/2 exp{−0.5tr(ψB−1)}
+2nλ/2Γn(λ/2) , (6)
+where λ is the degrees of freedom, ψ ∈ Rn×n is a symmetric positive deﬁnite matrix and is known as the
+scale matrix, |·| , tr(·) are the determinant and trace of a matrix, respectively, and Γn(·) is the n variate gamma
+function [43]. If B∼ IW (B;λ,ψ ), then a property of the IW distribution is that the mean of the distribution i.e.
+E[B] =ψ/(λ−n− 1) such that λ>n + 1 [43].
+The NIW probability density function of X andB can be expressed as
+NIW (X,B;µX,α,λ,ψ ) =N (X ;µX,αB)IW (B;λ,ψ ), (7)
+where µX = E[X ] and α > 0 is named as the conﬁdence parameter. With marginalization the pdf of a NIW
+distributed random vector X can be written as
+NIW (X ;µX,α,λ,ψ ) =
+∫
+N (X ;µX,αB)×IW (B;λ,ψ )dB. (8)
+When the normal distribution mean is known, the inverse Wishart (IW) distribution is used as the conjugate
+prior for covariance of normal distribution [43]. But in case when the mean as well as the covariance of a normal
+distribution is unknown then in general, the normal inverse Wishart i.e. NIW distribution is preferred as the joint
+conjugate prior for mean and covariance of a Gaussian distribution in Bayesian statistics [44].
+IV. V ARIATIONAL BAYESIAN TECHNIQUE OF ADAPTIVE FILTERING
+A. Process update
+The prior state follows Gaussian distribution with mean, ˆXk|k−1 and covariance, Pk|k−1 i.e.,
+p(Xk|k−1|Y1:k−1) =N (Xk|k−1, ˆXk|k−1,Pk|k−1), (9)
+As the process noise statistics are known i.e.,N (0,Qk) and the process is linear in our case so the process update
+can be performed as follows,
+ˆXk|k−1 =F ˆXk−1|k−1− ℧k−1,k, (10)
+Pk|k−1 =FPk−1|k−1FT +Qk−1. (11)
+B. Measurement update
+As the measurement noise statistics are unknown so we start off with a guess value for both the mean and the
+covariance. Considering the guess value of measurement noise mean and covariance be denoted by r′
+m and R′
+k,
+respectively.
+Lemma 1: The joint pdf of p(Xk|k−1,R′
+k,r′
+m,Y1:k) can be factored as
+p(Xk|k−1,R′
+k,r′
+m,Y1:k) =p(Yk|Xk|k−1,R′
+k,r′
+m)p(Xk|k−1|Y1:k−1)p(r′
+m|R′
+k,Y1:k−1)p(R′
+k|Y1:k−1)p(Y1:k−1).
+(12)
+Proof. The joint pdf of p(Xk|k−1,R′
+k,r′
+m,Y1:k) can be decomposed using Bayes’ theorem as follows,
+p(Xk|k−1,R′
+k,r′
+m,Y1:k) =p(Xk|k−1,R′
+k,r′
+mYk,Y1:k−1)
+=p(Yk|Xk|k−1,R′
+k,r′
+m,Y1:k−1)p(Xk|k−1,R′
+k,r′
+m,Y1:k−1)
+=p(Yk|Xk|k−1,R′
+k,r′
+m)p(Xk|k−1|R′
+k,r′
+m,Y1:k−1)p(R′
+k,r′
+m,Y1:k−1)
+=p(Yk|Xk|k−1,R′
+k,r′
+m)p(Xk|k−1|Y1:k−1)p(r′
+m|R′
+k,Y1:k−1)p(R′
+k,Y1:k−1)
+=p(Yk|Xk|k−1,R′
+k,r′
+m)p(Xk|k−1|Y1:k−1)p(r′
+m|R′
+k,Y1:k−1)p(R′
+k|Y1:k−1)p(Y1:k−1).
+■
+AsR′
+k is covariance of Gaussian pdf, we consider the prior distribution of p(R′
+k|Y1:k−1) follows IW distribution.
+So, we can write
+p(R′
+k|Y1:k−1) =IW (R′
+k; ˆu′
+k|k−1, ˆU′
+k|k−1). (13)
+=== PAGE 5 ===
+5
+We can say from (13), E[R′
+k] =
+ˆU′
+k|k−1
+ˆu′
+k|k−1−m− 1; we assume ˆu′
+k|k−1 > m+ 1. As r′
+m is the mean of Gaussian
+pdf, we consider the prior distribution of p(r′
+m|Y1:k−1) follows normal distribution,
+p(r′
+m|Y1:k−1) =N (r′
+m;µ′,α′R′
+k). (14)
+So, using inverse Wishart and normal distribution of (13) and (14), (12) can be written as
+p(Xk|k−1,R′
+k,r′
+m,Y1:k) =N (Yk;h(Xk|k−1) +r′
+m,R′
+k)N (Xk|k−1; ˆXk|k−1,Pk|k−1)N (r′
+m;µ′,α′R′
+k)
+IW (R′
+k; ˆu′
+k|k−1, ˆU′
+k|k−1).
+(15)
+Theorem 1: The joint pdf p(Xk|k−1,r′
+m,R′
+k|Y1:k) can be approximately factorized as
+p(Xk|k−1,r′
+m,R′
+k|Y1:k)≈q(Xk|k−1)q(rm)q(Rk), (16)
+where q(·) represents approximate pdf of p(·) and can be expressed as
+q(θ) =E−θ[logp(Xk|k−1,r′
+m,R′
+k,Y1:k)] +cθ, (17)
+where the E−θ represents the expectation on elements other than θ and cθ is a constant.
+Proof. By minimizing the Kullback-Leibler divergence (KLD) between the factored approximate pdfq(Xk|k−1)q(rm)q(Rk)
+and the true posterior pdf p(Xk|k−1,r′
+m,R′
+k|Y1:k) we will receive (17). It has been proved in page 450 of [45] and
+(15) of [46]. ■
+Theorem 2: Approximate pdf of q(Xk|k−1) can be expressed as
+q(Xk|k−1)∼N (Yk;h(Xk|k−1) +rm,Rk)N (Xk|k−1; ˆXk|k−1,Pk|k−1), (18)
+where
+Rk =
+ˆU′
+k|k−1
+ˆu′
+k|k−1−m− 1. (19)
+Proof. The proof is provided in Appendix A. ■
+Theorem 3: Approximate pdf of q(rm) can be expressed as
+q(rm)∼N (rm;µ,αRk), (20)
+where
+µ =
+µ′ +α′(Yk−∑Ns
+j=1wjYj,k|k−1)
+α′ + 1 , (21)
+whereNs is the number of sigma points,ξj andwj are thejth sigma point and its corresponding weight, respectively,
+Yj,k|k−1 =h(Xj,k|k−1) =h(Sk|k−1ξj + ˆXk|k−1), where Sk|k−1ST
+k|k−1 =Pk|k−1, and
+α = α′
+α′ + 1. (22)
+Proof. The proof is provided in Appendix B. ■
+Theorem 4: Approximate pdf of q(Rk) can be expressed as
+q(Rk)∼IW (Rk; ˆuk|k−1, ˆUk|k−1), (23)
+such that
+ˆuk|k−1 = ˆu′
+k|k−1 + 2, (24)
+and
+ˆUk|k−1 = ˆU′
+k|k−1 +Bk +Dk, (25)
+where
+Bk =EXk|k−1,r′m[(Yk−h(Xk|k−1)−r′
+m)(Yk−h(Xk|k−1)−r′
+m)T ] (26)
+=== PAGE 6 ===
+6
+and
+Dk = 1
+α′Er′m[(r′
+m−µ′)(r′
+m−µ′)T ] (27)
+.
+Proof. The proof is provided in Appendix C. ■
+Lemma 2: Bk of (26) can be manipulated as
+Bk = (Yk−E[h(Xk|k−1)]−µ)(Yk−E[h(Xk|k−1)]−µ)T +
+Ns∑
+j=1
+wj[Yj,k|k−1−E[h(Xk|k−1)]][Yj,k|k−1−E[h(Xk|k−1)]]T +α′R′
+k,
+(28)
+where E[h(Xk|k−1)] =∑Ns
+j=1wjYj,k|k−1.
+Proof. EvaluatingBk,
+Bk =EXk|k−1,r′m[(Yk−h(Xk|k−1)−r′
+m)(Yk−h(Xk|k−1)−r′
+m)T ]
+=EXk|k−1,r′m[(Yk−E[h(Xk|k−1)] +E[h(Xk|k−1)]−µ′ +µ′−h(Xk|k−1)−r′
+m)(Yk−E[h(Xk|k−1)]
++E[h(Xk|k−1)]−µ′ +µ′−h(Xk|k−1)−r′
+m)T ]
+= (Yk−E[h(Xk|k−1)]−µ′)(Yk−E[h(Xk|k−1)]−µ′)T + (Yk−E[h(Xk|k−1)]−µ′)(E[h(Xk|k−1)]]
+−E[h(Xk|k−1)] +µ′−E[r′
+m])T + (E[h(Xk|k−1)]]−E[h(Xk|k−1)] +µ′−E[r′
+m])(Yk−E[h(Xk|k−1)]−µ′)T
++EXk|k−1,r′m[{h(Xk|k−1)−E[h(Xk|k−1)] +µ′−r′
+m}{h(Xk|k−1)−E[h(Xk|k−1)] +µ′−r′
+m}T ]
+= (Yk−E[h(Xk|k−1)]−µ′)(Yk−E[h(Xk|k−1)]−µ′)T +EXk|k−1,r′m[{h(Xk|k−1)−E[h(Xk|k−1)] +µ′−r′
+m}
+{h(Xk|k−1)−E[h(Xk|k−1)] +µ′−r′
+m}T ].
+(29)
+Now,
+EXk|k−1,r′
+m[{h(Xk|k−1)−E[h(Xk|k−1)] +µ′−r′
+m}{h(Xk|k−1)−E[h(Xk|k−1)] +µ′−r′
+m}T ]
+=E[{h(Xk|k−1)−E[h(Xk|k−1)]}{h(Xk|k−1)−E[h(Xk|k−1)]}T ] +EXk|k−1,r′m[{h(Xk|k−1)−E[h(Xk|k−1)]}(µ′−r′
+m)T ]
++EXk|k−1,r′m[(µ′−r′
+m){h(Xk|k−1)−E[h(Xk|k−1)]}T ] +E[(r′
+m−µ′)(r′
+m−µ′)T ]
+=
+Ns∑
+j=1
+wj[Yj,k|k−1−E[h(Xk|k−1)]][Yj,k|k−1−E[h(Xk|k−1)]]T +α′R′
+k,
+(30)
+where Yj,k|k−1 =h(Xj,k|k−1) =h(Sk|k−1ξj + ˆXk|k−1), again where Sk|k−1ST
+k|k−1 =Pk|k−1 and E[h(Xk|k−1)] =∑Ns
+j=1wjYj,k|k−1. So,
+Bk = (Yk−E[h(Xk|k−1)]−µ′)(Yk−E[h(Xk|k−1)]−µ′)T +
+Ns∑
+j=1
+wj[Yj,k|k−1−E[h(Xk|k−1)]][Yj,k|k−1−E[h(Xk|k−1)]]T +α′R′
+k.
+■
+Lemma 3: Dk of (27) can be evaluated as
+Dk =R′
+k + 1
+α′ (ˆµ′
+k|k−1−µ′)(ˆµ′
+k|k−1−µ′)T, (31)
+such that ˆµ′
+k|k−1 is the prior estimate of µ.
+=== PAGE 7 ===
+7
+Proof. EvaluatingDk,
+Dk = 1
+α′Er′m[(r′
+m−µ′)(r′
+m−µ′)T ]
+= 1
+α′E[(r′
+m− ˆµ′
+k|k−1 + ˆµ′
+k|k−1−µ′)(r′
+m− ˆµ′
+k|k−1 + ˆµ′
+k|k−1−µ′)T ]
+= 1
+α′E[(r′
+m− ˆµ′
+k|k−1)(r′
+m− ˆµ′
+k|k−1)T + (r′
+m− ˆµ′
+k|k−1)(ˆµ′
+k|k−1−µ′)T
++ (ˆµ′
+k|k−1−µ′)(r′
+m− ˆµ′
+k|k−1)T + (ˆµ′
+k|k−1−µ′)(ˆµ′
+k|k−1−µ′)T ]
+= 1
+α′E[(r′
+m− ˆµ′
+k|k−1)(r′
+m− ˆµ′
+k|k−1)T + (ˆµ′
+k|k−1−µ′)(ˆµ′
+k|k−1−µ′)T ]
+=R′
+k + 1
+α′ (ˆµ′
+k|k−1−µ′)(ˆµ′
+k|k−1−µ′)T.
+■
+The cross covariance of the state and the measurement is evaluated as in deterministic sample point ﬁlters,
+PXY =
+Ns∑
+j=1
+wj[Xj,k|k−1− ˆXk|k−1][Yj,k|k−1−E[h(Xk|k−1)]]T. (32)
+The measurement error covariance is evaluated as
+PYY =
+Ns∑
+j=1
+wj[Yj,k|k−1−E[h(Xk|k−1)]][Yj,k|k−1−E[h(Xk|k−1)]]T +Rk. (33)
+Finally, the posterior mean the posterior covariance can be evaluated after calculating the Kalman gain, Kk =
+PXY/PYY as follows,
+ˆXk|k = ˆXk|k−1 +Kk(Yk−E[h(Xk|k−1)]−µ), (34)
+and
+Pk|k =Pk|k−1−KkPyyKT
+k. (35)
+C. Fixed point iteration
+The approximate parameters of the unknown measurement noise statistics are evaluated from their respective
+guess values using Eqns. (19) to (25) with the help of the ﬁxed point iteration method which is a numerical method
+of ﬁnding approximate solutions. It is denoted by i which representsith iteration as can be seen from the Algorithm
+1. Initially, when i = 0, the ˆX 0
+k|k = ˆXk|k−1 and P 0
+k|k =Pk|k−1. The Rk in (19) is updated as
+Ri+1
+k =
+ˆU′
+k|k−1
+ˆu′
+k|k−1−m− 1. (36)
+The µ of (21) is updates as µi+1 evaluated as,
+µi+1 =
+µ′ +α′(Yk−∑Ns
+j=1wjYi
+j,k|k)
+α′ + 1 , (37)
+where Yi
+j,k|k =h(Xi
+j,k|k) =h(Si
+k|kξj + ˆXi
+k|k), where Si
+k|k(Si
+k|k)T =Pi
+k|k. Then, Bi+1
+k is updated as,
+Bi+1
+k = (Yk−h( ˆXi
+k|k)−µi+1)(Yk−h( ˆXi
+k|k)−µi+1)T +
+Ns∑
+j=1
+wj[Yi
+j,k|k− ˆYi
+k|k][Yi
+j,k|k− ˆYi
+k|k]T +αRi+1
+k , (38)
+where ˆYi
+k|k =∑Ns
+j=1wjYi
+j,k|k. Di+1
+k is updated as
+Di+1
+k =Ri+1
+k + 1
+α′ (µi+1−µ′)(µi+1−µ′)T, (39)
+=== PAGE 8 ===
+8
+Using, Bi+1
+k and Di+1
+k , the ˆUi+1
+k|k−1 is evaluated as,
+ˆUi+1
+k|k−1 = ˆU′
+k|k−1 +Bi+1
+k +Di+1
+k . (40)
+Then the PYY is updated as Pi+1
+YY as follows,
+Pi+1
+YY =
+Ns∑
+j=1
+wj[Yj,k|k−1−E[h(Xk|k−1)]][Yj,k|k−1−E[h(Xk|k−1)]]T +Ri+1
+k . (41)
+So the Kalman gain at each iteration is evaluated as Ki+1
+k =PXY/Pi+1
+YY , further using which the posterior mean
+of the state is evaluated for each iteration,
+ˆXi+1
+k|k = ˆXk|k−1 +Ki+1
+k (Yk−E[h(Xk|k−1)]−µi+1), (42)
+and its error covariance is calculated as,
+Pi+1
+k|k =Pk|k−1−Ki+1
+k PyyKi+1
+k
+T
+. (43)
+When the difference, ˆXi+1
+k|k − ˆXi
+k|k is less than ζ (small value chosen by practitioners), the loop for ﬁxed point
+iteration terminates denoting not much signiﬁcant change in the posterior mean occurs in the next iterations. Such a
+state is generally achieved quickly within a few number of iterations (say, 6 to 7). In our work, we chose the value
+of ζ to be 10−3. The posterior mean at the ﬁnal iteration say ˆXN
+k|k and its error covariance, PN
+k|k is considered as
+the estimated mean and the error covariance i.e., ˆXk|k = ˆXN
+k|k and Pk|k =PN
+k|k. Further, the conﬁdence parameter
+α′ and the degree of freedom ˆu′
+0|0 is tuned maximizing the likelihood as shown in Algorithm 2.
+V. T HE MAPMLE T ECHNIQUE OF ADAPTIVE FILTERING
+The maximum a posteriori (MAP) technique of estimating both measurement noise mean and covariance does
+not conﬁrm the positive deﬁniteness of the covariance matrix. So to estimate the measurement noise covariance the
+maximum likelihood (MLE) of residual based adaptive Kalman ﬁlter technique has been implemented that ensures
+the positive deﬁniteness of the measurement covariance and the measurement noise mean estimation the MAP based
+technique is considered. Initially the estimation technique is performed with a guess value of the measurement noise
+mean and covariance at k = 0 . After each measurement update of any traditional ﬁlter, the measurement noise
+mean and the covariance are estimated. The estimated mean and the covariance is used up in the next time and
+measurement update of the ﬁlter.
+A. Measurement noise mean estimation
+The measurement noise mean can be obtained after each measurement update using the following equation [32].
+ˆr′
+mk = 1
+k
+k∑
+i=1
+(Yk−E[h(Xk|k−1)]) (44)
+This is well known as the maximum a posteiori (MAP) technique of estimating the mean of measurement noise.
+B. Measurement noise covariance estimation
+The adaptive ﬁlter based on residual sequence is called residual based R-adaptive method and the one based
+on innovation sequence is named as innovation based R-adaptive method. The innovation or the residual sequence
+is computed with a sliding window whose length is considered to be L. But in the innovation based method the
+positive deﬁniteness of measurement covariance is not conﬁrmed as it is obtained by the difference of two positive
+deﬁnite matrices as in [31], [47], [48] which says
+ˆRk = ˆCv−HkPk|k−1HT
+K, (45)
+where
+ˆCv = 1
+L
+L∑
+i=1
+(Yk− ˆYk)(Yk− ˆYk)T (46)
+=== PAGE 9 ===
+9
+Algorithm 1 VB approach for unknown noise covariance
+1: Inputs: ˆX0|0,P 0|0,r′
+m,α′, ˆu′
+0|0, ˆU′
+0|0 = (ˆu′
+0|0−m− 1)R′
+0
+2: for k=1 to TT do
+3: Time Update:
+ˆXk|k−1 =F ˆXk−1|k−1− ℧k−1,k
+Pk|k−1 =FPk−1|k−1 +Qk
+4: Measurement Update:
+5: Calculate: Sk|k−1 =chol(Pk|k−1).
+6: Evaluate sigma points: Xj,k|k−1 =Sk|k−1ξj + ˆXk|k−1, where j = 1, 2,...,N s.
+7: Predicted measurement at each point, Yk|k−1 =h(Xj,k|k−1).
+8: Predicted measurement estimation: E[h(Xk|k−1)] =∑Ns
+j=1wjYj,k|k−1.
+9: Calculate measurement and state error cross covariance: PXY = ∑Ns
+j=1wj[Xj,k|k−1− ˆXk|k−1][Yj,k|k−1−
+E[h(Xk|k−1)]]T .
+10: Fixed point iteration: Initialise ˆu′
+k|k−1 = ˆu′
+k−1|k−1, ˆU′
+k|k−1 = ˆU′
+k−1|k−1, N = 0, i = 0.
+11: while N=0 do
+12: Evaluate:Ri+1
+k from (19).
+13: Evaluate:µi+1 and αi+1 from (21) and (22), respectively.
+14: Evaluate: ˆui+1
+k|k−1 from Eqn. (24), ˆUi+1
+k|k−1 from Eqn. (25) using Bi
+k from Eqn. (28).
+15: Calculate measurement error covariance: Pi+1
+YY = ∑Ns
+j=1wj[Yj,k|k−1 − E[h(Xk|k−1)]][Yj,k|k−1 −
+E[h(Xk|k−1)]]T +Ri+1
+k .
+16: Kalman gain: Ki+1
+k =PXY/Pi+1
+YY .
+17: Posterior mean at (i + 1)th step: ˆXi+1
+k|k = ˆXk|k−1 +Ki+1
+k (Yk−E[h(Xk|k−1)]−µi+1)
+18: Posterior error covariance at (i + 1)th step: Pi+1
+k|k =Pk|k−1−Ki+1
+k Pi+1
+yy (Ki+1
+k )T .
+19: if ˆXi+1
+k|k − ˆXi
+k|k < 10−3 then
+20: N =i + 1.
+21: else
+22: i =i + 1.
+23: end if
+24: end while
+25: ˆXk|k = ˆXN
+k|k,Pk|k =PN
+k|k, ˆu′
+k|k = ˆuN
+k|k−1, ˆU′
+k|k = ˆUN
+k|k−1.
+26: end for
+So instead of using Equation 45 another method to estimate measurement noise covariance was proposed in [49]
+to guarantee the positive deﬁniteness of Rk, which is referred to as the residual method. The Rk is estimated as
+follows:
+ˆRk = ˆCv +HkPk|kHT
+K. (47)
+In our work, we use the residual method of Rk adaptation.
+VI. P ROPERTIES
+A. Biasness
+An estimation technique is said to be unbiased if the expectation of the difference in the estimated state and the
+true state is zero i.e., if E[ ˆXk|k−Xk] = 0.
+1) Biasness of state for variational Bayesian technique of adaptive ﬁltering: The difference in the estimated
+state and the true state using (34) of the VB approach can be evaluated as,
+ˆXk|k−Xk = ˆXk|k−1 +Kk(Yk−E[h(Xk|k−1)]−µ)− (FXk−1 +ωk−1− ℧k−1,k)
+=F ˆXk−1|k−1− ℧k−1,k +Kk(Yk−E[h(Xk|k−1)]−µ)− (FXk−1 +ωk−1− ℧k−1,k)
+=F ( ˆXk−1|k−1−Xk−1)−ωk−1 +Kk(Yk−E[h(Xk|k−1)]−µ)
+(48)
+=== PAGE 10 ===
+10
+Algorithm 2 VB approach for unknown noise covariance with optimized tuning parameters
+1: Inputs: ˆX0|0,P 0|0,r′
+m.
+2: Follow steps 2 to 10 of Algorithm 1.
+3: while N=0 do
+4: if t = 1 then
+5: for ˆu′
+0|0 = 3 to 23 do
+6: Assume, α′ = 1
+7: Evaluate ˆU′
+0|0 = (ˆu′
+0|0−m− 1)R′
+0
+8: Evaluate steps 11 to 18 of Algorithm 1.
+9: Evaluate likelihood: Lˆu′
+0|0
+= 1√
+2πP (i)
+YY
+exp(−1
+2
+(Yk− ˆY (i)
+k|k−1)2
+P (i)
+YY
+)
+10: end for
+11: ˆu′
+0|0 = arg max
+ˆu′
+0|0
+Lˆu′
+0|0
+12: end if
+13: forα′ = 1 to 20 do
+14: Evaluate steps 11 to 18 of Algorithm 1.
+15: Evaluate likelihood: Lα′ = 1√
+2πP (i)
+YY
+exp(−1
+2
+(Yk− ˆY (i)
+k|k−1)2
+P (i)
+YY
+)
+16: end for
+17: α′ = arg max
+α′
+Lα′
+18: Evaluate steps 11 to 23 of Algorithm 1.
+19: end while
+20: Repeat steps 25 and 30 of Algorithm 1.
+Taking expectations on both sides and using (21) we get,
+E[ ˆXk|k−Xk] =F ( ˆXk−1|k−1−E[Xk−1])−E[ωk−1] +Kk(E[Yk]−E[h(Xk|k−1)]−E[µ])
+=Kk(E[h(Xk|k−1)] +rm−E[h(Xk|k−1)]−E[µ′ +α′(Yk−E[h(Xk|k−1)])
+α′ + 1 ])
+=Kk(rm− µ′ +α′(E[Yk]−E[h(Xk|k−1)])
+α′ + 1 )
+=Kk(rm− µ′ +α′(rm)
+α′ + 1 )
+=Kk
+α′rm +rm−µ′−α′rm
+α′ + 1
+=Kk
+rm−µ′
+α′ + 1
+(49)
+As the approximate mean, µ′ approaches the true mean, rm using ﬁxed point iteration (49) equates to zero.
+2) Biasness of state for the MAPMLE technique of adaptive ﬁltering: The difference between the estimated state
+and the true state can be evaluated as,
+ˆXk|k−Xk = ˆXk|k−1 +Kk(Yk−E[h(Xk|k−1)]− ˆr′
+mk)−Xk
+=F ˆXk−1|k−1− ℧k−1,k +Kk(Yk−E[h(Xk|k−1)]− ˆr′
+mk)−FXk−1−ωk−1 + ℧k−1,k
+=F ( ˆXk−1|k−1−Xk−1)−ωk−1 +Kk(Yk−E[h(Xk|k−1)]− ˆr′
+mk)
+(50)
+=== PAGE 11 ===
+11
+Taking expectation on both side
+E[ ˆXk|k−Xk] =F ( ˆXk−1|k−1−E[Xk−1])−E[ωk−1] +Kk(E[Yk]−E[h(Xk|k−1)]− ˆr′
+mk)
+=Kk(E[h(Xk|k−1)] +rm−E[h(Xk|k−1)]− ˆr′
+mk)
+=Kk(rm− ˆr′
+mk)
+(51)
+As the approximate estimate of ˆr′
+mk approaches rm, the biasness of the state equates to zero.
+VII. S IMULATION RESULTS
+Here two scenarios, one moderately nonlinear and one highly nonlinear, are considered as shown in Figure 1a
+and 1b respectively. In both scenarios, the target moves in a nearly straight line motion with constant velocity. The
+ownship maneuvers from 13th min to 17th min for the moderately nonlinear scenario and at 15th min for the highly
+nonlinear scenario to make the system observable. While maneuvering, the rate of change of bearing for the highly
+nonlinear scenario is high thus making it more difﬁcult for the sub-optimal ﬁlters to track. The parameters of the
+scenarios are given in Table I, where Scenario I denotes the moderately nonlinear scenario and Scenario II speciﬁes
+the highly nonlinear scenario parameters. The sampling time is considered to be 5 s i.e. ∆ = 5 s and the observation
+is done for a total time period of 30 min. The process noise intensity, ¯q is considered to be 1.944× 10−6 km2/min3
+for both scenarios. The standard deviation (S.D.) of initial range, σr, initial target speed, σs, initial bearing, and
+initial course angle, σc which are considered in this paper are also given in Table I.
+Two cases are considered for each scenario based on the stationary and varying measurement noise covariance.
+Case I, consists of stationary σθk which is 1.5o∀k for Scenario I and 2o∀k for Scenario II and Case II has varying
+σθk such that it varies linearly with the distance of the target from the ownship i.e., more the distance, more is the
+value of σθk for both the scenarios. The maximum and the minimum values for σθk in Case II are considered to
+be 4o and 1.5o, respectively. We can evaluate σθk at the kth time step based on the distance between the target and
+the ownship for Case II using a straight line equation, σθk =sdk +c, where s represents slope, dk is the distance
+of the target from the ownship at the kth time instant and c is the y axis intercept. For maximum value of dk
+say,dkmax, σθk = 4o and for minimum value of dk say,dkmin, σθk = 1.5o. Putting these values in the straight
+line equation and solving them we get s = 4o− 1.5o
+dkmax−dkmin
+and c =−4odkmin− 1.5odkmax
+dkmax−dkmin
+. Thus, assuming the
+values of dkmax and dkmin are known for both the scenarios, we can say,
+σθk = (4o− 1.5o)dk− 4odkmin + 1.5dkmax
+dkmax−dkmin
+. (52)
+The value for true measurement mean is considered to be 0.1o for both scenarios in both cases. The initial guess
+value of the measurement noise mean and the measurement noise covariance used for adaptive ﬁltering is considered
+to be half of their true initial values.
+A. Performance matrices
+The performance of the ﬁlters is analyzed using the following performance matrices.
+1) Root mean square error: The root mean square error (RMSE) of position and velocity at the k-th time instant
+is evaluated as
+RMSEpos,k =
+√
+1
+M ΣM
+l=1(xt,l
+k − ˆxt,l
+k )2 + (yt,l
+k − ˆyt,l
+k )2 (53)
+and
+RMSEvel,k =
+√
+1
+M ΣM
+l=1( ˙xt,l
+k − ˆ˙xt,l
+k )2 + ( ˙yt,l
+k − ˆ˙yt,l
+k )2 (54)
+respectively. In this paper, we considered 500 Monte Carlo runs to evaluate the RMSE.
+2) Track loss percentage: The percentage of track loss is obtained from the fact that any estimate whose terminal
+error in position is beyond 0.2km is considered as diverged track and hence eliminated. Table II and III show the
+track loss percentage using all the ﬁlters for both scenarios for 10,000 Monte Carlo runs.
+3) Bias norm: The bias norm at the kth time instant of a ﬁlter is evaluated as
+Bias normk =
+⏐⏐⏐⏐⏐
+⏐⏐⏐⏐⏐
+1
+M
+M∑
+l=1
+ˆXl
+k|k− 1
+M
+M∑
+l=1
+Xl
+k
+⏐⏐⏐⏐⏐
+⏐⏐⏐⏐⏐
+2
+, (55)
+=== PAGE 12 ===
+12
+0 1 2 3 4 5 6 7 8
+x axis (km)
+-2.5
+-2
+-1.5
+-1
+-0.5
+0
+0.5
+1
+1.5
+y axis (km)
+Start
+Start
+Start
+Observer
+Target
+AGHF(VB)
+(a)
+-4 -2 0 2 4 6 8 10 12
+x axis (km)
+-4
+-2
+0
+2
+4
+6
+8
+10
+12y axis (km)
+Start
+Start
+Start
+Observer
+Target
+AGHF(VB) (b)
+Fig. 1: Tracking scenario for (a) moderately nonlinear scenario (Scenario I), and (b) highly nonlinear scenario
+(Scenario II)
+TABLE I: Parameters of the scenarios
+Parameters Scenario I Scenario II
+Initial range (r) 5 km 10 km
+Target speed (s) 4 knots 15 knots
+Target course −140o −135.4o
+Observer speed 5 knots 5 knots
+Observer initial course 140o −80o
+Observer ﬁnal course 20o 146o
+Observer maneuver From 13th to 17thmin 15th min
+Initial range S.D. (σr) 2 km 4 km
+Initial target speed S.D. (σs) 2 knots 2 knots
+Initial course S.D. (σc) π/
+√
+12 π/
+√
+12
+Measurement noise mean (rm) 0.1o 0.1o
+where||·|| 2 represents the vector norm, M is the total number of Monte Carlo runs. Here we have considered 500
+Monte Carlo runs to evaluate the bias norm.
+4) Average normalized estimation error squared (ANEES): The normalized estimation error squared at the kth
+instant of time, NEES k is evaluated as
+NEESk = (Xk− ˆXk|k)TP−1
+k|k(Xk− ˆXk|k). (56)
+If the estimation technique is consistent, the NEES should follow χ2-distribution with n degree of freedom and a
+mean of n i.e., E[NEES] =n, where n is the state dimension. The average of NEES is evaluated as
+ANEESk = 1
+nM
+M∑
+l=1
+NEESl
+k. (57)
+=== PAGE 13 ===
+13
+0 200 400 600 800 1000 1200 1400 1600 1800
+Time (s)
+-5
+-4
+-3
+-2
+-1
+0
+1
+2
+3
+4
+5
+rm
+o
+Truth
+AGHF(VB)
+AGHF(MAPMLE)
+(a)
+0 200 400 600 800 1000 1200 1400 1600 1800
+Time (s)
+0
+0.5
+1
+1.5
+2
+2.5
+3
+k
+o
+Truth
+AGHF(VB)
+AGHF(MAPLE) (b)
+Fig. 2: Estimated (a)rm and (b) σθk for Scenario I, Case I.
+0 200 400 600 800 1000 1200 1400 1600 1800
+Time (s)
+-5
+-4
+-3
+-2
+-1
+0
+1
+2
+3
+4
+5
+rm
+o
+Truth
+AGHF(VB)
+AGHF(MAPMLE)
+(a)
+0 200 400 600 800 1000 1200 1400 1600 1800
+Time (s)
+1
+1.5
+2
+2.5
+3
+3.5
+4
+4.5
+5
+5.5
+6
+k
+o
+Truth
+AGHF(VB)
+AGHF(MAPLE) (b)
+Fig. 3: Estimated (a)rm and (b) σθk for Scenario II, Case I.
+If ANEESk∈ [b1,b 2], where b1 and b2 represent the lower and upper bound of the 95% probability region, the
+ﬁlter is said to be consistent. If ANEES k >b 2 the ﬁlter is said to be optimistic, as the posterior covariance, Pk|k
+is too small, and if ANEES k <b 1 the ﬁlter is said to be pessimistic. The values of b1 and b2 are evaluated as in
+[50]. Here we have considered 500 Monte Carlo runs to evaluate the ANEES.
+B. Performance of ﬁlters
+1) Case I: Static measurement noise covariance: The single run estimation plot for measurement noise mean
+and standard deviation are shown in 2a and 2b, respectively for Scenario I and 3a and 3b, respectively for Scenario
+II. The black dashed line marks the true value of the measurement noise mean and standard deviation, the blue
+line denoted the AGHF following the MAPMLE technique and the red line denoted the AGHF following the VB
+technique. These ﬁgures show that the truth is followed by both the adaptive ﬁlters while estimating both the
+measurement noise mean and the standard deviation.
+=== PAGE 14 ===
+14
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+0
+0.5
+1
+1.5
+2
+2.5RMSE in position (km)
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF
+CRLB
+1600 1650 1700 1750 1800
+0.02
+0.04
+0.06
+0.08
+(a)
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11RMSE in velocity (km/s)
+10-4
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF
+CRLB
+1600 1650 1700 1750 1800
+1
+1.5
+2
+2.5 10-4 (b)
+Fig. 4: RMSE in (a) position, and (b) velocity for Scenario I, Case I.
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+RMSE in position (km)
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF
+CRLB
+1600 1650 1700 1750 1800
+0
+0.05
+0.1
+(a)
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+1.8
+2
+RMSE in velocity (km/s)
+10-3
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF
+CRLB
+1600 1650 1700 1750 1800
+2
+3
+4
+10-4 (b)
+Fig. 5: RMSE in (a) position, and (b) velocity for Scenario II, Case I.
+Figure 4a and 4b shows the RMSE of position and velocity, respectively for Scenario I and 5a and 5b shows
+RMSE in position and velocity, respectively for Scenario II with ﬁxed value of measurement noise coefﬁcient. All
+the RMSEs are evaluated excluding the diverged tracks having a track bound of 200 m. From the RMSE plots, we
+can see that in both scenarios the adaptive ﬁlters following the VB approach shows better result than the adaptive
+ﬁlters following the MAPMLE technique. All the adaptive ﬁlters have higher RMSE than the nonadaptive ﬁlters,
+where estimation is done using the true values of measurement noise statistics, in Scenario I. In contrast, in Scenario
+II the adaptive ﬁlters with the VB technique show almost similar RMSE with the nonadaptive ﬁlters. From the
+RMSE plots, we can see that the RMSE of the AEKF in the VB approach is lower than the rest of the adaptive
+ﬁlters following the VB approach due to the fact that it has much higher track loss and as the RMSE values are
+plotted excluding the diverged tracks so the resultant RMSE happens to be less.
+The bias norm plots for the same are shown in 6a and 7a for Scenario I and II, respectively. The bias norm plots
+are also evaluated excluding the diverged tracks considered with a track bound of 200 m. All the ﬁlters’ bias norm
+goes to zero at the end of the simulation signifying zero bias. The ANEES plots for the same are shown in 6b and
+=== PAGE 15 ===
+15
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+Biasnorm
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF
+(a)
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22ANEES
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF (b)
+Fig. 6: (a) Bias norm, and (b) ANEES plots for Scenario I, Case I.
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+0
+1
+2
+3
+4
+5
+6Biasnorm
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF
+(a)
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22ANEES
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF (b)
+Fig. 7: (a) Bias norm, and (b) ANEES plots for Scenario II, Case I.
+7b for Scenario I and II, respectively. The ANEES is plotted excluding the diverged tracks having a track bound of
+200 m. The ANEES of the adaptive ﬁlters following VB technique is almost similar to the ANIS of the nonadaptive
+ﬁlters at the end of the simulation in both scenarios whereas the adaptive ﬁlters following the MAPMLE technique
+have higher ANEES values than the rest.
+The percentage of track loss and the relative execution time for Case I are shown in Table II for both scenarios.
+The track bound is considered to be 200 m which is used to evaluate the track loss %. The table also lists the
+execution time of all the ﬁlters relative to the execution time required for the nonadaptive EKF. From the table, we
+can see that the adaptive ﬁlters following the VB approach show much less track loss % compared to the adaptive
+ﬁlters following the MAPMLE technique at the expense of higher execution time.
+2) Case II: Varying measurement noise covariance: The single run plots for rm and σθk estimation for varying
+measurement noise covariance are shown in Figure 8a and 8b, respectively for Scenario I and in Figure 9a and 9b,
+respectively for Scenario II. We can see that the rm is estimated in both scenarios and the σθk is also estimated
+but not too vividly using both adaptive ﬁltering techniques as was in Case I.
+=== PAGE 16 ===
+16
+TABLE II: Percentage of track loss and relative execution time for all the implemented ﬁlters for Case I
+Track loss %
+Filters Scenario I Scenario II Rel. exe. time
+EKF 16.35 19.55 1
+AEKF using VB 18.57 20.47 12.49
+AEKF using MAPMLE 40.36 56.13 1.18
+CKF 1.48 4.56 2.52
+ACKF using VB 9.48 17.53 30.83
+ACKF using MAPMLE 34.68 52.48 1.53
+UKF 1.46 4.35 1.08
+AUKF using VB 8.33 16.45 31.31
+AUKF using MAPMLE 34.66 49.44 2.65
+GHF 1.44 4.10 4.48
+AGHF using VB 7.43 15.24 40.23
+AGHF using MAPMLE 34.47 39.78 4.23
+0 200 400 600 800 1000 1200 1400 1600 1800
+Time (s)
+-3
+-2
+-1
+0
+1
+2
+3
+rm
+o
+Truth
+AGHF(VB)
+AGHF(MAPMLE)
+(a)
+0 200 400 600 800 1000 1200 1400 1600 1800
+Time (s)
+0
+5
+10
+15k
+o
+Truth
+AGHF(VB)
+AGHF(MAPLE) (b)
+Fig. 8: Estimated (a)rm and (b) σθk for Scenario I, Case II.
+For Case II, where the measurement noise covariance is considered to be varying the RMSE in position and
+velocity for Scenario I are shown in 10a and 10b, respectively, and for Scenario II are shown in 11a and 11b,
+respectively. The RMSE is evaluated for 500 Monte Carlo runs excluding the diverged tracking considered with a
+track bound of 200 m. The RMSE of the adaptive ﬁlters following the VB technique is slightly higher than the
+nonadaptive ﬁlters in both scenarios but is lower than the adaptive ﬁlters following the MAPMLE technique. In
+Scenario I, we can see that the RMSE of the AGHF following the VB approach shows higher RMSE than the other
+adaptive ﬁlters following the VB approach because it has a much less percentage of track loss so as the RMSE
+values are plotted excluding the track loss, the resultant RMSE came to be higher.
+The bias norm plot for Scenario I and II considering varying measurement noise covariance is shown in 12a
+and 13a, respectively. The biasnorm is also evaluated excluding the diverged tracks considering a track bound of
+200 m. In both ﬁgures, we can see that the bias norm converges to zero at the end of the simulation signifying
+zero bias. The ANEES plots for Scenario I and II are shown in 12b and 13b, respectively. Here also the ANEES
+is evaluated excluding the diverged tracks considering a track bound of 200 m. The ANEES plots of the adaptive
+=== PAGE 17 ===
+17
+0 200 400 600 800 1000 1200 1400 1600 1800
+Time (s)
+-2
+-1.5
+-1
+-0.5
+0
+0.5
+1
+1.5
+2
+rm
+o
+Truth
+AGHF(VB)
+AGHF(MAPMLE)
+(a)
+0 200 400 600 800 1000 1200 1400 1600 1800
+Time (s)
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10k
+o
+Truth
+AGHF(VB)
+AGHF(MAPLE) (b)
+Fig. 9: Estimated (a)rm and (b) σθk for Scenario II, Case II.
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+RMSE in position (km)
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF
+CRLB
+1600 1650 1700 1750 1800
+0.04
+0.06
+0.08
+0.1
+(a)
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+0
+0.5
+1
+1.5RMSE in velocity (km/s)
+10-3
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF
+CRLB
+1600 1650 1700 1750 1800
+1
+2
+3 10-4 (b)
+Fig. 10: RMSE in (a) position, and (b) velocity for Scenario I, Case II.
+ﬁlters following the VB technique are almost similar to the ANEES of the nonadaptive ﬁlters and are also within
+or around the 95% probability region shown with the black dashed lines whereas the ANEES of the adaptive ﬁlters
+following the MAPMLE technique are much higher.
+The % of track loss for all the ﬁlters for Case II are listed in Table III along with the relative execution time. The
+track loss % is evaluated considering a track bound of 200 m. Like Case I, the adaptive ﬁlters following the VB
+approaches show a lower % of track loss for Case II compared with the adaptive ﬁlters following the MAPMLE
+technique. The relative execution time is evaluated relative to the execution time taken by the nonadaptive EKF ﬁlter.
+The adaptive ﬁlters following the VB approach need more time for execution than the adaptive ﬁlters following the
+MAPMLE technique.
+VIII. D ISCUSSION AND CONCLUSION
+This paper presents a variational Bayesian based adaptive ﬁltering framework for the Gaussian approximated
+ﬁlters (GHFs) that can estimate the target trajectory along with the measurement noise statistics. It is based on the
+=== PAGE 18 ===
+18
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+4.5
+5
+RMSE in position (km)
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF
+CRLB
+1600 1650 1700 1750 1800
+0
+0.05
+0.1
+(a)
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+0
+0.5
+1
+1.5
+2
+2.5RMSE in velocity (km/s)
+10-3
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF
+CRLB
+1600 1650 1700 1750 1800
+0
+2
+4
+10-4 (b)
+Fig. 11: RMSE in (a) position, and (b) velocity for Scenario II, Case II.
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+0
+1
+2
+3
+4
+5
+6Biasnorm
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF
+(a)
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20ANEES
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF (b)
+Fig. 12: (a) Bias norm, and (b) ANEES plots for Scenario I, Case II.
+assumption that the joint distribution of the measurement noise mean and covariance follow normal inverse Wishart
+distribution. We tested the proposed technique using traditional GAFs (EKF, CKF, UKF, and GHF) for tracking
+an underwater target in moderately and highly nonlinear tracking scenarios with bearings-only measurements.
+Both scenarios are implemented for two cases, one with static measurement noise covariance and another with
+varying linear covariance with the distance between the target and the ownship. We compared the performance of
+the proposed algorithm with adaptive ﬁltering techniques based on maximum likelihood and maximum aposteriori
+using RMSE, percentage of track loss, ANEES, bias norm, and computation time. Simulation results showed that the
+proposed variational Bayesian ﬁlter outperformed the adaptive ﬁlters based on maximum aposteriori and maximum
+likelihood.
+REFERENCES
+[1] B. Ristic, S. Arulampalam, and N. Gordon, Beyond the Kalman ﬁlter: particle ﬁlters for tracking applications . Artech house, 2003.
+[2] P. H. Leong, S. Arulampalam, T. A. Lamahewa, and T. D. Abhayapala, “A Gaussian-sum based cubature Kalman ﬁlter for bearings-only
+tracking,” IEEE Transactions on Aerospace and Electronic Systems , vol. 49, no. 2, pp. 1161–1176, 2013.
+=== PAGE 19 ===
+19
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+0
+1
+2
+3
+4
+5
+6
+7Biasnorm
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF
+(a)
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+Time (s)
+2
+4
+6
+8
+10
+12
+14
+16
+18ANEES
+AGHF(VB)
+AUKF(VB)
+ACKF(VB)
+AEKF(VB)
+AGHF(MAPMLE)
+AUKF(MAPMLE)
+ACKF(MAPMLE)
+AEKF(MAPMLE)
+GHF
+UKF
+CKF
+EKF (b)
+Fig. 13: (a) Bias norm, and (b) ANEES plots for Scenario II, Case II.
+TABLE III: Percentage of track loss and relative execution time for all the implemented ﬁlters for Case II
+Track loss %
+Filters Scenario I Scenario II Rel. exe. time
+EKF 13.85 21.79 1
+AEKF using VB 19.58 29.62 18.31
+AEKF using MAPMLE 46.85 70.97 1.68
+CKF 2.21 11.24 1.59
+ACKF using VB 9.47 24.32 31.73
+ACKF using MAPMLE 42.67 63.48 2.89
+UKF 2.13 10.29 2.85
+AUKF using VB 8.99 23.12 31.79
+AUKF using MAPMLE 38.53 63.09 3.12
+GHF 2.05 9.44 2.89
+AGHF using VB 5.86 19.83 47.82
+AGHF using MAPMLE 37.92 54.08 4.80
+[3] R. Radhakrishnan, S. Bhaumik, and N. K. Tomar, “Gaussian sum shifted Rayleigh ﬁlter for underwater bearings-only target tracking
+problems,” IEEE Journal of Oceanic Engineering , vol. 44, no. 2, pp. 492–501, 2018.
+[4] M. Mallick, A. Sinha, and J. Liu, “Enhancements to bearing-only ﬁltering,” in 2017 20th International Conference on Information Fusion
+(Fusion), pp. 1–8, 2017.
+[5] J. Annabattula, S. K. Rao, A. S. D. Murthy, K. Srikanth, and R. P. Das, “Multi-sensor submarine surveillance system using MGBEKF,”
+Indian Journal of Science and Technology , vol. 8, no. 35, pp. 1–5, 2015.
+[6] K. Kumar, S. Bhaumik, and S. Arulampalam, “Tracking an underwater object with unknown sensor noise covariance using orthogonal
+polynomial ﬁlters,” Sensors, vol. 22, no. 13, p. 4970, 2022.
+[7] R. Karlsson and F. Gustafsson, “Recursive Bayesian estimation: bearings-only applications,” IEE Proceedings-Radar, Sonar and Navigation,
+vol. 152, no. 5, pp. 305–313, 2005.
+[8] A. Farina, “Target tracking with bearings–only measurements,” Signal processing, vol. 78, no. 1, pp. 61–78, 1999.
+[9] R. Radhakrishnan, A. K. Singh, S. Bhaumik, and N. K. Tomar, “Quadrature ﬁlters for underwater passive bearings-only target tracking,”
+in 2015 Sensor Signal Processing for Defence (SSPD) , pp. 1–5, IEEE, 2015.
+[10] S. C. Nardone and V . J. Aidala, “Observability criteria for bearings-only target motion analysis,” IEEE Transactions on Aerospace and
+Electronic systems, no. 2, pp. 162–166, 1981.
+[11] T. L. Song, “Observability of target tracking with range-only measurements,” IEEE Journal of Oceanic Engineering , vol. 24, no. 3,
+pp. 383–387, 1999.
+=== PAGE 20 ===
+20
+[12] B. Ristic and M. S. Arulampalam, “Tracking a manoeuvring target using angle-only measurements: algorithms and performance,” Signal
+processing, vol. 83, no. 6, pp. 1223–1238, 2003.
+[13] M. S. Arulampalam, B. Ristic, N. Gordon, and T. Mansell, “Bearings-only tracking of manoeuvring targets using particle ﬁlters,” EURASIP
+Journal on Advances in Signal Processing , vol. 2004, no. 15, pp. 1–15, 2004.
+[14] L.-q. Li and W.-x. Xie, “Bearings-only maneuvering target tracking based on fuzzy clustering in a cluttered environment,” Aeu-International
+Journal of Electronics and Communications , vol. 68, no. 2, pp. 130–137, 2014.
+[15] T. Kirubarajan, Y . Bar-Shalom, and D. Lerro, “Bearings-only tracking of maneuvering targets using a batch-recursive estimator,” IEEE
+Transactions on Aerospace and Electronic Systems , vol. 37, no. 3, pp. 770–780, 2001.
+[16] V . J. Aidala, “Kalman ﬁlter behavior in bearings-only tracking applications,” IEEE Transactions on Aerospace and Electronic Systems ,
+vol. AES-15, no. 1, pp. 29–39, 1979.
+[17] V . Aidala and S. Hammel, “Utilization of modiﬁed polar coordinates for bearings-only tracking,” IEEE Transactions on Automatic Control,
+vol. 28, no. 3, pp. 283–294, 1983.
+[18] A. Toloei and S. Niazi, “State estimation for target tracking problems with nonlinear Kalman ﬁlter algorithms,” International Journal of
+Computer Applications, vol. 98, no. 17, 2014.
+[19] T. Song and J. Speyer, “A stochastic analysis of a modiﬁed gain extended Kalman ﬁlter with applications to estimation with bearings only
+measurements,” IEEE Transactions on Automatic Control , vol. 30, no. 10, pp. 940–949, 1985.
+[20] S. K. Rao, “Modiﬁed gain extended Kalman ﬁlter with application to bearings-only passive manoeuvring target tracking,” IEE Proceedings-
+Radar, Sonar and Navigation , vol. 152, no. 4, pp. 239–244, 2005.
+[21] A. Jawahar and S. K. Rao, “Modiﬁed polar extended Kalman ﬁlter (MP-EKF) for bearings-only target tracking,” Indian J. Sci. Technol ,
+vol. 9, no. 26, pp. 1–5, 2016.
+[22] S. Nardone, A. Lindgren, and K. Gong, “Fundamental properties and performance of conventional bearings-only target motion analysis,”
+IEEE Transactions on automatic control , vol. 29, no. 9, pp. 775–787, 1984.
+[23] I. Arasaratnam and S. Haykin, “Cubature Kalman ﬁlters,” IEEE Transactions on automatic control , vol. 54, no. 6, pp. 1254–1269, 2009.
+[24] S. J. Julier and J. K. Uhlmann, “Unscented ﬁltering and nonlinear estimation,” Proceedings of the IEEE, vol. 92, no. 3, pp. 401–422, 2004.
+[25] Y . Xu and L. Liping, “Single observer bearings-only tracking with the unscented Kalman ﬁlter,” in 2004 International Conference on
+Communications, Circuits and Systems (IEEE Cat. No. 04EX914) , vol. 2, pp. 901–905, IEEE, 2004.
+[26] K. Ito and K. Xiong, “Gaussian ﬁlters for nonlinear ﬁltering problems,” IEEE transactions on automatic control, vol. 45, no. 5, pp. 910–927,
+2000.
+[27] G. Chalasani and S. Bhaumik, “Bearing only tracking using Gauss-Hermite ﬁlter,” in 2012 7th IEEE Conference on Industrial Electronics
+and Applications (ICIEA) , pp. 1549–1554, IEEE, 2012.
+[28] S. Bhaumik, “Cubature quadrature Kalman ﬁlter,” IET Signal Processing , vol. 7, no. 7, pp. 533–541, 2013.
+[29] K. Xiong, L. Liu, and H. Zhang, “Modiﬁed unscented Kalman ﬁltering and its application in autonomous satellite navigation,” Aerospace
+Science and Technology, vol. 13, no. 4-5, pp. 238–246, 2009.
+[30] R. Radhakrishnan, A. K. Singh, S. Bhaumik, and N. K. Tomar, “Multiple sparse-grid Gauss–Hermite ﬁltering,” Applied Mathematical
+Modelling, vol. 40, no. 7-8, pp. 4441–4450, 2016.
+[31] A. Mohamed and K. Schwarz, “Adaptive Kalman ﬁltering for INS/GPS,” Journal of geodesy , vol. 73, no. 4, pp. 193–203, 1999.
+[32] L. Zhao and X. Wang, “An adaptive UKF with noise statistic estimator,” in 2009 4th IEEE Conference on Industrial Electronics and
+Applications, pp. 614–618, IEEE, 2009.
+[33] L. Zhao, J. Wang, T. Yu, H. Jian, and T. Liu, “Design of adaptive robust square-root cubature Kalman ﬁlter with noise statistic estimator,”
+Applied Mathematics and Computation , vol. 256, pp. 352–367, 2015.
+[34] R. Mehra, S. Seereeram, D. Bayard, and F. Hadaegh, “Adaptive Kalman ﬁltering, failure detection and identiﬁcation for spacecraft attitude
+estimation,” in Proceedings of International Conference on Control Applications , pp. 176–181, IEEE, 1995.
+[35] T.-G. Lee, “Centralized Kalman ﬁlter with adaptive measurement fusion: its application to a GPS/SDINS integration system with an
+additional sensor,” International Journal of Control, Automation, and Systems , vol. 1, no. 4, pp. 444–452, 2003.
+[36] D.-J. Jwo, M.-Y . Chen, C.-H. Tseng, and T.-S. Cho, “Adaptive and nonlinear Kalman ﬁltering for GPS navigation processing,” Kalman
+Filter: Recent Advances and Applications , vol. 19, 2009.
+[37] A. Almagbile, J. Wang, and W. Ding, “Evaluating the performances of adaptive Kalman ﬁlter methods in GPS/INS integration,” Journal
+of Global Positioning Systems , vol. 9, no. 1, pp. 33–40, 2010.
+[38] M. Das, S. Sadhu, and T. Ghoshal, “An adaptive sigma point ﬁlter for nonlinear ﬁltering problems,” International Journal of Electrical,
+Electronics and Computer Engineering , vol. 2, no. 2, pp. 13–19, 2013.
+[39] Y . Huang, Y . Zhang, P. Shi, and J. Chambers, “Variational adaptive Kalman ﬁlter with Gaussian-inverse-Wishart mixture distribution,”
+IEEE Transactions on Automatic Control , vol. 66, no. 4, pp. 1786–1793, 2020.
+[40] C. Sun, Y . Zhang, G. Wang, and W. Gao, “A new variational Bayesian adaptive extended Kalman ﬁlter for cooperative navigation,” Sensors,
+vol. 18, no. 8, p. 2538, 2018.
+[41] Z. Zhang, P. Dong, H. Tuo, G. Liu, and H. Jia, “Robust variational Bayesian adaptive cubature Kalman ﬁltering algorithm for simultaneous
+localization and mapping with heavy-tailed noise,” Journal of Shanghai Jiaotong University (Science) , vol. 25, no. 1, pp. 76–87, 2020.
+[42] D. Xu, Z. Wu, and Y . Huang, “A new adaptive kalman ﬁlter with inaccurate noise statistics,” Circuits, Systems, and Signal Processing ,
+vol. 38, no. 9, pp. 4380–4404, 2019.
+[43] A. O’Hagan and J. J. Forster, Kendall’s advanced theory of statistics, volume 2B: Bayesian inference , vol. 2. Arnold, 2004.
+[44] K. P. Murphy, “Conjugate Bayesian analysis of the Gaussian distribution,” def, vol. 1, no. 2 σ2, p. 16, 2007.
+[45] C. M. Bishop and N. M. Nasrabadi, Pattern recognition and machine learning , vol. 4. Springer, 2006.
+[46] D. G. Tzikas, A. C. Likas, and N. P. Galatsanos, “The variational approximation for Bayesian inference,” IEEE Signal Processing Magazine,
+vol. 25, no. 6, pp. 131–146, 2008.
+[47] R. Mehra, “On the identiﬁcation of variances and adaptive Kalman ﬁltering,” IEEE Transactions on automatic control , vol. 15, no. 2,
+pp. 175–184, 1970.
+[48] Y . Yang and T. Xu, “An adaptive Kalman ﬁlter based on sage windowing weights and variance components,” The Journal of Navigation ,
+vol. 56, no. 2, pp. 231–240, 2003.
+[49] J. Wang, “Stochastic modeling for real-time kinematic GPS/GLONASS positioning,” Navigation, vol. 46, no. 4, pp. 297–305, 1999.
+[50] Y . Bar-Shalom, X. R. Li, and T. Kirubarajan, Estimation with applications to tracking and navigation: theory algorithms and software .
+John Wiley & Sons, 2004.
+=== PAGE 21 ===
+21
+APPENDIX
+Appendix A: Proof of Theorem 2
+Let us consider
+p(Xk|k−1|Y1:k) =N (Xk|k−1; ˆXk|k−1,Pk|k−1), (58)
+and
+q(Xk|k−1) =q(Yk|Xk|k−1)q(Xk|k−1|Y1:k−1)
+=N (Yk;h(Xk|k−1) +rm,Rk)N (Xk|k−1; ˆXk|k−1,Pk|k−1).
+(59)
+Using (IV-B), considering terms independent of Xk|k−1 as constants.
+logp(Xk|k−1,R′
+k,r′
+m,Y1:k) = log 1√
+2πR′
+k
+− 1
+2(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m) +c
+=−1
+2 log|R′
+k|− 1
+2(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m) +cXk|k−1
+(60)
+Putting Er′m,R′
+k
+on both side
+Er′m,R′
+k
+logp(Xk|k−1,Y1:k) =−1
+2E[log|R′
+k|]− 1
+2(Yk−h(Xk|k−1)−r′
+m)TE[R′−1
+k ](Yk−h(Xk|k−1)−r′
+m) +cXk|k−1
+(61)
+As 1
+2E[log|R′
+k|] is independent of Xk|k−1 so they are considered as constant. Therefore,
+logq(Xk|k−1) =Er′m,R′
+k
+logp(Xk|k−1,Y1:k)
+=−1
+2(Yk−h(Xk|k−1)−r′
+m)TE[R′−1
+k ](Yk−h(Xk|k−1)−r′
+m) +cXk|k−1,
+(62)
+where
+E[R′−1
+k ] =
+ˆu′
+k|k−1 +m + 1
+ˆU′k|k−1
+, (63)
+So, comparing (59) with (63) and considering N (Xk|k−1, ˆXk|k−1,Pk|k−1) as constant we get,
+Rk = (E[R′−1
+k ])−1 =
+ˆU′k|k−1
+ˆu′
+k|k−1 +m + 1. (64)
+Appendix B: Proof of Theorem 3
+Let us consider
+p(r′
+m|Y1:k) =N (r′
+m;µ′,α′R′
+k), (65)
+and
+q(rm) =N (rm;µ,αRk). (66)
+The terms in (IV-B) which are independent of r′
+m are considered as constant and taking log on both side of the
+same, we get
+logp(Xk|k−1,r′
+m,R′
+k,Y1:k) = log 1√
+2πR′
+k
+− 1
+2(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m)
++ log 1√
+2πα′R′
+k
+− 1
+2(r′
+m−µ′)T (α′R′
+k)−1(r′
+m−µ′) +c
+=−1
+2(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m)
+− 1
+2(r′
+m−µ′)T (α′R′
+k)−1(r′
+m−µ′) +crm
+(67)
+=== PAGE 22 ===
+22
+Putting expectation on both sides,
+logq(rm) =EXk|k−1,R′
+k
+logp(Xk|k−1,r′
+m,R′
+k,Y1:k)
+=−1
+2E[(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m)]− 1
+2(r′
+m−µ′)TE[(α′R′
+k)−1](r′
+m−µ′) +crm
+=−1
+2E[(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m)]− 1
+2α′ (r′
+m−µ′)TE[R′−1
+k ](r′
+m−µ′) +crm.
+(68)
+As (Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m) is scalar so,
+tr[(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m)] = (Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m).
+(69)
+Using cyclic property of trace
+tr[(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m)] =tr[(Yk−h(Xk|k−1)−r′
+m)(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k ].
+(70)
+Using this the expectation in the ﬁrst term of (68) can be evaluated as
+E[(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m)] =tr{E[(Yk−h(Xk|k−1)−r′
+m)(Yk−h(Xk|k−1)−r′
+m)T ]E[R′−1
+k ]}
+=tr{E[(Yk−E[h(Xk|k−1)]−rm +E[h(Xk|k−1)]−h(Xk|k−1))(Yk−E[h(Xk|k−1)]−rm
++E[h(Xk|k−1)]−h(Xk|k−1))T ]E[R′−1
+k ]}
+=tr{[(Yk−E[h(Xk|k−1)]−r′
+m)(Yk−E[h(Xk|k−1)]−r′
+m)T− (Yk−E[h(Xk|k−1)]−r′
+m)(E[h(Xk|k−1)]]
+−E[h(Xk|k−1)])T− (E[h(Xk|k−1)]]−E[h(Xk|k−1)])(Yk−E[h(Xk|k−1)]−r′
+m)T
++ (E[h(Xk|k−1)]]−E[h(Xk|k−1)])(E[h(Xk|k−1)]]−E[h(Xk|k−1)])T ]E[R′−1
+k ]}.
+(71)
+Linearizing the measurement function, (h(Xk|k−1)) around ( ˆXk|k−1) following Taylor series, we getE[h(Xk|k−1)]] =
+E[h(Xk|k−1)]. Therefore, the above equation becomes
+E[(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m)] =tr{[(Yk−E[h(Xk|k−1)]−r′
+m)(Yk−E[h(Xk|k−1)]−r′
+m)T ]E[R′−1
+k ]}.
+(72)
+Again using cyclic property of trace we can rewrite the above equation as
+E[(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m)]
+=tr{(Yk−E[h(Xk|k−1)]−r′
+m)TE[R′−1
+k ](Yk−E[h(Xk|k−1)]−r′
+m)}.
+(73)
+Again as (Yk−E[h(Xk|k−1)]−r′
+m)TE[R′−1
+k ](Yk−E[h(Xk|k−1)]−r′
+m) is scalar so we can remove the trace
+operator and again rewrite the above equation as
+E[(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m)] = (Yk−E[h(Xk|k−1)]−r′
+m)TE[R′−1
+k ](Yk−E[h(Xk|k−1)]−r′
+m).
+(74)
+So,
+logq(rm) = (Yk−E[h(Xk|k−1)]−r′
+m)TE[R′−1
+k ](Yk−E[h(Xk|k−1)]−r′
+m)− 1
+2α′ (r′
+m−µ′)TE[R′−1
+k ](r′
+m−µ′)+crm
+(75)
+As we know the resultant pdf on multiplying 2 Gaussian pdf is also Gaussian in nature i.e., considering 2 nomal
+distributions of some variable z1 and z2 and z =z1×z2 such that,
+N (z1;m1,σ 2
+1)N (z2;m2,σ 2
+2) =N (z;m1σ2
+2 +m2σ2
+1
+σ2
+1 +σ2
+2
+, σ2
+1σ2
+2
+σ2
+1 +σ2
+2
+) (76)
+=== PAGE 23 ===
+23
+Using (76) we can say,
+µ = µ′(E[R′−1
+k ])−1 + (Yk−E[h(Xk|k−1)])(α′−1E[R′−1
+k ])−1
+(E[R′−1
+k ])−1 + (α′−1E[R′−1
+k ])−1
+= (E[R′−1
+k ])−1(µ′ + (Yk−E[h(Xk|k−1)])α′)
+(E[R′−1
+k ])−1(1 +α′) = µ′ + (Yk−E[h(Xk|k−1)])α′
+(1 +α′) ,
+(77)
+where E[h(Xk|k−1)] is evaluated using deterministic sample point ﬁltering approach having Ns number of sigma
+points. wj is the weight corresponding jth sigma point, ξj. So,
+E[h(Xk|k−1)]) =
+Ns∑
+j=1
+wjYj,k|k−1, (78)
+where Yj,k|k−1 = h(Xj,k|k−1) = h(Sk|k−1ξj + ˆXk|k−1) such that Sk|k−1ST
+k|k−1 = Pk|k−1. Thus, (77) can be
+rewritten as
+µ =
+µ′ +α′(Yk−∑Ns
+j=1wjYj,k|k−1)
+α′ + 1 . (79)
+Using (76) we can also say,
+αRk = (E[R′−1
+k ])−1(E[R′−1
+k ]α′−1)−1
+(E[R′−1
+k ])−1(1 +α′) = (E[R′−1
+k ])−1α′
+1 +α′ . (80)
+As, we know from (64) that, Rk = (E[R′−1
+k ])−1, so,
+α = α′
+α′ + 1. (81)
+Appendix C: Proof of Theorem 4
+Let us consider
+p(R′
+k|Y1:k−1) =IW (R′
+k, ˆu′
+k|k−1, ˆU′
+k|k−1), (82)
+and
+q(Rk) =IW (Rk, ˆuk|k−1, ˆUk|k−1). (83)
+Considering the terms in (IV-B) that are independent of R′
+k as constant and taking log on both sides we get,
+logp(Xk|k−1,r′
+m,R′
+k,Y1:k) = log( 1√
+2π(R′
+k))− 1
+2(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m)
++ log( 1√
+2πα′R′
+k
+)− 1
+2(r′
+m−µ′)T (α′R′
+k)−1(r′
+m−µ′)
+−
+ˆu′
+k|k−1 +m + 1
+2 log|R′
+k|− 1
+2tr( ˆU′
+k|k−1R′−1
+k ) +c
+=−1
+2 log|R′
+k| + const.− 1
+2 log|R′
+k| + const.−
+ˆu′
+k|k−1 +m + 1
+2 log|R′
+k|
+− 1
+2tr( ˆU′
+k|k−1R′−1
+k )− 1
+2α′ (r′
+m−µ′)T (R′
+k)−1(r′
+m−µ′)
+− 1
+2(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m)
+=−
+ˆu′
+k|k−1 +m + 3
+2 log|R′
+k|− 1
+2tr( ˆU′
+k|k−1R′−1
+k )
+− 1
+2α′ (r′
+m−µ′)T (R′
+k)−1(r′
+m−µ′)
+− 1
+2(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk|k−1−h(Xk|k−1)−r′
+m) +cRk.
+(84)
+=== PAGE 24 ===
+24
+Taking expectation w.r.t.Xk|k−1 and r′
+m on both sides
+EXk|k−1,r′m logp(Xk|k−1,r′
+m,R′
+k,Y1:k) =−
+ˆu′
+k|k−1 +m + 3
+2 log|R′
+k|− 1
+2tr( ˆU′
+k|k−1R′−1
+k )
+−Er′m[ 1
+2α′ (r′
+m−µ′)T (R′
+k)−1(r′
+m−µ′)]
+−EXk|k−1,r′
+m[1
+2(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m)] +cRk.
+(85)
+As, (Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m) is a scalar, so
+(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m) =tr[(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m)].
+(86)
+Using cyclic property of trace
+tr[(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k (Yk−h(Xk|k−1)−r′
+m)] =tr[(Yk−h(Xk|k−1)−r′
+m)(Yk−h(Xk|k−1)−r′
+m)TR′−1
+k ].
+(87)
+Also, as (r′
+m−µ′)T (R′
+k)−1(r′
+m−µ′) is a scalar, so
+(r′
+m−µ′)T (R′
+k)−1(r′
+m−µ′) =tr[(r′
+m−µ′)T (R′
+k)−1(r′
+m−µ′)] (88)
+Again using cyclic property of trace
+tr[(r′
+m−µ′)T (R′
+k)−1(r′
+m−µ′)] =tr[(r′
+m−µ′)(r′
+m−µ′)T (R′
+k)−1]. (89)
+Therefore we can write
+EXk|k,r′m logp(Xk|k−1,r′
+m,R′
+k,Y1:k) =−
+ˆu′
+k|k−1 +m + 3
+2 log|R′
+k|− 1
+2tr( ˆU′
+k|k−1R′−1
+k )− 1
+2(Bk +Dk)R′−1
+k +cRk
+=−
+ˆu′
+k|k−1 +m + 3
+2 log|R′
+k|− 1
+2tr[( ˆU′
+k|k−1 +Bk +Dk)R′−1
+k ] +cRk,
+(90)
+where
+Bk =EXk|k−1,r′m[(Yk−h(Xk|k−1)−r′
+m)(Yk−h(Xk|k−1)−r′
+m)T ], (91)
+and
+Dk = 1
+α′Er′m[(r′
+m−µ′)(r′
+m−µ′)T ]. (92)
+Comparing the two probabilities of p and q of (82) and (83), respectively using (90) we get,
+ˆuk|k−1 = ˆu′
+k|k−1 + 2, (93)
+and
+ˆUk|k−1 = ˆU′
+k|k−1 +Bk +Dk. (94)

@@ -1,0 +1,9 @@
+{
+  "round": "B7",
+  "mechanism": "Shared/nonshared model-averaged clear location",
+  "parent": "B4_safe",
+  "hypothesis": "A hard hypothesis choice may overcorrect when shared-error evidence is weak. Weight the predictive shared-bias action against the baseline center by equal-prior profile model odds.",
+  "fixed_prior": "equal model odds, no tuned threshold",
+  "change": "q=logistic(profile_log_BF)*q_shared+(1-p)*center",
+  "gate": "quick/dev below B4 then full/exposed"
+}

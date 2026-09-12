@@ -1,0 +1,15 @@
+{
+  "name": "b3_safe",
+  "config": {
+    "eb_bias_estimator": "map"
+  },
+  "candidate_sha256": "7fd153eb90b4683234539d6272863a2041c92011361a5233f9215b62e1fda6dc",
+  "component_sha256": "33e5549bb455326be3ec11e66820192432b50a12200173e406150064a2614b37",
+  "component": "bias_component_b3_safe.py",
+  "parent_source": "bias_component.py",
+  "direction": "Q4 shared error online calibration",
+  "safety_change": "Protected clear and redirect coordinates retained; success learning retained from actual public clear ledger.",
+  "evidence": "No action-performance equivalence asserted for the earlier b1_guard that dropped protected clear learning.",
+  "inputs": "Public bearings and actual successful clear/near disks only; no exact source truth",
+  "gate": "all-clear quick, development, full and paired exposed 4800 for retained"
+}

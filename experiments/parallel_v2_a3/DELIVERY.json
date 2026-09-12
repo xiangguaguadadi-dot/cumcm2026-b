@@ -1,0 +1,25 @@
+{
+  "frozen": true,
+  "recommended": "b4_safe",
+  "main": "snapshots/b4_safe.py",
+  "sha256": "d19433fc9b61de42a28ef50c7c4702e5d67c3cda690ee17a90b0628acd84fc8b",
+  "component": "bias_component_b4_safe.py",
+  "component_sha256": "3b154b07c29a5754fe276195ccd41e08397dea35c35c7cc71024e99b3696aee6",
+  "helpers": "bias_helpers.py",
+  "helpers_sha256": "dcf6e01f8179afee37e5652bb463166ae26f3cd1f9a6cdd3065d814a134e85c2",
+  "required_config": {
+    "eb_sigma": 0.35,
+    "eb_min_channels": 2,
+    "eb_min_bias": 0.5,
+    "eb_max_sd": 0.25
+  },
+  "integration": "Rebind _A3_ORIGINAL_Q4 to guarded parent; provide existing _C7._Q4 geometric functions and _a3_inside helper. Keep cover_polygon and _protected_clear_plan flags respected. Do not stack another coordinate-rewriting learner without action-level integration checks.",
+  "alternate": {
+    "name": "r3_guard",
+    "snapshot_sha256": "8577dc0e83ce3d30b81c16218976060046dda2c23587da4757b8f3e68fd5aa62",
+    "component": "point_component_guard.py",
+    "config": "r3_config.json"
+  },
+  "deployment_reads_only": "public action and observation state; no source truth/recipe/seed/group/source count",
+  "evidence": "local development and old exposed regression only; coordinator owns new confirmation"
+}

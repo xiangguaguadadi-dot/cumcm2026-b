@@ -1,0 +1,82 @@
+{
+  "schema": "a3-whole-task-rollout-gate-v1",
+  "heads": {
+    "off": [
+      0.2800085193165229,
+      1.5550154991470566,
+      1.1784460262791132,
+      -0.6121602525692942,
+      -0.0016237705188317207,
+      -3.8553507024069384,
+      0.49169433293654635,
+      -0.04587413366613652,
+      0.4662952999137654,
+      0.6662788075409588,
+      -0.39109743388521034,
+      0.7525374452046522,
+      1.48270383654821,
+      -0.20053527746560532,
+      0.11635382844133191
+    ],
+    "wls": [
+      -0.09363143699416938,
+      0.5212087878138647,
+      0.6857502634788846,
+      -1.477446306372398,
+      1.7506608914181034,
+      -0.27041027963997005,
+      -0.3663315479733929,
+      -0.2168268125089482,
+      0.07593146821318887,
+      0.01902892365605152,
+      -0.3821351259094634,
+      -0.35080381371842223,
+      -0.7329068937115079,
+      0.15058401206565447,
+      0.34979387595508044
+    ]
+  },
+  "threshold": 0.25,
+  "features": 15,
+  "ridge": 1.0,
+  "target": "actual whole-episode seconds/source difference to frozen R3, terminal N only in evaluator label",
+  "source_policy": "r3",
+  "reference_exact_matches": 284,
+  "fit_worlds": 96,
+  "calibration_worlds": 48,
+  "fit_samples": 189,
+  "calibration_samples": 95,
+  "calibration_scores": [
+    {
+      "threshold": 0.0,
+      "mean_actual_advantage_s_per_source": -0.15289875306971115,
+      "selected": 68
+    },
+    {
+      "threshold": 0.01,
+      "mean_actual_advantage_s_per_source": -0.15289875306971115,
+      "selected": 64
+    },
+    {
+      "threshold": 0.03,
+      "mean_actual_advantage_s_per_source": -0.1536219942556086,
+      "selected": 61
+    },
+    {
+      "threshold": 0.1,
+      "mean_actual_advantage_s_per_source": -0.1532349517366698,
+      "selected": 48
+    },
+    {
+      "threshold": 0.25,
+      "mean_actual_advantage_s_per_source": -0.14755407621583597,
+      "selected": 29
+    }
+  ],
+  "provenance": {
+    "source_path": "/Users/t/ai project/\u6570\u5b66\u5efa\u6a212026/agent_experiments/20260912_parallel_v2/a3/experiments/20260912_breakthrough/A1/inspection/C7_0_1.py",
+    "source_sha256": "4a70421d5a22af6bda446daa42ed99f41bc5aa09fae7ef8883410cbaabcf58bf",
+    "resume_sha256": "679518a2b6af4d43a40d8a9ff32b4e044d079f9df75ba42e717ce7cf42bcf151"
+  },
+  "wall_s": 21.31678166706115
+}

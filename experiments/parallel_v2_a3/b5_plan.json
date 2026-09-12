@@ -1,0 +1,8 @@
+{
+  "round": "B5",
+  "mechanism": "Leave-one-channel-out sign stability",
+  "parent": "B2_safe",
+  "hypothesis": "A single atypical calibrated source may dominate shared-bias evidence. Require every leave-one-channel-out posterior MAP to agree in sign with the full posterior mean.",
+  "change": "Store per-channel contributions and reject correction on sign instability; do not change reliable geometry.",
+  "gate": "quick/dev below current retained then full and exposed"
+}

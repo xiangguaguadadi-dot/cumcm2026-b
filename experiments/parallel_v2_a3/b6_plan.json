@@ -1,0 +1,9 @@
+{
+  "round": "B6",
+  "mechanism": "Contaminated shared-bias likelihood",
+  "parent": "B4_safe",
+  "hypothesis": "Across-channel sharing can fail when errors vary spatially. Use a 50/50 per-channel shared-vs-outlier mixture to bound influence before posterior predictive disk planning.",
+  "fixed_prior": "equal two-component prior, not tuned to development",
+  "change": "ell -> -log(0.5+0.5exp(-ell))",
+  "gate": "quick/dev below B4 then full/exposed"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "b5_safe",
+  "config": {
+    "eb_min_log_bayes_factor": 1.0986122886681098
+  },
+  "candidate_sha256": "e5c5f1de8b2581cb3c268a4eff21558cda67a87d4c75c4d0aef110b51f65cddc",
+  "component_sha256": "4bc1ee6535a803a507a49e8396ab4480cb9ab040f14ce0b025c2bd3f41b6f6f1",
+  "component": "bias_component_b5_safe.py",
+  "parent_source": "bias_component_jackknife.py",
+  "direction": "Q4 shared error online calibration",
+  "safety_change": "Protected clear and redirect coordinates retained; success learning retained from actual public clear ledger.",
+  "evidence": "No action-performance equivalence asserted for the earlier b1_guard that dropped protected clear learning.",
+  "inputs": "Public bearings and actual successful clear/near disks only; no exact source truth",
+  "gate": "all-clear quick, development, full and paired exposed 4800 for retained"
+}

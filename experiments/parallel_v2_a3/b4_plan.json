@@ -1,0 +1,10 @@
+{
+  "round": "B4",
+  "mechanism": "Posterior predictive optical-disk mass",
+  "hypothesis": "A plug-in bias estimate ignores multimodal uncertainty. Integrate profile target locations over the online bias posterior and choose a candidate with maximal 20m mass; use movement only for ties.",
+  "parent": "B1",
+  "source": "bias_component_predictive.py",
+  "candidates": "center, plug-in location, weighted location mean, 21 profile locations",
+  "safety": "All candidates remain in current convex reliable polygon; planning proxy is never a certificate.",
+  "gate": "Quick complete, development below retained B1_safe, then full and exposed."
+}

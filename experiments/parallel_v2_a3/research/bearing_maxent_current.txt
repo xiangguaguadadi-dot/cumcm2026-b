@@ -1,0 +1,5858 @@
+
+
+
+
+
+
+Improving D-Optimal Sensor Placement forBearing-Only Localization via Maximum-Entropy Reweighting
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+  // Restore the saved color scheme preference, or
+  // enact the browser preference if "automatic", 
+  // without expecting DOM load to have completed.
+  //
+  // Also restore any saved readingmode and ToC display preferences.
+  function initializeReadingPreferences() {
+    let saved_theme = localStorage.getItem("ar5iv_theme") || "automatic";
+    if (saved_theme === "automatic") {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        saved_theme = "dark";
+      }
+    }
+    if (saved_theme == "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+
+    const tocDisplay = localStorage.getItem('arxiv_html_paper_toc_display');
+    if (tocDisplay) {
+      document.documentElement.setAttribute("data-toc-display", tocDisplay);
+    }
+    const readingMode = localStorage.getItem('arxiv_html_paper_reading_mode');
+    if (readingMode) {
+      document.documentElement.setAttribute("data-reading-mode", readingMode);
+    }
+    // Pre-apply spinout-banner dismissal here, before the banner paints, so it
+    // never flashes in only to be hidden later by the deferred arxiv-header.js.
+    // Key matches arxiv-header.js: "arxiv-banner-dismissed:" + data-banner-name.
+    if (localStorage.getItem('arxiv-banner-dismissed:spinout-nonprofit')) {
+      document.documentElement.setAttribute("data-banner-dismissed", "");
+    }
+  }
+  // Run as soon as JS starts, to minimize repainting
+  initializeReadingPreferences();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Banner pre-dismissal (set above before paint -> no flash-then-hide) and
+     reading-mode chrome hiding. */
+  html[data-banner-dismissed] .ds-announcement { display: none; }
+  html[data-reading-mode="enabled"] .ds-announcement,
+  html[data-reading-mode="enabled"] .ds-site-footer { display: none; }
+  /* Keep the announcement text dark on the Open-Blue band in both colour themes
+     (otherwise it inherits the paper's warm-wash text in dark mode and washes out). */
+  .ds-announcement-text { color: var(--arxiv-ink, #1c1a17); }
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+
+      
+Report GitHub Issue
+
+      
+×
+
+    
+
+
+    
+
+      
+Title:
+
+      
+
+
+      
+Content selection saved. Describe the issue below:
+
+
+      
+Description:
+
+      
+
+    
+
+
+    
+
+      
+Submit without GitHub
+
+      
+Submit in GitHub
+
+    
+
+  
+
+
+
+    
+
+    
+arXiv is now an independent nonprofit!
+
+    
+Learn more
+
+    
+×
+
+  
+
+
+
+
+  
+
+    
+
+      
+Back to arXiv
+
+    
+
+  
+
+  
+
+  
+
+    
+Why HTML?
+
+    
+
+      
+
+        
+
+      
+
+      
+Report Issue
+
+    
+
+    
+
+      
+
+        
+
+        
+
+      
+
+      
+Back to Abstract
+
+    
+
+    
+
+    
+
+      
+
+        
+
+      
+
+      
+Download PDF
+
+    
+
+    
+
+      
+
+        
+
+        
+
+      
+
+    
+
+    
+
+    
+
+      
+
+        
+
+      
+
+    
+
+    
+
+    
+
+      
+
+        
+
+          
+
+          
+
+        
+
+      
+
+      
+
+        
+
+          
+
+          
+
+        
+
+      
+
+      
+
+        
+
+          
+
+          
+
+        
+
+      
+
+    
+
+  
+
+
+
+
+
+
+
+
+Abstract
+
+
+I 
+Introduction
+
+
+
+
+I-A
+ 
+Contributions
+
+
+I-B
+ 
+Related Work
+
+
+
+
+II 
+Problem Formulation
+
+
+
+
+II-A
+ 
+Bearing-Only Measurement Model
+
+
+II-B
+ 
+Fisher Information for Bearing Sensors
+
+
+II-C
+ 
+Two-Layer Architecture
+
+
+II-D
+ 
+Analytical Properties
+
+
+
+
+III 
+Benefits of MaxEnt Reweighting
+
+
+IV 
+Experiments
+
+
+
+
+IV-A
+ 
+Setup
+
+
+IV-B
+ 
+Moderate Noise (
+σ
+=
+15
+∘
+\sigma=15^{\circ}
+)
+
+
+IV-C
+ 
+Low Noise (
+σ
+=
+8
+∘
+\sigma=8^{\circ}
+)
+
+
+IV-D
+ 
+Equivalent Sensor Count
+
+
+
+
+V 
+Discussion
+
+
+VI 
+Conclusion
+
+
+References
+
+
+
+
+
+
+
+
+
+  
+
+    License: CC BY 4.0
+  
+
+  
+
+arXiv:2605.11116v1 [eess.SP] 11 May 2026
+
+
+
+
+
+
+Improving D-Optimal Sensor Placement for
+
+Bearing-Only Localization via Maximum-Entropy Reweighting
+
+
+
+
+
+
+Raktim Bhattacharya
+
+
+
+Affiliation: 
+Department of Aerospace Engineering
+
+Texas A&M University
+
+College Station, TX, USA
+
+raktim@tamu.edu
+
+
+
+
+Abstract
+
+    
+
+In this paper, we present a two-layer architecture for bearing-only sensor placement that improves upon classical D-optimal design. The first layer reweights particles by minimizing Kullback-Leibler divergence from the current distribution subject to a distributional accuracy bound, concentrating mass on regions where the posterior is likely to settle, without reference to the sensor model. The second layer performs D-optimal sensor placement with respect to the reweighted Fisher information matrix, steering sensors toward geometrically informative configurations. Because the two layers are structurally decoupled, the reweighting generalizes across sensing modalities while the placement remains specific to bearing geometry. Systematic experiments on multi-source localization at two noise levels show that this reweighting reduces localization error on average, with the benefit growing as the sensor-to-source ratio increases and as measurements become more informative. The improvement is established in the first few iterations of the sequential procedure and persists as the posterior concentrates.
+
+  
+
+
+
+
+
+Index Terms: 
+Sensor placement, bearing-only localization, maximum entropy, Fisher information, particle filtering, D-optimal design.
+
+
+
+
+
+
+I 
+Introduction
+
+
+
+
+
+Bearing-only source localization arises in sonar, radar, wildlife tracking, and environmental monitoring whenever mobile sensors measure azimuths to targets at unknown positions 
+[
+2
+, 
+3
+]
+. The standard approach to sensor placement maximizes a scalar function of the Fisher information matrix (FIM), most commonly the log-determinant, a criterion known as D-optimality 
+[
+5
+, 
+7
+]
+.
+
+
+
+
+
+
+D-optimal placement requires a probability distribution over the target state at which the FIM is evaluated. In a particle-filter implementation, this distribution is represented by weighted particles. After resampling, the weights are approximately uniform, so the FIM averages over the full prior support without distinction. In early iterations, when the prior spans a broad domain, this uniform average assigns equal importance to particles far from the true source and particles near it. The resulting placement is optimal in an expected sense over the prior, but it does not preferentially exploit the geometry of regions where the posterior mass will concentrate. The limitation is compounded in multi-source problems, where the joint state space is high-dimensional and the posterior has complex structure.
+
+
+
+
+
+
+The present paper addresses this limitation by applying the maximum-entropy likelihood synthesis framework of 
+[
+1
+]
+ to bearing-only sensor placement. The central idea is to insert a reweighting step before the placement optimization. This reweighting solves a constrained optimization: among all particle weight vectors satisfying a distributional accuracy bound (here, a sliced Wasserstein constraint), find the one closest to the current weights in the Kullback-Leibler sense. The solution concentrates mass on particles near the accuracy target while remaining as close to the prior distribution as the constraint permits. The D-optimal placement then operates on the reweighted FIM, which reflects the posterior geometry more faithfully.
+
+
+
+
+
+
+The construction proceeds in two layers, each with a distinct role. Layer 1 determines the information requirement: it specifies 
+what
+ the posterior should look like, without reference to 
+how
+ measurements will be acquired. Layer 2 determines the sensor configuration: it solves the D-optimal placement problem using the reweighted particles as input. The two layers are structurally decoupled. The noise level, the number of sensors, and the sensor positions do not enter the Layer 1 optimization. Only Layer 2 depends on the sensing modality. This separation means the same reweighting applies regardless of whether sensors measure bearings, ranges, time-of-arrival, or any other observable.
+
+
+
+
+
+
+I-A
+ 
+Contributions
+
+
+
+
+
+This paper makes three contributions.
+
+
+
+
+1.
+ 
+
+
+
+It instantiates the maximum-entropy framework of 
+[
+1
+]
+ for multi-source bearing-only localization in two dimensions, combining MaxEnt particle reweighting (Layer 1) with D-optimal sensor placement (Layer 2) in a sequential architecture.
+
+
+
+
+2.
+ 
+
+
+
+It provides systematic experimental evidence across 64 configurations (
+M
+∈
+{
+3
+,
+…
+,
+10
+}
+M\in\{3,\ldots,10\}
+ sources, 
+R
+∈
+{
+3
+,
+…
+,
+10
+}
+R\in\{3,\ldots,10\}
+ sensors) at two noise levels, identifying the sensor-to-source ratio 
+R
+/
+M
+R/M
+ and the measurement noise 
+σ
+\sigma
+ as the two factors governing the improvement magnitude.
+
+
+
+
+3.
+ 
+
+
+
+It characterizes both the success and failure regimes of the approach: MaxEnt reweighting helps most when geometric freedom is available (
+R
+>
+M
+R>M
+) and measurements are informative (
+σ
+\sigma
+ not too large), and it can degrade performance, primarily when sensors are scarce relative to sources (
+R
+<
+M
+R<M
+), because the reweighting sacrifices angular diversity.
+
+
+
+
+
+
+
+
+
+
+
+
+I-B
+ 
+Related Work
+
+
+
+
+
+Optimal sensor placement for target localization has a substantial literature in the D-optimal design framework 
+[
+6
+, 
+5
+, 
+7
+]
+. Bishop 
+[
+3
+]
+ derives optimality conditions specific to bearing-only sensor-target geometry, building on the early FIM analysis of Aidala 
+[
+4
+]
+. Information-driven alternatives include mutual information maximization 
+[
+8
+]
+ and Bayesian optimal experimental design 
+[
+9
+, 
+10
+]
+. These methods typically require forward simulation through the sensor model for each candidate configuration, a cost that grows with the number of sensors and the dimensionality of the state space.
+
+
+
+
+
+
+The maximum-entropy framework used here was introduced in 
+[
+1
+]
+ for one-dimensional estimation under Wasserstein distance, Maximum Mean Discrepancy (MMD) 
+[
+17
+]
+, and moment constraints. The present paper extends it to planar bearing-only geometry with multiple sources and sensors. The constrained KL-minimization underlying Layer 1 is an instance of Csiszár’s 
+I
+I
+-projection 
+[
+15
+]
+, applied here with a transport-based concentration constraint.
+
+
+
+
+
+
+
+
+
+
+II 
+Problem Formulation
+
+
+
+
+
+II-A
+ 
+Bearing-Only Measurement Model
+
+
+
+
+
+Consider 
+M
+M
+ static sources at unknown positions 
+𝒑
+1
+,
+…
+,
+𝒑
+M
+∈
+ℝ
+2
+\bm{p}_{1},\ldots,\bm{p}_{M}\in\mathbb{R}^{2}
+ in a rectangular domain 
+𝒟
+=
+[
+x
+min
+,
+x
+max
+]
+×
+[
+y
+min
+,
+y
+max
+]
+\mathcal{D}=[x_{\min},x_{\max}]\times[y_{\min},y_{\max}]
+, observed by 
+R
+R
+ mobile sensors at positions 
+𝒔
+1
+,
+…
+,
+𝒔
+R
+∈
+𝒟
+\bm{s}_{1},\ldots,\bm{s}_{R}\in\mathcal{D}
+. Sensor 
+r
+r
+ measures the bearing to source 
+m
+m
+ as 
+[
+2
+, 
+4
+]
+
+
+
+
+
+
+
+
+
+β
+r
+,
+m
+=
+atan2
+⁡
+(
+p
+m
+,
+y
+−
+s
+r
+,
+y
+,
+p
+m
+,
+x
+−
+s
+r
+,
+x
+)
++
+η
+r
+,
+m
+,
+\beta_{r,m}=\operatorname{atan2}\!\bigl(p_{m,y}-s_{r,y},\;p_{m,x}-s_{r,x}\bigr)+\eta_{r,m},
+
+
+
+
+(1)
+
+
+
+
+where 
+η
+r
+,
+m
+∼
+𝒩
+⁡
+(
+0
+,
+σ
+2
+)
+\eta_{r,m}\sim\mathcal{N}(0,\sigma^{2})
+ and 
+σ
+\sigma
+ is the bearing noise standard deviation, common to all sensor-source pairs. Throughout we assume known data association: each measurement 
+β
+r
+,
+m
+\beta_{r,m}
+ is labelled with the source 
+m
+m
+ that produced it. Relaxations of this assumption are discussed in Section 
+V
+.
+
+
+
+
+
+
+The Gaussian observation model (
+1
+) induces the bearing likelihood
+
+
+
+
+
+
+
+
+
+p
+⁡
+(
+β
+∣
+𝒙
+,
+𝒔
+r
+,
+σ
+)
+=
+1
+2
+​
+π
+​
+σ
+​
+exp
+⁡
+{
+−
+[
+Δ
+​
+θ
+​
+(
+β
+,
+β
+^
+​
+(
+𝒙
+,
+𝒔
+r
+)
+)
+]
+2
+2
+​
+σ
+2
+}
+,
+p(\beta\mid\bm{x},\bm{s}_{r},\sigma)=\frac{1}{\sqrt{2\pi}\,\sigma}\exp\!\left\{-\frac{[\Delta\theta(\beta,\hat{\beta}(\bm{x},\bm{s}_{r}))]^{2}}{2\sigma^{2}}\right\},
+
+
+
+
+(2)
+
+
+
+
+where 
+β
+^
+​
+(
+𝒙
+,
+𝒔
+r
+)
+=
+atan2
+⁡
+(
+x
+y
+−
+s
+r
+,
+y
+,
+x
+x
+−
+s
+r
+,
+x
+)
+\hat{\beta}(\bm{x},\bm{s}_{r})=\operatorname{atan2}(x_{y}-s_{r,y},\,x_{x}-s_{r,x})
+ is the predicted bearing and 
+Δ
+​
+θ
+​
+(
+⋅
+,
+⋅
+)
+∈
+[
+−
+π
+,
+π
+]
+\Delta\theta(\cdot,\cdot)\in[-\pi,\pi]
+ wraps the angular difference. Given 
+N
+N
+ particles 
+{
+𝒙
+i
+(
+m
+)
+}
+i
+=
+1
+N
+\{\bm{x}_{i}^{(m)}\}_{i=1}^{N}
+ representing the current posterior for source 
+m
+m
+, the corresponding log-likelihood (dropping the constant 
+−
+1
+2
+​
+log
+⁡
+2
+​
+π
+​
+σ
+2
+-\tfrac{1}{2}\log 2\pi\sigma^{2}
+) reduces to
+
+
+
+
+
+
+
+
+
+ℓ
+⁡
+(
+𝒙
+i
+(
+m
+)
+,
+β
+,
+𝒔
+r
+,
+σ
+)
+=
+−
+1
+2
+​
+σ
+2
+​
+[
+Δ
+​
+θ
+​
+(
+β
+,
+β
+^
+​
+(
+𝒙
+i
+(
+m
+)
+,
+𝒔
+r
+)
+)
+]
+2
+.
+\ell(\bm{x}_{i}^{(m)};\beta,\bm{s}_{r},\sigma)=-\frac{1}{2\sigma^{2}}\bigl[\Delta\theta\bigl(\beta,\hat{\beta}(\bm{x}_{i}^{(m)},\bm{s}_{r})\bigr)\bigr]^{2}.
+
+
+
+
+(3)
+
+
+
+
+
+
+
+
+
+
+II-B
+ 
+Fisher Information for Bearing Sensors
+
+
+
+
+
+The Fisher information matrix (FIM) for a parametric likelihood 
+p
+⁡
+(
+β
+∣
+𝒙
+)
+p(\beta\mid\bm{x})
+ is
+
+
+
+
+
+
+
+
+
+𝑰
+⁡
+(
+𝒙
+)
+=
+𝔼
+β
+|
+𝒙
+​
+[
+∇
+𝒙
+​
+log
+​
+p
+​
+(
+β
+∣
+𝒙
+)
+​
+∇
+𝒙
+​
+log
+⁡
+p
+​
+(
+β
+∣
+𝒙
+)
+⊤
+]
+,
+\bm{I}(\bm{x})\;=\;\mathbb{E}_{\beta\mid\bm{x}}\!\left[\nabla_{\bm{x}}\log p(\beta\mid\bm{x})\,\nabla_{\bm{x}}\log p(\beta\mid\bm{x})^{\!\top}\right],
+
+
+
+
+(4)
+
+
+
+
+and under standard regularity it equals 
+−
+𝔼
+⁡
+[
+∇
+𝒙
+2
+​
+log
+⁡
+p
+]
+-\mathbb{E}[\nabla^{2}_{\bm{x}}\log p]
+ 
+[
+6
+, 
+5
+]
+. For the Gaussian bearing model (
+2
+), the score equals 
+∇
+𝒙
+ℓ
+=
+σ
+−
+2
+​
+Δ
+​
+θ
+​
+∇
+𝒙
+β
+^
+​
+(
+𝒙
+,
+𝒔
+r
+)
+\nabla_{\bm{x}}\ell=\sigma^{-2}\,\Delta\theta\,\nabla_{\bm{x}}\hat{\beta}(\bm{x},\bm{s}_{r})
+, and direct differentiation of 
+β
+^
+\hat{\beta}
+ gives
+
+
+
+
+
+
+
+
+
+∇
+𝒙
+β
+^
+​
+(
+𝒙
+,
+𝒔
+r
+)
+=
+1
+ρ
+r
+2
+​
+[
+−
+(
+x
+y
+−
+s
+r
+,
+y
+)
+(
+x
+x
+−
+s
+r
+,
+x
+)
+]
+=
+𝒖
+r
+⟂
+ρ
+r
+,
+\nabla_{\bm{x}}\hat{\beta}(\bm{x},\bm{s}_{r})\;=\;\frac{1}{\rho_{r}^{2}}\begin{bmatrix}-(x_{y}-s_{r,y})\\
+\;\;\;(x_{x}-s_{r,x})\end{bmatrix}\;=\;\frac{\bm{u}_{r}^{\perp}}{\rho_{r}},
+
+
+
+
+(5)
+
+
+
+
+where 
+ρ
+r
+=
+‖
+𝒙
+−
+𝒔
+r
+‖
+\rho_{r}=\|\bm{x}-\bm{s}_{r}\|
+ and 
+𝒖
+r
+⟂
+\bm{u}_{r}^{\perp}
+ is the unit vector perpendicular to the line of sight from 
+𝒔
+r
+\bm{s}_{r}
+ to 
+𝒙
+\bm{x}
+. Substituting (
+5
+) into (
+4
+) with 
+𝔼
+⁡
+[
+(
+Δ
+​
+θ
+)
+2
+]
+=
+σ
+2
+\mathbb{E}[(\Delta\theta)^{2}]=\sigma^{2}
+ yields the per-particle, per-sensor FIM
+
+
+
+
+
+
+
+
+
+𝑰
+r
+​
+(
+𝒙
+)
+=
+1
+σ
+2
+​
+𝒖
+r
+⟂
+​
+(
+𝒖
+r
+⟂
+)
+⊤
+ρ
+r
+2
+.
+\bm{I}_{r}(\bm{x})\;=\;\frac{1}{\sigma^{2}}\,\frac{\bm{u}_{r}^{\perp}(\bm{u}_{r}^{\perp})^{\!\top}}{\rho_{r}^{2}}.
+
+
+
+
+(6)
+
+
+
+
+This form makes the angular content of (
+7
+) explicit: the outer product 
+𝒖
+r
+⟂
+​
+(
+𝒖
+r
+⟂
+)
+⊤
+\bm{u}_{r}^{\perp}(\bm{u}_{r}^{\perp})^{\!\top}
+ encodes the perpendicular-to-line-of-sight direction (the only direction along which a noisy bearing is informative), while 
+1
+/
+ρ
+r
+2
+1/\rho_{r}^{2}
+ is the inverse-square range scaling.
+
+
+
+
+
+
+Averaging (
+6
+) over the particle approximation of the posterior with weights 
+{
+w
+i
+(
+m
+)
+}
+\{w_{i}^{(m)}\}
+, and writing 
+𝜹
+r
+,
+i
+=
+𝒙
+i
+(
+m
+)
+−
+𝒔
+r
+\bm{\delta}_{r,i}=\bm{x}_{i}^{(m)}-\bm{s}_{r}
+, 
+ρ
+r
+,
+i
+=
+‖
+𝜹
+r
+,
+i
+‖
+\rho_{r,i}=\|\bm{\delta}_{r,i}\|
+, 
+(
+δ
+​
+x
+r
+,
+i
+,
+δ
+​
+y
+r
+,
+i
+)
+(\delta x_{r,i},\delta y_{r,i})
+ for the components of 
+𝜹
+r
+,
+i
+\bm{\delta}_{r,i}
+, gives the standard bearing-FIM expression 
+[
+3
+, 
+4
+]
+
+
+
+
+
+
+
+
+
+𝑭
+r
+(
+m
+)
+=
+∑
+i
+=
+1
+N
+w
+i
+(
+m
+)
+σ
+2
+​
+ρ
+r
+,
+i
+4
+​
+[
+δ
+​
+y
+r
+,
+i
+2
+−
+δ
+​
+x
+r
+,
+i
+​
+δ
+​
+y
+r
+,
+i
+−
+δ
+​
+x
+r
+,
+i
+​
+δ
+​
+y
+r
+,
+i
+δ
+​
+x
+r
+,
+i
+2
+]
+.
+\bm{F}_{r}^{(m)}=\sum_{i=1}^{N}\frac{w_{i}^{(m)}}{\sigma^{2}\,\rho_{r,i}^{4}}\begin{bmatrix}\delta y_{r,i}^{2}&-\delta x_{r,i}\,\delta y_{r,i}\\
+-\delta x_{r,i}\,\delta y_{r,i}&\delta x_{r,i}^{2}\end{bmatrix}.
+
+
+
+
+(7)
+
+
+
+
+The 
+1
+/
+ρ
+r
+,
+i
+4
+1/\rho_{r,i}^{4}
+ factor in (
+7
+) is the product of the 
+1
+/
+ρ
+2
+1/\rho^{2}
+ in (
+6
+) and a second 
+1
+/
+ρ
+2
+1/\rho^{2}
+ arising because the unnormalized perpendicular vector 
+[
+−
+(
+x
+y
+−
+s
+r
+,
+y
+)
+,
+(
+x
+x
+−
+s
+r
+,
+x
+)
+]
+⊤
+[-(x_{y}-s_{r,y}),(x_{x}-s_{r,x})]^{\!\top}
+ is used in place of the unit 
+𝒖
+r
+⟂
+\bm{u}_{r}^{\perp}
+. The total FIM for source 
+m
+m
+ aggregates contributions from all sensors, 
+𝑭
+(
+m
+)
+=
+∑
+r
+=
+1
+R
+𝑭
+r
+(
+m
+)
+\bm{F}^{(m)}=\sum_{r=1}^{R}\bm{F}_{r}^{(m)}
+, and the joint FIM across sources is block-diagonal because each source has independent particles and the bearing model couples sources only through the shared sensor positions. We write 
+𝑭
+=
+blkdiag
+⁡
+(
+𝑭
+(
+1
+)
+,
+…
+,
+𝑭
+(
+M
+)
+)
+\bm{F}=\operatorname{blkdiag}(\bm{F}^{(1)},\ldots,\bm{F}^{(M)})
+ for the resulting 
+2
+​
+M
+×
+2
+​
+M
+2M\times 2M
+ block-diagonal matrix.
+
+
+
+
+
+
+The FIM (
+7
+) has two features that shape the role of weights. The per-particle contribution decays inverse-square with distance (trace 
+1
+/
+(
+σ
+2
+​
+ρ
+r
+,
+i
+2
+)
+1/(\sigma^{2}\rho_{r,i}^{2})
+, from (
+6
+)), so nearby particles dominate; and the rank-one outer-product structure carries information only perpendicular to the line of sight, making the FIM anisotropic. Shifting weight toward geometrically informative particles therefore changes the effective FIM substantially.
+
+
+
+
+
+
+The D-optimal placement objective maximizes the log-determinant of the total FIM summed over all sources 
+[
+6
+, 
+5
+]
+:
+
+
+
+
+
+
+
+
+
+max
+𝒔
+1
+,
+…
+,
+𝒔
+R
+∈
+𝒟
+∑
+m
+=
+1
+M
+log
+det
+𝑭
+(
+m
+)
+(
+𝒔
+1
+,
+…
+,
+𝒔
+R
+;
+𝒘
+(
+m
+)
+)
+.
+\max_{\bm{s}_{1},\ldots,\bm{s}_{R}\in\mathcal{D}}\;\sum_{m=1}^{M}\log\det\bm{F}^{(m)}(\bm{s}_{1},\ldots,\bm{s}_{R};\bm{w}^{(m)}).
+
+
+
+
+(8)
+
+
+
+
+The map 
+𝒘
+(
+m
+)
+↦
+𝑭
+(
+m
+)
+\bm{w}^{(m)}\mapsto\bm{F}^{(m)}
+ in (
+7
+) is linear (each weight 
+w
+i
+(
+m
+)
+w_{i}^{(m)}
+ scales the rank-one contribution of particle 
+i
+i
+), while the outer 
+log
+det
+(
+⋅
+)
+\log\det(\cdot)
+ in (
+8
+) is concave but nonlinear. This is the only mechanism through which Layer 1 communicates with Layer 2: substituting the reweighted weights 
+𝒘
+(
+m
+)
+,
+opt
+\bm{w}^{(m),\mathrm{opt}}
+ for the prior weights produces a different FIM, which in turn produces a different optimal sensor configuration.
+
+
+
+
+
+
+
+
+II-C
+ 
+Two-Layer Architecture
+
+
+
+
+
+The procedure operates sequentially over 
+T
+T
+ iterations. At each iteration 
+t
+t
+:
+
+
+
+
+
+
+Layer 1 (MaxEnt reweighting).
+ For each source 
+m
+m
+, solve the constrained KL minimization
+
+
+
+
+
+
+
+
+
+min
+𝒘
+∈
+Δ
+N
+D
+KL
+(
+𝒘
+∥
+𝒘
+−
+)
+s.t.
+SW
+2
+(
+π
+^
+𝒘
+,
+π
+m
+⋆
+)
+≤
+ε
+,
+\min_{\bm{w}\in\Delta^{N}}D_{\KL}(\bm{w}\|\bm{w}^{-})\quad\text{s.t.}\quad\SW_{2}(\hat{\pi}_{\bm{w}},\pi_{m}^{\star})\leq\varepsilon,
+
+
+
+
+(9)
+
+
+
+
+where 
+Δ
+N
+=
+{
+𝒘
+∈
+ℝ
+≥
+0
+N
+:
+∑
+i
+w
+i
+=
+1
+}
+\Delta^{N}=\{\bm{w}\in\mathbb{R}^{N}_{\geq 0}:\sum_{i}w_{i}=1\}
+ is the probability simplex, 
+𝒘
+−
+\bm{w}^{-}
+ are the current particle weights (the prior weights produced by the particle filter), 
+π
+^
+𝒘
+=
+∑
+i
+w
+i
+​
+δ
+𝒙
+i
+(
+m
+)
+\hat{\pi}_{\bm{w}}=\sum_{i}w_{i}\delta_{\bm{x}_{i}^{(m)}}
+ is the weighted empirical measure supported on the existing particle locations, 
+SW
+2
+\SW_{2}
+ is the sliced Wasserstein distance, 
+π
+m
+⋆
+\pi_{m}^{\star}
+ is a target distribution encoding the desired accuracy, and 
+ε
+>
+0
+\varepsilon>0
+ is the accuracy budget. The 
+inputs
+ to Layer 1 are therefore 
+(
+{
+𝒙
+i
+(
+m
+)
+}
+,
+𝒘
+−
+,
+π
+m
+⋆
+,
+ε
+,
+L
+)
+(\{\bm{x}_{i}^{(m)}\},\bm{w}^{-},\pi_{m}^{\star},\varepsilon,L)
+, where 
+L
+L
+ is the number of projection directions used to evaluate 
+SW
+2
+\SW_{2}
+ (introduced below). Notably, neither the sensor positions 
+{
+𝒔
+r
+}
+\{\bm{s}_{r}\}
+, the noise level 
+σ
+\sigma
+, nor the sensor count 
+R
+R
+ enters (
+9
+); this is the structural decoupling that allows the same reweighting to be reused across sensing modalities.
+
+
+
+
+
+
+Sliced Wasserstein distance.
+ For two probability measures 
+μ
+,
+ν
+\mu,\nu
+ on 
+ℝ
+d
+\mathbb{R}^{d}
+ and 
+L
+L
+ unit directions 
+{
+𝒅
+ℓ
+}
+ℓ
+=
+1
+L
+\{\bm{d}_{\ell}\}_{\ell=1}^{L}
+ drawn uniformly on the sphere 
+𝕊
+d
+−
+1
+\mathbb{S}^{d-1}
+, the squared sliced Wasserstein distance 
+[
+18
+, 
+19
+]
+ is
+
+
+
+
+
+
+
+
+
+SW
+2
+2
+⁡
+(
+μ
+,
+ν
+)
+=
+1
+L
+​
+∑
+ℓ
+=
+1
+L
+W
+2
+2
+​
+(
+μ
+ℓ
+,
+ν
+ℓ
+)
+,
+\SW_{2}^{2}(\mu,\nu)=\frac{1}{L}\sum_{\ell=1}^{L}W_{2}^{2}(\mu_{\ell},\nu_{\ell}),
+
+
+
+
+(10)
+
+
+
+
+where 
+μ
+ℓ
+\mu_{\ell}
+ and 
+ν
+ℓ
+\nu_{\ell}
+ are the one-dimensional pushforwards under the projection 
+𝒙
+↦
+⟨
+𝒙
+,
+𝒅
+ℓ
+⟩
+\bm{x}\mapsto\langle\bm{x},\bm{d}_{\ell}\rangle
+. Each one-dimensional 
+W
+2
+W_{2}
+ admits a closed-form solution via quantile matching, sidestepping the linear program required by full 
+W
+2
+W_{2}
+ on 
+ℝ
+d
+\mathbb{R}^{d}
+. We prefer 
+SW
+2
+\SW_{2}
+ over alternative distances for three reasons. (i) Unlike KL or 
+χ
+2
+\chi^{2}
+, which are infinite when supports disagree, 
+SW
+2
+\SW_{2}
+ is well defined for empirical measures and for Dirac targets, both of which arise here. (ii) Unlike MMD, which depends on a kernel choice and is unitless, 
+SW
+2
+\SW_{2}
+ has the same units as the state space (length), making 
+ε
+\varepsilon
+ directly interpretable. (iii) Under a Dirac target, 
+SW
+2
+2
+\SW_{2}^{2}
+ becomes 
+linear
+ in 
+𝒘
+\bm{w}
+ (shown next), enabling the closed-form Lagrangian solution.
+
+
+
+
+
+
+Choice of target distribution.
+ We set 
+π
+m
+⋆
+=
+δ
+𝒙
+^
+m
+\pi_{m}^{\star}=\delta_{\hat{\bm{x}}_{m}}
+, a Dirac mass at the current weighted mean 
+𝒙
+^
+m
+=
+∑
+i
+w
+i
+−
+​
+𝒙
+i
+(
+m
+)
+\hat{\bm{x}}_{m}=\sum_{i}w_{i}^{-}\bm{x}_{i}^{(m)}
+, computed from the current weights and held fixed during the optimization. The mean is the canonical 
+W
+2
+W_{2}
+-projection of the empirical posterior onto the set of point masses: it is the unique minimizer of 
+𝒚
+↦
+W
+2
+2
+​
+(
+π
+^
+𝒘
+−
+,
+δ
+𝒚
+)
+=
+∑
+i
+w
+i
+−
+​
+‖
+𝒙
+i
+(
+m
+)
+−
+𝒚
+‖
+2
+\bm{y}\mapsto W_{2}^{2}(\hat{\pi}_{\bm{w}^{-}},\delta_{\bm{y}})=\sum_{i}w_{i}^{-}\|\bm{x}_{i}^{(m)}-\bm{y}\|^{2}
+. Two natural alternatives compare as follows. The 
+median
+ (or geometric median in 
+ℝ
+2
+\mathbb{R}^{2}
+) is the analogous 
+W
+1
+W_{1}
+ projection and resists heavy tails, but particle-filter posteriors are concentrated rather than heavy-tailed once measurements are informative; in our experiments the mean and median differ by less than 
+ε
+\varepsilon
+ after the first few iterations. The posterior 
+mode
+ is also a point mass and yields the same closed-form tilt with 
+𝒙
+^
+m
+\hat{\bm{x}}_{m}
+ replaced by the mode location, which can give a better target when the posterior is strongly asymmetric. A fitted Gaussian or GMM target is more expressive for multi-modal posteriors, but the projected 
+W
+2
+W_{2}
+ then involves quantile matching of the weighted empirical measure and is no longer linear in 
+𝒘
+\bm{w}
+; Layer 1 remains a convex KL minimization (solvable numerically), or one can substitute a linear moment-matching surrogate such as 
+𝔼
+𝒘
+​
+[
+‖
+𝒙
+−
+𝒙
+^
+m
+‖
+2
+]
+≤
+τ
+2
+\mathbb{E}_{\bm{w}}[\|\bm{x}-\hat{\bm{x}}_{m}\|^{2}]\leq\tau^{2}
+ that preserves the closed form. We retain the Dirac-at-mean target here for simplicity and direct interpretability and revisit asymmetric and multi-modal extensions in Section 
+V
+.
+
+
+
+
+
+
+Because the Dirac target projects to a point mass on every direction, the one-dimensional transport cost reduces to a weighted second moment about that point:
+
+
+
+
+
+
+
+
+
+SW
+2
+2
+⁡
+(
+π
+^
+𝒘
+,
+δ
+𝒙
+^
+m
+)
+=
+∑
+i
+=
+1
+N
+w
+i
+​
+g
+i
+,
+g
+i
+=
+1
+L
+​
+∑
+ℓ
+=
+1
+L
+⟨
+𝒙
+i
+(
+m
+)
+−
+𝒙
+^
+m
+,
+𝒅
+ℓ
+⟩
+2
+.
+\SW_{2}^{2}(\hat{\pi}_{\bm{w}},\delta_{\hat{\bm{x}}_{m}})=\sum_{i=1}^{N}w_{i}\,g_{i},\quad g_{i}=\frac{1}{L}\sum_{\ell=1}^{L}\langle\bm{x}_{i}^{(m)}-\hat{\bm{x}}_{m},\bm{d}_{\ell}\rangle^{2}.
+
+
+
+
+(11)
+
+
+
+
+The constraint 
+SW
+2
+2
+≤
+ε
+2
+\SW_{2}^{2}\leq\varepsilon^{2}
+ is therefore 
+linear
+ in 
+𝒘
+\bm{w}
+, which makes the optimization tractable.
+
+
+
+
+
+
+Derivation of the exponential tilt.
+ Replacing the squared 
+SW
+2
+\SW_{2}
+ in (
+9
+) with its linear form (
+11
+), the problem becomes
+
+
+
+
+
+
+
+
+
+
+min
+𝒘
+\displaystyle\min_{\bm{w}}
+
+
+∑
+i
+=
+1
+N
+w
+i
+​
+log
+⁡
+w
+i
+w
+i
+−
+\displaystyle\sum_{i=1}^{N}w_{i}\log\tfrac{w_{i}}{w_{i}^{-}}
+
+
+
+
+(12)
+
+
+
+
+
+
+s.t.
+\displaystyle\text{s.t.}
+
+
+∑
+i
+w
+i
+g
+i
+≤
+ε
+2
+,
+∑
+i
+w
+i
+=
+1
+,
+w
+i
+≥
+0
+,
+\displaystyle\sum_{i}w_{i}g_{i}\leq\varepsilon^{2},\;\;\sum_{i}w_{i}=1,\;\;w_{i}\geq 0,
+
+
+
+
+
+
+which is a convex program 
+[
+16
+]
+: the objective is strictly convex in 
+𝒘
+\bm{w}
+ on 
+Δ
+N
+\Delta^{N}
+ (since 
+w
+i
+​
+log
+⁡
+(
+w
+i
+/
+w
+i
+−
+)
+w_{i}\log(w_{i}/w_{i}^{-})
+ is strictly convex), and the feasible set is the intersection of a polytope with a halfspace. Slater’s condition holds (the prior 
+𝒘
+−
+\bm{w}^{-}
+ is strictly feasible whenever the constraint is not already tight), so KKT is both necessary and sufficient. Introducing multiplier 
+λ
+≥
+0
+\lambda\geq 0
+ for the accuracy constraint and 
+μ
+∈
+ℝ
+\mu\in\mathbb{R}
+ for the normalization, the Lagrangian is
+
+
+
+
+
+
+
+
+
+ℒ
+⁡
+(
+𝒘
+,
+λ
+,
+μ
+)
+=
+∑
+i
+=
+1
+N
+w
+i
+​
+log
+⁡
+w
+i
+w
+i
+−
++
+λ
+⁡
+(
+∑
+i
+=
+1
+N
+w
+i
+​
+g
+i
+−
+ε
+2
+)
+−
+μ
+⁡
+(
+∑
+i
+=
+1
+N
+w
+i
+−
+1
+)
+.
+\mathcal{L}(\bm{w},\lambda,\mu)=\sum_{i=1}^{N}w_{i}\log\frac{w_{i}}{w_{i}^{-}}\\
++\lambda\!\left(\sum_{i=1}^{N}w_{i}\,g_{i}-\varepsilon^{2}\right)-\mu\!\left(\sum_{i=1}^{N}w_{i}-1\right).
+
+
+
+
+(13)
+
+
+
+
+Setting 
+∂
+ℒ
+/
+∂
+w
+i
+=
+log
+⁡
+(
+w
+i
+/
+w
+i
+−
+)
++
+1
++
+λ
+​
+g
+i
+−
+μ
+=
+0
+\partial\mathcal{L}/\partial w_{i}=\log(w_{i}/w_{i}^{-})+1+\lambda g_{i}-\mu=0
+ yields 
+w
+i
+=
+w
+i
+−
+​
+e
+μ
+−
+1
+​
+e
+−
+λ
+​
+g
+i
+w_{i}=w_{i}^{-}e^{\mu-1}\,e^{-\lambda g_{i}}
+, and the simplex constraint 
+∑
+i
+w
+i
+=
+1
+\sum_{i}w_{i}=1
+ determines 
+e
+μ
+−
+1
+=
+1
+/
+Z
+⁡
+(
+λ
+)
+e^{\mu-1}=1/Z(\lambda)
+. Substituting back:
+
+
+
+
+
+
+
+
+
+w
+i
+opt
+​
+(
+λ
+)
+=
+w
+i
+−
+​
+exp
+⁡
+(
+−
+λ
+​
+g
+i
+)
+Z
+⁡
+(
+λ
+)
+,
+Z
+⁡
+(
+λ
+)
+=
+∑
+j
+=
+1
+N
+w
+j
+−
+​
+exp
+⁡
+(
+−
+λ
+​
+g
+j
+)
+.
+w_{i}^{\mathrm{opt}}(\lambda)=\frac{w_{i}^{-}\exp(-\lambda\,g_{i})}{Z(\lambda)},\quad Z(\lambda)=\sum_{j=1}^{N}w_{j}^{-}\exp(-\lambda\,g_{j}).
+
+
+
+
+(14)
+
+
+
+
+Equation (
+14
+) is the exponential tilt of the prior 
+𝒘
+−
+\bm{w}^{-}
+ by the cost vector 
+𝒈
+\bm{g}
+, and is the standard solution of a constrained minimum-KL problem with a linear constraint (Csiszár’s 
+I
+I
+-projection onto a half-space) 
+[
+15
+, 
+16
+]
+. The non-negativity constraints 
+w
+i
+≥
+0
+w_{i}\geq 0
+ are automatically satisfied by the exponential form. The multiplier 
+λ
+\lambda
+ is determined by complementary slackness, 
+λ
+⁡
+(
+∑
+i
+w
+i
+opt
+​
+(
+λ
+)
+​
+g
+i
+−
+ε
+2
+)
+=
+0
+\lambda\bigl(\sum_{i}w_{i}^{\mathrm{opt}}(\lambda)\,g_{i}-\varepsilon^{2}\bigr)=0
+. If the prior already satisfies 
+∑
+i
+w
+i
+−
+​
+g
+i
+≤
+ε
+2
+\sum_{i}w_{i}^{-}g_{i}\leq\varepsilon^{2}
+, the constraint is inactive, 
+λ
+=
+0
+\lambda=0
+, and Layer 1 returns 
+𝒘
+opt
+=
+𝒘
+−
+\bm{w}^{\mathrm{opt}}=\bm{w}^{-}
+ unchanged. Otherwise the constraint is active, 
+λ
+>
+0
+\lambda>0
+, and 
+λ
+\lambda
+ is found by bisection on the monotone function 
+h
+⁡
+(
+λ
+)
+=
+∑
+i
+w
+i
+opt
+​
+(
+λ
+)
+​
+g
+i
+h(\lambda)=\sum_{i}w_{i}^{\mathrm{opt}}(\lambda)\,g_{i}
+: differentiating 
+log
+⁡
+Z
+\log Z
+ gives 
+h
+(
+λ
+)
+=
+−
+d
+log
+Z
+/
+d
+λ
+h(\lambda)=-d\log Z/d\lambda
+ and 
+d
+​
+h
+/
+d
+​
+λ
+=
+−
+Var
+𝒘
+opt
+​
+(
+λ
+)
+​
+(
+𝒈
+)
+≤
+0
+dh/d\lambda=-\mathrm{Var}_{\bm{w}^{\mathrm{opt}}(\lambda)}(\bm{g})\leq 0
+, so 
+h
+h
+ is non-increasing in 
+λ
+\lambda
+ (concentrating more weight on small-
+g
+i
+g_{i}
+ particles as 
+λ
+\lambda
+ grows), and bisection converges geometrically.
+
+
+
+
+
+
+Particles far from 
+𝒙
+^
+m
+\hat{\bm{x}}_{m}
+ (large 
+g
+i
+g_{i}
+) are down-weighted exponentially, while particles near 
+𝒙
+^
+m
+\hat{\bm{x}}_{m}
+ retain most of their prior mass. The budget 
+ε
+\varepsilon
+ controls the degree of concentration: smaller 
+ε
+\varepsilon
+ produces sharper reweighting.
+
+
+
+
+
+
+Layer 2 (Sensor placement).
+ Using the reweighted particles 
+{
+(
+𝒙
+i
+(
+m
+)
+,
+w
+i
+opt
+)
+}
+\{(\bm{x}_{i}^{(m)},w_{i}^{\mathrm{opt}})\}
+ from all sources, solve (
+8
+) via multi-start L-BFGS-B with analytically computed gradients. By the matrix identity 
+d
+​
+log
+​
+det
+𝑨
+=
+tr
+⁡
+(
+𝑨
+−
+1
+​
+d
+​
+𝑨
+)
+\mathrm{d}\log\det\bm{A}=\tr(\bm{A}^{-1}\,\mathrm{d}\bm{A})
+, the gradient of the D-optimal objective with respect to sensor position 
+𝒔
+r
+\bm{s}_{r}
+ decomposes as
+
+
+
+
+
+
+
+
+
+∇
+𝒔
+r
+∑
+m
+=
+1
+M
+log
+det
+𝑭
+(
+m
+)
+=
+∑
+m
+=
+1
+M
+tr
+(
+[
+𝑭
+(
+m
+)
+]
+−
+1
+∇
+𝒔
+r
+𝑭
+r
+(
+m
+)
+)
+,
+\nabla_{\bm{s}_{r}}\sum_{m=1}^{M}\log\det\bm{F}^{(m)}=\sum_{m=1}^{M}\tr\!\left([\bm{F}^{(m)}]^{-1}\nabla_{\bm{s}_{r}}\bm{F}_{r}^{(m)}\right),
+
+
+
+
+(15)
+
+
+
+
+where only 
+𝑭
+r
+(
+m
+)
+\bm{F}_{r}^{(m)}
+ (the contribution of sensor 
+r
+r
+) depends on 
+𝒔
+r
+\bm{s}_{r}
+, so the gradient of 
+𝑭
+(
+m
+)
+=
+∑
+r
+′
+𝑭
+r
+′
+(
+m
+)
+\bm{F}^{(m)}=\sum_{r^{\prime}}\bm{F}_{r^{\prime}}^{(m)}
+ reduces to 
+∇
+𝒔
+r
+𝑭
+r
+(
+m
+)
+\nabla_{\bm{s}_{r}}\bm{F}_{r}^{(m)}
+. The derivative of (
+7
+) with respect to 
+𝒔
+r
+\bm{s}_{r}
+ involves differentiating the 
+1
+/
+ρ
+r
+,
+i
+4
+1/\rho_{r,i}^{4}
+ range factor and the outer-product bearing terms, both of which have closed-form expressions. These analytical gradients avoid finite-difference approximation and allow efficient optimization.
+
+
+
+
+
+
+The objective (
+8
+) is non-convex in the sensor positions because of the 
+1
+/
+ρ
+r
+,
+i
+4
+1/\rho_{r,i}^{4}
+ range dependence and the outer-product bearing structure, so multiple local optima exist. We address this with 
+K
+K
+ random restarts, each initializing sensor positions uniformly in 
+𝒟
+\mathcal{D}
+, and retain the solution with the largest objective value. All 
+K
+K
+ restarts run independently and can be parallelized.
+
+
+
+
+
+
+Bayesian update.
+ Bearing measurements are simulated from the true source positions with noise 
+σ
+\sigma
+. Given measurements 
+{
+β
+r
+,
+m
+}
+\{\beta_{r,m}\}
+ from the new sensor positions, particle weights for source 
+m
+m
+ are updated multiplicatively using the prior weights 
+𝒘
+−
+\bm{w}^{-}
+ (not the Layer 1 weights 
+𝒘
+opt
+\bm{w}^{\mathrm{opt}}
+, which serve only to guide placement):
+
+
+
+
+
+
+
+
+
+w
+~
+i
+(
+m
+)
+∝
+w
+i
+−
+​
+∏
+r
+=
+1
+R
+exp
+⁡
+(
+ℓ
+⁡
+(
+𝒙
+i
+(
+m
+)
+,
+β
+r
+,
+m
+,
+𝒔
+r
+,
+σ
+)
+)
+,
+\tilde{w}_{i}^{(m)}\propto w_{i}^{-}\prod_{r=1}^{R}\exp\!\bigl(\ell(\bm{x}_{i}^{(m)};\beta_{r,m},\bm{s}_{r},\sigma)\bigr),
+
+
+
+
+(16)
+
+
+
+
+where 
+ℓ
+\ell
+ is the log-likelihood from (
+3
+). The product over sensors follows from the conditional independence of bearing measurements given the source position. Weights are then normalized to sum to one. To prevent particle degeneracy, systematic resampling is triggered when the effective sample size
+
+
+
+
+
+
+
+
+
+ESS
+=
+1
+∑
+i
+=
+1
+N
+(
+w
+i
+(
+m
+)
+)
+2
+\mathrm{ESS}=\frac{1}{\sum_{i=1}^{N}(w_{i}^{(m)})^{2}}
+
+
+
+
+(17)
+
+
+
+
+drops below 
+N
+/
+2
+N/2
+. After resampling, all weights are reset to 
+1
+/
+N
+1/N
+.
+
+
+
+
+
+
+The D-optimal baseline uses the same Layer 2 and Bayesian update but omits Layer 1, evaluating the D-optimal objective with the current weights 
+𝒘
+−
+\bm{w}^{-}
+ directly (exactly 
+1
+/
+N
+1/N
+ after resampling, non-uniform between resampling events). Algorithm 
+1
+ summarizes the procedure.
+
+
+
+
+
+
+Algorithm 1
+ 
+ Two-Layer Sequential Sensor Placement
+
+
+
+
+
+              
+0:
+
+              
+              
+             Prior particles 
+{
+𝒙
+i
+(
+m
+)
+}
+i
+=
+1
+N
+\{\bm{x}_{i}^{(m)}\}_{i=1}^{N}
+ for 
+m
+=
+1
+,
+…
+,
+M
+m=1,\ldots,M
+; initial sensors 
+{
+𝒔
+r
+}
+r
+=
+1
+R
+\{\bm{s}_{r}\}_{r=1}^{R}
+; budget 
+ε
+\varepsilon
+; iterations 
+T
+T
+
+
+
+
+
+
+              
+1:
+
+              
+              
+             
+for
+ 
+t
+=
+1
+,
+…
+,
+T
+t=1,\ldots,T
+ 
+do
+
+
+
+
+
+
+
+
+              
+2:
+
+              
+              
+              
+Layer 1:
+ For each source 
+m
+m
+, solve (
+9
+) via bisection on 
+λ
+\lambda
+ to obtain 
+𝒘
+(
+m
+)
+,
+opt
+\bm{w}^{(m),\mathrm{opt}}
+
+
+
+
+
+
+              
+3:
+
+              
+              
+              
+Layer 2:
+ Solve (
+8
+) with weights 
+𝒘
+(
+m
+)
+,
+opt
+\bm{w}^{(m),\mathrm{opt}}
+ via multi-start L-BFGS-B to obtain 
+{
+𝒔
+r
+new
+}
+\{\bm{s}_{r}^{\mathrm{new}}\}
+
+
+
+
+
+
+              
+4:
+
+              
+              
+              Simulate bearings 
+β
+r
+,
+m
+\beta_{r,m}
+ from true sources at 
+{
+𝒔
+r
+new
+}
+\{\bm{s}_{r}^{\mathrm{new}}\}
+
+
+
+
+
+
+              
+5:
+
+              
+              
+              Update particle weights via (
+16
+)
+
+
+
+
+
+              
+6:
+
+              
+              
+              If 
+ESS
+\mathrm{ESS}
+ (
+17
+) 
+<
+N
+/
+2
+<N/2
+, resample (systematic resampling)
+
+
+
+
+
+              
+7:
+
+              
+              
+              
+𝒔
+r
+←
+𝒔
+r
+new
+\bm{s}_{r}\leftarrow\bm{s}_{r}^{\mathrm{new}}
+ for all 
+r
+r
+
+
+
+
+
+
+              
+8:
+
+              
+              
+             
+end
+ 
+for
+
+
+
+
+
+              
+9:
+
+              
+              
+             
+return
+  Final particle distributions and sensor positions
+
+
+
+
+
+
+
+
+
+
+Remark 1
+ 
+(Structural decoupling)
+.
+
+
+
+
+Layer 1 is independent of the sensor model. Neither the noise level 
+σ
+\sigma
+, the number of sensors 
+R
+R
+, nor the sensor positions 
+𝐬
+r
+\bm{s}_{r}
+ enter the MaxEnt optimization (
+9
+). Layer 1 determines what the posterior should look like; Layer 2 determines how to achieve it. This modularity means the same Layer 1 solution applies regardless of the sensing modality used in Layer 2.
+
+
+
+
+
+
+
+
+Remark 2
+ 
+(Specialization of Layer 2)
+.
+
+
+
+
+In the general framework of 
+[
+1
+]
+, Layer 2 fits a parametric sensor likelihood to approximate the ideal likelihood ratio 
+L
+i
+⋆
+=
+w
+i
+opt
+/
+w
+i
+−
+L_{i}^{\star}=w_{i}^{\mathrm{opt}}/w_{i}^{-}
+ recovered from Layer 1, and the Bayesian update uses this fitted likelihood when real measurements are unavailable.
+In the bearing-only setting, the sensor model is known and real measurements are available at each iteration. Layer 2 therefore specializes to D-optimal placement (
+8
+) with the reweighted particles entering the FIM computation, and the Bayesian update uses actual bearing measurements rather than the synthesized likelihood.
+
+
+
+
+
+
+
+
+
+
+II-D
+ 
+Analytical Properties
+
+
+
+
+
+Three properties of the construction clarify the performance-improvement mechanism and bound the deviation of the reweighted FIM from the prior FIM.
+
+
+
+
+
+
+Proposition 1
+ 
+(Uniqueness and recovery of D-optimal)
+.
+
+
+
+
+Problem (
+12
+) is strictly convex on 
+Δ
+N
+\Delta^{N}
+ and admits a unique minimizer 
+𝐰
+opt
+\bm{w}^{\mathrm{opt}}
+ given by the exponential tilt (
+14
+). Moreover, as the budget 
+ε
+→
+∞
+\varepsilon\to\infty
+ (or whenever 
+∑
+i
+w
+i
+−
+​
+g
+i
+≤
+ε
+2
+\sum_{i}w_{i}^{-}g_{i}\leq\varepsilon^{2}
+), 
+λ
+=
+0
+\lambda=0
+ and 
+𝐰
+opt
+=
+𝐰
+−
+\bm{w}^{\mathrm{opt}}=\bm{w}^{-}
+, so the two-layer procedure reduces exactly to classical D-optimal placement on 
+𝐰
+−
+\bm{w}^{-}
+.
+
+
+
+
+
+
+
+
+Proof.
+
+
+
+
+Strict convexity of 
+∑
+i
+w
+i
+​
+log
+⁡
+(
+w
+i
+/
+w
+i
+−
+)
+\sum_{i}w_{i}\log(w_{i}/w_{i}^{-})
+ on the open simplex and linearity of the constraints imply uniqueness. When the prior is already feasible, KKT is satisfied at 
+λ
+=
+0
+\lambda=0
+, which gives 
+w
+i
+opt
+=
+w
+i
+−
+w_{i}^{\mathrm{opt}}=w_{i}^{-}
+ by (
+14
+).
+∎
+
+
+
+
+
+
+
+
+Proposition 2
+ 
+(Monotone concentration)
+.
+
+
+
+
+The reweighted measure is strictly closer to the target under the 
+SW
+2
+\SW_{2}
+ pseudo-metric induced by the projection set 
+{
+𝐝
+ℓ
+}
+\{\bm{d}_{\ell}\}
+ than the prior, whenever the constraint is active:
+
+
+
+
+
+
+
+
+
+SW
+2
+2
+⁡
+(
+π
+^
+𝒘
+opt
+,
+δ
+𝒙
+^
+m
+)
+=
+ε
+2
+<
+SW
+2
+2
+⁡
+(
+π
+^
+𝒘
+−
+,
+δ
+𝒙
+^
+m
+)
+.
+\SW_{2}^{2}(\hat{\pi}_{\bm{w}^{\mathrm{opt}}},\delta_{\hat{\bm{x}}_{m}})\;=\;\varepsilon^{2}\;<\;\SW_{2}^{2}(\hat{\pi}_{\bm{w}^{-}},\delta_{\hat{\bm{x}}_{m}}).
+
+
+
+
+
+
+
+
+
+
+
+
+Proof.
+
+
+
+
+By complementary slackness, an active constraint forces 
+∑
+i
+w
+i
+opt
+​
+g
+i
+=
+ε
+2
+\sum_{i}w_{i}^{\mathrm{opt}}g_{i}=\varepsilon^{2}
+, and by assumption 
+∑
+i
+w
+i
+−
+​
+g
+i
+>
+ε
+2
+\sum_{i}w_{i}^{-}g_{i}>\varepsilon^{2}
+. The two equalities are exactly the 
+SW
+2
+2
+\SW_{2}^{2}
+ values in (
+11
+).
+∎
+
+
+
+
+
+
+
+
+Proposition 3
+ 
+(Sensitivity of the D-optimal objective)
+.
+
+
+
+
+Let 
+Φ
+(
+𝐰
+)
+=
+log
+det
+𝐅
+(
+m
+)
+(
+𝐰
+)
+\Phi(\bm{w})=\log\det\bm{F}^{(m)}(\bm{w})
+ with 
+𝐅
+(
+m
+)
+\bm{F}^{(m)}
+ given by (
+7
+). If both 
+𝐅
+(
+m
+)
+​
+(
+𝐰
+−
+)
+\bm{F}^{(m)}(\bm{w}^{-})
+ and 
+𝐅
+(
+m
+)
+​
+(
+𝐰
+opt
+)
+\bm{F}^{(m)}(\bm{w}^{\mathrm{opt}})
+ have smallest eigenvalue at least 
+λ
+min
+>
+0
+\lambda_{\min}>0
+, then
+
+|
+Φ
+⁡
+(
+𝐰
+opt
+)
+−
+Φ
+⁡
+(
+𝐰
+−
+)
+|
+≤
+(
+R
+​
+K
+m
+/
+λ
+min
+​
+σ
+2
+)
+​
+‖
+𝐰
+opt
+−
+𝐰
+−
+‖
+1
+|\Phi(\bm{w}^{\mathrm{opt}})-\Phi(\bm{w}^{-})|\leq(RK_{m}/\lambda_{\min}\sigma^{2})\,\|\bm{w}^{\mathrm{opt}}-\bm{w}^{-}\|_{1}
+, where 
+K
+m
+=
+max
+i
+,
+r
+⁡
+1
+/
+ρ
+r
+,
+i
+2
+K_{m}=\max_{i,r}1/\rho_{r,i}^{2}
+.
+
+
+
+
+
+
+
+
+Proof.
+
+
+
+
+The mean-value form 
+log
+det
+𝑨
+−
+log
+det
+𝑩
+=
+∫
+0
+1
+tr
+(
+(
+t
+𝑨
++
+(
+1
+−
+t
+)
+𝑩
+)
+−
+1
+(
+𝑨
+−
+𝑩
+)
+)
+d
+t
+\log\det\bm{A}-\log\det\bm{B}=\int_{0}^{1}\tr((t\bm{A}+(1-t)\bm{B})^{-1}(\bm{A}-\bm{B}))dt
+ and the trace–nuclear-norm inequality give 
+|
+log
+det
+𝑨
+−
+log
+det
+𝑩
+|
+≤
+λ
+min
+−
+1
+∥
+𝑨
+−
+𝑩
+∥
+∗
+|\log\det\bm{A}-\log\det\bm{B}|\leq\lambda_{\min}^{-1}\|\bm{A}-\bm{B}\|_{*}
+. Writing 
+𝑭
+(
+m
+)
+​
+(
+𝒘
+)
+=
+∑
+i
+w
+i
+​
+𝑴
+i
+\bm{F}^{(m)}(\bm{w})=\sum_{i}w_{i}\bm{M}_{i}
+ with 
+𝑴
+i
+=
+∑
+r
+𝑭
+r
+,
+i
+(
+m
+)
+\bm{M}_{i}=\sum_{r}\bm{F}_{r,i}^{(m)}
+ PSD and 
+‖
+𝑴
+i
+‖
+∗
+≤
+R
+​
+K
+m
+/
+σ
+2
+\|\bm{M}_{i}\|_{*}\leq RK_{m}/\sigma^{2}
+ gives 
+‖
+Δ
+​
+𝑭
+(
+m
+)
+‖
+∗
+≤
+(
+R
+​
+K
+m
+/
+σ
+2
+)
+​
+‖
+𝒘
+opt
+−
+𝒘
+−
+‖
+1
+\|\Delta\bm{F}^{(m)}\|_{*}\leq(RK_{m}/\sigma^{2})\|\bm{w}^{\mathrm{opt}}-\bm{w}^{-}\|_{1}
+.
+∎
+
+
+
+
+
+
+
+
+Remark 3
+ 
+(Bisection convergence)
+.
+
+
+
+
+The function 
+h
+⁡
+(
+λ
+)
+=
+∑
+i
+w
+i
+opt
+​
+(
+λ
+)
+​
+g
+i
+h(\lambda)=\sum_{i}w_{i}^{\mathrm{opt}}(\lambda)\,g_{i}
+ equals 
+−
+d
+log
+Z
+/
+d
+λ
+-d\log Z/d\lambda
+ from (
+14
+); differentiating again gives the cumulant identity 
+h
+′
+​
+(
+λ
+)
+=
+−
+Var
+𝐰
+opt
+​
+(
+λ
+)
+​
+(
+𝐠
+)
+≤
+0
+h^{\prime}(\lambda)=-\mathrm{Var}_{\bm{w}^{\mathrm{opt}}(\lambda)}(\bm{g})\leq 0
+. Bisection on 
+h
+⁡
+(
+λ
+)
+=
+ε
+2
+h(\lambda)=\varepsilon^{2}
+ therefore converges geometrically.
+
+
+
+
+
+
+
+
+Proposition 
+1
+ shows that the method strictly generalizes D-optimal placement; Proposition 
+2
+ confirms that Layer 1 meets its declared accuracy budget; and Proposition 
+3
+ makes precise the trade-off controlled by 
+ε
+\varepsilon
+: large 
+ε
+\varepsilon
+ keeps 
+‖
+𝒘
+opt
+−
+𝒘
+−
+‖
+1
+\|\bm{w}^{\mathrm{opt}}-\bm{w}^{-}\|_{1}
+ small and the two placements close, small 
+ε
+\varepsilon
+ produces aggressive reweighting and a larger placement deviation.
+
+
+
+
+
+
+
+
+
+
+III 
+Benefits of MaxEnt Reweighting
+
+
+
+
+
+The mechanism is best understood by examining the FIM structure (
+7
+). Under uniform weighting (
+w
+i
+=
+1
+/
+N
+w_{i}=1/N
+), the FIM averages contributions from all particles equally. In early iterations, when particles span a broad prior over 
+𝒟
+\mathcal{D}
+, distant particles contribute information about bearing geometry at locations far from the true source, diluting the FIM’s sensitivity to the geometry that actually matters for posterior concentration.
+
+
+
+
+
+
+The MaxEnt reweighting shifts mass toward the accuracy target, subject to the budget constraint. Particles near the current best estimate receive higher weight; particles in the tails are exponentially down-weighted. The resulting FIM emphasizes the bearing geometry in the region where the posterior is concentrating, producing sensor placements that resolve the directional ambiguities most relevant to the current state of knowledge.
+
+
+
+
+
+
+Two factors govern the magnitude of the benefit.
+
+
+
+
+
+
+Noise level.
+ At lower noise (
+σ
+=
+8
+∘
+\sigma=8^{\circ}
+), each bearing measurement carries substantial geometric information about the source location, so a better-chosen placement produces a noticeably tighter posterior update at every step. The MaxEnt placement advantage established when the posterior is still diffuse (the first few iterations) therefore compounds rapidly over the horizon. At higher noise (
+σ
+=
+15
+∘
+\sigma=15^{\circ}
+), per-measurement information is reduced; the same placement advantage produces a smaller per-step posterior contraction, and the cumulative improvement is correspondingly smaller.
+
+
+
+
+
+
+Sensor-to-source ratio.
+ When 
+R
+R
+ comfortably exceeds 
+M
+M
+, the placement problem has geometric degrees of freedom that can be allocated to different posterior regions. The reweighting exploits this freedom by steering sensors toward the most uncertain directions of the concentrated posterior. When 
+R
+R
+ is small relative to 
+M
+M
+ (e.g., 
+R
+=
+3
+R=3
+ with 
+M
+≥
+5
+M\geq 5
+), the geometric conditioning is poor and both methods are tightly constrained by the same angular requirements, leaving little room for the reweighting to improve placement.
+
+
+
+
+
+
+
+
+IV 
+Experiments
+
+
+
+
+
+IV-A
+ 
+Setup
+
+
+
+
+
+The experiments place 
+M
+∈
+{
+3
+,
+4
+,
+…
+,
+10
+}
+M\in\{3,4,\ldots,10\}
+ sources at fixed, well-separated positions in 
+𝒟
+=
+[
+0
+,
+20
+]
+2
+\mathcal{D}=[0,20]^{2}
+ and deploy 
+R
+∈
+{
+3
+,
+4
+,
+…
+,
+10
+}
+R\in\{3,4,\ldots,10\}
+ sensors. Each of the 64 configurations runs for 
+T
+=
+10
+T=10
+ sequential iterations with 
+N
+=
+1000
+N=1000
+ particles per source, sliced Wasserstein budget 
+ε
+=
+0.5
+\varepsilon=0.5
+, 
+L
+=
+50
+L=50
+ random projection directions, and 
+K
+=
+3
+K=3
+ L-BFGS-B restarts in Layer 2. The performance metric is the root-mean-square error (RMSE) of the weighted particle means relative to the true source positions, averaged over all sources and over 20 Monte Carlo seeds.
+
+
+
+
+
+
+Two noise levels bracket the regime of interest:
+
+
+
+
+•
+ 
+
+
+
+σ
+=
+15
+∘
+\sigma=15^{\circ}
+ (moderate noise): posterior uncertainty is large and bearing geometry offers limited leverage.
+
+
+
+
+•
+ 
+
+
+
+σ
+=
+8
+∘
+\sigma=8^{\circ}
+ (low noise): geometric effects are amplified, making the placement algorithm more consequential.
+
+
+
+
+
+
+
+
+
+
+
+
+IV-B
+ 
+Moderate Noise (
+σ
+=
+15
+∘
+\sigma=15^{\circ}
+)
+
+
+
+
+
+At 
+σ
+=
+15
+∘
+\sigma=15^{\circ}
+, the MaxEnt method reduces RMSE over the D-optimal baseline by a mean of 7.9% across all 
+(
+M
+,
+R
+)
+(M,R)
+ configurations, with individual improvements ranging from 
+−
+21
+%
+-21\%
+ to 
++
+25
+%
++25\%
+. Table 
+I
+ reports selected entries.
+
+
+
+
+
+
+Fig. 
+1
+ displays RMSE versus 
+R
+R
+ for selected source counts alongside the full improvement heatmap over all 
+(
+M
+,
+R
+)
+(M,R)
+ pairs. The heatmap confirms that the advantage concentrates in configurations where 
+R
+>
+M
+R>M
+, i.e., where geometric freedom is available. At low 
+R
+/
+M
+R/M
+ ratios, MaxEnt occasionally degrades performance because the reweighting concentrates the FIM on a posterior subset that does not span the angular diversity needed when sensors are scarce.
+
+
+
+
+
+
+Fig. 1: 
+Comparison at 
+σ
+=
+15
+∘
+\sigma=15^{\circ}
+. (a),(b) RMSE versus sensor count for 
+M
+=
+3
+M=3
+ and 
+M
+=
+10
+M=10
+. (c) Improvement heatmap over the full 
+(
+M
+,
+R
+)
+(M,R)
+ grid. (d) Maximum sensor saving: the largest 
+R
+f
+−
+R
+m
+R_{f}-R_{m}
+ such that MaxEnt with 
+R
+m
+R_{m}
+ sensors achieves RMSE 
+≤
+\leq
+ D-optimal with 
+R
+f
+R_{f}
+ sensors.
+
+
+
+
+
+
+Fig. 
+2
+ shows the RMSE convergence over the 10 sequential iterations. Both methods improve rapidly during the first 3–4 iterations as the posterior concentrates. The gap between the two methods emerges in the initial iterations and persists thereafter.
+
+
+
+
+
+
+Fig. 2: 
+RMSE convergence over 10 iterations at 
+σ
+=
+15
+∘
+\sigma=15^{\circ}
+ for selected 
+(
+M
+,
+R
+)
+(M,R)
+ pairs. Shaded bands indicate 
+±
+1
+\pm 1
+ standard deviation over 20 Monte Carlo trials.
+
+
+
+
+
+
+
+
+IV-C
+ 
+Low Noise (
+σ
+=
+8
+∘
+\sigma=8^{\circ}
+)
+
+
+
+
+
+At 
+σ
+=
+8
+∘
+\sigma=8^{\circ}
+, the mean improvement rises to 17.2%, with a range of 
+−
+7
+%
+-7\%
+ to 
++
+34
+%
++34\%
+. The lower noise amplifies the MaxEnt advantage because each measurement contracts the posterior more strongly, so the early placement advantage compounds over the horizon.
+
+
+
+
+
+
+Fig. 
+3
+ presents the RMSE curves and improvement heatmap at 
+σ
+=
+8
+∘
+\sigma=8^{\circ}
+. The advantage extends more broadly across the 
+(
+M
+,
+R
+)
+(M,R)
+ grid than at 
+σ
+=
+15
+∘
+\sigma=15^{\circ}
+. MaxEnt outperforms D-optimal in nearly all configurations with 
+R
+≥
+5
+R\geq 5
+, and the improvement exceeds 20% across much of the upper-right region of the heatmap.
+
+
+
+
+
+
+Fig. 3: 
+Comparison at 
+σ
+=
+8
+∘
+\sigma=8^{\circ}
+. Same layout as Fig. 
+1
+. The MaxEnt advantage is broader and larger; the sensor saving in panel (d) reaches 4–7 sensors across all source counts.
+
+
+
+
+
+
+Fig. 
+4
+ displays the convergence behavior at 
+σ
+=
+8
+∘
+\sigma=8^{\circ}
+, which mirrors the moderate-noise case but with a larger and more consistent gap.
+
+
+
+
+
+
+Fig. 4: 
+RMSE convergence over 10 iterations at 
+σ
+=
+8
+∘
+\sigma=8^{\circ}
+. The MaxEnt advantage is larger and more consistent than at 
+σ
+=
+15
+∘
+\sigma=15^{\circ}
+.
+
+
+
+
+
+
+Fig. 
+5
+ illustrates the spatial evolution of the posterior for a representative configuration (
+M
+=
+4
+M=4
+ sources, 
+R
+=
+10
+R=10
+ sensors) at 
+σ
+=
+8
+∘
+\sigma=8^{\circ}
+. The top row shows D-optimal placement, the bottom row shows MaxEnt. Each column corresponds to a time step. Red circles mark the true source locations; blue circles show the posterior mean estimates, with marker size proportional to the inverse posterior variance (larger markers indicate higher confidence); orange triangles indicate sensor positions. At iteration 0, the prior is uniform over the domain and sensors are initialized near the origin. As measurements accumulate, both methods concentrate the posterior around the true sources, but the trajectories diverge. D-optimal placement distributes sensors to hedge against uncertainty over the full prior support, producing a roughly circular arrangement that provides angular diversity but not targeted refinement. MaxEnt reweighting concentrates mass on particles near the current estimates, steering sensors toward geometrically informative configurations for those regions. By iteration 10, the MaxEnt estimates (bottom right) are visibly closer to the true sources, with final RMSE of 0.06 compared to 0.20 for D-optimal. This example lies in the favorable regime where 
+R
+>
+M
+R>M
+ and the noise is low enough for bearing geometry to discriminate effectively.
+
+
+
+
+
+
+Fig. 5: 
+Spatial evolution of posterior estimates at 
+σ
+=
+8
+∘
+\sigma=8^{\circ}
+ for 
+M
+=
+4
+M=4
+ sources and 
+R
+=
+10
+R=10
+ sensors (single trial). Top row: D-optimal; bottom row: MaxEnt. Red circles: true sources; blue circles: posterior mean estimates (size indicates confidence); orange triangles: sensor positions. In this trial, MaxEnt achieves RMSE 
+=
+0.06
+=0.06
+ versus D-optimal’s 
+0.20
+0.20
+.
+
+
+
+
+
+
+TABLE I: 
+Final RMSE (averaged over 20 Monte Carlo trials) for selected 
+(
+M
+,
+R
+)
+(M,R)
+ configurations. Percentage improvement of MaxEnt over D-optimal is shown in parentheses.
+
+
+
+
+
+
+
+
+
+
+
+
+σ
+=
+15
+∘
+\sigma=15^{\circ}
+
+
+σ
+=
+8
+∘
+\sigma=8^{\circ}
+
+
+
+
+M
+M
+
+
+R
+R
+
+
+D-opt
+
+
+MaxEnt
+
+
+D-opt
+
+
+MaxEnt
+
+
+
+
+
+
+
+
+3
+
+
+3
+
+
+0.506
+
+
+0.449 
+(+11%)
+
+
+0.391
+
+
+0.343 
+(+12%)
+
+
+
+
+3
+
+
+5
+
+
+0.450
+
+
+0.340 
+(+25%)
+
+
+0.323
+
+
+0.344 
+(
+−
+-
+7%)
+
+
+
+
+3
+
+
+10
+
+
+0.315
+
+
+0.272 
+(+14%)
+
+
+0.326
+
+
+0.216 
+(+34%)
+
+
+
+
+5
+
+
+5
+
+
+0.429
+
+
+0.378 
+(+12%)
+
+
+0.338
+
+
+0.294 
+(+13%)
+
+
+
+
+5
+
+
+10
+
+
+0.339
+
+
+0.282 
+(+17%)
+
+
+0.307
+
+
+0.247 
+(+19%)
+
+
+
+
+8
+
+
+8
+
+
+0.426
+
+
+0.340 
+(+20%)
+
+
+0.346
+
+
+0.273 
+(+21%)
+
+
+
+
+8
+
+
+10
+
+
+0.336
+
+
+0.293 
+(+13%)
+
+
+0.336
+
+
+0.248 
+(+26%)
+
+
+
+
+10
+
+
+10
+
+
+0.346
+
+
+0.299 
+(+14%)
+
+
+0.334
+
+
+0.259 
+(+22%)
+
+
+
+
+
+
+
+
+
+
+
+
+IV-D
+ 
+Equivalent Sensor Count
+
+
+
+
+
+Panel (d) of Figs. 
+1
+ and 
+3
+ quantifies the MaxEnt advantage in operational terms as an 
+equivalent sensor saving
+: for each source count 
+M
+M
+, it reports the largest difference 
+R
+f
+−
+R
+m
+R_{f}-R_{m}
+ such that MaxEnt with 
+R
+m
+R_{m}
+ sensors achieves RMSE no worse than D-optimal with 
+R
+f
+R_{f}
+ sensors. At 
+σ
+=
+15
+∘
+\sigma=15^{\circ}
+, the saving ranges from 2 to 4 sensors (mean 2.8). At 
+σ
+=
+8
+∘
+\sigma=8^{\circ}
+, it ranges from 4 to 7 (mean 5.5). As a concrete example, at 
+σ
+=
+8
+∘
+\sigma=8^{\circ}
+ with 
+M
+=
+6
+M=6
+ sources, MaxEnt using 
+R
+=
+3
+R=3
+ sensors (RMSE 
+=
+0.332
+=0.332
+) outperforms D-optimal using 
+R
+=
+10
+R=10
+ sensors (RMSE 
+=
+0.343
+=0.343
+), a saving of 7 sensors. These reductions are operationally significant when each additional sensor incurs hardware and deployment costs.
+
+
+
+
+
+
+
+
+
+
+V 
+Discussion
+
+
+
+
+
+The experimental results support a clear characterization of when MaxEnt reweighting helps and when it does not.
+
+
+
+
+
+
+Operating regime.
+ The benefit is largest when 
+R
+>
+M
+R>M
+ and the posterior retains substantial spatial structure. In early iterations, when uncertainty is high, the reweighting provides the most informative guidance for placement. As the posterior concentrates over successive iterations, both methods converge to similar placements because uniform and reweighted distributions agree in the neighborhood of a point mass. The improvement is thus an 
+early-iteration
+ effect that persists in the final RMSE because the posterior trajectory established in the first few iterations determines the quality of the converged estimate.
+
+
+
+
+
+
+Role of measurement noise.
+ The 
+1
+/
+σ
+2
+1/\sigma^{2}
+ prefactor in the FIM scales every candidate placement equally, leaving 
+log
+det
+𝑭
+\log\det\bm{F}
+ and its gradient 
+tr
+(
+𝑭
+−
+1
+∇
+𝑭
+)
+\tr(\bm{F}^{-1}\nabla\bm{F})
+ unchanged up to constants; 
+σ
+\sigma
+ therefore affects the improvement only through per-measurement information content. At moderate noise (
+σ
+=
+15
+∘
+\sigma=15^{\circ}
+), measurements are weakly informative and a better placement contracts the posterior only modestly per step (7.9% mean improvement). At low noise (
+σ
+=
+8
+∘
+\sigma=8^{\circ}
+), each measurement contracts the posterior more strongly and the MaxEnt placement advantage compounds (17.2%). At the extremes both methods converge: very high noise extracts little per measurement; very low noise collapses the posterior in a few iterations and both weightings agree.
+
+
+
+
+
+
+Failure modes.
+ MaxEnt degrades performance in a small fraction of configurations, primarily when 
+R
+<
+M
+R<M
+. In this sensor-starved regime, the reweighting concentrates the FIM on a posterior subset, sacrificing the angular diversity needed for accurate localization. The worst case at 
+σ
+=
+15
+∘
+\sigma=15^{\circ}
+ is a 21% degradation. When sensors are scarce relative to targets, uniform weighting is the safer choice.
+
+
+
+
+
+
+Beyond Dirac targets and fixed budgets.
+ The Dirac-at-mean target and fixed budget 
+ε
+=
+0.5
+\varepsilon=0.5
+ are deliberate simplifications. As Section 
+II-C
+ notes, non-Dirac targets (Gaussian, fitted GMM, kernel density) lose the closed-form tilt (
+14
+) and require either a numerical convex solver or a linear moment-matching surrogate. A budget schedule such as 
+ε
+t
+=
+ε
+0
+/
+t
+\varepsilon_{t}=\varepsilon_{0}/\sqrt{t}
+ tightens the reweighting as the posterior concentrates. The largest gains should arise when the posterior is persistently asymmetric or genuinely multi-modal, regimes the present setup does not exercise.
+
+
+
+
+
+
+Alternative information criteria and baselines.
+ The log-determinant in Layer 2 can be swapped for the trace (A-optimality) or smallest eigenvalue (E-optimality) 
+[
+6
+, 
+5
+]
+ without changing (
+7
+) or 
+𝒘
+opt
+\bm{w}^{\mathrm{opt}}
+. Mutual information 
+[
+8
+]
+ and Bayesian expected information gain 
+[
+9
+, 
+10
+]
+ integrate over the posterior rather than evaluating at one point; they are more expensive but capture nonlinearities the FIM does not. A systematic comparison against these baselines, with the same MaxEnt front-end applied to each, would be a useful next step.
+
+
+
+
+
+
+Computational cost.
+ The computational overhead of Layer 1 is modest. The FIM computation in Layer 2 scales as 
+O
+⁡
+(
+M
+​
+N
+​
+R
+)
+O(MNR)
+ per gradient evaluation; with 
+M
+=
+10
+M=10
+, 
+N
+=
+1000
+N=1000
+, 
+R
+=
+10
+R=10
+, a single gradient requires approximately 0.5 ms under Numba JIT compilation. Layer 1 adds 
+O
+⁡
+(
+N
+​
+L
+)
+O(NL)
+ per source (
+L
+=
+50
+L=50
+ projections), since the point-mass target eliminates the sorting step of the general sliced Wasserstein computation. This cost is comparable to one FIM evaluation. The full sweep of 2560 configurations (
+8
+×
+8
+×
+2
+8\times 8\times 2
+ noise levels 
+×
+\times
+ 20 seeds) completes in approximately 6 minutes on 8 CPU cores.
+
+
+
+
+
+
+Convergence properties.
+ The individual components of Algorithm 
+1
+ have well-characterized convergence behavior, but the overall sequential procedure admits only partial guarantees. Layer 1 solves a convex problem: the KL divergence is strictly convex on the simplex and the constraint (
+11
+) is linear in 
+𝒘
+\bm{w}
+, so the exponential tilt (
+14
+) is the unique global minimizer, and bisection on 
+λ
+\lambda
+ converges at rate 
+O
+⁡
+(
+2
+−
+k
+)
+O(2^{-k})
+. Layer 2 is non-convex owing to the 
+1
+/
+ρ
+4
+1/\rho^{4}
+ range dependence; L-BFGS-B converges to a stationary point, and the 
+K
+K
+-restart strategy reduces the probability of settling on a poor local optimum, but no global optimality guarantee is available. The Bayesian weight update (
+16
+) is standard importance weighting, for which posterior consistency holds as 
+N
+→
+∞
+N\to\infty
+ under regularity conditions satisfied by the bearing model 
+[
+2
+]
+. The full 
+T
+T
+-iteration procedure is a myopic greedy policy: each iteration optimizes the current placement without lookahead over the remaining horizon. No formal guarantee ensures that this greedy strategy minimizes the 
+T
+T
+-step cumulative RMSE. However, the convergence plots in Figs. 
+2
+ and 
+4
+ provide empirical evidence that the procedure stabilizes in practice: both methods reach a stable RMSE plateau within 3–4 iterations, and the gap between MaxEnt and D-optimal persists thereafter without oscillation. A formal analysis of the multi-step regret relative to a non-myopic policy remains an open problem.
+
+
+
+
+
+
+Limitations.
+ The most significant simplification is the assumption of known data association: each sensor knows which source produced each bearing measurement. Relaxing this assumption introduces a combinatorial assignment problem whose cost grows factorially with the number of sources, requiring integration with methods such as joint probabilistic data association (JPDA) 
+[
+11
+]
+, multi-hypothesis tracking (MHT) 
+[
+12
+]
+, or probability hypothesis density (PHD) filtering 
+[
+13
+]
+. Real bearing-only deployments are also subject to multipath propagation, clutter, model mismatch, and intermittent or asynchronous communications 
+[
+14
+]
+; the present synthetic validation does not exercise these effects. Finally, all experiments are restricted to two-dimensional source positions; the sliced Wasserstein formulation extends to higher dimensions, but the particle count and projection count must both scale to maintain approximation quality.
+
+
+
+
+
+
+
+
+VI 
+Conclusion
+
+
+
+
+
+This paper applied the maximum-entropy likelihood synthesis framework of 
+[
+1
+]
+ to bearing-only multi-source localization, combining distributional reweighting with D-optimal sensor placement in a two-layer architecture. The structural decoupling between the two layers means the reweighting generalizes to any sensing modality; only the FIM expression in Layer 2 changes when bearings are replaced by range, time-of-arrival, or other measurements. Propositions 
+1
+–
+3
+ establish uniqueness, monotone concentration toward the target, and a quantitative sensitivity bound relating the change in the D-optimal objective to the reweighting magnitude; together with the empirical sweep, they demarcate the regime in which Layer 1 is provably beneficial and the regime in which it provably reduces to classical D-optimal placement.
+
+
+
+
+
+
+Beyond addressing the limitations noted above, natural extensions include sequential tracking of moving targets, joint integration with data-association methods (JPDA, MHT, PHD) 
+[
+11
+, 
+12
+, 
+13
+]
+, comparison against trace, minimum-eigenvalue, mutual-information, and Bayesian-EIG baselines, alternative non-Dirac targets (geometric median, fitted Gaussian or Gaussian mixture) for asymmetric and multi-modal posteriors, adaptive scheduling of the accuracy budget 
+ε
+t
+\varepsilon_{t}
+, and joint optimization of sensor noise precision alongside sensor position.
+
+
+
+
+
+
+
+
+References
+
+
+
+
+      
+
+[1]
+
+
+
+R. Bhattacharya, “Sensor design for accuracy-bounded estimation via maximum-entropy likelihood synthesis,” in 
+Proc. Int. Conf. Information Fusion (Fusion)
+, 2026.
+
+
+
+      
+
+[2]
+
+
+
+Y. Bar-Shalom, X. R. Li, and T. Kirubarajan, 
+Estimation with Applications to Tracking and Navigation
+.
+ New York: Wiley, 2001.
+
+
+
+      
+
+[3]
+
+
+
+A. N. Bishop, “Optimality analysis of sensor-target localization geometries,” 
+Automatica
+, vol. 46, no. 3, pp. 479–492, 2010.
+
+
+
+      
+
+[4]
+
+
+
+V. J. Aidala, “Kalman filter behavior in bearings-only tracking applications,” 
+IEEE Trans. Aerosp. Electron. Syst.
+, vol. AES-15, no. 1, pp. 29–39, 1979.
+
+
+
+      
+
+[5]
+
+
+
+D. Uciński, 
+Optimal Measurement Methods for Distributed Parameter System Identification
+.
+ Boca Raton, FL: CRC Press, 2005.
+
+
+
+      
+
+[6]
+
+
+
+F. Pukelsheim, 
+Optimal Design of Experiments
+.
+ Philadelphia, PA: SIAM, 2006.
+
+
+
+      
+
+[7]
+
+
+
+S. Martínez and F. Bullo, “Optimal sensor placement and motion coordination for target tracking,” 
+Automatica
+, vol. 42, no. 4, pp. 661–668, 2006.
+
+
+
+      
+
+[8]
+
+
+
+A. Krause, A. Singh, and C. Guestrin, “Near-optimal sensor placements in Gaussian processes: Theory, efficient algorithms and empirical studies,” 
+J. Mach. Learn. Res.
+, vol. 9, pp. 235–284, 2008.
+
+
+
+      
+
+[9]
+
+
+
+K. Chaloner and I. Verdinelli, “Bayesian experimental design: A review,” 
+Statist. Sci.
+, vol. 10, no. 3, pp. 273–304, 1995.
+
+
+
+      
+
+[10]
+
+
+
+E. G. Ryan, C. C. Drovandi, J. M. McGree, and A. N. Pettitt, “A review of modern computational algorithms for Bayesian optimal design,” 
+Int. Statist. Rev.
+, vol. 84, no. 1, pp. 128–154, 2016.
+
+
+
+      
+
+[11]
+
+
+
+Y. Bar-Shalom, F. Daum, and J. Huang, “The probabilistic data association filter,” 
+IEEE Control Syst. Mag.
+, vol. 29, no. 6, pp. 82–100, 2009.
+
+
+
+      
+
+[12]
+
+
+
+D. B. Reid, “An algorithm for tracking multiple targets,” 
+IEEE Trans. Autom. Control
+, vol. 24, no. 6, pp. 843–854, 1979.
+
+
+
+      
+
+[13]
+
+
+
+R. P. S. Mahler, “Multitarget Bayes filtering via first-order multitarget moments,” 
+IEEE Trans. Aerosp. Electron. Syst.
+, vol. 39, no. 4, pp. 1152–1178, 2003.
+
+
+
+      
+
+[14]
+
+
+
+B. Sinopoli, L. Schenato, M. Franceschetti, K. Poolla, M. I. Jordan, and S. S. Sastry, “Kalman filtering with intermittent observations,” 
+IEEE Trans. Autom. Control
+, vol. 49, no. 9, pp. 1453–1464, 2004.
+
+
+
+      
+
+[15]
+
+
+
+I. Csiszár, “
+I
+I
+-divergence geometry of probability distributions and minimization problems,” 
+Ann. Probab.
+, vol. 3, no. 1, pp. 146–158, 1975.
+
+
+
+      
+
+[16]
+
+
+
+S. Boyd and L. Vandenberghe, 
+Convex Optimization
+.
+ Cambridge, U.K.: Cambridge Univ. Press, 2004.
+
+
+
+      
+
+[17]
+
+
+
+A. Gretton, K. M. Borgwardt, M. J. Rasch, B. Schölkopf, and A. Smola, “A kernel two-sample test,” 
+J. Mach. Learn. Res.
+, vol. 13, pp. 723–773, 2012.
+
+
+
+      
+
+[18]
+
+
+
+J. Rabin, G. Peyré, J. Delon, and M. Bernot, “Wasserstein barycenter and its application to texture mixing,” in 
+Proc. Int. Conf. Scale Space and Variational Methods in Computer Vision
+, 2011, pp. 435–446.
+
+
+
+      
+
+[19]
+
+
+
+N. Bonnotte, “Unidimensional and evolution methods for optimal transportation,” Ph.D. dissertation, Université Paris-Sud, 2013.
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    Experimental support, please
+    
+view the build logs
+
+    for errors. Generated by
+    
+
+      
+
+        L
+        
+A
+
+        T
+        
+E
+
+      
+
+      
+xml
+
+      
+
+    
+.
+  
+
+  
+
+    
+Instructions for reporting errors
+
+    
+We are continuing to improve HTML versions of papers, and your feedback helps enhance accessibility and mobile
+      support. To report errors in the HTML that will help us improve conversion and rendering, choose any of the
+      methods listed below:
+
+    
+
+      
+Click the "Report Issue" 
+(
+
+            
+
+          
+)
+ button, located in the page header.
+
+    
+
+    
+Tip:
+ You can select the relevant text first, to include it in your report.
+
+    
+Our team has already identified 
+the following issues
+. We appreciate your time reviewing and reporting rendering errors we
+      may not have found yet. Your efforts will help us improve the HTML versions for all readers, because disability
+      should not be a barrier to accessing research. Thank you for your continued support in championing open access for
+      all.
+
+    
+Have a free development cycle? Help support accessibility at arXiv! Our collaborators at LaTeXML maintain a 
+list of packages that need conversion
+, and welcome 
+developer contributions
+.
+
+  
+
+
+
+  
+
+    
+
+      
+
+        We gratefully acknowledge support from
+        our 
+major funders
+,
+        
+member institutions
+, 
+,
+        and all contributors.
+      
+
+      
+
+        
+About
+
+        
+·
+
+        
+Help
+
+        
+·
+
+        
+Contact
+
+        
+·
+
+        
+Subscribe
+
+        
+·
+
+        
+Copyright
+
+        
+·
+
+        
+Privacy
+
+        
+·
+
+        
+Accessibility
+
+        
+·
+
+        
+Operational Status
+ (opens in new tab)
+
+      
+
+    
+
+
+    
+
+      
+Major funding support from
+
+      
+
+        
+
+          
+
+        
+
+        
+
+          
+
+        
+
+        
+
+          
+
+        
+
+      
+
+    
+
+  
+
+
+
+  
+
+    
+
+      
+
+    
+
+  
+
+
+
+
+

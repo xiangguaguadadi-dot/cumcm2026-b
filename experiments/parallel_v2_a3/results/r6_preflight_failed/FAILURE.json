@@ -1,0 +1,7 @@
+{
+  "stage": "G0 exact reference replay",
+  "accepted_training_labels": 0,
+  "reason": "AST extracted from Q3 nested module C7_0_0 instead of actual Q4 module C7_0_1; reference 6599.220878 != real 6096.921135 so assertion rejected run",
+  "fix": "Extract actual Q4 _di_Solver.run at line1310, assert definition line equals live bound function",
+  "policy_changed": false
+}

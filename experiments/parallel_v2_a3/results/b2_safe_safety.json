@@ -1,0 +1,92 @@
+{
+  "candidate": "b2_safe",
+  "fixtures": [
+    {
+      "protected": true,
+      "cover_depth": 0,
+      "actual": [
+        10.0,
+        12.0
+      ],
+      "near_point": null,
+      "success": true,
+      "passed": true
+    },
+    {
+      "protected": false,
+      "cover_depth": 1,
+      "actual": [
+        10.0,
+        12.0
+      ],
+      "near_point": null,
+      "success": true,
+      "passed": true
+    },
+    {
+      "protected": false,
+      "cover_depth": 0,
+      "actual": [
+        99.0,
+        98.0
+      ],
+      "near_point": null,
+      "success": true,
+      "passed": true
+    },
+    {
+      "protected": true,
+      "cover_depth": 0,
+      "actual": [
+        10.0,
+        12.0
+      ],
+      "near_point": [
+        10.0,
+        12.0
+      ],
+      "success": true,
+      "passed": true
+    },
+    {
+      "protected": true,
+      "cover_depth": 0,
+      "actual": [
+        10.0,
+        12.0
+      ],
+      "near_point": [
+        9.0,
+        12.0
+      ],
+      "success": true,
+      "passed": true
+    },
+    {
+      "protected": true,
+      "cover_depth": 0,
+      "actual": [
+        10.0,
+        12.0
+      ],
+      "near_point": null,
+      "success": false,
+      "passed": true
+    },
+    {
+      "kind": "cover_context_restored_on_failure",
+      "passed": true
+    },
+    {
+      "kind": "measure_redirect",
+      "protected": true,
+      "passed": true
+    },
+    {
+      "kind": "measure_redirect",
+      "protected": false,
+      "passed": true
+    }
+  ],
+  "all_passed": true
+}

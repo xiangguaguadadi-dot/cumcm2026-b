@@ -1,0 +1,1183 @@
+=== PDF PAGE 1 ===
+Safe Policy Improvement with Baseline Bootstrapping
+Romain Laroche 1 Paul Trichelair 1 Remi Tachet des Combes 1
+Abstract
+This paper considers Safe Policy Improvement
+(SPI) in Batch Reinforcement Learning (Batch
+RL): from a ﬁxed dataset and without direct ac-
+cess to the true environment, train a policy that
+is guaranteed to perform at least as well as the
+baseline policy used to collect the data. Our ap-
+proach, called SPI with Baseline Bootstrapping
+(SPIBB), is inspired by the knows-what-it-knows
+paradigm: it bootstraps the trained policy with
+the baseline when the uncertainty is high. Our
+ﬁrst algorithm, Πb-SPIBB, comes with SPI theo-
+retical guarantees. We also implement a variant,
+Π≤b-SPIBB, that is even more efﬁcient in prac-
+tice. We apply our algorithms to a motivational
+stochastic gridworld domain and further demon-
+strate on randomly generated MDPs the supe-
+riority of SPIBB with respect to existing algo-
+rithms, not only in safety but also in mean perfor-
+mance. Finally, we implement a model-free ver-
+sion of SPIBB and show its beneﬁts on a navi-
+gation task with deep RL implementation called
+SPIBB-DQN, which is, to the best of our knowl-
+edge, the ﬁrst RL algorithm relying on a neural
+network representation able to train efﬁciently
+and reliably from batch data, without any inter-
+action with the environment.
+1. Introduction
+Most real-world Reinforcement Learning agents (Sutton &
+Barto, 1998, RL) are to be deployed simultaneously on nu-
+merous independent devices and cannot be patched quickly.
+In other practical applications, such as crop management
+or clinical tests, the outcome of a treatment can only be
+assessed after several years. Consequently, a bad update
+could be in effect for a long time, potentially hurting the
+user’s trust and/or causing irreversible damages. Devising
+safe algorithms with guarantees on the policy performance
+1Microsoft Research, Montr ´eal, Canada. Correspondence to:
+Romain Laroche<romain.laroche@microsoft.com>.
+Proceedings of the 36 th International Conference on Machine
+Learning, Long Beach, California, PMLR 97, 2019. Copyright
+2019 by the author(s).
+is a key challenge of modern RL that needs to be tackled
+before any wide-scale adoption.
+Batch RL is an existing approach to such ofﬂine settings
+and consists in training a policy on a ﬁxed set of observa-
+tions without access to the true environment (Lange et al.,
+2012). It should not be mistaken with the multi-batch set-
+ting where the learner trains successive policies from small
+batches of interactions with the environment (Duan et al.,
+2016). Current Batch RL algorithms are however either un-
+safe or too costly computationally to be used in real-world
+applications. Safety in RL (Garc ´ıa & Fern´andez, 2015) is
+an overloaded term, as it may be considered with respect to
+parametric uncertainty (Thomas et al., 2015a; Petrik et al.,
+2016), internal uncertainty (Altman, 1999; Carrara et al.,
+2019), interruptibility (Orseau & Armstrong, 2016; Guer-
+raoui et al., 2017), or as exploration in a hazardous envi-
+ronment (Schulman et al., 2015; 2017; Fatemi et al., 2019).
+We focus on the former.
+In this paper, we develop novelsafe and efﬁcient Batch RL
+algorithms. Our methodology for Safe Policy Improvement
+(SPI), called SPI with Baseline Bootstrapping (SPIBB), is
+introduced in Section 2. It consists in bootstrapping the
+trained policy with the behavioral policy, called baseline,
+in the state-action pair transitions that were not probed
+enough in the dataset. It therefore assumes access to the
+baseline, an assumption already made in the SPI litera-
+ture (Petrik et al., 2016). Other SPI algorithms assume
+knowledge of the baseline performance instead (Thomas
+et al., 2015a;b). We argue that our assumption is more nat-
+ural since SPI aims to improve an existing policy. This sce-
+nario is typically encountered when a policy is trained in a
+simulator and then run in its real environment, for instance
+in Transfer RL (Taylor & Stone, 2009); or when a system
+is designed with expert knowledge and then optimized, for
+example in Dialogue applications (Laroche et al., 2010).
+Still in Section 2, we implement a computationally efﬁcient
+algorithm, Πb-SPIBB, that provably approximately outper-
+forms the baseline with high conﬁdence. At the expense
+of theoretical guarantees, we design a variant,Π≤b-SPIBB,
+that is even more efﬁcient in practice. Moreover, we im-
+plement an equivalent model-free version. Coupled with
+a pseudo-count implementation (Bellemare et al., 2016),
+it allows applying SPIBB algorithms to tasks requiring a
+
+=== PDF PAGE 2 ===
+Safe Policy Improvement with Baseline Bootstrapping
+neural network representation. Finally, we position our al-
+gorithm with respect to competing SPI algorithms found in
+the literature.
+Then, in Section 3, we motivate our approach on a small
+stochastic gridworld domain and further demonstrate on
+randomly generated MDPs the superiority of SPIBB com-
+pared to existing algorithms, not only in safety but also in
+mean performance. Furthermore, we apply the model-free
+version to a continuous navigation task. It is, to the best of
+our knowledge, the ﬁrst RL algorithm relying on a neural
+network representation able to train efﬁciently and reliably
+from batch data, without any interaction with the environ-
+ment (Duan et al., 2016).
+Finally, Section 4 concludes the paper. The appendix
+includes the proofs, thorough experiment details, and the
+complete results of experiments. The code may be found at
+https://github.com/RomainLaroche/SPIBB
+and https://github.com/rems75/SPIBB-DQN.
+2. SPI with Baseline Bootstrapping
+A proper introduction to Markov Decision Processes (Bell-
+man, 1957, MDPs) and Reinforcement Learning (Sutton
+& Barto, 1998, RL) is available in Appendix A.1. Due to
+space constraint, we only deﬁne our notations here.
+An MDP is denoted by M = ⟨X,A,R,P,γ ⟩, where
+X is the state space, A is the action space, R∗(x,a ) ∈
+[−Rmax,Rmax] is the bounded stochastic reward function,
+P∗(·|x,a ) is the transition distribution, and γ ∈ [0, 1) is
+the discount factor. The true environment is modelled as
+an unknown ﬁnite MDP M∗ = ⟨X,A,R∗,P∗,γ⟩ with
+R∗(x,a ) ∈ [−Rmax,Rmax]. Π = {π : X → ∆A} is
+the set of stochastic policies, where ∆A denotes the set of
+probability distributions over the set of actionsA.
+The state and state-action value functions are respectively
+denoted by Vπ
+M(x) and Qπ
+M(x,a ). We deﬁne the perfor-
+mance of a policy by its expected return, starting from
+the initial state x0: ρ(π,M ) = Vπ
+M(x0). Given a policy
+subset Π′ ⊆ Π, a policy π′ is said to be Π′-optimal for
+an MDP M when it maximizes its performance on Π′:
+ρ(π′,M ) = maxπ∈Π′ρ(π,M ). We will also make use of
+the notation Vmax as a known upper bound of the return’s
+absolute value:Vmax≤ Rmax
+1−γ .
+In this paper, we focus on the batch RL setting where
+the algorithm does its best at learning a policy from a
+ﬁxed set of experience. Given a dataset of transitionsD =
+⟨xj,aj,rj,x′
+j⟩j∈J1,N K, we denote by ND(x,a ) the state-
+action pair counts; and by ˆM =⟨X,A,ˆR,ˆP,γ⟩ the Max-
+imum Likelihood Estimation (MLE) MDP of the environ-
+ment, where ˆR is the reward mean and ˆP is the transition
+statistics observed in the dataset. Vanilla batch RL, referred
+hereinafter as Basic RL, looks for the optimal policy inˆM.
+This policy may be found indifferently using dynamic pro-
+gramming on the explicitly modelled MDPˆM,Q-learning
+with experience replay until convergence (Sutton & Barto,
+1998), or Fitted-Q Iteration with a one-hot vector represen-
+tation of the state space (Ernst et al., 2005).
+2.1. Percentile criterion and Robust MDPs
+We start from the percentile criterion (Delage & Mannor,
+2010) on the safe policy improvement over the baselineπb:
+πC = argmax
+π∈Π
+E [ρ(π,M )|M∼ PMDP(·|D)], (1)
+s.t. P (ρ(π,M )≥ρ(πb,M )−ζ|M∼ PMDP(·|D))≥ 1−δ,
+where PMDP(·|D) is the posterior probability of the MDP
+parameters, 1−δ is the high probability meta-parameter,
+and ζ is the approximation meta-parameter. (Petrik et al.,
+2016) use Robust MDP (Iyengar, 2005; Nilim & El Ghaoui,
+2005) to bound from below the constraint in (1) by consid-
+ering a set of admissible MDPs Ξ = Ξ(ˆM,e ) deﬁned as:
+Ξ(ˆM,e ) :={M =⟨X,A,R,P,γ ⟩ s.t.∀(x,a )∈X×A ,
+||P (·|x,a )− ˆP (·|x,a )||1≤e(x,a ),
+|R(x,a )− ˆR(x,a )|≤ e(x,a )Rmax
+}
+(2)
+wheree :X×A→ R is an error function depending on
+D and δ. In place of the intractable expectation in Equa-
+tion (1), Robust MDP classically consider optimizing the
+policy performance ρ(π,M ) of the worst-case scenario in
+Ξ:
+πR = argmax
+π∈Π
+min
+M∈Ξ
+ρ(π,M ). (3)
+In our benchmarks, we use the Robust MDP solver de-
+scribed in Petrik et al. (2016). Petrik et al. (2016) also con-
+template the policy improvement worst-case scenario:
+πS = argmax
+π∈Π
+min
+M∈Ξ
+(ρ(π,M )−ρ(πb,M )). (4)
+They prove that this optimization is an NP-hard problem
+and propose an algorithm approximating the solution with-
+out any formal proof: Approximate Robust Baseline Regret
+Minimization (ARBRM). There are three problems with
+ARBRM. First, it assumes that there is no error in the tran-
+sition probabilities of the baseline, which is very restrictive
+and amounts to Basic RL when the support of the base-
+line is the full action space in each state (as is the case
+in all our experiments). Second, given its high complex-
+ity, it is difﬁcult to empirically assess its percentile crite-
+rion safety except on simple tasks. Third, in order to retain
+safety guarantees, ARBRM requires a conservative safety
+test that consistently fails in our experiments. These are the
+reasons why our benchmarks do not include ARBRM.
+
+=== PDF PAGE 3 ===
+Safe Policy Improvement with Baseline Bootstrapping
+2.2. SPIBB methodology
+In this section, we reformulate the percentile criterion to
+make searching for an efﬁcient and provably-safe policy
+tractable in terms of computer time. Our new criterion con-
+sists in optimizing the policy with respect to its perfor-
+mance in the MDP estimate ˆM, while guaranteeing it to
+beζ-approximately at least as good asπb in the admissible
+MDP set Ξ. Formally, we write it as follows:
+max
+π∈Π
+ρ(π,ˆM), s.t.∀M∈ Ξ,ρ (π,M )≥ρ(πb,M )−ζ.
+(5)
+From Theorem 8 of Petrik et al. (2016), it is direct to guar-
+antee that, if all the state-action pair counts satisfy:
+ND(x,a )≥N∧ = 8V 2
+max
+ζ2(1−γ)2 log 2|X||A| 2|X|
+δ , (6)
+and if ˆM is the Maximum Likelihood Estimation (MLE)
+MDP, then, with high probability 1−δ, the optimal policy
+π⊙ = argmaxπ∈Πρ(π,ˆM) in ˆM isζ-approximately safe
+with respect to the true environmentM∗:
+ρ(π⊙,M∗)≥ρ(π∗,M∗)−ζ≥ρ(πb,M∗)−ζ. (7)
+In the following, we extend this result by allowing con-
+straint (6) to be violated on a subset of the state-action pairs
+X×A , called the bootstrapped set and denoted by B. B is
+the set of state-action pairs with counts smaller thanN∧.
+2.3. Πb-SPIBB
+In this section, we develop two novel algorithms based
+on policy bootstrapping and prove associated SPI bounds.
+More precisely, when a state-action pair (x,a ) is rarely
+seen in the dataset, we propose to rely on the baseline by
+copying its probability to take actiona:
+π⊙
+spibb(a|x) =πb(a|x) if (x,a )∈ B. (8)
+We let Πb denote the set of policies that verify (8) for all
+state-action pairs. Our ﬁrst algorithm, coined Πb-SPIBB,
+consists in the usual policy optimization of the expected
+returnρ(π,ˆM) under constraint (8). In practice, it may be
+achieved in a model-based manner by explicitly computing
+the MDP modelˆM, constructing the set of allowed policies
+Πb and ﬁnally searching for the Πb-optimal policy π⊙
+spibb
+inˆM using policy iteration over Πb (Howard, 1966; Puter-
+man & Brumelle, 1979). In the policy evaluation step, the
+current policy π(i) is evaluated as Q(i)
+ˆM . In the policy im-
+provement step,π(i+1) is deﬁned as the greedy policy with
+respect toQ(i) under the constraint of belonging toΠb (Al-
+gorithm 1 describes how to enforce this constraint in linear
+time).
+Algorithm 1 Greedy projection ofQ(i) on Πb
+Input: Baseline policyπb
+Input: Last iteration value functionQ(i)
+Input: Set of bootstrapped state-action pairs B
+Input: Current statex and action setA
+Initializeπ(i)
+spibb = 0
+for (x,a )∈ B do π(i)
+spibb(a|x) =πb(a|x) ;
+π(i)
+spibb
+(
+x, argmax
+a|(x,a)/∈B
+Q(i)(x,a )
+)
+=
+∑
+a|(x,a)/∈B
+πb(a|x)
+returnπ(i)
+spibb
+The following theorems prove thatΠb-SPIBB converges to
+a Πb-optimal policyπ⊙
+spibb, and that π⊙
+spibb is a safe policy
+improvement over the baseline in the true MDPM∗.
+Theorem 1 (Convergence). Πb-SPIBB converges to a pol-
+icyπ⊙
+spibb that is Πb-optimal in the MLE MDPˆM.
+Theorem 2 (Safe policy improvement) . Let Πb be the
+set of policies under the constraint of following πb when
+(x,a )∈ B. Then,π⊙
+spibb is aζ-approximate safe policy im-
+provement over the baselineπb with high probability 1−δ,
+where:
+ζ = 4Vmax
+1−γ
+√
+2
+N∧
+log 2|X||A| 2|X|
+δ −ρ(π⊙
+spibb,ˆM)+ρ(πb,ˆM)
+Proofs of both theorems are available in Appendix A.3.
+Theorem 1 is a direct application of the classical policy iter-
+ation theorem. Theorem 2 is a generalization of Theorem 8
+in Petrik et al. (2016). The resulting bounds may look very
+similar at ﬁrst. The crucial difference is that, in our case,
+N∧ is not a property of the dataset, but a hyper-parameter
+of the algorithm. In all our experiments, ‖e‖∞ from The-
+orem 8 would be equal to 2, leading to a trivial bound. In
+comparison, Πb-SPIBB allows safe improvement if N∧ is
+chosen large enough to ensure safety and small enough to
+ensure improvement.
+SPIBB takes inspiration from Petrik et al. (2016)’s idea of
+ﬁnding a policy that is guaranteed to be an improvement
+for any realization of the uncertain parameters, and simi-
+larly estimates the error on those parameters, as a function
+of the state-action pair counts. But instead of searching for
+the analytic optimum, SPIBB looks for a solution that im-
+proves the baseline when it can guarantee improvement and
+falls back on the baseline when the uncertainty is too high.
+One can see it as a knows-what-it-knows algorithm, asking
+for help from the baseline when itdoes not know whether it
+knows (Li et al., 2008). As such, our algorithms can be seen
+as pessimistic, the ﬂip side of optimism in the face of un-
+certainty (Szita & L ˝orincz, 2008). As a consequence, Πb-
+
+=== PDF PAGE 4 ===
+Safe Policy Improvement with Baseline Bootstrapping
+SPIBB is not optimal with respect to the criterion in Equa-
+tion (5). But in return, it is inherently safe as it only allows
+to search in a set of policies for which the improvement
+over the baseline can be safely evaluated (Thomas et al.,
+2017). It is also worth mentioning that SPIBB is compu-
+tationally simple, which allows us to develop the SPIBB-
+DQN algorithm in the next section.
+2.4. Model-free Πb-SPIBB and SPIBB-DQN
+The Πb-SPIBB policy optimization may indifferently be
+achieved in a model-free manner by ﬁtting the Q-function
+to the following target y(i)
+j over the transition samples in
+the datasetD =⟨xj,aj,rj,x′
+j⟩j∈J1,N K:
+y(i)
+j =rj +γ
+∑
+a′|(x′
+j,a′)∈B
+πb(a′|x′
+j)Q(i)(x′
+j,a′) (9)
++γ
+
+ ∑
+a′|(x′
+j,a′)/∈B
+πb(a′|x′
+j)
+
+ max
+a′|(x′
+j,a′)/∈B
+Q(i)(x′
+j,a′)
+The ﬁrst term rj is the immediate reward observed during
+the recorded transition, the second term is the return esti-
+mate of the bootstrapped actions (where the trained policy
+is constrained to the baseline policy), and the third term is
+the return estimate maximized over the non-bootstrapped
+actions. SPIBB-DQN is the DQN algorithm ﬁtted to these
+targets y(i)
+j (Mnih et al., 2015). Note that computing the
+SPIBB targets requires determining the bootstrapped set
+B, which relies on an estimate of the state-action counts
+~ND(x,a ), also called pseudo-counts (Bellemare et al.,
+2016; Fox et al., 2018; Burda et al., 2019).
+Theorem 3. In ﬁnite MDPs, Equation 9 admits a unique
+ﬁxed point that coincides with the Q-value of the policy
+trained with model-based Πb-SPIBB.
+2.5. Π≤b-SPIBB
+In our empirical evaluation, we consider a variant of Πb-
+SPIBB: the space of policies to search is relaxed to Π≤b,
+the set of policies that do not to give more weight than πb
+to bootstrapped actions. As a consequence, in comparison
+with Πb-SPIBB, it allows to cut off bad performing actions
+even when their estimate is imprecise:
+Π≤b ={π∈ Π|π(a|x)≤πb(a|x) if (x,a )∈ B} (10)
+The resulting algorithm is referred as Π≤b-SPIBB and
+amounts, as for Πb-SPIBB, to perform a policy iteration
+under the policy constraint to belong to Π≤b. The conver-
+gence guarantees of Theorem 1 still apply to Π≤b-SPIBB,
+but we lose the SPI ones.
+Algorithm 2 in Appendix A.4, describes the greedy projec-
+tion ofQ(i) on Π≤b. Appendix A.5 also includes a compre-
+hensive example that illustrates the difference between the
+Πb-SPIBB and Π≤b-SPIBB policy improvement steps. De-
+spite the lack of safety guarantees, our experiments show
+Π≤b-SPIBB to be even safer than Πb-SPIBB while outper-
+forming it in most scenarios. Multi-batch settings – where
+it may be better to keep exploring the bootstrapped pairs –
+might be an exception (Lange et al., 2012).
+2.6. Other related works
+High-Conﬁdence PI refers to the family of algorithms in-
+troduced in Paduraru (2013); Mandel et al. (2014); Thomas
+et al. (2015a), which rely on the ability to produce high-
+conﬁdence lower bound on the Importance Sampling (IS)
+estimate of the trained policy performance. IS and SPIBB
+approaches are very different in nature: IS provides fre-
+quentist bounds, while SPIBB provides Bayesian bounds.
+In comparison to SPIBB, IS has the advantage of not de-
+pending on the MDP model and as a consequence may be
+applied to inﬁnite MDPs with guarantees. However, the IS
+estimates are known to be high variance. Another drawback
+of the IS approach is that it fails for long horizon problem.
+Indeed, Guo et al. (2017) show that the amount of data
+required by IS-based SPI algorithms scales exponentially
+with the horizon of the MDP. Regarding the dependency in
+the horizon of SPIBB algorithms, the discount factor γ is
+often translated as a planning horizon: H = 1
+1−γ . This is
+the case in UCT for instance (Kocsis & Szepesv´ari, 2006).
+As a consequence, Theorem 2 tells us that the safety is lin-
+ear in the horizon (given a ﬁxedVmax).
+In Kakade & Langford (2002), Conservative Policy Itera-
+tion (CPI) not only assumes access to the environment, but
+also to a µ-restart mechanism which can basically sample
+at will from the environment according to a distribution µ.
+This is used in step (2) of the CPI algorithm to build an es-
+timate of the advantage function precise enough to ensure
+policy improvement with high probability. SPIBB does not
+have access to the true environment: all it sees are the ﬁnite
+samples from the batch. Similarly, Pirotta et al. (2013a;b)
+consider a single safe policy improvement in order to speed
+up training of policy gradients (use less policy iterations).
+These are however not safe in the sense of ﬁnding a pol-
+icy that improves a previous policy with high conﬁdence:
+they will converge to the same policy asymptotically, the
+optimal one in the MLE MDP. Additionally, they are not
+considering the batch setting.
+3. SPIBB Empirical Evaluation
+The performance of Batch RL algorithms can vary greatly
+from one dataset to another. To properly assess existing
+and SPIBB algorithms, we evaluate their ability to gener-
+ate policies that consistently outperform the baseline. Prac-
+tically, we repeated 100k times the following procedure on
+
+=== PDF PAGE 5 ===
+Safe Policy Improvement with Baseline Bootstrapping
+S
+G
+S
+G
+(a) Gridworld domain.
+10 20 50 100 200 500 1000 2000 5000 10000
+Number of trajectories
+5
+7
+10
+15
+20
+30
+50
+70
+100
+N∧
+−1.00 −0.75 −0.50 −0.25 0.00 0.25 0.50 0.75 1.00
+Normalized performance of the target policy π: ρ = ρ(π, M∗)− ρb
+ρ∗− ρb
+ (b) 1%-CVaR heatmap:Πb-SPIBB.
+10 20 50 100 200 500 1000 2000 5000 10000
+Number of trajectories
+5
+7
+10
+15
+20
+30
+50
+70
+100
+N∧
+−1.00 −0.75 −0.50 −0.25 0.00 0.25 0.50 0.75 1.00
+Normalized performance of the target policy π: ρ = ρ(π, M∗)− ρb
+ρ∗− ρb
+ (c) 1%-CVaR heatmap:Π≤b-SPIBB.
+101 102 103 104
+number of trajectories in dataset D
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+performance
+Baseline
+Optimal policy
+Basic RL mean
+perf RaMDP mean
+Robust MDP mean
+HCPI doubly robust mean
+Π b-SPIBB mean
+Π ≤b-SPIBB mean
+(d) Mean: benchmark withN∧ = 5.
+101 102 103 104
+number of trajectories in dataset D
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+performance
+Baseline
+Optimal policy
+Basic RL 1%-CVaR
+perf RaMDP 1%-CVaR
+Robust MDP 1%-CVaR
+HCPI doubly robust 1%-CVaR
+Π b-SPIBB 1%-CVaR
+Π ≤b-SPIBB 1%-CVaR (e) 1%-CVaR: benchmark withN∧ = 5.
+101 102 103 104
+number of trajectories in dataset D
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+performance
+Baseline
+Optimal policy
+Π b-SPIBB mean
+Π ≤b-SPIBB mean
+Π b-SPIBB 1%-CVaR
+Π ≤b-SPIBB 1%-CVaR (f) Mean & 1%-CVaR: SPIBB w.N∧ = 20.
+Figure 1. Gridworld experiment: Figure (a) illustrates the domain with an optimal trajectory. Figures (b-c) are heatmaps of the 1%-CVaR
+normalized performance of the SPIBB algorithms as a function of N∧. Figures (d-e) show the benchmark for the mean and 1%-CVaR
+performance. Figure (f) displays additional curves for another value ofN∧.
+various environments: randomly generate a dataset, train a
+policy on that dataset using each algorithm and each hyper-
+parameter in the benchmark and compute the performance
+of the trained policy (with γ = 0.95). We formalize this
+experimental protocol in Appendix B.1.1. The algorithms
+are then evaluated using the mean performance and con-
+ditional value at risk performance (CVaR, also called ex-
+pected shortfall) of the policies they produced. The X%-
+CVaR is the mean performance over the X% worst runs.
+Given the high number of runs, all the results that are visi-
+ble to the naked eye are signiﬁcant.
+In addition to the SPIBB algorithms, our ﬁnite MDP bench-
+mark contains four algorithms: Basic RL, HCPI (Thomas
+et al., 2015a), Robust MDP, and RaMDP (Petrik et al.,
+2016). RaMDP stands for Reward-adjusted MDP and ap-
+plies an exploration penalty when performing actions rarely
+observed in the dataset. At the exception of Basic RL, they
+all rely on one hyper-parameter: δhcpi, δrob and κadj re-
+spectively. We performed a grid search on those parame-
+ters and for HCPI compared 3 versions. In the main text,
+we only report the best performance we found (δhcpi = 0.9,
+δrob = 0.1, andκadj = 0.003), the full results can be found
+in Appendix B.2. Additionally, Robust MDP and RaMDP
+depend on a safety test that always failed in our experi-
+ments. We still report their performance.
+3.1. Does SPIBB outperform existing algorithms?
+Our ﬁrst domain is a discrete, stochastic, 5× 5 gridworld
+(see Figure 1(a)), with 4 actions: up, down, left and right.
+The transitions are stochastic: the agent moves in the re-
+quested direction with 75% chance, in the opposite one
+with 5% chance and to either side with 10% chance each.
+The initial and ﬁnal states are respectively the bottom left
+and top right corners. The reward function is +1 when the
+ﬁnal state is reached and 0 everywhere else. The baseline
+we use in this experiment is a ﬁxed stochastic policy with a
+0.4 performance, the optimal policy has a 0.6 performance.
+We start by analysing the sensitivity of Πb-SPIBB and
+Π≤b-SPIBB with respect to N∧. We visually represent the
+results as two 1%-CVaR heatmaps: Figures 1(b) and 1(c)
+for Πb-SPIBB and Π≤b-SPIBB. They read as follows: the
+colour of a cell indicates the improvement over the base-
+line normalized with respect to the optimal performance:
+red, yellow, and green respectively mean below, equal to,
+and above baseline performance. We observe for SPIBB al-
+gorithms that the policy improvement is safe (at the slight
+exception of Πb-SPIBB with a low N∧ on 10-trajectory
+datasets), that the bigger the N∧, the more conservative
+SPIBB gets, and that Π≤b-SPIBB outperforms Πb-SPIBB.
+In Figure 1(d), we see that Basic RL improves the base-
+
+=== PDF PAGE 6 ===
+Safe Policy Improvement with Baseline Bootstrapping
+101 102 103 104
+number of trajectories in dataset D
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+performance
+Baseline
+Optimal policy
+Basic RL 1%-CVaR
+perf RaMDP 1%-CVaR
+Robust MDP 1%-CVaR
+HCPI doubly robust 1%-CVaR
+Π b-SPIBB 1%-CVaR
+Π ≤b-SPIBB 1%-CVaR
+(a) 1%-CVaR benchmark withN∧ = 20.
+10 20 50 100 200 500 1000 2000 5000 10000
+Number of trajectories
+5
+7
+10
+15
+20
+30
+50
+70
+100
+N∧
+−1.00 −0.75 −0.50 −0.25 0.00 0.25 0.50 0.75 1.00
+Normalized performance of the target policy π: ρ = ρ(π, M∗)− ρb
+ρ∗− ρb
+ (b) 1%-CVaR heatmap:Πb-SPIBB.
+10 20 50 100 200 500 1000 2000 5000 10000
+Number of trajectories
+5
+7
+10
+15
+20
+30
+50
+70
+100
+N∧
+−1.00 −0.75 −0.50 −0.25 0.00 0.25 0.50 0.75 1.00
+Normalized performance of the target policy π: ρ = ρ(π, M∗)− ρb
+ρ∗− ρb
+ (c) 1%-CVaR heatmap:Π≤b-SPIBB.
+Figure 2. Gridworld experiment with random behavioural policy: Figure (a) shows the benchmark for the 1%-CVaR performance, with
+SPIBB usingN∧ = 20. Figures (b-c) are the heatmaps of the 1%-CVaR normalized performance of the SPIBB algorithms as a function
+ofN∧ (same heat colours as in Figures 1(b) and 1(c)).
+line on average, but not monotonically with the size of the
+dataset, and remains quite far from optimal. That fact is
+explained by the fairly frequent learning of catastrophic
+policies and will be analyzed in details with the 1%-CVaR
+results. HCPI is more conservative for small datasets but
+slightly outperforms Basic RL for bigger ones, still re-
+maining away from optimal. We also observe that Robust
+MDPs do even worse than Basic RL; in fact, they learn
+policies that remain at the center of the grid where the
+dataset contains a maximum of transitions and therefore
+where the Robust MDPs have a minimal estimate error,
+and completely ignore the goal. A similar behaviour is ob-
+served with RaMDP when its hyper-parameter is set too
+high (≥ 0.004). Inversely, when it is set too low (≤ 0.002),
+RaMDP behaves like Basic RL. But in the tight spot of
+0.003, RaMDP is very efﬁcient. We refer the interested
+reader to Appendix B.2 for the analysis of hyper-parameter
+search for the benchmark algorithms. Overall, RaMDP and
+Π≤b-SPIBB win this benchmark based on mean perfor-
+mance, with Πb-SPIBB not far behind.
+Figure 1(e) displays the 1%-CVaR performance of the al-
+gorithms. We observe that the very good mean performance
+of RaMDP hides some catastrophic runs where the trained
+policy under-performs for small datasets. In contrast, Π≤b-
+SPIBB’s curve remains over the baseline. Πb-SPIBB is
+again a bit behind. HCPI also proves to be near safe. We
+explained in the previous paragraph why Robust MDP of-
+ten generates bad policies. It actually does it so often, and
+the policies are so bad, that its curve does not even show on
+the graph. Let us now consider Basic RL and explain why it
+does so poorly, even at times on very large datasets (consid-
+ering that the MDP has 25 states and 4 actions). The dataset
+is collected using a baseline that performs some actions
+only very rarely. As a consequence, even in big datasets,
+some state-action pairs are observed only once or twice.
+Given the stochasticity of the environment, the MLE MDP
+might be quite different from the true MDP in those states,
+leading to policies falsely taking advantage of those chi-
+maeras. SPIBB algorithms are not allowed to jump to con-
+clusions without sufﬁcient proof and have to conservatively
+reproduce the baseline policy in those conﬁgurations.
+Figure 1(f) shows the SPIBB curves for a higher value of
+N∧ = 20. There, the algorithms are more conservative and
+therefore safe, while still achieving near optimality on big
+datasets. Full results may be found in Appendix C.1.
+3.2. Must the dataset be collected with the baseline?
+SPIBB theory relies on the assumption that the baseline
+was used for the data collection, which is a limiting fac-
+tor of the method. In practice, this assumption simply en-
+sures that the preferential trajectories of the baseline are
+experienced in the batch of trajectories used for training.
+We modify the previous experiment by producing datasets
+using a uniform random policy, while keeping the same
+Gridworld environment and the same baseline for boot-
+strapping. In this setting, Basic RL does not have its non-
+monotonic behaviour anymore, but both our algorithms,
+Πb-SPIBB and Π≤b-SPIBB, still signiﬁcantly outperform
+their competitors (see Figure 2(a)). Note however the fol-
+lowing differences: Basic RL becomes safe with 100 trajec-
+tories, RaMDP does not improve Basic RL anymore, and
+HCPI has more difﬁculty improving the baseline. Robust
+MDP still does not show on the 1%-CVaR ﬁgure. Focusing
+more speciﬁcally on the SPIBB algorithms and their N∧
+sensitivity, Figures 2(b) and 2(c) show that they fail to be
+completely safe when N∧ ≤ 10 and|D|≤ 20; and that
+Πb-SPIBB slightly outperforms Π≤b-SPIBB. Indeed, Π≤b-
+SPIBB cannot take advantage anymore of the bias that the
+behavioural policy tends to take actions that are better than
+average. Full results may be found in Appendix C.2.
+3.3. Does SPIBB achieve SPI in most domains?
+In this section, we study the conditions required on the en-
+vironment and on the baseline for SPIBB to be helpful.
+To do so, we use a generator of Random MDPs where the
+
+=== PDF PAGE 7 ===
+Safe Policy Improvement with Baseline Bootstrapping
+101 102 103
+number of trajectories in dataset D
+−0.2
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+ρ = ρ(π, M∗)− ρb
+ρ∗− ρb
+ Baseline
+Optimal policy
+Basic RL mean
+RaMDP mean
+Robust MDP mean
+HCPI doubly robust mean
+Π b-SPIBB mean
+Π ≤b-SPIBB mean
+(a) Mean: withη = 0.1 andN∧ = 10.
+101 102 103
+number of trajectories in dataset D
+−0.2
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+ρ = ρ(π, M∗)− ρb
+ρ∗− ρb
+Baseline
+Optimal policy
+Basic RL mean
+RaMDP mean
+Robust MDP mean
+HCPI doubly robust mean
+Π b-SPIBB mean
+Π ≤b-SPIBB mean (b) Mean: withη = 0.9 andN∧ = 10.
+101 102 103
+number of trajectories in dataset D
+−3.0
+−2.5
+−2.0
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+1.0
+ρ = ρ(π, M∗)− ρb
+ρ∗− ρb
+ Baseline
+Optimal policy
+Basic RL 1%-CVaR
+RaMDP 1%-CVaR
+Robust MDP 1%-CVaR
+HCPI doubly robust 1%-CVaR
+Π b-SPIBB 1%-CVaR
+Π ≤b-SPIBB 1%-CVaR (c) 1%-CVaR: withη = 0.9 andN∧ = 10.
+10 20 50 100 200 500 1000 2000
+Number of trajectories
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+Normalized performance of the baseline: η = ρb− ρrand
+ρ∗− ρrand
+−1.00 −0.75 −0.50 −0.25 0.00 0.25 0.50 0.75 1.00
+Normalized performance of the target policy π: ρ = ρ(π, M∗)− ρb
+ρ∗− ρb
+(d) 1%-CVaR: RaMDP withδad j = 0.003.
+10 20 50 100 200 500 1000 2000
+Number of trajectories
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+Normalized performance of the baseline: η = ρb− ρrand
+ρ∗− ρrand
+−1.00 −0.75 −0.50 −0.25 0.00 0.25 0.50 0.75 1.00
+Normalized performance of the target policy π: ρ = ρ(π, M∗)− ρb
+ρ∗− ρb
+ (e) 1%-CVaR:Π≤b-SPIBB withN∧ = 10.
+10 20 50 100 200 500 1000 2000
+Number of trajectories
+5
+7
+10
+15
+20
+30
+50
+70
+100
+N∧
+−1.00 −0.75 −0.50 −0.25 0.00 0.25 0.50 0.75 1.00
+Normalized performance of the target policy π: ρ = ρ(π, M∗)− ρb
+ρ∗− ρb
+ (f) 1%-CVaR:Π≤b-SPIBB withη = 0.9.
+Figure 3. Random MDPs domain: Figures (a-c) show the mean and 1%-CVaR performances for η values of 0.1 and 0.9 and SPIBB
+withN∧ = 10. Figures (d-e) are the 1%-CVaR as a function ofη for RaMDP and Π≤b-SPIBB respectively. Figure (f) is the 1%-CVaR
+heatmap for Π≤b-SPIBB as a function ofN∧ withη = 0.9.
+number of states has been ﬁxed to |X| = 50 , the number
+of actions to|A| = 4 and the connectivity of the transition
+function to 4. This means that for a given state-action pair
+(x,a ), its transition functionP (x′|x,a ) is non-zero on four
+states x′ only. The initial state is ﬁxed at x0. The reward
+function is 0 everywhere except when entering the termi-
+nal state, where it equals 1. The terminal state is chosen in
+such a way that the optimal value function is minimal. It
+coarsely amounts to choosing the state that is the hardest to
+reach/farthest fromx0. For a randomly generated MDPM,
+we generate baselines with different levels of performance
+(the process is detailed in Appendix B.1.4). Speciﬁcally, we
+set a target performance for the baseline based on a hyper-
+parameter η ∈ {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9}:
+ρ(πb,M ) = ηρ(π∗,M ) + (1−η)ρ(˜π,M ), whereπ∗ and
+˜π are respectively the optimal and the uniform policies.
+Figure 3(a) shows the mean results with a bad, highly
+stochastic baseline (η = 0.1). Since, the baseline is bad, it
+is an easy task to safely improve it. Basic RL and RaMDP
+dominate the benchmark in mean, but also in safety (not
+shown). SPIBB algorithms are too conservative for small
+datasets but catch up on the bigger ones. Figure 3(b) shows
+the mean results with a very good baseline, therefore very
+hard task to safely improve. On average, the podium is
+composed by Π≤b-SPIBB, RaMDP, Πb-SPIBB, followed
+closely by Basic RL. But, when one considers more specif-
+ically the 1%-CVaR performance, all fail to be safe but
+the SPIBB algorithms. Note that a -0.5 normalized per-
+formance is still a good performance, and that this loss is
+actually predicted by the theory: Theorem 2 proves a ζ-
+approximate safe policy improvement.
+The heatmaps shown in Figures 3(d) and 3(e) allow us
+to compare more globally the 1%-CVaR performance of
+RaMDP and Π≤b-SPIBB. One observes that the former is
+unsafe in a large area of the map (where it is red, for highη
+or small datasets), while the latter is safe everywhere. Fig-
+ure 3(f) displays a heatmap of the Π≤b-SPIBB 1%-CVaR
+performance in the hardest scenario (η = 0.9) in function
+of its N∧ hyper-parameter. Unsurprisingly, the algorithm
+becomes slightly unsafe when N∧ gets too low. As it in-
+creases, the red stains disappear meaning that it becomes
+completely safe. The green sections show that it still allows
+for some policy improvement. Full results may be found in
+Appendix C.3.
+3.4. Does SPIBB scale to larger tasks?
+For the sake of simplicity and to be able to repeat sev-
+eral runs of each experiment efﬁciently, instead of apply-
+ing pseudo-count methods from the literature (Bellemare
+et al., 2016; Fox et al., 2018; Burda et al., 2019), we con-
+sider here a pseudo-count heuristic based on the Euclidean
+state-distance, and a task where it makes sense to do so. The
+pseudo-count of a state-action (x,a ) is deﬁned as the sum
+of its similarity with the state-action pairs (xi,ai) found
+
+=== PDF PAGE 8 ===
+Safe Policy Improvement with Baseline Bootstrapping
+(a) Helicopter environment.
+0 5 10 15 20
+N∧
+−1
+0
+1
+2
+3
+performance
+Baseline, mean
+|D| = 10000, mean
+|D| = 20000, mean
+|D| = 30000, mean
+Baseline, 10%-CVaR
+|D| = 10000, 10%-CVaR
+|D| = 20000, 10%-CVaR
+|D| = 30000, 10%-CVaR (b) Mean and 10%-CVaR in function ofN∧.
+0.6 0.8 1.0 1.2 1.4 1.6 1.8 2.0
+noise level
+−1
+0
+1
+2
+3
+4
+performance
+Baseline
+DQN
+SPIBB-DQN, N∧ = 5
+SPIBB-DQN, N∧ = 10 (c) Performance in function of the noise factor.
+Figure 4. SPIBB-DQN experiments: Figure (a) is an illustration of the environment. Figure (b) displays the mean and 10%-CVaR per-
+formance as a function ofN∧ for three dataset sizes. Figure (c) displays the mean and 10%-CVaR performance for the baseline, vanilla
+DQN, RaMDP withκad j = 0.01, SPIBB-DQN withN∧ = 5, and withN∧ = 10, as a function of the transition noise factor.
+in the dataset. The similarity between (x,a ) and (xi,ai) is
+equal to 0 ifai⁄=a, and to max(0, 1−d(x,xi)) otherwise,
+whered(·,·) is the Euclidean distance between two states.
+We consider a helicopter navigation task (see Figure 4(a)).
+The helicopter starts from a random position in the teal
+area, with a random initial velocity. The 9 available actions
+consist in applying thrust: backward, no, or forward accel-
+eration, along the two dimensions. The episode terminates
+when the velocity exceeds some maximal value, in which
+case it gets a -1 reward, or when the helicopter leaves the
+blue area, in which case it gets a reward as chromatically
+indicated on Figure 4(a). The dynamics of the domain fol-
+low the basic laws of physics with a Gaussian centered ad-
+ditive noise both on the position and the velocity, see Ap-
+pendix D.1 for full details of the domain. To train our al-
+gorithms, we use a discount factor γ = 0.9, but we report
+in our results the undiscounted ﬁnal reward. The baseline
+is generated as follows: we ﬁrst train a policy with on-
+line DQN, stop before full convergence and then apply a
+softmax on the obtainedQ-network. Our experiments con-
+sist in 300 runs on SPIBB-DQN with a range ofN∧ values
+and for different dataset sizes. SPIBB-DQN with N∧ = 0
+is equivalent to vanilla DQN. We also tried RaMDP with
+several values of κadj∈ [0.001, 0.1] without any success.
+For ﬁgure clarity, we do not report RaMDP in the Main
+Document ﬁgures. The set of used parameters and the re-
+sults of the preliminary experiments are reported in Appen-
+dices D.3 and D.4.
+Figure 4(b) displays the mean and 10%-CVaR perfor-
+mances in function ofN∧ for three dataset sizes (10k, 20k,
+and 30k). We observe that vanilla DQN (N∧ = 0) signiﬁ-
+cantly worsens the baseline in mean and achieves the worst
+possible 10%-CVaR performance. SPIBB-DQN not only
+signiﬁcantly improves the baseline in mean performance
+for N∧ ≥ 1, but also in 10%-CVaR when N∧ ≥ 8. The
+discerning reader might wonder about the CVaR curve for
+the baseline. It is explained by the fact that the evaluation
+of the policies are not exact. The curve accounts for the
+evaluation errors, errors also obviously encountered with
+the trained policies.
+We performed an additional experiment. Keeping the base-
+line identical, we trained on 10k-transitions datasets ob-
+tained from environments with a different transition noise.
+Figure 4(c) shows the mean and 10%-CVaR performances
+for the baseline, vanilla DQN, and SPIBB-DQN with
+N∧∈{ 5, 10}. First, we observe that vanilla DQN performs
+abysmally. Second, we see that the baseline quickly gets
+more efﬁcient when the noise is removed making the safe
+policy improvement task harder for SPIBB-DQN. SPIBB is
+efﬁcient at dealing with stochasticity, the noise attenuation
+reduces its usefulness. Third, as we get to higher noise fac-
+tors, the stochasticity becomes too high to efﬁciently aim
+at the goal, but SPIBB algorithms still succeed at safely
+improving the baseline.
+4. Conclusion and Future Work
+In this paper, we tackle the problem of safe Batch Rein-
+forcement Learning. We reformulate the percentile crite-
+rion without compromising its safety. We lose optimality
+that way but keep a PAC-style guarantee of policy im-
+provement. It allows the implementation of an algorithm
+Πb-SPIBB that run as fast as a vanilla model-based RL al-
+gorithm, while generating a provably safe policy improve-
+ment over a known baseline πb. A variant algorithm Π≤b-
+SPIBB is shown to perform better and safer on a wide range
+of domains, but does not come with safety guarantees. Ba-
+sic Batch RL and the other benchmark competitors are
+shown to fall short on at least one, and generally two, of the
+following criteria: mean performance, safety, or domain-
+dependent hyper-parameter sensitivity. Finally, we imple-
+ment a DQN version of SPIBB that is the ﬁrst deep batch
+algorithm allowing policy improvement in a safe manner.
+
+=== PDF PAGE 9 ===
+Safe Policy Improvement with Baseline Bootstrapping
+References
+Abadi, M., Agarwal, A., Barham, P., Brevdo, E., Chen, Z.,
+Citro, C., Corrado, G. S., Davis, A., Dean, J., Devin, M.,
+Ghemawat, S., Goodfellow, I., Harp, A., Irving, G., Is-
+ard, M., Jia, Y ., Jozefowicz, R., Kaiser, L., Kudlur, M.,
+Levenberg, J., Man ´e, D., Monga, R., Moore, S., Mur-
+ray, D., Olah, C., Schuster, M., Shlens, J., Steiner, B.,
+Sutskever, I., Talwar, K., Tucker, P., Vanhoucke, V ., Va-
+sudevan, V ., Vi´egas, F., Vinyals, O., Warden, P., Watten-
+berg, M., Wicke, M., Yu, Y ., and Zheng, X. TensorFlow:
+Large-scale machine learning on heterogeneous systems,
+2015. URL https://www.tensorflow.org/.
+Software available from tensorﬂow.org.
+Altman, E. Constrained Markov Decision Processes. CRC
+Press, 1999.
+Bellemare, M., Srinivasan, S., Ostrovski, G., Schaul, T.,
+Saxton, D., and Munos, R. Unifying count-based explo-
+ration and intrinsic motivation. In Proceedings of the
+29th Advances in Neural Information Processing Sys-
+tems (NIPS), 2016.
+Bellman, R. A markovian decision process. Journal of
+Mathematics and Mechanics, 1957.
+Burda, Y ., Edwards, H., Storkey, A., and Klimov, O. Explo-
+ration by random network distillation. In Proceedings of
+the 7th International Conference on Learning Represen-
+tations (ICLR), 2019.
+Carrara, N., Leurent, E., Laroche, R., Urvoy, T., Maillard,
+O., and Pietquin, O. Scaling up budgeted reinforcement
+learning. CoRR, abs/1903.01004, 2019. URL http:
+//arxiv.org/abs/1903.01004.
+Chollet, F. et al. Keras. https://keras.io, 2015.
+Delage, E. and Mannor, S. Percentile optimization for
+markov decision processes with parameter uncertainty.
+Operations research, 2010.
+Duan, Y ., Chen, X., Houthooft, R., Schulman, J., and
+Abbeel, P. Benchmarking deep reinforcement learning
+for continuous control. In Proceedings of the 33rd Inter-
+national Conference on Machine Learning (ICML) , pp.
+1329–1338, 2016.
+Efron, B. Better bootstrap conﬁdence intervals. Journal of
+the American statistical Association , 82(397):171–185,
+1987.
+Ernst, D., Geurts, P., and Wehenkel, L. Tree-based batch
+mode reinforcement learning. Journal of Machine
+Learning Research, 6(Apr):503–556, 2005.
+Fatemi, M., Sharma, Shikharand van Seijen, H., and
+Ebrahimi Kahou, S. Dead-ends and secure exploration
+in reinforcement learning. In Proceedings of the 36th
+International Conference on Machine Learning (ICML),
+2019.
+Fox, L., Choshen, L., and Loewenstein, Y . Dora the
+explorer: Directed outreaching reinforcement action-
+selection. In Proceedings of the 6th International Con-
+ference on Learning Representations (ICLR), 2018.
+Garc´ıa, J. and Fern´andez, F. A comprehensive survey on
+safe reinforcement learning. Journal of Machine Learn-
+ing Research, 2015.
+Gosavi, A. A reinforcement learning algorithm based on
+policy iteration for average reward: Empirical results
+with yield management and convergence analysis. Ma-
+chine Learning, 2004.
+Guerraoui, R., Hendrikx, H., Maurer, A., et al. Dynamic
+safe interruptibility for decentralized multi-agent rein-
+forcement learning. In Advances in Neural Information
+Processing Systems, pp. 130–140, 2017.
+Guo, Z., Thomas, P. S., and Brunskill, E. Using options
+and covariance testing for long horizon off-policy policy
+evaluation. In Proceedings of the 30th Advances in Neu-
+ral Information Processing Systems (NIPS) , pp. 2492–
+2501, 2017.
+He, K., Zhang, X., Ren, S., and Sun, J. Delving deep into
+rectiﬁers: Surpassing human-level performance on ima-
+genet classiﬁcation. arXiv preprint arXiv:1502.01852 ,
+2015.
+Howard, R. A. Dynamic programming. Management Sci-
+ence, 1966.
+Iyengar, G. N. Robust dynamic programming. Mathemat-
+ics of Operations Research, 2005.
+Jiang, N. and Li, L. Doubly robust off-policy value
+evaluation for reinforcement learning. arXiv preprint
+arXiv:1511.03722, 2015.
+Kakade, S. and Langford, J. Approximately optimal ap-
+proximate reinforcement learning. In Proceedings of
+the 19th International Conference on Machine Learning
+(ICML), volume 2, pp. 267–274, 2002.
+Kocsis, L. and Szepesv ´ari, C. Bandit based monte-carlo
+planning. In European conference on machine learning,
+pp. 282–293. Springer, 2006.
+Lange, S., Gabel, T., and Riedmiller, M. Batch reinforce-
+ment learning. In Reinforcement learning . Springer,
+2012.
+
+=== PDF PAGE 10 ===
+Safe Policy Improvement with Baseline Bootstrapping
+Laroche, R., Putois, G., and Bretier, P. Optimising a
+handcrafted dialogue system design. In Proceedings of
+the 11th Annual Conference of the International Speech
+Communication Association (INTERSPEECH), 2010.
+Li, L., Littman, M. L., and Walsh, T. J. Knows what it
+knows: a framework for self-aware learning. InProceed-
+ings of the 25th International Conference on Machine
+Learning (ICML), 2008.
+Mandel, T., Liu, Y .-E., Levine, S., Brunskill, E., and
+Popovic, Z. Ofﬂine policy evaluation across represen-
+tations with applications to educational games. In Pro-
+ceedings of the 13th International Conference on Au-
+tonomous Agents and Multi-Agent Systems (AAMAS) ,
+2014.
+Mnih, V ., Kavukcuoglu, K., Silver, D., Rusu, A. A., Ve-
+ness, J., Bellemare, M. G., Graves, A., Riedmiller, M.,
+Fidjeland, A. K., Ostrovski, G., Petersen, S., Beattie, C.,
+Sadik, A., Antonoglou, I., King, H., Kumaran, D., Wier-
+stra, D., Legg, S., and Hassabis, D. Human-level control
+through deep reinforcement learning. Nature, 2015.
+Nilim, A. and El Ghaoui, L. Robust control of markov de-
+cision processes with uncertain transition matrices. Op-
+erations Research, 2005.
+Orseau, L. and Armstrong, S. Safely interruptible
+agents. In Proceedings of the Thirty-Second Confer-
+ence on Uncertainty in Artiﬁcial Intelligence (UAI) ,
+UAI’16, pp. 557–566, Arlington, Virginia, United
+States, 2016. AUAI Press. ISBN 978-0-9966431-1-
+5. URL http://dl.acm.org/citation.cfm?
+id=3020948.3021006.
+Paduraru, C. Off-policy Evaluation in Markov Decision
+Processes. PhD thesis, PhD thesis, McGill University,
+2013.
+Parr, R. E. and Russell, S. Hierarchical control and learn-
+ing for Markov decision processes . University of Cali-
+fornia, Berkeley, CA, 1998.
+Petrik, M., Ghavamzadeh, M., and Chow, Y . Safe policy
+improvement by minimizing robust baseline regret. In
+Proceedings of the 29th Advances in Neural Information
+Processing Systems (NIPS), 2016.
+Pirotta, M., Restelli, M., and Bascetta, L. Adaptive step-
+size for policy gradient methods. In Proceedings of the
+26th Advances in Neural Information Processing Sys-
+tems (NIPS), pp. 1394–1402, 2013a.
+Pirotta, M., Restelli, M., Pecorino, A., and Calandriello, D.
+Safe policy iteration. In Proceedings of the 30th Inter-
+national Conference on Machine Learning (ICML) , pp.
+307–315, 2013b.
+Puterman, M. L. and Brumelle, S. L. On the convergence
+of policy iteration in stationary dynamic programming.
+Mathematics of Operations Research, 1979.
+Schulman, J., Levine, S., Abbeel, P., Jordan, M., and
+Moritz, P. Trust region policy optimization. In Proceed-
+ings of the 32nd International Conference on Machine
+Learning (ICML), 2015.
+Schulman, J., Wolski, F., Dhariwal, P., Radford, A., and
+Klimov, O. Proximal policy optimization algorithms.
+arXiv preprint arXiv:1707.06347, 2017.
+Sutton, R. S. and Barto, A. G. Reinforcement Learning: An
+Introduction. The MIT Press, 1998.
+Sutton, R. S., Precup, D., and Singh, S. Between mdps
+and semi-mdps: A framework for temporal abstraction
+in reinforcement learning. Artiﬁcial intelligence, 1999.
+Szita, I. and L ˝orincz, A. The many faces of optimism: a
+unifying approach. In Proceedings of the 25th Interna-
+tional Conference on Machine Learning (ICML), 2008.
+Taylor, M. E. and Stone, P. Transfer learning for reinforce-
+ment learning domains: A survey. Journal of Machine
+Learning Research, 10(Jul):1633–1685, 2009.
+Thomas, P. S., Theocharous, G., and Ghavamzadeh, M.
+High conﬁdence policy improvement. In Proceedings of
+the 32nd International Conference on Machine Learning
+(ICML), 2015a.
+Thomas, P. S., Theocharous, G., and Ghavamzadeh, M.
+High-conﬁdence off-policy evaluation. In Proceedings
+of the 29th AAAI Conference on Artiﬁcial Intelligence ,
+2015b.
+Thomas, P. S., da Silva, B. C., Barto, A. G., and Brun-
+skill, E. On ensuring that intelligent machines are well-
+behaved. arXiv preprint arXiv:1708.05448, 2017.
+Tieleman, T. and Hinton, G. Lecture 6.5-rmsprop: Divide
+the gradient by a running average of its recent magni-
+tude. COURSERA: Neural networks for machine learn-
+ing, 4(2):26–31, 2012.
+van Hasselt, H., Guez, A., and Silver, D. Deep
+reinforcement learning with double q-learning.
+CoRR, abs/1509.06461, 2015. URL http:
+//dblp.uni-trier.de/db/journals/corr/
+corr1509.html#HasseltGS15.
