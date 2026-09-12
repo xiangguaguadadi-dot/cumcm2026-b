@@ -1,0 +1,1 @@
+Q3 discovery-ring phase selection is an unexecuted component sketch. It was not frozen as a candidate, evaluated, or counted as an optimization round. It has no demonstrated result and is not part of R8. The implemented optical direction stopped after R9/R10/R11 failed to promote.

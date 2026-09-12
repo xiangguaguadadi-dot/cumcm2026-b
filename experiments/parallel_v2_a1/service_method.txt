@@ -1,0 +1,47 @@
+    def _a1_service_round(self,ch):
+        if ch in self.cleared:return
+        max_iter=int(self.config.get('localization_iterations',9))
+        start=self._a1_progress.get(ch,0)
+        for k in range(start,min(start+1,max_iter)):
+            self._a1_progress[ch]=k+1
+            if self._virtual_fallback(ch):return
+            center,radius=_Q3._sp_enclosing_circle(self.polygons[ch])
+            if radius<=self.config.get('clear_trial_radius',100.) or k>=3:
+                clear_point=self.trial_point(ch,center,radius) if radius>20. else center
+                if radius<=20 and self.config.get('clear_standoff',True):
+                    distance=math.dist(self.position,center)
+                    margin=max(0.,20-radius-1e-6)
+                    if distance<=margin:clear_point=self.position
+                    elif distance>0:
+                        clear_point=(center[0]+margin*(self.position[0]-center[0])/distance,
+                                     center[1]+margin*(self.position[1]-center[1])/distance)
+                if radius<=20 and self.config.get('route_clear',True):
+                    clear_point=self.route_clear_point(center,radius,clear_point)
+                if self.clear(clear_point,ch,certified=radius<=20):return
+                if self._virtual_fallback(ch):return
+                kind=self.measure(clear_point,ch)
+                if ch in self.cleared or self._virtual_fallback(ch):return
+                if kind=='direction':continue
+                if self.rescue_bearing(ch,k):
+                    if ch in self.cleared:return
+                    continue
+                if self._virtual_fallback(ch):return
+            if len(self.observations[ch])==1:q=self.second_point(ch)
+            else:
+                p,deg=self.observations[ch][-1]
+                if math.dist(p,center)<25:
+                    theta=math.radians(deg)+math.pi/2
+                    q=(p[0]+35*math.cos(theta),p[1]+35*math.sin(theta))
+                else:q=center
+            if any(math.dist(q,p)<1e-5 for p,d in self.observations[ch]):q=(q[0]+23.,q[1]+17.)
+            self.counters['localization_moves']+=1
+            kind=self.measure(q,ch)
+            if ch in self.cleared or self._virtual_fallback(ch):return
+            if kind=='no_signal':
+                center,radius=_Q3._sp_enclosing_circle(self.polygons[ch])
+                if len(self.observations[ch])>=2 or radius<=100 or self.config.get('rescue_initial_clear',False):
+                    if self.clear(center,ch):return
+                    if self._virtual_fallback(ch):return
+                self.rescue_bearing(ch,k)
+                if ch in self.cleared:return
+        if self._a1_progress.get(ch,0)>=max_iter:self.cover_polygon(ch)

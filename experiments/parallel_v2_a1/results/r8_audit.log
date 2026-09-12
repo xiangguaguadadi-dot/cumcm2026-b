@@ -1,0 +1,72 @@
+[
+  {
+    "mode": 3,
+    "cases": 2400,
+    "source_count": 30970,
+    "cleared_count": 30970,
+    "valid": 2400,
+    "faster": 1681,
+    "same": 46,
+    "slower": 673,
+    "baseline": {
+      "mean_s_per_source": 230.82141809866428,
+      "movement_s_per_source": 172.4498829902987,
+      "nonmovement_s_per_source": 58.37153510836556,
+      "requests": 306216,
+      "clear_failures": 6345,
+      "max_runtime_s": 0.09732629195787013,
+      "mean_runtime_s": 0.009544270950573263
+    },
+    "candidate": {
+      "mean_s_per_source": 229.8531339886025,
+      "movement_s_per_source": 171.7503416784402,
+      "nonmovement_s_per_source": 58.10279231016232,
+      "requests": 308454,
+      "clear_failures": 14124,
+      "max_runtime_s": 0.19407629198394716,
+      "mean_runtime_s": 0.03289955253319931
+    },
+    "paired_delta_s_per_source": -0.9682841100617494,
+    "stratified_seed_cluster_bootstrap_95": [
+      -1.1056661337547884,
+      -0.8326734141065752
+    ],
+    "worst_regression_case": "LOCAL-v1-q3-origin_cluster-5018",
+    "worst_regression_s_per_source": 64.23718740000001
+  },
+  {
+    "mode": 4,
+    "cases": 2400,
+    "source_count": 30970,
+    "cleared_count": 30970,
+    "valid": 2400,
+    "faster": 0,
+    "same": 2400,
+    "slower": 0,
+    "baseline": {
+      "mean_s_per_source": 456.11182087573513,
+      "movement_s_per_source": 331.3343703400748,
+      "nonmovement_s_per_source": 124.77745053566035,
+      "requests": 631358,
+      "clear_failures": 10632,
+      "max_runtime_s": 0.05462487507611513,
+      "mean_runtime_s": 0.028265772843781935
+    },
+    "candidate": {
+      "mean_s_per_source": 456.11182087573513,
+      "movement_s_per_source": 331.3343703400748,
+      "nonmovement_s_per_source": 124.77745053566035,
+      "requests": 631358,
+      "clear_failures": 10632,
+      "max_runtime_s": 0.19644904101733118,
+      "mean_runtime_s": 0.03325916138380611
+    },
+    "paired_delta_s_per_source": 0.0,
+    "stratified_seed_cluster_bootstrap_95": [
+      0.0,
+      0.0
+    ],
+    "worst_regression_case": "LOCAL-v1-q4-reference_assumed-5000",
+    "worst_regression_s_per_source": 0.0
+  }
+]

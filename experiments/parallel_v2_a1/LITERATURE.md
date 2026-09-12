@@ -1,0 +1,9 @@
+# Actual literature use
+
+The principal source is Javdani et al., *Near Optimal Bayesian Active Learning for Decision Making* (AISTATS 2014): https://proceedings.mlr.press/v33/javdani14.html . Pages 2-4 and 7-8 were read from cached primary-paper text, after fresh browsing/download attempts failed. The paper formalizes decisions as regions over hypotheses, and its touch-localization example explains why short-horizon value of information can be useful when only a few tests remain.
+
+This experiment applies that **problem framing**, not HEC itself. A 20 m clear action defines a disk of states where it succeeds. The candidate chooses an optical trial or a finite disk-cover policy using estimated first-hit cost. It uses a continuous polygon partition for completeness; finite planning hypotheses only rank actions. The paper assumes a finite hypothesis model with deterministic test outcomes; our bearings have bounded unknown spatial errors, actions have movement-dependent cost, and the true prior is unknown. Therefore none of HEC's approximation guarantees transfer.
+
+Two related primary texts were read selectively: *Active Sensing with Meta-Reinforcement Learning for Emitter Localization from RF Observations* (arXiv:2605.12569v1), method and reward sections; and *Residual Reinforcement Learning for Robot Control* (arXiv:1812.03201), PDF pages 1-2. They motivate alternative sequential/residual policies, but this agent did not train a network. The RF paper's raw signal tensors and 3D setting are unavailable in the contest interface, and its training reward is not an online observation we can reuse.
+
+Exact paths, hashes and reading depth are in `sources/literature.json`. These are three selectively read primary sources, not a new comprehensive literature review. The DP and the convex-disk proof below are this experiment's constructions.
