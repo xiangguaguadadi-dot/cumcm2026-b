@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "status": "pending_user_review",
+  "implementation_started": false,
+  "execution_agents_started": false,
+  "plan_file": "IMPLEMENTATION_PLAN_v1.md",
+  "plan_sha256": "65ca6f6d1db2975cefd09016e91bdb749da6c7e462b0d593e46f96ee8f7322e0",
+  "base_commit": "e34cf737dfeef98855ba966b14c2a7372342d436",
+  "anchor_sha256": "0bda4f711b9e9716739af8aedf456cb1eeefb47d8ba3ed230ca682c8450a96ea",
+  "frozen_input_sha256": {
+    "experiments/parallel_v2_coordinator/fusion_r5.py": "0bda4f711b9e9716739af8aedf456cb1eeefb47d8ba3ed230ca682c8450a96ea",
+    "local_env.py": "99587518fa378e1bef2fbbaa9425ee907bea80885a69666b3765311cbcf4f42a",
+    "evaluate.py": "61088a2c9cd45b7026e4caaf9f7d55282a55d1114dfe74d179b086dafb0dc498",
+    "evaluation/manifest_v1.json": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140"
+  },
+  "roles": [
+    "geometry_and_coverage_certification",
+    "online_planning_and_execution"
+  ],
+  "coordinator_role": "shared_contracts_budget_integration_independent_audit",
+  "budget": {
+    "total_business_call_attempts": 8000000,
+    "total_environment_executions": 60000,
+    "wall_hours_after_first_call": 6,
+    "max_environment_workers": 2,
+    "training_runs": 0,
+    "request_cap_per_execution": 5000,
+    "call_allocation": {
+      "P0": 100000,
+      "P1": 400000,
+      "P2": 5300000,
+      "P3": 2200000
+    }
+  },
+  "P0": {
+    "worlds": 48,
+    "paired_complete_runs": 96
+  },
+  "P1": {
+    "worlds": 48,
+    "maximum_prefixes_per_world": 2,
+    "maximum_new_candidates_per_prefix": 6,
+    "baseline_complete_runs": 48,
+    "candidate_complete_runs_cap": 576,
+    "finite_best_replay_runs_cap": 48,
+    "total_complete_runs_cap": 672,
+    "cloning_required": false
+  },
+  "P2": {
+    "new_development_worlds": 96,
+    "quick_worlds": 120,
+    "full_worlds": 2400,
+    "other_exposed_worlds": 2400,
+    "failure_streak_stop": 3,
+    "reset_streak_only_on_actual_promotion": true
+  },
+  "P3": {
+    "new_seeds": 100,
+    "modes": 2,
+    "groups": 12,
+    "worlds": 2400,
+    "frozen_strategies": 2,
+    "complete_runs": 4800,
+    "candidate_selection_on_results": false
+  },
+  "planned_worktrees": [
+    "agent_experiments/20260912_jointplan/coordinator",
+    "agent_experiments/20260912_jointplan/geometry",
+    "agent_experiments/20260912_jointplan/planner"
+  ],
+  "excluded": [
+    "model_training",
+    "official_simulator_execution",
+    "main_branch_merge",
+    "edits_to_other_sessions_or_frozen_evaluation"
+  ]
+}

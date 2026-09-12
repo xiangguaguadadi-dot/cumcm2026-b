@@ -1,0 +1,6 @@
+# Runtime state remains local; immutable compressed ledger snapshots are archived.
+/execution.sqlite*
+/RESUME.md
+*.tmp
+# These ZIPs contain only our frozen source and local evaluation inputs.
+!results/**/frozen_inputs.zip

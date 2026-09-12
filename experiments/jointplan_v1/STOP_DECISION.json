@@ -1,0 +1,29 @@
+{
+  "state": "stopped_no_new_compute",
+  "decision": "Retain original fusion_r5; do not promote A-only or continue large validation.",
+  "user_steering": "如果这个方向没有发展前景，也没有比较大的潜力了，就没必要继续再往后投入算力了。",
+  "basis": "Finite A candidate headroom is small; online A-only improves Q3 by 0.672% but worsens Q4 by 1.616%. Current evidence does not justify large compute toward 200/400.",
+  "completed": [
+    "P0",
+    "P1",
+    "P2 anchor96 and A-only96"
+  ],
+  "cancelled": [
+    "P2 B-only/A+B",
+    "compensated real runs",
+    "full/exposed promotion regressions",
+    "P3 final confirmation",
+    "training"
+  ],
+  "not_proven": "No impossibility claim about all continuous joint planning or B scheduling.",
+  "active_runs": 0,
+  "calls": {
+    "attempts": 168338,
+    "accepted": 168278,
+    "rejected": 6,
+    "known_error": 54,
+    "unknown": 0
+  },
+  "executions": 828,
+  "created_utc": "2026-09-12T09:32:49.495285+00:00"
+}

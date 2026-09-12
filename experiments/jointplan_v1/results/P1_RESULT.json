@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "role": "finite_action_headroom_diagnostic_not_deployable_or_global_optimum",
+  "candidate_runs": 324,
+  "baseline_runs": 48,
+  "finite_best_replay_runs": 48,
+  "all_420_full_clear": true,
+  "selected_full_trajectories_exact": true,
+  "auditor_sha256": "8951244bf4ade120332c6528d041a074ade1d066737b75ce5683498fc7bcb3e3",
+  "paired": {
+    "passed": true,
+    "exact": false,
+    "public_snapshots": 0,
+    "modes": {
+      "3": {
+        "worlds": 24,
+        "all_complete": true,
+        "mean_delta_seconds_per_source": -0.7320682067099575,
+        "faster": 2,
+        "same": 22,
+        "slower": 0,
+        "worst_regression_seconds": 0.0
+      },
+      "4": {
+        "worlds": 24,
+        "all_complete": true,
+        "mean_delta_seconds_per_source": -4.841588289150425,
+        "faster": 22,
+        "same": 2,
+        "slower": 0,
+        "worst_regression_seconds": 0.0
+      }
+    }
+  },
+  "modes": {
+    "3": {
+      "worlds": 24,
+      "baseline": 240.03648409226867,
+      "finite_best": 239.3044158855587,
+      "worlds_improved": 2
+    },
+    "4": {
+      "worlds": 24,
+      "baseline": 463.12652834368913,
+      "finite_best": 458.2849400545387,
+      "worlds_improved": 22
+    }
+  }
+}

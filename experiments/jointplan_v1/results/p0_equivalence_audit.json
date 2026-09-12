@@ -1,0 +1,82 @@
+{
+  "auditor_sha256": "5b96f4e369ff073a7406b01ccb826479f7a37110efbf4053c54b654e3b69be40",
+  "batches": [
+    {
+      "passed": true,
+      "batch": "experiments/jointplan_v1/results/p0_anchor",
+      "runs": 48,
+      "calls": {
+        "attempts": 9589,
+        "accepted": 9589,
+        "rejected": 0,
+        "unknown": 0,
+        "known_error": 0
+      },
+      "modes": {
+        "3": {
+          "worlds": 24,
+          "sources": 302,
+          "complete": 24,
+          "mean_seconds_per_source": 240.03648409226867
+        },
+        "4": {
+          "worlds": 24,
+          "sources": 302,
+          "complete": 24,
+          "mean_seconds_per_source": 463.12652834368913
+        }
+      }
+    },
+    {
+      "passed": true,
+      "batch": "experiments/jointplan_v1/results/p0_disabled",
+      "runs": 48,
+      "calls": {
+        "attempts": 9589,
+        "accepted": 9589,
+        "rejected": 0,
+        "unknown": 0,
+        "known_error": 0
+      },
+      "modes": {
+        "3": {
+          "worlds": 24,
+          "sources": 302,
+          "complete": 24,
+          "mean_seconds_per_source": 240.03648409226867
+        },
+        "4": {
+          "worlds": 24,
+          "sources": 302,
+          "complete": 24,
+          "mean_seconds_per_source": 463.12652834368913
+        }
+      }
+    }
+  ],
+  "paired": {
+    "passed": true,
+    "exact": true,
+    "public_snapshots": 1513,
+    "modes": {
+      "3": {
+        "worlds": 24,
+        "all_complete": true,
+        "mean_delta_seconds_per_source": 0.0,
+        "faster": 0,
+        "same": 24,
+        "slower": 0,
+        "worst_regression_seconds": 0.0
+      },
+      "4": {
+        "worlds": 24,
+        "all_complete": true,
+        "mean_delta_seconds_per_source": 0.0,
+        "faster": 0,
+        "same": 24,
+        "slower": 0,
+        "worst_regression_seconds": 0.0
+      }
+    }
+  }
+}

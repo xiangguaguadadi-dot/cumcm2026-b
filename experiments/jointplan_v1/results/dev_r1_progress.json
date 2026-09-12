@@ -1,0 +1,160 @@
+{
+  "arms": [
+    {
+      "arm": "anchor",
+      "audit": {
+        "passed": true,
+        "batch": "/Users/t/ai project/\u6570\u5b66\u5efa\u6a212026/agent_experiments/20260912_jointplan/coordinator/experiments/jointplan_v1/results/dev_r1_anchor",
+        "runs": 96,
+        "calls": {
+          "attempts": 18717,
+          "accepted": 18717,
+          "rejected": 0,
+          "unknown": 0,
+          "known_error": 0
+        },
+        "modes": {
+          "3": {
+            "worlds": 48,
+            "sources": 604,
+            "complete": 48,
+            "mean_seconds_per_source": 237.81372012295492
+          },
+          "4": {
+            "worlds": 48,
+            "sources": 604,
+            "complete": 48,
+            "mean_seconds_per_source": 448.5807242019504
+          }
+        }
+      },
+      "mode_summaries": [
+        {
+          "mode": 3,
+          "group": "ALL",
+          "worlds": 48,
+          "sources": 604,
+          "baseline_complete": 48,
+          "candidate_complete": 48,
+          "valid_comparison": true,
+          "baseline_mean": 237.81372012295492,
+          "candidate_mean": 237.81372012295492,
+          "delta_seconds_per_source": 0.0,
+          "reduction_percent": 0.0,
+          "faster": 0,
+          "same": 48,
+          "slower": 0,
+          "p95": 290.8282524,
+          "worst": 348.72121054545454,
+          "worst_regression_seconds_per_source": 0.0,
+          "worst_regression_case": "JOINT-v1-development-q3-reference_assumed-5834126612437",
+          "program_runtime_median_s": 0.032808208488859236,
+          "program_runtime_p95_s": 0.07385433395393193
+        },
+        {
+          "mode": 4,
+          "group": "ALL",
+          "worlds": 48,
+          "sources": 604,
+          "baseline_complete": 48,
+          "candidate_complete": 48,
+          "valid_comparison": true,
+          "baseline_mean": 448.5807242019504,
+          "candidate_mean": 448.5807242019504,
+          "delta_seconds_per_source": 0.0,
+          "reduction_percent": 0.0,
+          "faster": 0,
+          "same": 48,
+          "slower": 0,
+          "p95": 616.8228344,
+          "worst": 657.3399618999999,
+          "worst_regression_seconds_per_source": 0.0,
+          "worst_regression_case": "JOINT-v1-development-q4-reference_assumed-5834126612437",
+          "program_runtime_median_s": 0.11527058348292485,
+          "program_runtime_p95_s": 0.18044649995863438
+        }
+      ]
+    },
+    {
+      "arm": "a_only",
+      "audit": {
+        "passed": true,
+        "batch": "experiments/jointplan_v1/results/dev_r1_a_only",
+        "runs": 96,
+        "calls": {
+          "attempts": 18793,
+          "accepted": 18793,
+          "rejected": 0,
+          "unknown": 0,
+          "known_error": 0
+        },
+        "modes": {
+          "3": {
+            "worlds": 48,
+            "sources": 604,
+            "complete": 48,
+            "mean_seconds_per_source": 236.21597007645505
+          },
+          "4": {
+            "worlds": 48,
+            "sources": 604,
+            "complete": 48,
+            "mean_seconds_per_source": 455.8295298016572
+          }
+        }
+      },
+      "mode_summaries": [
+        {
+          "mode": 3,
+          "group": "ALL",
+          "worlds": 48,
+          "sources": 604,
+          "baseline_complete": 48,
+          "candidate_complete": 48,
+          "valid_comparison": true,
+          "baseline_mean": 237.81372012295492,
+          "candidate_mean": 236.21597007645505,
+          "delta_seconds_per_source": -1.5977500464998684,
+          "reduction_percent": 0.6718493977865518,
+          "faster": 5,
+          "same": 43,
+          "slower": 0,
+          "p95": 290.8282524,
+          "worst": 326.885916,
+          "worst_regression_seconds_per_source": 0.0,
+          "worst_regression_case": "JOINT-v1-development-q3-reference_assumed-5834126612437",
+          "program_runtime_median_s": 0.09712572902208194,
+          "program_runtime_p95_s": 0.15767637500539422
+        },
+        {
+          "mode": 4,
+          "group": "ALL",
+          "worlds": 48,
+          "sources": 604,
+          "baseline_complete": 48,
+          "candidate_complete": 48,
+          "valid_comparison": true,
+          "baseline_mean": 448.5807242019504,
+          "candidate_mean": 455.8295298016572,
+          "delta_seconds_per_source": 7.248805599706827,
+          "reduction_percent": -1.6159422838783029,
+          "faster": 14,
+          "same": 1,
+          "slower": 33,
+          "p95": 617.0826875,
+          "worst": 660.305916,
+          "worst_regression_seconds_per_source": 124.66827356249996,
+          "worst_regression_case": "JOINT-v1-development-q4-offcenter_cluster-5475991903748",
+          "program_runtime_median_s": 2.1993209999636747,
+          "program_runtime_p95_s": 2.608214083011262
+        }
+      ]
+    }
+  ],
+  "state": "stopped_after_two_arms",
+  "unexecuted_arms": [
+    "b_only",
+    "joint"
+  ],
+  "reason": "User evidence-based compute stop"
+}

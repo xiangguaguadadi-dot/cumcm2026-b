@@ -1,0 +1,2427 @@
+{
+  "candidate": "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/experiments/jointplan_v1/planner/candidate_joint.py",
+  "output": "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/experiments/jointplan_v1/results/p1_slot04/runs",
+  "frozen_files": {
+    "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/experiments/jointplan_v1/planner/candidate_joint.py": "ad3db6139abff50f8d475d269bb760b8885f4c3c240ea2082e4af6a93418ce6a",
+    "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/experiments/jointplan_v1/data/p1_batches/slot04_cases.json": "5fdaa93609629db01cccffa7491b840e7213238deb8660f2b2427c97c24fa466",
+    "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/experiments/jointplan_v1/core/runner.py": "0e169cf2f7f064d4904b07a1e652efa60ffe6a65a48801b8a5825b13dba16865",
+    "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/experiments/jointplan_v1/core/budget.py": "7c180491a7f76a38962a8763e377f94fb4f4673b1402c924d387ccd25693feee",
+    "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/local_env.py": "99587518fa378e1bef2fbbaa9425ee907bea80885a69666b3765311cbcf4f42a",
+    "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/evaluation/manifest_v1.json": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+    "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/experiments/jointplan_v1/planner/candidate_disabled.py": "2ceb9b3edc39b5dedb188bbb9d8c3d95f09bd71d07e4a5437badbbe92be7fc9a",
+    "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/experiments/jointplan_v1/planner/mixed_planner.py": "98ea03de653fc4696313a2f71d8a276d64e9ed2cab93aa1529ce42de97e4a97e",
+    "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/experiments/jointplan_v1/geometry/__init__.py": "caba97711a1befd8fd2f5f060c6b9ec055a93ccd3309af9f6a24b898c428c35a",
+    "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/experiments/jointplan_v1/geometry/continuous.py": "6e31a18165fd2a876867ead364ca34f6e418fe476976e6f58591c9150903f5b0",
+    "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/experiments/jointplan_v1/geometry/engine.py": "bed0f356290fc0a2af5fc5b70b183989febf3c01dc95bed848ec65dd5a7dc154",
+    "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/experiments/parallel_v2_coordinator/fusion_r5.py": "0bda4f711b9e9716739af8aedf456cb1eeefb47d8ba3ed230ca682c8450a96ea",
+    "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/experiments/jointplan_v1/data/p1_batches/slot04_config.json": "ef438396c98a97d55b44b33d9e75f6de589c4833f50a854b5b4d13e962fb8255"
+  },
+  "phase": "P1",
+  "batch": "results/p1_slot04",
+  "label": "slot04",
+  "budget_path": "/Users/t/ai project/数学建模2026/agent_experiments/20260912_jointplan/coordinator/experiments/jointplan_v1/execution.sqlite",
+  "policy_config": {
+    "jointplan_replay": {
+      "snapshot_hash": "c33eb16f6fca0c981475197624a7f35bb016aa65b8d17c8f319a31c9917b9608",
+      "plan": {
+        "certificate": {
+          "plan_points_hash": "b905abd6fddf7153924fc576456ea88459797a388707b00a99110ff70623452a",
+          "proofs": {
+            "1": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "11": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "12": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "13": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "14": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "15": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "16": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "17": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "19": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "2": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "20": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "3": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "4": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "5": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "7": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "8": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            },
+            "9": {
+              "hull_margin_units": 2,
+              "max_depth": 15,
+              "method": "integer_near_hull_cover",
+              "mode": 4,
+              "nodes": 13995,
+              "quantized_points_hash": "16dfb9f7e25b1818ecdcca0a0a6e754e268bf83f1cc4ba2b0f86a327c806f7d9",
+              "radial_margin_units": 2,
+              "reused_partition": true,
+              "scale": 1024,
+              "seconds": 0.030691333000000043,
+              "status": "certified",
+              "support_points": [
+                [
+                  -1904649,
+                  -124837
+                ],
+                [
+                  -1711893,
+                  844212
+                ],
+                [
+                  -1587056,
+                  -1060437
+                ],
+                [
+                  -1060437,
+                  1587056
+                ],
+                [
+                  -1018984,
+                  -65469
+                ],
+                [
+                  -844212,
+                  -1711893
+                ],
+                [
+                  -769114,
+                  674495
+                ],
+                [
+                  -672662,
+                  -767718
+                ],
+                [
+                  -124837,
+                  1904649
+                ],
+                [
+                  -66906,
+                  1020786
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  65067,
+                  -1019398
+                ],
+                [
+                  124837,
+                  -1904649
+                ],
+                [
+                  674495,
+                  769114
+                ],
+                [
+                  767718,
+                  -672662
+                ],
+                [
+                  844212,
+                  1711893
+                ],
+                [
+                  1020786,
+                  66906
+                ],
+                [
+                  1060437,
+                  -1587056
+                ],
+                [
+                  1587056,
+                  1060437
+                ],
+                [
+                  1711893,
+                  -844212
+                ],
+                [
+                  1904649,
+                  124837
+                ]
+              ]
+            }
+          },
+          "snapshot_hash": "c33eb16f6fca0c981475197624a7f35bb016aa65b8d17c8f319a31c9917b9608",
+          "status": "certified",
+          "unique_point_sets": 1,
+          "version": "jointplan-geometry-v1"
+        },
+        "coordinate_gain_same_order_s": 1.6740311890289377,
+        "diagnostic_id": "4:2:0",
+        "fallback_id": "continue_from_real_public_history",
+        "generation": {
+          "attempts": 1,
+          "proposed_candidates": 85,
+          "seconds": 0.27855262499999967,
+          "statuses": {
+            "certified": 1
+          }
+        },
+        "history_version": 21,
+        "invalidated_by": [
+          "new_observation",
+          "new_clear",
+          "different_position_or_channel"
+        ],
+        "mechanism": {
+          "attraction": "source",
+          "block_size": 4,
+          "step_m": 2.25
+        },
+        "parent_sha256": "0bda4f711b9e9716739af8aedf456cb1eeefb47d8ba3ed230ca682c8450a96ea",
+        "proxy": {
+          "cost_scope": "fixed_state_route_plus_paid_unknown_measures_only",
+          "measure_count": 340,
+          "movement_m": 18261.52664645384,
+          "route": [
+            [
+              "source",
+              6
+            ],
+            [
+              "station",
+              5
+            ],
+            [
+              "station",
+              6
+            ],
+            [
+              "source",
+              18
+            ],
+            [
+              "station",
+              7
+            ],
+            [
+              "station",
+              8
+            ],
+            [
+              "source",
+              10
+            ],
+            [
+              "station",
+              1
+            ],
+            [
+              "station",
+              2
+            ],
+            [
+              "station",
+              3
+            ],
+            [
+              "station",
+              4
+            ],
+            [
+              "station",
+              13
+            ],
+            [
+              "station",
+              12
+            ],
+            [
+              "station",
+              11
+            ],
+            [
+              "station",
+              10
+            ],
+            [
+              "station",
+              9
+            ],
+            [
+              "station",
+              20
+            ],
+            [
+              "station",
+              19
+            ],
+            [
+              "station",
+              18
+            ],
+            [
+              "station",
+              17
+            ],
+            [
+              "station",
+              16
+            ],
+            [
+              "station",
+              15
+            ],
+            [
+              "station",
+              14
+            ]
+          ],
+          "switch_count": 320,
+          "total_s": 5672.305329290768
+        },
+        "proxy_gain_s": 1.6740311890289377,
+        "removed_channel_actions": [],
+        "replaced_ids": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "route_gain_old_geometry_s": 0.0,
+        "route_station_ids": [
+          5,
+          6,
+          7,
+          8,
+          1,
+          2,
+          3,
+          4,
+          13,
+          12,
+          11,
+          10,
+          9,
+          20,
+          19,
+          18,
+          17,
+          16,
+          15,
+          14
+        ],
+        "snapshot_hash": "c33eb16f6fca0c981475197624a7f35bb016aa65b8d17c8f319a31c9917b9608",
+        "stations": [
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 1,
+            "mutable": true,
+            "point": [
+              996.8610643153648,
+              65.33772610091292
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 2,
+            "mutable": true,
+            "point": [
+              658.6864689069876,
+              751.0879672404935
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 3,
+            "mutable": true,
+            "point": [
+              -65.33772610091292,
+              996.8610643153648
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 4,
+            "mutable": true,
+            "point": [
+              -751.0879672404935,
+              658.6864689069876
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 5,
+            "mutable": true,
+            "point": [
+              -995.102027,
+              -63.93477
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 6,
+            "mutable": true,
+            "point": [
+              -656.896519,
+              -749.724669
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 7,
+            "mutable": true,
+            "point": [
+              63.541546,
+              -995.505986
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 8,
+            "mutable": true,
+            "point": [
+              749.724669,
+              -656.896519
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 9,
+            "mutable": true,
+            "point": [
+              1860.009032916757,
+              121.91143288498667
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 10,
+            "mutable": true,
+            "point": [
+              1549.8593576770102,
+              1035.5829143711553
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 11,
+            "mutable": true,
+            "point": [
+              824.4261185456016,
+              1671.770790561997
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 12,
+            "mutable": true,
+            "point": [
+              -121.91143288498667,
+              1860.009032916757
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 13,
+            "mutable": true,
+            "point": [
+              -1035.5829143711553,
+              1549.8593576770102
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 14,
+            "mutable": true,
+            "point": [
+              -1671.770790561997,
+              824.4261185456016
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 15,
+            "mutable": true,
+            "point": [
+              -1860.009032916757,
+              -121.91143288498667
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 16,
+            "mutable": true,
+            "point": [
+              -1549.8593576770102,
+              -1035.5829143711553
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 17,
+            "mutable": true,
+            "point": [
+              -824.4261185456016,
+              -1671.770790561997
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 18,
+            "mutable": true,
+            "point": [
+              121.91143288498667,
+              -1860.009032916757
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 19,
+            "mutable": true,
+            "point": [
+              1035.5829143711553,
+              -1549.8593576770102
+            ]
+          },
+          {
+            "channels": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20
+            ],
+            "id": 20,
+            "mutable": true,
+            "point": [
+              1671.770790561997,
+              -824.4261185456016
+            ]
+          }
+        ],
+        "version": "jointplan-geometry-v1"
+      },
+      "scheduler": "parent"
+    },
+    "jointplan_intervention_limit": 1,
+    "jointplan_geometry": true,
+    "jointplan_mixed": false
+  },
+  "run_id": "31259972dec8476da396f35800efd922",
+  "cap": 5000
+}
