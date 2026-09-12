@@ -1,0 +1,428 @@
+PAGE 1
+ 
+Robot Path Planning by Traveling Salesman Problem with Circle Neighborhood: modeling, 
+algorithm, and applications 
+Arman Nedjatia, Béla Vizvárib 
+aIndustrial Engineering Department, Quchan University of Technology, Quchan, Iran 
+bIndustrial Engineering Department, Eastern Mediterranean University, Famagusta, Via Mersin10, North 
+Cyprus 
+Abstract 
+The study investigates the problem of traveling salesman problem with circ ular neighborhood 
+(TSPCN). Instead of cities there are circles and each point on circle  can be a potential visiting 
+node. The problem is to find the minimum length Hamiltonian cycle connecting the circles. Among 
+the various real life applications of the problem, this paper concentrates on robot path planning for 
+the laser welding robot, and data collection in a wireless sensor network  by unmanned aerial 
+vehicles (UAVs) . The TSPCN is formulated as a nonlinear model , the objective function is 
+linearized, and as a solution procedure decomposed into a two-phase model. The Models are coded 
+in Cplex and Knitro and solved for small and medium sized instances. 
+Keywords: Traveling Salesman Problem; Laser Welding Robot; UAV; Wireless Sensor Network; 
+Path Planning 
+1. Introduction 
+Traveling Salesman Problem (TSP) is a well-known problem in the field of optimization. Plenty 
+of variants of TSP among with mathematical models and heuristic algorithms are  applied in real 
+life situations [1–3]. TSP has many applications in  transportation, robotics, manufacturing, 
+computer networks, etc. One of the important applications that has many generalizations  is path 
+planning in robotics [4–8]. This study focuses on the problem of path planning for a mobile robot 
+(i.e. unmanned aerial vehicle  (UAV) or a welding robot arm)  that has to traverse the minimum 
+path to connect some predefined circles. 
+A real life problem that was a motivation for this study is related to  Wireless Sensor Networks 
+(WSN) that have been widely investigated and improved in last decade. The storage, 
+communication, processing, and sensing capabilities of sensors are increased for agricultural, 
+boarder monitoring, military uses, etc. When the sensors are distributed in a widespread area that 
+is not possible to establish a communication network, a UAV could traverse to collect the data by 
+passing through the spherical radio range around the sensors. However UAV path planning has 
+many applications [9], WSN interested readers can refer to earlier studies [10–14].  
+
+PAGE 2
+Moreover another industrialized application of proposed problem is related to welding robot path 
+planning. The spot welding robots are extensively used in processing industry, machinery , 
+aerospace, and automotive ind ustries. These robots are effective when the number of welding 
+points are increased. An optimal path for welding robot arm can effectively shorten the overall 
+process time and consequently improves the productivity[15]. Both assembling and laser welding 
+are typical examples. Industrial robots are still expensive equipment. A laser ray has high power, 
+therefore the walls of the cell where the robot works must be strengthened by thick steel sheets to 
+obtain a secure environment. It also increases the costs further. In this application a new 
+optimization method is suggested for designing the route and to solve this problem. For another 
+approach of designing the route of the laser robot arm see [1]. 
+According to numerous real life applications of TSP, many variants [1,16] of this problem such as 
+generalized TSP (GTSP) [17], TSP with clustering [18], hierarchical TSP [19], colored TSP [20], 
+etc. have been investigated through  previous decades.  Moreover, there are many studies that 
+focused on robotics applications of TSP.  [21] addresses the problem of mobile onsite power 
+delivery for autonomous underwater vehicles  as a multiple GTSP to improve the range and 
+duration of underwater operations. As a collaborative human-robot TSP [22] developed a model 
+based on an initial remote sensing to optimize the selective TSP tour design and seeking the human 
+assistance. Even forest management activities by robots are also investigated under the concept of 
+TSP [23]. As a comprehensive survey [24] concentrated on a broad review of the classical studies 
+and latest breakthroughs concerning the TSP and routing approaches  applied in robotic s. 
+Furthermore a wide range of studies investigate on different types of TSP algorithms consists of 
+approximation [25], heuristic [26], meta-heuristic [27], hybrid [28], and exact solution procedures 
+[29].  
+In this study we present a new industrialized variant of TSP which is TSP with Circle 
+Neighborhood (TSPCN). TSPCN is a variant of Traveling Salesman Problem with Neighborhoods 
+(TSPN). TSPN was first introduced by [30] and investigated in approximation algorithms [31]. In 
+TSPN n number of connected neighborhoods or regions (as subsets) from an Euclidean plane, and 
+a set of predefined coordinates are given, and the problem is to minimize the length of the tour that 
+visits each neighborhood in one of the predefined coordinates [31]. Another relevant problem is 
+GTSP where there are groups of coordinates within number of regions and the task is to find the 
+minimum length Hamiltonian path that v isits any coordinate of each group exactly once.  In fact 
+the TSPN is a generalization of GTSP . Therefore, s ince the TSPCN problem generalizes the 
+Euclidean TSP when the circle radius is zero, it is considered as a NP-hard problem. As in TSPCN 
+the regions are the points located on any coordinate of a circle and the tour can visit each region 
+at any of its coordinate the problem is categorized as continuous  TSPN [31]. In TSPCN there are 
+N number of cir cles (cities) that each must be visited once while visiting node can be any point 
+inside or on the perimeter of the circles. Regarding the literature the TSPCN problem has not been 
+studied before in this form. Fig 1 depicts a feasible solution of problem for a 10 circuit problem.  
+
+PAGE 3
+ 
+Figure 1.  A feasible solution of Ci-TSP 
+The remainder of the article is structured as follows: The nonlinear mathematical formulations 
+among with some linearization and a two phase approach  are presented in Section 2. Some small 
+and medium scale instances are tested and solved by Baron, Couenne, and Knitro nonlinear solvers 
+in Section 3. Discussion, conclusion and some suggestions for future studies are offered in section 
+4. 
+2. Mathematical Formulations 
+2.1 Nonlinear mathematical model 
+A horizontal plane contains 𝑁 points. Each point is an extreme point of a cone. The intersections 
+of the cones with another horizontal plane above the first one, are the circles C1, C2, …, Cn. In the 
+case of the laser welding robot, the surface of the product has a safety cover with the exception of 
+the welding points. The cone of a point is the set of points of the space from where the laser ray 
+can “see” the welding points. Similarly, the cone of a wireless sensor consists of the points of the 
+space where the broadcast of the sensor can be detected.  There is no restriction on the radius or 
+position of the circ les. The problem is to select one point from each cir cle and construct a tour 
+along the selected points with a minimal total length. The selected points of different circ les may 
+coincide. In the latter case the distances of the cities having the same selected point is zero. 
+Let Ci={yi = (ui, vi)|(ui − ai)2 + (vi − bi)2 ≤ ri
+2}, where (ai, bi) is the center of the circle and ri 
+is the radius. 
+
+
+PAGE 4
+The well-known Miller, Tucker and Zemlin formulation of TSP [7] is applied in our model. The 
+notations used in the model below are as follows: 
+Sets: 
+C :{1,2,…,N} the index set of circuits 
+Parameters: 
+𝑁 = the number of circles. 
+(𝑎𝑖, 𝑏𝑖) = the center of circle𝑖. 
+𝑅𝑖 = the radius of circle 𝑖. 
+Variables: 
+𝑠𝑒𝑞𝑖 : Sequence in which circle i (𝑖 ≠ 1) is visited. 
+(𝑢𝑖, 𝑣𝑖) : The selected point of circle 𝑖 
+𝑑𝑖𝑠𝑖𝑗 : The distance of the selected points of circles 𝑖 and 𝑗  
+𝑝𝑖𝑗 : Binary variable; equals to one if circle j is visited immediately after circ le i, otherwise it is 
+zero. 
+ 
+The objective function is to minimize the total distance. 
+Model 𝑇0: 
+ 𝑀𝑖𝑛 ∑ ∑ 𝑝𝑖𝑗𝑑𝑖𝑠𝑖𝑗
+𝑗∈𝐶𝑖∈𝐶
+ (1) 
+ 
+St; 
+ ∑ 𝑝𝑖𝑗
+𝑗∈𝐶
+= 1         ∀𝑖 ∈ 𝐶|𝑖 ≠ 𝑗 (2) 
+ 
+ ∑ 𝑝𝑗𝑖
+𝑗∈𝐶
+= 1         ∀𝑖 ∈ 𝐶|𝑖 ≠ 𝑗 (3) 
+ 
+Constraints (2) and (3) ensures that each node must be visited exactly once.   
+ 
+ 𝑠𝑒𝑞𝑖 − 𝑠𝑒𝑞𝑗 + 𝑁𝑝𝑖𝑗 ≤ 𝑁 − 1        ∀𝑖 ≠ 𝑗 ∈ 𝐶|𝑖, 𝑗 ≠ 1 (4) 
+ 
+Constraint (4) is subtour elimination constraint adopted from [32]. 
+ 
+𝑅𝑖
+2 − (𝑢𝑖 − 𝑎𝑖)2 − (𝑣𝑖 − 𝑏𝑖)2 ≥ 0       ∀𝑖 ∈ 𝐶 (5) 
+Constraint (5) guarantees that the selected nodes must be in the circuit.  
+ 
+
+PAGE 5
+ 𝑑𝑖𝑠𝑖𝑗
+2 ≥ (𝑢𝑖 − 𝑢𝑗)
+2
++  (𝑣𝑖 − 𝑣𝑗)
+2
+      ∀𝑖 ≠ 𝑗 ∈ 𝐶 (6) 
+ 𝑝𝑖𝑗 ∈ {0,1}        ∀𝑖, 𝑗 ∈ 𝐶 (7) 
+Constraint (6) assures that the value of variable 𝑑𝑖𝑠𝑖𝑗 cannot be less than the distance of the two 
+selected points, and constraint (7) represents the integrality constraint. The optimality will ensure 
+strict equation if it is necessary. 
+As the objective function is non-linear in its original form (1),  it is possible to linearize it. It is 
+necessary to rewrite the objective function and constraint (6) as follows: 
+ 
+ 𝑀𝑖𝑛 ∑ ∑ 𝑑𝑖𝑠𝑖𝑗
+𝑗∈𝐶𝑖∈𝐶
+ (8) 
+ 
+ 𝑑𝑖𝑠𝑖𝑗
+2 + 𝑀(1 − 𝑝𝑖𝑗) ≥ (𝑢𝑖 − 𝑢𝑗)
+2
++ (𝑣𝑖 − 𝑣𝑗)
+2
+        ∀𝑖 ≠ 𝑗 ∈ 𝐶 (6-a) 
+ 𝑑𝑖𝑠𝑖𝑗 ≥ 0  (6-b) 
+Where M is a very big number. 
+2.2 Two phase mathematical formulations 
+It is important to emphasize in connection to the numerical solution that it is an industrial design 
+problem as the route of the robot arm is optimized only once but the same solution is applied many 
+times. The number of applications is at least the number of cars produced from the car model. 
+Thus, it is worth to invest a longer CPU time into the solution of the mathematical model to obtain 
+a good feasible solution for the industrial case.  However, in case of data collection application 
+(WSN and UAVs), CPU time is important. Thus, in order to fasten the solution procedure a two-
+phase model is presented in the following. In the first phase, the circles are divided into four equal 
+quarters. Each quarter is substituted by the middle point of its arc. Only one out of these four points 
+needs to be visited. The optimal solution from the first phase determines a sector for each cir cle 
+and any of the points of this sector can be selected in the second phase. 
+Sets: 
+L :{1,2,3,4} Set of nodes on circuits 
+Parameters: 
+𝐻𝑖𝑗
+𝑘𝑙 = Distance between node 𝑘 located on circuit 𝑖 and node 𝑙 located on circuit 𝑗. 
+𝐺𝑙 = The angle formed by the radius, with respect to the positive X-axis (degrees). 
+Variables: 
+
+PAGE 6
+𝑥𝑖𝑗
+𝑘𝑙 : Binary variable equals to 1 if there is an arc from node k of circuit i to node l of circuit j, otherwise it 
+is 0. 
+𝐻𝑖𝑗
+𝑘𝑙 = √((𝑅𝑖𝐶𝑜𝑠(𝐺𝑙) + 𝑎𝑖) − (𝑅𝑗𝐶𝑜𝑠(𝐺𝑘) + 𝑎𝑗))2 + ((𝑅𝑖𝑆𝑖𝑛(𝐺𝑙) + 𝑏𝑖) − (𝑅𝑗𝑆𝑖𝑛(𝐺𝑘) + 𝑏𝑗))2 
+ 
+(11) 
+Equation (11) which is depicted in Fig 2  calculates the distance between node l of circuit i and node k of 
+circuit j. 
+ 
+Figure 2. The explanation of Formula (11) 
+Model T1 is the first phase that finds the optimal tour while each circuit’s perimeter is divided into quarters 
+and the center of each quarter is a potential node. Thus model T1 finds the optimal sequence of visiting the 
+circuits based on the center point of each quarter’s perimeter. Then Model T2 uses the optimal visiting 
+sequence as a parameter to find the optimal coordinates. 
+Model T1: 
+ 𝑀𝑖𝑛 ∑ ∑ ∑ ∑ 𝐻𝑖𝑗
+𝑘𝑙𝑥𝑖𝑗
+𝑘𝑙
+𝑘∈𝐿𝑙∋𝐿𝑗≠𝑖∈𝐶𝑖∈𝐶
+ 
+St: 
+(12) 
+ ∑ ∑ ∑ 𝑥𝑖𝑗
+𝑘𝑙
+𝑘∈𝐿
+= 1           ∀𝑖 ∈ 𝐶
+𝑙∈𝐿𝑗∈𝐶
+ (13) 
+ ∑ ∑ ∑ 𝑥𝑗𝑖
+𝑘𝑙
+𝑘∈𝐿
+= 1           ∀𝑖 ∈ 𝐶
+𝑙∈𝐿𝑗∈𝐶
+ (14) 
+ ∑ ∑ 𝑥𝑖𝑗
+𝑘𝑙
+𝑘∈𝐾𝑙∈𝐿
++  ∑ ∑ 𝑥𝑗𝑖
+𝑙𝑘
+𝑘∈𝐾
+ 
+𝑙∈𝐿
+≤ 1           ∀𝑖 ≠ 𝑗 ∈ 𝐶 (15) 
+ 𝑠𝑒𝑞𝑖 − 𝑠𝑒𝑞𝑗 + 𝑁 ∑ ∑ 𝑥𝑖𝑗
+𝑘𝑙
+𝑘∈𝐿
+≤ 𝑁 − 1
+𝑙∈𝐿
+        ∀𝑖 ≠ 𝑗 ∈ 𝐶 | 𝑖, 𝑗 ≠ 1 (16) 
+
+
+PAGE 7
+ ∑ ∑ 𝑥𝑖𝑗
+𝑙𝑘
+𝑘∈𝐿𝑗∈𝐶
+− ∑ ∑ 𝑥𝑗𝑖
+𝑘𝑙
+𝑘∈𝐿𝑗∈𝐶
+= 0         ∀𝑖 ∈ 𝐶, 𝑙 ∈ 𝐿 (17) 
+ 
+ 𝑥𝑖𝑗
+𝑘𝑙 ∈ {0,1}        ∀𝑖, 𝑗 ∈ 𝐶, ∀𝑙, 𝑘 ∈ 𝐿 (18) 
+ 𝑠𝑒𝑞𝑖 ∈ 𝑖𝑛𝑡𝑒𝑔𝑒𝑟 𝑎𝑛𝑑 ≥ 1         ∀𝑖 ∈ 𝐶 (19) 
+ 
+Objective function (12) minimizes the total distance of the tour and the constraint are well known TSP 
+problem equations. However constraint (15) is a valid inequality and helps to remove undesirable fractional 
+solutions and tighten the relaxation of the model.  
+Let’s define additional sets of parameters for model T2 as follows; 
+𝑂𝑖𝑙: Equals to one if node i of circuit l is visited, and zero otherwise.  
+𝑞𝑖𝑗: Equals to one if we move to circuit j right after circuit i. 
+𝑈𝑚𝑎𝑥𝑖: Maximum amount on X-axis that the optimal point can take on circuit i. 
+𝑈𝑚𝑖𝑛𝑖: Minimum amount on X-axis that the optimal point can take on circuit i. 
+𝑉𝑚𝑎𝑥𝑖: Maximum amount on Y-axis that the optimal point can take on circuit i. 
+𝑉𝑚𝑎𝑥𝑖: Minimum amount on X-axis that the optimal point can take on circuit i. 
+ 𝑞𝑖𝑗 = ∑ ∑ 𝑥𝑖𝑗
+𝑘𝑙
+𝑘∈𝐿𝑙∈𝐿
+        ∀𝑖, 𝑗 ∈ 𝐶 (20) 
+Equations (20) and (21) assigns the results of model T1 to the parameters that will use in model T2. 
+Model T2: 
+ 𝑀𝑖𝑛 ∑ ∑ 𝑞𝑖𝑗𝑑𝑖𝑠𝑖𝑗
+𝑗∈𝐶𝑖∈𝐶
+ 
+St:  
+𝑒𝑞 (5), (6) 
+(21) 
+ 𝑈𝑚𝑖𝑛𝑖 ≤ 𝑢𝑖 ≤ 𝑈𝑚𝑎𝑥𝑖         ∀𝑖 ∈ 𝐶 (22) 
+ 𝑉𝑚𝑖𝑛𝑖 ≤ 𝑣𝑖 ≤ 𝑉𝑚𝑎𝑥𝑖         ∀𝑖 ∈ 𝐶 
+ 
+(23) 
+Objective function (21) minimizes the total distance while constraints (22) and (23) assigns the lower bound 
+and upper bound to coordinate variables based on the results of model T1. 
+
+PAGE 8
+ 
+3. Results 
+Two examples for problems with 12 and 20 circles can be seen in Figure 3 and Figure 4. The optimal 
+solution was obtained by the two phase method described in section 2.2. The main nonlinear model was 
+coded in GAMS and solved by different nonlinear solvers (Couenne, Antigone, Baron, Knitro), however 
+no integer solution was obtained. The two -phase method solved the 12 -circle’s problem optimally in 500 
+seconds and for 20-circle problem in 2400 seconds. The optimal solution is shown in Figure 3. 
+ 
+Figure 3 Optimal solution of 12 circuits (Two-phase method) 
+
+
+PAGE 9
+ 
+Figure 4. Optimal solution of a 20-circle problem (Two-phase method) 
+Also a 40 circuit problem is solved by the two phase method with the execution time of 6700 seconds. 
+Figure 4 depicts the optimal solution of the problem. 
+
+
+PAGE 10
+ 
+Figure 5 The optimal solution of a 40 circuit problem (Two-phase method) 
+Another problem is solved. This time it has a real industrial size of 75 welding points. The problem 
+and its optimal solution can be found on Figure 5. The original mathematical model was too 
+difficult in this case. Therefore the problem was solved in two steps. In the first step a traditional 
+TSP was solved. The positions of the cities were the center points of the regions. The selected 
+points (ui, vi) were also included in the problem for some technical reasons although they did not 
+affect the optimality in any sense. In the second main step those subtour elimination constraints 
+were used which were generated in the first main step.  
+
+
+PAGE 11
+ 
+Figure 6 Industrialized size problem of 75 circuits 
+The method mentioned above is a so -called cutting plane method. As the problem is too large to 
+solve, instead of the original problem a relaxation is solved. In many cases, relaxation means that 
+some constraints are deleted. It means that not all subtour elimination constraints are added to the 
+problem. If the optimal solution of the relaxed problem does not satisfy all the constraint s then a 
+violated subtour elimination constraint is added to the problem. The name “cutting plane method” 
+reflects the fact that the subtour elimination constraint is a linear inequality which cuts the previous 
+optimal solution.  
+4. Discussion and conclusion 
+This short discussion paper investigates a new problem of robotic path planning . The study 
+concentrates on UAVs path that collect data from distributed wireless sensors, and welding robot 
+path in automobile industry. The problem is a generalization of traveling salesman problem with 
+neighborhood when the  neighborhood shapes are circles with different radiuses. It is enough to 
+visit just one point of the circle while the minimum length Hamiltonian cycle. This problem could 
+also have applications in telecommunication systems. The exact nonlinear mathematical model of 
+the problem was developed and a two phase method along with a lineari zation are presented to 
+shorten the execution time. The models are validated with some numerical examples and the results 
+shows the efficiency of the two-phase method. 
+ 
+
+
+PAGE 12
+Direction for future studies can be categorized in the subsequent three fields: Heuristic and Meta -
+heuristics development, problem and modeling extension, and exact solution procedures. Multi-robot 
+system or visiting time window for sensors could be some examples of problem extension. Moreover, 
+instead of a circle, one can consider the neigh bors as a cut of the hemisphere, while the complexity of 
+problem is arisen, the accuracy is increased.  
+ 
+References 
+1. Ilavarasi, K.; Joseph, K. S. Variants of travelling salesman problem: A survey. In 
+International Conference on Information Communication and Embedded Systems (ICICES2014); 
+IEEE, 2014; pp. 1–7. 
+2. Osaba, E.; Yang, X.-S.; Diaz, F.; Lopez-Garcia, P.; Carballedo, R. An improved discrete bat 
+algorithm for symmetric and asymmetric Traveling Salesman Problems. Eng. Appl. Artif. Intell. 
+2016, 48, 59–71. 
+3. Letchford, A. N.; Lodi, A. The traveling salesman problem: a book review. 4OR 2007, 5, 315–
+317. 
+4. Manyam, S. G.; Rathinam, S.; Darbha, S.; Obermeyer, K. J. LOWER BOUNDS FOR A 
+VEHICLE ROUTING PROBLEM WITH MOTION CONSTRAINTS. Int. J. Robot. Autom. 
+2015, 30. 
+5. Li, L.; Wang, X.; Xu, D.; Tan, M. AN ACCURATE PATH PLANNING ALGORITHM 
+BASED ON TRIANGULAR MESHES IN ROBOTIC FIBRE PLACEMENT. Int. J. Robot. 
+Autom. 2017, 32. 
+6. Wang, L.; Luo, C. A HYBRID GENETIC TABU SEARCH ALGORITHM FOR MOBILE 
+ROBOT TO SOLVE AS/RS PATH PLANNING. Int. J. Robot. Autom. 2018, 33. 
+7. Na, G.; Xiaoyan, S.; Dunwei, G.; Yong, Z. SOLVING ROBOT PATH PLANNING IN AN 
+ENVIRONMENT WITH TERRAINS BASED ON INTERVAL MULTI-OBJECTIVE PSO. Int. 
+J. Robot. Autom. 2016, 31. 
+8. Wang, Y.; Wang, S.; Tan, M.; Yu, J. SIMULTANEOUS ARRIVAL PLANNING FOR 
+MULTIPLE UNMANNED VEHICLES FORMATION RECONFIGURATION. Int. J. Robot. 
+Autom. 2017, 32. 
+9. Nedjati, A.; Izbirak, G.; Vizvari, B.; Arkat, J. Complete Coverage Path Planning for a Multi-
+UAV Response System in Post-Earthquake Assessment. Robotics. 
+10. Jawhar, I.; Mohamed, N.; Al-Jaroodi, J.; Zhang, S. A Framework for Using Unmanned 
+Aerial Vehicles for Data Collection in Linear Wireless Sensor Networks. J. Intell. Robot. Syst. 
+2014, 74, 437–453. 
+11. Tazibt, C. Y.; Bekhti, M.; Djamah, T.; Achir, N.; Boussetta, K. Wireless sensor network 
+clustering for UAV-based data gathering. In 2017 Wireless Days; IEEE, 2017; pp. 245–247. 
+
+PAGE 13
+12. Wang, C.; Ma, F.; Yan, J.; De, D.; Das, S. K. Efficient Aerial Data Collection with UAV in 
+Large-Scale Wireless Sensor Networks. Int. J. Distrib. Sens. Networks 2015, 11, 286080. 
+13. Zhan, C.; Zeng, Y.; Zhang, R. Energy-Efficient Data Collection in UAV Enabled Wireless 
+Sensor Network. IEEE Wirel. Commun. Lett. 2017, 1–1. 
+14. He, P.; Dai, S. REAL-TIME STEALTH CORRIDOR PATH PLANNING FOR FLEETS OF 
+UNMANNED AERIAL VEHICLES IN LOW-ALTITUDE PENETRATION. Int. J. Robot. 
+Autom. 2015, 30. 
+15. Wang, X. W.; Shi, Y. P.; Yu, R.; Gu, X. S. Intelligent Welding Robot Path Planning. In; 
+Springer, Berlin, Heidelberg, 2015; pp. 25–32. 
+16. Gutin, G.; Punnen, A. P. The traveling salesman problem and its variations; Kluwer 
+Academic Publishers, 2002. 
+17. Pintea, C.-M.; Pop, P. C.; Chira, C. The generalized traveling salesman problem solved with 
+ant algorithms. Complex Adapt. Syst. Model. 2017, 5, 8. 
+18. Schneider, J. J.; Bukur, T.; Krause, A. Traveling Salesman Problem with Clustering. J. Stat. 
+Phys. 2010, 141, 767–784. 
+19. Panchamgam, K.; Xiong, Y.; Golden, B.; Dussault, B.; Wasil, E. The hierarchical traveling 
+salesman problem. Optim. Lett. 2013, 7, 1517–1524. 
+20. Li, J.; Zhou, M.; Sun, Q.; Dai, X.; Yu, X. Colored Traveling Salesman Problem. IEEE Trans. 
+Cybern. 2015, 45, 2390–2401. 
+21. Li, B.; Page, B. R.; Hoffman, J.; Moridian, B.; Mahmoudian, N. Rendezvous Planning for 
+Multiple AUVs With Mobile Charging Stations in Dynamic Currents. IEEE Robot. Autom. Lett. 
+2019, 4, 1653–1660. 
+22. Cai, H.; Mostofi, Y. A Human-Robot Collaborative Traveling Salesman Problem: Robotic 
+Site Inspection with Human Assistance. In 2016 AMERICAN CONTROL CONFERENCE 
+(ACC); IEEE: Boston, 2016; Vol. 06, pp. 6170–6176. 
+23. Mowshowitz, A.; Tominaga, A.; Hayashi, E. Robot Navigation in Forest Management. J. 
+Robot. MECHATRONICS 2018, 30, 223–230. 
+24. Macharet, D. G.; Campos, M. F. M. A survey on routing problems and robotic systems. 
+Robotica 2018, 36, 1781–1803. 
+25. Bao, X.; Liu, Z.; Yu, W.; Li, G. A note on approximation algorithms of the clustered 
+traveling salesman problem. Inf. Process. Lett. 2017, 127, 54–57. 
+26. Mbiadou Saleu, R. G.; Deroussi, L.; Feillet, D.; Grangeon, N.; Quilliot, A. An iterative two-
+step heuristic for the parallel drone scheduling traveling salesman problem. Networks 2018, 72, 
+459–474. 
+27. Kanda, J.; Carvalho, A. de; Hruschka, E.; Soares, C.; Brazdil, P. Meta-learning to select the 
+best meta-heuristic for the Traveling Salesman Problem: A comparison of meta-features. 
+
+PAGE 14
+Neurocomputing 2016, 205, 393–406. 
+28. Şahin, Y.; Karagül, K. Solving Travelling Salesman Problem Using Hybrid Fluid Genetic 
+Algorithm (HFGA). Pamukkale Univ. J. Eng. Sci. 2019, 25, 106–114. 
+29. Burkhovetskiy, V. V.; Steinberg, B. Y. Parallelizing an exact algorithm for the traveling 
+salesman problem. Procedia Comput. Sci. 2017, 119, 97–102. 
+30. Arkin, E. M.; Hassin, R. Approximation algorithms for the geometric covering salesman 
+problem. Discret. Appl. Math. 1994, 55, 197–218. 
+31. ELBASSIONI, K.; FISHKIN, A. V.; SITTERS, R. APPROXIMATION ALGORITHMS 
+FOR THE EUCLIDEAN TRAVELING SALESMAN PROBLEM WITH DISCRETE AND 
+CONTINUOUS NEIGHBORHOODS. Int. J. Comput. Geom. Appl. 2009, 19, 173–193. 
+32. Miller, C. E.; Tucker, A. W.; Zemlin, R. A. Integer Programming Formulation of Traveling 
+Salesman Problems. J. ACM 1960, 7, 326–329. 
+ 
+ 
+ 
+  

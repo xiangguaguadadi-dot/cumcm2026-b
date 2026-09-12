@@ -1,0 +1,22 @@
+    def _refine_disk_standoff(self,points,certificates,targets):
+        current=list(points);best=self._expected_order(self.position,current,targets)
+        original_cost=best[0]
+        for _ in range(2):
+            cost,route=self._expected_order(self.position,current,targets)
+            remaining=list(range(len(current)));indices=[]
+            for q in route:
+                k=next(i for i in remaining if current[i]==q)
+                remaining.remove(k);indices.append(k)
+            updated=current[:];previous=self.position
+            for k in indices:
+                cell,center,radius=certificates[k]
+                margin=max(0.,20.-radius-1e-5);distance=math.dist(previous,center)
+                q=previous if distance<=margin else (center[0]+margin*(previous[0]-center[0])/distance,center[1]+margin*(previous[1]-center[1])/distance)
+                if not all(math.dist(q,v)<=20.-1e-6 for v in cell):q=current[k]
+                updated[k]=q;previous=q
+            candidate=self._expected_order(self.position,updated,targets)
+            if candidate<best:best=candidate
+            if updated==current:break
+            current=updated
+        self.counters['finite_standoff_proxy_improvements']=self.counters.get('finite_standoff_proxy_improvements',0)+int(best[0]<original_cost-1e-8)
+        return best

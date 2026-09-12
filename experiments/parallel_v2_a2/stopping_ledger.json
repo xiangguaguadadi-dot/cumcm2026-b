@@ -1,0 +1,107 @@
+{
+  "policy": "每次完成的候选都与当时最新保留者比较；从旧父构造仍计未晋级。非全量候选的淘汰是筛选结果，不证明全部未测案例无效。",
+  "directions": [
+    {
+      "direction": "执行位置一致路线",
+      "latest": "base",
+      "nonpromoting": [
+        "route_r1",
+        "route_r2",
+        "route_r3"
+      ],
+      "stopped": true
+    },
+    {
+      "direction": "连续朝向积分",
+      "latest": "base",
+      "nonpromoting": [
+        "visibility_r1",
+        "visibility_r2",
+        "visibility_r3"
+      ],
+      "stopped": true
+    },
+    {
+      "direction": "六边覆盖portfolio",
+      "latest": "hex_r6",
+      "nonpromoting": [
+        "hex_r7",
+        "hex_r8",
+        "hex_r9"
+      ],
+      "stopped": true
+    },
+    {
+      "direction": "最小接收半径负信息",
+      "latest": "hex_r3",
+      "nonpromoting": [
+        "minradius_r1",
+        "minradius_r2",
+        "minradius_r3"
+      ],
+      "stopped": true
+    },
+    {
+      "direction": "完整有限光学计划",
+      "latest": "finite_r7",
+      "nonpromoting": [
+        "finite_r8",
+        "finite_r9",
+        "finite_r10"
+      ],
+      "stopped": true
+    }
+  ],
+  "excluded_after_policy_clarification": [
+    "finite_r11",
+    "finite_r12"
+  ],
+  "note": "r11/r12 quick在协调者澄清计数前已启动；只保存探索记录，不追加全量、不参与后续选优。",
+  "last_winner": "finite_r7",
+  "finite_review_sequence": [
+    {
+      "review_order_after_r7": 1,
+      "candidate": "finite_r8",
+      "construction_parent": "finite_r6",
+      "incumbent_at_review": "finite_r7",
+      "comparison_stage": "exposed",
+      "cases": 2400,
+      "candidate_mean": 453.7529683511302,
+      "incumbent_mean": 453.7274879198952,
+      "delta": 0.025480431234996104,
+      "promoted": false,
+      "raw_output_mtime_utc": "2026-09-12T06:28:19.946251+00:00",
+      "decision_basis": "r8 lost on combined exposed; r9/r10 failed full-v1 screening against incumbent."
+    },
+    {
+      "review_order_after_r7": 2,
+      "candidate": "finite_r9",
+      "construction_parent": "finite_r6",
+      "incumbent_at_review": "finite_r7",
+      "comparison_stage": "full",
+      "cases": 1200,
+      "candidate_mean": 450.4744748856519,
+      "incumbent_mean": 450.38232577654804,
+      "delta": 0.09214910910384333,
+      "promoted": false,
+      "raw_output_mtime_utc": "2026-09-12T06:24:48.104749+00:00",
+      "decision_basis": "r8 lost on combined exposed; r9/r10 failed full-v1 screening against incumbent."
+    },
+    {
+      "review_order_after_r7": 3,
+      "candidate": "finite_r10",
+      "construction_parent": "finite_r7",
+      "incumbent_at_review": "finite_r7",
+      "comparison_stage": "full",
+      "cases": 1200,
+      "candidate_mean": 450.43222607804597,
+      "incumbent_mean": 450.38232577654804,
+      "delta": 0.04990030149792801,
+      "promoted": false,
+      "raw_output_mtime_utc": "2026-09-12T06:37:13.772863+00:00",
+      "decision_basis": "r8 lost on combined exposed; r9/r10 failed full-v1 screening against incumbent."
+    }
+  ],
+  "audit_created_utc": "2026-09-12T06:38:28.358011+00:00",
+  "timestamp_scope": "Output mtimes identify raw artifact completion, not a claimed preregistration or exact decision timestamp; review_order records the agreed selection sequence."
+}

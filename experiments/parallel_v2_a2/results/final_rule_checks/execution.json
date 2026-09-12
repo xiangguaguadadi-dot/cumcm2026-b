@@ -1,0 +1,45 @@
+[
+  {
+    "name": "unit",
+    "command": [
+      "/opt/homebrew/bin/python3.12",
+      "-S",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 0,
+    "wall_s": 0.08173604100011289
+  },
+  {
+    "name": "manifest",
+    "command": [
+      "/opt/homebrew/bin/python3.12",
+      "-S",
+      "-B",
+      "evaluate.py",
+      "--verify-only"
+    ],
+    "returncode": 0,
+    "wall_s": 0.037213333998806775
+  },
+  {
+    "name": "nominal",
+    "command": [
+      "/opt/homebrew/bin/python3.12",
+      "-S",
+      "-B",
+      "tests/check_nominal.py",
+      "--package",
+      ".",
+      "--out",
+      "experiments/parallel_v2_a2/results/final_rule_checks/nominal.json"
+    ],
+    "returncode": 0,
+    "wall_s": 0.03453229193110019
+  }
+]

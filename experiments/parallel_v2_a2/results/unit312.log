@@ -1,0 +1,33 @@
+Error processing line 1 of /opt/homebrew/lib/python3.12/site-packages/hostile.pth:
+
+  Traceback (most recent call last):
+    File "<frozen site>", line 206, in addpackage
+    File "<string>", line 1, in <module>
+    File "/opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1047, in write_text
+      with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/opt/homebrew/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+      return io.open(self, mode, buffering, encoding, errors, newline)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/8r/jybbrm_n0rv9vn3thf25vvpr0000gn/T/pytest-of-t/pytest-20/test_no_site_bootstrap_does_no0/pth-executed'
+
+Remainder of file ignored
+test_failure_is_not_filtered_into_speedup (test_metrics.Metrics.test_failure_is_not_filtered_into_speedup) ... ok
+test_paired_group_mean (test_metrics.Metrics.test_paired_group_mean) ... ok
+test_at_virtual_deadline (test_rules.Rules.test_at_virtual_deadline) ... ok
+test_case_constraints (test_rules.Rules.test_case_constraints) ... ok
+test_channel_integral_number (test_rules.Rules.test_channel_integral_number) ... ok
+test_clear_direction_independent_and_no_switch (test_rules.Rules.test_clear_direction_independent_and_no_switch) ... ok
+test_inflight_completes_then_closes (test_rules.Rules.test_inflight_completes_then_closes) ... ok
+test_invalid_is_atomic (test_rules.Rules.test_invalid_is_atomic) ... ok
+test_official_example (test_rules.Rules.test_official_example) ... ok
+test_runtime_twenty_minutes (test_rules.Rules.test_runtime_twenty_minutes) ... ok
+test_signed_zero (test_rules.Rules.test_signed_zero) ... ok
+test_state_rejection (test_rules.Rules.test_state_rejection) ... ok
+test_window_real_cutoff (test_rules.Rules.test_window_real_cutoff) ... ok
+test_zero_cleared_undefined_average (test_rules.Rules.test_zero_cleared_undefined_average) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.029s
+
+OK

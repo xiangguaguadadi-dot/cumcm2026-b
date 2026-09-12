@@ -1,0 +1,26 @@
+test_failure_is_not_filtered_into_speedup (test_metrics.Metrics) ... ok
+test_paired_group_mean (test_metrics.Metrics) ... ok
+test_rules (unittest.loader._FailedTest) ... ERROR
+
+======================================================================
+ERROR: test_rules (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_rules
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/Users/t/ai project/数学建模2026/agent_experiments/20260912_parallel_v2/a2/tests/test_rules.py", line 4, in <module>
+    from local_env import LocalEnv,Source
+  File "/Users/t/ai project/数学建模2026/agent_experiments/20260912_parallel_v2/a2/local_env.py", line 14, in <module>
+    class Source:
+  File "/Users/t/ai project/数学建模2026/agent_experiments/20260912_parallel_v2/a2/local_env.py", line 19, in Source
+    direction: float | None = None
+TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+FAILED (errors=1)

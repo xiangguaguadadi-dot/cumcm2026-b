@@ -1,0 +1,825 @@
+Informative Path Planningwith Guaranteed Estimation Uncertainty
+Report GitHub Issue
+×
+Title:
+Content selection saved. Describe the issue below:
+Description:
+Submit without GitHub
+Submit in GitHub
+arXiv is now an independent nonprofit!
+Learn more
+×
+Back to arXiv
+Why HTML?
+Report Issue
+Back to Abstract
+Download PDF
+Abstract
+I Introduction
+II Related Work
+III Preliminaries: Gaussian Processes
+IV Problem: Informative Path Planning with Guaranteed Estimation Uncertainty
+V Near-Optimal Informative Path Planning
+V-A Coverage Map Construction Theory
+V-B Binary Coverage Map Construction
+V-C GreedyCover : IPP via Greedy Selection and TSP
+V-C 1 Greedy Sensor Selection
+V-C 2 Submodularity and Approximation Guarantees
+V-C 3 Path Construction via TSP
+V-C 4 Limitations of the Decoupled Approach
+V-D GCBCover : IPP via Generalized Cost–Benefit Algorithm
+V-D 1 Generalized Cost–Benefit Selection with Coverage Maps
+V-D 2 Approximation Guarantees Under Routing Constraints
+VI Experiments
+VI-A Benchmark Experiments
+VI-B Autonomous Surface Vehicle Field Trial
+VII Limitations
+VIII Conclusion
+References
+-A Theorems and Proofs
+-A 1 Coverage-map construction
+-B Algorithms: Coverage-Based Selection and Path Planning
+-B 1 GreedyCover
+-B 2 GCBCover
+-B 3 Routing-Cost Heuristic and Computational Efficiency
+-B 4 Joint Posterior Uncertainty
+-C Autonomous Underwater Vehicle Field Trial
+-D Additional Benchmark Results
+License: CC BY 4.0
+arXiv:2602.05198v3 [cs.RO] 26 May 2026
+Informative Path Planning
+with Guaranteed Estimation Uncertainty
+Kalvik Jakkala 1 , Saurav Agarwal 2 , Jason O’Kane 1 and Srinivas Akella 3
+Affiliation: 1 Texas A&M University, 2 Indian Institute of Technology Bombay, 3 University of North Carolina at Charlotte
+Affiliation: Email: {kalvik, jokane}@tamu.edu, saurav.agarwal@iitb.ac.in, sakella@charlotte.edu
+Abstract
+Environmental monitoring robots often need to estimate data fields (e.g., salinity, temperature, bathymetry) under tight resource constraints. Classical boustrophedon lawnmower surveys provide geometric coverage guarantees but can waste effort by oversampling predictable regions. In contrast, informative path planning (IPP) methods leverage spatial correlations to reduce oversampling, yet typically offer no guarantees on estimation quality. This paper bridges these approaches by addressing IPP with guaranteed estimation uncertainty in complex environments: computing the shortest path whose measurements ensure that the Gaussian process (GP) posterior variance—an intrinsic uncertainty measure that lower-bounds the mean-squared prediction error under the GP model—is upper bounded by a user-specified threshold over the monitoring region.
+We propose a three-stage approach for efficient environmental monitoring: (i) learning a GP model from prior information; (ii) transforming the GP kernel into binary coverage maps that identify locations where uncertainty can be reduced below a target threshold; and (iii) planning a near-shortest route to satisfy the global uncertainty constraint. Our approach incorporates non-stationary kernels to capture spatially varying correlations in heterogeneous phenomena and accommodates non-convex environments with obstacles. We provide near-optimal approximation guarantees for both sensing-location selection and the joint selection-and-routing problem under a travel budget. Experiments on real-world topographic data demonstrate that our planners achieve uncertainty targets with fewer sensing locations and shorter travel distances than representative baselines. Furthermore, field experiments with autonomous surface and underwater vehicles validate the real-world feasibility of the approach. Our code is available at: www.sgp-tools.com
+I Introduction
+(a) Lawnmower [ 1 ]
+Path Length: 1047 m
+Coverage Guarantee
+(b) Continuous-SGP [ 2 ]
+Path Length: 300 m
+Asymptotic Guarantee
+(c) HexCover [ 3 ]
+Path Length: 614 m
+Uncertainty Guarantee
+(d) GreedyCover (Ours)
+Path Length: 238 m
+Uncertainty Guarantee
+Fig. 1 : Comparison of IPP solution paths (red) and the resulting GP predictive uncertainty (heatmaps). While all methods maintain an identical mean predictive uncertainty of 0.02, the proposed GreedyCover approach yields the shortest path while guaranteeing that uncertainty remains below the target threshold across all evaluation locations.
+Monitoring environmental variables such as ocean currents, salinity, and bathymetry is a critical task of broad scientific and societal importance [ 4 ] . These quantities are both sensitive indicators of coupled Earth-system dynamics and active drivers of the climate, natural hazards, ecosystems, and resource availability. Accordingly, systematic observation strategies that provide robustness through model-based guarantees, efficiency through resource-aware optimization, and repeatability through automation are essential for effective risk reduction and sustainable management.
+Despite its importance, environmental monitoring under finite resource constraints presents significant challenges. A common approach is the boustrophedon lawnmower pattern, which provides strong geometric coverage guarantees by sweeping the sensing footprint across the entire region [ 1 , 5 , 6 ] . However, many environmental fields exhibit strong spatial correlations. In these contexts, exhaustive geometric coverage often results in wasted effort, oversampling regions that are easily predictable from nearby observations.
+Informative path planning (IPP) leverages spatial correlations—often through Gaussian processes (GPs) [ 7 ] —to reduce travel while maintaining reconstruction quality. However, most IPP methods optimize surrogate measures of information gain without certifying the quality of the resulting reconstruction. Moreover, existing approaches typically adopt stopping criteria based on resource budgets, such as mission time, travel distance, or a cardinality constraint on sensing locations. Real-world deployments require a more principled approach: a stopping criterion tied directly to the desired reconstruction accuracy.
+Recent research has begun to bridge this gap by introducing estimation uncertainty guarantees . These methods provide an upper bound on the GP predictive variance, which in turn lower-bounds the mean-squared error (MSE) [ 8 , 3 ] . While predictive uncertainty is only a proxy for accuracy, it serves as a rigorous measure of the information gained relative to the prior data, providing a quantitative signal of mission progress. However, existing methods with such guarantees are limited in two critical ways: they generally rely on Radial Basis Function (RBF) kernels—forcing a stationary correlation model—and are derived only for simplified, convex environments. Such constraints are rarely met in the real-world, where environmental fields can be highly non-stationary and operational areas often involve obstacles or complex, non-convex boundaries.
+Fig. 2 : An autonomous surface vehicle (ASV) and an autonomous underwater vehicle (AUV) mapping bathymetry during our field trials.
+This paper addresses these limitations by developing new methods for IPP with estimation uncertainty guarantees in complex environments. Figure 1 highlights the resulting efficiency gains in a non-stationary bathymetry setting relative to representative baselines. Our main contributions are:
+•
+IPP with Uncertainty Guarantees: We present an informative path planning approach that upper-bounds the GP predictive variance, ensuring the maximum predictive uncertainty remains below a user-specified threshold.
+•
+Non-Stationary and Non-Convex Modeling: We introduce a method that captures and leverages non-stationary correlations while accommodating non-convex environments containing obstacles and complex boundaries.
+•
+Near-Optimal Algorithms: We provide near-optimal approximation algorithms for both sensing-location selection and the joint location-selection and routing problem.
+•
+Field Validation: We validate our approach through field trials using autonomous surface and underwater vehicles for bathymetry mapping, demonstrating the practical feasibility of our method in real-world conditions.
+II Related Work
+Lawnmower Planners:
+A foundational approach in environmental monitoring is the boustrophedon (lawnmower) sweep, where a robot follows parallel transects to provide deterministic coverage based on its sensing footprint [ 1 ] . This paradigm has been adapted to account for realistic vehicle dynamics, such as Dubins kinematics constraints for autonomous surface vehicles [ 5 ] , and extended to multi-agent systems where area coverage objectives must be balanced against practical constraints like limited onboard energy or communication range [ 6 ] .
+Contrast to our work:
+Lawnmower planners guarantee geometric visitation but oversample predictable areas by ignoring data correlations. Our approach instead optimizes for a worst-case posterior uncertainty threshold, enabling non-sweep paths that skip redundant regions while guaranteeing a global uncertainty bound.
+Coverage Planners:
+Our work is also closely related to viewpoint and sensor placement formulations that offer geometric alternatives to exhaustive sweeping. These include randomized art-gallery algorithms designed to select discrete sensor locations that collectively see an entire environment [ 9 ] . More broadly, the field encompasses decentralized and adaptive strategies targeting geometric visitation or sensing density, particularly in complex or multi-robot settings. For instance, Voronoi-based methods provide coverage guarantees in non-convex environments for networked teams [ 10 ] , while robust adaptive control laws address uncertainty in the underlying sensor network objectives [ 11 ] . In unknown environments, recent methods trade off exploration (mapping free space) with coverage progress to improve operational efficiency [ 12 ] .
+Contrast to our work:
+Unlike coverage planners that require full-field traversal for geometric visibility, we optimize a coverage-as-uncertainty objective. By imposing a global worst-case posterior variance threshold, we certify estimation uncertainty while purposefully skipping regions that do not require direct sensing.
+Informative Path Planning Methods:
+Informative Path Planning (IPP) and Robotic Information Gathering (RIG) focus on planning paths that maximize information gain regarding an unknown field, frequently employing Gaussian Processes (GPs) [ 7 ] to model spatial correlations. Submodular formulations have provided a rigorous foundation for this, enabling efficient approximation algorithms for sensor placement [ 13 ] , including extensions that incorporate travel and routing constraints [ 14 , 15 ] .
+In robotic monitoring, IPP has been extensively studied for waypoint optimization in spatiotemporal settings [ 16 ] , adaptive continuous-space planning for environmental monitoring [ 17 ] , and Bayesian exploration for mapping [ 18 ] . Recent research has expanded into sequential optimization-based approaches [ 19 ] and distributed mapping for heterogeneous teams using wavelet-based ergodic exploration [ 20 ] . Parallel to these methods, learning-based techniques—such as deep reinforcement learning for adaptive planning [ 21 ] and feature tracking [ 22 ] —have gained traction. Other efforts focus on model expressiveness and scalability, utilizing multi-scale sampling [ 23 ] , attentive kernels for information gathering [ 24 , 25 ] , and differentiable optimization via sparse Gaussian Processes [ 26 , 27 , 2 ] . Furthermore, routing-constrained IPP has been applied to high-stakes estimation tasks, such as localized gas leak rate quantification [ 28 ] .
+Contrast to our work:
+Unlike most IPP approaches that maximize information gain without providing formal guarantees on estimation quality, we plan with respect to an explicit global uncertainty constraint. By targeting the worst-case posterior variance, our method ensures that the resulting paths satisfy prescribed estimation uncertainty requirements.
+IPP Methods with Estimation Uncertainty Guarantees:
+The most relevant approaches to our work belong to the specialized class of IPP methods that provide formal estimation uncertainty guarantees . Unlike standard information-gathering techniques, these methods certify that a reconstructed field satisfies a user-specified uncertainty threshold. For instance, Suryan and Tokekar investigated minimum-time field learning with multi-robot teams, leveraging GP structures to derive performance guarantees under operational time constraints [ 8 ] . Building on this foundation, Dutta et al. developed approximation algorithms for the dual sensor placement and shortest-path problems, strengthening theoretical guarantees within convex environments [ 3 ] . Collectively, these works demonstrate that rigorous, coverage-style certification can be successfully integrated into the informative sampling paradigm.
+Contrast to our work:
+Since existing uncertainty guarantee-based methods typically assume stationary correlations and convex geometries, they often fail in spatially varying or obstacle-dense environments. We extend these guarantees to expressive, non-stationary models and non-convex domains, providing formal certificates for both near-optimal approximation and estimation uncertainty.
+III Preliminaries: Gaussian Processes
+We model the monitored quantity as an unknown function over a domain and use Gaussian processes (GPs) [ 7 ] to represent both spatial structure and predictive uncertainty.
+GP Prior:
+A Gaussian process is a stochastic process such that any finite collection of function values is jointly Gaussian. Equivalently, a GP induces a distribution over functions, making it an expressive Bayesian prior for regression.
+We place a GP prior on the latent data field f ⁡ ( ⋅ ) f(\cdot) :
+f ⁡ ( x ) ∼ 𝒢 ​ 𝒫 ​ ( m ⁡ ( x ) , k ⁡ ( x , x ′ ) ) , f(x)\sim\mathcal{GP}\big(m(x),k(x,x^{\prime})\big),
+(1)
+where m ⁡ ( x ) m(x) is the mean function (often taken to be 0 0 after normalization) and kernel k ⁡ ( x , x ′ ) k(x,x^{\prime}) is a positive semi-definite covariance function. The kernel specifies prior correlations:
+k ⁡ ( x , x ′ ) = cov ⁡ ( f ⁡ ( x ) , f ⁡ ( x ′ ) ) . k(x,x^{\prime})=\mathrm{cov}\!\left(f(x),f(x^{\prime})\right).
+(2)
+Noisy Observations and Posterior Prediction:
+Given n n noisy samples 𝒟 = { ( x i , y i ) } i = 1 n \mathcal{D}=\{(x_{i},y_{i})\}_{i=1}^{n} with
+y i = f ⁡ ( x i ) + ε i y_{i}=f(x_{i})+\varepsilon_{i} and i.i.d. Gaussian noise ε i ∼ 𝒩 ⁡ ( 0 , σ n 2 ) \varepsilon_{i}\sim\mathcal{N}(0,\sigma_{n}^{2}) , define the stacked training inputs X = [ x 1 , … , x n ] X=[x_{1},\dots,x_{n}] and outputs y = [ y 1 , … , y n ] ⊤ y=[y_{1},\dots,y_{n}]^{\top} . For a query location x ∗ x_{\ast} , GP regression yields a Gaussian predictive distribution
+p ⁡ ( f ∗ ∣ X , y , x ∗ ) = 𝒩 ⁡ ( μ ∗ , σ ∗ 2 ) p(f_{\ast}\mid X,y,x_{\ast})=\mathcal{N}(\mu_{\ast},\sigma_{\ast}^{2}) , with
+μ ∗ \displaystyle\mu_{\ast}
+= K ∗ n ​ ( K n ​ n + σ n 2 ​ I ) − 1 ​ y , \displaystyle=K_{\ast n}\big(K_{nn}+\sigma_{n}^{2}I\big)^{-1}y,
+(3)
+σ ∗ 2 \displaystyle\sigma_{\ast}^{2}
+= K ∗ ⁣ ∗ − K ∗ n ( K n ​ n + σ n 2 I ) − 1 K n ∗ . \displaystyle=K_{\ast\ast}-K_{\ast n}\big(K_{nn}+\sigma_{n}^{2}I\big)^{-1}K_{n\ast}.
+(4)
+Here, K n ​ n K_{nn} is the n × n n\times n covariance matrix with ( K n ​ n ) i ​ j = k ⁡ ( x i , x j ) (K_{nn})_{ij}=k(x_{i},x_{j}) , K ∗ n K_{\ast n} is the 1 × n 1\times n vector with ( K ∗ n ) i = k ⁡ ( x ∗ , x i ) (K_{\ast n})_{i}=k(x_{\ast},x_{i}) , K n ∗ = K ∗ n ⊤ K_{n\ast}=K_{\ast n}^{\top} , and K ∗ ⁣ ∗ = k ⁡ ( x ∗ , x ∗ ) K_{\ast\ast}=k(x_{\ast},x_{\ast}) .
+The posterior variance σ ∗ 2 \sigma_{\ast}^{2} provides an intrinsic uncertainty measure that depends only on the input locations (and the GP hyperparameters), which makes it especially useful for planning.
+IV Problem: Informative Path Planning with Guaranteed Estimation Uncertainty
+System Setup:
+A robot is tasked with monitoring an environmental field (e.g., salinity, temperature, bathymetry) over a purely spatial or spatio-temporal domain 𝒳 ⊂ ℝ d \mathcal{X}\subset\mathbb{R}^{d} . For planning and performance evaluation, we define a finite set of evaluation points 𝒱 = { x 1 , … , x N } ⊂ 𝒳 \mathcal{V}=\{x_{1},\dots,x_{N}\}\subset\mathcal{X} where accurate estimates are required.
+Due to accessibility, safety, and operational constraints, the robot can only sample from a restricted set of candidate sensing locations 𝒞 = { c 1 , … , c M } ⊆ 𝒳 \mathcal{C}=\{c_{1},\dots,c_{M}\}\subseteq\mathcal{X} . A feasible path is represented by an ordered sequence of waypoints 𝒫 = ( p 1 , … , p T ) \mathcal{P}=(p_{1},\dots,p_{T}) , where each p t ∈ 𝒞 p_{t}\in\mathcal{C} . We denote the travel cost of a path as cost ⁡ ( 𝒫 ) \mathrm{cost}(\mathcal{P}) (e.g., Euclidean distance or boundary-constrained path length).
+GP-based Uncertainty Surrogate:
+Directly optimizing the pointwise Mean Squared Error (MSE) is challenging because it generally depends on the unknown measurement values realized along 𝒫 \mathcal{P} . To obtain a tractable objective, we model the unknown field f : 𝒳 → ℝ f:\mathcal{X}\to\mathbb{R} as a Gaussian Process (GP).
+The GP provides a posterior variance σ post 2 ​ ( x i | 𝒫 ) \sigma^{2}_{\mathrm{post}}(x_{i}|\mathcal{P}) that depends only on the sensing locations, not the observed values. Since the posterior variance provides a lower bound on the pointwise MSE [ 29 ] , we define the worst-case uncertainty as:
+J max ​ ( 𝒫 ) := max x i ∈ 𝒱 ⁡ σ post 2 ​ ( x i | 𝒫 ) . J_{\max}(\mathcal{P}):=\max_{x_{i}\in\mathcal{V}}\sigma^{2}_{\mathrm{post}}(x_{i}|\mathcal{P}).
+(5)
+The GP is initialized using a representative set of labeled points obtained from pilot missions, historical data, or coarse satellite observations.
+Problem Statement:
+The informative path planning problem with guaranteed estimation uncertainty aims to find the minimum-cost path that ensures the posterior variance at every evaluation point remains below a user-specified threshold σ tar 2 \sigma^{2}_{\mathrm{tar}} :
+𝒫 ⋆ ∈ arg ⁡ min 𝒫 ∈ 𝒞 ∗ \displaystyle\mathcal{P}^{\star}\in\arg\min_{\mathcal{P}\in\mathcal{C}^{*}}
+cost ⁡ ( 𝒫 ) \displaystyle\mathrm{cost}(\mathcal{P})
+(6)
+s.t. \displaystyle\text{s.t.}
+J max ​ ( 𝒫 ) ≤ σ tar 2 , \displaystyle J_{\max}(\mathcal{P})\leq\sigma^{2}_{\mathrm{tar}},
+cost ⁡ ( 𝒫 ) ≤ D (optional), \displaystyle\mathrm{cost}(\mathcal{P})\leq D\quad\text{(optional),}
+where 𝒞 ∗ := ⋃ T ≥ 1 𝒞 T \mathcal{C}^{*}:=\bigcup_{T\geq 1}\mathcal{C}^{T} denotes the set of all finite waypoint sequences over 𝒞 \mathcal{C} , and D D is an optional budget constraining the total path cost.
+V Near-Optimal Informative Path Planning
+This section presents our approach to solving the informative path planning problem with guaranteed estimation uncertainty. We first describe how we leverage available prior information to compute coverage maps. We then use these maps in two algorithms— GreedyCover and GCBCover —which address sensing-location selection and the joint problem of sensing-location selection and route planning, respectively.
+V-A Coverage Map Construction Theory
+We begin by fitting a Gaussian process (GP) to the available prior information. Depending on the data source, we use either a non-stationary kernel [ 24 ] or a physics-informed kernel [ 30 ] .
+Using the learned GP, we construct coverage maps that specify which evaluation points
+v ∈ 𝒱 v\in\mathcal{V} can be driven below the user-specified target posterior variance
+σ tar 2 \sigma^{2}_{\mathrm{tar}} by taking a measurement at a candidate sensing location
+c ∈ 𝒞 c\in\mathcal{C} .
+Ideally, coverage would be evaluated jointly over sets of sensing locations, since the posterior variance at an evaluation
+point depends on all measurements collected from a path. However, informative path planning is NP-hard [ 16 ] ;
+exact evaluation would require computing posterior variances for many subsets of the power set of 𝒞 \mathcal{C} , which is
+computationally infeasible. We therefore adopt a scalable alternative: for each candidate location c ∈ 𝒞 c\in\mathcal{C} , we compute the set of
+evaluation points that would satisfy the variance threshold if we were to observe only at c c . These per-location coverage maps
+can then be combined efficiently during planning.
+We justify this construction with the following results. The first provides an explicit prior covariance threshold under which a single
+measurement at a sensing location can reduce the posterior variance at a given evaluation point below σ tar 2 \sigma^{2}_{\mathrm{tar}} . The
+second formalizes the monotonicity property that conditioning on additional measurements can only further reduce posterior variance;
+hence, the single-location condition yields a conservative coverage region for multi-measurement paths.
+Theorem 1 (Minimum Required Prior Covariance) .
+Let f ∼ 𝒢 ​ 𝒫 ​ ( 0 , k ) f\sim\mathcal{GP}(0,k) with independent Gaussian observation noise variance σ n 2 \sigma_{n}^{2} , and consider a single noisy observation at candidate location c ∈ 𝒞 c\in\mathcal{C} .
+Fix an evaluation location v ∈ 𝒱 v\in\mathcal{V} .
+For any target posterior variance σ tar 2 ∈ ( 0 , k ⁡ ( v , v ) ) \sigma^{2}_{\mathrm{tar}}\in(0,k(v,v)) , the condition
+σ post 2 ​ ( v ∣ c ) ≤ σ tar 2 \sigma_{\mathrm{post}}^{2}(v\mid c)\leq\sigma^{2}_{\mathrm{tar}}
+holds if and only if
+| k ⁡ ( c , v ) | ≥ ( k ⁡ ( v , v ) − σ tar 2 ) ​ ( k ⁡ ( c , c ) + σ n 2 ) . |k(c,v)|\;\geq\;\sqrt{\bigl(k(v,v)-\sigma^{2}_{\mathrm{tar}}\bigr)\bigl(k(c,c)+\sigma_{n}^{2}\bigr)}.
+(7)
+Thus, achieving a posterior variance of at most σ tar 2 \sigma^{2}_{\mathrm{tar}} at v v requires that the prior covariance between c c and v v
+exceed the threshold in Equation 7 .
+Please refer to the Appendix for the proof.
+Theorem 2 (Variance Reduction with Multiple Locations) .
+Under the setup of Theorem 1 , consider n n sensing locations c 1 , … , c n ∈ 𝒞 c_{1},\dots,c_{n}\in\mathcal{C} .
+Fix an evaluation location v ∈ 𝒱 v\in\mathcal{V} and a target variance σ tar 2 ∈ ( 0 , k ⁡ ( v , v ) ) \sigma^{2}_{\mathrm{tar}}\in(0,k(v,v)) . Suppose there exists
+j ∈ { 1 , … , n } j\in\{1,\dots,n\} such that
+| k ⁡ ( c j , v ) | ≥ ( k ⁡ ( v , v ) − σ tar 2 ) ​ ( k ⁡ ( c j , c j ) + σ n 2 ) . |k(c_{j},v)|\;\geq\;\sqrt{\bigl(k(v,v)-\sigma^{2}_{\mathrm{tar}}\bigr)\bigl(k(c_{j},c_{j})+\sigma_{n}^{2}\bigr)}.
+Then the posterior variance at v v conditioned on all observations satisfies
+σ post 2 ( v ∣ c 1 : n ) ≤ σ tar 2 . \sigma_{\mathrm{post}}^{2}\!\left(v\mid c_{1:n}\right)\leq\sigma^{2}_{\mathrm{tar}}.
+Please refer to the Appendix for the proof.
+Fig. 3 : Coverage maps for two candidate sensing locations under a non-stationary kernel. Each dotted white blob indicates the set of evaluation locations for which that candidate location can guarantee the target posterior-variance threshold.
+V-B Binary Coverage Map Construction
+Together, Theorems 1 and 2 motivate a per-location notion of coverage: a sensing location c j c_{j} covers an evaluation point v i v_{i} if the prior covariance k ⁡ ( c j , v i ) k(c_{j},v_{i}) exceeds the threshold in Equation 7 . We encode this relationship in a binary matrix B ∈ { 0 , 1 } M × N B\in\{0,1\}^{M\times N} . For each candidate sensing location c j ∈ 𝒞 c_{j}\in\mathcal{C} and evaluation point v i ∈ 𝒱 v_{i}\in\mathcal{V} , we set B j ​ i = 1 B_{ji}=1 (i.e., sensing at c j c_{j} covers v i v_{i} ) if
+𝕀 { | k ( c j , v i ) | ≥ ( k ⁡ ( v i , v i ) − σ tar 2 ) ​ ( k ⁡ ( c j , c j ) + σ n 2 ) } , \mathbb{I}\!\left\{|k(c_{j},v_{i})|\;\geq\;\sqrt{\left(k(v_{i},v_{i})-\sigma^{2}_{\mathrm{tar}}\right)\;\left(k(c_{j},c_{j})+\sigma_{n}^{2}\right)}\right\},
+and B j ​ i = 0 B_{ji}=0 otherwise . Figure 3 shows example coverages.
+This binary representation provides two practical benefits. First, it reduces memory compared to storing real-valued covariances for
+all pairs in 𝒞 × 𝒱 \mathcal{C}\times\mathcal{V} . Second, it enables fast planning-time updates via set operations: the evaluation points
+covered by a path can be computed by unions over the rows of B B corresponding to the visited candidate locations, without repeatedly
+evaluating GP posterior variances for different candidate subsets.
+V-C GreedyCover : IPP via Greedy Selection and TSP
+Given the binary coverage matrix B B from Section V-B , our first planning approach proceeds in two
+stages: (i) greedily select a subset of candidate sensing locations that maximizes the number of covered evaluation points, and
+(ii) construct a path that visits all selected locations using a TSP solver [ 31 ] .
+V-C 1 Greedy Sensor Selection
+Starting from an empty selected set S 0 = ∅ S_{0}=\emptyset and an empty covered set U 0 = ∅ U_{0}=\emptyset , the greedy procedure iteratively adds
+the candidate location that covers the largest number of new (previously uncovered) evaluation points. Let S t ⊆ { 1 , … , M } S_{t}\subseteq\{1,\dots,M\} denote the indices of selected candidates after iteration t t , and let U t ⊆ 𝒱 U_{t}\subseteq\mathcal{V} denote the set of
+evaluation points covered by S t S_{t} . The marginal gain of adding candidate j ∉ S t j\notin S_{t} is
+Δ ( j ∣ S t ) := | { v i ∈ 𝒱 : B j ​ i = 1 , v i ∉ U t } | . \Delta(j\mid S_{t}):=\bigl|\{v_{i}\in\mathcal{V}:B_{ji}=1,\;v_{i}\notin U_{t}\}\bigr|.
+At each iteration, we select
+j ⋆ ∈ arg ⁡ max j ∉ S t ⁡ Δ ⁡ ( j ∣ S t ) , j^{\star}\in\arg\max_{j\notin S_{t}}\Delta(j\mid S_{t}),
+update S t + 1 = S t ∪ { j ⋆ } S_{t+1}=S_{t}\cup\{j^{\star}\} , and expand the covered set
+U t + 1 = U t ∪ { v i ∈ 𝒱 : B j ⋆ ​ i = 1 } . U_{t+1}=U_{t}\cup\{v_{i}\in\mathcal{V}:B_{j^{\star}i}=1\}.
+The loop terminates once all evaluation points are covered (i.e., | U t | = N |U_{t}|=N ) or once no remaining candidate yields additional
+coverage (i.e., max j ∉ S t ⁡ Δ ⁡ ( j ∣ S t ) = 0 \max_{j\notin S_{t}}\Delta(j\mid S_{t})=0 ). Algorithm 1 in the Appendix summarizes this procedure. The worst-case running time of the algorithm is 𝒪 ⁡ ( M 2 ​ N ) \mathcal{O}(M^{2}N) , when M ≤ N M\leq N .
+V-C 2 Submodularity and Approximation Guarantees
+The objective implicitly optimized by the above greedy method is a classic monotone submodular set function [ 32 , 33 , 13 ] .
+Define the coverage function with S ⊆ { 1 , … , M } S\subseteq\{1,\dots,M\} :
+F ⁡ ( S ) := | ⋃ j ∈ S { v i ∈ 𝒱 : B j ​ i = 1 } | , F(S):=\left|\bigcup_{j\in S}\{v_{i}\in\mathcal{V}:B_{ji}=1\}\right|,
+(8)
+which counts how many evaluation points are covered by the selected candidates. This function is:
+•
+Monotonically Increasing : If Y ⊆ Z Y\subseteq Z , then F ⁡ ( Y ) ≤ F ⁡ ( Z ) F(Y)\leq F(Z) , since adding sensing locations can only enlarge the union of covered points.
+•
+Submodular : It satisfies diminishing returns. For all Y ⊆ Z Y\subseteq Z and any location l ∉ Z l\notin Z ,
+F ⁡ ( Y ∪ { l } ) − F ⁡ ( Y ) ≥ F ⁡ ( Z ∪ { l } ) − F ⁡ ( Z ) , F(Y\cup\{l\})-F(Y)\;\geq\;F(Z\cup\{l\})-F(Z),
+since the set of newly covered points contributed by l l can only shrink as the baseline set grows.
+The GreedyCover procedure addresses the submodular set cover problem: minimizing the number of sensing locations required to reach coverage F ⁡ ( 𝒱 ) F(\mathcal{V}) . Given that F ⁡ ( S ) F(S) is an integer-valued monotone submodular function, the result by Wolsey [ 33 ] ensures that the greedy solution S S satisfies
+F ⁡ ( S ) ≤ OPT ⋅ ( 1 + ln ⁡ max j ∈ { 1 , … , M } ⁡ F ⁡ ( { j } ) ) , F(S)\;\leq\;\textrm{OPT}\cdot\left(1+\ln\max_{j\in\{1,\dots,M\}}F(\{j\})\right),
+where OPT denotes the minimum number of locations required to cover all evaluation points v i ∈ 𝒱 v_{i}\in\mathcal{V} . Thus, the greedy method provides a provably near-optimal selection for minimizing the sensing resources necessary to satisfy the coverage objective.
+V-C 3 Path Construction via TSP
+Given the selected index set S S , we construct a low-cost route that visits all sensing locations { c j : j ∈ S } \{c_{j}:j\in S\} . We treat these
+locations as nodes in a complete Euclidean graph, with edge weights given by pairwise distances between locations. We then invoke a
+TSP solver (e.g., the Christofides algorithm [ 31 ] ) to compute a path through the nodes, which we use as the execution path.
+While our formulation constrains sensing locations to the valid environment—including non-convex domains—the straight-line edges of a Euclidean TSP path may still traverse infeasible regions, such as obstacles or areas outside the boundary. To ensure feasibility, we post-process the path using standard motion-planning techniques (e.g., grid-based or sampling-based planners [ 34 ] ) to replace straight-line segments with collision-free, admissible paths.
+V-C 4 Limitations of the Decoupled Approach
+This two-stage pipeline—first selecting sensing locations to satisfy the coverage requirement, then routing them with a TSP solver—has an important limitation: it provides no joint approximation guarantee for the combined information–travel objective. The submodular approximation guarantees provided by Wolsey [ 33 ] apply only to the selection of sensing locations and do not account for path cost. In practice, greedy selection may choose sensing locations that are geographically dispersed, leading to unnecessarily long routes even though other, slightly different selections could satisfy the estimation uncertainty requirements at a lower travel cost. This limitation motivates our next method, which more tightly couples sensing-location selection and routing.
+V-D GCBCover : IPP via Generalized Cost–Benefit Algorithm
+Our second planning method couples sensing-location selection and routing via the generalized cost–benefit (GCB)
+algorithm [ 35 , 36 ] . Unlike the decoupled approach, which first maximizes coverage and then computes a path,
+GCB explicitly trades off marginal coverage gain against the marginal increase in path cost at each iteration.
+V-D 1 Generalized Cost–Benefit Selection with Coverage Maps
+We reuse the binary coverage matrix B ∈ { 0 , 1 } M × N B\in\{0,1\}^{M\times N} from
+Section V-B and the coverage function in
+Equation 8 . Let cost ⁡ ( S ) \mathrm{cost}(S) denote the routing cost of a selected index set
+S ⊆ { 1 , … , M } S\subseteq\{1,\dots,M\} , defined as the length of a (near-)shortest route that visits the sensing locations
+{ c j : j ∈ S } \{c_{j}:j\in S\} .
+At iteration t t , given the current sensing set S t S_{t} with coverage F ⁡ ( S t ) F(S_{t}) and routing cost cost ⁡ ( S t ) \mathrm{cost}(S_{t}) , each remaining candidate
+j ∉ S t j\notin S_{t} is scored by a cost–benefit ratio constructed from:
+(i) the marginal coverage gain :
+Δ ​ F ​ ( j ∣ S t ) := F ⁡ ( S t ∪ { j } ) − F ⁡ ( S t ) , \Delta F(j\mid S_{t}):=F(S_{t}\cup\{j\})-F(S_{t}),
+and (ii) the marginal routing-cost increment :
+Δ ​ cost ​ ( j ∣ S t ) := cost ⁡ ( S t ∪ { j } ) − cost ⁡ ( S t ) . \Delta\mathrm{cost}(j\mid S_{t}):=\mathrm{cost}(S_{t}\cup\{j\})-\mathrm{cost}(S_{t}).
+The candidate with the
+largest ratio:
+Δ ​ F ​ ( j ∣ S t ) / Δ ​ cost ​ ( j ∣ S t ) \Delta F(j\mid S_{t})/\Delta\mathrm{cost}(j\mid S_{t})
+is selected, provided it satisfies the routing budget D D , effectively prioritizing candidates that yield substantial new coverage for a minimal increase in routing cost.
+Because a purely ratio-greedy strategy can be suboptimal under a strict budget, GCB also computes a standard greedy coverage solution and truncates it to satisfy the budget. The algorithm then returns whichever of the budget-feasible solutions attains higher coverage. This comparison step is also necessary for the approximation guarantee stated below. Algorithm 2 in the Appendix summarizes the GCB algorithm.
+The worst-case running time is dominated by repeated routing cost evaluations. Let T ⁡ ( n ) T(n) denote the time required to compute the routing cost for n n sensing locations (e.g., via a TSP solver). Using the Christofides algorithm [ 31 ] , where T ⁡ ( n ) = 𝒪 ⁡ ( n 3 ) T(n)=\mathcal{O}(n^{3}) , the resulting worst-case complexity of GCB is 𝒪 ⁡ ( M 2 ​ ( N + M 3 ) ) \mathcal{O}(M^{2}(N+M^{3})) for M ≤ N M\leq N .
+In our experiments, we use a faster heuristic TSP routine. Give the current solution path, we estimate the routing cost increase upon adding a candidate sensing location using a fast heuristic (see Algorithm 3 in the Appendix). Once a location is selected via the GCB ratio, we invoke a full TSP solver to refine the path. This hybrid strategy significantly reduces runtime while maintaining high solution quality.
+V-D 2 Approximation Guarantees Under Routing Constraints
+As established in Section V-C , the coverage objective F F is monotone submodular. Similarly, the routing cost cost ⁡ ( ⋅ ) \mathrm{cost}(\cdot) is a monotone set function defined by the length of a TSP path through the selected sensing locations [ 35 ] . Consequently, the problem can be framed as a submodular maximization task subject to a routing constraint:
+max S ⊆ { 1 , … , M } ⁡ F ⁡ ( S ) s.t. cost ⁡ ( S ) ≤ D . \max_{S\subseteq\{1,\dots,M\}}F(S)\quad\text{s.t.}\quad\mathrm{cost}(S)\leq D.
+The generalized cost–benefit (GCB) algorithm provides a constant-factor approximation guarantee for this class of problems. In particular, under
+mild conditions on the routing cost function—namely, approximate submodularity with submodularity ratio α c \alpha_{c} , bounded
+curvature κ c \kappa_{c} , and a ψ ⁡ ( n ) \psi(n) -approximation factor for the TSP solver—the GCB solution satisfies the following
+bi-criterion guarantee [ 35 ] :
+F ​ ( S ) ≥ 1 2 ​ ( 1 − 1 e ) ​ OPT , F(S)\;\geq\;\frac{1}{2}\Bigl(1-\frac{1}{e}\Bigr)\,\mathrm{OPT},
+where OPT \mathrm{OPT} denotes the optimal coverage achievable under a slightly tighter effective budget (with the tightening
+depending on α c \alpha_{c} , κ c \kappa_{c} , ψ ⁡ ( n ) \psi(n) , and the largest feasible solution size). Equivalently, GCB achieves at least a
+1 2 ​ ( 1 − 1 / e ) ≈ 31.6 % \tfrac{1}{2}(1-1/e)\approx 31.6\% fraction of an approximate optimum, where the approximation reflects the quality of the TSP solver. We refer to Zhang and Vorobeychik [ 35 ] for a more detailed explanation of the approximation guarantee.
+In our setting, F F is exactly monotone submodular; thus, all approximation effects arise from the routing component (i.e., the
+submodularity ratio/curvature of cost ⁡ ( ⋅ ) \mathrm{cost}(\cdot) and the approximation quality of the TSP solver). Consequently, our method inherits
+the same worst-case approximation factor as the underlying GCB framework while directly optimizing a coverage objective tailored to
+informative sensing.
+VI Experiments
+Fig. 4 : Left: SRTM ground truth data ( 45 ∘ ​ N , 123 ∘ ​ W ) (45^{\circ}\mathrm{N},\,123^{\circ}\mathrm{W}) .
+Right: Lengthscales from a non-stationary kernel.
+Fig. 5 : Benchmark results on the SRTM dataset ( 45 ∘ ​ N , 123 ∘ ​ W ) (45^{\circ}\mathrm{N},\,123^{\circ}\mathrm{W}) . Top row: Max posterior variance, MSE, and SMSE. Bottom row: Runtime, sensing locations, and path length. GreedyCover and GCBCover satisfy uncertainty targets with fewer sensing locations and shorter paths than HexCover and Continuous-SGP . In budgeted scenarios, GCBCover prioritizes strict adherence to travel limits over further variance reduction. Lower values represent better performance across all metrics.
+This section evaluates the proposed method through two experimental studies. First, we benchmark our methods against representative baseline approaches using real-world topographic datasets. Second, we validate the practical feasibility of our approach through field deployments.
+VI-A Benchmark Experiments
+Fig. 6 : Comparison of solutions on the SRTM dataset ( 45 ∘ ​ N , 123 ∘ ​ W ) (45^{\circ}\mathrm{N},\,123^{\circ}\mathrm{W}) for a 0.7 variance ratio (target variance threshold: 0.43). Red: informative paths and sensing locations; Green: initial pilot path; Violet: approximate sensor fields-of-view.
+We benchmarked the proposed methods on the Shuttle Radar Topography Mission (SRTM) dataset [ 37 ] , which provides high-resolution digital elevation data worldwide. We focused on the region near ( 45 ∘ ​ N , 123 ∘ ​ W ) (45^{\circ}\mathrm{N},\,123^{\circ}\mathrm{W}) , chosen for its complex, non-stationary spatial structure; results for three additional locations are reported in the Appendix. All benchmarks were run on a computer with an Intel i9-14900K CPU and 64 GB of RAM.
+To model the environment, we employ a non-stationary Attentive kernel [ 24 ] , which utilizes a mixture of Radial Basis Function (RBF) kernels to capture spatially varying correlations. We optimize the kernel hyperparameters by fitting a Gaussian process (GP) [ 7 ] to data collected along an initial pilot path. To generate this path, we uniformly sample locations in the domain 𝒳 \mathcal{X} , cluster them using k k -means [ 38 ] , and select 10 resulting centroids as waypoints. A Traveling Salesperson Problem (TSP) solver [ 31 ] is then used to compute a route through them. After collecting 350 measurements along this pilot trajectory to initialize the GP, the learned kernel function and likelihood noise variance are provided to each planner to generate solution paths. Figure 4 shows the SRTM ground truth for ( 45 ∘ ​ N , 123 ∘ ​ W ) (45^{\circ}\mathrm{N},\,123^{\circ}\mathrm{W}) , along with the spatially varying lengthscales learned by the Attentive kernel.
+We evaluated our proposed methods, GreedyCover (Section V-C ) and GCBCover (Section V-D ), considering GCBCover in both unconstrained and budgeted-distance settings. We compared these methods against two established baselines. The first, HexCover [ 3 ] , generates IPP solutions with estimation uncertainty guarantees. Since HexCover requires a stationary RBF kernel, we set its lengthscale to the minimum value inferred by the trained Attentive kernel—a conservative choice that usually preserves the uncertainty guarantee. The second, Continuous-SGP [ 2 ] , is a high-performance IPP method known to outperform mutual-information and variance-based approaches, though it lacks formal uncertainty guarantees.
+None of the planning methods explicitly account for measurements collected from the pilot path; during planning, they use only the learned kernel and noise variance. GreedyCover , GCBCover , and Continuous-SGP can be warm-started by seeding the selected sensing locations with already visited points and then planning the remaining route, potentially reducing the number of additional sensing locations (and thus total travel distance). However, HexCover does not support such initialization. For a consistent comparison, we therefore incorporate the pilot measurements only during evaluation, not during planning.
+We utilized a GP trained on pilot data to determine the maximum posterior variance across a discrete evaluation grid. We define the target variance threshold as a fixed fraction of this maximum, varying the fraction from 0.9 0.9 to 0.5 0.5 . For the distance-budgeted configuration of GCBCover , the budget is defined as the length of its unconstrained solution minus 20 ​ m 20\,\mathrm{m} . This design choice anchors the budget to the physical requirements of the uncertainty constraint while imposing a deliberate shortfall to challenge the planner’s efficiency. Additionally, as Continuous-SGP requires the number of sensing locations to be specified a priori, we set this value to match the number of locations generated by the GreedyCover solution.
+To evaluate each method, we combined measurements from the pilot path with those collected at the solution waypoints and computed six metrics: (i) maximum posterior variance, (ii) mean squared error (MSE) [ 7 ] , (iii) standardized mean squared error (SMSE) [ 7 ] , (iv) algorithm runtime, (v) number of selected sensing locations, and (vi) total solution path length. Figure 5 presents the benchmark results for ( 45 ∘ ​ N , 123 ∘ ​ W ) (45^{\circ}\mathrm{N},\,123^{\circ}\mathrm{W}) , while Figure 6 illustrates representative solution paths. Additional results are available in the Appendix.
+Across the full range of threshold ratios, all methods successfully satisfy the target variance requirements, with two notable exceptions: distance-budgeted GCBCover , which prioritizes the travel distance limit over variance reduction, and Continuous-SGP , which offers no formal guarantees.
+Fig. 7 : Autonomous surface vehicle (ASV) field-trial results using GreedyCover . Left: learned lengthscales from the non-stationary kernel. Middle: GP prior prediction variance conditioned on the initial pilot data. Right: GP posterior prediction variance after conditioning on the IPP solution data.
+Computational efficiency varies significantly across the evaluated methods. GreedyCover is consistently the fastest, outperforming both HexCover and Continuous-SGP . For HexCover , while sensing-location selection requires less than one second, the overall runtime is dominated by the TSP solver. This overhead is driven by HexCover selecting a larger number of sensing locations than GreedyCover , which increases the complexity of the subsequent routing. In contrast, GCBCover is a little slower due to the tight coupling between its selection and routing phases. However, this integrated approach allows GCBCover to enforce strict distance constraints while maintaining near-optimal approximation guarantees for the joint selection and routing problem.
+From a deployment perspective, the critical metrics are the number of sensing locations and the total path length. GreedyCover and GCBCover consistently satisfy the target variance threshold using fewer sensing locations and shorter travel distances. Although HexCover yields the lowest maximum posterior variance and a corresponding improvement in MSE, this advantage stems primarily from collecting a larger volume of data due to its inability to leverage non-stationary correlations. Conversely, GreedyCover and GCBCover utilize the Attentive kernel to model non-stationarity in the underlying field, effectively capturing spatially varying correlations to prioritize the most informative sensing locations.
+VI-B Autonomous Surface Vehicle Field Trial
+We validated the proposed method in a real-world deployment using a custom-built autonomous surface vehicle (ASV) [ 39 ] to map lake bathymetry. The monitoring region was restricted to a non-convex subset of the lake. The ASV platform (Figure 2 ) was equipped with GPS, a single-beam sonar, and a Raspberry Pi 5 for onboard computation.
+We conducted an IPP trial using GreedyCover . We first generated a pilot path with ten waypoints via k k -means and collected 544 depth measurements along this path. Using this data, we fit a GP with an Attentive kernel [ 24 ] . We set the target maximum posterior variance to (50%) of the maximum variance obtained after executing the pilot path, and then computed the IPP solution. To accelerate convergence and reduce path length, we warm-started GreedyCover with the pilot data. Consequently, the planned IPP solution avoided revisiting locations near the pilot path and prioritized regions whose uncertainty remained above the target threshold. After executing the IPP solution, we updated the GP using measurements collected at the visited waypoints and evaluated the resulting maximum posterior variance. Additional implementation details are provided in the code Appendix. The learned lengthscales, together with the planned and executed pilot and informative paths, are shown in Figure 7 .
+Despite deviations from the planned path, the method successfully reduced uncertainty such that the maximum-variance threshold was satisfied over the monitoring region. We also observed that the IPP sensing locations remained within the region boundary, and the low-level trajectory planner [ 40 ] adjusted the executed path to remain inside the non-convex domain, consistent with the non-convex domain constraints. Details of the ocean field trial with an Aqua2 AUV [ 41 , 42 ] are provided in the Appendix.
+VII Limitations
+A central limitation is the reliance on a well-specified GP kernel: if the kernel is misspecified, the bound on predictive variance may fail to be a strict lower bound on the true mean-squared prediction error. An important extension is online IPP that adapts a non-stationary kernel from streaming data (e.g., POAM [ 25 ] ) and provides guarantees that are robust to hyperparameter uncertainty. Alternatively, correlations could be inferred from physics-based priors or historical data, reducing—or potentially eliminating—the need for pilot data collection and onboard kernel learning.
+Second, our guarantees are enforced on a finite evaluation set 𝒱 \mathcal{V} and therefore may not hold uniformly over the continuous domain. Future work could exploit regularity of the GP variance (e.g., continuity or Lipschitz properties) to guide grid-resolution selection and lift guarantees from 𝒱 \mathcal{V} to the continuous domain.
+Finally, the field trials highlight execution uncertainty (e.g., localization error and imperfect tracking). Incorporating these effects via chance-constrained formulations would further improve real-world reliability.
+VIII Conclusion
+We presented two planners for informative path planning (IPP) with guaranteed estimation uncertainty that compute near-shortest (or budget-feasible) sensing paths whose measurements ensure that the Gaussian process (GP) posterior variance at every evaluation point falls below a user-specified threshold. This provides coverage-style guarantees while leveraging correlation-aware sampling.
+To make the problem tractable, we fit a GP to available prior information and construct binary coverage maps by
+thresholding kernel-induced covariance, reducing the global variance requirement to a discrete coverage problem over
+evaluation points. This reduction enables efficient planning with guarantees: GreedyCover yields a near-optimal
+approximation for selecting sensing locations, while GCBCover balances marginal coverage gain against marginal
+path length to obtain near-optimal solutions under a strict distance budget. Unlike geometric sweep patterns, both
+methods adapt sampling to the learned correlation structure.
+Our approach leverages non-stationary kernels to adaptively sample complex fields, concentrating efforts in high-variation regions while avoiding redundancy in predictable areas. The approach naturally extends to non-convex domains containing obstacles. Benchmarks on SRTM topography confirm that GreedyCover and GCBCover outperform existing IPP baselines—including those with and without formal uncertainty guarantees—by satisfying uncertainty constraints while minimizing both number of sensing locations and travel distance. Finally, field trials using autonomous surface and underwater vehicles for bathymetry mapping validate the real-world feasibility and robustness of our methods.
+Future work includes IPP with guaranteed estimation uncertainty that accommodates vehicle dynamics, motion uncertainty, continuous sensing, and decentralized multi-robot deployments that maintain robustness in large-scale, communication-limited settings.
+Acknowledgements
+We thank Pratap Tokekar and Shamak Dutta for sharing code for the HexCover method, and Weizhe Chen for assistance with the attentive kernel code.
+We are grateful to Artur Wolek for providing access to the ASV platform, and we thank Ninh Nguyen for support during the ASV field trial.
+We also thank Bennett Carley and Jeremy Mallette for assistance with Aqua2 setup, and Elias Sokolova, Jalil Francisco Chavez Galaviz, and Chelsey Edge for their help deploying the Aqua2 AUV in the ocean.
+Finally, we thank Edwin Meriaux and Shuo Wen for capturing aerial footage of the AUV experiment.
+References
+[1]
+H. Choset and P. Pignon (1998)
+Coverage Path Planning: The Boustrophedon Cellular Decomposition .
+In Field and Service Robotics ,
+London , pp. 203–209 .
+Cited by: 1(a) ,
+1(a) ,
+§I ,
+§II .
+[2]
+K. Jakkala and S. Akella (2025)
+Fully differentiable sensor placement and informative path planning .
+The International Journal of Robotics Research .
+Cited by: 1(b) ,
+1(b) ,
+§II ,
+§VI-A .
+[3]
+S. Dutta, N. Wilde, P. Tokekar, and S. L. Smith (2023)
+Approximation Algorithms for Robot Tours in Random Fields with Guaranteed Estimation Accuracy .
+In 2023 IEEE International Conference on Robotics and Automation (ICRA) ,
+Vol. , pp. 7830–7836 .
+Cited by: 1(c) ,
+1(c) ,
+§I ,
+§II ,
+§VI-A .
+[4]
+G. M. Lovett, D. A. Burns, C. T. Driscoll, J. C. Jenkins, M. J. Mitchell, L. Rustad, J. B. Shanley, G. E. Likens, and R. Haeuber (2007)
+Who needs environmental monitoring? .
+Frontiers in Ecology and the Environment 5 ( 5 ), pp. 253–260 .
+Cited by: §I .
+[5]
+N. Karapetyan, J. Moulton, J. S. Lewis, A. Q. Li, J. M. O’Kane, and I. M. Rekleitis (2018)
+Multi-robot Dubins Coverage with Autonomous Surface Vehicles .
+2018 IEEE International Conference on Robotics and Automation (ICRA) , pp. 2373–2379 .
+Cited by: §I ,
+§II .
+[6]
+S. Agarwal and S. Akella (2022)
+Area Coverage With Multiple Capacity-Constrained Robots .
+IEEE Robotics and Automation Letters 7 ( 2 ), pp. 3734–3741 .
+Cited by: §I ,
+§II .
+[7]
+C. E. Rasmussen and C. K. I. Williams (2005)
+Gaussian Processes for Machine Learning .
+MIT Press , Cambridge, USA .
+Cited by: §I ,
+§II ,
+§III ,
+§VI-A ,
+§VI-A .
+[8]
+V. Suryan and P. Tokekar (2020)
+Learning a Spatial Field in Minimum Time With a Team of Robots .
+IEEE Transactions on Robotics 36 ( 5 ), pp. 1562–1576 .
+Cited by: §I ,
+§II .
+[9]
+H. González-Banos and J. Latombe (2001)
+A Randomized Art-Gallery Algorithm for Sensor Placement .
+In Proceedings of the Seventeenth Annual Symposium on Computational Geometry ,
+New York, NY, USA , pp. 232–240 .
+Cited by: §II .
+[10]
+A. Breitenmoser, M. Schwager, J. Metzger, R. Siegwart, and D. Rus (2010)
+Voronoi coverage of non-convex environments with a group of networked robots .
+In 2010 IEEE International Conference on Robotics and Automation ,
+Vol. , pp. 4982–4989 .
+Cited by: §II .
+[11]
+M. Schwager, M. P. Vitus, S. Powers, D. Rus, and C. J. Tomlin (2017)
+Robust Adaptive Coverage Control for Robotic Sensor Networks .
+IEEE Transactions on Control of Network Systems 4 ( 3 ).
+Cited by: §II .
+[12]
+A. Bouman, J. Ott, S. Kim, K. Chen, M. J. Kochenderfer, B. Lopez, A. Agha-mohammadi, and J. Burdick (2022)
+Adaptive Coverage Path Planning for Efficient Exploration of Unknown Environments .
+In 2022 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) ,
+Vol. , pp. 11916–11923 .
+Cited by: §II .
+[13]
+A. Krause, A. Singh, and C. Guestrin (2008)
+Near-Optimal Sensor Placements in Gaussian Processes: Theory, Efficient Algorithms and Empirical Studies .
+Journal of Machine Learning Research 9 ( 8 ), pp. 235–284 .
+Cited by: §II ,
+§V-C2 .
+[14]
+C. Chekuri and M. Pal (2005)
+A recursive greedy algorithm for walks in directed graphs .
+In 46th Annual IEEE Symposium on Foundations of Computer Science (FOCS’05) ,
+Vol. , pp. 245–253 .
+Cited by: §II .
+[15]
+L. Bottarelli, M. Bicego, J. Blum, and A. Farinelli (2019)
+Orienteering-based informative path planning for environmental monitoring .
+Engineering Applications of Artificial Intelligence 77 , pp. 46 – 58 .
+Cited by: §II .
+[16]
+J. Binney, A. Krause, and G. S. Sukhatme (2013)
+Optimizing waypoints for monitoring spatiotemporal phenomena .
+The International Journal of Robotics Research 32 ( 8 ), pp. 873–888 .
+Cited by: §II ,
+§V-A .
+[17]
+G. Hitz, E. Galceran, M. Garneau, F. Pomerleau, and R. Siegwart (2017)
+Adaptive continuous-space informative path planning for online environmental monitoring .
+Journal of Field Robotics 34 ( 8 ), pp. 1427–1449 .
+Cited by: §II .
+[18]
+G. Francis, L. Ott, R. Marchant, and F. Ramos (2019)
+Occupancy map building through Bayesian exploration .
+The International Journal of Robotics Research 38 ( 7 ), pp. 769–792 .
+Cited by: §II .
+[19]
+J. Ott, M. J. Kochenderfer, and S. Boyd (2024)
+Approximate sequential optimization for informative path planning .
+Robotics and Autonomous Systems 182 , pp. 104814 .
+Cited by: §II .
+[20]
+A. Rao, H. Choset, and D. Wettergreen (2025)
+Wavelet-Based Distributed Coverage for Heterogeneous Agents .
+In 2025 IEEE International Conference on Robotics and Automation (ICRA) ,
+Vol. , pp. 6630–6637 .
+Cited by: §II .
+[21]
+J. Rückin, L. Jin, and M. Popović (2022)
+Adaptive Informative Path Planning Using Deep Reinforcement Learning for UAV-based Active Sensing .
+In 2022 International Conference on Robotics and Automation (ICRA) ,
+Vol. , pp. 4473–4479 .
+Cited by: §II .
+[22]
+J. Fuentes, P. Padrão, A. A. R. Newaz, and L. Bobadilla (2025)
+Learning-Based Adaptive Navigation for Scalar Field Mapping and Feature Tracking .
+In 2025 IEEE International Conference on Robotics and Automation (ICRA) ,
+Vol. , pp. 1–7 .
+Cited by: §II .
+[23]
+S. Manjanna and G. Dudek (2017)
+Data-driven selective sampling for marine vehicles using multi-scale paths .
+In 2017 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) ,
+Cited by: §II .
+[24]
+W. Chen, R. Khardon, and L. Liu (2022)
+AK: Attentive Kernel for Information Gathering .
+In Proceedings of Robotics: Science and Systems ,
+New York City, NY, USA .
+Cited by: §-C ,
+§II ,
+§V-A ,
+§VI-A ,
+§VI-B .
+[25]
+W. Chen, L. Liu, and R. Khardon (2024)
+POAM: Probabilistic Online Attentive Mapping for Efficient Robotic Information Gathering .
+In Robotics: Science and Systems ,
+Cited by: §II ,
+§VII .
+[26]
+K. Jakkala and S. Akella (2024)
+Multi-Robot Informative Path Planning from Regression with Sparse Gaussian Processes .
+In 2024 IEEE International Conference on Robotics and Automation (ICRA) ,
+Cited by: §II .
+[27]
+K. Jakkala and S. Akella (2025)
+Fully Differentiable Adaptive Informative Path Planning .
+In 2025 IEEE International Conference on Robotics and Automation ,
+Atlanta, GA , pp. 5431–5437 .
+Cited by: §II .
+[28]
+K. Jakkala and S. Akella (2022)
+Probabilistic Gas Leak Rate Estimation Using Submodular Function Maximization With Routing Constraints .
+IEEE Robotics and Automation Letters 7 ( 2 ), pp. 5230–5237 .
+Cited by: §II .
+[29]
+J. Wagberg, D. Zachariah, T. Schon, and P. Stoica (2017)
+Prediction Performance After Learning in Gaussian Process Regression .
+In Proceedings of the 20th International Conference on Artificial Intelligence and Statistics ,
+Proceedings of Machine Learning Research , Vol. 54 , pp. 1264–1272 .
+Cited by: §IV .
+[30]
+M. Härkönen, M. Lange-Hegermann, and B. Raită (2023)
+Gaussian Process Priors for Systems of Linear Partial Differential Equations with Constant Coefficients .
+In Proceedings of the 40th International Conference on Machine Learning ,
+ICML .
+Cited by: §V-A .
+[31]
+N. Christofides (2022)
+Worst-Case Analysis of a New Heuristic for the Travelling Salesman Problem .
+Operations Research Forum 3 ( 1 ), pp. 20 .
+Cited by: §V-C3 ,
+§V-C ,
+§V-D1 ,
+§VI-A .
+[32]
+G. L. Nemhauser, L. A. Wolsey, and M. L. Fisher (1978)
+An analysis of approximations for maximizing submodular set functions-I .
+Mathematical Programming 14 ( 1 ), pp. 265–294 .
+Cited by: §V-C2 .
+[33]
+L. A. Wolsey (1982)
+An analysis of the greedy algorithm for the submodular set covering problem .
+Combinatorica 2 , pp. 385–393 .
+Cited by: §V-C2 ,
+§V-C2 ,
+§V-C4 .
+[34]
+K.M. Lynch and F.C. Park (2017)
+Modern Robotics .
+Cambridge University Press .
+Cited by: §V-C3 .
+[35]
+H. Zhang and Y. Vorobeychik (2016)
+Submodular Optimization with Routing Constraints .
+In Proceedings of the Thirtieth AAAI Conference on Artificial Intelligence ,
+Vol. , pp. 819–825 .
+Cited by: §V-D2 ,
+§V-D2 ,
+§V-D2 ,
+§V-D .
+[36]
+P. Lin and K. Tseng (2023)
+Improvement of Submodular Maximization Problems With Routing Constraints via Submodularity and Fourier Sparsity .
+IEEE Robotics and Automation Letters 8 ( 4 ), pp. 1927–1934 .
+Cited by: §V-D .
+[37]
+T. G. Farr, P. A. Rosen, E. Caro, R. Crippen, R. Duren, S. Hensley, M. Kobrick, M. Paller, E. Rodriguez, L. Roth, et al. (2007)
+The Shuttle Radar Topography Mission .
+Reviews of geophysics 45 ( 2 ).
+Cited by: §VI-A .
+[38]
+C.M. Bishop (2006)
+Pattern Recognition and Machine Learning .
+Information Science and Statistics , Springer New York .
+Cited by: §VI-A .
+[39]
+M. Brancato and A. Wolek (2024)
+Adaptive Sampling of a Stationary Gaussian Spatial Process by a Team of Robots With Heterogeneous Dynamics and Measurement Noise Variance .
+IEEE Access 12 ( ), pp. 94407–94423 .
+Cited by: §VI-B .
+[40]
+A. S. Vinther and A. S. Magnus (2015)
+Pathfinding in Two-dimensional Worlds .
+Master’s Thesis , Aarhus University .
+Cited by: §VI-B .
+[41]
+G. Dudek, P. Giguere, C. Prahacs, S. Saunderson, J. Sattar, L. Torres-Mendez, M. Jenkin, A. German, A. Hogue, A. Ripsman, J. Zacher, E. Milios, H. Liu, P. Zhang, M. Buehler, and C. Georgiades (2007)
+AQUA: An Amphibious Autonomous Robot .
+Computer 40 ( 1 ), pp. 46–53 .
+Cited by: §-C ,
+§VI-B .
+[42]
+E. Meriaux, S. Wen, D. Widhalm, Z. Wang, J. Shi, M. S. Guzm’an, K. Jakkala, B. A. Carley, E. Sokolova, Y. Girdhar, M. Roznere, J. O’Kane, J. Sattar, and G. Dudek (2026)
+AMP2026: A Multi-Platform Marine Robotics Dataset for Tracking and Mapping .
+In 23rd Conference on Robots and Vision ,
+Cited by: §-C ,
+§VI-B .
+[43]
+T.M. Cover and J.A. Thomas (1991)
+Elements of Information Theory .
+Wiley Series in Telecommunications and Signal Processing , Wiley .
+Cited by: §-A1 .
+-A Theorems and Proofs
+This appendix provides the theoretical foundations and technical derivations that underpin our proposed approach.
+-A 1 Coverage-map construction
+The binary coverage maps used by GreedyCover and GCBCover
+are constructed by evaluating whether a single candidate sensing location
+c c can reduce the posterior variance at an evaluation point v v below the
+target threshold σ tar 2 \sigma_{\mathrm{tar}}^{2} . Theorem 1
+gives an explicit covariance threshold for this single-location condition.
+Theorem 2 shows that this condition is
+conservative but safe : conditioning on additional sensing locations
+cannot increase posterior variance, so any point covered under a single-location remains covered under multi-location conditioning.
+Theorem 1 (Minimum Required Prior Covariance) .
+Let f ∼ 𝒢 ​ 𝒫 ​ ( 0 , k ) f\sim\mathcal{GP}(0,k) with independent Gaussian observation noise variance σ n 2 \sigma_{n}^{2} , and consider a single noisy observation at candidate location c ∈ 𝒞 c\in\mathcal{C} .
+Fix an evaluation location v ∈ 𝒱 v\in\mathcal{V} .
+For any target posterior variance σ tar 2 ∈ ( 0 , k ⁡ ( v , v ) ) \sigma^{2}_{\mathrm{tar}}\in(0,k(v,v)) , the condition
+σ post 2 ​ ( v ∣ c ) ≤ σ tar 2 \sigma_{\mathrm{post}}^{2}(v\mid c)\leq\sigma^{2}_{\mathrm{tar}}
+holds if and only if
+| k ⁡ ( c , v ) | ≥ ( k ⁡ ( v , v ) − σ tar 2 ) ​ ( k ⁡ ( c , c ) + σ n 2 ) . |k(c,v)|\;\geq\;\sqrt{\bigl(k(v,v)-\sigma^{2}_{\mathrm{tar}}\bigr)\bigl(k(c,c)+\sigma_{n}^{2}\bigr)}.
+(9)
+Thus, achieving a posterior variance of at most σ tar 2 \sigma^{2}_{\mathrm{tar}} at v v requires that the prior covariance between c c and v v
+exceed the threshold in Equation 9 .
+Proof.
+Define
+k c ​ c = k ⁡ ( c , c ) k_{cc}=k(c,c) , k c ​ v = k ⁡ ( c , v ) k_{cv}=k(c,v) , and k v ​ v = k ⁡ ( v , v ) k_{vv}=k(v,v) .
+The pair ( f ⁡ ( c ) , f ⁡ ( v ) ) (f(c),f(v)) is jointly Gaussian with covariance
+Σ = [ k c ​ c k c ​ v k c ​ v k v ​ v ] . \Sigma=\begin{bmatrix}k_{cc}&k_{cv}\\
+k_{cv}&k_{vv}\end{bmatrix}.
+With observation noise variance σ n 2 \sigma_{n}^{2} , the Gaussian conditioning identity gives
+σ post 2 ​ ( v ∣ c ) \displaystyle\sigma_{\mathrm{post}}^{2}(v\mid c)
+= k v ​ v − k c ​ v 2 k c ​ c + σ n 2 . \displaystyle=k_{vv}-\frac{k_{cv}^{2}}{k_{cc}+\sigma_{n}^{2}}.
+(10)
+Requiring σ post 2 ​ ( v ∣ c ) ≤ σ tar 2 \sigma_{\mathrm{post}}^{2}(v\mid c)\leq\sigma^{2}_{\mathrm{tar}} is equivalent to
+k c ​ v 2 ≥ ( k v ​ v − σ tar 2 ) ​ ( k c ​ c + σ n 2 ) . k_{cv}^{2}\geq\bigl(k_{vv}-\sigma^{2}_{\mathrm{tar}}\bigr)\bigl(k_{cc}+\sigma_{n}^{2}\bigr).
+Taking square roots yields Equation 9 .
+∎
+Theorem 2 (Variance Reduction with Multiple Locations) .
+Under the setup of Theorem 1 , consider n n sensing locations c 1 , … , c n ∈ 𝒞 c_{1},\dots,c_{n}\in\mathcal{C} .
+Fix an evaluation location v ∈ 𝒱 v\in\mathcal{V} and a target variance σ tar 2 ∈ ( 0 , k ⁡ ( v , v ) ) \sigma^{2}_{\mathrm{tar}}\in(0,k(v,v)) . Suppose there exists
+j ∈ { 1 , … , n } j\in\{1,\dots,n\} such that
+| k ⁡ ( c j , v ) | ≥ ( k ⁡ ( v , v ) − σ tar 2 ) ​ ( k ⁡ ( c j , c j ) + σ n 2 ) . |k(c_{j},v)|\;\geq\;\sqrt{\bigl(k(v,v)-\sigma^{2}_{\mathrm{tar}}\bigr)\bigl(k(c_{j},c_{j})+\sigma_{n}^{2}\bigr)}.
+Then the posterior variance at v v conditioned on all observations satisfies
+σ post 2 ( v ∣ c 1 : n ) ≤ σ tar 2 . \sigma_{\mathrm{post}}^{2}\!\left(v\mid c_{1:n}\right)\leq\sigma^{2}_{\mathrm{tar}}.
+Proof.
+By assumption, there exists c j c_{j} such that σ post 2 ​ ( v ∣ c j ) ≤ σ tar 2 \sigma_{\mathrm{post}}^{2}(v\mid c_{j})\leq\sigma^{2}_{\mathrm{tar}} .
+For jointly Gaussian variables, conditional variance is monotone non-increasing under additional conditioning: if ( U , V , W ) (U,V,W) are jointly
+Gaussian, then
+σ post 2 ​ ( U ∣ V , W ) ≤ σ post 2 ​ ( U ∣ V ) , \sigma_{\mathrm{post}}^{2}(U\mid V,W)\leq\sigma_{\mathrm{post}}^{2}(U\mid V),
+which follows from the fact that conditioning reduces entropy [ 43 , Theorem 2.6.5] .
+Applying this property yields
+σ post 2 ( v ∣ c 1 : n ) ≤ σ post 2 ( v ∣ c j ) ≤ σ tar 2 . \sigma_{\mathrm{post}}^{2}\!\left(v\mid c_{1:n}\right)\leq\sigma_{\mathrm{post}}^{2}\!\left(v\mid c_{j}\right)\leq\sigma^{2}_{\mathrm{tar}}.
+∎
+-B Algorithms: Coverage-Based Selection and Path Planning
+This appendix details the pseudocode for the two proposed path planners. To reproduce our experimental results, the accompanying source code can be accessed at: https://github.com/itskalvik/uncertainty-guaranteed-ipp
+Both GreedyCover and GCBCover operate on a binary coverage matrix B ∈ { 0 , 1 } M × N B\in\{0,1\}^{M\times N}
+constructed from the learned GP kernel via the covariance threshold in
+Theorem 1 . The matrix entry B j ​ i = 1 B_{ji}=1 indicates
+that sensing at candidate location c j c_{j} is sufficient (under the single-location
+test) to reduce posterior variance at evaluation point v i v_{i} below
+σ tar 2 \sigma^{2}_{\mathrm{tar}} .
+We use both index-set and location-set notation interchangeably. For example,
+a sensing set may be written as an index set S ⊆ { 1 , … , M } S\subseteq\{1,\dots,M\} or as
+the corresponding location set { c j : j ∈ S } ⊆ 𝒞 \{c_{j}:j\in S\}\subseteq\mathcal{C} .
+The intended meaning is clear from context.
+-B 1 GreedyCover
+Algorithm 1 greedily selects sensing locations to
+maximize the monotone submodular coverage objective F ⁡ ( S ) F(S) (Equation 8 )
+by repeatedly choosing the candidate that covers the largest number of currently
+uncovered evaluation points.
+Algorithm 1 GreedyCover : Estimation Uncertainty Guaranteed Sensor Placement
+1:
+Coverage matrix B ∈ { 0 , 1 } M × N B\in\{0,1\}^{M\times N} , evaluation set 𝒱 = { v 1 , … , v N } \mathcal{V}=\{v_{1},\dots,v_{N}\} .
+2:
+Selected index set S ⊆ { 1 , … , M } S\subseteq\{1,\dots,M\} .
+3:
+S ← ∅ S\leftarrow\emptyset ⊳ \triangleright selected sensing-location indices
+4:
+U ← ∅ U\leftarrow\emptyset ⊳ \triangleright covered evaluation points
+5:
+while | U | < N |U|<N do
+6:
+for each candidate j ∈ { 1 , … , M } ∖ S j\in\{1,\dots,M\}\setminus S do
+7:
+g ( j ) ← | { v i ∈ 𝒱 : B j ​ i = 1 , v i ∉ U } | g(j)\leftarrow\bigl|\{v_{i}\in\mathcal{V}:B_{ji}=1,\ v_{i}\notin U\}\bigr|
+8:
+⊳ \triangleright marginal gain
+9:
+end for
+10:
+j ⋆ ← arg ⁡ max j ⁡ g ⁡ ( j ) j^{\star}\leftarrow\arg\max_{j}g(j)
+11:
+if g ⁡ ( j ⋆ ) = 0 g(j^{\star})=0 then
+12:
+break ⊳ \triangleright no further improvement possible
+13:
+end if
+14:
+S ← S ∪ { j ⋆ } S\leftarrow S\cup\{j^{\star}\}
+15:
+U ← U ∪ { v i ∈ 𝒱 : B j ⋆ ​ i = 1 } U\leftarrow U\cup\{v_{i}\in\mathcal{V}:B_{j^{\star}i}=1\}
+16:
+end while
+17:
+return S S
+-B 2 GCBCover
+Algorithm 2 extends GreedyCover to the routing-constrained
+setting by selecting candidates based on a coverage-per-cost ratio.
+It also computes a (truncated) greedy-coverage baseline and returns the better
+of the two, consistent with the GCB algorithm.
+Algorithm 2 GCBCover : Estimation Uncertainty Guaranteed Informative Path Planning
+1:
+Coverage matrix B ∈ { 0 , 1 } M × N B\in\{0,1\}^{M\times N} , cost budget D D .
+2:
+Selected ordered index set S ⊆ { 1 , … , M } S\subseteq\{1,\dots,M\} .
+3:
+S Greedy ← GreedyCover ​ ( B ) S_{\mathrm{Greedy}}\leftarrow\textsc{GreedyCover}(B) ⊳ \triangleright Algorithm 1
+4:
+Compute a route 𝒫 Greedy \mathcal{P}_{\mathrm{Greedy}} through { c j : j ∈ S Greedy } \{c_{j}:j\in S_{\mathrm{Greedy}}\} and truncate it to cost ≤ D \leq D
+5:
+Let S Greedy S_{\mathrm{Greedy}} be the indices visited by the truncated route
+6:
+S ← ∅ S\leftarrow\emptyset ; U ← ∅ U\leftarrow\emptyset ⊳ \triangleright current selection and covered set
+7:
+while cost ⁡ ( S ) ≤ D \mathrm{cost}(S)\leq D and | U | < N |U|<N do
+8:
+for all j ∈ { 1 , … , M } ∖ S j\in\{1,\dots,M\}\setminus S do
+9:
+Δ ​ F j ← F ⁡ ( S ∪ { j } ) − F ⁡ ( S ) \Delta F_{j}\leftarrow F(S\cup\{j\})-F(S)
+10:
+Δ ​ cost j ← cost ⁡ ( S ∪ { j } ) − cost ⁡ ( S ) \Delta\mathrm{cost}_{j}\leftarrow\mathrm{cost}(S\cup\{j\})-\mathrm{cost}(S)
+11:
+r ⁡ ( j ) ← Δ ​ F j / Δ ​ cost j r(j)\leftarrow\Delta F_{j}/\Delta\mathrm{cost}_{j}
+12:
+end for
+13:
+j ⋆ ← arg ⁡ max j ⁡ r ⁡ ( j ) j^{\star}\leftarrow\arg\max_{j}r(j)
+14:
+if cost ⁡ ( S ∪ { j ⋆ } ) ≤ D \mathrm{cost}(S\cup\{j^{\star}\})\leq D then
+15:
+S ← S ∪ { j ⋆ } S\leftarrow S\cup\{j^{\star}\} ; U ← U ∪ { v i : B j ⋆ ​ i = 1 } U\leftarrow U\cup\{v_{i}:B_{j^{\star}i}=1\}
+16:
+end if
+17:
+Remove j ⋆ j^{\star} from future consideration
+18:
+end while
+19:
+return arg ⁡ max A ∈ { S Greedy , S } ​ F ​ ( A ) \arg\max_{A\in\{S_{\mathrm{Greedy}},\,S\}}F(A)
+-B 3 Routing-Cost Heuristic and Computational Efficiency
+The GCB selection rule requires evaluating the marginal routing-cost increment
+Δ ​ cost ​ ( j ∣ S ) \Delta\mathrm{cost}(j\mid S) for many candidate additions.
+A naive implementation would repeatedly solve a routing problem (e.g., a TSP)
+for each candidate at each iteration, which is computationally expensive.
+To reduce the number of full routing solves, we estimate Δ ​ cost ​ ( j ∣ S ) \Delta\mathrm{cost}(j\mid S)
+using a fast nearest-insertion heuristic: we consider inserting the new location
+c j c_{j} along each edge of the current route and take the best (smallest) increase
+in route cost. This yields an efficient approximation
+Δ ​ cost ^ ​ ( j ∣ S ) \widehat{\Delta\mathrm{cost}}(j\mid S) that can be computed quickly for all
+candidates.
+Algorithm 3 Approximate route cost increment (nearest-insertion heuristic)
+1:
+function ApproxRouteIncrement ( j , S , 𝒫 S j,S,\mathcal{P}_{S} )
+2:
+Let 𝒫 S \mathcal{P}_{S} be the current route visiting { c k : k ∈ S } \{c_{k}:k\in S\} .
+3:
+Initialize c ^ ← ∞ \widehat{c}\leftarrow\infty .
+4:
+for each edge ( c a , c b ) (c_{a},c_{b}) along 𝒫 S \mathcal{P}_{S} do
+5:
+Consider inserting c j c_{j} between c a c_{a} and c b c_{b} .
+6:
+c ^ a ​ b ← cost ⁡ ( 𝒫 S ) + ‖ c a − c j ‖ \widehat{c}_{ab}\leftarrow\mathrm{cost}(\mathcal{P}_{S})+\|c_{a}-c_{j}\|
+7:
++ ‖ c j − c b ‖ − ‖ c a − c b ‖ \quad\quad\quad\quad\quad\quad\quad+\|c_{j}-c_{b}\|-\|c_{a}-c_{b}\| .
+8:
+c ^ ← min ⁡ ( c ^ , c ^ a ​ b ) \widehat{c}\leftarrow\min(\widehat{c},\widehat{c}_{ab}) .
+9:
+end for
+10:
+return c ^ − cost ⁡ ( 𝒫 S ) \widehat{c}-\mathrm{cost}(\mathcal{P}_{S}) .
+11:
+end function
+Fig. 8 : Autonomous underwater vehicle (AUV) field-trial results using GreedyCover . Left: learned lengthscales from the non-stationary kernel. Right: GP posterior predictive variance after conditioning on the IPP solution data.
+Fig. 9 : Benchmark results on the SRTM dataset ( 47 ∘ ​ N , 124 ∘ ​ W ) (47^{\circ}\mathrm{N},\,124^{\circ}\mathrm{W}) . Top row: Max posterior variance, MSE, and SMSE. Bottom row: Runtime, sensing locations, and path length. Lower values represent better performance across all metrics.
+In the full GCBCover procedure, we therefore:
+(i) compute approximate increments for all candidates to rank them by the
+coverage-per-cost ratio, and (ii) invoke the exact routing solver only for
+the single top-ranked candidate to update the route and verify feasibility.
+This substantially reduces runtime while preserving the intended selection
+behavior (prioritizing high marginal coverage per unit cost).
+-B 4 Joint Posterior Uncertainty
+It is important to distinguish the coverage objective F F from the
+underlying uncertainty-reduction mechanism used to construct the coverage sets.
+In our coverage-map construction (Section V-B ),
+each candidate j j is associated with a fixed set of covered points computed in
+isolation (i.e., by conditioning on a single candidate at a time). This induces
+the union-of-sets objective in Equation 8 , which is
+monotone submodular and therefore admits the near-optimal approximation guarantees.
+When multiple sensing locations are chosen together, their joint impact on
+posterior uncertainty can be super-additive : some evaluation points fall
+below the uncertainty threshold only after conditioning on several locations at
+once. Because these interaction effects are not captured by per-candidate
+coverage sets, the resulting estimate F ⁡ ( S ) F(S) is conservative. This conservatism
+works in our favor: if the algorithm reports that a set S S meets a target
+coverage level under the isolated-candidate model, then the true maximum
+posterior variance after executing S S is typically no greater—and often
+strictly lower—than the target threshold.
+A tighter (but more expensive) alternative is to recompute the true achieved coverage at each iteration by evaluating the GP posterior variance over the evaluation set under the current selection S t S_{t} , and then updating coverage accordingly (Algorithm 1 , line 15 ). This explicitly captures joint (multi-location) effects rather than relying on per-candidate coverage.
+-C Autonomous Underwater Vehicle Field Trial
+This appendix describes our ocean field trial conducted in the Folkestone Marine Reserve, Barbados, utilizing an Aqua2 autonomous underwater vehicle (AUV) [ 41 , 42 ] (Figure 2 ) for bathymetric mapping. The Aqua2 is a non-holonomic platform that employs proportional-derivative (PD) controllers to actuate its six-flipper propulsion system. The survey was restricted to a non-convex subset of the monitoring region. To facilitate localization and provide altitude data, the vehicle was equipped with a Doppler Velocity Logger (DVL). Throughout the deployment, the AUV was commanded to maintain a constant depth of 0.5 m below the surface.
+We conducted an IPP trial using GreedyCover . A GP with an Attentive kernel [ 24 ] was fit using preexisting data comprising 490 samples from the region. We set the target maximum posterior variance to 0.87 0.87 and computed the IPP solution. The solution was generated without warm starting; this choice produced a longer path, enabling us to better assess the impact of navigation uncertainty. Planning was performed offboard on a surface laptop. After executing the planned path, we updated the GP using measurements collected at the visited waypoints and evaluated the resulting maximum posterior variance. The learned lengthscales, together with the planned and executed informative paths, are shown in Figure 8 .
+The vehicle remained close to the monitoring-region boundary, but we observed notable deviations from the planned path. We attribute these deviations to strong ocean currents and to the fact that the TSP solver did not account for vehicle motion constraints. Consequently, the execution did not achieve the target variance at every evaluation location within the region. Nonetheless, the collected data substantially reduced uncertainty in high-variance areas while minimizing travel distance by prioritizing locations with short lengthscales and high uncertainty.
+-D Additional Benchmark Results
+This appendix presents comprehensive benchmarking results, detailed in Figures 9 through 11 .
+Fig. 10 : Benchmark results on the SRTM dataset ( 02 ∘ ​ N , 021 ∘ ​ W ) (02^{\circ}\mathrm{N},\,021^{\circ}\mathrm{W}) . Top row: Max posterior variance, MSE, and SMSE. Bottom row: Runtime, sensing locations, and path length. Lower values represent better performance across all metrics.
+Fig. 11 : Benchmark results on the SRTM dataset ( 17 ∘ ​ N , 073 ∘ ​ W ) (17^{\circ}\mathrm{N},\,073^{\circ}\mathrm{W}) . Top row: Max posterior variance, MSE, and SMSE. Bottom row: Runtime, sensing locations, and path length. Lower values represent better performance across all metrics.
+Experimental support, please
+view the build logs
+for errors. Generated by
+L
+A
+T
+E
+xml
+.
+Instructions for reporting errors
+We are continuing to improve HTML versions of papers, and your feedback helps enhance accessibility and mobile
+support. To report errors in the HTML that will help us improve conversion and rendering, choose any of the
+methods listed below:
+Click the "Report Issue" (
+) button, located in the page header.
+Tip: You can select the relevant text first, to include it in your report.
+Our team has already identified the following issues . We appreciate your time reviewing and reporting rendering errors we
+may not have found yet. Your efforts will help us improve the HTML versions for all readers, because disability
+should not be a barrier to accessing research. Thank you for your continued support in championing open access for
+all.
+Have a free development cycle? Help support accessibility at arXiv! Our collaborators at LaTeXML maintain a list of packages that need conversion , and welcome developer contributions .
+We gratefully acknowledge support from
+our major funders ,
+member institutions , ,
+and all contributors.
+About
+·
+Help
+·
+Contact
+·
+Subscribe
+·
+Copyright
+·
+Privacy
+·
+Accessibility
+·
+Operational Status (opens in new tab)
+Major funding support from

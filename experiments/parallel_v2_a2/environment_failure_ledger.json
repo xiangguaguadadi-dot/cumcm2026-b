@@ -1,0 +1,13 @@
+{
+  "candidate": "route_r1",
+  "stage": "quick under unsupported Python 3.9",
+  "attempts": 120,
+  "complete": 0,
+  "errors": {
+    "worker_crash": 120
+  },
+  "python": "3.9.6",
+  "row_sha256": "5c76d60e2964afce4c58d1bc154c1f344e595aeb8f2507a36f7a2f563769bec2",
+  "disposition": "Environment-invalid attempt, not a performance outcome; all failure rows retained. Re-executed with Python 3.12 as route_r1_quick312.",
+  "root_cause": "local_env.Source uses Python 3.10+ union type annotations; Python 3.9 worker cannot import frozen environment."
+}
