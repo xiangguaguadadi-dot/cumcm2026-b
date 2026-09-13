@@ -1,0 +1,101 @@
+{
+  "reviewed_at": "2026-09-12T19:11:36.013903+00:00",
+  "scope": "Read-only independent peer review of failed_clear_feedback; no file in that directory was modified.",
+  "verdict": "pass_with_preregistration_provenance_caveat",
+  "core_claim_assessment": {
+    "safe_geometric_information": "supported under the stated accepted-clear model: failure implies source distance >20 m; implementation conservatively applies radius 20-1e-6 and convex-hulls the remaining set.",
+    "independent_speed_gain": "not resolved; the reported interval crosses zero and the report correctly declines a speed claim."
+  },
+  "checks": {
+    "single_factor_on_off": {
+      "status": "pass",
+      "evidence": "run_case creates the same B3 module and config for both arms and changes only geom_failure to arm==on. Case/task construction and observer wrapper are shared.",
+      "candidate_sha256": "e6a0666d644ceaa1d7ae69f19042b9ca022379f3e5a57d927e52bcf1a09360bd"
+    },
+    "observer_decision_contamination": {
+      "status": "pass_static_review",
+      "evidence": "Truth is captured only in the observer closure after original_clear returns and is used only to build event/violation records. In the off arm the hypothetical polygon is assigned only to a local variable; it is never written to solver.polygons. In the on arm solver.polygons already contains the intended geom_failure update. Event lists are not read by the solver.",
+      "boundary": "The observer adds real CPU work after failures, but does not change virtual time; both arms completed without timeout and runtime is not used for the claimed virtual-time comparison."
+    },
+    "truth_containment": {
+      "status": "pass_independently_recomputed",
+      "event_rows": 28422,
+      "source_inside_before_false": 0,
+      "source_inside_after_false": 0,
+      "failed_distance_le_20_count": 0,
+      "minimum_failed_distance_m": 20.00005158972334,
+      "violations_file_rows": 0,
+      "constructed_fixtures": 2000,
+      "constructed_true_source_exclusions": 0
+    },
+    "execution_and_denominators": {
+      "status": "pass_independently_recomputed",
+      "actual_runs": 4800,
+      "paired_worlds": 2400,
+      "runs_per_arm": 2400,
+      "sources_per_arm": 30970,
+      "complete_runs": 4800,
+      "coverage_complete_runs": 4800,
+      "per_row_time_denominator_failures": 0,
+      "aggregation": "Unweighted mean of each case total_virtual_time_s/cleared_count, consistent with repository evaluation convention.",
+      "on_case_mean_s_per_source": 229.66984347891437,
+      "off_case_mean_s_per_source": 229.67434135831869,
+      "on_minus_off_s_per_source": -0.004497879404318255,
+      "paired_counts": {
+        "on_faster": 250,
+        "tied": 1995,
+        "on_slower": 155
+      },
+      "clarification": "Pooled source-weighted values are 223.74233672011624 on and 223.7468392456248 off; these are different estimands and are not what the report claims."
+    },
+    "confidence_interval": {
+      "status": "pass_exact_reproduction",
+      "method": "10000 deterministic bootstrap resamples of 200 (exposure_suite, seed) cluster means; each cluster contains 12 scenarios.",
+      "clusters": 200,
+      "clusters_by_exposure_suite": {
+        "v1": 100,
+        "previous_final": 100
+      },
+      "cluster_sizes": [
+        12
+      ],
+      "seed": 2026091311,
+      "recomputed_ci95": [
+        -0.008868546979347502,
+        0.00021161548714629201
+      ],
+      "interpretation": "Crosses zero; no independently resolved speed benefit."
+    },
+    "report_language": {
+      "status": "pass",
+      "evidence": "RESULTS distinguishes physical implication, constructed numeric stress, and exposed local closed-loop evidence; states quick negative direction; retains regressions; says no blind/official result; and explicitly says independent speed benefit is unresolved.",
+      "allowed_claim": "Failed clear yields safe, sometimes shrinking geometric feedback in the stated model.",
+      "disallowed_claim": "Statistically resolved or general Q3/Q4 speed improvement."
+    },
+    "artifact_manifest": {
+      "status": "pass",
+      "entries": 18,
+      "hash_or_size_mismatches": 0
+    }
+  },
+  "caveats": [
+    {
+      "severity": "moderate_provenance",
+      "finding": "registration.json hashes root evaluation/cases_v1.json and the experimental B3 path, while execution actually loads 最佳方法/数据/exposed_cases.json and 最佳方法/代码/solver.py. The solver bytes are identical and invocation.json seals the actual cases hash, but the 4800-case exposed input was not explicitly frozen in the preregistration.",
+      "impact": "Does not invalidate the executed paired result or single-factor isolation, but weakens the claim that the exact full two-batch dataset was preregistered before execution.",
+      "recommended_report_treatment": "Keep the existing exposed-regression label and do not describe the exact 2400-pair two-batch dataset as preregistered. For a future run, register the actual package paths and exposed_cases SHA256 e5bdfb611ff26a38dd5655b8f0d036936c178310bf0cc2197f82afa46225855a."
+    }
+  ],
+  "reviewed_artifacts_sha256": {
+    "registration.json": "3d4dd4141181c3ee2f17ccd69234507c36732058721a145ed806eca1c52e3c9b",
+    "run_experiment.py": "fe89c6858e01fb41257e7add6fbf5ba2009ce0dab7325a6b6dded25a4a05888a",
+    "full_v1/invocation.json": "31252afa847ce84c660945b344bd23bcca36f0b83abf07f3e7695b7d8419d6b3",
+    "full_v1/rows.jsonl": "8a79818417a5e50058541071188b9520d549f2b2210031b19808051976ac9be4",
+    "full_v1/events.jsonl": "bb7ad34e040fb70abb33c4215991b4a734da5446d076eb85ff937fcb61f264c4",
+    "full_v1/violations.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "full_v1/summary.json": "b0915c54c637f24c8652c5b6c6a923f6e7638875f0cb44880c4aeb4bd80e434f",
+    "FINAL_AUDIT.json": "4be909dcb41ec40629a441821f1a1b1108bc1719bb91e2b252ed89ccd61bc013",
+    "RESULTS.md": "7976255061285b7642830a7ca609ffce4e0bf53d0b4c258d7855db7487001f3e",
+    "ARTIFACT_MANIFEST.json": "cc9861738382d1490624d1c64ceefca22943f4b361f73b87ec373686ec99a200"
+  }
+}

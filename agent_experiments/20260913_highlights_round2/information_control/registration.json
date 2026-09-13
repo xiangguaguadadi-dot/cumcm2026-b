@@ -1,0 +1,51 @@
+{
+  "registered_at": "2026-09-12T19:04:24.698057+00:00",
+  "data_role": "existing exposed v1 regression; quick is a subset of full; neither is blind nor official",
+  "inputs": {
+    "parent": {
+      "path": "experiments/20260913_q2_transfer/B_improved/B3_local_refinement.py",
+      "sha256": "e6a0666d644ceaa1d7ae69f19042b9ca022379f3e5a57d927e52bcf1a09360bd"
+    },
+    "cases": {
+      "path": "evaluation/cases_v1.json",
+      "sha256": "988f42a74cac1aa8249cb0d138e1b1a5de927ef41ad38efa4e70a9c4d97457ac"
+    },
+    "manifest": {
+      "path": "evaluation/manifest_v1.json",
+      "sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140"
+    },
+    "parent_rows": {
+      "path": "experiments/20260913_q2_transfer/B_improved/results/B3_full/case_metrics.json",
+      "sha256": "b2770fcf7204c7b18bdb7550f9aef5a1e4f65974f36fe7fbebc53da53b241e92"
+    }
+  },
+  "candidates": {
+    "gate_off": {
+      "path": "gate_off.py",
+      "sha256": "aac91ca0e5f89b16cb010a9c1d2761af9e721e3bf4fbc843d1c1879484a3145b"
+    },
+    "replan_off": {
+      "path": "replan_off.py",
+      "sha256": "0990b297ee7ceb5f139c9b4a1de2e2ae3565faec324016fa83cd31c1a0ef7ff2"
+    }
+  },
+  "runner": {
+    "path": "run_ablation.py",
+    "sha256": "6e335247e176a11eb57f2b67eaa4e70d50dd3015d92f3e7c4d3e636028842a31"
+  },
+  "hypotheses": [
+    {
+      "id": "station_retest_gate",
+      "comparison": "B3 minus gate_off on all 1200 Q3 v1 worlds",
+      "primary": "mean seconds/source paired by case",
+      "claim_gate": "all complete and 95% seed-cluster bootstrap interval for gate_off minus B3 strictly above 0 supports positive contribution; otherwise retain as negative or uncertain result"
+    },
+    {
+      "id": "preemptive_replanning",
+      "comparison": "B3 minus replan_off on all 1200 Q3 v1 worlds",
+      "primary": "mean seconds/source paired by case",
+      "claim_gate": "all complete and 95% seed-cluster bootstrap interval for replan_off minus B3 strictly above 0 supports positive contribution; otherwise retain as negative or uncertain result"
+    }
+  ],
+  "execution_plan": "Run 60-case Q3 quick for implementation screening, then run all 1200 Q3 v1 worlds for both arms regardless of quick sign unless invalid."
+}

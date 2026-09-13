@@ -1,0 +1,246 @@
+{
+  "evidence": "existing exposed LOCAL-v1 Q3 regression; not blind and not official Windows testing",
+  "comparisons_are_paired_to": "frozen saved B3 rows on identical case IDs and physical worlds",
+  "station_retest_gate": {
+    "actual_runs": 1200,
+    "sources": 15550,
+    "all_complete": true,
+    "candidate_mean_s_per_source": 231.46580886669005,
+    "b3_mean_s_per_source": 229.1963465715586,
+    "candidate_minus_b3_mean_s_per_source": 2.2694622951315018,
+    "b3_saving_vs_ablation_s_per_source": 2.2694622951315018,
+    "b3_saving_vs_ablation_pct": 0.9804740951777337,
+    "cluster_bootstrap_95pct_candidate_minus_b3": [
+      2.104567147747986,
+      2.44291738560046
+    ],
+    "faster": 16,
+    "equal": 291,
+    "slower": 893,
+    "request_delta_candidate_minus_b3": 6014,
+    "distance_delta_m_candidate_minus_b3": -10416.85399341397,
+    "failed_clear_delta_candidate_minus_b3": -314,
+    "candidate_sha256": "aac91ca0e5f89b16cb010a9c1d2761af9e721e3bf4fbc843d1c1879484a3145b",
+    "groups": [
+      {
+        "group": "cell500_shared_field",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 2.9066453921634228,
+        "faster": 2,
+        "equal": 0,
+        "slower": 98
+      },
+      {
+        "group": "cell50_shared_field",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 2.950195362520359,
+        "faster": 2,
+        "equal": 0,
+        "slower": 98
+      },
+      {
+        "group": "edge_mixed_min_radius",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 0.015740259740259718,
+        "faster": 0,
+        "equal": 97,
+        "slower": 3
+      },
+      {
+        "group": "exactly10_sources",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 2.836549720000002,
+        "faster": 1,
+        "equal": 4,
+        "slower": 95
+      },
+      {
+        "group": "exactly16_sources",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 3.3503421256249997,
+        "faster": 2,
+        "equal": 1,
+        "slower": 97
+      },
+      {
+        "group": "fixed_negative_bias",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 3.050790614592994,
+        "faster": 2,
+        "equal": 1,
+        "slower": 97
+      },
+      {
+        "group": "fixed_positive_bias",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 2.5937389884354825,
+        "faster": 4,
+        "equal": 1,
+        "slower": 95
+      },
+      {
+        "group": "minimum_radius",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 2.129956383368509,
+        "faster": 1,
+        "equal": 10,
+        "slower": 89
+      },
+      {
+        "group": "offcenter_cluster",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 0.31678978879953346,
+        "faster": 0,
+        "equal": 84,
+        "slower": 16
+      },
+      {
+        "group": "origin_cluster",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 0.6925054256709956,
+        "faster": 0,
+        "equal": 92,
+        "slower": 8
+      },
+      {
+        "group": "reference_assumed",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 3.2000496954366078,
+        "faster": 1,
+        "equal": 1,
+        "slower": 98
+      },
+      {
+        "group": "smooth_shared_field",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 3.19024378522486,
+        "faster": 1,
+        "equal": 0,
+        "slower": 99
+      }
+    ]
+  },
+  "preemptive_replanning": {
+    "actual_runs": 1200,
+    "sources": 15550,
+    "all_complete": true,
+    "candidate_mean_s_per_source": 231.3861132553369,
+    "b3_mean_s_per_source": 229.1963465715586,
+    "candidate_minus_b3_mean_s_per_source": 2.1897666837783203,
+    "b3_saving_vs_ablation_s_per_source": 2.1897666837783203,
+    "b3_saving_vs_ablation_pct": 0.9463691026962757,
+    "cluster_bootstrap_95pct_candidate_minus_b3": [
+      1.6028114800940778,
+      2.7894494526334266
+    ],
+    "faster": 260,
+    "equal": 252,
+    "slower": 688,
+    "request_delta_candidate_minus_b3": -742,
+    "distance_delta_m_candidate_minus_b3": 190060.31741224974,
+    "failed_clear_delta_candidate_minus_b3": 204,
+    "candidate_sha256": "0990b297ee7ceb5f139c9b4a1de2e2ae3565faec324016fa83cd31c1a0ef7ff2",
+    "groups": [
+      {
+        "group": "cell500_shared_field",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 3.092939040450218,
+        "faster": 22,
+        "equal": 20,
+        "slower": 58
+      },
+      {
+        "group": "cell50_shared_field",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 3.2581620487491256,
+        "faster": 13,
+        "equal": 19,
+        "slower": 68
+      },
+      {
+        "group": "edge_mixed_min_radius",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 1.0194348526402406,
+        "faster": 27,
+        "equal": 34,
+        "slower": 39
+      },
+      {
+        "group": "exactly10_sources",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 2.6047578080000005,
+        "faster": 18,
+        "equal": 33,
+        "slower": 49
+      },
+      {
+        "group": "exactly16_sources",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 1.6788234912499982,
+        "faster": 30,
+        "equal": 21,
+        "slower": 49
+      },
+      {
+        "group": "fixed_negative_bias",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 2.370000310036426,
+        "faster": 17,
+        "equal": 21,
+        "slower": 62
+      },
+      {
+        "group": "fixed_positive_bias",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 2.2107334721566785,
+        "faster": 21,
+        "equal": 14,
+        "slower": 65
+      },
+      {
+        "group": "minimum_radius",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 2.6826038627130817,
+        "faster": 20,
+        "equal": 21,
+        "slower": 59
+      },
+      {
+        "group": "offcenter_cluster",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 2.369243323915586,
+        "faster": 34,
+        "equal": 7,
+        "slower": 59
+      },
+      {
+        "group": "origin_cluster",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 0.3710382275631444,
+        "faster": 25,
+        "equal": 8,
+        "slower": 67
+      },
+      {
+        "group": "reference_assumed",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 2.934463724941642,
+        "faster": 18,
+        "equal": 23,
+        "slower": 59
+      },
+      {
+        "group": "smooth_shared_field",
+        "cases": 100,
+        "candidate_minus_b3_mean_s_per_source": 1.6850000429236989,
+        "faster": 15,
+        "equal": 31,
+        "slower": 54
+      }
+    ]
+  },
+  "total_new_full_strategy_runs": 2400,
+  "total_new_quick_strategy_runs": 120,
+  "multiplicity_note": "Intervals are ordinary preregistered 95% seed-cluster bootstraps for these two comparisons; no cross-agent Holm adjustment is claimed here.",
+  "raw_field_note": "Raw full summaries contain a misnamed b3_improvement_s_per_source field with reversed sign; candidate_minus_b3_mean_s_per_source is authoritative and this aggregate reports B3 saving with the correct positive sign."
+}

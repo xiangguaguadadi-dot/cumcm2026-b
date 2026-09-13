@@ -1,0 +1,127 @@
+{
+  "status": "complete",
+  "innovation": "Failed optical clear becomes a certified outside-20m-disk constraint",
+  "evidence_levels": [
+    "physical implication",
+    "constructed implementation stress",
+    "exposed local paired Q3 closed loop"
+  ],
+  "geometry_stress": {
+    "status": "pass",
+    "fixtures": 2000,
+    "true_source_exclusions": 0,
+    "effective_shrinks": 412,
+    "minimum_failed_distance_m": 20.020614295695843,
+    "script_sha256": "9b2abd673cda0547cea754ef15c6100b66323433a1715fa7161bba66de241a2e",
+    "boundary": "Constructed numeric implementation stress; the physical validity follows separately from clear failure implying distance >20 m."
+  },
+  "quick": {
+    "pairs": 60,
+    "actual_runs": 120,
+    "all_complete": true,
+    "sources_per_arm": 760,
+    "true_source_exclusions": 0,
+    "failed_clear_events": {
+      "on": 344,
+      "off": 344
+    },
+    "effective_shrinks": {
+      "on": 242,
+      "off": 215
+    },
+    "on": {
+      "average_clear_time_s": 232.2903409662148,
+      "distance_m": 10708.389457630668,
+      "measures": 112.1,
+      "clear_attempts": 18.4,
+      "clear_failures": 5.733333333333333
+    },
+    "off": {
+      "average_clear_time_s": 232.2802124080799,
+      "distance_m": 10707.73584162732,
+      "measures": 112.1,
+      "clear_attempts": 18.4,
+      "clear_failures": 5.733333333333333
+    },
+    "paired": {
+      "mean_on_minus_off_s_per_source": 0.010128558134919767,
+      "faster": 6,
+      "tied": 50,
+      "slower": 4,
+      "seed_cluster_ci95": [
+        -0.00034596666666857344,
+        0.025623801190475606
+      ],
+      "seed_clusters": 5
+    },
+    "status": "complete",
+    "stage": "quick",
+    "wall_s": 2.9528445419855416,
+    "label": "Actual exposed local Q3 executions; not blind or official"
+  },
+  "full": {
+    "pairs": 2400,
+    "actual_runs": 4800,
+    "all_complete": true,
+    "sources_per_arm": 30970,
+    "true_source_exclusions": 0,
+    "failed_clear_events": {
+      "on": 14187,
+      "off": 14235
+    },
+    "effective_shrinks": {
+      "on": 9992,
+      "off": 8883
+    },
+    "on": {
+      "average_clear_time_s": 229.66984347891437,
+      "distance_m": 10804.00243380704,
+      "measures": 108.04958333333333,
+      "clear_attempts": 18.815416666666668,
+      "clear_failures": 5.91125
+    },
+    "off": {
+      "average_clear_time_s": 229.67434135831869,
+      "distance_m": 10804.017940544623,
+      "measures": 108.04833333333333,
+      "clear_attempts": 18.835416666666667,
+      "clear_failures": 5.93125
+    },
+    "paired": {
+      "mean_on_minus_off_s_per_source": -0.004497879404318255,
+      "faster": 250,
+      "tied": 1995,
+      "slower": 155,
+      "seed_cluster_ci95": [
+        -0.008868546979347502,
+        0.00021161548714629201
+      ],
+      "seed_clusters": 200
+    },
+    "status": "complete",
+    "stage": "all",
+    "wall_s": 123.5301914580632,
+    "label": "Actual exposed local Q3 executions; not blind or official"
+  },
+  "audit": {
+    "status": "pass",
+    "rows": 4800,
+    "pairs": 2400,
+    "id_sets_match": true,
+    "all_complete": true,
+    "sources_per_arm": 30970,
+    "event_rows": 28422,
+    "all_event_sources_retained": true,
+    "minimum_failed_distance_m": 20.00005158972334,
+    "time_denominators_recomputed": true,
+    "mean_difference_recomputed_s_per_source": -0.004497879404318255,
+    "rows_sha256": "8a79818417a5e50058541071188b9520d549f2b2210031b19808051976ac9be4",
+    "events_sha256": "bb7ad34e040fb70abb33c4215991b4a734da5446d076eb85ff937fcb61f264c4"
+  },
+  "decision": "retain as a safe information-use mechanism; independent speed benefit unresolved",
+  "limitations": [
+    "Convex hull is a conservative outer approximation of a possibly nonconvex remainder.",
+    "Repeated failed-clear events are not independent samples.",
+    "Exposed local cases, no blind or official execution."
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "label": "isolated synthetic mechanism audit plus recomputed exposed-regression audit",
+  "seed": 2026091303,
+  "routing": {
+    "states": 480,
+    "families": [
+      "uniform_disk",
+      "annulus",
+      "two_cluster",
+      "comb"
+    ],
+    "route_complete": 480,
+    "never_worse_than_nearest": 480,
+    "exact_optimum_hits": 461,
+    "mean_optimality_gap_fraction": 0.0008717087060507171,
+    "p95_optimality_gap_fraction": 2.220446049250313e-16,
+    "max_optimality_gap_fraction": 0.11085484419563363,
+    "mean_saving_vs_nearest_m": 397.5038591187728,
+    "mean_heuristic_over_mst": 1.1712901092471992,
+    "max_heuristic_over_mst": 1.4284475489685597,
+    "by_family": {
+      "uniform_disk": {
+        "states": 120,
+        "exact_hits": 116,
+        "mean_gap_fraction": 0.0002719964378079763,
+        "max_gap_fraction": 0.014154005080470489,
+        "mean_saving_vs_nearest_m": 568.3488997518888
+      },
+      "annulus": {
+        "states": 120,
+        "exact_hits": 114,
+        "mean_gap_fraction": 0.0021215530838187436,
+        "max_gap_fraction": 0.11085484419563363,
+        "mean_saving_vs_nearest_m": 383.47915397634426
+      },
+      "two_cluster": {
+        "states": 120,
+        "exact_hits": 120,
+        "mean_gap_fraction": 9.251858538542971e-19,
+        "max_gap_fraction": 2.220446049250313e-16,
+        "mean_saving_vs_nearest_m": 165.13331102743703
+      },
+      "comb": {
+        "states": 120,
+        "exact_hits": 111,
+        "mean_gap_fraction": 0.0010932853025761478,
+        "max_gap_fraction": 0.03488295610988823,
+        "mean_saving_vs_nearest_m": 473.0540717194212
+      }
+    },
+    "worst_gap_states": [
+      {
+        "state_id": "annulus-075",
+        "n": 8,
+        "heuristic_gap_fraction": 0.11085484419563363,
+        "heuristic_length_m": 8579.62324645398,
+        "exact_length_m": 7723.442258260536,
+        "mst_lower_bound_m": 6695.4609001109775
+      },
+      {
+        "state_id": "annulus-111",
+        "n": 12,
+        "heuristic_gap_fraction": 0.03970459039360086,
+        "heuristic_length_m": 9604.373198096539,
+        "exact_length_m": 9237.598147432063,
+        "mst_lower_bound_m": 8468.23489407957
+      },
+      {
+        "state_id": "comb-093",
+        "n": 10,
+        "heuristic_gap_fraction": 0.03488295610988823,
+        "heuristic_length_m": 8347.722167207969,
+        "exact_length_m": 8066.344235281397,
+        "mst_lower_bound_m": 6812.498313574054
+      },
+      {
+        "state_id": "annulus-086",
+        "n": 11,
+        "heuristic_gap_fraction": 0.034632669087900414,
+        "heuristic_length_m": 9494.503885550195,
+        "exact_length_m": 9176.690596789536,
+        "mst_lower_bound_m": 8599.277122447604
+      },
+      {
+        "state_id": "annulus-099",
+        "n": 8,
+        "heuristic_gap_fraction": 0.03360487781070254,
+        "heuristic_length_m": 8387.83981074872,
+        "exact_length_m": 8115.131798250756,
+        "mst_lower_bound_m": 7438.137096595106
+      },
+      {
+        "state_id": "annulus-094",
+        "n": 11,
+        "heuristic_gap_fraction": 0.031853540449853446,
+        "heuristic_length_m": 7554.68207125012,
+        "exact_length_m": 7321.467412862229,
+        "mst_lower_bound_m": 6782.586418789293
+      },
+      {
+        "state_id": "comb-055",
+        "n": 12,
+        "heuristic_gap_fraction": 0.02922597175690389,
+        "heuristic_length_m": 8220.696183978971,
+        "exact_length_m": 7987.260727540835,
+        "mst_lower_bound_m": 6939.4406736088085
+      },
+      {
+        "state_id": "uniform_disk-093",
+        "n": 10,
+        "heuristic_gap_fraction": 0.014154005080470489,
+        "heuristic_length_m": 8625.224660420377,
+        "exact_length_m": 8504.847012595477,
+        "mst_lower_bound_m": 6697.667368608853
+      },
+      {
+        "state_id": "comb-014",
+        "n": 11,
+        "heuristic_gap_fraction": 0.012751960686769426,
+        "heuristic_length_m": 8137.057238722264,
+        "exact_length_m": 8034.600331165339,
+        "mst_lower_bound_m": 6834.117328277514
+      },
+      {
+        "state_id": "comb-067",
+        "n": 8,
+        "heuristic_gap_fraction": 0.012676378903750063,
+        "heuristic_length_m": 7745.684171501045,
+        "exact_length_m": 7648.726022311255,
+        "mst_lower_bound_m": 6578.635209753156
+      }
+    ]
+  },
+  "failure_geometry": {
+    "fixtures": 2000,
+    "admissible_points_checked": 256000,
+    "false_exclusions": 0,
+    "fixtures_with_reduction": 2000,
+    "total_cells_before": 86639,
+    "total_cells_after": 81043,
+    "mean_cells_removed": 2.798,
+    "cell_reduction_fraction": 0.06458984983667859
+  },
+  "failure_historical": {
+    "aligned_q4_cases": 2400,
+    "clusters": 200,
+    "parent_complete": 2400,
+    "feedback_complete": 2400,
+    "both_complete": 2400,
+    "mean_parent_s_per_source": 457.7214998657269,
+    "mean_feedback_s_per_source": 457.66404224116917,
+    "mean_delta_s_per_source": -0.0574576245577475,
+    "relative_reduction_fraction": 0.00012552966066615344,
+    "cluster_bootstrap_95_ci": [
+      -0.11343057739642261,
+      -0.013393504270637593
+    ],
+    "faster": 505,
+    "equal": 1620,
+    "slower": 275,
+    "mean_clear_failure_delta": -0.3070833333333333,
+    "by_suite": {
+      "previous_final": {
+        "cases": 1200,
+        "mean_delta_s_per_source": -0.031067922373494466,
+        "faster": 254,
+        "equal": 809,
+        "slower": 137
+      },
+      "v1": {
+        "cases": 1200,
+        "mean_delta_s_per_source": -0.08384732674200053,
+        "faster": 251,
+        "equal": 811,
+        "slower": 138
+      }
+    },
+    "evidence_label": "recomputed existing exposed regression rows; no new closed-loop run"
+  },
+  "boundaries": [
+    "Routing states and failure polygons are synthetic fixtures, not task worlds.",
+    "Routing optimum concerns a frozen Euclidean proxy; online observations and service costs can change.",
+    "Historical failure-feedback rows are already exposed local regression data, not new runs, blind data, or official Windows results."
+  ],
+  "artifacts": {
+    "routing_rows.jsonl": {
+      "sha256": "56b3edf2ce231a57dba6cec5390e0ef08cd833b2e5882cfe66214212ba08bda2",
+      "bytes": 404127
+    },
+    "failure_geometry_rows.jsonl": {
+      "sha256": "7f5d06474a45602870d1991e6bf0e6916d852c500c035f4ff45299f4cf53ec26",
+      "bytes": 754832
+    },
+    "failure_historical_pairs.jsonl": {
+      "sha256": "fa6108f1f7a45a1704a2a8991af6b9ad5a97e7f08a2b67d6c93c8b6462f821c6",
+      "bytes": 734584
+    }
+  }
+}

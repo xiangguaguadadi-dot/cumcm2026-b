@@ -1,0 +1,26 @@
+{
+  "suite": "pressure",
+  "worlds": 24,
+  "arms": [
+    "count_stop",
+    "no_count_stop"
+  ],
+  "planned_runs": 48,
+  "world_role": "constructed pressure",
+  "hypotheses": [
+    "The <=16 cardinality certificate safely removes remaining discovery stations after 16 distinct channels are found.",
+    "Positive receive sites plus a successful clear point yield a continuous conservative heading interval; an empty interval certifies omni emission."
+  ],
+  "primary_estimand": "paired count_stop minus no_count_stop seconds/source over all worlds",
+  "promotion_gate": "all tasks complete; paired mean < 0 and 95% world-bootstrap upper bound < 0",
+  "heading_gate": "zero directional exclusions; report omni certificate precision and recall without tuning",
+  "c7_sha256": "cf37866829b9c6f376895075e819a732939e6fa8ad6d8d6297a151d7a213dcb3",
+  "runner_sha256": "97aed7f9af11502e72af30fa9b472ca2e4a9db0229ebb5fc0edf50c4f82db8ca",
+  "cases_sha256": "63b0f7ec52cdf85e1b6127cd18e5202f92e952da2ab50ad156dd26fff4390320",
+  "frozen_before": {
+    "manifest_sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+    "files": 10,
+    "mismatches": []
+  },
+  "python": "3.12.13"
+}

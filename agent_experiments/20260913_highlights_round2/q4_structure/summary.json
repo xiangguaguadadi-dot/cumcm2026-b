@@ -1,0 +1,35 @@
+{
+  "status": "complete",
+  "validated_highlights": 2,
+  "total_closed_loop_executions": 2568,
+  "all_closed_loop_complete": true,
+  "count_stop": {
+    "full_worlds": 1200,
+    "full_sources_per_arm": 15550,
+    "mean_s_per_source": 452.7609068198019,
+    "ablation_mean_s_per_source": 466.50281450532276,
+    "paired_difference_s_per_source": -13.741907685520834,
+    "bootstrap_95_ci": [
+      -15.90602571984375,
+      -11.65362194515625
+    ],
+    "better_tie_worse": [
+      224,
+      975,
+      1
+    ],
+    "removed_stations": 1694,
+    "pressure_difference_s_per_source": -8.37612241927083
+  },
+  "heading_certificate": {
+    "full_directional_sources": 7885,
+    "true_headings_retained": 7885,
+    "median_width_deg": 139.21295031289327,
+    "full_omni_sources": 7665,
+    "full_omni_certified": 43,
+    "constructed_directional_cases": 100000,
+    "constructed_directional_exclusions": 0,
+    "constructed_omni_certified": 1000
+  },
+  "evidence_boundary": "exposed frozen-v1 regression plus constructed pressure; not blind or official"
+}

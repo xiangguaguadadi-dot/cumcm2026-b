@@ -1,0 +1,45 @@
+{
+  "label": "post-hoc exact-tail feasibility check after observing heuristic outliers",
+  "machine_scope": "current macOS/Python process only; not official Windows timing",
+  "threshold_n": 10,
+  "batch1_calls": 600,
+  "all_routes_complete": true,
+  "latency_ms": {
+    "5": {
+      "p50": 0.07614599999999999,
+      "p95": 0.16913335,
+      "max": 0.204417
+    },
+    "6": {
+      "p50": 0.2069585,
+      "p95": 0.438033,
+      "max": 0.509458
+    },
+    "7": {
+      "p50": 0.5407505,
+      "p95": 0.75101425,
+      "max": 1.261792
+    },
+    "8": {
+      "p50": 1.3664580000000002,
+      "p95": 1.9971399,
+      "max": 2.520792
+    },
+    "9": {
+      "p50": 3.4745834999999996,
+      "p95": 3.942733,
+      "max": 4.789541
+    },
+    "10": {
+      "p50": 8.484541499999999,
+      "p95": 11.8909146,
+      "max": 13.040792
+    }
+  },
+  "eligible_routing_states": 360,
+  "states_strictly_improved": 11,
+  "total_proxy_distance_saved_m": 1973.5733162963393,
+  "mean_proxy_distance_saved_per_eligible_state_m": 5.4821481008231645,
+  "max_proxy_distance_saved_m": 856.180988193445,
+  "evidence_boundary": "This replaces a frozen-state distance proxy only; repeated online replanning cost and end-to-end task benefit were not tested."
+}

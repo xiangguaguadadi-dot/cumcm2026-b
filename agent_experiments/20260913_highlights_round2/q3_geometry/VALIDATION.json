@@ -1,0 +1,110 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "input_hash:experiments/20260911_stage3/final_candidates/R3_open_R3.py",
+      "passed": true,
+      "actual": "9e9b35972bee009f37ad97cd068ff72b03be4a6448cbb8c99c4dada72865c149"
+    },
+    {
+      "name": "input_hash:experiments/E2_refine/failure_component.py",
+      "passed": true,
+      "actual": "ae15976ee13093370ef6c9f05873f0b59eef17f32ce9d36503eb73a49b6843ea"
+    },
+    {
+      "name": "input_hash:experiments/E2_refine/results/r2_one_round_exposed/case_metrics.json",
+      "passed": true,
+      "actual": "c3e3aca24304abbc7230cfa2642a99c9051c85a6c2fdb47716b1a2c61cb62bb0"
+    },
+    {
+      "name": "input_hash:experiments/E2_refine/results/r3_failure_cells_exposed/case_metrics.json",
+      "passed": true,
+      "actual": "16d672f17d38c03b8f823ec998d5f69e4ecddd3f56fe31512e2feb934174f108"
+    },
+    {
+      "name": "input_hash:evaluation/manifest_v1.json",
+      "passed": true,
+      "actual": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140"
+    },
+    {
+      "name": "input_hash:docs/评测标准_v1.md",
+      "passed": true,
+      "actual": "817a5bada460a48f01cd8ee60d91fd483b611b9609fd524c90f451cbb78e89f7"
+    },
+    {
+      "name": "routing_row_count",
+      "passed": true,
+      "actual": 480
+    },
+    {
+      "name": "routing_permutations",
+      "passed": true
+    },
+    {
+      "name": "mst_is_lower_bound",
+      "passed": true
+    },
+    {
+      "name": "exact_le_heuristic_le_nearest",
+      "passed": true
+    },
+    {
+      "name": "held_karp_vs_bruteforce_20",
+      "passed": true,
+      "actual": 20
+    },
+    {
+      "name": "failure_fixture_rows",
+      "passed": true,
+      "actual": 2000
+    },
+    {
+      "name": "failure_fixture_sample_denominator",
+      "passed": true
+    },
+    {
+      "name": "failure_fixture_nonnegative_reduction",
+      "passed": true
+    },
+    {
+      "name": "historical_pair_rows",
+      "passed": true
+    },
+    {
+      "name": "historical_both_complete",
+      "passed": true
+    },
+    {
+      "name": "summary_false_exclusions_zero",
+      "passed": true
+    },
+    {
+      "name": "artifact_hash:routing_rows.jsonl",
+      "passed": true
+    },
+    {
+      "name": "artifact_hash:failure_geometry_rows.jsonl",
+      "passed": true
+    },
+    {
+      "name": "artifact_hash:failure_historical_pairs.jsonl",
+      "passed": true
+    },
+    {
+      "name": "exact_tail_batch1_denominator",
+      "passed": true
+    },
+    {
+      "name": "exact_tail_all_complete",
+      "passed": true
+    },
+    {
+      "name": "exact_tail_n10_p95_recorded",
+      "passed": true,
+      "actual": 11.8909146
+    }
+  ],
+  "checks_passed": 23,
+  "checks_total": 23,
+  "note": "Geometric zero-false-exclusion count comes from deterministic run output; theorem and strict-margin condition are stated in RESULTS.md."
+}
