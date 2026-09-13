@@ -1,0 +1,148 @@
+{
+  "status": "PASS",
+  "data_role": "本地已暴露模拟回归；非盲测、非官方Windows成绩",
+  "policy_rerun": false,
+  "checks_passed": 21,
+  "checks_total": 21,
+  "checks": [
+    {
+      "name": "source_sha256",
+      "passed": true,
+      "detail": "41cf71a5ed2c8eb2da6fe1d977da3fd32d8e3647aa344d362fcb13c381212702"
+    },
+    {
+      "name": "packaged_copy_same_hash",
+      "passed": true,
+      "detail": "41cf71a5ed2c8eb2da6fe1d977da3fd32d8e3647aa344d362fcb13c381212702"
+    },
+    {
+      "name": "frozen_local_env_sha256",
+      "passed": true,
+      "detail": "99587518fa378e1bef2fbbaa9425ee907bea80885a69666b3765311cbcf4f42a"
+    },
+    {
+      "name": "frozen_evaluate_sha256",
+      "passed": true,
+      "detail": "61088a2c9cd45b7026e4caaf9f7d55282a55d1114dfe74d179b086dafb0dc498"
+    },
+    {
+      "name": "row_count",
+      "passed": true,
+      "detail": 4800
+    },
+    {
+      "name": "unique_case_ids",
+      "passed": true,
+      "detail": 4800
+    },
+    {
+      "name": "per_case_five_part_reconciliation",
+      "passed": true,
+      "detail": {
+        "max_abs_error_s": 8.237784641096368e-06,
+        "tolerance_s": 1e-05
+      }
+    },
+    {
+      "name": "integer_switch_counts",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "switches_do_not_exceed_measures",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "Q3_case_count",
+      "passed": true,
+      "detail": 2400
+    },
+    {
+      "name": "Q3_source_count",
+      "passed": true,
+      "detail": 30970
+    },
+    {
+      "name": "Q3_reported_mean",
+      "passed": true,
+      "detail": 229.66984347891437
+    },
+    {
+      "name": "Q3_aggregate_five_part_reconciliation",
+      "passed": true,
+      "detail": {
+        "component_sum": 229.6698434793536,
+        "direct_mean": 229.66984347891437
+      }
+    },
+    {
+      "name": "Q4_case_count",
+      "passed": true,
+      "detail": 2400
+    },
+    {
+      "name": "Q4_source_count",
+      "passed": true,
+      "detail": 30970
+    },
+    {
+      "name": "Q4_reported_mean",
+      "passed": true,
+      "detail": 450.98042212586375
+    },
+    {
+      "name": "Q4_aggregate_five_part_reconciliation",
+      "passed": true,
+      "detail": {
+        "component_sum": 450.9804220349683,
+        "direct_mean": 450.98042212586375
+      }
+    },
+    {
+      "name": "png_signature",
+      "passed": true,
+      "detail": "89504e470d0a1a0a"
+    },
+    {
+      "name": "png_high_resolution",
+      "passed": true,
+      "detail": [
+        3024,
+        2088
+      ]
+    },
+    {
+      "name": "svg_exists_and_nonempty",
+      "passed": true,
+      "detail": 6610
+    },
+    {
+      "name": "png_exists_and_nonempty",
+      "passed": true,
+      "detail": 255813
+    }
+  ],
+  "audited_summary": {
+    "Q3": {
+      "cases": 2400,
+      "sources": 30970,
+      "mean_s_per_source": 229.66984347891437,
+      "five_part_sum_s_per_source": 229.6698434793536
+    },
+    "Q4": {
+      "cases": 2400,
+      "sources": 30970,
+      "mean_s_per_source": 450.98042212586375,
+      "five_part_sum_s_per_source": 450.9804220349683
+    }
+  },
+  "artifact_sha256": {
+    "chart_data.csv": "4bc704f09e7e5a726951df3beb46ddf8ff89ca02ede25b76ef0db1a4d4fc1947",
+    "chart_data.json": "dd55ed3261b1c18bf3314214a483d2085630e7a8abd182de531097481207888f",
+    "question_summary.csv": "d7e1bdf6ec480a8174ab139c3584321527004e0145a217cab424c14f50163221",
+    "per_case_costs.csv": "3c944c3ce36bc3d395b16ad8ea8851c6a1c1d11f19980cbc0cd2dec477e0b289",
+    "time_cost_breakdown_q3_q4.svg": "c764a661c6f678f873e16561a092d14a6b400b53433b5fb1e14d6f7e4b2f01c1",
+    "time_cost_breakdown_q3_q4.png": "0d2ed0a5abc3f1a69509c1ac474be50abc4c4b96860fbd0f22cbf3bcbfd7a8d6"
+  }
+}

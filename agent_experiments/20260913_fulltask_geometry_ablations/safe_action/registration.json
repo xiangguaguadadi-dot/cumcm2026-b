@@ -1,0 +1,64 @@
+{
+  "registration_status": "sealed_before_any_smoke_or_full_strategy_execution",
+  "registered_date": "2026-09-13",
+  "evidence_scope": "1200 exposed frozen LOCAL-v1 Q3 worlds; local simulation, not blind and not official Windows execution",
+  "question": "Does choosing a certified clear point from the complete safe action region reduce full-task time versus always using the minimum-enclosing-circle center?",
+  "cases": {
+    "filter": "mode == 3 from evaluation/cases_v1.json",
+    "worlds": 1200,
+    "scenario_groups": 12,
+    "seed_clusters": 100,
+    "cluster_definition": "same integer case seed across the 12 scenario groups",
+    "paired_execution": "both arms execute each identical serialized world and deterministic error field"
+  },
+  "single_factor": {
+    "common_policy": "B3, SHA256 e6a066..., with discovery, localization, measurement choice, multi-disk coverage, scheduling, failed-clear recovery and all other configuration unchanged",
+    "full_C_clear": "retain B3 lens_clear=route: after MEC radius <= 20 m certifies one-clear feasibility, choose a point in intersection over feasible-polygon vertices of closed 20 m disks, using current position and route successor",
+    "mec_center": "only when route_clear_point is invoked with MEC radius <= 20 m and an active feasible polygon, return the MEC center; for every other invocation call the original method",
+    "excluded_from_switch": "near-result same-location clears, uncertified optical trials, adaptive multi-disk cell centers/order, discovery, bearings, polygon updates, measurement decisions, route order, recovery and exit logic",
+    "implementation_hook": "runtime Q3 MRO method _P3._LensSpatial.route_clear_point(center, radius, original)",
+    "expected_config": "OPTIMIZED_CONFIGS[3].lens_clear == route"
+  },
+  "metrics": {
+    "primary": "paired per-world seconds per cleared source; mean across all 1200 worlds",
+    "secondary": [
+      "measure count",
+      "optical clear attempts",
+      "failed clear attempts",
+      "movement distance in metres",
+      "cleared/source count",
+      "complete and exit reason"
+    ],
+    "uncertainty": "deterministic 20000-replicate nonparametric bootstrap over 100 seed clusters, retaining all 12 scenario rows in every sampled cluster",
+    "regressions": "retain and report the 20 largest positive full-minus-center seconds/source rows and counts by scenario"
+  },
+  "gates": {
+    "valid_time_comparison": "both arms clear all sources, exit by user_exit and have no error on all 1200 worlds",
+    "geometry_audit": "every selected one-clear point in both arms is within 20+1e-8 m of every feasible-polygon vertex; every center-arm point equals the MEC center",
+    "integrity": "all registered input hashes and frozen evaluation verification pass before and after execution",
+    "headline_time_gate": "full-minus-center seed-cluster bootstrap 95% CI upper endpoint < 0 after all validity, geometry and integrity gates pass",
+    "failure_policy": "if any completeness, certified-action or integrity check fails, do not rank task time; preserve all rows and report the failure",
+    "interpretation_if_gate_fails": "retain the earlier state-level geometry advantage only; do not claim stable full-task acceleration"
+  },
+  "truth_boundary": {
+    "planner_interface": "InterfaceOnly exposes enter, measure, clear and exit only",
+    "case_truth_usage": "evaluation layer alone constructs LocalEnv and computes completion metrics after the run",
+    "candidate_inputs": "candidate wrappers receive no case id, seed, source count, source coordinates, source radius, true direction or test-group label"
+  },
+  "frozen_inputs": [
+    {"path": "最佳方法/代码/solver.py", "sha256": "e6a0666d644ceaa1d7ae69f19042b9ca022379f3e5a57d927e52bcf1a09360bd"},
+    {"path": "evaluation/cases_v1.json", "sha256": "988f42a74cac1aa8249cb0d138e1b1a5de927ef41ad38efa4e70a9c4d97457ac"},
+    {"path": "evaluation/manifest_v1.json", "sha256": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140"},
+    {"path": "local_env.py", "sha256": "99587518fa378e1bef2fbbaa9425ee907bea80885a69666b3765311cbcf4f42a"},
+    {"path": "evaluate.py", "sha256": "61088a2c9cd45b7026e4caaf9f7d55282a55d1114dfe74d179b086dafb0dc498"},
+    {"path": "docs/评测标准_v1.md", "sha256": "817a5bada460a48f01cd8ee60d91fd483b611b9609fd524c90f451cbb78e89f7"},
+    {"path": "最佳方法/README.md", "sha256": "214aeaaf61d4a2c8c5013491b8988c20af386e2e69314eff915c955aa81513e1"},
+    {"path": "agent_experiments/20260913_highlights/geometry/RESULTS.md", "sha256": "beba00507d3353260ee6baa19f3b970555c0901e3d02ac39ac0c16ab40034e0a"},
+    {"path": "agent_experiments/20260913_highlights/geometry/summary.json", "sha256": "488e5a3b1bb51aa5443e1402546dee461ed087764d89a53b66ed4f04c3e93c77"}
+  ],
+  "arms": {
+    "full_C_clear": {"path": "full_safe_action.py", "sha256": "f30a58bf94c01fa1c8488d0678d5975271ae7562d4d082161782567c3e3741a0"},
+    "mec_center": {"path": "mec_center.py", "sha256": "1c3dbc7917a204a2b414c9d9f27ce1c4b67a6adf794e74704fc359028e28ec80"}
+  },
+  "runner": {"path": "run_ablation.py", "sha256": "895c6d941041d537b66b954777db2077eacc2d7fae2a5331e998fc47722ecf7e"}
+}

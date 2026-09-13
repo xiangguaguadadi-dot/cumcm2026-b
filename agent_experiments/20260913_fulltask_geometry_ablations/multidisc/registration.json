@@ -1,0 +1,66 @@
+{
+  "registered_at_utc": "2026-09-13T07:58:10.246496+00:00",
+  "git_commit": "4760f61f322d0f2772a00b64537bceb6effe23d0",
+  "git_branch": "work/fusion-r5",
+  "evidence_role": "frozen, exposed LOCAL-v1 regression; not blind and not official Windows execution",
+  "question": 3,
+  "input": "evaluation/cases_v1.json; all and only mode=3 rows",
+  "expected_cases": 1200,
+  "expected_seed_clusters": 100,
+  "expected_scenes_per_seed": 12,
+  "fresh_execution_plan": {
+    "on": 1200,
+    "off": 1200,
+    "reuse_saved_candidate_rows": false
+  },
+  "arms": {
+    "on": "Unmodified B3 from 最佳方法/代码/solver.py, including adaptive certified 2-, 3-, and 4-10-disc service planning.",
+    "off": "Same B3 with only TwoDiskSpatial/ThreeDiskSpatial/MultiDiskSpatial service dispatch bypassed to TrialSpatial._a1_service_round; retained behavior includes further bearings, inherited one-point trial clear, and original certified 25 m lattice cover_polygon fallback."
+  },
+  "held_equal": [
+    "case and seed",
+    "physical source world and error field",
+    "discovery stations and routing",
+    "B3 second-measurement lookahead",
+    "feasible-polygon updates",
+    "trial-point method",
+    "safe clear-point geometry",
+    "time rules and termination logic"
+  ],
+  "per_case_metrics": [
+    "seconds_per_source",
+    "measure_count",
+    "clear_attempt_count",
+    "failed_clear_count",
+    "distance_m",
+    "cleared_count/source_count",
+    "complete/exit_reason/error"
+  ],
+  "analysis": {
+    "pairing": "exact case_id; ON minus OFF deltas",
+    "uncertainty": "20,000-repeat paired percentile bootstrap resampling 100 seed clusters; each selected cluster includes all 12 scenes",
+    "regressions": "retain every positive ON-minus-OFF seconds/source row"
+  },
+  "interpretation_gates": {
+    "valid_comparison": "all 2400 fresh runs fully clear and exit normally",
+    "stable_time_benefit": "mean ON-minus-OFF seconds/source < 0 and seed-cluster bootstrap 95% CI upper < 0",
+    "headline_target": "relative improvement around or above 0.5%; smaller stable effects reported exactly and not rounded up",
+    "no_time_claim": "CI crosses zero or completeness differs; retain mechanism/diagnostic evidence only"
+  },
+  "observer_boundary": "Runner passes only InterfaceOnly(env) to the strategy. Truth constructs LocalEnv before solver creation. env.stats() and returned counters are read only after run() exits; they never feed a decision.",
+  "truth_boundary": "Source coordinates/count and environment stats are used by runner only to instantiate the registered world and audit after exit; strategy receives no case object, source list, or LocalEnv reference.",
+  "pinned_sha256": {
+    "README.md": "b6833af0b67b06bf2b0309c7f432f1747b1352e1aa5299b4e01ca13cc0df5fd6",
+    "docs/评测标准_v1.md": "817a5bada460a48f01cd8ee60d91fd483b611b9609fd524c90f451cbb78e89f7",
+    "最佳方法/README.md": "214aeaaf61d4a2c8c5013491b8988c20af386e2e69314eff915c955aa81513e1",
+    "最佳方法/代码/solver.py": "e6a0666d644ceaa1d7ae69f19042b9ca022379f3e5a57d927e52bcf1a09360bd",
+    "evaluation/cases_v1.json": "988f42a74cac1aa8249cb0d138e1b1a5de927ef41ad38efa4e70a9c4d97457ac",
+    "evaluation/manifest_v1.json": "431210a6d96e721d23c31698aa389702ea87dcffe8fee6250f71ce6e902be140",
+    "evaluate.py": "61088a2c9cd45b7026e4caaf9f7d55282a55d1114dfe74d179b086dafb0dc498",
+    "local_env.py": "99587518fa378e1bef2fbbaa9425ee907bea80885a69666b3765311cbcf4f42a"
+  },
+  "artifact_sha256": {
+    "multidisc_off.py": "ac28b7dfa481bf759620fe0dad06c43dc0da1a09d2eb381a10fc67cfb235790c",
+    "run_ablation.py": "1cc1719f7c8cb9c8560b5de0fffb9b0f6ce52ac0f4b6b8d4dfcc75f2d259ac9b"
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "label": "Paired exposed LOCAL-v1 Q3 full-task safe-action ablation; new policy executions; not blind or official",
+  "full_preregistered_run": false,
+  "worlds": 2,
+  "strategy_executions": 4,
+  "sources_per_arm": 25,
+  "all_complete": true,
+  "all_error_free": true,
+  "all_accounting_checks": true,
+  "safe_action_events": {
+    "full_C_clear": 9,
+    "mec_center": 9
+  },
+  "all_selected_points_cover_feasible_polygon_vertices": true,
+  "all_center_arm_points_equal_mec_center": true,
+  "maximum_audited_vertex_distance_m": 19.9999999000001,
+  "mean_s_per_source": {
+    "full_C_clear": 244.37844783766232,
+    "mec_center": 245.02343067532468
+  },
+  "full_minus_center_mean_s_per_source": -0.6449828376623543,
+  "full_improvement_s_per_source": 0.6449828376623543,
+  "full_improvement_fraction": 0.0026323312667881904,
+  "seed_cluster_bootstrap_95pct_full_minus_center_s_per_source": null,
+  "full_faster_cases": 2,
+  "equal_cases": 0,
+  "full_slower_cases": 0,
+  "metrics": {
+    "seconds_per_source": {
+      "full_total": 488.75689567532464,
+      "center_total": 490.04686135064935,
+      "full_mean_per_case": 244.37844783766232,
+      "center_mean_per_case": 245.02343067532468,
+      "paired_full_minus_center_mean": -0.6449828376623401
+    },
+    "measure_count": {
+      "full_total": 220,
+      "center_total": 220,
+      "full_mean_per_case": 110.0,
+      "center_mean_per_case": 110.0,
+      "paired_full_minus_center_mean": 0.0
+    },
+    "optical_clear_attempts": {
+      "full_total": 38,
+      "center_total": 35,
+      "full_mean_per_case": 19.0,
+      "center_mean_per_case": 17.5,
+      "paired_full_minus_center_mean": 1.5
+    },
+    "failed_clear_attempts": {
+      "full_total": 13,
+      "center_total": 10,
+      "full_mean_per_case": 6.5,
+      "center_mean_per_case": 5.0,
+      "paired_full_minus_center_mean": 1.5
+    },
+    "movement_distance_m": {
+      "full_total": 22709.867366916158,
+      "center_total": 22835.954610346686,
+      "full_mean_per_case": 11354.933683458079,
+      "center_mean_per_case": 11417.977305173343,
+      "paired_full_minus_center_mean": -63.043621715264635
+    }
+  },
+  "per_group": {
+    "reference_assumed": {
+      "cases": 2,
+      "full_mean_s_per_source": 244.37844783766232,
+      "center_mean_s_per_source": 245.02343067532468,
+      "full_minus_center_mean_s_per_source": -0.6449828376623401,
+      "full_slower_cases": 0
+    }
+  },
+  "worst_regressions": [
+    {
+      "case_id": "LOCAL-v1-q3-reference_assumed-5000",
+      "group": "reference_assumed",
+      "seed_cluster": 5000,
+      "source_count": 11,
+      "full_complete": true,
+      "center_complete": true,
+      "full_seconds_per_source": 275.2076898181818,
+      "center_seconds_per_source": 275.8217126363636,
+      "full_minus_center_seconds_per_source": -0.6140228181818088,
+      "full_measure_count": 123,
+      "center_measure_count": 123,
+      "full_minus_center_measure_count": 0,
+      "full_optical_clear_attempts": 18,
+      "center_optical_clear_attempts": 18,
+      "full_minus_center_optical_clear_attempts": 0,
+      "full_failed_clear_attempts": 7,
+      "center_failed_clear_attempts": 7,
+      "full_minus_center_failed_clear_attempts": 0,
+      "full_movement_distance_m": 11086.422943876569,
+      "center_movement_distance_m": 11120.194203164225,
+      "full_minus_center_movement_distance_m": -33.771259287655994
+    },
+    {
+      "case_id": "LOCAL-v1-q3-reference_assumed-5001",
+      "group": "reference_assumed",
+      "seed_cluster": 5001,
+      "source_count": 14,
+      "full_complete": true,
+      "center_complete": true,
+      "full_seconds_per_source": 213.54920585714285,
+      "center_seconds_per_source": 214.22514871428572,
+      "full_minus_center_seconds_per_source": -0.6759428571428714,
+      "full_measure_count": 97,
+      "center_measure_count": 97,
+      "full_minus_center_measure_count": 0,
+      "full_optical_clear_attempts": 20,
+      "center_optical_clear_attempts": 17,
+      "full_minus_center_optical_clear_attempts": 3,
+      "full_failed_clear_attempts": 6,
+      "center_failed_clear_attempts": 3,
+      "full_minus_center_failed_clear_attempts": 3,
+      "full_movement_distance_m": 11623.44442303959,
+      "center_movement_distance_m": 11715.760407182463,
+      "full_minus_center_movement_distance_m": -92.31598414287328
+    }
+  ],
+  "best_improvements": [
+    {
+      "case_id": "LOCAL-v1-q3-reference_assumed-5001",
+      "group": "reference_assumed",
+      "seed_cluster": 5001,
+      "source_count": 14,
+      "full_complete": true,
+      "center_complete": true,
+      "full_seconds_per_source": 213.54920585714285,
+      "center_seconds_per_source": 214.22514871428572,
+      "full_minus_center_seconds_per_source": -0.6759428571428714,
+      "full_measure_count": 97,
+      "center_measure_count": 97,
+      "full_minus_center_measure_count": 0,
+      "full_optical_clear_attempts": 20,
+      "center_optical_clear_attempts": 17,
+      "full_minus_center_optical_clear_attempts": 3,
+      "full_failed_clear_attempts": 6,
+      "center_failed_clear_attempts": 3,
+      "full_minus_center_failed_clear_attempts": 3,
+      "full_movement_distance_m": 11623.44442303959,
+      "center_movement_distance_m": 11715.760407182463,
+      "full_minus_center_movement_distance_m": -92.31598414287328
+    },
+    {
+      "case_id": "LOCAL-v1-q3-reference_assumed-5000",
+      "group": "reference_assumed",
+      "seed_cluster": 5000,
+      "source_count": 11,
+      "full_complete": true,
+      "center_complete": true,
+      "full_seconds_per_source": 275.2076898181818,
+      "center_seconds_per_source": 275.8217126363636,
+      "full_minus_center_seconds_per_source": -0.6140228181818088,
+      "full_measure_count": 123,
+      "center_measure_count": 123,
+      "full_minus_center_measure_count": 0,
+      "full_optical_clear_attempts": 18,
+      "center_optical_clear_attempts": 18,
+      "full_minus_center_optical_clear_attempts": 0,
+      "full_failed_clear_attempts": 7,
+      "center_failed_clear_attempts": 7,
+      "full_minus_center_failed_clear_attempts": 0,
+      "full_movement_distance_m": 11086.422943876569,
+      "center_movement_distance_m": 11120.194203164225,
+      "full_minus_center_movement_distance_m": -33.771259287655994
+    }
+  ],
+  "time_headline_gate_passed": false,
+  "elapsed_wall_s": 0.20570100005716085
+}

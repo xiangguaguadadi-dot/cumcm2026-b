@@ -1,0 +1,183 @@
+{
+  "all_passed": true,
+  "checks_passed": 31,
+  "checks_total": 31,
+  "checks": [
+    {
+      "name": "registered input hash: 最佳方法/代码/solver.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "registered input hash: evaluation/cases_v1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "registered input hash: evaluation/manifest_v1.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "registered input hash: local_env.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "registered input hash: evaluate.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "registered input hash: docs/评测标准_v1.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "registered input hash: 最佳方法/README.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "registered input hash: agent_experiments/20260913_highlights/geometry/RESULTS.md",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "registered input hash: agent_experiments/20260913_highlights/geometry/summary.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "registered arm hash: full_C_clear",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "registered arm hash: mec_center",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "registered runner hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "1200 frozen Q3 cases",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "2400 primary strategy rows",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "full_C_clear has every case exactly once",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mec_center has every case exactly once",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "1200 aligned pairs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all primary runs complete",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all accounting errors bounded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "full mean recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "center mean recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "paired delta recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "vertex-level replay has every recorded event",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all polygon vertices covered independently",
+      "passed": true,
+      "detail": 19.999999900012863
+    },
+    {
+      "name": "all audited points were actual certified clear actions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all center-arm points equal MEC center",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "audit replay exactly reproduces primary virtual times",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "candidate wrappers contain no truth/test identifiers",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "planner interface documented as InterfaceOnly",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "instrumented full arm exactly matches saved B3 Q3 results",
+      "passed": true,
+      "detail": {
+        "historical_path": "experiments/20260913_q2_transfer/B_improved/results/B3_full/case_metrics.json",
+        "historical_sha256": "b2770fcf7204c7b18bdb7550f9aef5a1e4f65974f36fe7fbebc53da53b241e92"
+      }
+    },
+    {
+      "name": "virtual-time decomposition closes",
+      "passed": true,
+      "detail": {
+        "move": -0.7151735165552676,
+        "measure": -0.00526411088911089,
+        "switch": -0.0010288843101343103,
+        "clear": 0.01319590825840826
+      }
+    }
+  ],
+  "recomputed": {
+    "full_mean_s_per_source": 229.1963465715586,
+    "center_mean_s_per_source": 229.90461717831485,
+    "full_minus_center_s_per_source": -0.7082706067562583,
+    "maximum_vertex_distance_m": 19.999999900012863,
+    "per_source_delta_decomposition_s": {
+      "move": -0.7151735165552676,
+      "measure": -0.00526411088911089,
+      "switch": -0.0010288843101343103,
+      "clear": 0.01319590825840826
+    }
+  },
+  "evidence_boundary": "exposed deterministic LOCAL-v1 Q3 regression; not blind or official"
+}
